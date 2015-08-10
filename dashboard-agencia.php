@@ -157,6 +157,7 @@ background-image:url('http://www.orlybaram.com/_ee/img/icons/edit/edit-icon.gif'
 background-repeat:no-repeat;
 background-position:right;
 cursor:pointer;
+font-family: 'Impact',Courier,Sans-Serif;
 }
 </style>
 </head>
