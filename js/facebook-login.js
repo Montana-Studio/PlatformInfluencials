@@ -1,22 +1,19 @@
 $(document).ready(function(){
 		
-		
+		//document.getElementsByTagName('lala').innerHTML = '(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/en_US/sdk.js";fjs.parentNode.insertBefore(js, fjs);}(document, "script", "facebook-jssdk"));';
+						
+			
+			
+			
 		$('#facebook-nuevo,#facebook-antiguo').click(function(e){
-		e.preventDefault();
-		(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) return;
-			js = d.createElement(s); js.id = id;
-			js.src = "//connect.facebook.net/en_US/sdk.js";
-			fjs.parentNode.insertBefore(js, fjs);
-		  }(document, 'script', 'facebook-jssdk'));
-		facebookLogin();
+			e.preventDefault();
+			
+			$("#lala").append('(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/en_US/sdk.js";fjs.parentNode.insertBefore(js, fjs);}(document, "script", "facebook-jssdk"));');
+
+			
+			facebookLogin();
 		});
-		
-		$('#facebook-antiguo').click(function(e){
-		e.preventDefault();
-		facebookLogin();
-		});
+
 		
 		$('#salir').click( function(e) {
   			facebookLogout();
@@ -70,7 +67,7 @@ $(document).ready(function(){
 	$.ajax({  
             type: "POST",  
             url: "procesar_facebook.php",  
-            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo, 
+            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id, 
 			
 			
             success: function(html){ 
@@ -83,6 +80,9 @@ $(document).ready(function(){
 				break;
 				case "false": alert("Estimado(a) "+facebookUser+" ya se encuentra registrado nos contactaremos con usted a la brevedad");
 							  window.location.href="registro.php";
+				break;
+				case "primera": alert("Por favor ingrese sus datos en el formulario");
+							  window.location.href="formulario-agencia.php";
 				break;
 				
 				}
@@ -115,17 +115,6 @@ $(document).ready(function(){
   		})
 
   	}
-	
-	
-	var facebookLogout = function() {
-  
-
-  	}
-	
-	
-	
-	
-
-	
+		
 });
 

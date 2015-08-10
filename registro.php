@@ -3,7 +3,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="js/facebook-login.js"></script>
 <!-- ahora el script de linkedin -->
-
+<script id="lala" ></script>
 
 <script>
 $(document).ready(function(){
@@ -80,8 +80,8 @@ $(document).ready(function(){
 <input placeholder="contraseña" id="contraseña-nuevo"></input><p>
 <button id="registrar">registrar</button>
 <button id="facebook-nuevo">registrar con Facebook</button>
-<!-- cargo el SDK de Facebook
-<script>
+
+<!--script>
  // Load the SDK asynchronously
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -91,7 +91,7 @@ $(document).ready(function(){
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
   
-</script> -->
+</script--> 
 
 <button id="linkedin-nuevo">registrar con Linkedin</button>
 </div>

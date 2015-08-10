@@ -35,7 +35,7 @@ $_SESSION['nombre']=$row2[4];
 $_SESSION['correo']=$row2[5];
 $_SESSION['telefono1']=$row2[6];
 $_SESSION['telefono2']=$row2[7];
-
+$_SESSION['empresa']=$row2[12];
 
 	switch($row2[1]){
 	case '1':

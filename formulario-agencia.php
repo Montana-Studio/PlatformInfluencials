@@ -117,6 +117,7 @@ $(document).ready(function(){
 		
 		$('#guardar').click(function(){
 		nombre=$('#nombre input').val();
+		empresa=$('#empresa input').val();
 		correo=$('#correo input').val();
 		telefono1=$('#tel1 input').val();
 		telefono2=$('#tel2 input').val();
@@ -124,7 +125,7 @@ $(document).ready(function(){
 		 $.ajax({  
             type: "POST",  
             url: "procesar_formulario.php",  
-            data: "nombre="+nombre+"&correo="+correo+"&tel1="+telefono1+"&tel2="+telefono2, 
+            data: "nombre="+nombre+"&empresa="+empresa+"&correo="+correo+"&tel1="+telefono1+"&tel2="+telefono2, 
 			
             success: function(html){ 
 				alert("Registro de datos completo");

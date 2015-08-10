@@ -2,12 +2,14 @@
 session_start();
 $username =$_POST['faceuser'];
 $correo =$_POST['facecorreo'];
+$faceId=$_POST['faceUserId'];
 //Conexión a base de datos
 $mysqli = mysqli_connect("localhost","root","","plataforma") or die("Error " . mysqli_error($link));
 
 //Rescato datos de persona
 $_SESSION['faceuser']=$username;
 $_SESSION['facecorreo']=$correo;
+$_SESSION['faceUserId']=$faceId;
 
 $query="SELECT * FROM persona p WHERE p.correo='$correo' AND p.id_estado=1";
 $result= mysqli_query($mysqli,$query)or die(mysqli_error());
@@ -30,11 +32,17 @@ $_SESSION['nombre']=$row[4];
 $_SESSION['correo']=$row[5];
 $_SESSION['telefono1']=$row[6];
 $_SESSION['telefono2']=$row[7];
+$_SESSION['empresa']=$row[12];
+$_SESSION['socialId']=$row[13];
 echo 'dashboard';
 }else if($num_row2>0){
+
 echo 'formulario';
 }else if ($num_row3>0)
 {
 echo 'false';
+}else{
+$results = $mysqli->query("INSERT INTO persona (nombre, correo, id_tipo )VALUES ('$username', '$correo',2)");
+echo 'primera';
 }
 ?>

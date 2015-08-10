@@ -22,7 +22,12 @@ $(document).ready(function(){
 
 		//variables globales
 		var $envnom=0;
-		
+		var correo=$('#correo input').val();
+		var nombre;
+		var correo;
+		var tel1;
+		var tel1;
+		var empresa;		
 		$('#nombre'). click(function(){
 		$('#nombre input')	.removeAttr('disabled','disabled')
 							.css({'background-image':'none','background-color':'#ccc'})
@@ -31,32 +36,62 @@ $(document).ready(function(){
 		if ($envnom == 1){ 	
 		$('#nombre input').keypress(function (e) {
 			if (e.which == 13) {
+			nombre=$('#nombre input').val();
+			correo=$('#correo input').val();
+			tel1=$('#tel1 input').val();
+			tel2=$('#tel2 input').val();
+			empresa=$('#empresa input').val();
 				$('#nombre input')	.attr('disabled','disabled')
 									.css({'background-image':'none','background-color':'transparent'});
+				
+				
 				//guardar con AJAX
+			$.ajax({  
+            type: "POST",  
+            url: "procesar-dashboard-agencia.php",  
+            data: "nombre="+nombre+"&correo="+correo+"&tel1="+tel1+"&tel2="+tel2+"&empresa="+empresa, 
+			
+            success: function(html){ 
+				switch (html){
+				}}
+			});
 				$envnom=0;
 			}
 		});
 		}
 		});
 		
-
 		$('#empresa'). click(function(){
 		$('#empresa input')	.removeAttr('disabled','disabled')
 							.css({'background-image':'none','background-color':'#ccc'})
-							//.attr('placeholder','por favor escriba');;
-		//Proceso para enviar con enter
+		//					.attr('placeholder','por favor escriba');
 		$envnom=1;
-		if ($envnom == 1){
+		if ($envnom == 1){ 	
 		$('#empresa input').keypress(function (e) {
 			if (e.which == 13) {
+			nombre=$('#nombre input').val();
+			correo=$('#correo input').val();
+			tel1=$('#tel1 input').val();
+			tel2=$('#tel2 input').val();
+			empresa=$('#empresa input').val();
 				$('#empresa input')	.attr('disabled','disabled')
 									.css({'background-image':'none','background-color':'transparent'});
-				//guardar con AJAX
+				
+				
+			//guardar con AJAX
+			$.ajax({  
+            type: "POST",  
+            url: "procesar-dashboard-agencia.php",  
+            data: "nombre="+nombre+"&correo="+correo+"&tel1="+tel1+"&tel2="+tel2+"&empresa="+empresa, 
+			
+            success: function(html){ 
+				switch (html){
+				}}
+			});
 				$envnom=0;
 			}
-			});
-			}
+		});
+		}
 		});
 		
 		$('#correo'). click(function(){
@@ -71,6 +106,7 @@ $(document).ready(function(){
 				$('#correo input')	.attr('disabled','disabled')
 									.css({'background-image':'none','background-color':'transparent'});
 				//guardar con AJAX
+				
 				$envnom=0;
 			}
 			});
@@ -86,9 +122,26 @@ $(document).ready(function(){
 		if ($envnom == 1){
 		$('#tel1 input').keypress(function (e) {
 			if (e.which == 13) {
+			nombre=$('#nombre input').val();
+			correo=$('#correo input').val();
+			tel1=$('#tel1 input').val();
+			tel2=$('#tel2 input').val();
+			empresa=$('#empresa input').val();
+			console.log(nombre,correo,tel1,tel2);
 				$('#tel1 input')	.attr('disabled','disabled')
 									.css({'background-image':'none','background-color':'transparent'});
+				
+				
 				//guardar con AJAX
+			$.ajax({  
+            type: "POST",  
+            url: "procesar-dashboard-agencia.php",  
+            data: "nombre="+nombre+"&correo="+correo+"&tel1="+tel1+"&tel2="+tel2+"&empresa="+empresa, 
+			
+            success: function(html){ 
+				switch (html){
+				}}
+			});
 				$envnom=0;
 			}
 			});
@@ -101,30 +154,35 @@ $(document).ready(function(){
 							//.attr('placeholder','por favor escriba');
 		//Proceso para enviar con enter
 		$envnom=1;
-		
 		if ($envnom == 1){
 		$('#tel2 input').keypress(function (e) {
 			if (e.which == 13) {
+			nombre=$('#nombre input').val();
+			correo=$('#correo input').val();
+			tel1=$('#tel1 input').val();
+			tel2=$('#tel2 input').val();
+			empresa=$('#empresa input').val();
+			console.log(nombre,correo,tel1,tel2);
 				$('#tel2 input')	.attr('disabled','disabled')
 									.css({'background-image':'none','background-color':'transparent'});
+				
+				
 				//guardar con AJAX
+			$.ajax({  
+            type: "POST",  
+            url: "procesar-dashboard-agencia.php",  
+            data: "nombre="+nombre+"&correo="+correo+"&tel1="+tel1+"&tel2="+tel2+"&empresa="+empresa, 
+			
+            success: function(html){ 
+				switch (html){
+				}}
+			});
 				$envnom=0;
 			}
 			});
 			}
 		});
 		
-		if ($envnom == 1){
-		console.log('estoy aqui');
-		$('#tel2 input').keypress(function (e) {
-			if (e.which == 13) {
-				$('#tel2 input')	.attr('disabled','disabled')
-									.css({'background-image':'none','background-color':'transparent'});
-				//guardar con AJAX
-				$envnom=0;
-			}
-			});
-		}
 	
 		//campañas creadas 
 		$('#editaCampaña').hide();
@@ -170,11 +228,12 @@ font-family: 'Impact',Courier,Sans-Serif;
 <table>
 <tr>
 <td id="nombre"><input  value="<?php echo $_SESSION['nombre']; ?>" disabled /></td>
-<td><input value="imagen" disabled /></td>
+<td rowspan="2"><img src="http://graph.facebook.com/<?php echo $_SESSION['faceUserId']?>/picture" />
+
 </tr>
 
 <tr>
-<td id="empresa"><input value="Empresa a la que pertenece" disabled /></td>
+<td id="empresa"><input value="<?php echo $_SESSION['empresa']; ?>" disabled /></td>
 </tr>
 
 </table>
@@ -201,7 +260,7 @@ font-family: 'Impact',Courier,Sans-Serif;
 <a href="">Crear campaña</a><p>
 <div id="creadas">
 
-Campañas --- <p>
+Campañas Creadas <p>
 <?php do{
 
 echo $row[1];
