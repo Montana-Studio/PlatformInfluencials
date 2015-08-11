@@ -33,6 +33,7 @@ $(document).ready(function(){
 		username=$('#username').val();
 		password=$('#password').val();
 
+
 		 $.ajax({  
             type: "POST",  
             url: "procesar_login.php",  
@@ -48,6 +49,37 @@ $(document).ready(function(){
 				case "inactivo": alert('usuario inactivo');
 				break;
 				case "false": alert('usuario o password no existen');
+				break;
+				}
+				}
+		});
+		});
+		
+		
+		$('#registrarse').click(function(){
+
+		usernamenuevo=$('#usernamenuevo').val();
+		contraseñanuevo=$('#contraseñanuevo').val();
+		empresanuevo=$('#empresanuevo').val();
+		correonuevo=$('#correonuevo').val();
+		telefono1nuevo=$('#telefono1nuevo').val();
+		telefono2nuevo=$('#telefono2nuevo').val();
+		console.log(contraseñanuevo,empresanuevo,correonuevo);
+		 $.ajax({  
+            type: "POST",  
+            url: "procesar_login_nuevo.php",  
+            data: "nuuser="+usernamenuevo+"&nupass="+contraseñanuevo+"&nuempresa="+empresanuevo+"&nucorreo="+correonuevo+"&nutel1="+telefono1nuevo+"&nutel2="+telefono2nuevo, 
+			
+            success: function(html){ 
+				switch (html){
+				case "nuevo": alert('Registro completo, nos contactaremos con usted');
+								$('#usernamenuevo, #contraseñanuevo,#empresanuevo,#correonuevo,#telefono1nuevo,#telefono2nuevo').val('');
+								window.location.href= "registro.php";
+				break;
+				case "false": alert('El correo ingresado ya tiene una cuenta asociada');
+								$('#correonuevo').val('');
+								;$('#correonuevo').focus();
+								
 				break;
 				}
 				}
@@ -75,30 +107,23 @@ $(document).ready(function(){
 </div>
 <br/>
 <div id="nuevo">
-<input placeholder="correo" id="correo-nuevo"></input><p>
-<input placeholder="usuario" name='username' class="form-control" id="username-nuevo" ></input><p>
-<input placeholder="contraseña" id="contraseña-nuevo"></input><p>
-<button id="registrar">registrar</button>
+
+
+<input placeholder="usuario" name='username-nuevo' id="usernamenuevo" /><br/>
+<input type="email" placeholder="correo" id="correonuevo"/><br/>
+<input placeholder="empresa" name='empresa-nuevo' id="empresanuevo" /><br/>
+<input type="password" placeholder="contraseña-nuevo" id="contraseñanuevo"/> - <input type="password" placeholder="verificar contraseña-nuevo" id="ver-password"/><br/>
+<input placeholder="telefono1" name='telefono1-nuevo' id="telefono1nuevo"/><br/>
+<input placeholder="telefono2" name='telefono2-nuevo' id="telefono2nuevo"/><br/>
+<button id="registrarse">registrar</button>
 <button id="facebook-nuevo">registrar con Facebook</button>
-
-<!--script>
- // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-  
-</script--> 
-
 <button id="linkedin-nuevo">registrar con Linkedin</button>
+
 </div>
 
 <div id="antiguo">
-<input placeholder="usuario" name='username' class="form-control" id="username"></input><p>
-<input placeholder="contraseña" id="password"></input><p>
+<input placeholder="usuario" name='username' id="username"/><br/>
+<input type="password" placeholder="contraseña" id="password"/></br>
 <button id="ingresar">ingresar</button>
 <button id="facebook-antiguo" value="ingresar con Facebook">ingresar con Facebook</button>
 <button id="linkedin-antiguo">ingresar con Linkedin</button>

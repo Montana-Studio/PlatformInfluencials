@@ -151,7 +151,7 @@ cursor:pointer;
 </style>
 </head>
 <body>
-<div style="text-align:right;"><a id="salir" href="registro.php">salir</a> - <a href>ayuda</a></div>
+<div style="text-align:right;"><a href>ayuda</a></div>
 <h2>formulario de ingreso</h2>
 <br/>
 
