@@ -1,12 +1,6 @@
 $(document).ready(function(){
 		
-		//$("#lala").append('(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/en_US/sdk.js";fjs.parentNode.insertBefore(js, fjs);}(document, "script", "facebook-jssdk"));');
-		//$("#lala").append('(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js = d.createElement(s); js.id = id;js.src = "//connect.facebook.net/en_US/sdk.js";fjs.parentNode.insertBefore(js, fjs);}(document, "script", "facebook-jssdk"));');
-		
-		  
-		  
 		$('#facebook-nuevo').click(function(){
-			//e.preventDefault();
 			(function(d, s, id) {
 									var js, fjs = d.getElementsByTagName(s)[0];
 									if (d.getElementById(id)) return;
@@ -15,7 +9,6 @@ $(document).ready(function(){
 									fjs.parentNode.insertBefore(js, fjs);
 								  }(document, 'script', 'facebook-jssdk'));
 								  facebookLogin();
-			
 		});
 		
 		$('#facebook-antiguo').click(function(){
@@ -31,7 +24,6 @@ $(document).ready(function(){
 
 		
 		$('#salir').click( function(e) {
-
 			e.preventDefault();
   			facebookLogout();
 		});
@@ -47,11 +39,17 @@ $(document).ready(function(){
 			cookie     : true,  
 			status 	   : true,					
 			xfbml      : true,  
-			version    : 'v2.2' 
+			version    : 'v2.4' 
 		});	
-	
-		  
 		
+			(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+			facebookLogin();
 		FB.getLoginStatus(function(response) {
 		statusChangeCallback(response, function(){
 		
@@ -67,7 +65,7 @@ $(document).ready(function(){
     }
 	}
 	
-   var checkLoginState = function(callback) {
+   var checkLoginState = function(callback) {		  
     FB.getLoginStatus(function(response) {
      statusChangeCallback(response, function(data){
 		callback(data);
@@ -94,19 +92,15 @@ $(document).ready(function(){
 				case "dashboard": window.location.href="dashboard-agencia.php";
 				break;
 				case "false": alert("Estimado(a) "+facebookUser+" ya se encuentra registrado nos contactaremos con usted a la brevedad");
-							  window.location.href="registro.php";
-							
+							  window.location.href="registro.php";	
 				break;
 				case "primera":     
 									window.location.href="formulario-agencia.php";
-								alert("Por favor ingrese sus datos en el formulario");
-								
+								alert("Por favor ingrese sus datos en el formulario");					
 				break;
 				}
 				}
 		});
-	
-
 	});
 	}
 	

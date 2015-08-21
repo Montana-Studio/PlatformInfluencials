@@ -36,7 +36,8 @@ $_SESSION['correo']=$row2[5];
 $_SESSION['telefono1']=$row2[6];
 $_SESSION['telefono2']=$row2[7];
 $_SESSION['empresa']=$row2[12];
-
+$_SESSION['pictureUrl']=$row2[11];
+$_SESSION['RSid']=$row2[9];
 	switch($row2[1]){
 	case '1':
 		echo 'admin';

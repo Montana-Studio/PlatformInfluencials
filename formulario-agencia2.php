@@ -1,21 +1,10 @@
 <?php
 session_start();
-//Conexión a base de datos
-$mysqli = mysqli_connect("localhost","root","","plataforma") or die("Error " . mysqli_error($link)); 
-
-if(isset($_SESSION['faceuser'])==false ){
-echo "problema de sesion";
-}else{
-
-
-
-}
 ?>
 <html>
 <head>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="js/facebook-login.js"></script>
 <script>
 $(document).ready(function(){
 		
@@ -158,12 +147,12 @@ cursor:pointer;
 <div id="inicio" disabled>
 <table>
 <tr>
-<td id="nombre"><input  value="<?php echo $_SESSION['faceuser'];?>" disabled required/></td>
+<td id="nombre"><input  placeholder="nombre" value="<?php echo $_SESSION['nombre'];?>" disabled required/></td>
 
 </tr>
 
 <tr>
-<td id="empresa"><input placeholder="Empresa a la que pertenece" disabled required/></td>
+<td id="empresa"><input placeholder="empresa a la que pertenece" disabled required/></td>
 </tr>
 
 </table>
@@ -175,7 +164,7 @@ cursor:pointer;
 <div id="facturacion">
 <table>
 <p> Datos de facturación </p>
-<tr><td id="correo"><input value="<?php echo $_SESSION['facecorreo'];?>" disabled required/></td></tr>
+<tr><td id="correo"><input placeholder="correo" value="<?php echo $_SESSION['emailAddress'];?>"  disabled required/></td></tr>
 <tr><td id="tel1"><input placeholder="telefono1" size="11" maxlength="11" disabled required/></td></tr>
 <tr><td id="tel2"><input placeholder="telefono2" size="11" maxlength="11" disabled required/></td></tr>
 </table>

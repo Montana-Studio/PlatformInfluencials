@@ -19,171 +19,63 @@ $row= mysqli_fetch_array($result, MYSQLI_NUM);
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
+			//variables globales
+			var correo,nombre,correo,tel1,tel2,empresa;
+			var rsid = $('#RsId').val();
+		
+		$('#guardarFacturacion').click(function () {
+			
+			nombre=$('#nombre input').val();
+			correo=$('#correo input').val();
+			tel1=$('#tel1 input').val();
+			tel2=$('#tel2 input').val();
+			empresa=$('#empresa input').val();
+			//console.log(nombre,correo,empresa,tel1,tel2,rsid);
+			$.ajax({  
+            type: "POST",  
+            url: "procesar-dashboard-agencia.php",  
+            data: "nombre="+nombre+"&correo="+correo+"&tel1="+tel1+"&tel2="+tel2+"&empresa="+empresa+"&rsid="+rsid, 
+			
+			
+            success: function(html){ 
+				switch (html){
+				case 'existe' :	$('#correo input').addClass('alert').val('el correo ya existe en la base de datos');
+				break;
+				case 'actualiza' : console.log('datos actualizados');
+				break;
+			
+				
+				}}
+			});
+		});
+		
+		$('#imagenform').on('submit',(function (e){
+		e.preventDefault();
+		info = new FormData(this);
+		info.append('correo',$('#correo input').val());
+		info.append('rsid',$('#RsId').val());
 
-		//variables globales
-		var $envnom=0;
-		var correo=$('#correo input').val();
-		var nombre;
-		var correo;
-		var tel1;
-		var tel1;
-		var empresa;		
-		$('#nombre'). click(function(){
-		$('#nombre input')	.removeAttr('disabled','disabled')
-							.css({'background-image':'none','background-color':'#ccc'})
-		//					.attr('placeholder','por favor escriba');
-		$envnom=1;
-		if ($envnom == 1){ 	
-		$('#nombre input').keypress(function (e) {
-			if (e.which == 13) {
-			nombre=$('#nombre input').val();
-			correo=$('#correo input').val();
-			tel1=$('#tel1 input').val();
-			tel2=$('#tel2 input').val();
-			empresa=$('#empresa input').val();
-				$('#nombre input')	.attr('disabled','disabled')
-									.css({'background-image':'none','background-color':'transparent'});
+		
+			$.ajax({
+					type: "POST",  
+					url: "procesar_imagen.php",  
+					data: info,
+					enctype: 'multipart/form-data',
+					contentType: false,      
+					cache: false,             
+					processData:false, 
 				
-				
-				//guardar con AJAX
-			$.ajax({  
-            type: "POST",  
-            url: "procesar-dashboard-agencia.php",  
-            data: "nombre="+nombre+"&correo="+correo+"&tel1="+tel1+"&tel2="+tel2+"&empresa="+empresa, 
+				success: function(data){ 
+					
+					console.log(data);
+						
+				}
 			
-            success: function(html){ 
-				switch (html){
-				}}
 			});
-				$envnom=0;
-			}
-		});
-		}
-		});
 		
-		$('#empresa'). click(function(){
-		$('#empresa input')	.removeAttr('disabled','disabled')
-							.css({'background-image':'none','background-color':'#ccc'})
-		//					.attr('placeholder','por favor escriba');
-		$envnom=1;
-		if ($envnom == 1){ 	
-		$('#empresa input').keypress(function (e) {
-			if (e.which == 13) {
-			nombre=$('#nombre input').val();
-			correo=$('#correo input').val();
-			tel1=$('#tel1 input').val();
-			tel2=$('#tel2 input').val();
-			empresa=$('#empresa input').val();
-				$('#empresa input')	.attr('disabled','disabled')
-									.css({'background-image':'none','background-color':'transparent'});
-				
-				
-			//guardar con AJAX
-			$.ajax({  
-            type: "POST",  
-            url: "procesar-dashboard-agencia.php",  
-            data: "nombre="+nombre+"&correo="+correo+"&tel1="+tel1+"&tel2="+tel2+"&empresa="+empresa, 
-			
-            success: function(html){ 
-				switch (html){
-				}}
-			});
-				$envnom=0;
-			}
-		});
-		}
-		});
 		
-		$('#correo'). click(function(){
-		$('#correo input')	.removeAttr('disabled','disabled')
-							.css({'background-image':'none','background-color':'#ccc'})
-							//.attr('placeholder','por favor escriba');
-		//Proceso para enviar con enter
-		$envnom=1;
-		if ($envnom == 1){
-		$('#correo input').keypress(function (e) {
-			if (e.which == 13) {
-				$('#correo input')	.attr('disabled','disabled')
-									.css({'background-image':'none','background-color':'transparent'});
-				//guardar con AJAX
-				
-				$envnom=0;
-			}
-			});
-			}
-		});
 		
-		$('#tel1'). click(function(){
-		$('#tel1 input')	.removeAttr('disabled','disabled')
-							.css({'background-image':'none','background-color':'#ccc'})
-							//.attr('placeholder','por favor escriba');
-		//Proceso para enviar con enter
-		$envnom=1;
-		if ($envnom == 1){
-		$('#tel1 input').keypress(function (e) {
-			if (e.which == 13) {
-			nombre=$('#nombre input').val();
-			correo=$('#correo input').val();
-			tel1=$('#tel1 input').val();
-			tel2=$('#tel2 input').val();
-			empresa=$('#empresa input').val();
-			console.log(nombre,correo,tel1,tel2);
-				$('#tel1 input')	.attr('disabled','disabled')
-									.css({'background-image':'none','background-color':'transparent'});
-				
-				
-				//guardar con AJAX
-			$.ajax({  
-            type: "POST",  
-            url: "procesar-dashboard-agencia.php",  
-            data: "nombre="+nombre+"&correo="+correo+"&tel1="+tel1+"&tel2="+tel2+"&empresa="+empresa, 
-			
-            success: function(html){ 
-				switch (html){
-				}}
-			});
-				$envnom=0;
-			}
-			});
-			}
-		});
-		
-		$('#tel2'). click(function(){
-		$('#tel2 input')	.removeAttr('disabled','disabled')
-							.css({'background-image':'none','background-color':'#ccc'})
-							//.attr('placeholder','por favor escriba');
-		//Proceso para enviar con enter
-		$envnom=1;
-		if ($envnom == 1){
-		$('#tel2 input').keypress(function (e) {
-			if (e.which == 13) {
-			nombre=$('#nombre input').val();
-			correo=$('#correo input').val();
-			tel1=$('#tel1 input').val();
-			tel2=$('#tel2 input').val();
-			empresa=$('#empresa input').val();
-			console.log(nombre,correo,tel1,tel2);
-				$('#tel2 input')	.attr('disabled','disabled')
-									.css({'background-image':'none','background-color':'transparent'});
-				
-				
-				//guardar con AJAX
-			$.ajax({  
-            type: "POST",  
-            url: "procesar-dashboard-agencia.php",  
-            data: "nombre="+nombre+"&correo="+correo+"&tel1="+tel1+"&tel2="+tel2+"&empresa="+empresa, 
-			
-            success: function(html){ 
-				switch (html){
-				}}
-			});
-				$envnom=0;
-			}
-			});
-			}
-		});
-		
-	
+		}));
 		//campañas creadas 
 		$('#editaCampaña').hide();
 		$('#creadas #guardar').hide();
@@ -199,23 +91,27 @@ $(document).ready(function(){
 		$('#creadas #guardar').hide();
 		$('#creadas #editar').show();
 		});
-		
 		$('#guardar').hide();
-		$('#editar').hide();
-		
-});
+		$('#editar').show();
+	
+		});
+
 </script>
 <!--<script src="js/facebook-login.js"></script>-->
+<title>dashboard - <?php echo $_SESSION['nombre']; ?></title>
 <style>
+
 input{
 border:none;
 background-color:#fff;
 color:#000;
-background-image:url('http://www.orlybaram.com/_ee/img/icons/edit/edit-icon.gif');
-background-repeat:no-repeat;
-background-position:right;
 cursor:pointer;
 font-family: 'Impact',Courier,Sans-Serif;
+}
+.alert{
+	color:red;
+	background-color:rose;
+	border:1px solid red;
 }
 </style>
 </head>
@@ -227,17 +123,27 @@ font-family: 'Impact',Courier,Sans-Serif;
 <div id="inicio" disabled>
 <table>
 <tr>
-<td id="nombre"><input  value="<?php echo $_SESSION['nombre']; ?>" disabled /></td>
-<td rowspan="2"><img src="http://graph.facebook.com/<?php echo $_SESSION['faceUserId']?>/picture" />
-
+<td id="nombre"><input  value="<?php echo $_SESSION['nombre']; ?>"/></td>
+<td rowspan="2"><img src="<?php echo $_SESSION['pictureUrl'];?>" width="100" height=auto>
+<input id="RsId" style="display:none" value="<?php echo $_SESSION['RSid']; ?>"  />
 </tr>
 
 <tr>
-<td id="empresa"><input value="<?php echo $_SESSION['empresa']; ?>" disabled /></td>
+<td id="empresa"><input value="<?php echo $_SESSION['empresa']; ?>" /></td>
 </tr>
 
+<tr>
+<td>
+
+</td>
+</tr>
 </table>
 </div>
+<form id='imagenform'>
+<input type="file" name="file" id="file" required /></br>
+<button type="submit" id='cambiarImagen' >cambiar imagen</button>
+</form>
+
 
 <br/>
 <br/>
@@ -245,22 +151,20 @@ font-family: 'Impact',Courier,Sans-Serif;
 <div id="facturacion">
 <table>
 <p> Datos de facturación </p>
-<tr><td id="correo"><input   value="<?php echo $_SESSION['correo']; ?>" disabled /></td></tr>
-<tr><td id="tel1"><input   value="<?php echo $_SESSION['telefono1']; ?>" disabled /></td></tr>
-<tr><td id="tel2"><input   value="<?php echo $_SESSION['telefono2']; ?>" disabled /></td></tr>
-</table>
-<button id="editar" >Editar</button>
-<button id="guardar" type="submit">Guardar</button>
+<tr><td id="correo"><input value="<?php echo $_SESSION['correo']; ?>"/></td></tr>
+<tr><td id="tel1"><input type="text" pattern="[0-9]{10}"  size="11" maxlength="11" value="<?php echo $_SESSION['telefono1']; ?>"/></td></tr>
+<tr><td id="tel2"><input  type="text" pattern="[0-9]{10}" size="11" maxlength="11" value="<?php echo $_SESSION['telefono2']; ?>"/></td></tr>
+<tr><td><button id="guardarFacturacion" type="submit">Guardar</button></tr></td>
 </div>
-
+</table>
 
 <br/>
 <br/>
 
-<a href="">Crear campaña</a><p>
+<a href="campana.php">ir a campañas</a><p>
 <div id="creadas">
 
-Campañas Creadas <p>
+útlimas campañas creadas <p>
 <?php do{
 
 echo $row[1];
@@ -281,13 +185,6 @@ echo $row[1];
 <textarea placeholder="descripcion" rows=10 cols=40 ></textarea><p>
 <button>Cambiar imagen</button>
 </div>
-</div>
-
-
-<div id="aceptadas">
-Campañas aceptadas<p>
-<a href="">imagen campaña</a>
-<a align="right" href="">ver usuario<a> / <a href="">aceptar<a> / <a href="">responder<a>
 </div>
 
 

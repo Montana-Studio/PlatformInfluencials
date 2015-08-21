@@ -4,10 +4,8 @@ $username =$_POST['nombre'];
 $correo =$_POST['correo'];
 $tel1 =$_POST['tel1'];
 $tel2 =$_POST['tel2'];
-//$faceId =$_POST['faceId'];
 $empresa=$_POST['empresa'];
 //$password=MD5($_POST['pwd']);
-
 
 //Conexión a base de datos
 $mysqli = mysqli_connect("localhost","root","","plataforma") or die("Error " . mysqli_error($link)); 
