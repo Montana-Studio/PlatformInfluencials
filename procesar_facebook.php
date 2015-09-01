@@ -1,16 +1,15 @@
 <?php 
-session_start();
+ require('conexion.php');
 $username =$_POST['faceuser'];
 $correo =$_POST['facecorreo'];
 $faceId=$_POST['faceUserId'];
-$pictureUrl="http://graph.facebook.com/".$_SESSION['faceUserId']."/picture";
-//Conexión a base de datos
-$mysqli = mysqli_connect("localhost","root","","plataforma") or die("Error " . mysqli_error($link));
+$pictureUrl='//graph.facebook.com/'.$faceId.'/picture';
 
 //Rescato datos de persona
 $_SESSION['faceuser']=$username;
 $_SESSION['facecorreo']=$correo;
 $_SESSION['faceUserId']=$faceId;
+$_SESSION['rsid']=$faceId;
 
 $query="SELECT * FROM persona p WHERE p.id_estado=1 AND p.RS_id='$faceId'";
 $result= mysqli_query($mysqli,$query)or die(mysqli_error());
@@ -25,27 +24,26 @@ $query3="SELECT * FROM persona p WHERE p.RS_id='$faceId'";
 $result3= mysqli_query($mysqli,$query3)or die(mysqli_error());
 $num_row3= mysqli_num_rows($result3);
 
-
 if($num_row>0){
-// en caso que ingrese con facebook y este registrado
-$_SESSION['id']=$row[0];
-$_SESSION['nombre']=$row[4];
-$_SESSION['correo']=$row[5];
-$_SESSION['telefono1']=$row[6];
-$_SESSION['telefono2']=$row[7];
-$_SESSION['empresa']=$row[12];
-$_SESSION['pictureUrl']=$row[11];
-$_SESSION['RSid']=$row[9];
-
-echo 'dashboard';
-}else if($num_row2>0){
-
-echo 'formulario';
-}else if ($num_row3>0)
-{
-echo 'false';
-}else{
-$results = $mysqli->query("INSERT INTO persona (nombre, correo, id_tipo, picture_url,RS_id )VALUES ('$username', '$correo',2, '$pictureUrl','$faceId')");
-echo 'primera';
+	// en caso que ingrese con facebook y este registrado
+	$_SESSION['id']=$row[0];
+	$_SESSION['nombre']=$row[4];
+	$_SESSION['correo']=$row[5];
+	$_SESSION['telefono1']=$row[6];
+	$_SESSION['telefono2']=$row[7];
+	$_SESSION['empresa']=$row[12];
+	$_SESSION['pictureUrl']=$row[11];
+	$_SESSION['RSid']=$row[9];
+	echo 'dashboard';
+}
+else if($num_row2>0){
+	echo 'formulario';
+}
+else if ($num_row3>0){
+	echo 'false';
+}
+else{
+	$results = $mysqli->query("INSERT INTO persona (nombre, correo, id_tipo, picture_url,RS_id )VALUES ('$username', '$correo',2, '$pictureUrl','$faceId')");
+	echo 'primera';
 }
 ?>

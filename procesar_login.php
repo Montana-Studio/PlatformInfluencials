@@ -1,13 +1,8 @@
 <?php 
-session_start();
+ require('conexion.php');
 $username =$_POST['name'];
-$password =$_POST['pwd'];
-
-//$password=MD5($_POST['pwd']);
-
-
-//Conexión a base de datos
-$mysqli = mysqli_connect("localhost","root","","plataforma") or die("Error " . mysqli_error($link)); 
+//$password =$_POST['pwd'];
+$password=MD5($_POST['pwd']);
 
 //Consulto si existe el Base de Datos
 $query="SELECT * FROM login WHERE user='$username' AND pass='$password'";
@@ -21,7 +16,6 @@ $query2="SELECT * FROM persona AS p, login AS l WHERE p.id_estado>0 AND
 $result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
 $num_row2= mysqli_num_rows($result2);//si es mayor que uno es porque hay registros
 $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
-
 
 if($num_row<1){
 	echo 'false';
@@ -37,7 +31,7 @@ $_SESSION['telefono1']=$row2[6];
 $_SESSION['telefono2']=$row2[7];
 $_SESSION['empresa']=$row2[12];
 $_SESSION['pictureUrl']=$row2[11];
-$_SESSION['RSid']=$row2[9];
+$_SESSION['rsid']=$row2[9];
 	switch($row2[1]){
 	case '1':
 		echo 'admin';
