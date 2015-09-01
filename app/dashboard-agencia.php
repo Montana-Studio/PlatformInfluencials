@@ -1,4 +1,5 @@
 <?php
+//holi
 require('conexion.php');
 if(isset($_SESSION['nombre'])==false){
 header('Location:registro.php');
