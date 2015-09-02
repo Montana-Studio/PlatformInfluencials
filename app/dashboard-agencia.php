@@ -16,7 +16,7 @@ $row= mysqli_fetch_array($result, MYSQLI_NUM);
 <html>
 <head>
 	<meta  charset="UTF-8" >
-	<title>dashboard - <?php $_SESSION['nombre']; ?></title>
+	<title>dashboard - <?php echo $_SESSION['nombre']; ?></title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script>
 		$(document).ready(function(){

@@ -1,10 +1,5 @@
 <?php 
  require('conexion.php');
-/*session_start();
-//Conexión a BD
-$mysqli = mysqli_connect("localhost","root","","plataforma") or die("Error " . mysqli_error($link)); 
-$mysqli->set_charset('utf8');
-*/
 
 $rsid=$_POST['rsid'];
 $correo=$_POST['correo'];
@@ -119,5 +114,17 @@ if(isset($_FILES["file"]["type"]))
 	else{
 	echo "invalido";
 	}
+}
+else{
+$results2 = $mysqli->query("UPDATE persona SET nombre='$nombre', telefono1='$tel1', telefono2='$tel2', empresa='$empresa', correo='$correo', picture_url='uploads/agencias/registered/$rsid/avatar.gif' WHERE RS_id='$rsid'");
+				$_SESSION['id']=$row[0];
+				$_SESSION['nombre']=$nombre;
+				$_SESSION['correo']=$correo;
+				$_SESSION['telefono1']=$tel1;
+				$_SESSION['telefono2']=$tel2;
+				$_SESSION['empresa']=$empresa;
+				$_SESSION['rsid']=$rsid;
+				$_SESSION['pictureUrl']="uploads/agencias/registered/$rsid/avatar.gif";	
+
 }
 ?>

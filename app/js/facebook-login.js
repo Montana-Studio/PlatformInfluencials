@@ -40,6 +40,7 @@ $(document).ready(function(){
 	email= response.email;
 	facebookUser=name;
 	facebookCorreo=email;
+	console.log(facebookUser,facebookCorreo);
 	$.ajax({  
             type: "POST",  
             url: "procesar_facebook.php",  
