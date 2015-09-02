@@ -7,7 +7,7 @@ $nuevoempresa=$_POST['nuempresa'];
 $nuevocorreo=$_POST['nucorreo'];
 $nuevotelefono1=$_POST['nutel1'];
 $nuevotelefono2=$_POST['nutel2'];
-$nuevaurl="/plataforma1.2/PlatformInfluencials/uploads/agencias/registered/$nuevocorreo/avatar.gif";
+$nuevaurl="./uploads/agencias/registered/$nuevocorreo/avatar.gif";
 
 
 //Verifico que exista el correo en la base de datos
@@ -19,12 +19,12 @@ if($num_row>0){
 echo "false";
 }else if(isset($_FILES["file"]["type"]))
 {	
-	$validextensions = array("jpeg", "jpg", "png");
+	$validextensions = array("jpeg", "jpg", "png", "gif");
 	$temporary = explode(".", $_FILES["file"]["name"]);
 	$file_extension = end($temporary);
 
-	if (((strtolower($file_extension) == "png") || ( strtolower($file_extension) == "jpg") || (strtolower($file_extension) == "gif")
-	) && ($_FILES["file"]["size"] < 100000)//Approx. 100000kb files can be uploaded.
+	if (((strtolower($file_extension) == "png") || ( strtolower($file_extension) == "jpg") || (strtolower($file_extension) == "gif" || ( strtolower($file_extension) == "jpeg"))
+	) && ($_FILES["file"]["size"] < 200000)//Approx. 100000kb files can be uploaded.
 	&& in_array($file_extension, $validextensions)) {
 		if ($_FILES["file"]["error"] > 0){
 		echo "error";

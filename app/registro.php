@@ -78,6 +78,8 @@
 									$('#correonuevo').val('');
 									;$('#correonuevo').focus();
 					break;
+					case "invalido":
+						console.log('formato invalido');
 					}
 					}
 			});
