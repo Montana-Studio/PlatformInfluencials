@@ -16,25 +16,25 @@ $rf=$mysqli->query("SELECT * FROM persona WHERE RS_id='' AND id='$id'");
 $num_row2=mysqli_num_rows($rf);
 
 if ($num_row>0){
-	$nuevaurl="/plataforma1.2/PlatformInfluencials/uploads/agencias/registered/$rsid/$campana/1.jpg";
+	$nuevaurl="./uploads/agencias/registered/$rsid/$campana/1.jpg";
 	$a=1;//registrado con RS
 	$row= mysqli_fetch_array($rrs, MYSQLI_NUM);
 }
 
 if($num_row2>0){
-	$nuevaurl="/plataforma1.2/PlatformInfluencials/uploads/agencias/registered/$correo/$campana/1.jpg";
+	$nuevaurl="./uploads/agencias/registered/$correo/$campana/1.jpg";
 	$a=2; //registrado con formulario
 	$row= mysqli_fetch_array($rf, MYSQLI_NUM);
 }
 
 if(isset($_FILES["file"]["type"]))
 {	
-	$validextensions = array("jpeg", "jpg", "png");
+	$validextensions = array("jpeg", "jpg", "png","gif");
 	$temporary = explode(".", $_FILES["file"]["name"]);
 	$file_extension = end($temporary);
 
-	if (((strtolower($file_extension) == "png") || ( strtolower($file_extension) == "jpg") || (strtolower($file_extension) == "gif")
-	) && ($_FILES["file"]["size"] < 100000)//Approx. 100000kb files can be uploaded.
+	if (((strtolower($file_extension) == "png") || ( strtolower($file_extension) == "jpg") || (strtolower($file_extension) == "gif" || ( strtolower($file_extension) == "jpeg"))
+	) && ($_FILES["file"]["size"] < 200000)//Approx. 100000kb files can be uploaded.
 	&& in_array($file_extension, $validextensions)) {
 	
 		if ($_FILES["file"]["error"] > 0){

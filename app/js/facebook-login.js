@@ -27,7 +27,7 @@ $(document).ready(function(){
   			facebookLogout();
 		});
 		
-		var app_id = '939225322786309';
+		var app_id = '962955813772092';
 		var scopes= 'email,user_friends';
 		var name;
 		var email;
