@@ -17,13 +17,15 @@ $num_row= mysqli_num_rows($result);
 
 if($num_row>0){
 echo "false";
-}else if(isset($_FILES["file"]["type"])){
-	$validextensions = array("gif", "jpg", "png","jpeg");
+}else if(isset($_FILES["file"]["type"]))
+{	
+	$validextensions = array("jpeg", "jpg", "png");
 	$temporary = explode(".", $_FILES["file"]["name"]);
 	$file_extension = end($temporary);
-	if (((strtolower($file_extension) == "png") || ( strtolower($file_extension) == "jpeg") || (strtolower($file_extension) == "gif" || (strtolower($file_extension) == "jpg")
-		) && ($_FILES["file"]["size"] < 100000000)//Approx. 1000000kb files can be uploaded.
-		&& in_array($file_extension, $validextensions) {
+
+	if (((strtolower($file_extension) == "png") || ( strtolower($file_extension) == "jpg") || (strtolower($file_extension) == "gif")
+	) && ($_FILES["file"]["size"] < 100000)//Approx. 100000kb files can be uploaded.
+	&& in_array($file_extension, $validextensions)) {
 		if ($_FILES["file"]["error"] > 0){
 		echo "error";
 		}
