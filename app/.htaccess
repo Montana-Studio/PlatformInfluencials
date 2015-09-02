@@ -1,0 +1,10 @@
+//Rewrite to www
+Options +FollowSymLinks
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^adnativo.com[nc]
+RewriteRule ^(.*)$ http://www.adnativo.com/$1 [r=301,nc]
+
+//301 Redirect Old File
+Redirect 301 /desarrollo/app/registro.php /desarrollo/app/registro.php
+
+//301 Redirect Entire Directory
