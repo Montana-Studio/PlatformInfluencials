@@ -103,18 +103,18 @@ die();
 			});
 			
 			$('#guardar').click(function(){
-
 				nombre=$('#nombre input').val();
 				empresa=$('#empresa input').val();
 				correo=$('#correo input').val();
 				telefono1=$('#telefono1nuevo').val();
 				telefono2=$('#telefono2nuevo').val();
-				
-				
+				tipo=$('#perfil option').val();
+				var e = document.getElementById("perfil");
+				var perfil = e.options[e.selectedIndex].value;
 					 $.ajax({  
 						type: "POST",  
 						url: "procesar_formulario.php",  
-						data: "nombre="+nombre+"&empresa="+empresa+"&correo="+correo+"&tel1="+telefono1+"&tel2="+telefono2, 
+						data: "nombre="+nombre+"&empresa="+empresa+"&correo="+correo+"&tel1="+telefono1+"&tel2="+telefono2+"&tipo="+perfil, 
 						
 						success: function(html){ 
 							alert("Registro de datos completo, nos contactaremos con usted");
@@ -164,6 +164,14 @@ die();
 		<a href>ayuda</a>
 	</div>
 	<h2>formulario de ingreso</h2>
+	<div>		
+		<select id="perfil" required>
+			<option value="" disabled selected>selecciona tu perfil </option>
+			<option value="3">influenciador</option>
+			<option value="4">publisher</option>
+			<option value="5">editor</option>
+		</select>
+	</div>
 	<div id="inicio" disabled>
 		<div id="nombre">
 			<input  placeholder="nombre" value="<?php echo $_SESSION['nombre'];?>" disabled required>

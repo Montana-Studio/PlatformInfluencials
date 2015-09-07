@@ -62,6 +62,9 @@ $(document).ready(function(){
 		});
 	});
 	}
+
+
+	var getFacebook 
 	
 	var statusChangeCallback = function(response, callback) {
     if (response.status === 'connected') {

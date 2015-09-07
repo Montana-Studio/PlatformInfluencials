@@ -1,7 +1,8 @@
 <?php
- require('conexion.php');
-if(isset($_SESSION['faceuser'])==false ){
-echo "problema de sesion";
+require('conexion.php');
+if(isset($_SESSION['nombre'])==false){
+header('Location:registro.php');
+die();
 }
 ?>
 <html>
