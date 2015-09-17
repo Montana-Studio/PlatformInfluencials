@@ -22,6 +22,29 @@ $(document).ready(function(){
 								facebookLogin();
 		});
 
+		$('#facebook-nuevo-ipe').click(function(){
+				(function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/en_US/sdk.js";
+				fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));								
+			 facebookLogin();
+		});
+		
+		$('#facebook-antiguo-ipe').click(function(){
+			(function(d, s, id) {
+								var js, fjs = d.getElementsByTagName(s)[0];
+								if (d.getElementById(id)) return;
+								js = d.createElement(s); js.id = id;
+								js.src = "//connect.facebook.net/en_US/sdk.js";
+								fjs.parentNode.insertBefore(js, fjs);
+							  }(document, 'script', 'facebook-jssdk'));
+								facebookLogin();
+		});
+
+
 		$('#salir').click( function(e) {
 			e.preventDefault();
   			facebookLogout();
@@ -44,7 +67,7 @@ $(document).ready(function(){
 	$.ajax({  
             type: "POST",  
             url: "procesar_facebook.php",  
-            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id, 
+            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id+"&tipo="+document.getElementById('tipoCliente').getAttribute('value'),  
 			
 			
             success: function(html){ 
@@ -57,11 +80,19 @@ $(document).ready(function(){
 				case "primera": window.location.href="formulario-agencia.php";
 								document.getElementById('alertRegistrado').innerHTML ="Por favor ingrese sus datos en el formulario";					
 				break;
+				case "dashboard-ipe": window.location.href="dashboard-ipe.php";
+				break;
+				case "primera-ipe": window.location.href="formulario-agencia3.php";
+								document.getElementById('alertRegistrado').innerHTML ="Por favor ingrese sus datos en el formulario";					
+				break;
 				};
 				}
 		});
 	});
 	}
+
+
+	var getFacebook 
 	
 	var statusChangeCallback = function(response, callback) {
     if (response.status === 'connected') {

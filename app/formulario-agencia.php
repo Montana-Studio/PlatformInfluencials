@@ -1,8 +1,5 @@
 <?php
- require('conexion.php');
-if(isset($_SESSION['faceuser'])==false ){
-echo "problema de sesion";
-}
+require('conexion.php');
 ?>
 <html>
 <head>
@@ -117,38 +114,39 @@ echo "problema de sesion";
 						}
 				});
 			});
-			
-			function valida(e){
-				tecla = (document.all) ? e.keyCode : e.which;
-				if (tecla==8){
-					return true;
-				};
-				// Patron de entrada, en este caso solo acepta numeros
-				patron =/[0-9]/;
-				tecla_final = String.fromCharCode(tecla);
-				return patron.test(tecla_final);
-			};
-			
-			function phone1Length(){
-			var tel1 = $('#telefono1nuevo').val();
-			var tel2 = $('#telefono2nuevo').val();
-			$('#registrarse').attr('disabled','disabled');
-			if (tel1.length > 7 && tel2.length > 7)
-				$('#registrarse').removeAttr('disabled');
-			else
-				$('#registrarse').attr('disabled','disabled');
-			}
-
-			function phone2Length(){
-				var tel1 = $('#telefono1nuevo').val();
-				var tel2 = $('#telefono2nuevo').val();
-				$('#registrarse').attr('disabled','disabled');
-				if (tel1.length > 7 && tel2.length > 7)
-					$('#registrarse').removeAttr('disabled');
-				else
-					$('#registrarse').attr('disabled','disabled');
-			}
 	});
+
+				
+
+	function valida(e){
+		tecla = (document.all) ? e.keyCode : e.which;
+		if (tecla==8){
+			return true;
+		};
+		patron =/[0-9]/;
+		tecla_final = String.fromCharCode(tecla);
+		return patron.test(tecla_final);
+	};
+	
+	function phone1Length(){
+	var tel1 = $('#telefono1nuevo').val();
+	var tel2 = $('#telefono2nuevo').val();
+	$('#registrarse').attr('disabled','disabled');
+	if (tel1.length > 7 && tel2.length > 7)
+		$('#registrarse').removeAttr('disabled');
+	else
+		$('#registrarse').attr('disabled','disabled');
+	}
+
+	function phone2Length(){
+		var tel1 = $('#telefono1nuevo').val();
+		var tel2 = $('#telefono2nuevo').val();
+		$('#registrarse').attr('disabled','disabled');
+		if (tel1.length > 7 && tel2.length > 7)
+			$('#registrarse').removeAttr('disabled');
+		else
+			$('#registrarse').attr('disabled','disabled');
+	}
 	</script>
 	<style>
 input{
@@ -165,7 +163,7 @@ cursor:pointer;
 			<h2>formulario de ingreso</h2>
 			<div id="inicio" disabled>
 			<div id="nombre">
-				<input  value="<?php echo $_SESSION['faceuser'];?>" disabled required>
+				<input  value="<?php echo $_SESSION['nombre'];?>" disabled required>
 			</div>
 			<div id="empresa">
 				<input placeholder="Empresa a la que pertenece" disabled required>
@@ -174,13 +172,13 @@ cursor:pointer;
 			<div id="facturacion">
 				<h2>datos de facturación</h2>
 				<div id="correo">
-					<input value="<?php echo $_SESSION['facecorreo'];?>" disabled required>
+					<input value="<?php echo $_SESSION['correo'];?>" disabled required>
 				</div>
 				<div id="tel1">
-					<input placeholder="telefono 1" type="text"  onkeypress="return valida(event)" disabled required>
+					<input placeholder="telefono 1" type="text"  onkeypress="return valida(event)" maxlength="11" disabled required>
 				</div>
 				<div id="tel2">
-					<input placeholder="telefono 2" type="text"  onkeypress="return valida(event)" disabled required>
+					<input placeholder="telefono 2" type="text"  onkeypress="return valida(event)" maxlength="11" disabled required>
 				</div>
 			<button id="guardar">guardar</button>
 		</div>

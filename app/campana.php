@@ -1,10 +1,6 @@
 <?php
 require('conexion.php');
-if(isset($_SESSION['nombre'])==false){
-header('Location:registro.php');
-die();
-}
-else{
+
 //$mysqli->set_charset('utf8');
 $query="SELECT * FROM campana AS c WHERE c.idpersona=".$_SESSION['id']." ORDER BY c.id DESC";
 $result= mysqli_query($mysqli,$query)or die(mysqli_error());
@@ -15,8 +11,6 @@ $query2="SELECT COUNT(DISTINCT(id)) FROM campana WHERE idpersona='$id'";
 $result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
 $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 
-
-}
 ?>
 <html>
 <head>
