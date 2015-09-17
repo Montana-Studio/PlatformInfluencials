@@ -1,9 +1,6 @@
 <?php
 require('conexion.php');
-if(isset($_SESSION['nombre'])==false){
-header('Location:registro.php');
-die();
-}
+
 ?>
 <html>
 <head>
@@ -183,16 +180,13 @@ die();
 	<div id="facturacion">
 		<h2>datos de facturación</h2>
 		<div id="correo">
-			<input placeholder="correo" value="<?php echo $_SESSION['emailAddress'];?>"  disabled required>
+			<input placeholder="correo" value="<?php echo $_SESSION['correo'];?>"  disabled required>
 		<div>
 		<div>
 			<input placeholder="telefono1" onkeypress="return valida(event)" name='telefono1-nuevo' id="telefono1nuevo" maxlength="11" required>
 		</div>
 		<div>
 			<input placeholder="telefono2" onkeypress="return valida(event)" name='telefono2-nuevo' id="telefono2nuevo" maxlength="11" required>
-		<div>
-		<div>
-			<input vaue="<?php echo $_SESSION['conn'];?>">
 		<div>
 
 		<button id="guardar" disabled>guardar</button>

@@ -40,6 +40,16 @@ require('conexion.php');
 		case '2':
 			echo 'agencia';
 		break;
+		case '3':
+			echo 'ipe';
+		break;
+		case '4':
+			echo 'ipe';
+		break;
+		case '5':
+			echo 'ipe';
+		break;
+
 		}
 	}
 
