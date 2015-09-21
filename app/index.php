@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -50,7 +51,8 @@
 			</div>
 
 			<div id="nuevo">
-
+				<h2>Registro</h2>
+				
 				<form id="agenciaform" class="registerForm">
 					
 					<div>
@@ -100,7 +102,7 @@
 
 			<div id="antiguo">
 				
-				<h2 data-text='Ingresar'></h2>
+				<h2>Ingresar</h2>
 
 				<form class="form_ingreso">
 
@@ -205,8 +207,8 @@
 	</main>
 	
 	<script type="text/javascript" async src="js/platform_influencials.min.js"></script>
-	<script type="text/javascript" async src="js/typewriter.min.js"></script>
 	<script type="text/javascript" src="js/form-passes.js"></script>
 	<script type="text/javascript" src="js/form-data.js"></script>
+
 </body>
 </html>

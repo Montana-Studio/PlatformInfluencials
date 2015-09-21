@@ -8,16 +8,16 @@ html, html body {
 a {
   text-decoration: none; }
 
-.hide, main.form_agencias, main.form_agencias #nuevo, main.form_agencias #antiguo, main.form_agencias #antiguo h2, main.form_agencias #antiguo a, main.form_agencias #antiguo .form_ingreso {
+.hide, main.form_agencias, main.form_agencias #antiguo, main.form_agencias #nuevo, main.form_agencias #antiguo h2, main.form_agencias #nuevo h2, main.form_agencias #antiguo a, main.form_agencias #nuevo a, main.form_agencias #antiguo .form_ingreso, main.form_agencias #nuevo .form_ingreso {
   display: none; }
 
 .show {
   display: block; }
 
-.center-div, main.form_agencias #antiguo {
+.center-div, main.form_agencias #antiguo, main.form_agencias #nuevo {
   margin: 0 auto; }
 
-.btns, main.ingreso_eleccion #tipo .btns_accesos, main.form_agencias #inicio .btns_accesos, main.form_agencias #antiguo .form_ingreso #ingresar, main.form_agencias #antiguo .form_ingreso #facebook-antiguo, main.form_agencias #antiguo .form_ingreso #linkedin-antiguo {
+.btns, main.ingreso_eleccion #tipo .btns_accesos, main.form_agencias #inicio .btns_accesos, main.form_agencias #antiguo .form_ingreso #ingresar, main.form_agencias #nuevo .form_ingreso #ingresar, main.form_agencias #antiguo .form_ingreso #facebook-antiguo, main.form_agencias #nuevo .form_ingreso #facebook-antiguo, main.form_agencias #antiguo .form_ingreso #linkedin-antiguo, main.form_agencias #nuevo .form_ingreso #linkedin-antiguo {
   cursor: pointer;
   float: left;
   display: block;
@@ -38,7 +38,7 @@ a {
   font-size: 13px;
   padding: 15px 0;
   margin-bottom: 10px; }
-  .btns:last-child, main.ingreso_eleccion #tipo .btns_accesos:last-child, main.form_agencias #inicio .btns_accesos:last-child, main.form_agencias #antiguo .form_ingreso #ingresar:last-child, main.form_agencias #antiguo .form_ingreso #facebook-antiguo:last-child, main.form_agencias #antiguo .form_ingreso #linkedin-antiguo:last-child {
+  .btns:last-child, main.ingreso_eleccion #tipo .btns_accesos:last-child, main.form_agencias #inicio .btns_accesos:last-child, main.form_agencias #antiguo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .form_ingreso #ingresar:last-child, main.form_agencias #antiguo .form_ingreso #facebook-antiguo:last-child, main.form_agencias #nuevo .form_ingreso #facebook-antiguo:last-child, main.form_agencias #antiguo .form_ingreso #linkedin-antiguo:last-child, main.form_agencias #nuevo .form_ingreso #linkedin-antiguo:last-child {
     margin-right: 0; }
 
 .btn_close {
@@ -131,7 +131,7 @@ main {
     main.form_agencias #inicio #registrar {
       background-color: #fff;
       color: #107977; }
-    main.form_agencias #antiguo {
+    main.form_agencias #antiguo, main.form_agencias #nuevo {
       border-top-left-radius: 3px;
       border-top-right-radius: 3px;
       border-bottom-left-radius: 3px;
@@ -148,12 +148,12 @@ main {
       width: 0;
       height: 0;
       opacity: 0; }
-      main.form_agencias #antiguo h2 {
+      main.form_agencias #antiguo h2, main.form_agencias #nuevo h2 {
         color: #02b794;
         font-size: 16px;
         text-transform: uppercase;
         padding: 15px 0; }
-      main.form_agencias #antiguo a {
+      main.form_agencias #antiguo a, main.form_agencias #nuevo a {
         padding: 10px 0 5px;
         display: block;
         float: left;
@@ -162,13 +162,13 @@ main {
         width: 100%;
         font-size: 10px;
         color: #107977; }
-        main.form_agencias #antiguo a::after {
+        main.form_agencias #antiguo a::after, main.form_agencias #nuevo a::after {
           clear: both;
           content: "";
           display: table; }
-        main.form_agencias #antiguo a:last-child {
+        main.form_agencias #antiguo a:last-child, main.form_agencias #nuevo a:last-child {
           margin-right: 0; }
-      main.form_agencias #antiguo .form_ingreso p {
+      main.form_agencias #antiguo .form_ingreso p, main.form_agencias #nuevo .form_ingreso p {
         display: block;
         float: left;
         display: block;
@@ -178,13 +178,13 @@ main {
         font-size: 11px;
         margin: 5px 0 15px;
         text-transform: uppercase; }
-        main.form_agencias #antiguo .form_ingreso p::after {
+        main.form_agencias #antiguo .form_ingreso p::after, main.form_agencias #nuevo .form_ingreso p::after {
           clear: both;
           content: "";
           display: table; }
-        main.form_agencias #antiguo .form_ingreso p:last-child {
+        main.form_agencias #antiguo .form_ingreso p:last-child, main.form_agencias #nuevo .form_ingreso p:last-child {
           margin-right: 0; }
-      main.form_agencias #antiguo .form_ingreso input {
+      main.form_agencias #antiguo .form_ingreso input, main.form_agencias #nuevo .form_ingreso input {
         font-family: "Roboto Condensed", sans-serif;
         float: left;
         display: block;
@@ -197,23 +197,23 @@ main {
         border-bottom: 1px solid #c7c7c7;
         font-size: 12px;
         color: #107977; }
-        main.form_agencias #antiguo .form_ingreso input:last-child {
+        main.form_agencias #antiguo .form_ingreso input:last-child, main.form_agencias #nuevo .form_ingreso input:last-child {
           margin-right: 0; }
-      main.form_agencias #antiguo .form_ingreso #ingresar {
+      main.form_agencias #antiguo .form_ingreso #ingresar, main.form_agencias #nuevo .form_ingreso #ingresar {
         margin-top: 10px;
         background-color: #02b794; }
-      main.form_agencias #antiguo .form_ingreso #facebook-antiguo {
+      main.form_agencias #antiguo .form_ingreso #facebook-antiguo, main.form_agencias #nuevo .form_ingreso #facebook-antiguo {
         background-color: #313786;
         font-size: 11px;
         margin-bottom: 5px; }
-        main.form_agencias #antiguo .form_ingreso #facebook-antiguo i {
+        main.form_agencias #antiguo .form_ingreso #facebook-antiguo i, main.form_agencias #nuevo .form_ingreso #facebook-antiguo i {
           font-size: 16px;
           margin-right: 10px; }
-      main.form_agencias #antiguo .form_ingreso #linkedin-antiguo {
+      main.form_agencias #antiguo .form_ingreso #linkedin-antiguo, main.form_agencias #nuevo .form_ingreso #linkedin-antiguo {
         background-color: #0077b5;
         font-size: 11px;
         margin-bottom: 0; }
-        main.form_agencias #antiguo .form_ingreso #linkedin-antiguo i {
+        main.form_agencias #antiguo .form_ingreso #linkedin-antiguo i, main.form_agencias #nuevo .form_ingreso #linkedin-antiguo i {
           font-size: 16px;
           margin-right: 10px; }
 
