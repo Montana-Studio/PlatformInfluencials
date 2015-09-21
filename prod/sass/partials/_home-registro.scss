@@ -21,9 +21,6 @@ main{
 				color:$color_font;
 			}
 		}
-		#nuevo{
-			@extend .hide;
-		}
 		#antiguo{
 			@extend .hide;
 			@extend .center-div;
@@ -98,6 +95,9 @@ main{
 					}
 				}
 			}
+		}	
+		#nuevo{
+			@extend #antiguo;
 		}
 	}
 }
