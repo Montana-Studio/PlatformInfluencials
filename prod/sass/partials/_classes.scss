@@ -1,0 +1,40 @@
+a{
+	text:{decoration:none;}
+}
+.hide{
+	display:none;
+}
+.show{
+	display:block;
+}
+.center-div{
+	margin:0 auto;
+}
+.btns{
+	cursor:pointer;
+	@include span-columns(10);
+	@include shift(1);
+	border:1px solid #fff;
+	@include borderRadius(5px);
+	color:#fff;
+	text:{transform:uppercase;}
+	font:{size:13px;}
+	@include pad(15px 0);
+	margin:{bottom:10px}
+}
+.btn_close{
+	@include borderRadius(100%);
+	width:20px;
+	height:20px;
+	border:2px solid $color_grey;
+	color:$color_grey;
+	font:{size:12px;}
+	position: absolute;
+	top:5px;
+	right:5px;
+	display:table;
+	span{
+		display: table-cell;
+		vertical-align:middle;
+	}
+}

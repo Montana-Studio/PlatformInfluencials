@@ -10,11 +10,11 @@ module.exports = function(grunt) {
         
         jsout:'js/platform_influencials.min.js',
         cssout:'css/platform_influencials.css',
-        compimg:'img2/**/*.{png,jpg,gif}',
+        compimg:'img/',
 
         js:'js/**/*.js',
         scss:'sass/**/*.scss',
-        img:'img/**/*.{png,jpg,gif}',
+        img:'**/*.{png,jpg,gif}',
 
         sass: {
           deve: {
@@ -88,7 +88,7 @@ module.exports = function(grunt) {
             },
             compile: {
                 files: {
-                    '<%= www %>/<%= jsout %>': ['<%= js %>']
+                    '<%= www %>/<%= jsout %>': ['<%= dist %>/<%= js %>']
                 }
             }
         },
@@ -127,9 +127,9 @@ module.exports = function(grunt) {
             files: [{
               expand: true,
               optimizationLevel: 3,                
-              cwd: '<%= dist %>/<%= compimg %>',
-              src: ['<%= dist %>/<%= img %>'],
-              dest: '<%= dist %>/<%= compimg %>'
+              cwd: '<%= dist %>/img/',
+              src: ['<%= img %>'],
+              dest: '<%= www %>/<%= compimg %>/'
             }]
           }
         },
