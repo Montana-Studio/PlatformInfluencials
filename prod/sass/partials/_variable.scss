@@ -1,0 +1,24 @@
+//FONTS
+$fontAll:'Roboto Condensed', sans-serif;
+$color_font:#107977;//GreenDark
+$color_font2:#02b794;//GreenLight
+
+//COLORS
+$color_grey:#c7c7c7;//GrisForAll
+
+//TEXT ALIGN
+$text-center:center;
+$text-left:left;
+$text-right:right;
+$text-justify:justify;
+
+@mixin textAligns($aligns){
+	text-align:$aligns;
+}
+
+@mixin borderRadius($roundness){
+	@include border-top-radius($roundness);
+	@include border-left-radius($roundness);
+	@include border-right-radius($roundness);
+	@include border-bottom-radius($roundness);
+}
