@@ -1,31 +1,3 @@
-<?php
-//holi
-require('conexion.php');
-include_once("RRSS/twitter/sign-in-with-twitter/config.php");
-include_once("RRSS/twitter/sign-in-with-twitter/inc/twitteroauth.php");
-include_once('RRSS/twitter/sign-in-with-twitter/inc/TwitterAPIExchange.php');
-
-if(isset($_SESSION['nombre'])==false){
-header('Location:registro.php');
-die();
-}
-else{
-//$mysqli->set_charset('utf8');
-$id=$_SESSION['id'];
-$query="SELECT * FROM campana  WHERE idpersona=".$id." ORDER BY id DESC LIMIT 3";
-$result= mysqli_query($mysqli,$query)or die(mysqli_error());
-$row= mysqli_fetch_array($result, MYSQLI_NUM);
-
-
-$query2="SELECT * FROM persona WHERE id=".$id;
-$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
-$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
-
-}
-
-?>
-
-
 <html>
 <head>
 	<meta  charset="UTF-8" >
@@ -146,44 +118,39 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 			else
 				$('#registrarse').attr('disabled','disabled');
 		}
-
-
 	</script>
-
 	<script type="text/javascript">
-	function getProfileData() {
-		IN.API.Raw("/people/~:(id,email-address,formatted-name,num-connections,picture-url,positions:(company:(name)))").result(onSuccess).error(onError);
-	}
-	function onSuccess(data) {
-			var idLinkedin = data ['id'];
-			var conn = data['numConnections'];
-			console.log (conn);
-			var linkedinConnections = document.getElementById('linCon');
-			linkedinConnections.value = conn ;
-			var linkedin_id = document.getElementById('idlinkedin');
-			linkedin_id.value = idLinkedin ;
-		 
+		function getProfileData() {
+			IN.API.Raw("/people/~:(id,email-address,formatted-name,num-connections,picture-url,positions:(company:(name)))").result(onSuccess).error(onError);
+		}
+		function onSuccess(data) {
+				var idLinkedin = data ['id'];
+				var conn = data['numConnections'];
+				console.log (conn);
+				var linkedinConnections = document.getElementById('linCon');
+				linkedinConnections.value = conn ;
+				var linkedin_id = document.getElementById('idlinkedin');
+				linkedin_id.value = idLinkedin ;
+			 
 
-		 var suma;
-		 var linkedin_con = parseInt(conn);
-		 suma += linkedin_con;
-		 var reach = document.getElementById('reach');
-		 reach.value = suma;
-	}
-	function onError(error) {
-		console.log(error);
-	}	
-	function LinkedINAuth(){
-		IN.UI.Authorize().place();
-	}
-	function onLinkedInLoad() {
-		LinkedINAuth();
-		IN.Event.on(IN, "auth", function () { getProfileData(); });
-		IN.Event.on(IN, "logout", function () { onLinkedInLogout(); });
-	}
+			 var suma;
+			 var linkedin_con = parseInt(conn);
+			 suma += linkedin_con;
+			 var reach = document.getElementById('reach');
+			 reach.value = suma;
+		}
+		function onError(error) {
+			console.log(error);
+		}	
+		function LinkedINAuth(){
+			IN.UI.Authorize().place();
+		}
+		function onLinkedInLoad() {
+			LinkedINAuth();
+			IN.Event.on(IN, "auth", function () { getProfileData(); });
+			IN.Event.on(IN, "logout", function () { onLinkedInLogout(); });
+		}
 	</script>
-
-
 	<style>
 		input{
 		border:none;
@@ -202,57 +169,55 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 		}
 	</style>
 
-	<div id="twtfrm">
-		<?php
-		if(isset($_SESSION['status']) && $_SESSION['status']=='verified') 
-		{	//Success, redirected back from process.php with varified status.
-			//retrive variables
-			$screenname 		= $_SESSION['request_vars']['screen_name'];
-			$twitterid 			= $_SESSION['request_vars']['user_id'];
-			$oauth_token 		= $_SESSION['request_vars']['oauth_token'];
-			$oauth_token_secret = $_SESSION['request_vars']['oauth_token_secret'];
-		    $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $oauth_token, $oauth_token_secret);
+<?php
+require('conexion.php');
+if(isset($_SESSION['nombre'])==false){
+header('Location:index.php');
+die();
+}
+else{
+include_once("RRSS/twitter/sign-in-with-twitter/config.php");
+include_once("RRSS/twitter/sign-in-with-twitter/inc/twitteroauth.php");
+include_once('RRSS/twitter/sign-in-with-twitter/inc/TwitterAPIExchange.php');
+//include_once("RRSS/twitter/sign-in-with-twitter/index.php");
+//$mysqli->set_charset('utf8');
+$id=$_SESSION['id'];
+$query="SELECT * FROM campana  WHERE idpersona=".$id." ORDER BY id DESC LIMIT 3";
+$result= mysqli_query($mysqli,$query)or die(mysqli_error());
+$row= mysqli_fetch_array($result, MYSQLI_NUM);
 
-			   $settings = array(
-		        'oauth_access_token' => "3523857136-MwHOy2ZrYGqvvT6fSpkCbFxe5BYqlmQzUs41UdN",
-		        'oauth_access_token_secret' => "Verk18Cyb8oTYGdcptHvvZaCOXD5gaNDBtMFdd1tqPL9k",
-		        'consumer_key' => "57Ad64b6xTGNDDyIAAWvcKlGV",
-		        'consumer_secret' => "YHQUctM9IPL9UHrd0EfNv4MATF8Q1t1Zmqpn3OS12OhHOFF3tX"
-		    );
-			//echo '<script language="javascript">alert("tus followers son demasiado pocos");</script>'; 
 
-			//Get followers
-			$usuario = $_SESSION['request_vars']['user_id'];
-			$ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
-			$getfield = '?id='.$_SESSION['request_vars']['user_id'];
-		    $requestMethod = 'GET';
-		    $twitter = new TwitterAPIExchange($settings);
-		    $follow_count=$twitter->setGetfield($getfield)
-		    ->buildOauth($ta_url, $requestMethod)
-		    ->performRequest();
-		    $data = json_decode($follow_count, true);
-		     $followers_count=(int)$data[0]['user']['followers_count'];
-		     if ($followers_count == 0){
-		     	//alert("tú numero de seguidores es muy bajo");
-		     	$display = "none";
+$query2="SELECT * FROM persona WHERE id=".$id;
+$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
+$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 
-		     	$query3="INSERT INTO rrss (persona_id,rrss,descripcion_rrss) VALUES (".$id.",".$usuario.",'twitter')";
-				$result3= mysqli_query($mysqli,$query3)or die(mysqli_error());
-		     	echo $query3;
-		     	echo '<script language="javascript">alert("tus followers son demasiado pocos");</script>'; 
-		        session_destroy();
-		     }else{
-		     	$query3="INSERT INTO rrss (persona_id,rrss,descripcion_rrss) VALUES (".$id.",".$usuario.",'twitter')";
-				$result3= mysqli_query($mysqli,$query3)or die(mysqli_error());
-		         $display = "block";
-		         session_destroy();
-		     }	
-		}else{
-			$display = "none";
-		}
+}
+    $query3="SELECT rrss_id FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter'";
+    $result3=mysqli_query($mysqli,$query3)or die (mysqli_error());
+    $row3= mysqli_fetch_array($result3, MYSQLI_NUM);
+    $num_row3= mysqli_num_rows($result3);
+    if ($num_row3>0){
+   	$settings = array(
+        'oauth_access_token' => "3523857136-MwHOy2ZrYGqvvT6fSpkCbFxe5BYqlmQzUs41UdN",
+        'oauth_access_token_secret' => "Verk18Cyb8oTYGdcptHvvZaCOXD5gaNDBtMFdd1tqPL9k",
+        'consumer_key' => "57Ad64b6xTGNDDyIAAWvcKlGV",
+        'consumer_secret' => "YHQUctM9IPL9UHrd0EfNv4MATF8Q1t1Zmqpn3OS12OhHOFF3tX"
+    );
+    $ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
+    $requestMethod = 'GET';
+    $usuario1 = $row3[0];
+    $getfield1 = '?id='.$usuario1;
+    $twitter1 = new TwitterAPIExchange($settings);
+    $follow_count1=$twitter1->setGetfield($getfield1)
+    ->buildOauth($ta_url, $requestMethod)
+    ->performRequest();
+    $data1 = json_decode($follow_count1, true);
+    $followers_count1=(int)$data1[0]['user']['followers_count'];
+    echo "<script> $(document).ready(function(){
+    	$('.twitter-div').removeAttr('href')});</script>";
+    }
 
-		?>
-	</div>
+?>
 </head>
 <body>
 <?php echo $_SESSION['id']." - ";?>
@@ -300,7 +265,10 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 			<button id="facebook">Facebook</button><a></a>
 		</div>
 		<div>
-			<a href="RRSS/twitter/sign-in-with-twitter/process.php">twitter</a>	
+			<a class="twitter-div" href="RRSS/twitter/sign-in-with-twitter/process.php">twitter</a>
+			<div id="twitter-from-data-base" style="display:<?php echo $displaydb;?>">
+			        <?php echo $followers_count1;?>
+			</div>
 		</div>
 		<div>
 			<button id="instagram">Instagram</button><a></a>
@@ -320,11 +288,6 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 		<div>
 			<button id="pinterest">Pinterest</button><a></a>
 		</div>
-	</div>
-
-	<div id="twitter" style="display:<?php echo $display;?>">
-				<h2>Usuario = <?php echo $usuario;?></h2>
-				<h3>Followers = <?php echo $followers_count;?></h3>	
 	</div>
 	<div id="contacto">
 		<h2>contacto</h2>
