@@ -28,8 +28,7 @@ main{
 			background: {color:#fff;}
 			position:absolute;
 			top:16%;
-			left:0;
-			right:0;
+			@extend .center-absolute;
 			width:0;
 			height:0;
 			opacity:0;
@@ -59,22 +58,14 @@ main{
 					text:{transform:uppercase;}
 				}
 				input{
-					font:{family:$fontAll;}
-					@include span-columns(10);
-					@include shift(1);
-					height:40px;
-					margin:{bottom:5px;}
-					border:none;
-					border:{bottom:1px solid $color_grey}
-					font:{size:12px;}
-					color:$color_font;
+					@extend .inputs;
 				}
 				#ingresar{
 					@extend .btns;
 					margin:{top:10px}
 					background: {color:$color_font2;}
 				}
-				#facebook-antiguo{
+				.fb_btn{
 					@extend .btns;
 					background: {color:#313786;}
 					font:{size:11px;}
@@ -84,7 +75,7 @@ main{
 						margin:{right:10px;}
 					}
 				}
-				#linkedin-antiguo{
+				.lk_btn{
 					@extend .btns;
 					background: {color:#0077b5;}
 					font:{size:11px;}
@@ -98,6 +89,48 @@ main{
 		}	
 		#nuevo{
 			@extend #antiguo;
+			top:5%;
+			h2{
+				margin:0;
+			}
+			.registerForm{
+				@extend .form_ingreso;
+				@include fill-parent();
+				.telefonos{
+					@include span-columns(4.5);
+					@include row();
+					@include omega();
+				}
+				#registrarse{
+					@extend .btns;
+					margin:{top:10px}
+					background: {color:$color_font2;}
+					font:{family:$fontAll}
+					&[disabled="disabled"]{
+						background:{color:rgba(2, 147, 119, 0.34);}
+					}
+				}
+				#selectImage{
+					#searchImg{
+						@include span-columns(10);
+						@include shift(1);
+						background:{color:$color_blue;}
+						padding: 10px 0;
+    					margin:{bottom: 2px;}
+					}
+					input[type="file"]{
+						@extend .hide;
+					}
+				}
+				.registrationFormAlert{
+					position: absolute;
+					@extend .center-absolute;
+					@extend .center-div;
+					top: 7%;
+					font:{size: 12px;}
+					color: red;
+				}
+			}
 		}
 	}
 }

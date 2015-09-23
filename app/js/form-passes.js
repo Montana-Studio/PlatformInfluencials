@@ -1,4 +1,6 @@
 $(document).ready(function(){
+
+	//INICIO SCRIPTS
 	var info;
 	$('#alertRegistrado').hide();
 	$('#facebook-name').hide();
@@ -53,7 +55,6 @@ $(document).ready(function(){
 		$("#volver").hide();
 		$('.form_agencias').hide();
 	})
-
 	
 	$('#ingresar').click(function(){
 		username=$('#username').val();
@@ -66,11 +67,11 @@ $(document).ready(function(){
 			success: function(html){ 
 				console.log(html);
 				switch (html){
-				case "admin": window.location.href= "dashboard-admin.php";
+				case "admin": window.location.href= "./dashboard-admin.php";
 				break;
-				case "agencia": window.location.href = "dashboard-agencia.php";
+				case "agencia": window.location.href = "./dashboard-agencia.php";
 				break;
-				case "ipe": window.location.href = "dashboard-ipe.php";
+				case "ipe": window.location.href = "./dashboard-ipe.php";
 				break;
 				case "inactivo": 	$('#alertRegistrado').show();
 									document.getElementById('alertRegistrado').innerHTML ="usuario inactivo";	
@@ -84,7 +85,6 @@ $(document).ready(function(){
 		});
 	});
 
-	
 	$('#agenciaform').on('submit',(function(e){
 		e.preventDefault();
 		info = new FormData(this);
@@ -137,7 +137,7 @@ $(document).ready(function(){
 
 		$.ajax({  
 			type: "POST",  
-			url: "procesar_login_nuevo.php",  
+			url: "./procesar_login_nuevo.php",  
 			data: info,
 			enctype: 'multipart/form-data',
 			contentType: false,      
@@ -214,8 +214,6 @@ $(document).ready(function(){
 		//console.log('api load linked');
 	});
 
-
-	
 	$("#ver-password").keyup(checkPasswordMatch);
 	$("#telefono1nuevo").keyup(phone1Length);
 	$("#telefono2nuevo").keyup(phone2Length);	
@@ -223,8 +221,85 @@ $(document).ready(function(){
 	$("#ver-passwordIpe").keyup(checkPasswordMatchIpe);
 	$("#telefono1nuevoIpe").keyup(phone1LengthIpe);
 	$("#telefono2nuevoIpe").keyup(phone2LengthIpe);	
+
+	//DASHBOARD SCRIPTS
+
+	//variables globales
+	var correo,nombre,correo,tel1,tel2,empresa;
+	var rsid = $('#RsId').val();
+	if (rsid != ''){
+	$('#correo input').removeAttr('disabled');
+	}
+	var foto=0;
+		$('#file').click(function(){
+		  foto=1; 
+	});
+		
+	$('#imagenform').on('submit',(function (e){
+		e.preventDefault;
+		info = new FormData(this);
+		info.append('correo',$('#correo input').val());
+		info.append('rsid',$('#RsId').val());
+		info.append('nombre',$('#nombre input').val());
+		info.append('tel1',$('#tel1 input').val());
+		info.append('tel2',$('#tel2 input').val());
+		info.append('empresa',$('#empresa input').val());
+		info.append('picture_url', '<?php echo $_SESSION["pictureUrl"];?>');
+	
+		if(foto==1) {
+		$.ajax({
+				type: "POST",  
+				url: "./procesar_imagen.php",  
+				data: info,
+				enctype: 'multipart/form-data',
+				contentType: false,      
+				cache: false,             
+				processData:false, 
+			
+			success: function(data){ 
+				window.location.reload();
+			}
+			});
+		}
+		else{
+			$.ajax({  
+			
+					type: "POST",  
+					url: "./procesar-dashboard-agencia.php",  
+					data: info,
+					enctype: 'multipart/form-data',
+					contentType: false,      
+					cache: false,             
+					processData:false,
+
+				success: function(data){ 
+					console.log(data);
+					window.location.reload();
+				}
+			});
+		};
+	}));	
+
+	//campañas creadas 
+	$('#editaCampaña').hide();
+	$('#creadas #guardar').hide();
+	//editar
+	$('#creadas #editar').click (function (){
+		$('#editaCampaña').show();
+		$('#creadas #guardar').show();
+		$('#creadas #editar').hide();
+	});
+	//guardar cambios
+	$('#creadas #guardar').click (function (){
+		$('#editaCampaña').hide();
+		$('#creadas #guardar').hide();
+		$('#creadas #editar').show();
+	});
+	$('#guardar').hide();
+	$('#editar').show();
 });
 
+//INICIO FUNCTIONS
 function valida(e){
 	tecla = (document.all) ? e.keyCode : e.which;
 	if (tecla==8){
@@ -239,7 +314,7 @@ function checkPasswordMatch() {
 	var confirmPassword = $('#ver-password').val();
 	$('#registrarse').attr('disabled', 'disabled');
 	if (password != confirmPassword || password == ''|| confirmPassword ==''){
-		$('#divCheckPasswordMatch').html('las contraseñas no coinciden');
+		$('#divCheckPasswordMatch').html('Las contraseñas no coinciden');
 	}
 	else{
 		$('#divCheckPasswordMatch').html('');
@@ -264,7 +339,6 @@ function phone2Length(){
 	else
 		$('#registrarse').attr('disabled','disabled');
 }
-
 function validaIpe(e){
 	tecla = (document.all) ? e.keyCode : e.which;
 	if (tecla==8){

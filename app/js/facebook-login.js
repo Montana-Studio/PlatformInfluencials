@@ -50,7 +50,8 @@ $(document).ready(function(){
   			facebookLogout();
 		});
 		
-		var app_id = '962955813772092';
+		var app_id = '973652052702468';
+		//var app_id = '962955813772092';
 		var scopes= 'email,user_friends';
 		var name;
 		var email;
@@ -66,23 +67,23 @@ $(document).ready(function(){
 	console.log(facebookUser,facebookCorreo);
 	$.ajax({  
             type: "POST",  
-            url: "procesar_facebook.php",  
+            url: "./procesar_facebook.php",  
             data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id+"&tipo="+document.getElementById('tipoCliente').getAttribute('value'),  
 			
 			
             success: function(html){ 
 				switch (html){
-				case "dashboard": window.location.href="dashboard-agencia.php";
+				case "dashboard": window.location.href="./dashboard-agencia.php";
 				break;
 				case "false": 	$('#alertRegistrado').show();
 								document.getElementById('alertRegistrado').innerHTML = "Estimado(a) "+facebookUser+" ya se encuentra registrado nos contactaremos con usted a la brevedad";
 				break;
-				case "primera": window.location.href="formulario-agencia.php";
+				case "primera": window.location.href="./formulario-agencia.php";
 								document.getElementById('alertRegistrado').innerHTML ="Por favor ingrese sus datos en el formulario";					
 				break;
-				case "dashboard-ipe": window.location.href="dashboard-ipe.php";
+				case "dashboard-ipe": window.location.href="./dashboard-ipe.php";
 				break;
-				case "primera-ipe": window.location.href="formulario-agencia3.php";
+				case "primera-ipe": window.location.href="./formulario-agencia3.php";
 								document.getElementById('alertRegistrado').innerHTML ="Por favor ingrese sus datos en el formulario";					
 				break;
 				};
@@ -136,7 +137,7 @@ $(document).ready(function(){
   		checkLoginState(function(data) {
   			if (data.status === 'connected') {
 				FB.logout(function(response) {
-					window.location.href="registro.php";
+					window.location.href="./";
 				});
 			}
   		});
