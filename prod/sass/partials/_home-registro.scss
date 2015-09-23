@@ -1,6 +1,6 @@
 main{
 	@include textAligns($text-center);
-	@include row();
+	//@include row();
 	&.ingreso_eleccion{
 		margin:{top:48px;}
 		#tipo{
