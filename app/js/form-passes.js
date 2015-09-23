@@ -62,7 +62,7 @@ $(document).ready(function(){
 		//console.log(username);
 		$.ajax({  
 			type: "POST",  
-			url: "procesar_login.php",  
+			url: "./procesar_login.php",  
 			data: "name="+username+"&pwd="+password, 
 			success: function(html){ 
 				console.log(html);

@@ -26,18 +26,33 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	<script>
+		jQuery(document).ready(function(){
+			$('html, body').addClass('dashboard-agencia');
+		});
+	</script>
 </head>
 <body>
 
 	<header>
 		
 		<div class="logo"></div>
+		<a href="#" class="ayuda_pi"><i class="fa fa-life-ring"></i></a>
 		<i class="notes fa fa-bell-o"></i>
 		<div class="menu" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);"></div>
 
 	</header>
 
-	<a href="#" class="ayuda_pi">¿Necesitas ayuda?</a>
+	<nav>
+		
+		<ul>
+			<li><a href="campana.php"><i class="fa fa-suitcase"></i> campañas</a></li>
+			<li><a href="nueva-campana.php"><i class="fa fa-pencil"></i> crear campaña</a></li>
+		</ul>
+
+	</nav>
+
 
 	<form id="imagenform">
 		
@@ -57,7 +72,7 @@
 				<h2><?php echo $_SESSION['nombre']; ?></h2>
 				<h3><?php echo $_SESSION['empresa']; ?></h3>
 				
-				<div class="editar">editar perfil</div>
+				<div class="editar"><span>editar perfil</span></div>
 
 			</div>
 
@@ -114,7 +129,8 @@
 
 			<a href="logout.php" class="logout"><i class="fa fa-times-circle-o"></i> cerrar sesion</a>
 		</div>
-
+		
+		<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
 	</form>
 
 	<?php 
@@ -170,7 +186,7 @@
 				</div>
 		<?php 
 			}else{
-				echo '<a href="nueva-campana.php"><h2>crear campa&ntildea</h2></a>';
+				echo '<main class="no-campana"><a href="nueva-campana.php"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Quisque posuere risus erat  at scelerisque felis pulvinar quis.</p><div class="btn_crearcamp">crear campaña</div></a></main>';
 			}
 		?>	
 	
