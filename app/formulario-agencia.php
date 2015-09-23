@@ -110,7 +110,7 @@ require('conexion.php');
 					
 					success: function(html){ 
 						alert("Registro de datos completo");
-						window.location.href= "registro.php";
+						window.location.href= "./";
 						}
 				});
 			});

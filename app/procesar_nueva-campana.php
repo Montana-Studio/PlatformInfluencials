@@ -1,7 +1,7 @@
 <?php 
 require('conexion.php');
 if(isset($_SESSION['nombre'])==false){
-header('Location:registro.php');
+header('Location:./');
 die();
 }
 else{
