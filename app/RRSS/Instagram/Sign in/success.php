@@ -24,7 +24,7 @@ if (isset($code)) {
     // store user access token
     $instagram->setAccessToken($data);
     // now you have access to all authenticated user methods
-    $result = $instagram->getUserMedia();
+    $result = $instagram->getUser();
 } else {
     // check whether an error occurred
     if (isset($_GET['error'])) {
@@ -38,6 +38,10 @@ if (isset($code)) {
     <meta charset="utf-8">
 </head>
 <body>
-<?php echo $data;?>
+<div>
+    <h1><?php echo $result;?></h1>
+
+    <h1><?php //echo $result; $?></h1>
+</div>
 </body>
 </html>

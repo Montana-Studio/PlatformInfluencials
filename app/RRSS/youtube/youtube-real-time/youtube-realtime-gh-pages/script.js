@@ -30,13 +30,14 @@
 	update.live = function() {
 		// Cambiar Api_Key aquí
 			if (username!='undefined'){	
-			//	var url = "https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername="+username+"&fields=items/statistics&key=AIzaSyC7WF2_-G6XOXXAt8bNyBCDStnfbi1JvYI";
-			var url = "https://www.googleapis.com/youtube/v3/channels?part=snippet&id="+username+"&fields=items/snippet&key=AIzaSyC7WF2_-G6XOXXAt8bNyBCDStnfbi1JvYI";
+			//var url = "https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername="+username+"&fields=items/statistics&key=AIzaSyDBMZsybp7GcJdmqdhgGDn-jRkGo9jyD-c";
+			var url = "https://www.googleapis.com/youtube/v3/channels?part=snippet&forUsername="+username+"&fields=items/snippet&key=AIzaSyDBMZsybp7GcJdmqdhgGDn-jRkGo9jyD-c";	
 				getText(url, function(e) {
 					e = JSON.parse(e);
 					//var sub_count = e.items[0].statistics.subscriberCount;
-					var sub_count = e.items[0].snippet.tittle;
-					if(!update.isLive && username) {
+					var sub_count = e.items[0].snippet;
+					console.log (sub_count)
+;					if(!update.isLive && username) {
 						el: document.querySelector(".count_live"),
 						update.isLive = 1;
 					} else {
