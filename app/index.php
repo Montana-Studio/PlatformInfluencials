@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="css/platform_influencials.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-	<script type="text/javascript" async src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script id="facebook-sdk"src="js/facebook-login.js"></script>
 
 </head>
@@ -52,52 +52,43 @@
 
 			<div id="nuevo">
 				<h2>Registro</h2>
-				
+
 				<form id="agenciaform" class="registerForm">
 					
-					<div>
-						<input placeholder="usuario" name="username-nuevo" id="usernamenuevo" required>
-					</div>
+					<input placeholder="Nombre" name="username-nuevo" id="usernamenuevo" required>
+			
+					<input type="email" placeholder="Correo electrónico" id="correonuevo" required>
 					
-					<div>
-						<input type="email" placeholder="correo" id="correonuevo" required>
-					</div>
+					<input placeholder="Empresa" name="empresa-nuevo" id="empresanuevo" required>
 					
-					<div>
-						<input placeholder="empresa" name='empresa-nuevo' id="empresanuevo" required>
-					</div>
+					<input type="password" placeholder="Contraseña" id="contraseñanuevo" required>
+					<input type="password" onChange="checkPasswordMatch();" placeholder="Repetir Contraseña" id="ver-password" required> 
+
+					<div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
 					
-					<div>
-						
-						<input type="password" placeholder="contraseña-nuevo" id="contraseñanuevo" required> - 
-						<input type="password" onChange="checkPasswordMatch();" placeholder="verificar contraseña-nuevo" id="ver-password"  required> 
-
-						<div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
-
-					</div>
-
-					<div>
-						<input placeholder="telefono1" onkeypress="return valida(event)" name="telefono1-nuevo" id="telefono1nuevo" maxlength="11" required>
-					</div>
-
-					<div>
-						<input placeholder="telefono2" onkeypress="return valida(event)" name="telefono2-nuevo" id="telefono2nuevo" maxlength="11" required>
-					</div>
-
+					<input class="telefonos" placeholder="Tel. Empresa" onkeypress="return valida(event)" name="telefono1-nuevo" id="telefono1nuevo" maxlength="11" required>
+					<input class="telefonos" placeholder="Tel. Personal" onkeypress="return valida(event)" name="telefono2-nuevo" id="telefono2nuevo" maxlength="11" required>
+					
 					<div id="selectImage">
 							
-							<input type="file" name="file" id="file" required>
-							
-							<div>
-								<button id="registrarse" disabled type="submit">registrar</button>
-							</div>
+						<input type="file" name="file" id="file" required>
+						<div id="searchImg" class="btns">Sube una imágen</div>
+						
+						<button id="registrarse" disabled type="submit">Registrarse</button>
 
+					</div>
+					
+					<p>o registrate con</p>
+
+					<div id="facebook-nuevo" class="fb_btn" value="registrarse con Facebook">
+						<i class="fa fa-facebook"></i>registrarse con Facebook
+					</div>
+					<div id="linkedin-nuevo" class="lk_btn">
+						<i class="fa fa-linkedin"></i>registrarse con Linkedin
 					</div>
 				</form>
 
-				<button id="facebook-nuevo">registrar con Facebook</button>
-				<button id="linkedin-nuevo">registrar con Linkedin</button>
-
+				<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
 			</div>
 
 			<div id="antiguo">
@@ -106,7 +97,7 @@
 
 				<form class="form_ingreso">
 
-					<input placeholder="Usuario" name="username" id="username"/>
+					<input placeholder="Nombre" name="username" id="username"/>
 
 					<input type="password" placeholder="Contraseña" id="password"/>
 					
@@ -114,10 +105,10 @@
 					
 					<p>o ingresa con</p>
 
-					<div id="facebook-antiguo" value="ingresar con Facebook">
+					<div id="facebook-antiguo" class="fb_btn" value="ingresar con Facebook">
 						<i class="fa fa-facebook"></i>ingresar con Facebook
 					</div>
-					<div id="linkedin-antiguo">
+					<div id="linkedin-antiguo" class="lk_btn">
 						<i class="fa fa-linkedin"></i>ingresar con Linkedin
 					</div>
 
@@ -125,7 +116,7 @@
 				
 				<a href="#">¿No recuerdas tu contraseña?</a>
 				
-				<div class="btn_close"><span>x</span></div>
+				<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
 			</div>
 
 			<button id="volver">volver</button>

@@ -1,238 +1,180 @@
 <?php
-//holi
-require('conexion.php');
-if(isset($_SESSION['nombre'])==false){
-header('Location:registro.php');
-die();
-}
-else{
-//$mysqli->set_charset('utf8');
-$id=$_SESSION['id'];
-$query="SELECT * FROM campana  WHERE idpersona=".$id." ORDER BY id DESC LIMIT 3";
-$result= mysqli_query($mysqli,$query)or die(mysqli_error());
-$row= mysqli_fetch_array($result, MYSQLI_NUM);
-}
+	//holi
+	require('conexion.php');
+	if(isset($_SESSION['nombre'])==false){
+		header('Location:/');
+		die();
+	}
+	else{
+		//$mysqli->set_charset('utf8');
+		$id=$_SESSION['id'];
+		$query="SELECT * FROM campana  WHERE idpersona=".$id." ORDER BY id DESC LIMIT 3";
+		$result= mysqli_query($mysqli,$query)or die(mysqli_error());
+		$row= mysqli_fetch_array($result, MYSQLI_NUM);
+	}
 ?>
-<html>
+
+<!DOCTYPE html>
+<html lang="es">
 <head>
-	<meta  charset="UTF-8" >
-	<title>dashboard - <?php echo $_SESSION['nombre']; ?></title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script>
-		$(document).ready(function(){
-			//variables globales
-			var correo,nombre,correo,tel1,tel2,empresa;
-			var rsid = $('#RsId').val();
-			if (rsid != ''){
-			$('#correo input').removeAttr('disabled');
-			}
-			var foto=0;
-				$('#file').click(function(){
-				  foto=1; 
-			});
-				
-				$('#imagenform').on('submit',(function (e){
-				e.preventDefault;
-				info = new FormData(this);
-				info.append('correo',$('#correo input').val());
-				info.append('rsid',$('#RsId').val());
-				info.append('nombre',$('#nombre input').val());
-				info.append('tel1',$('#tel1 input').val());
-				info.append('tel2',$('#tel2 input').val());
-				info.append('empresa',$('#empresa input').val());
-				info.append('picture_url', '<?php echo $_SESSION['pictureUrl'];?>');
-			
-				if(foto==1) {
-				$.ajax({
-						type: "POST",  
-						url: "procesar_imagen.php",  
-						data: info,
-						enctype: 'multipart/form-data',
-						contentType: false,      
-						cache: false,             
-						processData:false, 
-					
-					success: function(data){ 
-						window.location.reload();
-					}
-					});
-				}
-				else{
-					$.ajax({  
-					
-							type: "POST",  
-							url: "procesar-dashboard-agencia.php",  
-							data: info,
-							enctype: 'multipart/form-data',
-							contentType: false,      
-							cache: false,             
-							processData:false,
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-						success: function(data){ 
-							console.log(data);
-							window.location.reload();
-						}
-					});
-				};
-			}));	
+	<title>Power Influencer - <?php echo $_SESSION['nombre']; ?></title>
 
-			//campañas creadas 
-			$('#editaCampaña').hide();
-			$('#creadas #guardar').hide();
-			//editar
-			$('#creadas #editar').click (function (){
-				$('#editaCampaña').show();
-				$('#creadas #guardar').show();
-				$('#creadas #editar').hide();
-			});
-			//guardar cambios
-			$('#creadas #guardar').click (function (){
-				$('#editaCampaña').hide();
-				$('#creadas #guardar').hide();
-				$('#creadas #editar').show();
-			});
-			$('#guardar').hide();
-			$('#editar').show();
-		});
-		
-		function valida(e){
-				tecla = (document.all) ? e.keyCode : e.which;
-				if (tecla==8){
-					return true;
-				};
-				patron =/[0-9]/;
-				tecla_final = String.fromCharCode(tecla);
-				return patron.test(tecla_final);
-			};
-		function phone1Length(){
-			var tel1 = $('#telefono1nuevo').val();
-			var tel2 = $('#telefono2nuevo').val();
-			$('#registrarse').attr('disabled','disabled');
-			if (tel1.length > 7 && tel2.length > 7)
-				$('#registrarse').removeAttr('disabled');
-			else
-				$('#registrarse').attr('disabled','disabled');
-			}
+	<link rel="stylesheet" href="css/platform_influencials.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-		function phone2Length(){
-			var tel1 = $('#telefono1nuevo').val();
-			var tel2 = $('#telefono2nuevo').val();
-			$('#registrarse').attr('disabled','disabled');
-			if (tel1.length > 7 && tel2.length > 7)
-				$('#registrarse').removeAttr('disabled');
-			else
-				$('#registrarse').attr('disabled','disabled');
-		}
-
-	</script>
-	<style>
-		input{
-		border:none;
-		background-color:#fff;
-		color:#000;
-		cursor:pointer;
-		font-family: 'Impact',Courier,Sans-Serif;
-		}
-		.alert{
-			color:red;
-			background-color:rose;
-			border:1px solid red;
-		}
-		.content{
-			display:none;
-		}
-	</style>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 <body>
-	<div style="text-align:right;">
-		<a href="logout.php">cerrar sesion</a>
-		-
-		<a href>ayuda</a>
-	</div>
-	<h2>dashboard</h2>
-	<form id='imagenform'>
-		<div id="inicio" disabled>
-		<div id="nombre">
-			<input value="<?php echo $_SESSION['nombre']; ?>">
-		</div>
-		<img src="<?php echo $_SESSION['pictureUrl'];?>" width="100" height="auto">
-		<input id="RsId" style="display:none" value="<?php echo $_SESSION['rsid']; ?>">
-		<div id="empresa">
-			<input value="<?php echo $_SESSION['empresa']; ?>">
-		</div>
-		<input type="file" name="file" id="file">
-	<h2>Datos de facturaci&oacuten </h2>
-			<div id="correo">
-				<input value="<?php echo $_SESSION['correo']; ?>" disabled>
-			</div>
-			<div id="tel1">
-				<input type="text"  onkeypress="return valida(event)" value="<?php echo $_SESSION['telefono1']; ?>">
-			</div>
-			<div id="tel2">
-				<input type="text"  onkeypress="return valida(event)" value="<?php echo $_SESSION['telefono2']; ?>">
-			</div>
-			<button id="guardarFacturacion" type="submit">Guardar</button>
-		</div>
-	</form>
-	<?php 
-	if ((int)$row[0] != 0){ ?>
-		<?php 
-			echo '
-		<a href="campana.php">ir a campa&ntildeas</a>
+
+	<header>
 		
-			<div id="creadas">
-				<h2>&uacutetlimas campa&ntildeas creadas</h2>
-				<script type="text/javascript">
-					$(document).ready(function(){
-						$(".volver").hide();
-						var contador=0;
-						$("#recientes .content_all").click(function(){
-							if (contador==0){
-							$("#recientes .content_all").not(this).hide();
-							$("#recientes .content, .volver").show(this);
-								//console.log(clicked_id);
-								contador=1;
-							}
-						});
-						
-						$(".volver").click(function(){
-							if (contador==1){
-							$("#recientes .content_all").show();
-							$("#recientes .content").hide();
-								//console.log(clicked_id);
-								contador=0;
-								$(".volver").hide();
-							}
-						});
-					});
-				</script>
+		<div class="logo"></div>
+		<i class="notes fa fa-bell-o"></i>
+		<div class="menu" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);"></div>
+
+	</header>
+
+	<a href="#" class="ayuda_pi">Â¿Necesitas ayuda?</a>
+
+	<form id="imagenform">
+		
+		<div class="fle-top"></div>
+		
+		<div class="misdatos">
 			
-			';
-				do{
-				 echo '
-				<div id="recientes">
-					<div class="content_all">
-					<img id="imagen'.$row[0].'"width="100" height="auto"  src="'.$row[3].'"/>
-						<div class="content" >
-							<p class="campana'.$row[0].'" ">'.$row[2].'</p>
-							<p>'.$row[4].'</p>
-							
-						</div>
-					</div>
-					
-				 </div>
-			 
-				'; }while($row = mysqli_fetch_row($result)); ?>
-				
-				<?php 
-				echo '<button class="volver">Volver</button>';?>
+			<div class="imagen" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);">
+			
+				<input type="file" name="file" id="file" class="hide">
+				<div id="searchImg" class="changeImg"><i class="fa fa-pencil"></i></div>
+
 			</div>
+			
+			<div class="datos">
+				
+				<h2><?php echo $_SESSION['nombre']; ?></h2>
+				<h3><?php echo $_SESSION['empresa']; ?></h3>
+				
+				<div class="editar">editar perfil</div>
+
+			</div>
+
+		</div>
+		
+		<div id="inicio" disabled>
+		
+			<div id="tabContainer">
+				
+				<div id="tabs">
+					<h2 id="tabHeader_1" class="clickTab">Perfil Personales</h2>
+					<h2 id="tabHeader_2" class="clickTab">Datos Empresa</h2>
+				</div>
+
+				<div id="tabscontent">
+					
+					<div class="tabpage tab-hide" id="tabpage_1">
+						
+						<div id="nombre">
+							<small>nombre</small>
+							<input value="<?php echo $_SESSION['nombre']; ?>">
+						</div>
+						<div id="correo">
+							<small>correo</small>
+							<input value="<?php echo $_SESSION['correo']; ?>" disabled>
+						</div>
+
+					</div>
+
+					<div class="tabpage tab-hide" id="tabpage_2">
+						
+						<div id="empresa">
+							<small>empresa</small>
+							<input value="<?php echo $_SESSION['empresa']; ?>">
+						</div>
+						<div id="tel1">
+							<small>tel. empresa</small>
+							<input type="text"  onkeypress="return valida(event)" value="<?php echo $_SESSION['telefono1']; ?>">
+						</div>
+						<div id="tel2">
+							<small>tel. personal</small>
+							<input type="text"  onkeypress="return valida(event)" value="<?php echo $_SESSION['telefono2']; ?>">
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+			
+			<button id="guardarFacturacion" type="submit">Actualizar</button>
+
+			<input id="RsId" style="display:none" value="<?php echo $_SESSION['rsid']; ?>">
+
+			<a href="logout.php" class="logout"><i class="fa fa-times-circle-o"></i> cerrar sesion</a>
+		</div>
+
+	</form>
+
 	<?php 
-	}else{
-	echo '<a href="nueva-campana.php"><h2>crear campa&ntildea</h2></a>';
-	}
-	?>	
-	<div id="contacto">
+		if ((int)$row[0] != 0){ ?>
+			<?php 
+				echo '
+				<a href="campana.php">ir a campa&ntildeas</a>
+			
+				<div id="creadas">
+					<h2>&uacutetlimas campa&ntildeas creadas</h2>
+					<script type="text/javascript">
+						$(document).ready(function(){
+							$(".volver").hide();
+							var contador=0;
+							$("#recientes .content_all").click(function(){
+								if (contador==0){
+								$("#recientes .content_all").not(this).hide();
+								$("#recientes .content, .volver").show(this);
+									//console.log(clicked_id);
+									contador=1;
+								}
+							});
+							
+							$(".volver").click(function(){
+								if (contador==1){
+								$("#recientes .content_all").show();
+								$("#recientes .content").hide();
+									//console.log(clicked_id);
+									contador=0;
+									$(".volver").hide();
+								}
+							});
+						});
+					</script>
+				
+				';
+					do{
+					echo '
+					<div id="recientes">
+						<div class="content_all">
+						<img id="imagen'.$row[0].'"width="100" height="auto"  src="'.$row[3].'"/>
+							<div class="content" >
+								<p class="campana'.$row[0].'" ">'.$row[2].'</p>
+								<p>'.$row[4].'</p>
+								
+							</div>
+						</div>
+					 </div>
+				 
+					'; }while($row = mysqli_fetch_row($result)); ?>
+					
+					<?php echo '<button class="volver">Volver</button>';?>
+				</div>
+		<?php 
+			}else{
+				echo '<a href="nueva-campana.php"><h2>crear campa&ntildea</h2></a>';
+			}
+		?>	
+	
+	<div id="contacto" class="hide">
 		<h2>Contacto</h2>
 		<div>
 			<input placeholder="asunto">
@@ -244,6 +186,9 @@ $row= mysqli_fetch_array($result, MYSQLI_NUM);
 			<button>Enviar</button>
 		</div>
 	</div>
-
+	
+	<script type="text/javascript" async src="js/platform_influencials.min.js"></script>
+	<script type="text/javascript" src="js/form-passes.js"></script>
+	<script type="text/javascript" src="js/tabs.js"></script>
 </body>
 </html>

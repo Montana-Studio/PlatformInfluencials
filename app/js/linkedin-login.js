@@ -30,19 +30,19 @@ $(document).ready(function(){
 	
 		$.ajax({  
             type: "POST",  
-            url: "procesar_linkedin.php",  
+            url: "./procesar_linkedin.php",  
             data: "nombre="+nombre+"&pictureUrl="+pictureUrl+"&email="+email, 
 			
 			
             success: function(html){ 
 				switch (html){
-				case "dashboard": window.location.href="dashboard-agencia.php";
+				case "dashboard": window.location.href="./dashboard-agencia.php";
 				break;
 				case "false": alert("Estimado(a) "+nombre+" ya se encuentra registrado nos contactaremos con usted a la brevedad");
 							  //window.location.href="registro.php";	
 				break;
 				case "primera":     
-									window.location.href="formulario-agencia2.php";
+									window.location.href="./formulario-agencia2.php";
 								//alert("Por favor ingrese sus datos en el formulario");					
 				break;
 				}
