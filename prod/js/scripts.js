@@ -1,4 +1,5 @@
 jQuery(document).ready(function($){
+
 	//PARA CERRAR
 	$('.btn_close').click(function(){
 		$('#antiguo, #nuevo').fadeOut(100).animate({
@@ -49,7 +50,13 @@ jQuery(document).ready(function($){
 	//BTN Upload IMG
 	$('#searchImg').on('click', function(e){
         e.preventDefault();
+        alert('clicked');
         $('#file').trigger('click');
+    });
+    $('#searchImg2').on('click', function(e){
+        e.preventDefault();
+        alert('clicked');
+        $('#file2').trigger('click');
     });
 
 	//MENU

@@ -18,7 +18,7 @@
 
 <body>
 
-	<main class="contAllPI">
+	<main class="contAllPI" style="padding-top:30%;">
 		
 		<div style="display:none;" id="tipoCliente" value="2"></div>
 
