@@ -11,17 +11,16 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script id="facebook-sdk"src="js/facebook-login.js"></script>
 
 </head>
 
 <body>
 
-	<main class="contAllPI">
+	<main class="contAllPI" style="padding-top:30%;">
 		
 		<div style="display:none;" id="tipoCliente" value="2"></div>
-
-		<a href="#" class="ayuda_pi">¿Necesitas ayuda?</a>
 
 		<!-- ALERTAS -->
 		<div id="alertRegistrado"></div>
@@ -117,6 +116,7 @@
 				<a href="#">¿No recuerdas tu contraseña?</a>
 				
 				<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
+
 			</div>
 
 			<button id="volver">volver</button>
@@ -193,7 +193,9 @@
 					<button id="volverIpe">volver</button>
 				</div>
 			</div>
-		</main>		
+		</main>	
+
+		<a href="#" class="ayuda_pi">¿Necesitas ayuda?</a>	
 
 	</main>
 	

@@ -26,96 +26,16 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	<script>
+		jQuery(document).ready(function(){
+			$('body').addClass('dashboard-agencia');
+		});
+	</script>
 </head>
 <body>
 
-	<header>
-		
-		<div class="logo"></div>
-		<i class="notes fa fa-bell-o"></i>
-		<div class="menu" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);"></div>
-
-	</header>
-
-	<a href="#" class="ayuda_pi">¿Necesitas ayuda?</a>
-
-	<form id="imagenform">
-		
-		<div class="fle-top"></div>
-		
-		<div class="misdatos">
-			
-			<div class="imagen" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);">
-			
-				<input type="file" name="file" id="file" class="hide">
-				<div id="searchImg" class="changeImg"><i class="fa fa-pencil"></i></div>
-
-			</div>
-			
-			<div class="datos">
-				
-				<h2><?php echo $_SESSION['nombre']; ?></h2>
-				<h3><?php echo $_SESSION['empresa']; ?></h3>
-				
-				<div class="editar">editar perfil</div>
-
-			</div>
-
-		</div>
-		
-		<div id="inicio" disabled>
-		
-			<div id="tabContainer">
-				
-				<div id="tabs">
-					<h2 id="tabHeader_1" class="clickTab">Perfil Personales</h2>
-					<h2 id="tabHeader_2" class="clickTab">Datos Empresa</h2>
-				</div>
-
-				<div id="tabscontent">
-					
-					<div class="tabpage tab-hide" id="tabpage_1">
-						
-						<div id="nombre">
-							<small>nombre</small>
-							<input value="<?php echo $_SESSION['nombre']; ?>">
-						</div>
-						<div id="correo">
-							<small>correo</small>
-							<input value="<?php echo $_SESSION['correo']; ?>" disabled>
-						</div>
-
-					</div>
-
-					<div class="tabpage tab-hide" id="tabpage_2">
-						
-						<div id="empresa">
-							<small>empresa</small>
-							<input value="<?php echo $_SESSION['empresa']; ?>">
-						</div>
-						<div id="tel1">
-							<small>tel. empresa</small>
-							<input type="text"  onkeypress="return valida(event)" value="<?php echo $_SESSION['telefono1']; ?>">
-						</div>
-						<div id="tel2">
-							<small>tel. personal</small>
-							<input type="text"  onkeypress="return valida(event)" value="<?php echo $_SESSION['telefono2']; ?>">
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-			
-			<button id="guardarFacturacion" type="submit">Actualizar</button>
-
-			<input id="RsId" style="display:none" value="<?php echo $_SESSION['rsid']; ?>">
-
-			<a href="logout.php" class="logout"><i class="fa fa-times-circle-o"></i> cerrar sesion</a>
-		</div>
-
-	</form>
+	<?php include 'header.php'; ?>
 
 	<?php 
 		if ((int)$row[0] != 0){ ?>
@@ -170,7 +90,7 @@
 				</div>
 		<?php 
 			}else{
-				echo '<a href="nueva-campana.php"><h2>crear campa&ntildea</h2></a>';
+				echo '<main class="no-campana"><a href="nueva-campana.php"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Quisque posuere risus erat  at scelerisque felis pulvinar quis.</p><div class="btn_crearcamp">crear campaña</div></a></main>';
 			}
 		?>	
 	
@@ -187,8 +107,6 @@
 		</div>
 	</div>
 	
-	<script type="text/javascript" async src="js/platform_influencials.min.js"></script>
-	<script type="text/javascript" src="js/form-passes.js"></script>
-	<script type="text/javascript" src="js/tabs.js"></script>
+	<?php include 'footer.php'; ?>
 </body>
 </html>

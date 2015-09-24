@@ -12,31 +12,29 @@ $result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
 $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 
 ?>
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-<meta charset="UTF-8" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<title>campa&ntildeas </title>
-	<style>
-		input{
-		border:none;
-		background-color:#fff;
-		color:#000;
-		cursor:pointer;
-		font-family: 'Impact',Courier,Sans-Serif;
-		}
-		.alert{
-			color:red;
-			background-color:rose;
-			border:1px solid red;
-		}
-	</style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+	<title>Power Influencer - Campañas</title>
+
+	<link rel="stylesheet" href="css/platform_influencials.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	<script>
+		jQuery(document).ready(function(){
+			$('body').addClass('campanas');
+		});
+	</script>
 </head>
 <body>
-	<div style="text-align:right;">
-		<a href="logout.php">cerrar sesion</a> - <a href>ayuda</a>
-	</div>
+	
+	<?php include 'header.php'; ?>
+	
 	<?php 
 	if ((int)$row[0] != 0){ ?>
 		<?php 
@@ -204,14 +202,11 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 		';}while($row = mysqli_fetch_row($result)); ?>
 	<?php 
 	}else{
-	echo ' <div>
-				<h2>no registra campa&ntildeas</h2>
-				<div>
-				<a href="dashboard-agencia.php">volver a dashboard</a> - <a href="nueva-campana.php">crear campa&ntildea </a>
-			</div>';
+	echo '<main class="no-campana"><a href="nueva-campana.php"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Quisque posuere risus erat  at scelerisque felis pulvinar quis.</p><div class="btn_crearcamp">crear campaña</div></a></main>';
 	}
 	?>	
-	<div id="contacto">
+	
+	<div id="contacto" class="hide">
 		<h2>Contacto</h2>
 			<input placeholder="asunto"></input>
 		<div>
@@ -221,6 +216,7 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 			<button>Enviar</button>
 		</div>
 	</div>
-
+	
+	<?php include 'footer.php'; ?>
 </body>
 </html>

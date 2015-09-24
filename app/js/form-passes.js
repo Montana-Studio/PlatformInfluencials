@@ -62,7 +62,7 @@ $(document).ready(function(){
 		//console.log(username);
 		$.ajax({  
 			type: "POST",  
-			url: "procesar_login.php",  
+			url: "./procesar_login.php",  
 			data: "name="+username+"&pwd="+password, 
 			success: function(html){ 
 				console.log(html);
@@ -162,8 +162,6 @@ $(document).ready(function(){
 		});
 
 	}));
-	
-
 
 	$('#linkedin-nuevo').click(function(){
 
@@ -280,23 +278,54 @@ $(document).ready(function(){
 		};
 	}));	
 
-	//campañas creadas 
+	/*//campañas creadas 
 	$('#editaCampaña').hide();
 	$('#creadas #guardar').hide();
+
 	//editar
 	$('#creadas #editar').click (function (){
 		$('#editaCampaña').show();
 		$('#creadas #guardar').show();
 		$('#creadas #editar').hide();
 	});
+
 	//guardar cambios
 	$('#creadas #guardar').click (function (){
 		$('#editaCampaña').hide();
 		$('#creadas #guardar').hide();
 		$('#creadas #editar').show();
 	});
+
 	$('#guardar').hide();
-	$('#editar').show();
+	$('#editar').show();*/
+
+	//CREAR CAMPAÑAS SCRIPT
+	var aa= '<?php echo (int)$row[0];?>';
+	var idActual = aa+1;
+	var info;
+	$('#campanaForm').on('submit',(function (e){
+		e.preventDefault;
+		info = new FormData(this);	
+		info.append('nombre',$('#nombre').val());
+		info.append('marca',$('#marca').val());
+		info.append('descripcion',$('#descripcion').val());
+		info.append('campana',idActual);
+		info.append('id','<?php echo $_SESSION["id"];?>');
+		info.append('correo','<?php echo $_SESSION["correo"];?>');
+		info.append('rsid','<?php echo $_SESSION["rsid"];?>');
+		$.ajax({
+			type: 'POST',  
+			url: './procesar_nueva-campana.php',  
+			data: info,
+			enctype: 'multipart/form-data',
+			contentType: false,      
+			cache: false,             
+			processData:false, 
+		
+			success: function(data){ 
+			}
+		});
+	}));
 });
 
 //INICIO FUNCTIONS

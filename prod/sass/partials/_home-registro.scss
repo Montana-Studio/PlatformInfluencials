@@ -1,11 +1,12 @@
 main{
 	@include textAligns($text-center);
-	@include row();
+	//@include row();
 	&.ingreso_eleccion{
 		margin:{top:48px;}
 		#tipo{
 			.btns_accesos{
 				@extend .btns;
+				@include shift(1);
 			}
 		}
 	}
@@ -15,10 +16,11 @@ main{
 		#inicio{
 			.btns_accesos{
 				@extend .btns;
+				@include shift(1);
 			}
 			#registrar{
 				background: {color:#fff;}
-				color:$color_font;
+				color:$color_font2;
 			}
 		}
 		#antiguo{
@@ -32,12 +34,15 @@ main{
 			width:0;
 			height:0;
 			opacity:0;
+			@include pad(20px);
+			z-index: 9;
 			h2{
 				@extend .hide;
 				color:$color_font2;
 				font:{size:16px;}
 				text:{transform:uppercase;}
-				@include pad(15px 0);
+				@include pad(5px 0);
+				margin:0;
 			}
 			a{
 				@include pad(10px 0 5px);
@@ -49,61 +54,64 @@ main{
 			}
 			.form_ingreso{
 				@extend .hide;
+				@include fill-parent();
 				p{
 					@include row();
 					@include span-columns(12);
 					color:$color_font2;
 					font:{size:11px;}
-					margin:5px 0 15px;
+					margin:10px 0;
 					text:{transform:uppercase;}
 				}
 				input{
 					@extend .inputs;
+					@include span-columns(12);
 				}
 				#ingresar{
 					@extend .btns;
-					margin:{top:10px}
+					@include span-columns(12);
+					margin:{top:10px;}
 					background: {color:$color_font2;}
 				}
 				.fb_btn{
 					@extend .btns;
+					@include span-columns(12);
 					background: {color:#313786;}
 					font:{size:11px;}
 					margin:{bottom:5px}
+					clear: both;
 					i{
 						font:{size:16px;}
 						margin:{right:10px;}
 					}
 				}
 				.lk_btn{
-					@extend .btns;
+					@extend .fb_btn;
 					background: {color:#0077b5;}
-					font:{size:11px;}
-					margin:{bottom:0}
-					i{
-						font:{size:16px;}
-						margin:{right:10px;}
-					}
+					margin:{bottom:0;}
 				}
 			}
 		}	
 		#nuevo{
 			@extend #antiguo;
-			top:5%;
+			overflow: scroll;
+			overflow-x: hidden;
+			padding:{bottom:10px;}
 			h2{
 				margin:0;
 			}
 			.registerForm{
 				@extend .form_ingreso;
-				@include fill-parent();
 				.telefonos{
-					@include span-columns(4.5);
+					@include span-columns(6.13);
 					@include row();
 					@include omega();
+					margin:{bottom:10px;}
 				}
 				#registrarse{
 					@extend .btns;
-					margin:{top:10px}
+					@include span-columns(12);
+					margin:{top:10px;}
 					background: {color:$color_font2;}
 					font:{family:$fontAll}
 					&[disabled="disabled"]{
@@ -112,11 +120,11 @@ main{
 				}
 				#selectImage{
 					#searchImg{
-						@include span-columns(10);
-						@include shift(1);
+						@include span-columns(12);
 						background:{color:$color_blue;}
-						padding: 10px 0;
+						@include pad(10px 0);
     					margin:{bottom: 2px;}
+    					clear: both;
 					}
 					input[type="file"]{
 						@extend .hide;

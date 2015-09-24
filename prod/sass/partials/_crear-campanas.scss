@@ -1,0 +1,84 @@
+.crear-campanas{
+	@extend .dashboard-agencia;
+	h2{
+		margin:0;
+		font:{size:14px;style:italic;}
+		text:{transform:uppercase;}
+		color:$color_grey;
+		@include pad(10px);
+		clear:both;
+	}
+	nav{
+		ul{
+			li{
+				a{color:$color_grey;}
+				border:{bottom:1px solid $color_grey;}
+				&:last-child{
+					a{
+						color:$color_font2;
+					}
+					border:{bottom:2px $color_font2 inset;}
+					margin:{right:0;}
+				}
+			}
+		}
+	}
+}
+#campanaForm{
+	@include span-columns(12);
+	@include row();
+	@include pad(0 10px);
+	@include fill-parent();
+	input{
+		@extend .inputs;
+		@include span-columns(12);
+		@include placeholder{
+			font:{size:12px;style:italic;}
+			text:{transform:normal}
+		}
+		&#file2{
+			display: none !important;
+		}
+	}
+	textarea{
+		@extend .inputs;
+		min-height:100px;
+		@include span-columns(12);
+		@include placeholder{
+			font:{size:12px;style:italic;}
+			text:{transform:normal}
+		}
+	}
+	.cont-input{
+		position:relative;
+		overflow: hidden;
+		i{
+			position: absolute;
+		    right: 0;
+		    bottom: 10px;
+		    color:$color_font2;
+		}
+	}
+	#searchImg2{
+		@extend .btns;
+		@include span-columns(12);
+		@include textAligns(center);
+		background: {color:$color_grey;}
+		margin:{top:10px;}
+	}
+	h2{
+		@include pad(10px 0 3px);
+	}
+	p{
+		margin:0;
+		font:{size:9px;}
+		color:$color_grey;
+	}
+	.guardar{
+		@extend .btns;
+		@include span-columns(12);
+		color:#fff;
+		background: {color:$color_font2;}
+		@include textAligns(center);
+	}
+}
