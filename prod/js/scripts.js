@@ -51,12 +51,12 @@ jQuery(document).ready(function($){
 	$('#searchImg').on('click', function(e){
         e.preventDefault();
         alert('clicked');
-        $('#file').trigger('click');
+        //$('#file').trigger('click');
     });
     $('#searchImg2').on('click', function(e){
         e.preventDefault();
         alert('clicked');
-        $('#file2').trigger('click');
+       // $('#file2').trigger('click');
     });
 
 	//MENU

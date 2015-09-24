@@ -16,6 +16,9 @@ else{
 	$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 }
 ?>
+<script>
+
+</script>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -28,11 +31,7 @@ else{
 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-	<script>
-		jQuery(document).ready(function(){
-			$('body').addClass('crear-campanas');
-		});
-	</script>
+
 </head>
 <body>
 	
@@ -42,31 +41,62 @@ else{
 
 	<?php if ((int)$row2[0]>0){  echo ' - <a href="campana.php">volver a campa&ntildea </a>'; }?>
 	
-	<form id="campanaForm">
+	<form id="campanaForm-nueva-campana">
 
 		<div class="cont-input nombre">
-			<input placeholder="Nombre de la Campaña" id="nombre" required>
+			<input placeholder="Nombre de la Campaña" id="nombre-nueva-campana" >
 			<i class="fa fa-pencil"></i>
 		</div>
 		<div class="cont-input marca">
-			<input placeholder="Marca" id="marca" required>
+			<input placeholder="Marca" id="marca-nueva-campana" >
 			<i class="fa fa-pencil"></i>
 		</div>
 		<div class="cont-input descripcion">
-			<textarea placeholder="Descripción" id="descripcion" rows="10" cols="40" required></textarea>
+			<textarea placeholder="Descripción" id="descripcion-nueva-campana" rows="10" cols="40" ></textarea>
 			<i class="fa fa-pencil"></i>
 		</div>
 		
 		<h2>subir imagen</h2>
 		<p>Sube una imagen que represente la campaña y que no supere los 200kb en su peso.</p>
 
-		<input type="file" name="file" id="file2" required />
+		<input type="file" name="file" id="file2"  />
 		<div id="searchImg2" class="changeImg">seleccionar archivo</div>
 
 		<button class="guardar" id="guardar" type="submit">subir campaña</button>
 	</form>
 
 	<?php include 'footer.php'; ?>
+		<script>
+		jQuery(document).ready(function(){
+			$('body').addClass('crear-campanas');
+			var aa= <?php echo (int)$row[0];?>;
+			var idActual = aa+1;
+			var info;
+			$('#campanaForm-nueva-campana').on('submit',(function (e){
+				e.preventDefault;
+				info = new FormData(this);	
+				info.append('nombre',$('#nombre-nueva-campana').val());
+				info.append('marca',$('#marca-nueva-campana').val());
+				info.append('descripcion',$('#descripcion-nueva-campana').val());
+				info.append('campana',idActual);
+				info.append('id','<?php echo $_SESSION["id"];?>');
+				info.append('correo','<?php echo $_SESSION["correo"];?>');
+				info.append('rsid','<?php echo $_SESSION["rsid"];?>');
+				$.ajax({
+					type: 'POST',  
+					url: 'procesar_nueva-campana.php',  
+					data: info,
+					enctype: 'multipart/form-data',
+					contentType: false,      
+					cache: false,             
+					processData:false, 
+				
+					success: function(data){ 
+					}
+				});
+			}));
+		});
+	</script>
 </body>
 </html>
 

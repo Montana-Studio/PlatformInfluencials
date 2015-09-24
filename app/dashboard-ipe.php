@@ -176,26 +176,25 @@ header('Location:index.php');
 die();
 }
 else{
-include_once("RRSS/twitter/sign-in-with-twitter/config.php");
-include_once("RRSS/twitter/sign-in-with-twitter/inc/twitteroauth.php");
-include_once('RRSS/twitter/sign-in-with-twitter/inc/TwitterAPIExchange.php');
-//include_once("RRSS/twitter/sign-in-with-twitter/index.php");
-//$mysqli->set_charset('utf8');
+include_once("rrss/twitter/config.php");
+include_once("rrss/twitter/inc/twitteroauth.php");
+include_once('rrss/twitter/inc/TwitterAPIExchange.php');
+$mysqli->set_charset('utf8');
 $id=$_SESSION['id'];
-$query="SELECT * FROM campana  WHERE idpersona=".$id." ORDER BY id DESC LIMIT 3";
-$result= mysqli_query($mysqli,$query)or die(mysqli_error());
-$row= mysqli_fetch_array($result, MYSQLI_NUM);
-
-
-$query2="SELECT * FROM persona WHERE id=".$id;
-$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
-$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 
 }
-    $query3="SELECT rrss_id FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter'";
+
+    //$query3="SELECT rrss_id FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter'";
+/*	$query3="SELECT DISTINCT rrss_id FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter'";
     $result3=mysqli_query($mysqli,$query3)or die (mysqli_error());
-    $row3= mysqli_fetch_array($result3, MYSQLI_NUM);
+    $row3= mysqli_fetch_array($result3, MYSQLI_BOTH);
     $num_row3= mysqli_num_rows($result3);
+    //	echo $row3;
+    do{
+      echo $row3['rrss_id'];
+	  echo "<br />";
+	  }while($row3 = $result3->fetch_array());
+   
     if ($num_row3>0){
    	$settings = array(
         'oauth_access_token' => "3523857136-MwHOy2ZrYGqvvT6fSpkCbFxe5BYqlmQzUs41UdN",
@@ -213,16 +212,16 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
     ->performRequest();
     $data1 = json_decode($follow_count1, true);
     $followers_count1=(int)$data1[0]['user']['followers_count'];
-    echo "<script> $(document).ready(function(){
+   /* echo "<script> $(document).ready(function(){
     	$('.twitter-div').removeAttr('href')});</script>";
-    }
+
+
+
+    }*/
 
 ?>
 </head>
 <body>
-<?php echo $_SESSION['id']." - ";?>
-<?php echo $row2[14];?>
-
 <input id="idlinkedin"/>
 	<div style="text-align:right;">
 		<a href="logout.php">cerrar sesion</a>
@@ -260,14 +259,60 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 		</div>
 	</form>
 	<div id = "redes sociales">
-		<h2>registra tus redes sociales  -  alcance actual <input id="reach"/></h2>
+		<h2>registra tus redes sociales</h2>  <h2>reach total <?php echo $suma; ?></h2>
 		<div>
 			<button id="facebook">Facebook</button><a></a>
 		</div>
 		<div>
-			<a class="twitter-div" href="RRSS/twitter/sign-in-with-twitter/process.php">twitter</a>
-			<div id="twitter-from-data-base" style="display:<?php echo $displaydb;?>">
-			        <?php echo $followers_count1;?>
+			<a class="twitter-div" href="rrss/twitter/process.php">twitter</a>
+			
+
+			<!--div id="twitter-from-data-base" style="display:<?php //echo $displaydb;?>"-->
+			        <?php 
+			        	echo '<!--div id="twitter-from-data-base" style="display:<?php //echo $displaydb;?>"-->';
+						$query3="SELECT DISTINCT rrss_id FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter'";
+					    $result3=mysqli_query($mysqli,$query3)or die (mysqli_error());
+					    $row3= mysqli_fetch_array($result3, MYSQLI_BOTH);
+					    $num_row3= mysqli_num_rows($result3);
+					    if ($num_row3>0){
+					    	echo " <br/> Perfiles Registrados <br/>";
+					    }
+					    $suma_twitter = 0;
+					    $i=1;
+					    do{
+					    $usuario1 = $row3['rrss_id'];
+					    //echo $usuario1." ";
+					   	$settings = array(
+					        'oauth_access_token' => "3523857136-MwHOy2ZrYGqvvT6fSpkCbFxe5BYqlmQzUs41UdN",
+					        'oauth_access_token_secret' => "Verk18Cyb8oTYGdcptHvvZaCOXD5gaNDBtMFdd1tqPL9k",
+					        'consumer_key' => "57Ad64b6xTGNDDyIAAWvcKlGV",
+					        'consumer_secret' => "YHQUctM9IPL9UHrd0EfNv4MATF8Q1t1Zmqpn3OS12OhHOFF3tX"
+					    );
+					    $ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
+					    $requestMethod = 'GET';
+					    //$usuario1 = '3523857136';
+					    // id argkont 80674227
+					    $getfield1 = '?id='.$usuario1;
+					    $twitter1 = new TwitterAPIExchange($settings);
+					    $follow_count1=$twitter1->setGetfield($getfield1)
+					    ->buildOauth($ta_url, $requestMethod)
+					    ->performRequest();
+					    $data1 = json_decode($follow_count1, true);
+					    $followers_count1=(int)$data1[0]['user']['friends_count'];
+					    $username=$data1[0]['user']['screen_name'];
+						echo $username;
+						echo "   -    ";
+						echo (int)$followers_count1;
+						echo "<br/>";					    
+						$suma_twitter+=(int)$followers_count1;
+						$all_rows[$i] = $row3;
+						echo $all_rows[$i];
+						$i++;
+						}while($row3 = $result3->fetch_array());
+
+						echo "reach twitter = ".$suma_twitter; 
+						
+				    ?>
 			</div>
 		</div>
 		<div>
@@ -289,6 +334,11 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 			<button id="pinterest">Pinterest</button><a></a>
 		</div>
 	</div>
+
+	<?php 
+	$suma= $suma_twitter;
+	echo $suma; 
+	?>
 	<div id="contacto">
 		<h2>contacto</h2>
 		<div>

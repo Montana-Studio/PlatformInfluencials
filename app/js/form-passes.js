@@ -229,7 +229,8 @@ $(document).ready(function(){
 	$('#correo input').removeAttr('disabled');
 	}
 	var foto=0;
-		$('#file').click(function(){
+		//$('#file').click(function(){
+		$('#searchImg').click(function(){
 		  foto=1; 
 	});
 		
@@ -300,32 +301,9 @@ $(document).ready(function(){
 	$('#editar').show();*/
 
 	//CREAR CAMPAÑAS SCRIPT
-	var aa= '<?php echo (int)$row[0];?>';
-	var idActual = aa+1;
-	var info;
-	$('#campanaForm').on('submit',(function (e){
-		e.preventDefault;
-		info = new FormData(this);	
-		info.append('nombre',$('#nombre').val());
-		info.append('marca',$('#marca').val());
-		info.append('descripcion',$('#descripcion').val());
-		info.append('campana',idActual);
-		info.append('id','<?php echo $_SESSION["id"];?>');
-		info.append('correo','<?php echo $_SESSION["correo"];?>');
-		info.append('rsid','<?php echo $_SESSION["rsid"];?>');
-		$.ajax({
-			type: 'POST',  
-			url: './procesar_nueva-campana.php',  
-			data: info,
-			enctype: 'multipart/form-data',
-			contentType: false,      
-			cache: false,             
-			processData:false, 
-		
-			success: function(data){ 
-			}
-		});
-	}));
+	
+
+
 });
 
 //INICIO FUNCTIONS

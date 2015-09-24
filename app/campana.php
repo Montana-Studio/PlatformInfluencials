@@ -32,9 +32,7 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 	</script>
 </head>
 <body>
-	
-	<?php include 'header.php'; ?>
-	
+<?php include 'header.php'; ?>
 	<?php 
 	if ((int)$row[0] != 0){ ?>
 		<?php 
@@ -45,33 +43,34 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 
 	<div id="creadas"><h2>campa&ntildeas creadas</h2>';
 			 do{ 
-					echo '<script>
+					echo '
+					<script>
 					$(document).ready(function(){
 				
 					$(".btneliminar").hide();
 					$(".marca").hide();
 					$(".descripcion").hide();
 					$(".btnpausar").hide();
-					$(".guardar").hide();
+					$(".guardar-campana").hide();
 					$(".cambiarImagen").hide();
 					
 					$("#btneditar'.$row[0].'").click(function (){
 					$("#btneliminar'.$row[0].'").show();
 					$("#btnpausar'.$row[0].'").show();
 					$("#btneditar'.$row[0].'").hide();
-					$("#marca'.$row[0].'").show();
-					$("#descripcion'.$row[0].'").show();
-					$("#guardar'.$row[0].'").show();
-					$("#formImagen'.$row[0].'").show();
+					$("#marca-campana-'.$row[0].'").show();
+					$("#descripcion-campana-'.$row[0].'").show();
+					$("#guardar-campana-'.$row[0].'").show();
+					$("#formImagen-campana-'.$row[0].'").show();
 					});
 					
 					
 					$("#guardar'.$row[0].'").click(function (){
 					$(".btneliminar").hide();
-					$(".marca").hide();
-					$(".descripcion").hide();
+					$(".marca-campana-").hide();
+					$(".descripcion-campana-").hide();
 					$(".btnpausar").hide();
-					$(".guardar").hide();
+					$(".guardar-campana").hide();
 					$(".btneditar").show();
 					$(".cambiarImagen").hide();
 					});
@@ -81,7 +80,7 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 					$(".marca").hide();
 					$(".descripcion").hide();
 					$(".btnpausar").hide();
-					$(".guardar").hide();
+					$(".guardar-campana").hide();
 					$(".btneditar").show();
 					$(".cambiarImagen").hide();
 					});
@@ -91,7 +90,7 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 					$(".marca").hide();
 					$(".descripcion").hide();
 					$(".btnpausar").hide();
-					$(".guardar").hide();
+					$(".guardar-campana").hide();
 					$(".btneditar").show();
 					$(".cambiarImagen").hide();
 					});
@@ -104,11 +103,13 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 					$("#campanaForm'.$row[0].'").on("submit",(function (e){
 						e.preventDefault();
 						info = new FormData(this);
-						info.append("nombre",$("#nombre"+idCampana+" input").val());
-						info.append("marca",$("#marca"+idCampana+" input").val());
-						info.append("descripcion",$("#descripcion"+idCampana+" textarea").val());
+						info.append("nombre",$("#nombre-campana-"+idCampana+" input").val());
+						info.append("marca",$("#marca-campana-"+idCampana+" input").val());
+						info.append("descripcion",$("#descripcion-campana-"+idCampana+" textarea").val());
 						info.append("id",idCampana);
-						info.append("idpersona",idAgencia);				
+						info.append("idpersona",idAgencia);	
+
+							
 						$.ajax({
 								type: "POST",  
 								url: "procesar-campana-agencia.php",  
@@ -119,7 +120,7 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 								processData:false,
 
 							success: function(data){ 
-							console.log(data)	
+							
 							}
 						
 						});
@@ -127,15 +128,14 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 					}));
 					
 			
-					$("#formImagen'.$row[0].'").on("submit",(function (e){
-						console.log(rsid);
+					$("#formImagen-campana-'.$row[0].'").on("submit",(function (e){
+					
 						e.preventDefault();
 						info = new FormData(this);
 						info.append("campana",idCampana);
 						info.append("id",idAgencia);
 						info.append("correo",correo);
 						info.append("rsid",rsid);
-						console.log(rsid);
 							$.ajax({
 								type: "POST",  
 								url: "procesar_imagen-campana.php",  
@@ -155,7 +155,6 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 					
 					$("#btneliminar'.$row[0].'").click(function (){
 						var idEliminar = '.$row[0].';
-						console.log(idEliminar);
 							$.ajax({
 								type: "POST",  
 								url: "procesar_eliminar-campana.php",  
@@ -178,20 +177,20 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 					<button class="btneliminar" id="btneliminar'.$row[0].'">eliminar</button>
 					
 					<button class="btnpausar" id="btnpausar'.$row[0].'">pausar</button>
-						<div class="nombre" id="nombre'.$row[0].'">
+						<div class="nombre" id="nombre-campana-'.$row[0].'">
 							<input value="'.$row[1].'"></input>
 						</div>
-						<div class="marca" id="marca'.$row[0].'">
+						<div class="marca" id="marca-campana-'.$row[0].'">
 							<input  value="'.$row[4].'"></input>
 						</div>
-						<div class="descripcion" id="descripcion'.$row[0].'">
+						<div class="descripcion" id="descripcion-campana-'.$row[0].'">
 							<textarea placeholder="descripcion" rows=10 cols=40 >'.$row[2].'</textarea>
 						</div>
-					<button class="guardar" id="guardar'.$row[0].'">Guardar Cambios en '.$row[1].'</button>
+					<button class="guardar-campana" type="submit" id="guardar-campana-'.$row[0].'">Guardar Cambios en '.$row[1].'</button>
 			</form>
 		</div>
 		
-		<form class="cambiarImagen" id="formImagen'.$row[0].'">
+		<form class="cambiarImagen" id="formImagen-campana-'.$row[0].'">
 			<div  id="selectImage">
 				<input type="file" name="file" id="file" required /></br>
 				<button id="cambiarImagen'.$row[0].'">Cambiar</button>
