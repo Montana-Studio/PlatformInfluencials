@@ -2,10 +2,6 @@
 session_start();
 include_once("inc/twitteroauth.php");
 include_once('inc/TwitterAPIExchange.php');
-/*
-<!--html>
-<head-->
-
     /****************************************************************
     Ask if the persona_id exist on table rrss twitter data
     ****************************************************************/
@@ -15,6 +11,7 @@ include_once('inc/TwitterAPIExchange.php');
     $query2="SELECT rrss_id FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter'";
     $result2=mysqli_query($mysqli,$query2)or die (mysqli_error());
     $row= mysqli_fetch_array($result2, MYSQLI_NUM);
+    $num_rows= mysqli_num_rows($result2);
     $settings = array(
         'oauth_access_token' => "3523857136-MwHOy2ZrYGqvvT6fSpkCbFxe5BYqlmQzUs41UdN",
         'oauth_access_token_secret' => "Verk18Cyb8oTYGdcptHvvZaCOXD5gaNDBtMFdd1tqPL9k",
@@ -24,6 +21,7 @@ include_once('inc/TwitterAPIExchange.php');
     $ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
     $requestMethod = 'GET';
     $usuario1 = $row[0];
+     //$getfield = '?id=264980806';  //static id test
     $getfield1 = '?id='.$usuario1;
     $twitter1 = new TwitterAPIExchange($settings);
     $follow_count1=$twitter1->setGetfield($getfield1)
@@ -35,14 +33,30 @@ include_once('inc/TwitterAPIExchange.php');
         Check if the user already has a twitter account registered
         and show followers and ID
         ****************************************************************/
-        if($row[0] != ''){
-                $displaydb = "block";
-                header('Location: ../../../dashboard-ipe.php');
-        }else if(isset($_SESSION['status']) && $_SESSION['status']=='verified'){
-               /****************************************************************
-                Success, redirected back from process.php with varified status.
-                retrive variables
-                ****************************************************************/
+    $query2="SELECT rrss_id FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter' AND rrss_id=".$usuario1;
+    $result2=mysqli_query($mysqli,$query2)or die (mysqli_error());
+    $num_row2= mysqli_num_rows($result2);
+
+    /****************************************************************
+    If the user has 3 registered accounts 
+    /****************************************************************/
+      if($num_row == 3){
+        $displaydb = "block";
+        header('Location: ../../dashboard-ipe.php');
+      }
+   /****************************************************************
+    If the Twitter id already exist then it is going to redirect
+    to dashboard page
+    /****************************************************************/
+      if($num_row2>0){
+               // $displaydb = "block";
+              header('Location: ../../dashboard-ipe.php');
+    /****************************************************************
+    Success, redirected back from process.php with varified status.
+    retrive variables
+    ****************************************************************/
+      }else if(isset($_SESSION['status']) && $_SESSION['status']=='verified'){
+
                 $oauth_token        = $_SESSION['request_vars']['oauth_token'];
                 $oauth_token_secret = $_SESSION['request_vars']['oauth_token_secret'];
                 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $oauth_token, $oauth_token_secret);
@@ -51,6 +65,7 @@ include_once('inc/TwitterAPIExchange.php');
                 ****************************************************************/
                 $usuario = $_SESSION['request_vars']['user_id'];
                 $ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
+                //$getfield = '?id=264980806';  //static id test
                 $getfield = '?id='.$_SESSION['request_vars']['user_id'];
                 $requestMethod = 'GET';
                 $twitter = new TwitterAPIExchange($settings);
@@ -60,16 +75,9 @@ include_once('inc/TwitterAPIExchange.php');
                 $data = json_decode($follow_count, true);
                 $followers_count=(int)$data[0]['user']['followers_count'];
                 $query="INSERT INTO rrss (descripcion_rrss,rrss_id,persona_id) VALUES('twitter',".$usuario.",".$_SESSION['id'].")";
+                //$query="INSERT INTO rrss (descripcion_rrss,rrss_id,persona_id) VALUES('twitter','264980806',".$_SESSION['id'].")";
                 $result= mysqli_query($mysqli,$query)or die(mysqli_error());
-                header('Location: ../../../dashboard-ipe.php');
-                //session_destroy();
+                header('Location: ../../dashboard-ipe.php');
         }
     ?>
-<!--/head>
-<body>
-<a href="process.php">twitter</a>
-<div id="twitter-from-data-base" style="display:<?php //echo $displaydb;?>">
-        <h3><?php //echo $followers_count1;?></h3>
-</div>
-</body>
-</html-->
+

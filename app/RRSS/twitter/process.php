@@ -1,13 +1,13 @@
 <?php
 session_start();
-include_once("config.php");
+include_once("twitter_auth.php");
 include_once("inc/twitteroauth.php");
 if (isset($_REQUEST['oauth_token']) && $_SESSION['token']  !== $_REQUEST['oauth_token']) {
 	/****************************************************************
 	if token is old, distroy any session and redirect user to index.php
 	****************************************************************/
 	session_destroy();
-	header('Location: ./index.php');
+	header('Location: ./twitter.php');
 	//header('Location: ../../../dashboard-ipe.php');
 }elseif(isset($_REQUEST['oauth_token']) && $_SESSION['token'] == $_REQUEST['oauth_token']) {
 	/****************************************************************
@@ -25,7 +25,7 @@ if (isset($_REQUEST['oauth_token']) && $_SESSION['token']  !== $_REQUEST['oauth_
 		// unset no longer needed request tokens
 		unset($_SESSION['token']);
 		unset($_SESSION['token_secret']);
-		header('Location: ./index.php');
+		header('Location: ./twitter.php');
 	}else{
 		die("error, intente más tarde");
 	}
@@ -33,7 +33,7 @@ if (isset($_REQUEST['oauth_token']) && $_SESSION['token']  !== $_REQUEST['oauth_
 
 	if(isset($_GET["denied"]))
 	{	
-		header('Location: ./index.php');
+		header('Location: ./twitter.php');
 		//header('Location: ../../../dashboard-ipe.php');
 		die();
 	}
