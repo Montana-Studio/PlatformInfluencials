@@ -1,12 +1,15 @@
 main{
 	@include textAligns($text-center);
-	//@include row();
 	&.ingreso_eleccion{
 		margin:{top:48px;}
 		#tipo{
 			.btns_accesos{
 				@extend .btns;
 				@include shift(1);
+				@include media($notebook){
+					@include span-columns(3);
+					@include shift(4.5);
+				}
 			}
 		}
 	}
@@ -17,6 +20,10 @@ main{
 			.btns_accesos{
 				@extend .btns;
 				@include shift(1);
+				@include media($notebook){
+					@include span-columns(3);
+					@include shift(4.5);
+				}
 			}
 			#registrar{
 				background: {color:#fff;}
@@ -27,6 +34,7 @@ main{
 			@extend .hide;
 			@extend .center-div;
 			@include borderRadius(3px);
+			@include boxShadow(0, 0, 10px, #001130);
 			background: {color:#fff;}
 			position:absolute;
 			top:16%;
@@ -36,6 +44,9 @@ main{
 			opacity:0;
 			@include pad(20px);
 			z-index: 9;
+			@include media($mobileLand){
+				top:2%;
+			}
 			h2{
 				@extend .hide;
 				color:$color_font2;
