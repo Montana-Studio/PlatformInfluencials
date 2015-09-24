@@ -19,7 +19,7 @@ $num_row=mysqli_num_rows($rrs);
 $rf=$mysqli->query("SELECT * FROM persona WHERE RS_id='' AND correo='$correo'");
 $num_row2=mysqli_num_rows($rf);
 
-
+/*
 
 if ($num_row>0){
 $nuevaurl="/plataforma1.2/PlatformInfluencials/uploads/agencias/registered/$rsid/avatar.gif";
@@ -28,11 +28,12 @@ $a=1;//registrado con RS
 $row= mysqli_fetch_array($rrs, MYSQLI_NUM);
 }
 
+
 if($num_row2>0){
 $nuevaurl="/plataforma1.2/PlatformInfluencials/uploads/agencias/registered/$correo/avatar.gif";
 $a=2; //registrado con formulario
 $row= mysqli_fetch_array($rf, MYSQLI_NUM);
-}
+}*/
 
 if(isset($_FILES["file"]["type"]))
 {	

@@ -1,8 +1,5 @@
 <?php 
 require('conexion.php');
-
-else{
-$mysqli->set_charset('utf8');
 $nombre =$_POST['nombre'];
 $marca =$_POST['marca'];
 $descripcion =$_POST['descripcion'];
