@@ -76,7 +76,7 @@
 			@include span-columns(4 of 12);
 		}
 	}
-	#searchImg2{
+	#searchImg{
 		@extend .btns;
 		@include span-columns(12);
 		@include textAligns(center);
