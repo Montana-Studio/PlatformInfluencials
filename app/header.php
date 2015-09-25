@@ -2,7 +2,7 @@
 	
 	<div class="logo"><a href="./dashboard-agencia.php" target="_top"></a></div>
 	<a href="#" class="ayuda_pi"><i class="fa fa-life-ring"></i></a>
-	<i class="notes fa fa-bell-o"></i>
+	<a href="#" class="notes" ><i class="fa fa-bell-o"></i></a>
 	<div class="menu" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);"></div>
 
 </header>

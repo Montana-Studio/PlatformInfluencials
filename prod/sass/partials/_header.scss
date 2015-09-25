@@ -14,15 +14,11 @@ header{
 			height:100%;
 			display: block;
 		}
+		@include media($tabletLandTonotebook){
+			@include span-columns(2.5 of 12);
+			background:{position:left;image:url('../img/logo_pi3-04.svg');}
+		}	
 		@include media($notebookTodesktop){
-			@include span-columns(2.5 of 12);
-			background:{position:left;image:url('../img/logo_pi3-04.svg');}
-		}
-		@include media($desktop){
-			@include span-columns(2.5 of 12);
-			background:{position:left;image:url('../img/logo_pi3-04.svg');}
-		}
-		@include media($tabletLand){
 			@include span-columns(2.5 of 12);
 			background:{position:left;image:url('../img/logo_pi3-04.svg');}
 		}
@@ -30,20 +26,32 @@ header{
 	.notes{
 		@include span-columns(1 of 12);
 		@include textAligns(center);
-		font:{size:16px;}
-	    padding:{top: 12px;}
+		font:{size:16px !important;}
 	    color: #fff;
+	    @include media($tabletLandTonotebook){
+			@include span-columns(.5);
+		}
+		@include media($desktop){
+			@include span-columns(.5);
+		}
+		display: table !important;
+		height:40px;
+		i{
+			display: table-cell;
+			vertical:{align: middle;}
+		}
 	}
 	.ayuda_pi{
 		@extend .notes;
-	    padding:{top: 12px;}
 		@include shift(6.5);
 		@include media($notebookTodesktop){
 			@include shift(6);
 		}
-		@include media($tabletLand){
-			@include shift(6);
-	    	padding:{top: 9px;}
+		@include media($tabletLandTonotebook){
+			@include shift(7.8);
+		}
+		@include media($desktop){
+			@include shift(7.8);
 		}
 	}
 	.menu{
@@ -59,6 +67,13 @@ header{
 		@include media($tablet){
 			@include span-columns(1);
 			@include shift(.5);
+		}
+		@include media($tabletLandTonotebook){
+			@include span-columns(.65);
+		}
+		@include media($desktop){
+			@include span-columns(.65);
+			max-width:39px;
 		}
 	}
 }
@@ -90,12 +105,6 @@ nav{
 }
 #imagenform{
 	@include span-columns(8);
-	@include media($mobileTomobileLand){
-		@include span-columns(10);
-	}
-	@include media($mobileLandTotablet){
-		@include span-columns(6);
-	}
 	position:absolute;
 	z-index:8;
 	@include borderRadius(5px);
@@ -245,5 +254,19 @@ nav{
 			font:{size:11px;}
 			@include pad(10px 0 0);
 		}
+	}
+	@include media($mobileTomobileLand){
+		@include span-columns(10);
+	}
+	@include media($mobileLandTotablet){
+		@include span-columns(6);
+	}
+	@include media($tabletLandTonotebook){
+		@include span-columns(4);
+		margin-right:1% !important;
+	}
+	@include media($desktop){
+		@include span-columns(4);
+		margin-right:1% !important;
 	}
 }
