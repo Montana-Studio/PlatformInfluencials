@@ -1,0 +1,14 @@
+@include keyframes(popUp){
+	from{
+		width:0;
+		height:0;
+		opacity: 0;
+	}
+	to{
+		@include span-columns(10);
+		@include shift(1);
+		height: 357px;
+		opacity: 1;
+		display:block;
+	}
+}

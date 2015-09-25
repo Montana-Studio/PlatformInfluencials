@@ -3,7 +3,7 @@
   "title": "Platform Influencials",
   "description": "Best project ever.",
   "version": "0.0.1",
-  "homepage": "http://www.platform_influencials.com/",
+  "homepage": "http://www.powerinfluencer.com/",
   "author": {
     "name": "Montana Studio",
     "email": "mauro@montana-studio.com",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/Mediatrends/platform_influencials.git"
+    "url": "git://github.com/Montana-Studio/PlatformInfluencials.git"
   },
   "bugs": {
-    "url": "https://github.com/Mediatrends/platform_influencials/issues"
+    "url": "https://github.com/Mediatrends/PlatformInfluencials/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "http://www.platform_influencials.com//blob/master/LICENSE-MIT"
+      "url": "http://www.powerinfluencer.com/LICENSE-MIT"
     }
   ],
   "keywords": []
