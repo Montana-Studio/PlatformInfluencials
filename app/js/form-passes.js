@@ -230,7 +230,7 @@ $(document).ready(function(){
 	}
 	var foto=0;
 		//$('#file').click(function(){
-		$('#searchImg2').click(function(){
+		$('#file').click(function(){
 		  foto=1; 
 		$("input:file").change(function (){
 			console.log('aa');

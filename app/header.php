@@ -25,8 +25,9 @@
 		
 		<div class="imagen" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);">
 		
-			<input type="file" name="file" id="file" class="hide">
-			<div id="searchImg" class="changeImg"><i class="fa fa-pencil"></i></div>
+			<input type="file" name="file" id="file" class="hide"/>
+			<label for="file"><i class="fa fa-pencil"></i></label>
+			<!--div id="searchImg" class="changeImg"><i class="fa fa-pencil"></i></div-------------->
 
 		</div>
 		

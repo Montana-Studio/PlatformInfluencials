@@ -194,7 +194,7 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 		
 		<form class="cambiarImagen" id="formImagen-campana-'.$row[0].'">
 			<div  id="selectImage">
-				<input type="file" name="file" id="file" required /></br>
+				<input type="file" name="file" required /></br>
 				<button id="cambiarImagen'.$row[0].'">Cambiar</button>
 			</div>
 		</form>
