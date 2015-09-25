@@ -90,9 +90,39 @@ else{
 					contentType: false,      
 					cache: false,             
 					processData:false, 
-				
-					success: function(data){ 
-					}
+							success: function(info){ 
+
+								if(info == "error"){
+									alert("problema con el archivo");
+								}
+
+								if(info == "invalido"){
+									alert("formato o extension incorrecta");
+								}
+								if(info == "nueva-campana"){
+											if (confirm("¿desea crear una nueva campaña?")) {
+												window.reload();
+											}
+												window.location.href("campana.php");
+								}
+								if(info == "error"){
+									alert("problema con el archivo");
+								}
+							}	
+								
+								/*		switch (info){
+										case "error": alert("problema con el archivo");;
+										break;
+										case "invalido": alert("formato o extension incorrecta");
+										break;
+										case "nueva-campana": 
+											if (confirm("¿desea crear una nueva campaña?")) {
+												window.reload();
+											}
+												window.location.href("campana.php");
+										break;
+										}
+										}*/
 				});
 			}));
 		});

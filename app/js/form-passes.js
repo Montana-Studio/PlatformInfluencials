@@ -232,6 +232,11 @@ $(document).ready(function(){
 		//$('#file').click(function(){
 		$('#searchImg').click(function(){
 		  foto=1; 
+		$("input:file").change(function (){
+			console.log('aa');
+     });
+
+
 	});
 		
 	$('#imagenform').on('submit',(function (e){
@@ -246,6 +251,7 @@ $(document).ready(function(){
 		info.append('picture_url', '<?php echo $_SESSION["pictureUrl"];?>');
 	
 		if(foto==1) {
+			console.log(foto);
 		$.ajax({
 				type: "POST",  
 				url: "./procesar_imagen.php",  
@@ -254,10 +260,25 @@ $(document).ready(function(){
 				contentType: false,      
 				cache: false,             
 				processData:false, 
-			
-			success: function(data){ 
-				window.location.reload();
-			}
+		
+				success: function(info){
+				switch (info){
+				case "error": 	alert("arhivo con daños");
+								//window.history.back(1);
+								//location.reload(true);
+				break;
+				case "nuevo":	alert("imagen cambiada");
+								//location.reload(true);
+								//window.location.assign("./dashboard-agencia.php");
+				break;
+				case "invalido": alert('el tamaño o formato no es aceptado');
+								//location.reload(true);
+								 //window.history.back(1);
+								 //window.location.assign("./dashboard-agencia.php");
+				break;
+				}
+				info='';
+				}
 			});
 		}
 		else{
@@ -271,10 +292,15 @@ $(document).ready(function(){
 					cache: false,             
 					processData:false,
 
-				success: function(data){ 
-					console.log(data);
-					window.location.reload();
+				success: function(info){
+				switch (info){
+				case "actualiza": 	alert("datos actualizados");
+								//window.history.back(1);
+								//location.reload(true);
+				break;
 				}
+				info='';
+			}
 			});
 		};
 	}));	
