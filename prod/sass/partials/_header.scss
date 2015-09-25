@@ -43,6 +43,7 @@ header{
 		}
 		@include media($tabletLand){
 			@include shift(6);
+	    	padding:{top: 9px;}
 		}
 	}
 	.menu{
@@ -124,7 +125,7 @@ nav{
 			background: {position:center;size:cover;repeat:no-repeat;}
 			position:relative;
 			overflow: hidden;
-			.changeImg{
+			.selectFile{
 				@include borderRadius(100%);
 				width:20px;
 				height:20px;

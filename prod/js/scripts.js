@@ -47,18 +47,6 @@ jQuery(document).ready(function($){
 		
 	});
 
-	//BTN Upload IMG
-	$('#searchImg').on('click', function(e){
-        e.preventDefault();
-        alert('clicked');
-        $('#file').trigger('click');
-    });
-    $('#searchImg2').on('click', function(e){
-        e.preventDefault();
-        alert('clicked');
-       $('#file2').trigger('click');
-    });
-
 	//MENU
 	$('.menu').on('click',function(){
 		$('#imagenform').css('top','0').show('fast').delay(100).animate({

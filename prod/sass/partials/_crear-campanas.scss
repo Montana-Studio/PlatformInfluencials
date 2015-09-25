@@ -76,11 +76,13 @@
 			@include span-columns(4 of 12);
 		}
 	}
-	#searchImg2{
+	.selectFile{
 		@extend .btns;
 		@include span-columns(12);
 		@include textAligns(center);
-		background: {color:$color_grey;}
+		background: {color:#fff;}
+		border:1px solid $color_font2;
+		color:$color_font2;
 		margin:{top:10px;}
 	}
 	h2{

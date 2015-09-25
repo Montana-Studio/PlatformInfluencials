@@ -59,8 +59,8 @@ else{
 		<h2>subir imagen</h2>
 		<p>Sube una imagen que represente la campaña y que no supere los 200kb en su peso.</p>
 
-		<input type="file" name="file" />
-		<div id="searchImg2" class="changeImg">seleccionar archivo</div>
+		<input type="file" name="file" style="display:none !important;" />
+		<label class="selectFile" for="file"> Subir Archivo</label>
 
 		<button class="guardar" id="guardar" type="submit">subir campaña</button>
 	</form>
