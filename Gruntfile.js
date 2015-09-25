@@ -14,7 +14,7 @@ module.exports = function(grunt) {
 
         js:'js/**/*.js',
         scss:'sass/**/*.scss',
-        img:'**/*.{png,jpg,gif}',
+        img:'**/*.{png,jpg,gif,svg}',
 
         sass: {
           deve: {

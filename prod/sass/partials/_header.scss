@@ -14,6 +14,18 @@ header{
 			height:100%;
 			display: block;
 		}
+		@include media($notebookTodesktop){
+			@include span-columns(2.5 of 12);
+			background:{position:left;image:url('../img/logo_pi3-04.svg');}
+		}
+		@include media($desktop){
+			@include span-columns(2.5 of 12);
+			background:{position:left;image:url('../img/logo_pi3-04.svg');}
+		}
+		@include media($tabletLand){
+			@include span-columns(2.5 of 12);
+			background:{position:left;image:url('../img/logo_pi3-04.svg');}
+		}
 	}
 	.notes{
 		@include span-columns(1 of 12);
@@ -24,8 +36,14 @@ header{
 	}
 	.ayuda_pi{
 		@extend .notes;
-	    padding:{top: 9px;}
+	    padding:{top: 12px;}
 		@include shift(6.5);
+		@include media($notebookTodesktop){
+			@include shift(6);
+		}
+		@include media($tabletLand){
+			@include shift(6);
+		}
 	}
 	.menu{
 		@include span-columns(1.5 of 12);
@@ -47,6 +65,7 @@ nav{
 	@include row();
 	@include omega();
 	@include span-columns(12);
+	background: {color:#fff;}
 	ul{
 		margin:0;
 		padding:0;

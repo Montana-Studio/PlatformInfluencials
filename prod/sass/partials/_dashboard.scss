@@ -28,6 +28,19 @@
 			@extend .btns;
 			@include shift(1);
 			background: {color:$color_font2;}
+			//MediaQueries
+			@include media($tablet){
+				@include span-columns(4);
+				@include shift(4);
+			}
+			@include media($tabletLand){
+				@include span-columns(3);
+				@include shift(4.5);
+			}
+			@include media($notebook){
+				@include span-columns(3);
+				@include shift(4.5);
+			}
 		}
 	}
 }

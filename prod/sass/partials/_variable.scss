@@ -5,7 +5,8 @@ $color_font:#107977;//GreenDark
 $color_font2:#18bb9b;//GreenLight
 
 //COLORS
-$color_grey:#c7c7c7;//GrisForAll
+$color_grey:#c7c7c7;//GreyLight
+$color_grey2:#656b79;//GreyDark
 $color_blue:#2c327c;//Blue from gradient
 
 //TEXT ALIGN
@@ -35,13 +36,14 @@ $text-justify:justify;
 //RESPONSIVE WIDTH
 $mobile:(max-width 320px);
 $mobileLand:(min-width 480px max-width 690px);
-$tablet:(max-width 1024px);
-$tabletLand:(min-width 1024px max-width 1280px);
+$tablet:(min-width 768px max-width 1023px);
+$tabletLand:(min-width 1024px max-width 1279px);
 $notebook:(min-width 1280px);
-$notebookLand:(min-width 1280px max-width 1440px);
-$desktop:(min-width 1440px);
+$notebookLand:(min-width 1281px max-width 1439px);
+$desktop:(min-width 1441px);
 
 $mobileTomobileLand: (min-width 320px max-width 640px);
 $mobileLandTotablet: (min-width 480px max-width 1024px);
 $tabletLandTonotebook: (min-width 1024px max-width 1440px); 
-$notebookTodesktop: (min-width 1280px); 
+$notebookTodesktop: (min-width 1280px max-width 1440px); 
+

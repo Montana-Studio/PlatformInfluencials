@@ -6,11 +6,29 @@ main{
 			.btns_accesos{
 				@extend .btns;
 				@include shift(1);
+				//MediaQueries
+				@include media($tablet){
+					@include span-columns(4);
+					@include shift(4);
+				}
+				@include media($tabletLand){
+					@include span-columns(3);
+					@include shift(4.5);
+				}
 				@include media($notebook){
 					@include span-columns(3);
 					@include shift(4.5);
 				}
 			}
+		}
+		@include media($tabletLandTonotebook){
+			margin:{top:10px;}
+		}
+		@include media($notebookTodesktop){
+			margin:{top:10px;}
+		}
+		@include media($desktop){
+			margin:{top:10px;}
 		}
 	}
 	&.form_agencias{
@@ -20,6 +38,14 @@ main{
 			.btns_accesos{
 				@extend .btns;
 				@include shift(1);
+				@include media($tablet){
+					@include span-columns(4);
+					@include shift(4);
+				}
+				@include media($tabletLand){
+					@include span-columns(3);
+					@include shift(4.5);
+				}
 				@include media($notebook){
 					@include span-columns(3);
 					@include shift(4.5);
@@ -149,6 +175,28 @@ main{
 					font:{size: 12px;}
 					color: red;
 				}
+			}
+		}
+		//MediaQueries
+		@include media($tabletLandTonotebook){
+			margin:{top:10px;}
+			#antiguo{
+				max-width:35% !important;
+				top:26%;
+			}
+		}
+		@include media($notebookTodesktop){
+			margin:{top:10px;}
+			#antiguo{
+				max-width:35% !important;
+				top:26%;
+			}
+		}
+		@include media($desktop){
+			margin:{top:10px;}
+			#antiguo{
+				max-width:25% !important;
+				top:26%;
 			}
 		}
 	}

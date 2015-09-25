@@ -1,5 +1,8 @@
 .crear-campanas{
 	@extend .dashboard-agencia;
+	@include media($tabletLand){
+		background:{color: #eeeef0;}
+	}
 	h2{
 		margin:0;
 		font:{size:14px;style:italic;}
@@ -7,6 +10,12 @@
 		color:$color_grey;
 		@include pad(10px);
 		clear:both;
+		@include media($tabletLand){
+			color: $color_grey2;
+			font:{size:18px;weight:normal;}
+			@include span-columns(11);
+			@include shift(.5);
+		}
 	}
 	nav{
 		ul{
@@ -24,11 +33,16 @@
 		}
 	}
 }
-#campanaForm{
+#campanaForm-nueva-campana{
 	@include span-columns(12);
 	@include row();
 	@include pad(0 10px);
 	@include fill-parent();
+	@include media($tabletLand){
+		@include span-columns(11);
+		@include shift(.5);
+		background: {color:#fff;}
+	}
 	input{
 		@extend .inputs;
 		@include span-columns(12);
@@ -57,6 +71,9 @@
 		    right: 0;
 		    bottom: 10px;
 		    color:$color_font2;
+		}	
+		@include media($tabletLand){
+			@include span-columns(4 of 12);
 		}
 	}
 	#searchImg2{
