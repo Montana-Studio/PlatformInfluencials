@@ -108,8 +108,6 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 						info.append("descripcion",$("#descripcion-campana-"+idCampana+" textarea").val());
 						info.append("id",idCampana);
 						info.append("idpersona",idAgencia);	
-
-							
 						$.ajax({
 								type: "POST",  
 								url: "procesar-campana-agencia.php",  
@@ -120,7 +118,7 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 								processData:false,
 
 							success: function(data){ 
-							
+							console.log(data);
 							}
 						
 						});
@@ -146,7 +144,7 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 								processData:false, 
 							
 							success: function(data){ 
-								console.log(data);
+								
 								//window.location.reload();
 							}
 							});
@@ -155,6 +153,7 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 					
 					$("#btneliminar'.$row[0].'").click(function (){
 						var idEliminar = '.$row[0].';
+						if (confirm("realmente desea eliminar la campaña  :  '.$row[1].'")) {
 							$.ajax({
 								type: "POST",  
 								url: "procesar_eliminar-campana.php",  
@@ -163,7 +162,10 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 							success: function(data){ 
 								window.location.reload();
 							}
-							});
+							});  
+						} 
+
+
 					});
 				});</script>
 			
