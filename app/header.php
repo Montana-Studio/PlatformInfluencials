@@ -2,7 +2,7 @@
 	
 	<div class="logo"><a href="./dashboard-agencia.php" target="_top"></a></div>
 	<a href="#" class="ayuda_pi"><i class="fa fa-life-ring"></i></a>
-	<i class="notes fa fa-bell-o"></i>
+	<a href="#" class="notes" ><i class="fa fa-bell-o"></i></a>
 	<div class="menu" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);"></div>
 
 </header>
@@ -57,6 +57,7 @@
 					<div id="nombre">
 						<small>nombre</small>
 						<input value="<?php echo $_SESSION['nombre']; ?>">
+						<i class="fa fa-pencil"></i>
 					</div>
 					<div id="correo">
 						<small>correo</small>
@@ -70,14 +71,17 @@
 					<div id="empresa">
 						<small>empresa</small>
 						<input value="<?php echo $_SESSION['empresa']; ?>">
+						<i class="fa fa-pencil"></i>
 					</div>
 					<div id="tel1">
 						<small>tel. empresa</small>
 						<input type="text"  onkeypress="return valida(event)" value="<?php echo $_SESSION['telefono1']; ?>">
+						<i class="fa fa-pencil"></i>
 					</div>
 					<div id="tel2">
 						<small>tel. personal</small>
 						<input type="text"  onkeypress="return valida(event)" value="<?php echo $_SESSION['telefono2']; ?>">
+						<i class="fa fa-pencil"></i>
 					</div>
 
 				</div>
@@ -86,7 +90,9 @@
 
 		</div>
 		
-		<button id="guardarFacturacion" type="submit">Actualizar</button>
+		<div class="cancel-data">Cancelar</div>
+
+		<button id="guardarFacturacion" type="submit">Guardar cambios</button>
 
 		<input id="RsId" style="display:none" value="<?php echo $_SESSION['rsid']; ?>">
 

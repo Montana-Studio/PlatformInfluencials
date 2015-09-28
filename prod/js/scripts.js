@@ -49,10 +49,43 @@ jQuery(document).ready(function($){
 
 	//MENU
 	$('.menu').on('click',function(){
+		$('#guardarFacturacion, #inicio .cancel-data').css('display','none');
 		$('#imagenform').css('top','0').show('fast').delay(100).animate({
 			top:50,
 			opacity:1
 		});
 	});
 
+	//EDITAR DATOS
+	$('#imagenform .misdatos .datos .editar').on('click',function(){
+		$('#guardarFacturacion, #inicio .cancel-data').slideDown();
+		$('#inicio .tabpage div i').css('display','block').animate({
+			right:'3px',
+			opacity:1
+		});
+		$('#imagenform .misdatos .imagen .selectFile').animate({
+			width:'30px',
+			height:'30px'
+		},{complete:function(){
+			$('#imagenform .misdatos .imagen .selectFile i').animate({opacity:1});	
+		}});
+	});
+	$('#inicio .cancel-data, #imagenform .btn_close').on('click',function(){
+		$('#guardarFacturacion, #inicio .cancel-data').slideUp();
+
+		$('#imagenform .misdatos .imagen .selectFile i').animate({
+			opacity:0
+		},{complete:function(){
+			$('#imagenform .misdatos .imagen .selectFile').animate({
+				width:0,
+				height:0
+			});	
+		}});
+		$('#inicio .tabpage div i').animate({
+			right:'10px',
+			opacity:0
+		},{complete:function(){
+			$(this).css('display','none');
+		}});
+	});
 });

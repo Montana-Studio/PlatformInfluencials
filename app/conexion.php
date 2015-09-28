@@ -9,7 +9,4 @@ $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 //Conexión a base de datos
 $mysqli = mysqli_connect("localhost","root","root","adnativo_pi") or die("Error " . mysqli_error($link)); 
 $mysqli->set_charset('utf8');
-
-
-
 ?>

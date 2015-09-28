@@ -9,7 +9,7 @@ html {
 a {
   text-decoration: none; }
 
-.hide, #imagenform, main.form_agencias, main.form_agencias #antiguo, main.form_agencias #nuevo, main.form_agencias #antiguo h2, main.form_agencias #nuevo h2, main.form_agencias #antiguo a, main.form_agencias #nuevo a, main.form_agencias #antiguo .form_ingreso, main.form_agencias #nuevo .form_ingreso, main.form_agencias #nuevo .registerForm, main.form_agencias #nuevo .registerForm #selectImage input[type="file"] {
+.hide, #imagenform, #imagenform #inicio .tabpage div i, main.form_agencias, main.form_agencias #antiguo, main.form_agencias #nuevo, main.form_agencias #antiguo h2, main.form_agencias #nuevo h2, main.form_agencias #antiguo a, main.form_agencias #nuevo a, main.form_agencias #antiguo .form_ingreso, main.form_agencias #nuevo .form_ingreso, main.form_agencias #nuevo .registerForm, main.form_agencias #nuevo .registerForm #selectImage input[type="file"] {
   display: none; }
 
 .show {
@@ -32,7 +32,7 @@ a {
   color: #107977;
   outline: none; }
 
-.btns, #imagenform #inicio #guardarFacturacion, main.ingreso_eleccion #tipo .btns_accesos, main.form_agencias #inicio .btns_accesos, main.form_agencias #antiguo .form_ingreso #ingresar, main.form_agencias #nuevo .form_ingreso #ingresar, main.form_agencias #nuevo .registerForm #ingresar, main.form_agencias #antiguo .form_ingreso .fb_btn, main.form_agencias #nuevo .form_ingreso .fb_btn, main.form_agencias #nuevo .registerForm .fb_btn, main.form_agencias #antiguo .form_ingreso .lk_btn, main.form_agencias #nuevo .form_ingreso .lk_btn, main.form_agencias #nuevo .registerForm .lk_btn, main.form_agencias #nuevo .registerForm #registrarse, .no-campana a .btn_crearcamp, #campanaForm-nueva-campana .selectFile, #campanaForm-nueva-campana .guardar {
+.btns, #imagenform #inicio #guardarFacturacion, #imagenform #inicio .cancel-data, main.ingreso_eleccion #tipo .btns_accesos, main.form_agencias #inicio .btns_accesos, main.form_agencias #antiguo .form_ingreso #ingresar, main.form_agencias #nuevo .form_ingreso #ingresar, main.form_agencias #nuevo .registerForm #ingresar, main.form_agencias #antiguo .form_ingreso .fb_btn, main.form_agencias #nuevo .form_ingreso .fb_btn, main.form_agencias #nuevo .registerForm .fb_btn, main.form_agencias #antiguo .form_ingreso .lk_btn, main.form_agencias #nuevo .form_ingreso .lk_btn, main.form_agencias #nuevo .registerForm .lk_btn, main.form_agencias #nuevo .registerForm #registrarse, .no-campana a .btn_crearcamp, #campanaForm-nueva-campana .selectFile, #campanaForm-nueva-campana .guardar {
   cursor: pointer;
   float: left;
   display: block;
@@ -52,7 +52,7 @@ a {
   font-size: 13px;
   padding: 10px 0;
   margin-bottom: 10px; }
-  .btns:last-child, #imagenform #inicio #guardarFacturacion:last-child, main.ingreso_eleccion #tipo .btns_accesos:last-child, main.form_agencias #inicio .btns_accesos:last-child, main.form_agencias #antiguo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .registerForm #ingresar:last-child, main.form_agencias #antiguo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .registerForm .fb_btn:last-child, main.form_agencias #antiguo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .registerForm .lk_btn:last-child, main.form_agencias #nuevo .registerForm #registrarse:last-child, .no-campana a .btn_crearcamp:last-child, #campanaForm-nueva-campana .selectFile:last-child, #campanaForm-nueva-campana .guardar:last-child {
+  .btns:last-child, #imagenform #inicio #guardarFacturacion:last-child, #imagenform #inicio .cancel-data:last-child, main.ingreso_eleccion #tipo .btns_accesos:last-child, main.form_agencias #inicio .btns_accesos:last-child, main.form_agencias #antiguo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .registerForm #ingresar:last-child, main.form_agencias #antiguo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .registerForm .fb_btn:last-child, main.form_agencias #antiguo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .registerForm .lk_btn:last-child, main.form_agencias #nuevo .registerForm #registrarse:last-child, .no-campana a .btn_crearcamp:last-child, #campanaForm-nueva-campana .selectFile:last-child, #campanaForm-nueva-campana .guardar:last-child {
     margin-right: 0; }
 
 .btn_close {
@@ -65,53 +65,6 @@ a {
   .btn_close span {
     display: table-cell;
     vertical-align: middle; }
-
-@-webkit-keyframes popup {
-  from {
-    width: 0;
-    height: 0;
-    opacity: 0;
-    display: none; }
-  to {
-    width: 85%;
-    height: auto;
-    opacity: 1;
-    display: block; } }
-@-moz-keyframes popup {
-  from {
-    width: 0;
-    height: 0;
-    opacity: 0;
-    display: none; }
-  to {
-    width: 85%;
-    height: auto;
-    opacity: 1;
-    display: block; } }
-@keyframes popup {
-  from {
-    width: 0;
-    height: 0;
-    opacity: 0;
-    display: none; }
-  to {
-    width: 85%;
-    height: auto;
-    opacity: 1;
-    display: block; } }
-.openPopUp {
-  -webkit-animation-name: popup;
-  -moz-animation-name: popup;
-  animation-name: popup;
-  -webkit-animation-duration: 2s;
-  -moz-animation-duration: 2s;
-  animation-duration: 2s;
-  -webkit-animation-timing-function: ease;
-  -moz-animation-timing-function: ease;
-  animation-timing-function: ease;
-  -webkit-animation-iteration-count: forwards;
-  -moz-animation-iteration-count: forwards;
-  animation-iteration-count: forwards; }
 
 header {
   display: block;
@@ -146,7 +99,7 @@ header {
       width: 100%;
       height: 100%;
       display: block; }
-    @media screen and (min-width: 1280px) and (max-width: 1440px) {
+    @media screen and (min-width: 1024px) and (max-width: 1440px) {
       header .logo {
         float: left;
         display: block;
@@ -156,17 +109,7 @@ header {
         background-image: url("../img/logo_pi3-04.svg"); }
         header .logo:last-child {
           margin-right: 0; } }
-    @media screen and (min-width: 1441px) {
-      header .logo {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 18.96686%;
-        background-position: left;
-        background-image: url("../img/logo_pi3-04.svg"); }
-        header .logo:last-child {
-          margin-right: 0; } }
-    @media screen and (min-width: 1024px) and (max-width: 1279px) {
+    @media screen and (min-width: 1280px) and (min-width: 1440px) {
       header .logo {
         float: left;
         display: block;
@@ -182,21 +125,42 @@ header {
     margin-right: 2.35765%;
     width: 6.17215%;
     text-align: center;
-    font-size: 16px;
-    padding-top: 12px;
-    color: #fff; }
+    font-size: 16px !important;
+    color: #fff;
+    display: table !important;
+    height: 40px; }
     header .notes:last-child, header .ayuda_pi:last-child {
       margin-right: 0; }
+    @media screen and (min-width: 1024px) and (max-width: 1440px) {
+      header .notes, header .ayuda_pi {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 1.90725%; }
+        header .notes:last-child, header .ayuda_pi:last-child {
+          margin-right: 0; } }
+    @media screen and (min-width: 1440px) {
+      header .notes, header .ayuda_pi {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 1.90725%; }
+        header .notes:last-child, header .ayuda_pi:last-child {
+          margin-right: 0; } }
+    header .notes i, header .ayuda_pi i {
+      display: table-cell;
+      vertical-align: middle; }
   header .ayuda_pi {
-    padding-top: 12px;
     margin-left: 55.44373%; }
-    @media screen and (min-width: 1280px) and (max-width: 1440px) {
+    @media screen and (min-width: 1280px) and (min-width: 1440px) {
       header .ayuda_pi {
         margin-left: 51.17883%; } }
-    @media screen and (min-width: 1024px) and (max-width: 1279px) {
+    @media screen and (min-width: 1024px) and (max-width: 1440px) {
       header .ayuda_pi {
-        margin-left: 51.17883%;
-        padding-top: 9px; } }
+        margin-left: 66.53247%; } }
+    @media screen and (min-width: 1440px) {
+      header .ayuda_pi {
+        margin-left: 66.53247%; } }
   header .menu {
     float: left;
     display: block;
@@ -228,6 +192,23 @@ header {
         margin-right: 2.35765%;
         width: 6.17215%;
         margin-left: 4.2649%; }
+        header .menu:last-child {
+          margin-right: 0; } }
+    @media screen and (min-width: 1024px) and (max-width: 1440px) {
+      header .menu {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 3.18672%; }
+        header .menu:last-child {
+          margin-right: 0; } }
+    @media screen and (min-width: 1440px) {
+      header .menu {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 3.18672%;
+        max-width: 39px; }
         header .menu:last-child {
           margin-right: 0; } }
 
@@ -298,22 +279,6 @@ nav {
   padding: 20px; }
   #imagenform:last-child {
     margin-right: 0; }
-  @media screen and (min-width: 320px) and (max-width: 640px) {
-    #imagenform {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 82.94039%; }
-      #imagenform:last-child {
-        margin-right: 0; } }
-  @media screen and (min-width: 480px) and (max-width: 1024px) {
-    #imagenform {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 48.82117%; }
-      #imagenform:last-child {
-        margin-right: 0; } }
   #imagenform .fle-top {
     margin-top: -25px;
     margin-right: -10px;
@@ -356,27 +321,21 @@ nav {
       #imagenform .misdatos .imagen:last-child {
         margin-right: 0; }
       #imagenform .misdatos .imagen .selectFile {
-        border-top-left-radius: 100%;
-        border-top-right-radius: 100%;
-        border-bottom-left-radius: 100%;
-        border-top-left-radius: 100%;
-        border-bottom-right-radius: 100%;
-        border-top-right-radius: 100%;
-        border-bottom-left-radius: 100%;
-        border-bottom-right-radius: 100%;
-        width: 20px;
-        height: 20px;
-        background-color: #18bb9b;
-        color: #fff;
+        width: 0;
+        height: 0;
+        background-color: rgba(255, 255, 255, 0.5);
+        color: #18bb9b;
         text-align: center;
         display: table;
-        font-size: 10px;
+        font-size: 17px;
         position: absolute;
-        right: 3px;
-        bottom: 3px; }
+        right: 0;
+        bottom: 0;
+        overflow: hidden; }
         #imagenform .misdatos .imagen .selectFile i {
           display: table-cell;
-          vertical-align: middle; }
+          vertical-align: middle;
+          opacity: 0; }
     #imagenform .misdatos .datos {
       float: left;
       display: block;
@@ -419,7 +378,8 @@ nav {
         width: 100%;
         height: 25px;
         margin-top: 8px;
-        display: table; }
+        display: table;
+        cursor: pointer; }
         #imagenform .misdatos .datos .editar:last-child {
           margin-right: 0; }
         #imagenform .misdatos .datos .editar span {
@@ -470,33 +430,56 @@ nav {
         clear: both;
         content: "";
         display: table; }
-      #imagenform #inicio .tabpage small {
-        color: #c7c7c7;
-        clear: both;
-        font-size: 9px;
-        text-transform: uppercase; }
-      #imagenform #inicio .tabpage input {
-        font-family: "Open Sans", sans-serif;
+      #imagenform #inicio .tabpage div {
         float: left;
         display: block;
         margin-right: 2.35765%;
         width: 100%;
-        height: 20px;
-        margin-bottom: 5px;
-        border: none;
-        border-bottom: 1px solid #c7c7c7;
-        font-size: 12px;
-        color: #c7c7c7; }
-        #imagenform #inicio .tabpage input:last-child {
-          margin-right: 0; }
-      #imagenform #inicio .tabpage #tel1, #imagenform #inicio .tabpage #tel2 {
-        float: left;
         display: block;
-        margin-right: 2.35765%;
-        width: 48.82117%; }
-        #imagenform #inicio .tabpage #tel1:last-child, #imagenform #inicio .tabpage #tel2:last-child {
+        overflow: hidden;
+        position: relative; }
+        #imagenform #inicio .tabpage div:last-child {
           margin-right: 0; }
-    #imagenform #inicio #guardarFacturacion {
+        #imagenform #inicio .tabpage div::after {
+          clear: both;
+          content: "";
+          display: table; }
+        #imagenform #inicio .tabpage div small {
+          color: #c7c7c7;
+          clear: both;
+          font-size: 9px;
+          text-transform: uppercase; }
+        #imagenform #inicio .tabpage div input {
+          font-family: "Open Sans", sans-serif;
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 100%;
+          height: 20px;
+          margin-bottom: 5px;
+          border: none;
+          border-bottom: 1px solid #c7c7c7;
+          font-size: 12px;
+          color: #c7c7c7;
+          outline: none; }
+          #imagenform #inicio .tabpage div input:last-child {
+            margin-right: 0; }
+          #imagenform #inicio .tabpage div input[disabled] {
+            background-color: #fff; }
+        #imagenform #inicio .tabpage div#tel1, #imagenform #inicio .tabpage div#tel2 {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 48.82117%; }
+          #imagenform #inicio .tabpage div#tel1:last-child, #imagenform #inicio .tabpage div#tel2:last-child {
+            margin-right: 0; }
+        #imagenform #inicio .tabpage div i {
+          position: absolute;
+          top: 22px;
+          right: 10px;
+          color: #18bb9b;
+          opacity: 0; }
+    #imagenform #inicio #guardarFacturacion, #imagenform #inicio .cancel-data {
       float: left;
       display: block;
       margin-right: 2.35765%;
@@ -506,8 +489,14 @@ nav {
       padding: 10px 0;
       font-size: 11px;
       margin-top: 10px; }
-      #imagenform #inicio #guardarFacturacion:last-child {
+      #imagenform #inicio #guardarFacturacion:last-child, #imagenform #inicio .cancel-data:last-child {
         margin-right: 0; }
+    #imagenform #inicio .cancel-data {
+      text-align: center;
+      background-color: #FFF;
+      border-color: #18bb9b;
+      color: #18bb9b;
+      margin-bottom: -5px; }
     #imagenform #inicio .logout {
       float: left;
       display: block;
@@ -520,6 +509,40 @@ nav {
       padding: 10px 0 0; }
       #imagenform #inicio .logout:last-child {
         margin-right: 0; }
+  @media screen and (min-width: 320px) and (max-width: 640px) {
+    #imagenform {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 82.94039%; }
+      #imagenform:last-child {
+        margin-right: 0; } }
+  @media screen and (min-width: 480px) and (max-width: 1024px) {
+    #imagenform {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%; }
+      #imagenform:last-child {
+        margin-right: 0; } }
+  @media screen and (min-width: 1024px) and (max-width: 1440px) {
+    #imagenform {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      margin-right: 1% !important; }
+      #imagenform:last-child {
+        margin-right: 0; } }
+  @media screen and (min-width: 1440px) {
+    #imagenform {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      margin-right: 1% !important; }
+      #imagenform:last-child {
+        margin-right: 0; } }
 
 html {
   width: 100%;
@@ -546,7 +569,7 @@ html {
         clear: both;
         content: "";
         display: table; }
-      @media screen and (min-width: 1441px) {
+      @media screen and (min-width: 1440px) {
         html body .contAllPI {
           padding-top: 15% !important; } }
       @media screen and (min-width: 1024px) and (max-width: 1440px) {
@@ -611,6 +634,15 @@ main {
     margin-top: 48px; }
     main.ingreso_eleccion #tipo .btns_accesos {
       margin-left: 8.5298%; }
+      @media screen and (min-width: 480px) and (max-width: 690px) {
+        main.ingreso_eleccion #tipo .btns_accesos {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 48.82117%;
+          margin-left: 25.58941%; }
+          main.ingreso_eleccion #tipo .btns_accesos:last-child {
+            margin-right: 0; } }
       @media screen and (min-width: 768px) and (max-width: 1023px) {
         main.ingreso_eleccion #tipo .btns_accesos {
           float: left;
@@ -641,16 +673,25 @@ main {
     @media screen and (min-width: 1024px) and (max-width: 1440px) {
       main.ingreso_eleccion {
         margin-top: 10px; } }
-    @media screen and (min-width: 1280px) and (max-width: 1440px) {
+    @media screen and (min-width: 1280px) and (min-width: 1440px) {
       main.ingreso_eleccion {
         margin-top: 10px; } }
-    @media screen and (min-width: 1441px) {
+    @media screen and (min-width: 1440px) {
       main.ingreso_eleccion {
         margin-top: 10px; } }
   main.form_agencias {
     margin-top: 48px; }
     main.form_agencias #inicio .btns_accesos {
       margin-left: 8.5298%; }
+      @media screen and (min-width: 480px) and (max-width: 690px) {
+        main.form_agencias #inicio .btns_accesos {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 48.82117%;
+          margin-left: 25.58941%; }
+          main.form_agencias #inicio .btns_accesos:last-child {
+            margin-right: 0; } }
       @media screen and (min-width: 768px) and (max-width: 1023px) {
         main.form_agencias #inicio .btns_accesos {
           float: left;
@@ -701,9 +742,6 @@ main {
       opacity: 0;
       padding: 20px;
       z-index: 9; }
-      @media screen and (min-width: 480px) and (max-width: 690px) {
-        main.form_agencias #antiguo, main.form_agencias #nuevo {
-          top: 2%; } }
       main.form_agencias #antiguo h2, main.form_agencias #nuevo h2 {
         color: #18bb9b;
         font-size: 16px;
@@ -776,6 +814,14 @@ main {
         main.form_agencias #antiguo .form_ingreso .lk_btn, main.form_agencias #nuevo .form_ingreso .lk_btn, main.form_agencias #nuevo .registerForm .lk_btn {
           background-color: #0077b5;
           margin-bottom: 0; }
+      @media screen and (min-width: 480px) and (max-width: 690px) {
+        main.form_agencias #antiguo, main.form_agencias #nuevo {
+          top: 2%; } }
+      @media screen and (min-width: 768px) and (max-width: 1023px) {
+        main.form_agencias #antiguo, main.form_agencias #nuevo {
+          top: 23%;
+          max-width: 50%;
+          margin-left: 25.58941%; } }
     main.form_agencias #nuevo {
       overflow: scroll;
       overflow-x: hidden;
@@ -824,19 +870,22 @@ main {
         top: 7%;
         font-size: 12px;
         color: red; }
+      @media screen and (min-width: 768px) and (max-width: 1023px) {
+        main.form_agencias #nuevo {
+          min-height: 435px; } }
     @media screen and (min-width: 1024px) and (max-width: 1440px) {
       main.form_agencias {
         margin-top: 10px; }
         main.form_agencias #antiguo, main.form_agencias #nuevo {
           max-width: 35% !important;
           top: 26%; } }
-    @media screen and (min-width: 1280px) and (max-width: 1440px) {
+    @media screen and (min-width: 1280px) and (min-width: 1440px) {
       main.form_agencias {
         margin-top: 10px; }
         main.form_agencias #antiguo, main.form_agencias #nuevo {
           max-width: 35% !important;
           top: 26%; } }
-    @media screen and (min-width: 1441px) {
+    @media screen and (min-width: 1440px) {
       main.form_agencias {
         margin-top: 10px; }
         main.form_agencias #antiguo, main.form_agencias #nuevo {
