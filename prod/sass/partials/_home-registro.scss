@@ -7,6 +7,10 @@ main{
 				@extend .btns;
 				@include shift(1);
 				//MediaQueries
+				@include media($mobileLand){
+					@include span-columns(6);
+					@include shift(3);
+				}
 				@include media($tablet){
 					@include span-columns(4);
 					@include shift(4);
@@ -38,6 +42,10 @@ main{
 			.btns_accesos{
 				@extend .btns;
 				@include shift(1);
+				@include media($mobileLand){
+					@include span-columns(6);
+					@include shift(3);
+				}
 				@include media($tablet){
 					@include span-columns(4);
 					@include shift(4);
@@ -70,9 +78,6 @@ main{
 			opacity:0;
 			@include pad(20px);
 			z-index: 9;
-			@include media($mobileLand){
-				top:2%;
-			}
 			h2{
 				@extend .hide;
 				color:$color_font2;
@@ -128,6 +133,15 @@ main{
 					margin:{bottom:0;}
 				}
 			}
+			//MediaQueries
+			@include media($mobileLand){
+				top:2%;
+			}
+			@include media($tablet){
+				top:23%;
+				max-width:50%;
+				@include shift(3);
+			}
 		}	
 		#nuevo{
 			@extend #antiguo;
@@ -175,6 +189,10 @@ main{
 					font:{size: 12px;}
 					color: red;
 				}
+			}
+			//MediaQueries
+			@include media($tablet){
+				min-height:435px;
 			}
 		}
 		//MediaQueries
