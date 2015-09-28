@@ -238,20 +238,14 @@ $(document).ready(function(){
 
 
 	});
-		
-	$('#imagenform').on('submit',(function (e){
+
+	$('#campanaForm-nueva-campana').on('submit',(function (e){
 		e.preventDefault;
 		info = new FormData(this);
-		info.append('correo',$('#correo input').val());
-		info.append('rsid',$('#RsId').val());
-		info.append('nombre',$('#nombre input').val());
-		info.append('tel1',$('#tel1 input').val());
-		info.append('tel2',$('#tel2 input').val());
-		info.append('empresa',$('#empresa input').val());
-		info.append('picture_url', '<?php echo $_SESSION["pictureUrl"];?>');
-	
-		if(foto==1) {
-			console.log(foto);
+		info.append('nombre',$('#nombre-nueva-campana').val());
+		info.append('marca',$('#marca-nueva-campana').val());
+		info.append('descripcion',$('#descripcion-nueva-campana').val());
+		info.append('tipo','campana');
 		$.ajax({
 				type: "POST",  
 				url: "./procesar_imagen.php",  
@@ -262,22 +256,63 @@ $(document).ready(function(){
 				processData:false, 
 		
 				success: function(info){
-				switch (info){
-				case "error": 	alert("arhivo con daños");
-								//window.history.back(1);
-								//location.reload(true);
-				break;
-				case "nuevo":	alert("imagen cambiada");
-								//location.reload(true);
-								//window.location.assign("./dashboard-agencia.php");
-				break;
-				case "invalido": alert('el tamaño o formato no es aceptado');
-								//location.reload(true);
-								 //window.history.back(1);
-								 //window.location.assign("./dashboard-agencia.php");
-				break;
-				}
-				info='';
+					alert(info);
+					switch (info){
+					case "error": 	alert("arhivo con daños");
+					break;
+					case "nueva":	alert("campaña subida");
+					break;
+					case "invalido": alert('el tamaño o formato no es aceptado');
+					break;
+					}
+					
+					info='';
+
+				}		
+			});
+
+	}));
+
+	$('#imagenform').on('submit',(function (e){
+		e.preventDefault;
+		info = new FormData(this);
+		info.append('correo',$('#correo input').val());
+		info.append('rsid',$('#RsId').val());
+		info.append('nombre',$('#nombre input').val());
+		info.append('tel1',$('#tel1 input').val());
+		info.append('tel2',$('#tel2 input').val());
+		info.append('empresa',$('#empresa input').val());
+		info.append('picture_url', '<?php echo $_SESSION["pictureUrl"];?>');
+		info.append('tipo','avatar');
+	
+		if(foto==1) {
+			//console.log(foto);
+		$.ajax({
+				type: "POST",  
+				url: "./procesar_imagen.php",  
+				data: info,
+				enctype: 'multipart/form-data',
+				contentType: false,      
+				cache: false,             
+				processData:false, 
+				
+				success: function(info){
+					console.log(info);/*
+					switch (info){
+					case "error": 	alert("arhivo con daños");
+									//window.history.back(1);
+									//location.reload(true);
+					break;
+					case "nuevo":	alert("imagen cambiada");
+									//location.reload(true);
+									//window.location.assign("./dashboard-agencia.php");
+					break;
+					case "invalido": alert('el tamaño o formato no es aceptado');
+									//location.reload(true);
+									 //window.history.back(1);
+									 //window.location.assign("./dashboard-agencia.php");
+					break;
+					}*/
 				}
 			});
 		}
@@ -304,6 +339,9 @@ $(document).ready(function(){
 			});
 		};
 	}));	
+
+
+
 
 	/*//campañas creadas 
 	$('#editaCampaña').hide();

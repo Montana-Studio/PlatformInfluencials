@@ -71,7 +71,7 @@
 					<div id="selectImage">
 							
 						<input type="file" name="file" id="file" required>
-						<div id="searchImg" class="btns">Sube una imágen</div>
+						<label for="file" class="btns">Sube una imágen</label>
 						
 						<button id="registrarse" disabled type="submit">Registrarse</button>
 

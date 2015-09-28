@@ -40,7 +40,6 @@ else{
 	<h2>nueva campaña</h2>
 
 	<?php if ((int)$row2[0]>0){  echo ' - <a href="campana.php">volver a campa&ntildea </a>'; }?>
-	
 	<form id="campanaForm-nueva-campana">
 
 		<div class="cont-input nombre">
@@ -55,12 +54,11 @@ else{
 			<textarea placeholder="Descripción" id="descripcion-nueva-campana" rows="10" cols="40" ></textarea>
 			<i class="fa fa-pencil"></i>
 		</div>
-		
 		<h2>subir imagen</h2>
 		<p>Sube una imagen que represente la campaña y que no supere los 200kb en su peso.</p>
-
-		<input type="file" name="file" style="display:none !important;" />
-		<label class="selectFile" for="file"> Subir Archivo</label>
+		
+			<input type="file" name="file" class="hide"/>
+			<label class="selectFile" for="file">subir archivo</label>
 
 		<button class="guardar" id="guardar" type="submit">subir campaña</button>
 	</form>
@@ -69,62 +67,6 @@ else{
 		<script>
 		jQuery(document).ready(function(){
 			$('body').addClass('crear-campanas');
-			var aa= <?php echo (int)$row[0];?>;
-			var idActual = aa+1;
-			var info;
-			$('#campanaForm-nueva-campana').on('submit',(function (e){
-				e.preventDefault;
-				info = new FormData(this);	
-				info.append('nombre',$('#nombre-nueva-campana').val());
-				info.append('marca',$('#marca-nueva-campana').val());
-				info.append('descripcion',$('#descripcion-nueva-campana').val());
-				info.append('campana',idActual);
-				info.append('id','<?php echo $_SESSION["id"];?>');
-				info.append('correo','<?php echo $_SESSION["correo"];?>');
-				info.append('rsid','<?php echo $_SESSION["rsid"];?>');
-				$.ajax({
-					type: 'POST',  
-					url: 'procesar_nueva-campana.php',  
-					data: info,
-					enctype: 'multipart/form-data',
-					contentType: false,      
-					cache: false,             
-					processData:false, 
-							success: function(info){ 
-
-								if(info == "error"){
-									alert("problema con el archivo");
-								}
-
-								if(info == "invalido"){
-									alert("formato o extension incorrecta");
-								}
-								if(info == "nueva-campana"){
-											if (confirm("¿desea crear una nueva campaña?")) {
-												window.reload();
-											}
-												window.location.href("campana.php");
-								}
-								if(info == "error"){
-									alert("problema con el archivo");
-								}
-							}	
-								
-								/*		switch (info){
-										case "error": alert("problema con el archivo");;
-										break;
-										case "invalido": alert("formato o extension incorrecta");
-										break;
-										case "nueva-campana": 
-											if (confirm("¿desea crear una nueva campaña?")) {
-												window.reload();
-											}
-												window.location.href("campana.php");
-										break;
-										}
-										}*/
-				});
-			}));
 		});
 	</script>
 </body>
