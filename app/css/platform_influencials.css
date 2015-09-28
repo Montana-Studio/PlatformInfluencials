@@ -896,6 +896,14 @@ main {
   background-color: #fff;
   background-image: none; }
 
+#creadas {
+  width: 100%;
+  display: block; }
+  #creadas::after {
+    clear: both;
+    content: "";
+    display: table; }
+
 .no-campana a {
   float: left;
   display: block;

@@ -41,13 +41,14 @@
 		if ((int)$row[0] != 0){ ?>
 			<?php 
 				echo '
-				<a href="campana.php">ir a campa&ntildeas</a>
 			
 				<div id="creadas">
-					<h2>&uacutetlimas campa&ntildeas creadas</h2>
+
 					<script type="text/javascript">
+
 						$(document).ready(function(){
-							$(".volver").hide();
+
+							//$(".volver").hide();
 							var contador=0;
 							$("#recientes .content_all").click(function(){
 								if (contador==0){
@@ -68,6 +69,7 @@
 								}
 							});
 						});
+
 					</script>
 				
 				';
