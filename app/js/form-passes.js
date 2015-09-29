@@ -260,7 +260,13 @@ $(document).ready(function(){
 					switch (info){
 					case "error": 	alert("arhivo con daños");
 					break;
-					case "nueva":	alert("campaña subida");
+					case "nueva":	var confirm = confirm('¿desea subir más campañas?'); 
+									if (confirm) {
+										window.location.reload(true); 	
+									 }
+									 else{
+									 	window.location.href("campana.php");
+									 }
 					break;
 					case "invalido": alert('el tamaño o formato no es aceptado');
 					break;
@@ -287,7 +293,7 @@ $(document).ready(function(){
 	
 		if(foto==1) {
 			//console.log(foto);
-		$.ajax({
+			$.ajax({
 				type: "POST",  
 				url: "./procesar_imagen.php",  
 				data: info,
@@ -297,22 +303,14 @@ $(document).ready(function(){
 				processData:false, 
 				
 				success: function(info){
-					console.log(info);/*
 					switch (info){
-					case "error": 	alert("arhivo con daños");
-									//window.history.back(1);
-									//location.reload(true);
+					case "error": 	alert("arhivo con daños");				
 					break;
 					case "nuevo":	alert("imagen cambiada");
-									//location.reload(true);
-									//window.location.assign("./dashboard-agencia.php");
 					break;
 					case "invalido": alert('el tamaño o formato no es aceptado');
-									//location.reload(true);
-									 //window.history.back(1);
-									 //window.location.assign("./dashboard-agencia.php");
 					break;
-					}*/
+					}
 				}
 			});
 		}
@@ -330,8 +328,6 @@ $(document).ready(function(){
 				success: function(info){
 				switch (info){
 				case "actualiza": 	alert("datos actualizados");
-								//window.history.back(1);
-								//location.reload(true);
 				break;
 				}
 				info='';
