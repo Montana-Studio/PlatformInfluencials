@@ -4,8 +4,27 @@
 #creadas{
 	@include fill-parent();
 	@include row();
-	#recientes{
-
+	.recientes{
+		@include span-columns(12);
+		@include row();
+		@include pad(0);
+		.cont-campana{
+			position: relative;
+			overflow: hidden;
+			min-height: 182px;
+			background:{position: center;size: cover;}
+			h3{
+				margin:0;
+				@include pad(0);
+			}
+			h4{
+				@extend h3;
+			}
+			p{
+				margin:0;
+				@include pad(0);
+			}
+		}
 	}
 }
 .no-campana{
