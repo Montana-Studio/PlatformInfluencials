@@ -57,14 +57,14 @@ else{
 		<h2>subir imagen</h2>
 		<p>Sube una imagen que represente la campaña y que no supere los 200kb en su peso.</p>
 		
-			<input type="file" name="file"/>
-			<label class="selectFile" for="file">subir archivo</label>
+		<input type="file" name="file" class="jfilestyle" data-input="false" data-buttonText="subir archivo"/>
 
 		<button class="guardar" id="guardar" type="submit">subir campaña</button>
 	</form>
 
 	<?php include 'footer.php'; ?>
-		<script>
+	
+	<script>
 		jQuery(document).ready(function(){
 			$('body').addClass('crear-campanas');
 		});

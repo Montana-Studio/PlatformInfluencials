@@ -1,6 +1,13 @@
 .dashboard-agencia{
 	background: {color:#fff;image:none;}
 }
+#creadas{
+	@include fill-parent();
+	@include row();
+	#recientes{
+
+	}
+}
 .no-campana{
 	a{
 		@include span-columns(10);
