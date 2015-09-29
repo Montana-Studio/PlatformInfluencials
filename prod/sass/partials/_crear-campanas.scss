@@ -76,7 +76,7 @@
 			@include span-columns(4 of 12);
 		}
 	}
-	.selectFile{
+	.jfilestyle{
 		@extend .btns;
 		@include span-columns(12);
 		@include textAligns(center);
@@ -84,6 +84,13 @@
 		border:1px solid $color_font2;
 		color:$color_font2;
 		margin:{top:10px;}
+		.focus-jfilestyle{
+			label{
+				.count-jfilestyle{
+					@extend .hide;
+				}
+			}
+		}
 	}
 	h2{
 		@include pad(10px 0 3px);
