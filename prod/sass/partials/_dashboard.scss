@@ -9,16 +9,51 @@
 		@include row();
 		@include pad(0);
 		.cont-campana{
+			@include span-columns(12 of 12);
+			display: table;
+			float: none;
 			position: relative;
 			overflow: hidden;
 			min-height: 182px;
 			background:{position: center;size: cover;}
+			@include boxShadow(inset, 0, -100px, 90px, -21px, rgba(0,0,0,0.7));
+			@include pad(0 5px);
 			h3{
 				margin:0;
 				@include pad(0);
+				@include span-columns(5 of 12);
+				float: none;
+				color:#fff;
+				font:{size:16px;}
+				display: table-cell;
+				vertical:{align: bottom;}
+			}
+			.redes-inline{
+				@include pad(0);
+				@include span-columns(5 of 12);
+				float: none;
+				display: table-cell;
+				list:{style: none;}
+				vertical:{align: bottom;}
+				li{
+					display: inline-block;
+				}
+			}
+			.ver-mas{
+				@include pad(0);
+				@include span-columns(2 of 12);
+				float: none;
+				display: table-cell;
+				vertical:{align: bottom;}
 			}
 			h4{
 				@extend h3;
+				@include span-columns(5);
+				@include omega();
+				float: none;
+				display: table-cell;
+				font:{size:11px;weight:normal;style:italic;}
+				bottom:10px;
 			}
 			p{
 				margin:0;

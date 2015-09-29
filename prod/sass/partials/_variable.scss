@@ -26,11 +26,11 @@ $text-justify:justify;
 	@include border-bottom-radius($roundness);
 }
 
-@mixin boxShadow($top, $left, $blur, $color, $inset: false) {
+@mixin boxShadow($top, $left, $blur, $spread, $color, $inset: false) {
   @if $inset {
-    @include prefixer(box-shadow, $top $left $blur $color, webkit moz spec);
+    @include prefixer(box-shadow, $top $left $blur $spread $color, webkit moz spec);
   } @else {
-    @include prefixer(box-shadow, $top $left $blur $color, webkit moz spec);
+    @include prefixer(box-shadow, $top $left $blur $spread $color, webkit moz spec);
   }
 }
 //RESPONSIVE WIDTH

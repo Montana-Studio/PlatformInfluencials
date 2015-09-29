@@ -68,7 +68,7 @@ main{
 			@extend .hide;
 			@extend .center-div;
 			@include borderRadius(3px);
-			@include boxShadow(0, 0, 10px, #001130);
+			@include boxShadow(0, 0, 10px, 0, #001130);
 			background: {color:#fff;}
 			position:absolute;
 			top:16%;

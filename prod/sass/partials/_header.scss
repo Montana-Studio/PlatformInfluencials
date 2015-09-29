@@ -113,7 +113,7 @@ nav{
 	height:auto;
 	right:0;
 	top:-100%;
-	@include boxShadow(0, 0, 10px, #ccc);
+	@include boxShadow(0px, 0px, 10px, 0px, #ccc);
 	@include pad(20px);
 	@extend .hide;
 	.fle-top{
