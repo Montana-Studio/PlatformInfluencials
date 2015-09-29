@@ -48,12 +48,12 @@
 
 						$(document).ready(function(){
 
-							//$(".volver").hide();
+							$(".volver, .recientes .content").hide();
 							var contador=0;
-							$("#recientes .content_all").click(function(){
+							$(".recientes .cont-campana").click(function(){
 								if (contador==0){
-								$("#recientes .content_all").not(this).hide();
-								$("#recientes .content, .volver").show(this);
+								$(".recientes .cont-campana").not(this).hide();
+								$(".recientes .content, .volver").show(this);
 									//console.log(clicked_id);
 									contador=1;
 								}
@@ -61,8 +61,8 @@
 							
 							$(".volver").click(function(){
 								if (contador==1){
-								$("#recientes .content_all").show();
-								$("#recientes .content").hide();
+								$(".recientes .cont-campana").show();
+								$(".recientes .content").hide();
 									//console.log(clicked_id);
 									contador=0;
 									$(".volver").hide();
@@ -75,14 +75,16 @@
 				';
 					do{
 					echo '
-					<div id="recientes">
-						<div class="content_all">
-						<img id="imagen'.$row[0].'"width="100" height="auto"  src="'.$row[3].'"/>
-							<div class="content" >
-								<p class="campana'.$row[0].'" ">'.$row[2].'</p>
-								<p>'.$row[4].'</p>
-								
+					<div class="recientes">
+						<div class="cont-campana" id="imagen'.$row[0].'" style="background-image:url('.$row[3].');">
+							
+							<h3>'.$row[1].'</h3>
+							<h4>by '.$row[4].'</h4>
+
+							<div class="content">
+								<p id="campana'.$row[0].'">'.$row[2].'</p>
 							</div>
+
 						</div>
 					 </div>
 				 
