@@ -118,10 +118,10 @@ if ($tipo == 'avatar'){
 
 	}else{
 		//echo valida_extension();
-		$resultado = valida_extension();
+		$resultado = "nuevo";
 	}
 
-	echo $resultado;
+
 
 /*
 	if(isset($_FILES["file"]["type"]))
@@ -312,54 +312,45 @@ if ($tipo == 'avatar'){
 
 
 }else if ($tipo == 'imagen'){
-
-		$nombre =$_POST['nombre'];
-		$marca =$_POST['marca'];
-		$descripcion =$_POST['descripcion'];
-		$idCampana =$_POST['idCampana'];
-		$idpersona =$_POST['idpersona'];
-		$sql = "UPDATE campana SET nombre='$nombre', marca='$marca', descripcion='$descripcion' WHERE idpersona='$idpersona' AND id='$idCampana'";
-		$update = $mysqli->query($sql);
-		
-		if($_POST['foto'] == 1){
-
-			if(valida_extension() == "ok"){
-					$nombre =$_POST['nombre'];
-					$marca =$_POST['marca'];
-					$descripcion =$_POST['descripcion'];
-					$idCampana =$_POST['idCampana'];
-					$idpersona =$_POST['idpersona'];
-
-					$sql = "UPDATE campana SET nombre='$nombre', marca='$marca', descripcion='$descripcion' WHERE idpersona='$idpersona' AND id='$idCampana'";
-					$update = $mysqli->query($sql);
-
-				if ($a==1){ // Create directory to save the file in case of Social Login
-					$targetPath = "uploads/agencias/registered/$rsid/$campana/".$_FILES['file']['name']; // Target path where file is to be stored
-					$file= $_FILES['file']['name'];
-					unlink("uploads/agencias/registered/$rsid/$campana/1.jpg");
-					move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
-					rename("uploads/agencias/registered/$rsid/$campana/$file", "uploads/agencias/registered/$rsid/$campana/1.jpg");
-					//echo "nuevo";
-					$resultado = "nuevo";
-				}
-				if ($a==2){// Create directory to save the file in case of Form Login
-					unlink("uploads/agencias/registered/$correo/$campana/1.jpg");
-					$targetPath = "uploads/agencias/registered/$correo/$campana".$_FILES['file']['name']; // Target path where file is to be stored
-					$file= $_FILES['file']['name'];
-					
-					move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
-					rename("uploads/agencias/registered/$correo/$campana/$file", "uploads/agencias/registered/$correo/$campana/1.jpg");		
-					//echo "nuevo";
-					$resultado = "nuevo";
-				}
-				else{
-					$resultado = valida_extension();
-				}
+	$nombre =$_POST['nombre'];
+	$marca =$_POST['marca'];
+	$descripcion =$_POST['descripcion'];
+	$idCampana =$_POST['idCampana'];
+	$idpersona =$_POST['idpersona'];
+	$sql = "UPDATE campana SET nombre='$nombre', marca='$marca', descripcion='$descripcion' WHERE idpersona='$idpersona' AND id='$idCampana'";
+	$update = $mysqli->query($sql);
+	if($_POST['foto'] == 1){
+		if(valida_extension() == "ok"){
+			$campana=$_POST['campana'];
+			$sourcePath = $_FILES['file']['tmp_name']; // Storing source path of the file in a variable
+			//Success
+			if ($a==1){ // Create directory to save the file in case of Social Login
+				$targetPath = "uploads/agencias/registered/$rsid/$campana/".$_FILES['file']['name']; // Target path where file is to be stored
+				$file= $_FILES['file']['name'];
+				unlink("uploads/agencias/registered/$rsid/$campana/1.jpg");
+				move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
+				rename("uploads/agencias/registered/$rsid/$campana/$file", "uploads/agencias/registered/$rsid/$campana/1.jpg");
+				$resultado = "nuevo";
+			}
+			if ($a==2){// Create directory to save the file in case of Form Login
+				unlink("uploads/agencias/registered/$correo/$campana/1.jpg");
+				$targetPath = "uploads/agencias/registered/$correo/$campana".$_FILES['file']['name']; // Target path where file is to be stored
+				$file= $_FILES['file']['name'];
+				move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
+				rename("uploads/agencias/registered/$correo/$campana/$file", "uploads/agencias/registered/$correo/$campana/1.jpg");		
+				$resultado = "nuevo";
 			}
 		}
-			echo $resultado;
+		else{
+			$resultado = valida_extension();
+		}
+
+	}
+	echo $resultado;
+
 /*
 		if($_POST['foto'] == 1){
+
 			if(isset($_FILES["file"]["type"]))
 			{	
 				$id=$_POST['id'];
@@ -409,9 +400,8 @@ if ($tipo == 'avatar'){
 			}
 
 		}
-
-
 */
+
 }
 
 ?>

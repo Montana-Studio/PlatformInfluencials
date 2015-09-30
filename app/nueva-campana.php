@@ -16,9 +16,6 @@ else{
 	$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 }
 ?>
-<script>
-
-</script>
 <!DOCTYPE html>
 <html lang="es">
 <head>
