@@ -1,3 +1,10 @@
+<?php
+require('conexion.php');
+	if(isset($_SESSION['nombre'])==false){
+		header('Location:/');
+		die();
+	}
+?>
 <header>
 	
 	<div class="logo"><a href="./dashboard-agencia.php" target="_top"></a></div>
