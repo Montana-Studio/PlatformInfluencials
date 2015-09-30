@@ -10,10 +10,10 @@ else{
 	$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 	$row= mysqli_fetch_array($result, MYSQLI_NUM);
 
-	/*$id = $_SESSION['id'];
+	$id = $_SESSION['id'];
 	$query2="SELECT * FROM campana WHERE idpersona='$id'";
 	$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
-	$row2= mysqli_fetch_array($result2, MYSQLI_NUM);*/
+	$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 }
 ?>
 <script>
@@ -39,6 +39,7 @@ else{
 
 	<h2>nueva campaña</h2>
 
+	<?php if ((int)$row2[0]>0){  echo ' - <a href="campana.php">volver a campa&ntildea </a>'; }?>
 	<form id="campanaForm-nueva-campana">
 
 		<div class="cont-input nombre">
@@ -70,4 +71,3 @@ else{
 	</script>
 </body>
 </html>
-

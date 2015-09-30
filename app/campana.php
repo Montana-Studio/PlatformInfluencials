@@ -1,18 +1,16 @@
 <?php
 require('conexion.php');
-if(isset($_SESSION['nombre'])==false){
-	header('Location:./');
-	die();
-}	
-$query="SELECT * FROM campana WHERE idEstado = 1 AND idpersona=".$_SESSION['id']."  ORDER BY id DESC";
+
+//$mysqli->set_charset('utf8');
+$query="SELECT * FROM campana WHERE idEstado=1 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
 $result= mysqli_query($mysqli,$query)or die(mysqli_error());
 $row= mysqli_fetch_array($result, MYSQLI_NUM);
-$num_rows = mysqli_num_rows($result);
+$num_rows= mysqli_num_rows($result);
 
-$query2="SELECT * FROM campana WHERE idEstado = 0 AND idpersona=".$_SESSION['id']."  ORDER BY id DESC";
+$query2="SELECT * FROM campana WHERE idEstado=0 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
 $result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
 $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
-$num_rows2 = mysqli_num_rows($result2);
+$num_rows2= mysqli_num_rows($result2);
 /*
 $id = $_SESSION['id'];
 $query2="SELECT COUNT(DISTINCT(id)) FROM campana WHERE idpersona='$id'";
@@ -25,7 +23,7 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
+
 	<title>Power Influencer - Campañas</title>
 
 	<link rel="stylesheet" href="css/platform_influencials.css">
@@ -42,18 +40,16 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 <body>
 <?php include 'header.php'; ?>
 	<?php 
-
-	if ($num_rows>0){
-		echo '
-		<a href="dashboard-agencia.php">volver a dashboard</a> -<a href="nueva-campana.php">crear campa&ntildea </a>
-
-
-		<div id="activas"><h2>campa&ntildeas activas</h2>';
-				do{ 
-					
-					echo '<script>
+	if ($num_rows > 0){
+			echo '
+	<h2>campa&ntildeas</h2>
+	<a href="dashboard-agencia.php">volver a dashboard</a> -<a href="nueva-campana.php">crear campa&ntildea </a>';
+			 do{ 
+					echo '
+					<div id="creadas"><h2>campa&ntildeas activas</h2>
+					<script>
 					$(document).ready(function(){
-				
+					var foto;
 					$(".btneliminar").hide();
 					$(".marca").hide();
 					$(".descripcion").hide();
@@ -62,44 +58,48 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 					$(".cambiarImagen").hide();
 					
 					$("#btneditar'.$row[0].'").click(function (){
-					$("#btneliminar'.$row[0].'").show();
-					$("#btnpausar'.$row[0].'").show();
-					$("#btneditar'.$row[0].'").hide();
-					$("#marca-campana-'.$row[0].'").show();
-					$("#descripcion-campana-'.$row[0].'").show();
-					$("#guardar-campana-'.$row[0].'").show();
-					$("#formImagen-campana-'.$row[0].'").show();
+						$("#btneliminar'.$row[0].'").show();
+						$("#btnpausar'.$row[0].'").show();
+						$("#btneditar'.$row[0].'").hide();
+						$("#marca-campana-'.$row[0].'").show();
+						$("#descripcion-campana-'.$row[0].'").show();
+						$("#guardar-campana-'.$row[0].'").show();
+						$("#formImagen-campana-'.$row[0].'").show();
 					});
 					
 					
 					$("#guardar'.$row[0].'").click(function (){
-					$(".btneliminar").hide();
-					$(".marca-campana-").hide();
-					$(".descripcion-campana-").hide();
-					$(".btnpausar").hide();
-					$(".guardar-campana").hide();
-					$(".btneditar").show();
-					$(".cambiarImagen").hide();
+						$(".btneliminar").hide();
+						$(".marca-campana-").hide();
+						$(".descripcion-campana-").hide();
+						$(".btnpausar").hide();
+						$(".guardar-campana").hide();
+						$(".btneditar").show();
+						$(".cambiarImagen").hide();
 					});
 					
 					$("#btnpausar'.$row[0].'").click(function (){
-					$(".btneliminar").hide();
-					$(".marca").hide();
-					$(".descripcion").hide();
-					$(".btnpausar").hide();
-					$(".guardar-campana").hide();
-					$(".btneditar").show();
-					$(".cambiarImagen").hide();
+						$(".btneliminar").hide();
+						$(".marca").hide();
+						$(".descripcion").hide();
+						$(".btnpausar").hide();
+						$(".guardar-campana").hide();
+						$(".btneditar").show();
+						$(".cambiarImagen").hide();
 					});
 					
 					$("#btneliminar'.$row[0].'").click(function (){
-					$(".btneliminar").hide();
-					$(".marca").hide();
-					$(".descripcion").hide();
-					$(".btnpausar").hide();
-					$(".guardar-campana").hide();
-					$(".btneditar").show();
-					$(".cambiarImagen").hide();
+						$(".btneliminar").hide();
+						$(".marca").hide();
+						$(".descripcion").hide();
+						$(".btnpausar").hide();
+						$(".guardar-campana").hide();
+						$(".btneditar").show();
+						$(".cambiarImagen").hide();
+					});
+
+					$("#file'.$row[0].'").click(function (){
+						foto = "1";
 					});
 
 					var info;
@@ -107,17 +107,25 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 					var idAgencia = '.$_SESSION["id"].';
 					var correo ="'.$_SESSION["correo"].'";
 					var rsid ="'.$_SESSION["rsid"].'";
+					var tipo ="imagen";
 					$("#campanaForm'.$row[0].'").on("submit",(function (e){
 						e.preventDefault();
 						info = new FormData(this);
 						info.append("nombre",$("#nombre-campana-"+idCampana+" input").val());
 						info.append("marca",$("#marca-campana-"+idCampana+" input").val());
 						info.append("descripcion",$("#descripcion-campana-"+idCampana+" textarea").val());
-						info.append("id",idCampana);
+						info.append("idCampana",idCampana);
 						info.append("idpersona",idAgencia);	
+						info.append("tipo",tipo);	
+						info.append("campana",idCampana);
+						info.append("id",idAgencia);
+						info.append("correo",correo);
+						info.append("rsid",rsid);
+						info.append("foto",foto);
+						console.log(foto);
 						$.ajax({
 								type: "POST",  
-								url: "procesar-campana-agencia.php",  
+								url: "procesar_imagen.php",  
 								data: info,
 								enctype: "multipart/form-data",
 								contentType: false,      
@@ -134,14 +142,10 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 					
 			
 					$("#formImagen-campana-'.$row[0].'").on("submit",(function (e){
-					
+						var tipo = "imagen";
 						e.preventDefault();
 						info = new FormData(this);
-						info.append("campana",idCampana);
-						info.append("id",idAgencia);
-						info.append("correo",correo);
-						info.append("rsid",rsid);
-						info.append("tipo","imagen");
+
 							$.ajax({
 								type: "POST",  
 								url: "procesar_imagen.php",  
@@ -150,17 +154,10 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 								contentType: false,      
 								cache: false,             
 								processData:false, 
-
 							
-							success: function(info){
-								switch (info){
-								case "error": 	alert("arhivo con daños");				
-								break;
-								case "nuevo":	alert("imagen cambiada");
-								break;
-								case "invalido": alert("el tamaño o formato no es aceptado");
-								break;
-								}
+							success: function(data){ 
+								
+								//window.location.reload();
 							}
 							});
 					}));
@@ -174,62 +171,56 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 								url: "procesar_eliminar-campana.php",  
 								data: "id="+idEliminar,
 							
-							success: function(data){ 
-								window.location.reload();
-							}
+								success: function(data){ 
+									window.location.reload();
+								}
 							});  
-						} 
-
-
-					});
-					});</script>
+							} 
+						});
+				});
+				</script>
 			
 		
-			
-					<div id="Campana">
-						<form id="campanaForm'.$row[0].'">
-							<img width="400" height="auto"  src="'.$row[3].'"/><br/>
-							<button class="btneditar" id="btneditar'.$row[0].'">editar</button>
-							
-							<button class="btneliminar" id="btneliminar'.$row[0].'">eliminar</button>
-							
-							<button class="btnpausar" id="btnpausar'.$row[0].'">pausar</button>
-								<div class="nombre" id="nombre-campana-'.$row[0].'">
-									<input value="'.$row[1].'"></input>
-								</div>
-								<div class="marca" id="marca-campana-'.$row[0].'">
-									<input  value="'.$row[4].'"></input>
-								</div>
-								<div class="descripcion" id="descripcion-campana-'.$row[0].'">
-									<textarea placeholder="descripcion" rows=10 cols=40 >'.$row[2].'</textarea>
-								</div>
-							<button class="guardar-campana" type="submit" id="guardar-campana-'.$row[0].'">Guardar Cambios en '.$row[1].'</button>
-					</form>
-				</div>
-				
-				<form class="cambiarImagen" id="formImagen-campana-'.$row[0].'">
-					<div  id="selectImage">
-						<input type="file" name="file" required /></br>
-						<button id="cambiarImagen'.$row[0].'">Cambiar</button>
-					</div>
-				</form>
-							
-						
-			';}while($row = mysqli_fetch_row($result));
-
+		
+			<div id="Campana">
+				<form id="campanaForm'.$row[0].'">
+					<img width="400" height="auto"  src="'.$row[3].'"/><br/>
+					<button class="btneditar" id="btneditar'.$row[0].'">editar</button>
+					
+					<button class="btneliminar" id="btneliminar'.$row[0].'">eliminar</button>
+					
+					<button class="btnpausar" id="btnpausar'.$row[0].'">pausar</button>
+						<div class="nombre" id="nombre-campana-'.$row[0].'">
+							<input value="'.$row[1].'"></input>
+						</div>
+						<div class="marca" id="marca-campana-'.$row[0].'">
+							<input  value="'.$row[4].'"></input>
+						</div>
+						<div class="descripcion" id="descripcion-campana-'.$row[0].'">
+							<textarea placeholder="descripcion" rows=10 cols=40 >'.$row[2].'</textarea>
+						</div>
+						<div>
+							<input type="file" name="file" class="jfilestyle" data-input="false" id="file'.$row[0].'" data-buttonText="subir archivo"/>
+						</div>
+					<button class="guardar-campana" type="submit" id="guardar-campana-'.$row[0].'">Guardar Cambios en '.$row[1].'</button>
+			</form>
+		</div>
+		
+ 
+					
+					
+		';}while($row = mysqli_fetch_row($result));
 	}
-	if ($num_rows2>0){
-			
-			echo '
-			<a href="dashboard-agencia.php">volver a dashboard</a> -<a href="nueva-campana.php">crear campa&ntildea </a>
-
-
-			<div id="inactivas"><h2>campa&ntildeas inactivas</h2>';
-				do{ 
+	if($num_rows2 > 0){
 					echo '
+	<h2>campa&ntildeas</h2>
+	<a href="dashboard-agencia.php">volver a dashboard</a> -<a href="nueva-campana.php">crear campa&ntildea </a>';
+			 do{ 
+					echo '
+					<div id="creadas"><h2>campa&ntildeas inactivas</h2>
 					<script>
 					$(document).ready(function(){
-				
+						var foto;
 					$(".btneliminar").hide();
 					$(".marca").hide();
 					$(".descripcion").hide();
@@ -238,44 +229,48 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 					$(".cambiarImagen").hide();
 					
 					$("#btneditar'.$row2[0].'").click(function (){
-					$("#btneliminar'.$row2[0].'").show();
-					$("#btnpausar'.$row2[0].'").show();
-					$("#btneditar'.$row2[0].'").hide();
-					$("#marca-campana-'.$row2[0].'").show();
-					$("#descripcion-campana-'.$row2[0].'").show();
-					$("#guardar-campana-'.$row2[0].'").show();
-					$("#formImagen-campana-'.$row2[0].'").show();
+						$("#btneliminar'.$row2[0].'").show();
+						$("#btnpausar'.$row2[0].'").show();
+						$("#btneditar'.$row2[0].'").hide();
+						$("#marca-campana-'.$row2[0].'").show();
+						$("#descripcion-campana-'.$row2[0].'").show();
+						$("#guardar-campana-'.$row2[0].'").show();
+						$("#formImagen-campana-'.$row2[0].'").show();
 					});
 					
 					
 					$("#guardar'.$row2[0].'").click(function (){
-					$(".btneliminar").hide();
-					$(".marca-campana-").hide();
-					$(".descripcion-campana-").hide();
-					$(".btnpausar").hide();
-					$(".guardar-campana").hide();
-					$(".btneditar").show();
-					$(".cambiarImagen").hide();
+						$(".btneliminar").hide();
+						$(".marca-campana-").hide();
+						$(".descripcion-campana-").hide();
+						$(".btnpausar").hide();
+						$(".guardar-campana").hide();
+						$(".btneditar").show();
+						$(".cambiarImagen").hide();
 					});
 					
 					$("#btnpausar'.$row2[0].'").click(function (){
-					$(".btneliminar").hide();
-					$(".marca").hide();
-					$(".descripcion").hide();
-					$(".btnpausar").hide();
-					$(".guardar-campana").hide();
-					$(".btneditar").show();
-					$(".cambiarImagen").hide();
+						$(".btneliminar").hide();
+						$(".marca").hide();
+						$(".descripcion").hide();
+						$(".btnpausar").hide();
+						$(".guardar-campana").hide();
+						$(".btneditar").show();
+						$(".cambiarImagen").hide();
 					});
 					
 					$("#btneliminar'.$row2[0].'").click(function (){
-					$(".btneliminar").hide();
-					$(".marca").hide();
-					$(".descripcion").hide();
-					$(".btnpausar").hide();
-					$(".guardar-campana").hide();
-					$(".btneditar").show();
-					$(".cambiarImagen").hide();
+						$(".btneliminar").hide();
+						$(".marca").hide();
+						$(".descripcion").hide();
+						$(".btnpausar").hide();
+						$(".guardar-campana").hide();
+						$(".btneditar").show();
+						$(".cambiarImagen").hide();
+					});
+
+					$("#file'.$row2[0].'").click(function (){
+						foto = "1";
 					});
 
 					var info;
@@ -283,17 +278,19 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 					var idAgencia = '.$_SESSION["id"].';
 					var correo ="'.$_SESSION["correo"].'";
 					var rsid ="'.$_SESSION["rsid"].'";
+					var tipo ="imagen";
 					$("#campanaForm'.$row2[0].'").on("submit",(function (e){
 						e.preventDefault();
 						info = new FormData(this);
 						info.append("nombre",$("#nombre-campana-"+idCampana+" input").val());
 						info.append("marca",$("#marca-campana-"+idCampana+" input").val());
 						info.append("descripcion",$("#descripcion-campana-"+idCampana+" textarea").val());
-						info.append("id",idCampana);
-						info.append("idpersona",idAgencia);	
+						info.append("idCampana",idCampana);
+						info.append("idpersona",idAgencia);
+						info.append("tipo",tipo);	
 						$.ajax({
 								type: "POST",  
-								url: "procesar-campana-agencia.php",  
+								url: "procesar_imagen.php",  
 								data: info,
 								enctype: "multipart/form-data",
 								contentType: false,      
@@ -310,14 +307,14 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 					
 			
 					$("#formImagen-campana-'.$row2[0].'").on("submit",(function (e){
-					
+						var tipo ="imagen";
 						e.preventDefault();
 						info = new FormData(this);
-						info.append("campana",idCampana);
+						info.append("idCampana",idCampana);
 						info.append("id",idAgencia);
 						info.append("correo",correo);
 						info.append("rsid",rsid);
-						info.append("tipo","imagen");
+						info.append("tipo",tipo);
 							$.ajax({
 								type: "POST",  
 								url: "procesar_imagen.php",  
@@ -326,17 +323,10 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 								contentType: false,      
 								cache: false,             
 								processData:false, 
-
 							
-							success: function(info){
-								switch (info){
-								case "error": 	alert("arhivo con daños");				
-								break;
-								case "nuevo":	alert("imagen cambiada");
-								break;
-								case "invalido": alert("el tamaño o formato no es aceptado");
-								break;
-								}
+							success: function(data){ 
+								
+								//window.location.reload();
 							}
 							});
 					}));
@@ -350,52 +340,50 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 								url: "procesar_eliminar-campana.php",  
 								data: "id="+idEliminar,
 							
-							success: function(data){ 
-								window.location.reload();
-							}
+								success: function(data){ 
+									window.location.reload();
+								}
 							});  
-						} 
-
-
-					});
-					});</script>
+							} 
+						});
+				});
+				</script>
 			
 		
 		
-					<div id="Campana">
-						<form id="campanaForm'.$row2[0].'">
-							<img width="400" height="auto"  src="'.$row2[3].'"/><br/>
-							<button class="btneditar" id="btneditar'.$row2[0].'">editar</button>
-							
-							<button class="btneliminar" id="btneliminar'.$row2[0].'">eliminar</button>
-							
-							<button class="btnpausar" id="btnpausar'.$row2[0].'">pausar</button>
-								<div class="nombre" id="nombre-campana-'.$row2[0].'">
-									<input value="'.$row2[1].'"></input>
-								</div>
-								<div class="marca" id="marca-campana-'.$row2[0].'">
-									<input  value="'.$row2[4].'"></input>
-								</div>
-								<div class="descripcion" id="descripcion-campana-'.$row2[0].'">
-									<textarea placeholder="descripcion" rows=10 cols=40 >'.$row2[2].'</textarea>
-								</div>
-							<button class="guardar-campana" type="submit" id="guardar-campana-'.$row2[0].'">Guardar Cambios en '.$row[1].'</button>
-					</form>
-				</div>
-			
-				<form class="cambiarImagen" id="formImagen-campana-'.$row2[0].'">
-					<div  id="selectImage">
-						<input type="file" name="file" required /></br>
-						<button id="cambiarImagen'.$row2[0].'">Cambiar</button>
-					</div>
-				</form>
-							
-							
-				';}while($row2 = mysqli_fetch_row($result2));
+			<div id="Campana">
+				<form id="campanaForm'.$row2[0].'">
+					<img width="400" height="auto"  src="'.$row2[3].'"/><br/>
+					<button class="btneditar" id="btneditar'.$row2[0].'">editar</button>
+					
+					<button class="btneliminar" id="btneliminar'.$row2[0].'">eliminar</button>
+					
+					<button class="btnpausar" id="btnpausar'.$row2[0].'">pausar</button>
+						<div class="nombre" id="nombre-campana-'.$row2[0].'">
+							<input value="'.$row2[1].'"></input>
+						</div>
+						<div class="marca" id="marca-campana-'.$row2[0].'">
+							<input  value="'.$row2[4].'"></input>
+						</div>
+						<div class="descripcion" id="descripcion-campana-'.$row2[0].'">
+							<textarea placeholder="descripcion" rows=10 cols=40 >'.$row2[2].'</textarea>
+						</div>
+						<div>
+							<input type="file" name="file" class="jfilestyle" data-input="false" id="file'.$row2[0].'" data-buttonText="subir archivo"/>
+						</div>
+					<button class="guardar-campana" type="submit" id="guardar-campana-'.$row2[0].'">Guardar Cambios en '.$row2[1].'</button>
+			</form>
+		</div>
+		
+					
+					
+		';}while($row2 = mysqli_fetch_row($result));
+	
+	}
+	
 
-	} 
 	if($num_rows == 0 && $num_rows2 == 0){
-		echo '<main class="no-campana"><a href="nueva-campana.php"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Quisque posuere risus erat  at scelerisque felis pulvinar quis.</p><div class="btn_crearcamp">crear campaña</div></a></main>';
+	echo '<main class="no-campana"><a href="nueva-campana.php"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Quisque posuere risus erat  at scelerisque felis pulvinar quis.</p><div class="btn_crearcamp">crear campaña</div></a></main>';
 	}
 	?>	
 	

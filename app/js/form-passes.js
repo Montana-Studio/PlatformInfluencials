@@ -256,8 +256,8 @@ $(document).ready(function(){
 				processData:false, 
 		
 				success: function(info){
-					alert(info);
-					switch (info){
+					console.log(info);
+				/*	switch (info){
 					case "error": 	alert("arhivo con daños");
 					break;
 					case "nueva":	var confirm = confirm('¿desea subir más campañas?'); 
@@ -272,7 +272,7 @@ $(document).ready(function(){
 					break;
 					}
 					
-					info='';
+					info='';*/
 
 				}		
 			});

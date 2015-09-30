@@ -4,9 +4,29 @@
 $rsid=$_SESSION['rsid'];
 $correo =$_POST['correo'];
 $tipo = $_POST['tipo'];
-$id= $_SESSION['id'];
 $a=0;
 
+function valida_extension(){
+	if(isset($_FILES['file']['type'])){
+		$validextensions = array("jpeg", "jpg", "png","gif","JPEG","JPG","PNG","GIF");
+		$temporary = explode(".", $_FILES["file"]["name"]);
+		$file_extension = end($temporary);
+	
+		if (((strtolower($file_extension) == "png") || ( strtolower($file_extension) == "jpg") || (strtolower($file_extension) == "gif" || ( strtolower($file_extension) == "jpeg"))
+			) && ($_FILES["file"]["size"] < 200000)//Approx. 200000kb files can be uploaded.
+			&& in_array($file_extension, $validextensions)) {
+
+				if ($_FILES["file"]["error"] > 0){
+					$status = "error";
+				}else{
+					$status = "ok";
+				}
+		}else{
+			$status = "invalido";
+		}
+	}
+	return $status;
+}
 /*
 //Consultas a la BD
 $rrs= $mysqli->query("SELECT * FROM persona WHERE RS_id!='' AND RS_id='$rsid'");
@@ -28,6 +48,8 @@ $a=2; //registrado con formulario
 $row= mysqli_fetch_array($rf, MYSQLI_NUM);
 }
 */
+
+
 if (strlen($_SESSION['rsid'])>2){
 $a=1;
 }else{
@@ -136,16 +158,17 @@ if ($tipo == 'avatar'){
 
 }else if ($tipo == 'campana'){
 
+
 	$nombre =$_POST['nombre'];
 	$marca = $_POST['marca'];
 	$descripcion= $_POST['descripcion'];
-	$correo=$_SESSION['correo'];
+	$id= $_SESSION['id'];
 
 	$query="SELECT id FROM campana ORDER BY id DESC LIMIT 1";
 	$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 	$row= mysqli_fetch_array($result, MYSQLI_NUM);
 	$campana= (int)$row[0];
-	$campana = $campana + 1;
+	$campana = $campana +1;
 
 	if(isset($_FILES["file"]["type"]))
 	{	
@@ -162,12 +185,7 @@ if ($tipo == 'avatar'){
 					}
 					else{
 						//Success
-						if ($a==1){ // Create directory to save the file in case of Social Login and first change on avatar image 
-							if (file_exists("uploads/agencias/registered/$rsid/$campana")){ // cambio a partir de segunda vez con RS
-									 
-									echo "uploads/agencias/registered/$rsid/$campana existe";
-							}
-							else{	//change on avatar image 
+						if ($a==1){ // Create directory to save the file in case of Social Login and first change on avatar image  
 							$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,imagenes,marca,idpersona) VALUES ('$nombre','$descripcion','uploads/agencias/registered/$rsid/$campana/1.jpg','$marca','$id')");		
 							mkdir("uploads/agencias/registered/$rsid/$campana", 0777, true);
 							$sourcePath = $_FILES['file']['tmp_name']; // Storing source path of the file in a variable
@@ -176,13 +194,8 @@ if ($tipo == 'avatar'){
 							move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 							rename("uploads/agencias/registered/$rsid/$campana/$file", "uploads/agencias/registered/$rsid/$campana/1.jpg");
 							echo "nueva";
-							}
 						}
 						else if ($a==2){// Create directory to save the file in case of Form Login and first change on avatar image 
-							if (file_exists("uploads/agencias/registered/$correo/$campana")){ // cambio a partir de segunda vez con RS
-									echo "existe";
-							}
-							else{
 							$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,imagenes,marca,idpersona) VALUES ('$nombre','$descripcion','uploads/agencias/registered/$correo/$campana/1.jpg','$marca','$id')");		
 							mkdir("uploads/agencias/registered/$correo/$campana", 0777, true);
 							$sourcePath = $_FILES['file']['tmp_name']; // Storing source path of the file in a variable
@@ -193,56 +206,72 @@ if ($tipo == 'avatar'){
 							echo "nueva";
 						}	
 					}
-				}
-			
-		}else{
+				}else{
 			echo "invalido";
-			}
-	}
-}else if($tipo == 'imagen'){
-
-	$campana=$_POST['campana'];
-	
-	if(isset($_FILES["file"]["type"]))
-	{	
-		$validextensions = array("jpeg", "jpg", "png","gif","JPEG","JPG","PNG","GIF");
-		$temporary = explode(".", $_FILES["file"]["name"]);
-		$file_extension = end($temporary);
-		if (((strtolower($file_extension) == "png") || ( strtolower($file_extension) == "jpg") || (strtolower($file_extension) == "gif" || ( strtolower($file_extension) == "jpeg"))
-		) && ($_FILES["file"]["size"] < 200000)//Approx. 200000kb files can be uploaded.
-		&& in_array($file_extension, $validextensions)) {
 			
-			if ($_FILES["file"]["error"] > 0){
-			echo "error";
-			}
-			else{	
-				//Success
-				if ($a==1){ // Create directory to save the file in case of Social Login
-					if (file_exists("uploads/agencias/registered/$rsid/$campana/1.jpg")){ 
-					unlink("uploads/agencias/registered/$rsid/$campana/1.jpg");
-					$sourcePath = $_FILES['file']['tmp_name']; // Storing source path of the file in a variable
-					$targetPath = "uploads/agencias/registered/$rsid/$campana/".$_FILES['file']['name']; // Target path where file is to be stored
-					$file= $_FILES['file']['name'];
-					move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
-					rename("uploads/agencias/registered/$rsid/$campana/$file", "uploads/agencias/registered/$rsid/$campana/1.jpg");
-					
-				}
-				else if ($a==2){// Create directory to save the file in case of Form Login
-					$sourcePath = $_FILES['file']['tmp_name']; // Storing source path of the file in a variable
-					$targetPath = "uploads/agencias/registered/$correo/".$_FILES['file']['name']; // Target path where file is to be stored
-					$file= $_FILES['file']['name'];
-					unlink("uploads/agencias/registered/$correo/$campana/1.jpg");
-					move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
-					rename("uploads/agencias/registered/$correo/$campana/$file", "uploads/agencias/registered/$correo/$campana/1.jpg");		 
-					echo "nuevo";
-				}	
-			}
-		}
-		
-		}else{
-		echo "invalido";
 		}
 	}
+	
+}else if ($tipo == 'imagen'){
+
+		$nombre =$_POST['nombre'];
+		$marca =$_POST['marca'];
+		$descripcion =$_POST['descripcion'];
+		$idCampana =$_POST['idCampana'];
+		$idpersona =$_POST['idpersona'];
+		$sql = "UPDATE campana SET nombre='$nombre', marca='$marca', descripcion='$descripcion' WHERE idpersona='$idpersona' AND id='$idCampana'";
+		$update = $mysqli->query($sql);
+
+		if($_POST['foto'] == 1){
+			if(isset($_FILES["file"]["type"]))
+			{	
+				$id=$_POST['id'];
+				$campana=$_POST['campana'];
+				$nombre =$_POST['nombre'];
+				$marca =$_POST['marca'];
+				$descripcion =$_POST['descripcion'];
+				$id =$_POST['idCampana'];
+				$idpersona =$_POST['idpersona'];
+
+				$validextensions = array("jpeg", "jpg", "png","gif","JPEG","JPG","PNG","GIF");
+				$temporary = explode(".", $_FILES["file"]["name"]);
+				$file_extension = end($temporary);
+				if (((strtolower($file_extension) == "png") || ( strtolower($file_extension) == "jpg") || (strtolower($file_extension) == "gif" || ( strtolower($file_extension) == "jpeg"))
+				) && ($_FILES["file"]["size"] < 200000)//Approx. 200000kb files can be uploaded.
+				&& in_array($file_extension, $validextensions)) {
+					
+					if ($_FILES["file"]["error"] > 0){
+					echo "error";
+					}
+					else{	
+						$sourcePath = $_FILES['file']['tmp_name']; // Storing source path of the file in a variable
+						echo "campaña =".$campana." - rsid = ".$rsid." sourcePath =".$sourcePath;
+						//Success
+						if ($a==1){ // Create directory to save the file in case of Social Login
+								$targetPath = "uploads/agencias/registered/$rsid/$campana/".$_FILES['file']['name']; // Target path where file is to be stored
+								$file= $_FILES['file']['name'];
+								unlink("uploads/agencias/registered/$rsid/$campana/1.jpg");
+								move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
+								rename("uploads/agencias/registered/$rsid/$campana/$file", "uploads/agencias/registered/$rsid/$campana/1.jpg");
+								echo "nuevo";
+						}
+						if ($a==2){// Create directory to save the file in case of Form Login
+								unlink("uploads/agencias/registered/$correo/$campana/1.jpg");
+								$targetPath = "uploads/agencias/registered/$correo/$campana".$_FILES['file']['name']; // Target path where file is to be stored
+								$file= $_FILES['file']['name'];
+								
+								move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
+								rename("uploads/agencias/registered/$correo/$campana/$file", "uploads/agencias/registered/$correo/$campana/1.jpg");		
+								echo "nuevo";
+						}	
+					}
+				}else{
+				echo "invalido";
+				
+				}
+			}
+
+		}
 
 
 }
