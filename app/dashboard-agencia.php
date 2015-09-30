@@ -79,12 +79,21 @@
 						<div class="cont-campana" id="imagen'.$row[0].'" style="background-image:url('.$row[3].');">
 							
 							<h3>'.$row[1].'</h3>
+
+							<ul class="redes-inline">
+								<li><i class="fa fa-facebook"></i></li>
+								<li><i class="fa fa-instagram"></i></li>
+								<li><i class="fa fa-twitter"></i></li>
+							</ul>
+							
+							<div class="ver-mas"><i class="fa fa-angle-down"></i></div>
+
 							<h4>by '.$row[4].'</h4>
 
-							<div class="content">
-								<p id="campana'.$row[0].'">'.$row[2].'</p>
-							</div>
+						</div>
 
+						<div class="content">
+							<p id="campana'.$row[0].'">'.$row[2].'</p>
 						</div>
 					 </div>
 				 
