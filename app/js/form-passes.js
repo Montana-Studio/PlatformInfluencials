@@ -262,7 +262,7 @@ $(document).ready(function(){
 						case "nueva":	if (confirm("¿desea subir una nueva campaña?")){
 											window.location.reaload();
 										}
-											window.location.href("campana.php");
+											window.location.replace("campana.php");
 
 						break;
 						case "invalido": alert('el tamaño o formato no es aceptado');

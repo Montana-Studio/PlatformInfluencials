@@ -8,7 +8,7 @@
 	else{
 		//$mysqli->set_charset('utf8');
 		$id=$_SESSION['id'];
-		$query="SELECT * FROM campana  WHERE idpersona=".$id." ORDER BY id DESC LIMIT 3";
+		$query="SELECT * FROM campana  WHERE idEstado=1 AND idpersona=".$id." ORDER BY id DESC LIMIT 3";
 		$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 		$row= mysqli_fetch_array($result, MYSQLI_NUM);
 	}
