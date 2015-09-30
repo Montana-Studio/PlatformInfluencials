@@ -39,7 +39,6 @@ else{
 
 	<h2>nueva campaña</h2>
 
-	<?php if ((int)$row2[0]>0){  echo ' - <a href="campana.php">volver a campa&ntildea </a>'; }?>
 	<form id="campanaForm-nueva-campana">
 
 		<div class="cont-input nombre">

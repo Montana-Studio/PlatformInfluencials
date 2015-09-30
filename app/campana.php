@@ -1,7 +1,9 @@
 <?php
 require('conexion.php');
-
-//$mysqli->set_charset('utf8');
+if(isset($_SESSION['nombre'])==false){
+	header('Location:./');
+	die();
+}
 $query="SELECT * FROM campana WHERE idEstado=1 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
 $result= mysqli_query($mysqli,$query)or die(mysqli_error());
 $row= mysqli_fetch_array($result, MYSQLI_NUM);
@@ -11,12 +13,7 @@ $query2="SELECT * FROM campana WHERE idEstado=0 AND idpersona=".$_SESSION['id'].
 $result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
 $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 $num_rows2= mysqli_num_rows($result2);
-/*
-$id = $_SESSION['id'];
-$query2="SELECT COUNT(DISTINCT(id)) FROM campana WHERE idpersona='$id'";
-$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
-$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
-*/
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -42,15 +39,13 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 	<?php 
 	if ($num_rows > 0){
 			echo '
-	<h2>campa&ntildeas</h2>
-	<a href="dashboard-agencia.php">volver a dashboard</a> -<a href="nueva-campana.php">crear campa&ntildea </a>';
+	<div id="creadas"><h2>campa&ntildeas activas</h2>';
 			 do{ 
 					echo '
-					<div id="creadas"><h2>campa&ntildeas activas</h2>
 					<script>
 					$(document).ready(function(){
 					var foto;
-					$(".btneliminar").hide();
+			/*		$(".btneliminar").hide();
 					$(".marca").hide();
 					$(".descripcion").hide();
 					$(".btnpausar").hide();
@@ -96,7 +91,7 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 						$(".guardar-campana").hide();
 						$(".btneditar").show();
 						$(".cambiarImagen").hide();
-					});
+					});*/
 
 					$("#file'.$row[0].'").click(function (){
 						foto = "1";
@@ -133,35 +128,11 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 								processData:false,
 
 							success: function(data){ 
-							console.log(data);
+							window.location.reload();
 							}
 						
 						});
-					
 					}));
-					
-			
-					$("#formImagen-campana-'.$row[0].'").on("submit",(function (e){
-						var tipo = "imagen";
-						e.preventDefault();
-						info = new FormData(this);
-
-							$.ajax({
-								type: "POST",  
-								url: "procesar_imagen.php",  
-								data: info,
-								enctype: "multipart/form-data",
-								contentType: false,      
-								cache: false,             
-								processData:false, 
-							
-							success: function(data){ 
-								
-								//window.location.reload();
-							}
-							});
-					}));
-					
 					
 					$("#btneliminar'.$row[0].'").click(function (){
 						var idEliminar = '.$row[0].';
@@ -177,18 +148,30 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 							});  
 							} 
 						});
+					
+					$("#activar-campana-'.$row[0].'").click(function (){
+						var idActualizar = '.$row[0].';
+						var idEstado = 0;
+						var tipo = "activar";
+							$.ajax({
+								type: "POST",  
+								url: "procesar_eliminar-campana.php",  
+								data: "idActualizar="+idActualizar+"&idEstado="+idEstado+"&tipo="+tipo,
+								success: function(data){ 
+									window.location.reload();
+								}
+							});  
+						});
 				});
 				</script>
 			
-		
-		
 			<div id="Campana">
+				<div>
+				<button id="activar-campana-'.$row[0].'">desactivar campaña - '.$row[1].'</button>
+				</div>
 				<form id="campanaForm'.$row[0].'">
-					<img width="400" height="auto"  src="'.$row[3].'"/><br/>
-					<button class="btneditar" id="btneditar'.$row[0].'">editar</button>
-					
+					<img width="400" height="auto"  src="'.$row[3].'"/><br/>					
 					<button class="btneliminar" id="btneliminar'.$row[0].'">eliminar</button>
-					
 					<button class="btnpausar" id="btnpausar'.$row[0].'">pausar</button>
 						<div class="nombre" id="nombre-campana-'.$row[0].'">
 							<input value="'.$row[1].'"></input>
@@ -211,16 +194,17 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 					
 		';}while($row = mysqli_fetch_row($result));
 	}
-	if($num_rows2 > 0){
-					echo '
-	<h2>campa&ntildeas</h2>
-	<a href="dashboard-agencia.php">volver a dashboard</a> -<a href="nueva-campana.php">crear campa&ntildea </a>';
+	
+	if ($num_rows2 > 0){
+			echo '
+	<div id="creadas"><h2>campa&ntildeas inactivas</h2>';
 			 do{ 
 					echo '
-					<div id="creadas"><h2>campa&ntildeas inactivas</h2>
+					
 					<script>
 					$(document).ready(function(){
-						var foto;
+					var foto;
+				/*
 					$(".btneliminar").hide();
 					$(".marca").hide();
 					$(".descripcion").hide();
@@ -267,7 +251,7 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 						$(".guardar-campana").hide();
 						$(".btneditar").show();
 						$(".cambiarImagen").hide();
-					});
+					});*/
 
 					$("#file'.$row2[0].'").click(function (){
 						foto = "1";
@@ -286,8 +270,14 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 						info.append("marca",$("#marca-campana-"+idCampana+" input").val());
 						info.append("descripcion",$("#descripcion-campana-"+idCampana+" textarea").val());
 						info.append("idCampana",idCampana);
-						info.append("idpersona",idAgencia);
+						info.append("idpersona",idAgencia);	
 						info.append("tipo",tipo);	
+						info.append("campana",idCampana);
+						info.append("id",idAgencia);
+						info.append("correo",correo);
+						info.append("rsid",rsid);
+						info.append("foto",foto);
+						console.log(foto);
 						$.ajax({
 								type: "POST",  
 								url: "procesar_imagen.php",  
@@ -298,64 +288,55 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 								processData:false,
 
 							success: function(data){ 
-							console.log(data);
+								window.location.reload();
 							}
 						
 						});
 					
-					}));
-					
-			
-					$("#formImagen-campana-'.$row2[0].'").on("submit",(function (e){
-						var tipo ="imagen";
-						e.preventDefault();
-						info = new FormData(this);
-						info.append("idCampana",idCampana);
-						info.append("id",idAgencia);
-						info.append("correo",correo);
-						info.append("rsid",rsid);
-						info.append("tipo",tipo);
-							$.ajax({
-								type: "POST",  
-								url: "procesar_imagen.php",  
-								data: info,
-								enctype: "multipart/form-data",
-								contentType: false,      
-								cache: false,             
-								processData:false, 
-							
-							success: function(data){ 
-								
-								//window.location.reload();
-							}
-							});
-					}));
-					
+					}));					
 					
 					$("#btneliminar'.$row2[0].'").click(function (){
 						var idEliminar = '.$row2[0].';
+						var tipo = "eliminar";
+
 						if (confirm("realmente desea eliminar la campaña  :  '.$row2[1].'")) {
 							$.ajax({
 								type: "POST",  
 								url: "procesar_eliminar-campana.php",  
-								data: "id="+idEliminar,
+								data: "idEliminar="+idEliminar+"&tipo="+tipo,
 							
+								success: function(data){ 
+									alert(data)
+									//window.location.reload();
+								}
+							});  
+							} 
+					
+					});
+
+					$("#activar-campana-'.$row2[0].'").click(function (){
+						var idActualizar = '.$row2[0].';
+						var idEstado = 1;
+						var tipo = "activar";
+							$.ajax({
+								type: "POST",  
+								url: "procesar_eliminar-campana.php",  
+								data: "idActualizar="+idActualizar+"&idEstado="+idEstado+"&tipo="+tipo,
 								success: function(data){ 
 									window.location.reload();
 								}
 							});  
-							} 
 						});
-				});
+
+					});
 				</script>
 			
-		
-		
 			<div id="Campana">
 				<form id="campanaForm'.$row2[0].'">
+					<div>
+						<button id="activar-campana-'.$row2[0].'">activar campaña - '.$row2[1].'</button>
+					</div>
 					<img width="400" height="auto"  src="'.$row2[3].'"/><br/>
-					<button class="btneditar" id="btneditar'.$row2[0].'">editar</button>
-					
 					<button class="btneliminar" id="btneliminar'.$row2[0].'">eliminar</button>
 					
 					<button class="btnpausar" id="btnpausar'.$row2[0].'">pausar</button>
@@ -374,13 +355,8 @@ $row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 					<button class="guardar-campana" type="submit" id="guardar-campana-'.$row2[0].'">Guardar Cambios en '.$row2[1].'</button>
 			</form>
 		</div>
-		
-					
-					
-		';}while($row2 = mysqli_fetch_row($result));
-	
+		';}while($row2 = mysqli_fetch_row($result2));
 	}
-	
 
 	if($num_rows == 0 && $num_rows2 == 0){
 	echo '<main class="no-campana"><a href="nueva-campana.php"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Quisque posuere risus erat  at scelerisque felis pulvinar quis.</p><div class="btn_crearcamp">crear campaña</div></a></main>';

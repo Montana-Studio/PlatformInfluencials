@@ -256,24 +256,18 @@ $(document).ready(function(){
 				processData:false, 
 		
 				success: function(info){
-					console.log(info);
-				/*	switch (info){
-					case "error": 	alert("arhivo con daños");
-					break;
-					case "nueva":	var confirm = confirm('¿desea subir más campañas?'); 
-									if (confirm) {
-										window.location.reload(true); 	
-									 }
-									 else{
-									 	window.location.href("campana.php");
-									 }
-					break;
-					case "invalido": alert('el tamaño o formato no es aceptado');
-					break;
-					}
-					
-					info='';*/
+					switch (info){
+						case "error": 	alert("arhivo con daños");
+						break;
+						case "nueva":	if (confirm("¿desea subir una nueva campaña?")){
+											window.location.reaload();
+										}
+											window.location.href("campana.php");
 
+						break;
+						case "invalido": alert('el tamaño o formato no es aceptado');
+						break;
+					}
 				}		
 			});
 
