@@ -32,8 +32,7 @@ else{
 </head>
 <body>
 	
-	<?php include 'header.php'; ?>
-
+	<?php include 'header.php'; ?>	
 	<h2>nueva campaña</h2>
 
 	<form id="campanaForm-nueva-campana">

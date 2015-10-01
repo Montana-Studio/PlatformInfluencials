@@ -241,12 +241,15 @@ $(document).ready(function(){
 
 	$('#campanaForm-nueva-campana').on('submit',(function (e){
 		e.preventDefault;
+		var correo = "<?php echo $_SESSION['correo']; ?>";
 		info = new FormData(this);
 		info.append('nombre',$('#nombre-nueva-campana').val());
 		info.append('marca',$('#marca-nueva-campana').val());
 		info.append('descripcion',$('#descripcion-nueva-campana').val());
 		info.append('tipo','campana');
+		info.append('correo',correo);
 		$.ajax({
+
 				type: "POST",  
 				url: "./procesar_imagen.php",  
 				data: info,
@@ -268,7 +271,9 @@ $(document).ready(function(){
 						case "invalido": alert('el tamaño o formato no es aceptado');
 						break;
 					}
-				}		
+				}	
+
+					
 			});
 
 	}));

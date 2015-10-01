@@ -35,7 +35,7 @@ $num_rows2= mysqli_num_rows($result2);
 	</script>
 </head>
 <body>
-<?php include 'header.php'; ?>
+<?php include 'header.php'; ?>	
 	<?php 
 	if ($num_rows > 0){
 			echo '
@@ -45,54 +45,6 @@ $num_rows2= mysqli_num_rows($result2);
 					<script>
 					$(document).ready(function(){
 					var foto;
-			/*		$(".btneliminar").hide();
-					$(".marca").hide();
-					$(".descripcion").hide();
-					$(".btnpausar").hide();
-					$(".guardar-campana").hide();
-					$(".cambiarImagen").hide();
-					
-					$("#btneditar'.$row[0].'").click(function (){
-						$("#btneliminar'.$row[0].'").show();
-						$("#btnpausar'.$row[0].'").show();
-						$("#btneditar'.$row[0].'").hide();
-						$("#marca-campana-'.$row[0].'").show();
-						$("#descripcion-campana-'.$row[0].'").show();
-						$("#guardar-campana-'.$row[0].'").show();
-						$("#formImagen-campana-'.$row[0].'").show();
-					});
-					
-					
-					$("#guardar'.$row[0].'").click(function (){
-						$(".btneliminar").hide();
-						$(".marca-campana-").hide();
-						$(".descripcion-campana-").hide();
-						$(".btnpausar").hide();
-						$(".guardar-campana").hide();
-						$(".btneditar").show();
-						$(".cambiarImagen").hide();
-					});
-					
-					$("#btnpausar'.$row[0].'").click(function (){
-						$(".btneliminar").hide();
-						$(".marca").hide();
-						$(".descripcion").hide();
-						$(".btnpausar").hide();
-						$(".guardar-campana").hide();
-						$(".btneditar").show();
-						$(".cambiarImagen").hide();
-					});
-					
-					$("#btneliminar'.$row[0].'").click(function (){
-						$(".btneliminar").hide();
-						$(".marca").hide();
-						$(".descripcion").hide();
-						$(".btnpausar").hide();
-						$(".guardar-campana").hide();
-						$(".btneditar").show();
-						$(".cambiarImagen").hide();
-					});*/
-
 					$("#file'.$row[0].'").click(function (){
 						foto = "1";
 					});
@@ -114,8 +66,6 @@ $num_rows2= mysqli_num_rows($result2);
 						info.append("tipo",tipo);	
 						info.append("campana",idCampana);
 						info.append("id",idAgencia);
-						info.append("correo",correo);
-						info.append("rsid",rsid);
 						info.append("foto",foto);
 						console.log(foto);
 						$.ajax({
@@ -172,7 +122,6 @@ $num_rows2= mysqli_num_rows($result2);
 				<form id="campanaForm'.$row[0].'">
 					<img width="400" height="auto"  src="'.$row[3].'"/><br/>					
 					<button class="btneliminar" id="btneliminar'.$row[0].'">eliminar</button>
-					<button class="btnpausar" id="btnpausar'.$row[0].'">pausar</button>
 						<div class="nombre" id="nombre-campana-'.$row[0].'">
 							<input value="'.$row[1].'"></input>
 						</div>
@@ -204,54 +153,6 @@ $num_rows2= mysqli_num_rows($result2);
 					<script>
 					$(document).ready(function(){
 					var foto;
-				/*
-					$(".btneliminar").hide();
-					$(".marca").hide();
-					$(".descripcion").hide();
-					$(".btnpausar").hide();
-					$(".guardar-campana").hide();
-					$(".cambiarImagen").hide();
-					
-					$("#btneditar'.$row2[0].'").click(function (){
-						$("#btneliminar'.$row2[0].'").show();
-						$("#btnpausar'.$row2[0].'").show();
-						$("#btneditar'.$row2[0].'").hide();
-						$("#marca-campana-'.$row2[0].'").show();
-						$("#descripcion-campana-'.$row2[0].'").show();
-						$("#guardar-campana-'.$row2[0].'").show();
-						$("#formImagen-campana-'.$row2[0].'").show();
-					});
-					
-					
-					$("#guardar'.$row2[0].'").click(function (){
-						$(".btneliminar").hide();
-						$(".marca-campana-").hide();
-						$(".descripcion-campana-").hide();
-						$(".btnpausar").hide();
-						$(".guardar-campana").hide();
-						$(".btneditar").show();
-						$(".cambiarImagen").hide();
-					});
-					
-					$("#btnpausar'.$row2[0].'").click(function (){
-						$(".btneliminar").hide();
-						$(".marca").hide();
-						$(".descripcion").hide();
-						$(".btnpausar").hide();
-						$(".guardar-campana").hide();
-						$(".btneditar").show();
-						$(".cambiarImagen").hide();
-					});
-					
-					$("#btneliminar'.$row2[0].'").click(function (){
-						$(".btneliminar").hide();
-						$(".marca").hide();
-						$(".descripcion").hide();
-						$(".btnpausar").hide();
-						$(".guardar-campana").hide();
-						$(".btneditar").show();
-						$(".cambiarImagen").hide();
-					});*/
 
 					$("#file'.$row2[0].'").click(function (){
 						foto = "1";
@@ -274,8 +175,6 @@ $num_rows2= mysqli_num_rows($result2);
 						info.append("tipo",tipo);	
 						info.append("campana",idCampana);
 						info.append("id",idAgencia);
-						info.append("correo",correo);
-						info.append("rsid",rsid);
 						info.append("foto",foto);
 						console.log(foto);
 						$.ajax({
@@ -338,8 +237,6 @@ $num_rows2= mysqli_num_rows($result2);
 					</div>
 					<img width="400" height="auto"  src="'.$row2[3].'"/><br/>
 					<button class="btneliminar" id="btneliminar'.$row2[0].'">eliminar</button>
-					
-					<button class="btnpausar" id="btnpausar'.$row2[0].'">pausar</button>
 						<div class="nombre" id="nombre-campana-'.$row2[0].'">
 							<input value="'.$row2[1].'"></input>
 						</div>
