@@ -241,13 +241,11 @@ $(document).ready(function(){
 
 	$('#campanaForm-nueva-campana').on('submit',(function (e){
 		e.preventDefault;
-		var correo = "<?php echo $_SESSION['correo']; ?>";
 		info = new FormData(this);
 		info.append('nombre',$('#nombre-nueva-campana').val());
 		info.append('marca',$('#marca-nueva-campana').val());
 		info.append('descripcion',$('#descripcion-nueva-campana').val());
 		info.append('tipo','campana');
-		info.append('correo',correo);
 		$.ajax({
 
 				type: "POST",  
@@ -265,7 +263,7 @@ $(document).ready(function(){
 						case "nueva":	if (confirm("¿desea subir una nueva campaña?")){
 											window.location.reaload();
 										}
-											window.location.replace("campana.php");
+											window.location.herf("./campana.php");
 
 						break;
 						case "invalido": alert('el tamaño o formato no es aceptado');
@@ -287,7 +285,6 @@ $(document).ready(function(){
 		info.append('tel1',$('#tel1 input').val());
 		info.append('tel2',$('#tel2 input').val());
 		info.append('empresa',$('#empresa input').val());
-		info.append('picture_url', '<?php echo $_SESSION["pictureUrl"];?>');
 		info.append('tipo','avatar');
 	
 		if(foto==1) {

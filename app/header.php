@@ -101,8 +101,6 @@ require('conexion.php');
 
 		<button id="guardarFacturacion" type="submit">Guardar cambios</button>
 
-		<input id="RsId" style="display:none" value="<?php echo $_SESSION['rsid']; ?>">
-
 		<a href="logout.php" class="logout"><i class="fa fa-times-circle-o"></i> cerrar sesion</a>
 	</div>
 	

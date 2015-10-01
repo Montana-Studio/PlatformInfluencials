@@ -2,7 +2,7 @@
 	//holi
 	require('conexion.php');
 	if(isset($_SESSION['nombre'])==false){
-		header('Location:/');
+		header('Location:./');
 		die();
 	}
 	else{
@@ -38,7 +38,7 @@
 	<?php include 'header.php'; ?>
 
 	<?php 
-		if ((int)$row[0] != 0){ ?>
+		if ((int)$row[0] > 0){ ?>
 			<?php 
 				echo '
 			

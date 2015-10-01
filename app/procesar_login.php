@@ -33,6 +33,8 @@ require('conexion.php');
 	$_SESSION['empresa']=$row2[12];
 	$_SESSION['pictureUrl']=$row2[11];
 	$_SESSION['rsid']=$row2[9];
+	$_SESSION['id_estado']= $row[2];
+	$_SESSION['id_tipo']= $row[1];
 		switch($row2[1]){
 		case '1':
 			echo 'admin';

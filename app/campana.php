@@ -3,16 +3,19 @@ require('conexion.php');
 if(isset($_SESSION['nombre'])==false){
 	header('Location:./');
 	die();
-}
-$query="SELECT * FROM campana WHERE idEstado=1 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
-$result= mysqli_query($mysqli,$query)or die(mysqli_error());
-$row= mysqli_fetch_array($result, MYSQLI_NUM);
-$num_rows= mysqli_num_rows($result);
+}else{
+	$query="SELECT * FROM campana WHERE idEstado=1 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
+	$result= mysqli_query($mysqli,$query)or die(mysqli_error());
+	$row= mysqli_fetch_array($result, MYSQLI_NUM);
+	$num_rows= mysqli_num_rows($result);
 
-$query2="SELECT * FROM campana WHERE idEstado=0 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
-$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
-$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
-$num_rows2= mysqli_num_rows($result2);
+	$query2="SELECT * FROM campana WHERE idEstado=0 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
+	$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
+	$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
+	$num_rows2= mysqli_num_rows($result2);
+
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -84,21 +87,6 @@ $num_rows2= mysqli_num_rows($result2);
 						});
 					}));
 					
-					$("#btneliminar'.$row[0].'").click(function (){
-						var idEliminar = '.$row[0].';
-						if (confirm("realmente desea eliminar la campaña  :  '.$row[1].'")) {
-							$.ajax({
-								type: "POST",  
-								url: "procesar_eliminar-campana.php",  
-								data: "id="+idEliminar,
-							
-								success: function(data){ 
-									window.location.reload();
-								}
-							});  
-							} 
-						});
-					
 					$("#activar-campana-'.$row[0].'").click(function (){
 						var idActualizar = '.$row[0].';
 						var idEstado = 0;
@@ -121,7 +109,6 @@ $num_rows2= mysqli_num_rows($result2);
 				</div>
 				<form id="campanaForm'.$row[0].'">
 					<img width="400" height="auto"  src="'.$row[3].'"/><br/>					
-					<button class="btneliminar" id="btneliminar'.$row[0].'">eliminar</button>
 						<div class="nombre" id="nombre-campana-'.$row[0].'">
 							<input value="'.$row[1].'"></input>
 						</div>
@@ -205,7 +192,7 @@ $num_rows2= mysqli_num_rows($result2);
 								data: "idEliminar="+idEliminar+"&tipo="+tipo,
 							
 								success: function(data){ 
-									alert(data)
+									alert(data);
 									//window.location.reload();
 								}
 							});  
