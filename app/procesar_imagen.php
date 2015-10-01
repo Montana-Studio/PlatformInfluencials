@@ -89,20 +89,39 @@ if ($tipo == 'avatar'){
 	$campana = $campana +1;
 	if(valida_extension() == "ok"){
 		if ($a==1){ // Create directory to save the file in case of Social Login and first change on avatar image  
-			$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,imagenes,marca,idpersona) VALUES ('$nombre','$descripcion','uploads/agencias/registered/$rsid/$campana/1.jpg','$marca','$id')");		
-			mkdir("uploads/agencias/registered/$rsid/$campana", 0777, true);
-			$targetPath = "uploads/agencias/registered/$rsid/$campana/".$_FILES['file']['name']; // Target path where file is to be stored
+			//$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,imagenes,marca,idpersona) VALUES ('$nombre','$descripcion','uploads/agencias/registered/$rsid/$campana/1.jpg','$marca','$id')");		
+			$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,marca,idpersona) VALUES ('$nombre','$descripcion','$marca','$id')");		
+			$inicio_imagenes ='uploads/agencias/registered/'.$rsid.'/';
+			$fin_imagenes = '/1.jpg';
+			$results4 = $mysqli->query("SELECT id FROM campana  WHERE nombre = '$nombre' AND descripcion = '$descripcion' AND marca = '$marca' AND idpersona = '$id'");		
+			$row_results4= mysqli_fetch_array($results4, MYSQLI_NUM);
+			$numero_campana= (int)$row_results4[0];
+			$imagenes = $inicio_imagenes.$numero_campana.$fin_imagenes;
+			$results3 = $mysqli->query("UPDATE campana SET imagenes='$imagenes' WHERE id = '$numero_campana'");
+			mkdir("uploads/agencias/registered/$rsid/$numero_campana", 0777, true);
+			$targetPath = "uploads/agencias/registered/$rsid/$numero_campana/".$_FILES['file']['name']; // Target path where file is to be stored
 			move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
-			rename("uploads/agencias/registered/$rsid/$campana/$file", "uploads/agencias/registered/$rsid/$campana/1.jpg");
+			rename("uploads/agencias/registered/$rsid/$campana/$file", "uploads/agencias/registered/$rsid/$numero_campana/1.jpg");
 			$resultado = "nueva";
+			$resultado = $imagenes;
 		}
 		if ($a==2){// Create directory to save the file in case of Form Login and first change on avatar image 
-			$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,imagenes,marca,idpersona) VALUES ('$nombre','$descripcion','uploads/agencias/registered/$correo/$campana/1.jpg','$marca','$id')");		
-			mkdir("uploads/agencias/registered/$correo/$campana", 0777, true);
-			$targetPath = "uploads/agencias/registered/$correo/$campana/".$_FILES['file']['name']; // Target path where file is to be stored
+			//$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,imagenes,marca,idpersona) VALUES ('$nombre','$descripcion','uploads/agencias/registered/$correo/$campana/1.jpg','$marca','$id')");		
+			$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,marca,idpersona) VALUES ('$nombre','$descripcion','$marca','$id')");
+			$inicio_imagenes ='uploads/agencias/registered/'.$correo.'/';
+			$fin_imagenes = '/1.jpg';
+			$results4 = $mysqli->query("SELECT id FROM campana  WHERE nombre = '$nombre' AND descripcion = '$descripcion' AND marca = '$marca' AND idpersona = '$id'");		
+			$row_results4= mysqli_fetch_array($results4, MYSQLI_NUM);
+			$numero_campana= (int)$row_results4[0];
+			$imagenes = $inicio_imagenes.$numero_campana.$fin_imagenes;
+			$results3 = $mysqli->query("UPDATE campana SET imagenes='$imagenes' WHERE id = '$numero_campana'");
+			
+			mkdir("uploads/agencias/registered/$correo/$numero_campana", 0777, true);
+			$targetPath = "uploads/agencias/registered/$correo/$numero_campana/".$_FILES['file']['name']; // Target path where file is to be stored
 			move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
-			rename("uploads/agencias/registered/$correo/$campana/$file", "uploads/agencias/registered/$correo/$campana/1.jpg");
+			rename("uploads/agencias/registered/$correo/$numero_campana/$file", "uploads/agencias/registered/$correo/$numero_campana/1.jpg");
 			$resultado = "nueva";
+			$resultado = $imagenes;
 		}
 	}else{
 		$resultado = valida_extension();
