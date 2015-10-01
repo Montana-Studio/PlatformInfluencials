@@ -1,3 +1,17 @@
+<?php
+require('conexion.php');
+if(isset($_SESSION['id'])){
+	$query="SELECT * FROM persona WHERE id_estado = 1 AND id= ".$_SESSION['id'];
+	$result= mysqli_query($mysqli,$query)or die(mysqli_error());
+	$row= mysqli_fetch_array($result, MYSQLI_NUM);
+	if ($row[1] == 2){
+		header("Location: dashboard-agencia.php");
+		die();
+	}
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,7 +31,6 @@
 </head>
 
 <body>
-
 	<main class="contAllPI" style="padding-top:30%;">
 		
 		<div style="display:none;" id="tipoCliente" value="2"></div>
