@@ -2,63 +2,76 @@
 	background: {color:#fff;image:none;}
 }
 #creadas{
-	@include fill-parent();
 	@include row();
+	@include span-columns(12);
 	.recientes{
-		@include span-columns(12);
 		@include row();
 		@include pad(0);
-		.cont-campana{
+		.bg-campana{
 			@include span-columns(12 of 12);
-			display: table;
-			float: none;
+			@include pad(141px 5px 0);
 			position: relative;
 			overflow: hidden;
 			min-height: 182px;
 			background:{position: center;size: cover;}
-			@include boxShadow(inset, 0, -100px, 90px, -21px, rgba(0,0,0,0.7));
-			@include pad(0 5px);
+			@include boxShadow(inset, 0, -60px, 54px, -18px $blk-alfa);
 			h3{
-				margin:0;
-				@include pad(0);
 				@include span-columns(5 of 12);
-				float: none;
 				color:#fff;
 				font:{size:16px;}
-				display: table-cell;
-				vertical:{align: bottom;}
+				margin:0;
+				@include pad(0);
+				span{
+					display: block;
+					font:{size:11px;weight:normal;style:italic;}
+				}
 			}
 			.redes-inline{
-				@include pad(0);
 				@include span-columns(5 of 12);
-				float: none;
-				display: table-cell;
 				list:{style: none;}
-				vertical:{align: bottom;}
+				margin:0;
+				@include pad(0);
+				@include textAligns(center);
 				li{
 					display: inline-block;
+					color:#fff;
+					@include textAligns(center);
+					i{
+						display: block;
+					}
+					span{
+						display: block;
+						font:{size:13px;weight:normal;}
+					}
 				}
 			}
 			.ver-mas{
-				@include pad(0);
 				@include span-columns(2 of 12);
-				float: none;
-				display: table-cell;
-				vertical:{align: bottom;}
-			}
-			h4{
-				@extend h3;
-				@include span-columns(5);
-				@include omega();
-				float: none;
-				display: table-cell;
-				font:{size:11px;weight:normal;style:italic;}
-				bottom:10px;
+				color:$color_font2;
+				@include pad(0);
+				cursor: pointer;
+				span{
+					width:20px;
+					height:20px;
+					@include borderRadius(50%);
+					border:2px solid $color_font2;
+					display: table;
+					@include textAligns(center);
+					float:right;
+					i{
+						display: table-cell;
+						vertical:{align:middle;}
+						font:{weight:bold;}
+					}
+				}
 			}
 			p{
 				margin:0;
 				@include pad(0);
 			}
+		}
+		.content{
+			@include span-columns(12 of 12);
 		}
 	}
 }

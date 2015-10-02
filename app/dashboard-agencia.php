@@ -49,21 +49,25 @@
 						$(document).ready(function(){
 
 							$(".volver, .recientes .content").hide();
+							
 							var contador=0;
+							
 							$(".recientes .cont-campana").click(function(){
 								if (contador==0){
-								$(".recientes .cont-campana").not(this).hide();
-								$(".recientes .content, .volver").show(this);
-									//console.log(clicked_id);
-									contador=1;
+									$(".recientes .cont-campana").not(this).hide();
+									$(".recientes .content, .volver").show(this);
+										console.log("show");
+										contador=1;
 								}
 							});
 							
 							$(".volver").click(function(){
 								if (contador==1){
+								
 								$(".recientes .cont-campana").show();
+								
 								$(".recientes .content").hide();
-									//console.log(clicked_id);
+									console.log("hide");
 									contador=0;
 									$(".volver").hide();
 								}
@@ -76,25 +80,30 @@
 					do{
 					echo '
 					<div class="recientes">
-						<div class="cont-campana" id="imagen'.$row[0].'" style="background-image:url('.$row[3].');">
+						<div class="cont-campana" id="imagen'.$row[0].'">
 							
-							<h3>'.$row[1].'</h3>
+							<div class="bg-campana" style="background-image:url('.$row[3].');">
+								
+								<h3>'.$row[1].'<span>by '.$row[4].'</span></h3>
 
-							<ul class="redes-inline">
-								<li><i class="fa fa-facebook"></i></li>
-								<li><i class="fa fa-instagram"></i></li>
-								<li><i class="fa fa-twitter"></i></li>
-							</ul>
+								<ul class="redes-inline">
+									<li><i class="fa fa-facebook"></i><span>0000</span></li>
+									<li><i class="fa fa-instagram"></i><span>0000</span></li>
+									<li><i class="fa fa-twitter"></i><span>0000</span></li>
+								</ul>
+								
+								<div class="ver-mas"><span><i class="fa fa-angle-down"></i></span></div>
+
+							</div>
 							
-							<div class="ver-mas"><i class="fa fa-angle-down"></i></div>
-
-							<h4>by '.$row[4].'</h4>
-
+							<div class="content">
+								<p id="campana'.$row[0].'">'.$row[2].'</p>
+							</div>
+							
 						</div>
 
-						<div class="content">
-							<p id="campana'.$row[0].'">'.$row[2].'</p>
-						</div>
+						
+
 					 </div>
 				 
 					'; }while($row = mysqli_fetch_row($result)); ?>
