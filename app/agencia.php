@@ -1,14 +1,6 @@
 <?php
 require('conexion.php');
-if(isset($_SESSION['id'])){
-	$query="SELECT * FROM persona WHERE id_estado = 1 AND id= ".$_SESSION['id'];
-	$result= mysqli_query($mysqli,$query)or die(mysqli_error());
-	$row= mysqli_fetch_array($result, MYSQLI_NUM);
-	if ($row[1] == 2){
-		header("Location: dashboard-agencia.php");
-		die();
-	}
-}
+
 ?>
 
 
@@ -32,7 +24,6 @@ if(isset($_SESSION['id'])){
 
 <body>
 	<main class="contAllPI" style="padding-top:30%;">
-		
 		<div style="display:none;" id="tipoCliente" value="2"></div>
 
 		<!-- ALERTAS -->
@@ -43,11 +34,6 @@ if(isset($_SESSION['id'])){
 		<main class="ingreso_eleccion">
 			
 			<!-- ELECCION DE USUARIO -->
-
-			<div id="tipo">
-				<div id="agencia" class="btns_accesos">Enterprise</div>
-				<div id="ipebtn" class="btns_accesos">Influencers</div>
-			</div>
 
 		</main>
 

@@ -5,47 +5,39 @@ $(document).ready(function(){
 	$('#alertRegistrado').hide();
 	$('#facebook-name').hide();
 	$('#volver').hide();
-	$('#ipe').hide();
+	
+	$('#agencia1').click(function(){
+		$("#tipoCliente").attr("value", "2");
+		$('.form_agencias').show();
+		$(".ingreso_eleccion").hide();
+		$(".volverTipo").show();
+		$('#perfil').hide();
+	})
 
-	$('#ipebtn').click(function(){
-		$('#ipe').show();
-		$('#ipebtn').hide();
-		$('#agencia').hide();
-		$('#nuevoipe').hide();
-		$('#antiguoIpe').hide();
-		$('.volverTipo').hide();
-		$("#tipoCliente").attr("value", "3");
-	});
-
-	$('#accederIpe').click(function(){
-		$('#antiguoIpe').show();
-		$('#nuevoipe').hide();
-		$('.volverTipo').hide();
-	});
-
-	$('#registrarIpe').click(function(){
-		$('#antiguoIpe').hide();
-		$('#nuevoipe').show();
-		$('.volverTipo').hide();
-	});
-
-	$('#volverIpe').click(function(){
-		$('#ipe').hide();
-		$('#ipebtn').show();
-		$('#agencia').show();
-	});
 
 	$('#agencia').click(function(){
 		$("#tipoCliente").attr("value", "2");
 		$('.form_agencias').show();
 		$(".ingreso_eleccion").hide();
 		$(".volverTipo").show();
+		$('#perfil').hide();
 	})
+
+	$('#ipebtn').click(function(){
+		$("#tipoCliente").attr("value", "2");
+		$('.form_agencias').show();
+		$(".ingreso_eleccion").hide();
+		$(".volverTipo").show();
+		$("#perfil").show();
+	})
+
+
 
 	$('.volverTipo').click(function(){
 		$('.form_agencias').hide();
 		$('.ingreso_eleccion').show();	
-		$(".volverTipo").hide();	
+		$(".volverTipo").hide();
+		$('#ipe').hide();
 	})
 
 	$('#volver').click(function(){
@@ -88,12 +80,12 @@ $(document).ready(function(){
 	$('.registerForm').on('submit',(function(e){
 		e.preventDefault();
 		info = new FormData(this);
-		info.append('nuuser',$('#usernamenuevo').val());
-		info.append('nupass',$('#contraseñanuevo').val());
-		info.append('nuempresa',$('#empresanuevo').val());
-		info.append('nucorreo',$('#correonuevo').val());
-		info.append('nutel1',$('#telefono1nuevo').val());
-		info.append('nutel2',$('#telefono2nuevo').val());
+		info.append('nuuser',$('.usernamenuevo').val());
+		info.append('nupass',$('.contraseñanuevo').val());
+		info.append('nuempresa',$('.empresanuevo').val());
+		info.append('nucorreo',$('.correonuevo').val());
+		info.append('nutel1',$('.telefono1nuevo').val());
+		info.append('nutel2',$('.telefono2nuevo').val());
 		info.append('tipo','usuario');
 		tipo=$('#perfil option').val();
 		var e = document.getElementById("perfil");
