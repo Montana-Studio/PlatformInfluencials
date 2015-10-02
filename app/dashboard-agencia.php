@@ -29,6 +29,7 @@
 
 	<script>
 		jQuery(document).ready(function(){
+			$('html').css({'background-color':'#fff','background-image':'none'});
 			$('body').addClass('dashboard-agencia');
 		});
 	</script>
