@@ -85,7 +85,7 @@ $(document).ready(function(){
 		});
 	});
 
-	$('#agenciaform').on('submit',(function(e){
+	$('.registerForm').on('submit',(function(e){
 		e.preventDefault();
 		info = new FormData(this);
 		info.append('nuuser',$('#usernamenuevo').val());
@@ -94,42 +94,7 @@ $(document).ready(function(){
 		info.append('nucorreo',$('#correonuevo').val());
 		info.append('nutel1',$('#telefono1nuevo').val());
 		info.append('nutel2',$('#telefono2nuevo').val());
-		$.ajax({  
-			type: "POST",  
-			url: "procesar_login_nuevo.php",  
-			data: info,
-			enctype: 'multipart/form-data',
-			contentType: false,      
-			cache: false,             
-			processData:false, 
-			success: function(data){
-				switch (data){
-				case "nuevo": 	$('#alertRegistrado').show();
-								document.getElementById('alertRegistrado').innerHTML ="Registro completo, nos contactaremos con usted";					
-								$('#usernamenuevo, #contraseñanuevo,#ver-password,#empresanuevo,#correonuevo,#telefono1nuevo,#telefono2nuevo').val('');
-				break;
-				case "false":	$('#alertRegistrado').show();
-								document.getElementById('alertRegistrado').innerHTML ="El correo ingresado ya tiene una cuenta asociada";					 
-								$('#correonuevo').val('');
-								;$('#correonuevo').focus();
-				break;
-				case "invalido":
-					console.log('formato invalido');
-				}
-				}
-		});
-
-	}));
-
-	$('.registerForm').on('submit',(function(e){
-		e.preventDefault();
-		info = new FormData(this);
-		info.append('nuuser',$('#usuarionuevoIpe').val());
-		info.append('nupass',$('#contraseñanuevoIpe').val());
-		info.append('nuempresa',$('#empresanuevoIpe').val());
-		info.append('nucorreo',$('#correonuevoIpe').val());
-		info.append('nutel1',$('#telefono1nuevoIpe').val());
-		info.append('nutel2',$('#telefono2nuevoIpe').val());
+		info.append('tipo','usuario');
 		tipo=$('#perfil option').val();
 		var e = document.getElementById("perfil");
 		var perfil = e.options[e.selectedIndex].value;
@@ -137,14 +102,13 @@ $(document).ready(function(){
 
 		$.ajax({  
 			type: "POST",  
-			url: "./procesar_login_nuevo.php",  
+			url: "./procesar_imagen.php",   
 			data: info,
 			enctype: 'multipart/form-data',
 			contentType: false,      
 			cache: false,             
 			processData:false, 
 			success: function(data){
-				console.log(data);
 				switch (data){
 				case "nuevo": 	$('#alertRegistrado').show();
 								document.getElementById('alertRegistrado').innerHTML ="Registro completo, nos contactaremos con usted";					
