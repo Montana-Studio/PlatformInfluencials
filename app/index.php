@@ -59,7 +59,7 @@ if(isset($_SESSION['id'])){
 				<div id="acceder" class="btns_accesos">ingresar</div>
 				<div id="registrar" class="btns_accesos">registrarse</div>
 
-				<div class="volverTipo">volver</div>
+				<div class="volverTipo btns_accesos">cancelar</div>
 			</div>
 
 			<div id="nuevo">

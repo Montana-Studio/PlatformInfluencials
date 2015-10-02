@@ -170,12 +170,14 @@ main{
 					}
 				}
 				#selectImage{
-					#searchImg{
+					label{
 						@include span-columns(12);
-						background:{color:$color_blue;}
+						background:{color:#fff;}
+						border:1px solid $color_font2;
 						@include pad(10px 0);
     					margin:{bottom: 2px;}
     					clear: both;
+    					color:$color_font2;
 					}
 					input[type="file"]{
 						@extend .hide;
