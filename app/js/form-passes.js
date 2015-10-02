@@ -5,7 +5,14 @@ $(document).ready(function(){
 	$('#alertRegistrado').hide();
 	$('#facebook-name').hide();
 	$('#volver').hide();
-	$('#ipe').hide();
+	
+	$('#agencia1').click(function(){
+		$("#tipoCliente").attr("value", "2");
+		$('.form_agencias').show();
+		$(".ingreso_eleccion").hide();
+		$(".volverTipo").show();
+		$('#perfil').hide();
+	})
 
 
 	$('#agencia').click(function(){
@@ -13,12 +20,24 @@ $(document).ready(function(){
 		$('.form_agencias').show();
 		$(".ingreso_eleccion").hide();
 		$(".volverTipo").show();
+		$('#perfil').hide();
 	})
+
+	$('#ipebtn').click(function(){
+		$("#tipoCliente").attr("value", "2");
+		$('.form_agencias').show();
+		$(".ingreso_eleccion").hide();
+		$(".volverTipo").show();
+		$("#perfil").show();
+	})
+
+
 
 	$('.volverTipo').click(function(){
 		$('.form_agencias').hide();
 		$('.ingreso_eleccion').show();	
-		$(".volverTipo").hide();	
+		$(".volverTipo").hide();
+		$('#ipe').hide();
 	})
 
 	$('#volver').click(function(){
