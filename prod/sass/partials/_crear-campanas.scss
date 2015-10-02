@@ -3,20 +3,6 @@
 	@include media($tabletLand){
 		background:{color: #eeeef0;}
 	}
-	h2{
-		margin:0;
-		font:{size:14px;style:italic;}
-		text:{transform:uppercase;}
-		color:$color_grey;
-		@include pad(10px);
-		clear:both;
-		@include media($tabletLand){
-			color: $color_grey2;
-			font:{size:18px;weight:normal;}
-			@include span-columns(11);
-			@include shift(.5);
-		}
-	}
 	nav{
 		ul{
 			li{

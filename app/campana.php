@@ -1,8 +1,11 @@
-<?php include 'header.php'; ?>	
+<?php include 'header.php'; ?>
+
 <?php 
 if ($num_rows > 0){
 	echo '
-		<div id="creadas"><h2>campa&ntildeas activas</h2>';
+		<div id="creadas">
+
+			<h2 class="sub-titulo">campañas activas</h2>';
 	do{ 
 		echo '
 			<script>
@@ -60,35 +63,83 @@ if ($num_rows > 0){
 								}
 							});  
 						});
+				
+					
+//visible campaña
+					$(".volver, .recientes .content-edit-campa").hide();
+					
+					$(".recientes .cont-campana").on("click",function(){
+						
+						$(".recientes .cont-campana, .recientes .content-edit-campa, .volver").slideDown(this);
+						
+					});
+
+					var contador=0;
+					
+					$(".recientes .cont-campana").on("click",function(){
+						if (contador==0){
+							$(".recientes .cont-campana").not(this).slideUp(function(){
+								$(".recientes .content-edit-campa, .volver").slideDown(this);
+							});
+							contador=1;
+						}
+					});
+					
+					$(".volver").on("click",function(){
+						if (contador==1){
+						
+							$(".recientes .content-edit-campa").slideUp(function(){
+								$(".recientes .cont-campana").slideDown();
+							});
+							contador=0;
+							$(".volver").slideUp();
+						}
+					});
+
 				});
 			</script>
 	
 			<div id="Campana" class="recientes">
-
-				<div>
-				<button id="activar-campana-'.$row[0].'">desactivar campaña - '.$row[1].'</button>
-				</div>
-				<div class="bg-campana" style="background-image:url('.$row[3].');">
+				
+				<div class="cont-campana">
 					
+					<div class="bg-campana" style="background-image:url('.$row[3].');">
+						
+						<h3>'.$row[1].'<span>by '.$row[4].'</span></h3>
+
+						<ul class="redes-inline">
+							<li><i class="fa fa-facebook"></i><span>0000</span></li>
+							<li><i class="fa fa-instagram"></i><span>0000</span></li>
+							<li><i class="fa fa-twitter"></i><span>0000</span></li>
+						</ul>
+						
+						<div class="ver-mas"><span><i class="fa fa-angle-down"></i></span></div>
+
+					</div>
+
+					<form id="campanaForm'.$row[0].'" class="content-edit-campa">
+											
+						<div class="nombre" id="nombre-campana-'.$row[0].'">
+							<input value="'.$row[1].'"></input>
+						</div>
+
+						<div class="marca" id="marca-campana-'.$row[0].'">
+							by<input  value="'.$row[4].'"></input>
+						</div>
+
+						<div class="descripcion" id="descripcion-campana-'.$row[0].'">
+							<textarea placeholder="descripcion" rows=10 cols=40 >'.$row[2].'</textarea>
+						</div>
+
+						<input type="file" name="file" class="jfilestyle" data-input="false" id="file'.$row[0].'" data-buttonText="subir archivo"/>
+
+						<button class="guardar-campana" type="submit" id="guardar-campana-'.$row[0].'">Guardar Cambios en '.$row[1].'</button>
+						
+						<div id="activar-campana-'.$row[0].'">desactivar campaña - '.$row[1].'</div>
+						
+						<div class="volver">cerrar</div>
+					</form>
 				</div>
-				<form id="campanaForm'.$row[0].'">
-										
-					<div class="nombre" id="nombre-campana-'.$row[0].'">
-						<input value="'.$row[1].'"></input>
-					</div>
-
-					<div class="marca" id="marca-campana-'.$row[0].'">
-						by<input  value="'.$row[4].'"></input>
-					</div>
-
-					<div class="descripcion" id="descripcion-campana-'.$row[0].'">
-						<textarea placeholder="descripcion" rows=10 cols=40 >'.$row[2].'</textarea>
-					</div>
-
-					<input type="file" name="file" class="jfilestyle" data-input="false" id="file'.$row[0].'" data-buttonText="subir archivo"/>
-
-					<button class="guardar-campana" type="submit" id="guardar-campana-'.$row[0].'">Guardar Cambios en '.$row[1].'</button>
-				</form>
 			</div>	
 			
 		';}while($row = mysqli_fetch_row($result));
@@ -96,7 +147,7 @@ if ($num_rows > 0){
 
 if ($num_rows2 > 0){
 		echo '
-			<div id="creadas"><h2>campa&ntildeas inactivas</h2>';
+			<div id="creadas"><h2>campañas inactivas</h2>';
 		 do{ 
 				echo '
 				

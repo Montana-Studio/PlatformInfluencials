@@ -20,6 +20,8 @@ jQuery(document).ready(function($){
 
 	$('#acceder').on('click',function(){
 		
+		$('#antiguo #username').attr('autofocus','autofocus');
+
 		$('#antiguo a').hide();
 		$('#antiguo').fadeIn(100).animate({
 			opacity:1,
