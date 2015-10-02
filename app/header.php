@@ -1,17 +1,111 @@
-<!DOCTYPE html>
+<?php 
+require('conexion.php');
+echo 
+'<!DOCTYPE html>
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Power Influencer</title>
-
 	<link rel="stylesheet" href="css/platform_influencials.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-
+	<title></title>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
 <body>
+<script id="cambia"></script>';
 
+
+
+if(basename($_SERVER['PHP_SELF'])=='dashboard-agencia.php'){
+	if(isset($_SESSION['nombre'])==false){
+		header('Location:./');
+		die();
+	}
+	else{
+		//$mysqli->set_charset('utf8');
+		$id=$_SESSION['id'];
+		$query="SELECT * FROM campana  WHERE idEstado=1 AND idpersona=".$id." ORDER BY id DESC LIMIT 3";
+		$result= mysqli_query($mysqli,$query)or die(mysqli_error());
+		$row= mysqli_fetch_array($result, MYSQLI_NUM);
+	}
+echo "<script> 
+			$(document).ready(function(){
+				$('title').append('Power Influencer - ".$_SESSION['nombre']."');
+			})
+		</script>";
+
+echo "<script>
+		jQuery(document).ready(function(){
+			$('html').css({'background-color':'#fff','background-image':'none'});
+			$('body').addClass('dashboard-agencia');
+		});
+	</script>";
+}
+
+
+if(basename($_SERVER['PHP_SELF'])=='nueva-campana.php'){
+	if(isset($_SESSION['nombre'])==false){
+		header('Location:./');
+		die();
+	}
+	else{
+		//$mysqli->set_charset('utf8');
+		$query="SELECT id FROM campana ORDER BY id DESC LIMIT 1";
+		$result= mysqli_query($mysqli,$query)or die(mysqli_error());
+		$row= mysqli_fetch_array($result, MYSQLI_NUM);
+
+		$id = $_SESSION['id'];
+		$query2="SELECT * FROM campana WHERE idpersona='$id'";
+		$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
+		$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
+	}
+	echo "<script>
+			jQuery(document).ready(function(){
+				$('html').css({'background-color':'#fff','background-image':'none'});
+				$('body').addClass('crear-campanas');
+			});
+		</script>"; 
+	echo "<script> 
+				$(document).ready(function(){
+					$('title').append('Power Influencer - Crear Campaña');
+				})
+		</script>";
+}
+
+
+if(basename($_SERVER['PHP_SELF'])=='campana.php'){
+	if(isset($_SESSION['nombre'])==false){
+		header('Location:./');
+		die();
+	}else{
+		$query="SELECT * FROM campana WHERE idEstado=1 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
+		$result= mysqli_query($mysqli,$query)or die(mysqli_error());
+		$row= mysqli_fetch_array($result, MYSQLI_NUM);
+		$num_rows= mysqli_num_rows($result);
+
+		$query2="SELECT * FROM campana WHERE idEstado=0 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
+		$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
+		$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
+		$num_rows2= mysqli_num_rows($result2);
+
+	}
+
+	echo "<script>
+			jQuery(document).ready(function(){
+				$('html').css({'background-color':'#fff','background-image':'none'});
+				$('body').addClass('campanas');
+			});
+		</script>";
+
+	echo "<script> 
+				$(document).ready(function(){
+					$('title').append('Power Influencer - Campañas');
+				})
+		</script>";
+}
+
+
+?>
 
 <header>
 	

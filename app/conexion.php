@@ -1,5 +1,6 @@
 <?php 
 session_start();
+
 ini_set('session.cookie_lifetime', 600); //too keep ir by one year use 60*60*24*365
 ini_set('session.gc-maxlifetime', 600);
 
