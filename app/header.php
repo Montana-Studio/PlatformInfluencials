@@ -37,7 +37,7 @@ if(basename($_SERVER['PHP_SELF'])=='dashboard-agencia.php'){
 	else{
 		//$mysqli->set_charset('utf8');
 		$id=$_SESSION['id'];
-		$query="SELECT * FROM campana  WHERE idEstado=1 AND idpersona=".$id." ORDER BY id DESC LIMIT 3";
+		$query="SELECT * FROM campana  WHERE idEstado=1 AND id_tipo = 2 AND idpersona=".$id." ORDER BY id DESC LIMIT 3";
 		$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 		$row= mysqli_fetch_array($result, MYSQLI_NUM);
 	}
@@ -91,12 +91,12 @@ if(basename($_SERVER['PHP_SELF'])=='campana.php'){
 		header('Location:./');
 		die();
 	}else{
-		$query="SELECT * FROM campana WHERE idEstado=1 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
+		$query="SELECT * FROM campana WHERE idEstado=1 AND id_tipo = 2 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
 		$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 		$row= mysqli_fetch_array($result, MYSQLI_NUM);
 		$num_rows= mysqli_num_rows($result);
 
-		$query2="SELECT * FROM campana WHERE idEstado=0 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
+		$query2="SELECT * FROM campana WHERE idEstado=0 AND id_tipo = 2 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
 		$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
 		$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 		$num_rows2= mysqli_num_rows($result2);
