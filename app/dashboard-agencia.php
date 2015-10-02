@@ -12,12 +12,18 @@ if ((int)$row[0] > 0){ ?>
 
 					$(".volver, .recientes .content").hide();
 					
+					$(".recientes .cont-campana").on("click",function(){
+						
+						$(".recientes .cont-campana, .recientes .content, .volver").slideDown(this);
+						
+					});
+
 					var contador=0;
 					
 					$(".recientes .cont-campana").on("click",function(){
 						if (contador==0){
-							$(".recientes .cont-campana").not(this).fadeOut(function(){
-								$(".recientes .content, .volver").fadeIn(this);
+							$(".recientes .cont-campana").not(this).slideUp(function(){
+								$(".recientes .content, .volver").slideDown(this);
 							});
 							contador=1;
 						}
@@ -26,11 +32,11 @@ if ((int)$row[0] > 0){ ?>
 					$(".volver").on("click",function(){
 						if (contador==1){
 						
-						$(".recientes .content").fadeOut(function(){
-							$(".recientes .cont-campana").fadeIn();
-						});
+							$(".recientes .content").slideUp(function(){
+								$(".recientes .cont-campana").slideDown();
+							});
 							contador=0;
-							$(".volver").fadeOut();
+							$(".volver").slideUp();
 						}
 					});
 				});
@@ -63,8 +69,6 @@ if ((int)$row[0] > 0){ ?>
 					</div>
 
 				</div>
-
-				
 
 			 </div>
 		 

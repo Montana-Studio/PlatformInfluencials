@@ -1,5 +1,5 @@
 <?php include 'header.php'; ?>	
-	<h2>nueva campaña</h2>
+	<h2 class="sub-titulo">nueva campaña</h2>
 
 	<form id="campanaForm-nueva-campana">
 

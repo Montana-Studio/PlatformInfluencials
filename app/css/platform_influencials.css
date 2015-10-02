@@ -896,6 +896,26 @@ main {
 
 .dashboard-agencia, .crear-campanas, .campanas {
   background-image: none; }
+  .dashboard-agencia .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo {
+    margin: 0;
+    font-size: 14px;
+    font-style: italic;
+    text-transform: uppercase;
+    color: #c7c7c7;
+    padding: 10px;
+    clear: both; }
+    @media screen and (min-width: 1024px) and (max-width: 1279px) {
+      .dashboard-agencia .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo {
+        color: #656b79;
+        font-size: 18px;
+        font-weight: normal;
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 91.4702%;
+        margin-left: 4.2649%; }
+        .dashboard-agencia .sub-titulo:last-child, .crear-campanas .sub-titulo:last-child, .campanas .sub-titulo:last-child {
+          margin-right: 0; } }
 
 #creadas {
   display: block;
@@ -921,7 +941,7 @@ main {
       display: block;
       margin-right: 2.35765%;
       width: 100%;
-      padding: 141px 5px 0;
+      padding: 148px 5px 0;
       position: relative;
       overflow: hidden;
       min-height: 182px;
@@ -936,11 +956,11 @@ main {
         float: left;
         display: block;
         margin-right: 2.35765%;
-        width: 40.29137%;
+        width: 100%;
         color: #fff;
         font-size: 16px;
         margin: 0;
-        padding: 0; }
+        padding: 0 0 5px; }
         #creadas .recientes .bg-campana h3:last-child {
           margin-right: 0; }
         #creadas .recientes .bg-campana h3 span {
@@ -952,11 +972,11 @@ main {
         float: left;
         display: block;
         margin-right: 2.35765%;
-        width: 40.29137%;
+        width: 48.82117%;
         list-style: none;
         margin: 0;
         padding: 0;
-        text-align: center; }
+        text-align: left; }
         #creadas .recientes .bg-campana .redes-inline:last-child {
           margin-right: 0; }
         #creadas .recientes .bg-campana .redes-inline li {
@@ -973,9 +993,10 @@ main {
         float: left;
         display: block;
         margin-right: 2.35765%;
-        width: 14.70196%;
+        width: 6.17215%;
+        margin-left: 42.64902%;
         color: #18bb9b;
-        padding: 0;
+        padding: 8px 0 0;
         cursor: pointer; }
         #creadas .recientes .bg-campana .ver-mas:last-child {
           margin-right: 0; }
@@ -1118,26 +1139,6 @@ main {
 @media screen and (min-width: 1024px) and (max-width: 1279px) {
   .crear-campanas {
     background-color: #eeeef0; } }
-.crear-campanas h2 {
-  margin: 0;
-  font-size: 14px;
-  font-style: italic;
-  text-transform: uppercase;
-  color: #c7c7c7;
-  padding: 10px;
-  clear: both; }
-  @media screen and (min-width: 1024px) and (max-width: 1279px) {
-    .crear-campanas h2 {
-      color: #656b79;
-      font-size: 18px;
-      font-weight: normal;
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 91.4702%;
-      margin-left: 4.2649%; }
-      .crear-campanas h2:last-child {
-        margin-right: 0; } }
 .crear-campanas nav ul li {
   border-bottom: 1px solid #c7c7c7; }
   .crear-campanas nav ul li a {

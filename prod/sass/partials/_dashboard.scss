@@ -1,5 +1,19 @@
 .dashboard-agencia{
 	background: {image:none;}
+	.sub-titulo{
+		margin:0;
+		font:{size:14px;style:italic;}
+		text:{transform:uppercase;}
+		color:$color_grey;
+		@include pad(10px);
+		clear:both;
+		@include media($tabletLand){
+			color: $color_grey2;
+			font:{size:18px;weight:normal;}
+			@include span-columns(11);
+			@include shift(.5);
+		}
+	}
 }
 #creadas{
 	@include row();
@@ -9,29 +23,29 @@
 		@include pad(0);
 		.bg-campana{
 			@include span-columns(12 of 12);
-			@include pad(141px 5px 0);
+			@include pad(148px 5px 0);
 			position: relative;
 			overflow: hidden;
 			min-height: 182px;
 			background:{position: center;size: cover;}
 			@include boxShadow(inset, 0, -60px, 54px, -18px $blk-alfa);
 			h3{
-				@include span-columns(5 of 12);
+				@include span-columns(12 of 12);
 				color:#fff;
 				font:{size:16px;}
 				margin:0;
-				@include pad(0);
+				@include pad(0 0 5px);
 				span{
 					display: block;
 					font:{size:11px;weight:normal;style:italic;}
 				}
 			}
 			.redes-inline{
-				@include span-columns(5 of 12);
+				@include span-columns(6 of 12);
 				list:{style: none;}
 				margin:0;
 				@include pad(0);
-				@include textAligns(center);
+				@include textAligns(left);
 				li{
 					display: inline-block;
 					color:#fff;
@@ -46,9 +60,10 @@
 				}
 			}
 			.ver-mas{
-				@include span-columns(2 of 12);
+				@include span-columns(1 of 12);
+				@include shift(5);
 				color:$color_font2;
-				@include pad(0);
+				@include pad(8px 0 0);
 				cursor: pointer;
 				span{
 					width:20px;
