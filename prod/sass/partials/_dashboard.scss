@@ -72,7 +72,35 @@
 		}
 		.content{
 			@include span-columns(12 of 12);
+			span{
+				@include span-columns(5 of 12);
+				@include pad();
+				color:$color_grey;
+				font:{size:11px;}
+				&:first-child{
+					@include span-columns(4 of 12);
+					text:{transform:uppercase;}
+				}
+				i{
+					margin:{right:3px;}
+				}
+			}
+			p{
+				@include span-columns(12 of 12);
+				@include pad();
+				color:$color_grey;
+				font:{size:12px;style:italic;}
+				margin:{top:0}
+			}
 		}
+	}
+	.volver{
+		@extend .btns;
+		@include span-columns(10);
+		@include shift(1);
+		background:{color:$color_font2;}
+		@include textAligns(center);
+		color:#fff;
 	}
 }
 .no-campana{

@@ -35,9 +35,7 @@
 }
 #campanaForm-nueva-campana{
 	@include span-columns(12);
-	@include row();
-	@include pad(0 10px);
-	@include fill-parent();
+	@include pad();
 	@include media($tabletLand){
 		@include span-columns(11);
 		@include shift(.5);
@@ -79,11 +77,13 @@
 	.jfilestyle{
 		@extend .btns;
 		@include span-columns(12);
+		@include omega();
 		@include textAligns(center);
 		background: {color:#fff;}
 		border:1px solid $color_font2;
 		color:$color_font2;
 		margin:{top:10px;}
+		left:0;
 		.focus-jfilestyle{
 			label{
 				.count-jfilestyle{

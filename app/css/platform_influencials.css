@@ -32,7 +32,7 @@ a {
   color: #107977;
   outline: none; }
 
-.btns, #imagenform #inicio #guardarFacturacion, #imagenform #inicio .cancel-data, main.ingreso_eleccion #tipo .btns_accesos, main.form_agencias #inicio .btns_accesos, main.form_agencias #antiguo .form_ingreso #ingresar, main.form_agencias #nuevo .form_ingreso #ingresar, main.form_agencias #nuevo .registerForm #ingresar, main.form_agencias #antiguo .form_ingreso .fb_btn, main.form_agencias #nuevo .form_ingreso .fb_btn, main.form_agencias #nuevo .registerForm .fb_btn, main.form_agencias #antiguo .form_ingreso .lk_btn, main.form_agencias #nuevo .form_ingreso .lk_btn, main.form_agencias #nuevo .registerForm .lk_btn, main.form_agencias #nuevo .registerForm #registrarse, .no-campana a .btn_crearcamp, #campanaForm-nueva-campana .jfilestyle, #campanaForm-nueva-campana .guardar {
+.btns, #imagenform #inicio #guardarFacturacion, #imagenform #inicio .cancel-data, main.ingreso_eleccion #tipo .btns_accesos, main.form_agencias #inicio .btns_accesos, main.form_agencias #antiguo .form_ingreso #ingresar, main.form_agencias #nuevo .form_ingreso #ingresar, main.form_agencias #nuevo .registerForm #ingresar, main.form_agencias #antiguo .form_ingreso .fb_btn, main.form_agencias #nuevo .form_ingreso .fb_btn, main.form_agencias #nuevo .registerForm .fb_btn, main.form_agencias #antiguo .form_ingreso .lk_btn, main.form_agencias #nuevo .form_ingreso .lk_btn, main.form_agencias #nuevo .registerForm .lk_btn, main.form_agencias #nuevo .registerForm #registrarse, #creadas .volver, .no-campana a .btn_crearcamp, #campanaForm-nueva-campana .jfilestyle, #campanaForm-nueva-campana .guardar {
   cursor: pointer;
   float: left;
   display: block;
@@ -52,7 +52,7 @@ a {
   font-size: 13px;
   padding: 10px 0;
   margin-bottom: 10px; }
-  .btns:last-child, #imagenform #inicio #guardarFacturacion:last-child, #imagenform #inicio .cancel-data:last-child, main.ingreso_eleccion #tipo .btns_accesos:last-child, main.form_agencias #inicio .btns_accesos:last-child, main.form_agencias #antiguo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .registerForm #ingresar:last-child, main.form_agencias #antiguo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .registerForm .fb_btn:last-child, main.form_agencias #antiguo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .registerForm .lk_btn:last-child, main.form_agencias #nuevo .registerForm #registrarse:last-child, .no-campana a .btn_crearcamp:last-child, #campanaForm-nueva-campana .jfilestyle:last-child, #campanaForm-nueva-campana .guardar:last-child {
+  .btns:last-child, #imagenform #inicio #guardarFacturacion:last-child, #imagenform #inicio .cancel-data:last-child, main.ingreso_eleccion #tipo .btns_accesos:last-child, main.form_agencias #inicio .btns_accesos:last-child, main.form_agencias #antiguo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .registerForm #ingresar:last-child, main.form_agencias #antiguo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .registerForm .fb_btn:last-child, main.form_agencias #antiguo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .registerForm .lk_btn:last-child, main.form_agencias #nuevo .registerForm #registrarse:last-child, #creadas .volver:last-child, .no-campana a .btn_crearcamp:last-child, #campanaForm-nueva-campana .jfilestyle:last-child, #campanaForm-nueva-campana .guardar:last-child {
     margin-right: 0; }
 
 .btn_close {
@@ -1007,6 +1007,49 @@ main {
       width: 100%; }
       #creadas .recientes .content:last-child {
         margin-right: 0; }
+      #creadas .recientes .content span {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 40.29137%;
+        padding: 2.35765%;
+        color: #c7c7c7;
+        font-size: 11px; }
+        #creadas .recientes .content span:last-child {
+          margin-right: 0; }
+        #creadas .recientes .content span:first-child {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 31.76157%;
+          text-transform: uppercase; }
+          #creadas .recientes .content span:first-child:last-child {
+            margin-right: 0; }
+        #creadas .recientes .content span i {
+          margin-right: 3px; }
+      #creadas .recientes .content p {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%;
+        padding: 2.35765%;
+        color: #c7c7c7;
+        font-size: 12px;
+        font-style: italic;
+        margin-top: 0; }
+        #creadas .recientes .content p:last-child {
+          margin-right: 0; }
+  #creadas .volver {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 82.94039%;
+    margin-left: 8.5298%;
+    background-color: #18bb9b;
+    text-align: center;
+    color: #fff; }
+    #creadas .volver:last-child {
+      margin-right: 0; }
 
 .no-campana a {
   float: left;
@@ -1109,15 +1152,9 @@ main {
   display: block;
   margin-right: 2.35765%;
   width: 100%;
-  display: block;
-  padding: 0 10px;
-  width: 100%; }
+  padding: 2.35765%; }
   #campanaForm-nueva-campana:last-child {
     margin-right: 0; }
-  #campanaForm-nueva-campana::after {
-    clear: both;
-    content: "";
-    display: table; }
   @media screen and (min-width: 1024px) and (max-width: 1279px) {
     #campanaForm-nueva-campana {
       float: left;
@@ -1198,11 +1235,13 @@ main {
     display: block;
     margin-right: 2.35765%;
     width: 100%;
+    margin-right: 0;
     text-align: center;
     background-color: #fff;
     border: 1px solid #18bb9b;
     color: #18bb9b;
-    margin-top: 10px; }
+    margin-top: 10px;
+    left: 0; }
     #campanaForm-nueva-campana .jfilestyle:last-child {
       margin-right: 0; }
   #campanaForm-nueva-campana h2 {

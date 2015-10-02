@@ -52,24 +52,23 @@
 							
 							var contador=0;
 							
-							$(".recientes .cont-campana").click(function(){
+							$(".recientes .cont-campana").on("click",function(){
 								if (contador==0){
-									$(".recientes .cont-campana").not(this).hide();
-									$(".recientes .content, .volver").show(this);
-										console.log("show");
-										contador=1;
+									$(".recientes .cont-campana").not(this).fadeOut(function(){
+										$(".recientes .content, .volver").fadeIn(this);
+									});
+									contador=1;
 								}
 							});
 							
-							$(".volver").click(function(){
+							$(".volver").on("click",function(){
 								if (contador==1){
 								
-								$(".recientes .cont-campana").show();
-								
-								$(".recientes .content").hide();
-									console.log("hide");
+								$(".recientes .content").fadeOut(function(){
+									$(".recientes .cont-campana").fadeIn();
+								});
 									contador=0;
-									$(".volver").hide();
+									$(".volver").fadeOut();
 								}
 							});
 						});
@@ -97,9 +96,10 @@
 							</div>
 							
 							<div class="content">
+								<span><i class="fa fa-cog"></i>Publicada</span><span><i class="fa fa-calendar"></i>02 Octubre 2015</span>
 								<p id="campana'.$row[0].'">'.$row[2].'</p>
 							</div>
-							
+
 						</div>
 
 						
@@ -108,7 +108,7 @@
 				 
 					'; }while($row = mysqli_fetch_row($result)); ?>
 					
-					<?php echo '<button class="volver">Volver</button>';?>
+					<?php echo '<div class="volver">cerrar</div>';?>
 				</div>
 		<?php 
 			}else{
