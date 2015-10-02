@@ -66,20 +66,29 @@ if(isset($_SESSION['id'])){
 				<h2>Registro</h2>
 
 				<form id="agenciaform" class="registerForm">
+					<form class='registerForm'>
+						<div>		
+							<select id="perfil" required>
+							<option value="" disabled selected>selecciona tu perfil </option>
+							<option value="3">influenciador</option>
+							<option value="4">publisher</option>
+							<option value="5">editor</option>
+							</select>
+						</div>
 					
-					<input placeholder="Nombre" name="username-nuevo" id="usernamenuevo" required>
+					<input placeholder="Nombre" name="username-nuevo" class="usernamenuevo" required>
 			
-					<input type="email" placeholder="Correo electrónico" id="correonuevo" required>
+					<input type="email" placeholder="Correo electrónico" class="correonuevo" required>
 					
-					<input placeholder="Empresa" name="empresa-nuevo" id="empresanuevo" required>
+					<input placeholder="Empresa" name="empresa-nuevo" class="empresanuevo" required>
 					
-					<input type="password" placeholder="Contraseña" id="contraseñanuevo" required>
+					<input type="password" placeholder="Contraseña" id="contraseñanuevo" class="contraseñanuevo" required>
 					<input type="password" onChange="checkPasswordMatch();" placeholder="Repetir Contraseña" id="ver-password" required> 
 
 					<div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
 					
-					<input class="telefonos" placeholder="Tel. Empresa" onkeypress="return valida(event)" name="telefono1-nuevo" id="telefono1nuevo" maxlength="11" required>
-					<input class="telefonos" placeholder="Tel. Personal" onkeypress="return valida(event)" name="telefono2-nuevo" id="telefono2nuevo" maxlength="11" required>
+					<input class="telefonos telefono1nuevo" placeholder="Tel. Empresa" onkeypress="return valida(event)" name="telefono1-nuevo" id="telefono1nuevo" maxlength="11" required>
+					<input class="telefonos telefono2nuevo" placeholder="Tel. Personal" onkeypress="return valida(event)" name="telefono2-nuevo" id="telefono2nuevo" maxlength="11" required>
 					
 					<div id="selectImage">
 							
@@ -136,77 +145,6 @@ if(isset($_SESSION['id'])){
 
 		</main>
 
-		<!-- Formularios para perfiles IPE -->
-		<main>
-			<div id="ipe">	
-
-				<div id="inicioIpe">
-					<button id="accederIpe">acceder</button>
-					<button id="registrarIpe">registrarse</button><br/>
-					<button class="volverTipo">volver</button>
-				</div>
-
-				<div id="nuevoipe">
-					<form class='registerForm' id='agenciaIpe'>
-						<div>		
-							<select id="perfil" required>
-							<option value="" disabled selected>selecciona tu perfil </option>
-							<option value="3">influenciador</option>
-							<option value="4">publisher</option>
-							<option value="5">editor</option>
-							</select>
-						</div>
-						<div>
-							<input placeholder="usuario" name='username-nuevo' id="usuarionuevoIpe" required>
-						</div>
-						<div>
-							<input type="email" placeholder="correo" id="correonuevoIpe" required>
-						</div>
-						<div>
-							<input placeholder="empresa" name='empresa-nuevo' id="empresanuevoIpe" required>
-						</div>
-						<div>
-							<input type="password" placeholder="contraseña-nuevo" id="contraseñanuevoIpe" required> - <input type="password" onChange="checkPasswordMatchIpe();" placeholder="verificar contraseña-nuevo" id="ver-passwordIpe"  required> <div class="registrationFormAlert" id="divCheckPasswordMatchIpe"></div>
-						</div>
-						<div>
-							<input placeholder="telefono1" onkeypress="return validaIpe(event)" id="telefono1nuevoIpe" maxlength="11" required>
-						</div>
-						<div>
-							<input placeholder="telefono2" onkeypress="return validaIpe(event)" id="telefono2nuevoIpe" maxlength="11" required>
-						</div>
-						<div id="selectImage">
-								<input type="file" name="file" id="fileIpe" required>
-								<div>
-									<button id="registrarseIpe" disabled type="submit">registrar</button>
-								</div>
-						</div>
-					</form>
-					<button id="facebook-nuevo-ipe">registrar con Facebook</button>
-					<button id="linkedin-nuevo-Ipe">registrar con Linkedin</button>
-				</div>
-
-				<div id="antiguoIpe">
-					<div>
-						<input placeholder="usuario" name='username' id="antiguousuarioIpe"/>
-					</div>
-					<div>
-						<input type="password" placeholder="contraseña" id="antiguocontraseñaIpe"/>
-					</div>
-					<div>
-						<button id="ingresarIpe">ingresar</button>
-						<button id="facebook-antiguo-Ipe" value="ingresar con Facebook">ingresar con Facebook</button>
-						<button id="linkedin-antiguo-Ipe">ingresar con Linkedin</button>
-					</div>
-					<div>
-						<button>recuperar contraseña</button>
-					</div>
-				</div>
-
-				<div>
-					<button id="volverIpe">volver</button>
-				</div>
-			</div>
-		</main>	
 
 		<a href="#" class="ayuda_pi">¿Necesitas ayuda?</a>	
 
