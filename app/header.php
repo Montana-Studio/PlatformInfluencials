@@ -1,10 +1,18 @@
-<?php
-require('conexion.php');
-	if(isset($_SESSION['nombre'])==false){
-		header('Location:/');
-		die();
-	}
-?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Power Influencer</title>
+
+	<link rel="stylesheet" href="css/platform_influencials.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+
+
 <header>
 	
 	<div class="logo"><a href="./dashboard-agencia.php" target="_top"></a></div>

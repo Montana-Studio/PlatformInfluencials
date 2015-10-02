@@ -15,9 +15,6 @@ function deleteDir($dir){
 	rmdir($dir);
 }
 
-
-
-
 if (strlen($_SESSION['rsid'])>2){
 $a=1;
 }else{
@@ -31,23 +28,14 @@ if($_POST['tipo'] == "eliminar"){
 		$rsid = $_SESSION['rsid'];
 		$dir = "uploads/agencias/registered/$rsid/$idEliminar/";
 		deleteDir($dir);
-		
-		//unlink("uploads/agencias/registered/$rsid/$campana/1.jpg");
-		//rmdir("uploads/agencias/registered/$correo/$campana");
 	}
 	
 	if($a == 2){
 		$correo= $_SESSION['correo'];
-		//unlink("uploads/agencias/registered/$correo/$campana/1.jpg");
-		//rmdir("uploads/agencias/registered/$correo/$campana");
 		$dir = "uploads/agencias/registered/$correo/$idEliminar/";
 		deleteDir($dir);
 	}
 }
-
-
-
-
 
 echo $_POST['tipo'];
 if($_POST['tipo'] == "activar"){

@@ -63,7 +63,6 @@ if ($tipo == 'avatar'){
 				unlink("uploads/agencias/registered/$correo/avatar.gif");
 				move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 				rename("uploads/agencias/registered/$correo/$file", "uploads/agencias/registered/$correo/avatar.gif");
-				$mysqli->set_charset('utf8');
 				$actualiza = $mysqli->query("UPDATE persona SET nombre='$nombre', telefono1='$tel1', telefono2='$tel2', empresa='$empresa' WHERE correo='$correo'");			
 				$actualizaLogin = $mysqli->query("UPDATE login SET user='$nombre' WHERE correo='$correo'");			 
 				$resultado = "nuevo";
@@ -80,8 +79,6 @@ if ($tipo == 'avatar'){
 	$nombre =$_POST['nombre'];
 	$marca = $_POST['marca'];
 	$descripcion= $_POST['descripcion'];
-
-
 	$query="SELECT id FROM campana ORDER BY id DESC LIMIT 1";
 	$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 	$row= mysqli_fetch_array($result, MYSQLI_NUM);
@@ -102,8 +99,8 @@ if ($tipo == 'avatar'){
 			$targetPath = "uploads/agencias/registered/$rsid/$numero_campana/".$_FILES['file']['name']; // Target path where file is to be stored
 			move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 			rename("uploads/agencias/registered/$rsid/$campana/$file", "uploads/agencias/registered/$rsid/$numero_campana/1.jpg");
-			$resultado = "nueva";
-			$resultado = $imagenes;
+			//
+			//$resultado = $imagenes;
 		}
 		if ($a==2){// Create directory to save the file in case of Form Login and first change on avatar image 
 			//$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,imagenes,marca,idpersona) VALUES ('$nombre','$descripcion','uploads/agencias/registered/$correo/$campana/1.jpg','$marca','$id')");		
@@ -120,9 +117,10 @@ if ($tipo == 'avatar'){
 			$targetPath = "uploads/agencias/registered/$correo/$numero_campana/".$_FILES['file']['name']; // Target path where file is to be stored
 			move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 			rename("uploads/agencias/registered/$correo/$numero_campana/$file", "uploads/agencias/registered/$correo/$numero_campana/1.jpg");
-			$resultado = "nueva";
-			$resultado = $imagenes;
+			//$resultado = "nueva";
+			//$resultado = $imagenes;
 		}
+		$resultado = "nueva";
 	}else{
 		$resultado = valida_extension();
 	}
@@ -145,14 +143,16 @@ if ($tipo == 'avatar'){
 				unlink("uploads/agencias/registered/$rsid/$campana/1.jpg");
 				move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 				rename("uploads/agencias/registered/$rsid/$campana/$file", "uploads/agencias/registered/$rsid/$campana/1.jpg");
-				$resultado = "nuevo";
+				//$resultado = "nuevo";
+				echo "nuevo";
 			}
 			if ($a==2){// Create directory to save the file in case of Form Login
 				$targetPath = "uploads/agencias/registered/$correo/$campana/".$_FILES['file']['name']; // Target path where file is to be stored
 				unlink("uploads/agencias/registered/$correo/$campana/1.jpg");
 				move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 				rename("uploads/agencias/registered/$correo/$campana/$file", "uploads/agencias/registered/$correo/$campana/1.jpg");
-				$resultado = "nuevo";
+				//$resultado = "nuevo";
+				echo "nuevo";
 			}
 		}
 		else{
@@ -172,7 +172,7 @@ if ($tipo == 'avatar'){
 	$ipe = $_POST['ipe'];
 
 	if ($ipe == ''){
-		$query= "SELECT DISTINCT p.correo FROM persona AS p WHERE p.correo='$nuevocorreo'";
+		$query= "SELECT DISTINCT correo FROM persona WHERE correo='$nuevocorreo'";
 		$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 		$num_row= mysqli_num_rows($result);
 
@@ -191,18 +191,13 @@ if ($tipo == 'avatar'){
 		}
 	}else{
 		//Verifico que exista el correo en la base de datos
-		$query= "SELECT DISTINCT p.correo FROM persona AS p WHERE p.correo='$nuevocorreo'";
+		$query= "SELECT DISTINCT correo FROM persona WHERE correo='$nuevocorreo'";
 		$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 		$num_row= mysqli_num_rows($result);
 
 		if($num_row>0){
-		$resutlado = "false";
+			$resutlado = "false";
 		}else if(valida_extension() == "ok"){
-			
-			$validextensions = array("jpeg", "jpg", "png", "gif");
-			$temporary = explode(".", $_FILES["file"]["name"]);
-			$file_extension = end($temporary);
-
 			if (file_exists("uploads/$nuevocorreo/test/" . $_FILES["file"]["name"])) {
 				$resultado = "existe";
 			}

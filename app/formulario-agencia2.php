@@ -118,7 +118,7 @@ die();
 						
 						success: function(html){ 
 							alert("Registro de datos completo, nos contactaremos con usted");
-							window.location.href= "registro.php";
+							window.location.href= "./";
 							}
 					});
 				

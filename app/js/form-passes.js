@@ -222,18 +222,18 @@ $(document).ready(function(){
 		
 				success: function(info){
 					alert(info);
-				/*	switch (info){
+					switch (info){
 						case "error": 	alert("arhivo con daños");
 						break;
-						case "nueva":	if (confirm("¿desea subir una nueva campaña?")){
-											window.location.reaload();
-										}
+						case "nueva":	if (confirm("¿desea ver la campaña?")){
 											window.location.herf("./campana.php");
+										}
+											
 
 						break;
 						case "invalido": alert('el tamaño o formato no es aceptado');
 						break;
-					}*/
+					}
 				}	
 
 					
@@ -265,13 +265,15 @@ $(document).ready(function(){
 				
 				success: function(info){
 					switch (info){
-					case "error": 	alert("arhivo con daños");				
-					break;
-					case "nuevo":	alert("imagen cambiada");
-					break;
-					case "invalido": alert('el tamaño o formato no es aceptado');
-					break;
+						case "error": 	alert("arhivo con daños");			
+						break;
+						case "nuevo":	alert("imagen cambiada");
+										window.location.reaload();	
+						break;
+						case "invalido": alert('el tamaño o formato no es aceptado');
+						break;
 					}
+				info ='';
 				}
 			});
 		}
@@ -288,8 +290,9 @@ $(document).ready(function(){
 
 				success: function(info){
 				switch (info){
-				case "actualiza": 	alert("datos actualizados");
-				break;
+					case "actualiza": 	alert("datos actualizados");
+										window.location.reaload();	
+					break;
 				}
 				info='';
 			}
