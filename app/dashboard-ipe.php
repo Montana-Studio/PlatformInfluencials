@@ -117,7 +117,7 @@ header('Location:index.php');
 die();
 }
 else{
-include_once("rrss/twitter/config.php");
+//include_once("rrss/twitter/config.php");
 include_once("rrss/twitter/inc/twitteroauth.php");
 include_once('rrss/twitter/inc/TwitterAPIExchange.php');
 $mysqli->set_charset('utf8');
