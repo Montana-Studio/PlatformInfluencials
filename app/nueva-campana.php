@@ -16,7 +16,7 @@
 			<textarea placeholder="Descripción" id="descripcion-nueva-campana" rows="10" cols="40" ></textarea>
 			<i class="fa fa-pencil"></i>
 		</div>
-		<h2>subir imagen</h2>
+		<h2 class="sub-titulo">subir imagen</h2>
 		<p>Sube una imagen que represente la campaña y que no supere los 200kb en su peso.</p>
 		
 		<input type="file" name="file" class="jfilestyle" data-input="false" data-buttonText="subir archivo"/>

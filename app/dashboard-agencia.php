@@ -13,11 +13,9 @@ if ((int)$row[0] > 0){ ?>
 					$(".volver, .recientes .content").hide();
 					
 					$(".recientes .cont-campana").on("click",function(){
-						
 						$(".recientes .cont-campana, .recientes .content, .volver").slideDown(this);
-						
 					});
-
+					
 					var contador=0;
 					
 					$(".recientes .cont-campana").on("click",function(){
@@ -46,31 +44,31 @@ if ((int)$row[0] > 0){ ?>
 		';
 			do{
 			echo '
-			<div class="recientes">
-				<div class="cont-campana" id="imagen'.$row[0].'">
-					
-					<div class="bg-campana" style="background-image:url('.$row[3].');">
+				<div class="recientes">
+					<div class="cont-campana" id="imagen'.$row[0].'">
 						
-						<h3>'.$row[1].'<span>by '.$row[4].'</span></h3>
+						<div class="bg-campana" style="background-image:url('.$row[3].');">
+							
+							<h3>'.$row[1].'<span>by '.$row[4].'</span></h3>
 
-						<ul class="redes-inline">
-							<li><i class="fa fa-facebook"></i><span>0000</span></li>
-							<li><i class="fa fa-instagram"></i><span>0000</span></li>
-							<li><i class="fa fa-twitter"></i><span>0000</span></li>
-						</ul>
+							<ul class="redes-inline">
+								<li><i class="fa fa-facebook"></i><span>0000</span></li>
+								<li><i class="fa fa-instagram"></i><span>0000</span></li>
+								<li><i class="fa fa-twitter"></i><span>0000</span></li>
+							</ul>
+							
+							<div class="ver-mas"><span><i class="fa fa-angle-down"></i></span></div>
+
+						</div>
 						
-						<div class="ver-mas"><span><i class="fa fa-angle-down"></i></span></div>
+						<div class="content">
+							<span><i class="fa fa-cog"></i>Publicada</span><span><i class="fa fa-calendar"></i>02 Octubre 2015</span>
+							<p id="campana'.$row[0].'">'.$row[2].'</p>
+						</div>
 
 					</div>
-					
-					<div class="content">
-						<span><i class="fa fa-cog"></i>Publicada</span><span><i class="fa fa-calendar"></i>02 Octubre 2015</span>
-						<p id="campana'.$row[0].'">'.$row[2].'</p>
-					</div>
 
-				</div>
-
-			 </div>
+				 </div>
 		 
 			'; }while($row = mysqli_fetch_row($result)); ?>
 			
