@@ -142,7 +142,8 @@ if(basename($_SERVER['PHP_SELF'])=='campana.php'){
 	
 	<ul>
 		<li><a href="campana.php"><i class="fa fa-suitcase"></i> campañas</a></li>
-		<li><a href="nueva-campana.php"><i class="fa fa-pencil"></i> crear campaña</a></li>
+		<li><a href="#"><i class="fa fa-user"></i> influencers</a></li>
+		<li><i onClick="backHistory()" class="fa fa-mail-reply"></i></li>
 	</ul>
 
 </nav>

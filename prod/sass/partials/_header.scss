@@ -88,7 +88,7 @@ nav{
 		list-style:none;
 		@include fill-parent();
 		li{
-			@include span-columns(6.135 of 12);
+			@include span-columns(5.27 of 12);
 			@include row();
 			@include omega();
 			@include textAligns(center);
@@ -98,6 +98,10 @@ nav{
 			padding:{top:8px;}
 			height:34px;
 			a{
+				color:$color_grey;
+			}&:last-child{
+				@include span-columns(2 of 12);
+				cursor:pointer;
 				color:$color_grey;
 			}
 		}

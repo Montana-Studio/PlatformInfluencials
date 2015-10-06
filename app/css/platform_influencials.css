@@ -235,7 +235,7 @@ nav {
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 49.9727%;
+      width: 42.59442%;
       display: block;
       margin-right: 0;
       text-align: center;
@@ -252,6 +252,15 @@ nav {
         display: table; }
       nav ul li a {
         color: #c7c7c7; }
+      nav ul li:last-child {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 14.70196%;
+        cursor: pointer;
+        color: #c7c7c7; }
+        nav ul li:last-child:last-child {
+          margin-right: 0; }
 
 #imagenform {
   float: left;
