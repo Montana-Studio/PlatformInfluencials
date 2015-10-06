@@ -269,8 +269,8 @@ $id=$_SESSION['id'];
 					    $suma_twitter = 0;
 					    $i=1;
 					    do{
-					    $usuario1 = $row3['rrss_id'];
-					    echo $usuario1." aqui ";
+					    //$usuario1 = $row3['rrss_id'];
+					    //echo $usuario1." ";
 					   	$settings = array(
 					        'oauth_access_token' => "3523857136-MwHOy2ZrYGqvvT6fSpkCbFxe5BYqlmQzUs41UdN",
 					        'oauth_access_token_secret' => "Verk18Cyb8oTYGdcptHvvZaCOXD5gaNDBtMFdd1tqPL9k",
@@ -279,6 +279,7 @@ $id=$_SESSION['id'];
 					    );
 					    $ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
 					    $requestMethod = 'GET';
+					    $usuario1 = $row3['rrss_id'];
 					    //$usuario1 = '3523857136';
 					    // id argkont 80674227
 					    $getfield1 = '?id='.$usuario1;
@@ -295,7 +296,7 @@ $id=$_SESSION['id'];
 						echo "<br/>";					    
 						$suma_twitter+=(int)$followers_count1;
 						$all_rows[$i] = $row3;
-						echo $all_rows[$i];
+						//echo $all_rows[$i];
 						$i++;
 						}while($row3 = $result3->fetch_array());
 						echo "reach twitter = ".$suma_twitter; 
