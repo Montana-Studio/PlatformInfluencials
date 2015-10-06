@@ -30,7 +30,6 @@ if (isset($_REQUEST['oauth_token']) && $_SESSION['token']  !== $_REQUEST['oauth_
 		die("error, intente más tarde");
 	}
 }else{
-
 	if(isset($_GET["denied"]))
 	{	
 		header('Location: ./twitter.php');
@@ -62,4 +61,3 @@ if (isset($_REQUEST['oauth_token']) && $_SESSION['token']  !== $_REQUEST['oauth_
 	}
 }
 ?>
-

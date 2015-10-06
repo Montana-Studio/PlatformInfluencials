@@ -15,8 +15,8 @@ include_once('inc/TwitterAPIExchange.php');
     $settings = array(
         'oauth_access_token' => "3523857136-MwHOy2ZrYGqvvT6fSpkCbFxe5BYqlmQzUs41UdN",
         'oauth_access_token_secret' => "Verk18Cyb8oTYGdcptHvvZaCOXD5gaNDBtMFdd1tqPL9k",
-        'consumer_key' => "57Ad64b6xTGNDDyIAAWvcKlGV",
-        'consumer_secret' => "YHQUctM9IPL9UHrd0EfNv4MATF8Q1t1Zmqpn3OS12OhHOFF3tX"
+        'consumer_key' => "hV95sLlCLjKIQbsVx1uVIxgKQ",
+        'consumer_secret' => "FU3GBmbIldTUzJZJOJqrynhiiecmt2FPHAShlkGi3AH8jY7GrV"
     );
     $ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
     $requestMethod = 'GET';
@@ -33,30 +33,33 @@ include_once('inc/TwitterAPIExchange.php');
         Check if the user already has a twitter account registered
         and show followers and ID
         ****************************************************************/
-    $query2="SELECT rrss_id FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter' AND rrss_id=".$usuario1;
+    //header('Location: ../../hola'.(int)$num_row);
+    $query2="SELECT rrss_id FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter' AND rrss_id=".(int)$usuario1;
     $result2=mysqli_query($mysqli,$query2)or die (mysqli_error());
     $num_row2= mysqli_num_rows($result2);
 
     /****************************************************************
     If the user has 3 registered accounts 
     /****************************************************************/
-      if($num_row == 3){
+      if((int)$num_row > 2){
         $displaydb = "block";
-        header('Location: ../../dashboard-ipe.php');
+       // header('Location: ../../dashboard-ipe.php');
       }
    /****************************************************************
     If the Twitter id already exist then it is going to redirect
     to dashboard page
     /****************************************************************/
-      if($num_row2>0){
-               // $displaydb = "block";
-              header('Location: ../../dashboard-ipe.php');
+      if((int)$num_row2 > 0){
+     $displaydb = "block";
+    // header('Location: ../../dashboard-ipe.php');
     /****************************************************************
     Success, redirected back from process.php with varified status.
     retrive variables
     ****************************************************************/
       }else if(isset($_SESSION['status']) && $_SESSION['status']=='verified'){
-
+             
+           //  header('Location: ../../dashboard-ipe.php');
+            
                 $oauth_token        = $_SESSION['request_vars']['oauth_token'];
                 $oauth_token_secret = $_SESSION['request_vars']['oauth_token_secret'];
                 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $oauth_token, $oauth_token_secret);
@@ -80,4 +83,3 @@ include_once('inc/TwitterAPIExchange.php');
                 header('Location: ../../dashboard-ipe.php');
         }
     ?>
-
