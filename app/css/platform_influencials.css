@@ -9,7 +9,7 @@ html {
 a {
   text-decoration: none; }
 
-.hide, #imagenform, #imagenform #inicio .tabpage div i, main.form_agencias, main.form_agencias #antiguo, main.form_agencias #nuevo, main.form_agencias #antiguo h2, main.form_agencias #nuevo h2, main.form_agencias #antiguo a, main.form_agencias #nuevo a, main.form_agencias #antiguo .form_ingreso, main.form_agencias #nuevo .form_ingreso, main.form_agencias #nuevo .registerForm, main.form_agencias #nuevo .registerForm #selectImage input[type="file"], #campanaForm-nueva-campana .jfilestyle .focus-jfilestyle label .count-jfilestyle {
+.hide, #imagenform, #imagenform #inicio .tabpage div i, main.form_agencias, main.form_agencias #antiguo, main.form_agencias #nuevo, main.form_agencias #antiguo h2, main.form_agencias #nuevo h2, main.form_agencias #antiguo a, main.form_agencias #nuevo a, main.form_agencias #antiguo .form_ingreso, main.form_agencias #nuevo .form_ingreso, main.form_agencias #nuevo .registerForm, main.form_agencias #nuevo .registerForm #selectImage input[type="file"], .crear-campanas .crear-campana, #campanaForm-nueva-campana .jfilestyle .focus-jfilestyle label .count-jfilestyle {
   display: none; }
 
 .show {
@@ -32,7 +32,7 @@ a {
   color: #107977;
   outline: none; }
 
-.btns, #imagenform #inicio #guardarFacturacion, #imagenform #inicio .cancel-data, main.ingreso_eleccion #tipo .btns_accesos, main.form_agencias #inicio .btns_accesos, main.form_agencias #antiguo .form_ingreso #ingresar, main.form_agencias #nuevo .form_ingreso #ingresar, main.form_agencias #nuevo .registerForm #ingresar, main.form_agencias #antiguo .form_ingreso .fb_btn, main.form_agencias #nuevo .form_ingreso .fb_btn, main.form_agencias #nuevo .registerForm .fb_btn, main.form_agencias #antiguo .form_ingreso .lk_btn, main.form_agencias #nuevo .form_ingreso .lk_btn, main.form_agencias #nuevo .registerForm .lk_btn, main.form_agencias #nuevo .registerForm #registrarse, #creadas .volver, .no-campana a .btn_crearcamp, #campanaForm-nueva-campana .jfilestyle, #campanaForm-nueva-campana .guardar {
+.btns, #imagenform #inicio #guardarFacturacion, #imagenform #inicio .cancel-data, main.ingreso_eleccion #tipo .btns_accesos, main.form_agencias #inicio .btns_accesos, main.form_agencias #antiguo .form_ingreso #ingresar, main.form_agencias #nuevo .form_ingreso #ingresar, main.form_agencias #nuevo .registerForm #ingresar, main.form_agencias #antiguo .form_ingreso .fb_btn, main.form_agencias #nuevo .form_ingreso .fb_btn, main.form_agencias #nuevo .registerForm .fb_btn, main.form_agencias #antiguo .form_ingreso .lk_btn, main.form_agencias #nuevo .form_ingreso .lk_btn, main.form_agencias #nuevo .registerForm .lk_btn, main.form_agencias #nuevo .registerForm #registrarse, #creadas .volver, #creadas .volver-campana, .no-campana a .btn_crearcamp, #campanaForm-nueva-campana .jfilestyle, #campanaForm-nueva-campana .guardar {
   cursor: pointer;
   float: left;
   display: block;
@@ -52,7 +52,7 @@ a {
   font-size: 13px;
   padding: 10px 0;
   margin-bottom: 10px; }
-  .btns:last-child, #imagenform #inicio #guardarFacturacion:last-child, #imagenform #inicio .cancel-data:last-child, main.ingreso_eleccion #tipo .btns_accesos:last-child, main.form_agencias #inicio .btns_accesos:last-child, main.form_agencias #antiguo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .registerForm #ingresar:last-child, main.form_agencias #antiguo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .registerForm .fb_btn:last-child, main.form_agencias #antiguo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .registerForm .lk_btn:last-child, main.form_agencias #nuevo .registerForm #registrarse:last-child, #creadas .volver:last-child, .no-campana a .btn_crearcamp:last-child, #campanaForm-nueva-campana .jfilestyle:last-child, #campanaForm-nueva-campana .guardar:last-child {
+  .btns:last-child, #imagenform #inicio #guardarFacturacion:last-child, #imagenform #inicio .cancel-data:last-child, main.ingreso_eleccion #tipo .btns_accesos:last-child, main.form_agencias #inicio .btns_accesos:last-child, main.form_agencias #antiguo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .registerForm #ingresar:last-child, main.form_agencias #antiguo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .registerForm .fb_btn:last-child, main.form_agencias #antiguo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .registerForm .lk_btn:last-child, main.form_agencias #nuevo .registerForm #registrarse:last-child, #creadas .volver:last-child, #creadas .volver-campana:last-child, .no-campana a .btn_crearcamp:last-child, #campanaForm-nueva-campana .jfilestyle:last-child, #campanaForm-nueva-campana .guardar:last-child {
     margin-right: 0; }
 
 .btn_close {
@@ -65,6 +65,32 @@ a {
   .btn_close span {
     display: table-cell;
     vertical-align: middle; }
+
+.crear-campana {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  background-image: -webkit-linear-gradient(left, #2c327c 0%, #18bb9b 100%);
+  background-image: linear-gradient(to right, #2c327c 0%, #18bb9b 100%);
+  height: 40px;
+  text-transform: uppercase;
+  font-size: 12px; }
+  .crear-campana:last-child {
+    margin-right: 0; }
+  .crear-campana a {
+    color: #fff;
+    display: table;
+    width: 100%;
+    height: 100%; }
+    .crear-campana a span {
+      display: table-cell;
+      vertical-align: middle; }
+      .crear-campana a span i {
+        margin-right: 3px; }
 
 header {
   display: block;
@@ -555,7 +581,6 @@ nav {
 
 html {
   width: 100%;
-  height: 100%;
   margin: 0;
   padding: 0;
   background-image: -webkit-linear-gradient(top, #2c327c 0%, #18bb9b 100%);
@@ -904,7 +929,8 @@ main {
           top: 26%; } }
 
 .dashboard-agencia, .crear-campanas, .campanas {
-  background-image: none; }
+  background-image: none;
+  padding-bottom: 40px; }
   .dashboard-agencia .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo {
     margin: 0;
     font-size: 14px;
@@ -965,7 +991,7 @@ main {
         float: left;
         display: block;
         margin-right: 2.35765%;
-        width: 100%;
+        width: 91.4702%;
         color: #fff;
         font-size: 16px;
         margin: 0;
@@ -977,33 +1003,11 @@ main {
           font-size: 11px;
           font-weight: normal;
           font-style: italic; }
-      #creadas .recientes .bg-campana .redes-inline {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 48.82117%;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        text-align: left; }
-        #creadas .recientes .bg-campana .redes-inline:last-child {
-          margin-right: 0; }
-        #creadas .recientes .bg-campana .redes-inline li {
-          display: inline-block;
-          color: #fff;
-          text-align: center; }
-          #creadas .recientes .bg-campana .redes-inline li i {
-            display: block; }
-          #creadas .recientes .bg-campana .redes-inline li span {
-            display: block;
-            font-size: 13px;
-            font-weight: normal; }
       #creadas .recientes .bg-campana .ver-mas {
         float: left;
         display: block;
         margin-right: 2.35765%;
         width: 6.17215%;
-        margin-left: 42.64902%;
         color: #18bb9b;
         padding: 8px 0 0;
         cursor: pointer; }
@@ -1070,7 +1074,7 @@ main {
         margin-top: 0; }
         #creadas .recientes .content p:last-child {
           margin-right: 0; }
-  #creadas .volver {
+  #creadas .volver, #creadas .volver-campana {
     float: left;
     display: block;
     margin-right: 2.35765%;
@@ -1079,7 +1083,7 @@ main {
     background-color: #18bb9b;
     text-align: center;
     color: #fff; }
-    #creadas .volver:last-child {
+    #creadas .volver:last-child, #creadas .volver-campana:last-child {
       margin-right: 0; }
 
 .no-campana a {
@@ -1152,11 +1156,6 @@ main {
   border-bottom: 1px solid #c7c7c7; }
   .crear-campanas nav ul li a {
     color: #c7c7c7; }
-  .crear-campanas nav ul li:last-child {
-    border-bottom: 2px #18bb9b inset;
-    margin-right: 0; }
-    .crear-campanas nav ul li:last-child a {
-      color: #18bb9b; }
 
 #campanaForm-nueva-campana {
   float: left;

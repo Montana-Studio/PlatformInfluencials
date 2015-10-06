@@ -1,5 +1,6 @@
 .dashboard-agencia{
 	background: {image:none;}
+	padding:{bottom:40px;}
 	.sub-titulo{
 		margin:0;
 		font:{size:14px;style:italic;}
@@ -30,7 +31,7 @@
 			background:{position: center;size: cover;}
 			@include boxShadow(inset, 0, -60px, 54px, -18px $blk-alfa);
 			h3{
-				@include span-columns(12 of 12);
+				@include span-columns(11 of 12);
 				color:#fff;
 				font:{size:16px;}
 				margin:0;
@@ -40,28 +41,8 @@
 					font:{size:11px;weight:normal;style:italic;}
 				}
 			}
-			.redes-inline{
-				@include span-columns(6 of 12);
-				list:{style: none;}
-				margin:0;
-				@include pad(0);
-				@include textAligns(left);
-				li{
-					display: inline-block;
-					color:#fff;
-					@include textAligns(center);
-					i{
-						display: block;
-					}
-					span{
-						display: block;
-						font:{size:13px;weight:normal;}
-					}
-				}
-			}
 			.ver-mas{
 				@include span-columns(1 of 12);
-				@include shift(5);
 				color:$color_font2;
 				@include pad(8px 0 0);
 				cursor: pointer;
@@ -116,6 +97,9 @@
 		background:{color:$color_font2;}
 		@include textAligns(center);
 		color:#fff;
+	}
+	.volver-campana{
+		@extend .volver;
 	}
 }
 .no-campana{

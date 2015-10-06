@@ -13,7 +13,7 @@ if(isset($_SESSION['id'])){
 
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" style="height:100%;">
 <head>
 
 	<meta charset="UTF-8">

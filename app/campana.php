@@ -77,12 +77,6 @@
 					<div class="bg-campana" style="background-image:url('.$row[3].');">
 						
 						<h3>'.$row[1].'<span>by '.$row[4].'</span></h3>
-
-						<ul class="redes-inline">
-							<li><i class="fa fa-facebook"></i><span>0000</span></li>
-							<li><i class="fa fa-instagram"></i><span>0000</span></li>
-							<li><i class="fa fa-twitter"></i><span>0000</span></li>
-						</ul>
 						
 						<div class="ver-mas"><span><i class="fa fa-angle-down"></i></span></div>
 
@@ -212,12 +206,6 @@
 				
 					<h3>'.$row2[1].'<span>by '.$row2[4].'</span></h3>
 
-					<ul class="redes-inline">
-						<li><i class="fa fa-facebook"></i><span>0000</span></li>
-						<li><i class="fa fa-instagram"></i><span>0000</span></li>
-						<li><i class="fa fa-twitter"></i><span>0000</span></li>
-					</ul>
-					
 					<div class="ver-mas"><span><i class="fa fa-angle-down"></i></span></div>
 
 				</div>
@@ -275,10 +263,10 @@
 	
 	<?php include 'footer.php'; ?>
 
-	<script>
+	<script type="text/javascript" async>
 		$(document).ready(function(){
 			
-			$(".volver-campana2, .volver-campana, .recientes .content").hide();
+			$(".volver-campana, .recientes .content").hide();
 					
 			$(".recientes .cont-campana").on("click",function(){
 				$(".recientes .cont-campana, .recientes .content, .volver-campana").slideDown(this);
@@ -289,7 +277,7 @@
 			$(".recientes .cont-campana").on("click",function(){
 				if (contador==0){
 					$(".recientes .cont-campana").not(this).slideUp(function(){
-						$(".sub-titulo").fadeOut();
+						$(".sub-titulo").slideUp();
 						$(".recientes .content, .volver-campana").slideDown(this);
 					});
 					contador=1;
@@ -300,7 +288,7 @@
 				if (contador==1){
 				
 					$(".recientes .content").slideUp(function(){
-						$(".sub-titulo").fadeIn();
+						$(".sub-titulo").slideDown();
 						$(".recientes .cont-campana").slideDown();
 					});
 					contador=0;
