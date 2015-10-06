@@ -89,7 +89,7 @@
 			else
 				$('#registrarse').attr('disabled','disabled');
 		}
-	});
+	})	;
 	</script>
 
 	<style>
@@ -147,7 +147,7 @@ $id=$_SESSION['id'];
 	    ->buildOauth($ta_url, $requestMethod)
 	    ->performRequest();
 	    $data1 = json_decode($follow_count1, true);
-	    $followers_count1=$data1[0]['user']['friends_count'];	
+	    $followers_count1=$data1[0]['user']['followers_count'];	
 	   if($row3[5] == 1 ){
 	   	$suma_twitter+=	$followers_count1;
 	   }
@@ -231,7 +231,7 @@ $id=$_SESSION['id'];
 					    ->buildOauth($ta_url, $requestMethod)
 					    ->performRequest();
 					    $data1 = json_decode($follow_count1, true);
-					    $followers_count1=$data1[0]['user']['friends_count'];
+					    $followers_count1=$data1[0]['user']['followers_count'];
 					    $username=$data1[0]['user']['screen_name'];
 					    if ($row3[5] == 0){
 					    	$estado="activar";
