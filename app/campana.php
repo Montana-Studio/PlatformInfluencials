@@ -67,12 +67,6 @@ if ($num_rows > 0){
 					
 //visible campaña
 					$(".volver, .recientes .content-edit-campa").hide();
-					
-					$(".recientes .cont-campana").on("click",function(){
-						
-						$(".recientes .cont-campana, .recientes .content-edit-campa, .volver").slideDown(this);
-						
-					});
 
 					var contador=0;
 					
