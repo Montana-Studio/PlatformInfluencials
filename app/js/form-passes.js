@@ -344,7 +344,7 @@ function checkPasswordMatch() {
 	var password = $('#contraseñanuevo').val();
 	var confirmPassword = $('#ver-password').val();
 	$('#registrarse').attr('disabled', 'disabled');
-	if (password != confirmPassword || password == ''|| confirmPassword ==''){
+	if (password != confirmPassword || password == ''|| confirmPassword =='' ){
 		$('#divCheckPasswordMatch').html('Las contraseñas no coinciden');
 	}
 	else{

@@ -79,10 +79,10 @@ if(isset($_SESSION['id'])){
 					
 					<input placeholder="Empresa" name="empresa-nuevo" class="empresanuevo" required>
 					
-					<input type="password" placeholder="Contraseña" id="contraseñanuevo" class="contraseñanuevo" required>
-					<input type="password" onChange="checkPasswordMatch();" placeholder="Repetir Contraseña" id="ver-password" required> 
+					<input type="password" onChange="checkPasswordMatch()" placeholder="Contraseña" id="contraseñanuevo" class="contraseñanuevo" required>
+					<input type="password" onChange="checkPasswordMatch()" placeholder="Repetir Contraseña" id="ver-password" required> 
 
-					<div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
+					
 					
 					<input class="telefonos telefono1nuevo" placeholder="Tel. Empresa" onkeypress="return valida(event)" name="telefono1-nuevo" id="telefono1nuevo" maxlength="11" required>
 					<input class="telefonos telefono2nuevo" placeholder="Tel. Personal" onkeypress="return valida(event)" name="telefono2-nuevo" id="telefono2nuevo" maxlength="11" required>
@@ -91,8 +91,9 @@ if(isset($_SESSION['id'])){
 							
 						<input type="file" name="file" id="file" required>
 						<label for="file" class="btns">Sube una imágen</label>
-						
+						<label  id="divCheckPasswordMatch"></label>
 						<button id="registrarse" disabled type="submit">Registrarse</button>
+
 
 					</div>
 					
