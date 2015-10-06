@@ -42,7 +42,7 @@ include_once('inc/TwitterAPIExchange.php');
     If the user has 3 registered accounts 
     /****************************************************************/
       if((int)$num_row > 2){
-        $displaydb = "block";
+        $displaydb = "none";
        // header('Location: ../../dashboard-ipe.php');
       
    

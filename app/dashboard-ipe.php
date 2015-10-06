@@ -59,33 +59,8 @@
 					});
 				};
 			}));	
-			//campañas creadas 
-			$('#editaCampaña').hide();
-			$('#creadas #guardar').hide();
-			//editar
-			$('#creadas #editar').click (function (){
-				$('#editaCampaña').show();
-				$('#creadas #guardar').show();
-				$('#creadas #editar').hide();
-			});
-			//guardar cambios
-			$('#creadas #guardar').click (function (){
-				$('#editaCampaña').hide();
-				$('#creadas #guardar').hide();
-				$('#creadas #editar').show();
-			});
-			$('#guardar').hide();
-			$('#editar').show();
-			$('#linkedin').click(function(){
-				var head = document.getElementsByTagName('head')[0];
-				var script = document.createElement('script');
-				script.type = 'text/javascript';
-				script.id = 'linkedinId';
-				script.src = '//platform.linkedin.com/in.js';
-				script.text ='\n api_key:	7718vpksg6gvwg\nauthorize:	false\nonLoad: onLinkedInLoad\n';
-				head.appendChild(script);
-		});
-		});
+	
+
 		
 		function valida(e){
 				tecla = (document.all) ? e.keyCode : e.which;
@@ -114,38 +89,9 @@
 			else
 				$('#registrarse').attr('disabled','disabled');
 		}
+	});
 	</script>
-	<script type="text/javascript">
-		function getProfileData() {
-			IN.API.Raw("/people/~:(id,email-address,formatted-name,num-connections,picture-url,positions:(company:(name)))").result(onSuccess).error(onError);
-		}
-		function onSuccess(data) {
-				var idLinkedin = data ['id'];
-				var conn = data['numConnections'];
-				console.log (conn);
-				var linkedinConnections = document.getElementById('linCon');
-				linkedinConnections.value = conn ;
-				var linkedin_id = document.getElementById('idlinkedin');
-				linkedin_id.value = idLinkedin ;
-			 
-			 var suma;
-			 var linkedin_con = parseInt(conn);
-			 suma += linkedin_con;
-			 var reach = document.getElementById('reach');
-			 reach.value = suma;
-		}
-		function onError(error) {
-			console.log(error);
-		}	
-		function LinkedINAuth(){
-			IN.UI.Authorize().place();
-		}
-		function onLinkedInLoad() {
-			LinkedINAuth();
-			IN.Event.on(IN, "auth", function () { getProfileData(); });
-			IN.Event.on(IN, "logout", function () { onLinkedInLogout(); });
-		}
-	</script>
+
 	<style>
 		input{
 		border:none;
@@ -177,37 +123,37 @@ include_once('rrss/twitter/inc/TwitterAPIExchange.php');
 $mysqli->set_charset('utf8');
 $id=$_SESSION['id'];
 }
-    //$query3="SELECT rrss_id FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter'";
-/*	$query3="SELECT DISTINCT rrss_id FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter'";
+
+?>
+
+<?	$query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter' AND id_estado=1";
     $result3=mysqli_query($mysqli,$query3)or die (mysqli_error());
     $row3= mysqli_fetch_array($result3, MYSQLI_BOTH);
     $num_row3= mysqli_num_rows($result3);
-    //	echo $row3;
-    do{
-      echo $row3['rrss_id'];
-	  echo "<br />";
-	  }while($row3 = $result3->fetch_array());
-   
-    if ($num_row3>0){
-   	$settings = array(
-        'oauth_access_token' => "3523857136-MwHOy2ZrYGqvvT6fSpkCbFxe5BYqlmQzUs41UdN",
-        'oauth_access_token_secret' => "Verk18Cyb8oTYGdcptHvvZaCOXD5gaNDBtMFdd1tqPL9k",
-        'consumer_key' => "57Ad64b6xTGNDDyIAAWvcKlGV",
-        'consumer_secret' => "YHQUctM9IPL9UHrd0EfNv4MATF8Q1t1Zmqpn3OS12OhHOFF3tX"
-    );
-    $ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
-    $requestMethod = 'GET';
-    $usuario1 = $row3[0];
-    $getfield1 = '?id='.$usuario1;
-    $twitter1 = new TwitterAPIExchange($settings);
-    $follow_count1=$twitter1->setGetfield($getfield1)
-    ->buildOauth($ta_url, $requestMethod)
-    ->performRequest();
-    $data1 = json_decode($follow_count1, true);
-    $followers_count1=(int)$data1[0]['user']['followers_count'];
-   /* echo "<script> $(document).ready(function(){
-    	$('.twitter-div').removeAttr('href')});</script>";
-    }*/
+    $suma_twitter = 0; 	
+	do{
+		$settings = array(
+	    'oauth_access_token' => "3523857136-MwHOy2ZrYGqvvT6fSpkCbFxe5BYqlmQzUs41UdN",
+	    'oauth_access_token_secret' => "Verk18Cyb8oTYGdcptHvvZaCOXD5gaNDBtMFdd1tqPL9k",
+	    'consumer_key' => "hV95sLlCLjKIQbsVx1uVIxgKQ",
+	    'consumer_secret' => "FU3GBmbIldTUzJZJOJqrynhiiecmt2FPHAShlkGi3AH8jY7GrV"
+	    );
+	    $ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
+	    $requestMethod = 'GET';
+	    $usuario1 = $row3['rrss_id'];
+	    $getfield1 = '?id='.$usuario1;
+	    $twitter1 = new TwitterAPIExchange($settings);
+	    $follow_count1=$twitter1->setGetfield($getfield1)
+	    ->buildOauth($ta_url, $requestMethod)
+	    ->performRequest();
+	    $data1 = json_decode($follow_count1, true);
+	    $followers_count1=$data1[0]['user']['friends_count'];	
+	   if($row3[5] == 1 ){
+	   	$suma_twitter+=	$followers_count1;
+	   }
+	    
+	}while($row3 = $result3->fetch_array());
+	 $suma = $suma_twitter;
 ?>
 </head>
 <body>
@@ -248,86 +194,61 @@ $id=$_SESSION['id'];
 		</div>
 	</form>
 	<div id = "redes sociales">
-		<h2>registra tus redes sociales</h2>  <h2>reach total <?php echo $suma; ?></h2>
-		<div>
-			<button id="facebook">Facebook</button><a></a>
-		</div>
-		<div>
-			<a class="twitter-div" href="rrss/twitter/process.php">twitter</a>
-			
+		<h2>registra tus redes sociales</h2>  
+		
+			<button id="facebook">Facebook</button>
+		
+			<a id= "twitter" class="twitter-div" href="rrss/twitter/process.php" value="<?php echo $num_row3;?>" >twitter</a>
+		
+			<button id="instagram">Instagram</button><a></a>
+		
+			<button id="youtube">Youtube</button><a></a>	
+		
+			<button id="analytics">Analytics</button><a></a>
+		
+			<button id="googleplus">Google+</button><a></a>
+		
+			<button id="pinterest">Pinterest</button><a></a>
+		
+	</div>
+	<h2>Redes Registradas - reach actual <?php echo $suma; ?></h2>
+	<div class = "twitter">
+	 <h3>Twitter <?php echo "reach twitter : ".$suma_twitter; ?></h3>
 
-			<!--div id="twitter-from-data-base" style="display:<?php //echo $displaydb;?>"-->
-			        <?php 
-			        	echo '<!--div id="twitter-from-data-base" style="display:<?php //echo $displaydb;?>"-->';
-						$query3="SELECT DISTINCT rrss_id FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter'";
+					        <?php 
+						$query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter'";
 					    $result3=mysqli_query($mysqli,$query3)or die (mysqli_error());
 					    $row3= mysqli_fetch_array($result3, MYSQLI_BOTH);
 					    $num_row3= mysqli_num_rows($result3);
-					    if ($num_row3>0){
-					    	echo " <br/> Perfiles Registrados <br/>";
-					    }
-					    $suma_twitter = 0;
-					    $i=1;
+					    
 					    do{
-					    //$usuario1 = $row3['rrss_id'];
-					    //echo $usuario1." ";
-					   	$settings = array(
-					        'oauth_access_token' => "3523857136-MwHOy2ZrYGqvvT6fSpkCbFxe5BYqlmQzUs41UdN",
-					        'oauth_access_token_secret' => "Verk18Cyb8oTYGdcptHvvZaCOXD5gaNDBtMFdd1tqPL9k",
-					        'consumer_key' => "hV95sLlCLjKIQbsVx1uVIxgKQ",
-					        'consumer_secret' => "FU3GBmbIldTUzJZJOJqrynhiiecmt2FPHAShlkGi3AH8jY7GrV"
-					    );
 					    $ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
 					    $requestMethod = 'GET';
 					    $usuario1 = $row3['rrss_id'];
-					    //$usuario1 = '3523857136';
-					    // id argkont 80674227
 					    $getfield1 = '?id='.$usuario1;
 					    $twitter1 = new TwitterAPIExchange($settings);
 					    $follow_count1=$twitter1->setGetfield($getfield1)
 					    ->buildOauth($ta_url, $requestMethod)
 					    ->performRequest();
 					    $data1 = json_decode($follow_count1, true);
-					    $followers_count1=(int)$data1[0]['user']['friends_count'];
+					    $followers_count1=$data1[0]['user']['friends_count'];
 					    $username=$data1[0]['user']['screen_name'];
+					    if ($row3[5] == 0){
+					    	$estado="activar";
+					    }else{
+					    	$estado = "desactivar";
+					    }
+					  //  echo $usuario1." - ";
 						echo $username;
 						echo "   -    ";
 						echo (int)$followers_count1;
+						echo "<button>".$estado."</button>";
 						echo "<br/>";					    
-						$suma_twitter+=(int)$followers_count1;
-						$all_rows[$i] = $row3;
-						//echo $all_rows[$i];
-						$i++;
 						}while($row3 = $result3->fetch_array());
-						echo "reach twitter = ".$suma_twitter; 
+						
 						
 				    ?>
-			</div>
-		</div>
-		<div>
-			<button id="instagram">Instagram</button><a></a>
-		</div>
-		<div>
-			<button id="youtube">Youtube</button><a></a>
-		</div>
-		<div>
-			<button id="linkedin">Linkedin</button><input id="linCon" disabled>
-		</div>
-		<div>
-			<button id="analytics">Analytics</button><a></a>
-		</div>
-		<div>
-			<button id="googleplus">Google+</button><a></a>
-		</div>
-		<div>
-			<button id="pinterest">Pinterest</button><a></a>
-		</div>
 	</div>
-
-	<?php 
-	$suma= $suma_twitter;
-	echo $suma; 
-	?>
 	<div id="contacto">
 		<h2>contacto</h2>
 		<div>
