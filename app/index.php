@@ -34,9 +34,6 @@ if(isset($_SESSION['id'])){
 	<main class="contAllPI" style="padding-top:30%;">
 		
 		<div style="display:none;" id="tipoCliente" value="2"></div>
-
-		<!-- ALERTAS -->
-		<div id="alertRegistrado"></div>
 		
 		<div class="logo_pi"><a href="/" target="_top"></a></div>
 		
@@ -120,9 +117,10 @@ if(isset($_SESSION['id'])){
 
 					<input placeholder="Nombre" name="username" id="username"/>
 
-					<input type="password" placeholder="Contraseña" id="password"/>
+					<input type="password" placeholder="Contraseña" id="password" />
 					
 					<div id="ingresar">ingresar</div>
+					<div id="alertRegistrado"></div>
 					
 					<p>o ingresa con</p>
 

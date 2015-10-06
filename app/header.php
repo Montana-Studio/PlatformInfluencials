@@ -1,5 +1,10 @@
 <?php 
 require('conexion.php');
+if(isset($_SESSION['id'])==false){
+header('Location:./');
+		die();
+
+}else{
 echo 
 '<!DOCTYPE html>
 <html lang="es">
@@ -28,19 +33,23 @@ echo
 <script id="cambia"></script>';
 
 
+}
+
+
+
 
 if(basename($_SERVER['PHP_SELF'])=='dashboard-agencia.php'){
-	if(isset($_SESSION['nombre'])==false){
-		header('Location:./');
-		die();
-	}
-	else{
+	//if(isset($_SESSION['id'])==false){
+	//	header('Location:./');
+	//	die();
+	//}
+	//else{
 		//$mysqli->set_charset('utf8');
 		$id=$_SESSION['id'];
-		$query="SELECT * FROM campana  WHERE idEstado=1 AND id_tipo = 2 AND idpersona=".$id." ORDER BY id DESC LIMIT 3";
+		$query="SELECT * FROM campana  WHERE idEstado=1 AND idpersona=".$id." ORDER BY id DESC LIMIT 3";
 		$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 		$row= mysqli_fetch_array($result, MYSQLI_NUM);
-	}
+	//}
 echo "<script> 
 			$(document).ready(function(){
 				$('title').append('Power Influencer - ".$_SESSION['nombre']."');
@@ -57,11 +66,11 @@ echo "<script>
 
 
 if(basename($_SERVER['PHP_SELF'])=='nueva-campana.php'){
-	if(isset($_SESSION['nombre'])==false){
+	/*if(isset($_SESSION['id'])==false){
 		header('Location:./');
 		die();
 	}
-	else{
+	else{*/
 		//$mysqli->set_charset('utf8');
 		$query="SELECT id FROM campana ORDER BY id DESC LIMIT 1";
 		$result= mysqli_query($mysqli,$query)or die(mysqli_error());
@@ -71,7 +80,7 @@ if(basename($_SERVER['PHP_SELF'])=='nueva-campana.php'){
 		$query2="SELECT * FROM campana WHERE idpersona='$id'";
 		$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
 		$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
-	}
+	//}
 	echo "<script>
 			jQuery(document).ready(function(){
 				$('html').css({'background-color':'#fff','background-image':'none'});
@@ -87,21 +96,21 @@ if(basename($_SERVER['PHP_SELF'])=='nueva-campana.php'){
 
 
 if(basename($_SERVER['PHP_SELF'])=='campana.php'){
-	if(isset($_SESSION['nombre'])==false){
+	/*if(isset($_SESSION['id'])==false){
 		header('Location:./');
 		die();
-	}else{
-		$query="SELECT * FROM campana WHERE idEstado=1 AND id_tipo = 2 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
+	}else{*/
+		$query="SELECT * FROM campana WHERE idEstado=1 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
 		$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 		$row= mysqli_fetch_array($result, MYSQLI_NUM);
 		$num_rows= mysqli_num_rows($result);
 
-		$query2="SELECT * FROM campana WHERE idEstado=0 AND id_tipo = 2 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
+		$query2="SELECT * FROM campana WHERE idEstado=0 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
 		$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
 		$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 		$num_rows2= mysqli_num_rows($result2);
 
-	}
+	//}
 
 	echo "<script>
 			jQuery(document).ready(function(){

@@ -5,7 +5,13 @@ require('conexion.php');
 	//$password =$_POST['pwd'];
 	$password=MD5($_POST['pwd']);
 
-	//Consulto si existe el Base de Datos
+	if(strlen($username) == 0 || strlen($password) == 0){
+		$resultado = "vacio";
+		echo $resultado;
+	}
+
+if ($resultado != "vacio"){
+		//Consulto si existe el Base de Datos
 	$query="SELECT * FROM login WHERE user='$username' AND pass='$password'";
 	$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 	$num_row= mysqli_num_rows($result);//si es mayor que uno es porque hay registros
@@ -54,5 +60,11 @@ require('conexion.php');
 
 		}
 	}
+
+
+
+
+}
+
 
 ?>

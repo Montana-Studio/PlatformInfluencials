@@ -30,12 +30,6 @@ require('conexion.php');
 		<div id="alertRegistrado"></div>
 		
 		<div class="logo_pi"><a href="/" target="_top"></a></div>
-		
-		<main class="ingreso_eleccion">
-			
-			<!-- ELECCION DE USUARIO -->
-
-		</main>
 
 		<main class="form_agencias">
 			
@@ -44,21 +38,16 @@ require('conexion.php');
 			<div id="inicio">
 				<div id="acceder" class="btns_accesos">ingresar</div>
 				<div id="registrar" class="btns_accesos">registrarse</div>
-
-				<div class="volverTipo btns_accesos">cancelar</div>
 			</div>
 
 			<div id="nuevo">
 				<h2>Registro</h2>
 
-				<form id="agenciaform" class="registerForm">
+				<form class="registerForm">
 					<form class='registerForm'>
 						<div>		
-							<select id="perfil" required>
-							<option value="" disabled selected>selecciona tu perfil </option>
-							<option value="3">influenciador</option>
-							<option value="4">publisher</option>
-							<option value="5">editor</option>
+							<select id="perfil" >
+							<option value="2" disabled selected>perfil de agencia </option>
 							</select>
 						</div>
 					

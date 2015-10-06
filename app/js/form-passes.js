@@ -2,6 +2,12 @@ $(document).ready(function(){
 
 	//INICIO SCRIPTS
 	var info;
+	if (window.location == 'http://local.mediatrends/_InfluencialsPlatform/htdocs/app/agencia.php'){
+		$("#tipoCliente").attr("value", "2");
+		$('.form_agencias').show();
+		$('#perfil').hide();
+	}
+
 	$('#alertRegistrado').hide();
 	$('#facebook-name').hide();
 	$('#volver').hide();
@@ -30,7 +36,6 @@ $(document).ready(function(){
 		$(".volverTipo").show();
 		$("#perfil").show();
 	})
-
 
 
 	$('.volverTipo').click(function(){
@@ -72,6 +77,9 @@ $(document).ready(function(){
 				case "false": 		$('#alertRegistrado').show();
 									document.getElementById('alertRegistrado').innerHTML ="usuario o password no existen";					
 				break;
+				case "vacio": 		$('#alertRegistrado').show();
+									document.getElementById('alertRegistrado').innerHTML ="falta ingresar datos";					
+				break;
 				}
 				}
 		});
@@ -108,8 +116,8 @@ $(document).ready(function(){
 				break;
 				case "false":	$('#alertRegistrado').show();
 								document.getElementById('alertRegistrado').innerHTML ="El correo ingresado ya tiene una cuenta asociada";					 
-								$('#correonuevo').val('');
-								;$('#correonuevo').focus();
+								$('.correonuevo').val('');
+								;$('.correonuevo').focus();
 				break;
 				case "invalido":
 					console.log('formato invalido');

@@ -52,7 +52,6 @@
 							contentType: false,      
 							cache: false,             
 							processData:false,
-
 						success: function(data){ 
 							//console.log(data);
 							window.location.reload();
@@ -60,7 +59,6 @@
 					});
 				};
 			}));	
-
 			//campañas creadas 
 			$('#editaCampaña').hide();
 			$('#creadas #guardar').hide();
@@ -78,7 +76,6 @@
 			});
 			$('#guardar').hide();
 			$('#editar').show();
-
 			$('#linkedin').click(function(){
 				var head = document.getElementsByTagName('head')[0];
 				var script = document.createElement('script');
@@ -108,7 +105,6 @@
 			else
 				$('#registrarse').attr('disabled','disabled');
 			}
-
 		function phone2Length(){
 			var tel1 = $('#telefono1nuevo').val();
 			var tel2 = $('#telefono2nuevo').val();
@@ -132,7 +128,6 @@
 				var linkedin_id = document.getElementById('idlinkedin');
 				linkedin_id.value = idLinkedin ;
 			 
-
 			 var suma;
 			 var linkedin_con = parseInt(conn);
 			 suma += linkedin_con;
@@ -181,9 +176,7 @@ include_once("rrss/twitter/inc/twitteroauth.php");
 include_once('rrss/twitter/inc/TwitterAPIExchange.php');
 $mysqli->set_charset('utf8');
 $id=$_SESSION['id'];
-
 }
-
     //$query3="SELECT rrss_id FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter'";
 /*	$query3="SELECT DISTINCT rrss_id FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter'";
     $result3=mysqli_query($mysqli,$query3)or die (mysqli_error());
@@ -214,11 +207,7 @@ $id=$_SESSION['id'];
     $followers_count1=(int)$data1[0]['user']['followers_count'];
    /* echo "<script> $(document).ready(function(){
     	$('.twitter-div').removeAttr('href')});</script>";
-
-
-
     }*/
-
 ?>
 </head>
 <body>
@@ -281,12 +270,12 @@ $id=$_SESSION['id'];
 					    $i=1;
 					    do{
 					    $usuario1 = $row3['rrss_id'];
-					    //echo $usuario1." ";
+					    echo $usuario1." aqui ";
 					   	$settings = array(
 					        'oauth_access_token' => "3523857136-MwHOy2ZrYGqvvT6fSpkCbFxe5BYqlmQzUs41UdN",
 					        'oauth_access_token_secret' => "Verk18Cyb8oTYGdcptHvvZaCOXD5gaNDBtMFdd1tqPL9k",
-					        'consumer_key' => "57Ad64b6xTGNDDyIAAWvcKlGV",
-					        'consumer_secret' => "YHQUctM9IPL9UHrd0EfNv4MATF8Q1t1Zmqpn3OS12OhHOFF3tX"
+					        'consumer_key' => "hV95sLlCLjKIQbsVx1uVIxgKQ",
+					        'consumer_secret' => "FU3GBmbIldTUzJZJOJqrynhiiecmt2FPHAShlkGi3AH8jY7GrV"
 					    );
 					    $ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
 					    $requestMethod = 'GET';
@@ -309,7 +298,6 @@ $id=$_SESSION['id'];
 						echo $all_rows[$i];
 						$i++;
 						}while($row3 = $result3->fetch_array());
-
 						echo "reach twitter = ".$suma_twitter; 
 						
 				    ?>
