@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!--!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script-->
 	<script type="text/javascript">
 
 		var accessToken = null; //the access token is required to make any endpoint calls, http://instagram.com/developer/endpoints/
@@ -16,7 +16,7 @@
 				popupTop = (window.screen.height - popupHeight) / 2;
 
 			//the url needs to point to instagram_auth.php
-			var popup = window.open('procesar_instagram.php', '', 'width='+popupWidth+',height='+popupHeight+',left='+popupLeft+',top='+popupTop+'');
+			var popup = window.open('rrss/instagram/instagram_auth.php', '', 'width='+popupWidth+',height='+popupHeight+',left='+popupLeft+',top='+popupTop+'');
 
 			popup.onload = function() {
 				//open authorize url in pop-up
@@ -46,10 +46,11 @@
 
 		function login_callback() {
 			var instagramId = accessToken.split(".").shift();
-			alert(instagramId);
+			var followers_instagram;
+			//alert(instagramId);
 			$.ajax({  
             type: "POST",  
-            url: "procesar_instagram.php",  
+            url: "rrss/instagram/procesar_instagram.php",  
             data: "instagramId="+instagramId+"&accessToken="+accessToken,
 			
             success: function(html){ 
@@ -61,14 +62,14 @@
 		function login() {
 			authenticateInstagram(
 			    '4c1a45981cee4ec5b742e05ebb8b00b8', //instagram client ID
-			    'http://local.mediatrends/_InfluencialsPlatform/htdocs/app/rrss/Instagram/procesar_instagram.php', //instagram redirect URI
+			    'http://local.mediatrends/_InfluencialsPlatform/htdocs/app/rrss/Instagram/instagram_auth.php', //instagram redirect URI
 			    login_callback  //optional - a callback function
 			);
 			return false;
 		}
 
 	</script>
-<head>
+<!--head>
 <body>
 	<a href="#" onclick="login()">Log into Instagram</a>
 
