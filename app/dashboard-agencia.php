@@ -12,31 +12,15 @@ if ((int)$row[0] > 0){ ?>
 
 					$(".volver, .recientes .content").hide();
 					
-					$(".recientes .cont-campana").on("click",function(){
-						$(".recientes .cont-campana, .recientes .content, .volver").slideDown(this);
+					$(".recientes .content").hide();
+
+					$(".ver-mas").on("click",function(event){
+							
+							$(this).siblings(".content").slideToggle();
+							$(this).find("i").toggleClass("fa-angle-up fa-angle-down");
+
 					});
-					
-					var contador=0;
-					
-					$(".recientes .cont-campana").on("click",function(){
-						if (contador==0){
-							$(".recientes .cont-campana").not(this).slideUp(function(){
-								$(".recientes .content, .volver").slideDown(this);
-							}).hide("slow");
-							contador=1;
-						}
-					});
-					
-					$(".volver").on("click",function(){
-						if (contador==1){
-						
-							$(".recientes .content").slideUp(function(){
-								$(".recientes .cont-campana").slideDown();
-							});
-							contador=0;
-							$(".volver").slideUp();
-						}
-					});
+
 				});
 
 			</script>
@@ -51,12 +35,12 @@ if ((int)$row[0] > 0){ ?>
 							
 							<h3>'.$row[1].'<span>by '.$row[4].'</span></h3>
 							
-							<div class="ver-mas"><span><i class="fa fa-angle-down"></i></span></div>
-
 						</div>
-						
+
+						<div class="ver-mas"><span><i class="fa fa-angle-down"></i></span></div>
 						<div class="content">
-							<span><i class="fa fa-cog"></i>Publicada</span><span><i class="fa fa-calendar"></i>02 Octubre 2015</span>
+							<span class="campa-ico"><i class="fa fa-cog"></i>Publicada</span>
+							<span class="campa-ico"><i class="fa fa-calendar"></i>02 Octubre 2015</span>
 							<p id="campana'.$row[0].'">'.$row[2].'</p>
 						</div>
 

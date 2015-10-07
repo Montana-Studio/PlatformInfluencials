@@ -64,8 +64,6 @@
 							});  
 						});
 				
-					
-
 				});
 			</script>
 
@@ -74,37 +72,44 @@
 				
 				<div class="cont-campana">
 					
-					<div class="bg-campana" style="background-image:url('.$row[3].');">
-						
-						<h3>'.$row[1].'<span>by '.$row[4].'</span></h3>
-						
+						<div class="bg-campana" style="background-image:url('.$row[3].');">
+							
+							<h3>'.$row[1].'<span>by '.$row[4].'</span></h3>
+							
+
+							<div class="edit-campana" style="display:none;float:left;clear:both;"></div>
+
+						</div>
+
 						<div class="ver-mas"><span><i class="fa fa-angle-down"></i></span></div>
+						
+						<div class="content">
 
-					</div>
+							<form id="campanaForm'.$row[0].'">		
+								
+								<ul class="tools-campana">
+									<li id="activar-campana-'.$row[0].'"><i class="tool-ico fa fa-remove"></i><span class="tool-txt"> desactivar</span></li>
+								</ul>
+								<div class="inputs-campana nombre" id="nombre-campana-'.$row[0].'">
+									<input placeholder="'.$row[1].'" disabled />
+								</div>
 
-					<div class="content">
-						<form id="campanaForm'.$row[0].'">
-											
-							<div class="nombre" id="nombre-campana-'.$row[0].'">
-								<input value="'.$row[1].'"></input>
-							</div>
+								<div class="inputs-campana marca" id="marca-campana-'.$row[0].'">
+									<input  placeholder="by '.$row[4].'" disabled />
+								</div>
+								
+								<span class="campa-ico"><i class="fa fa-cog"></i>Desactivada</span>
+								<span class="campa-ico"><i class="fa fa-calendar"></i>02 Octubre 2015</span>
+								
+								<div class="inputs-campana descripcion" id="descripcion-campana-'.$row[0].'">
+									<textarea placeholder="descripcion" rows=10 cols=40 disabled>'.$row[2].'</textarea>
+								</div>
 
-							<div class="marca" id="marca-campana-'.$row[0].'">
-								by<input  value="'.$row[4].'"></input>
-							</div>
-
-							<div class="descripcion" id="descripcion-campana-'.$row[0].'">
-								<textarea placeholder="descripcion" rows=10 cols=40 >'.$row[2].'</textarea>
-							</div>
-
-							<input type="file" name="file" class="jfilestyle" data-input="false" id="file'.$row[0].'" data-buttonText="subir archivo"/>
-
-							<button class="guardar-campana" type="submit" id="guardar-campana-'.$row[0].'">Guardar Cambios en '.$row[1].'</button>
-							
-							<div id="activar-campana-'.$row[0].'">desactivar campaña - '.$row[1].'</div>
-							
-						</form>
-					</div>
+								<!--button class="guardar-campana" type="submit" id="guardar-campana-'.$row[0].'">Guardar Cambios en '.$row[1].'</button-->
+								
+							</form>
+						</div>
+					
 				</div>
 
 			</div>
@@ -205,29 +210,41 @@
 				
 					<h3>'.$row2[1].'<span>by '.$row2[4].'</span></h3>
 
-					<div class="ver-mas"><span><i class="fa fa-angle-down"></i></span></div>
-
 				</div>
 
+				<div class="ver-mas"><span><i class="fa fa-angle-down"></i></span></div>
+
 				<div class="content">
+
 					<form id="campanaForm'.$row2[0].'">
-						<div>
-							<button id="activar-campana-'.$row2[0].'">activar campaña - '.$row2[1].'</button>
+
+						<ul class="tools-campana">
+							<li class="edit-campanas"><i class="tool-ico fa fa-pencil"></i><span class="tool-txt"> editar</span></li>
+							<li id="activar-campana-'.$row2[0].'"><i class="tool-ico fa fa-check"></i><span class="tool-txt"> activar</span></li>
+							<li class="btneliminar" id="btneliminar'.$row2[0].'"><i class="tool-ico fa fa-trash-o"></i><span class="tool-txt"> eliminar</span></li>
+						</ul>
+						
+						<div class="inputs-campana nombre" id="nombre-campana-'.$row2[0].'">
+							<input placeholder="'.$row2[1].'" disabled></input>
+							<i class="fa fa-pencil"></i>
 						</div>
-						<button class="btneliminar" id="btneliminar'.$row2[0].'">eliminar</button>
-							<div class="nombre" id="nombre-campana-'.$row2[0].'">
-								<input value="'.$row2[1].'"></input>
-							</div>
-							<div class="marca" id="marca-campana-'.$row2[0].'">
-								<input  value="'.$row2[4].'"></input>
-							</div>
-							<div class="descripcion" id="descripcion-campana-'.$row2[0].'">
-								<textarea placeholder="descripcion" rows=10 cols=40 >'.$row2[2].'</textarea>
-							</div>
-							<div>
-								<input type="file" name="file" class="jfilestyle" data-input="false" id="file'.$row2[0].'" data-buttonText="subir archivo"/>
-							</div>
-						<button class="guardar-campana" type="submit" id="guardar-campana-'.$row2[0].'">Guardar Cambios en '.$row2[1].'</button>
+
+						<div class="inputs-campana marca" id="marca-campana-'.$row2[0].'">
+							 <input placeholder="by '.$row2[4].'" disabled></input>
+							 <i class="fa fa-pencil"></i>
+						</div>
+						
+						<span class="campa-ico"><i class="fa fa-cog"></i>Desactivada</span>
+						<span class="campa-ico"><i class="fa fa-calendar"></i>02 Octubre 2015</span>
+
+						<div class="inputs-campana descripcion" id="descripcion-campana-'.$row2[0].'">
+							<textarea placeholder="descripcion" rows=10 cols=40 disabled>'.$row2[2].'</textarea>
+							<i class="fa fa-pencil"></i>
+						</div>
+
+						<input type="file" name="file" class="jfilestyle upload-img-campana" data-input="false" id="file'.$row2[0].'" data-buttonText="subir archivo"/>
+						
+						<button class="guardar-campana" type="submit" id="guardar-campana-'.$row2[0].'">Guardar Campaña</button>
 					
 					</form>
 				</div>
@@ -239,7 +256,6 @@
 	}while($row2 = mysqli_fetch_row($result2));
 	}
 ?>
-	<div class="volver-campana">cerrar</div>
 
 </div>
 
@@ -258,81 +274,8 @@
 			<button>Enviar</button>
 		</div>
 	</div>
-	
+
 	<?php include 'footer.php'; ?>
 
-	<script type="text/javascript" async>
-		$(document).ready(function(){
-			
-			$(".volver-campana, .recientes .content").hide();
-					
-			$(".recientes .cont-campana").on("click",function(){
-				$(".recientes .cont-campana, .recientes .content, .volver-campana").slideDown(this);
-			});
-			
-			var contador=0;
-			
-			/*$(".recientes .cont-campana").one("click",function(){
-				if (contador==0){
-
-
-					$(".recientes .cont-campana").not(this).slideUp(function(){
-						$(".sub-titulo").slideUp();
-						$('.bg-campana .ver-mas span i').removeClass("fa-angle-down").addClass('fa-angle-up');
-						$(".recientes .content, .volver-campana").slideDown(this);
-					}).hide('slow');
-
-
-					contador=1;
-				}
-			});*/
-
-
-			$('.recientes .cont-campana .bg-campana .ver-mas').on("click",function(){
-				
-				$('.recientes .cont-campana').toggle(function(){
-					if (contador==0){
-						$(".recientes .cont-campana").not(this).slideUp(function(){
-							$(".sub-titulo").slideUp();
-							$('.bg-campana .ver-mas span i').removeClass("fa-angle-down").addClass('fa-angle-up');
-							$(".recientes .content, .volver-campana").slideDown(this);
-						}).hide('slow');
-
-
-						contador=1;
-					}
-				},function(){
-					if (contador==1){
-					
-						$(".recientes .content").slideUp(function(){
-							$(".sub-titulo").slideDown();
-							$('.bg-campana .ver-mas span i').removeClass('fa-angle-up').addClass("fa-angle-down");
-							$(".recientes .cont-campana").slideDown();
-						});
-						contador=0;
-						$(".volver-campana").hide();
-						
-					}
-				});
-			});
-
-
-			
-			/*$(".volver-campana").on("click",function(){
-				if (contador==1){
-				
-					$(".recientes .content").slideUp(function(){
-						$(".sub-titulo").slideDown();
-						$('.bg-campana .ver-mas span i').removeClass('fa-angle-up').addClass("fa-angle-down");
-						$(".recientes .cont-campana").slideDown();
-					});
-					contador=0;
-					$(".volver-campana").hide();
-					
-				}
-			});*/
-
-		});
-	</script>
 </body>
 </html>

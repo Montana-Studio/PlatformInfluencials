@@ -22,6 +22,8 @@
 	.recientes{
 		@include row();
 		@include pad(0);
+		overflow:hidden;
+		position:relative;
 		.bg-campana{
 			@include span-columns(12 of 12);
 			@include pad(148px 5px 0);
@@ -41,34 +43,78 @@
 					font:{size:11px;weight:normal;style:italic;}
 				}
 			}
-			.ver-mas{
-				@include span-columns(1 of 12);
-				color:$color_font2;
-				@include pad(8px 0 0);
-				cursor: pointer;
-				span{
-					width:20px;
-					height:20px;
-					@include borderRadius(50%);
-					border:2px solid $color_font2;
-					display: table;
-					@include textAligns(center);
-					float:right;
-					i{
-						display: table-cell;
-						vertical:{align:middle;}
-						font:{weight:bold;}
-					}
-				}
-			}
 			p{
 				margin:0;
 				@include pad(0);
 			}
 		}
+		.ver-mas{
+			@include span-columns(12);
+			color:$color_font2;
+			@include pad(8px 0 0);
+			cursor: pointer;
+			margin:{top:-40px;}
+			position:relative;
+			span{
+				width:20px;
+				height:20px;
+				@include borderRadius(50%);
+				border:2px solid $color_font2;
+				display: table;
+				@include textAligns(center);
+				float:right;
+				margin:{right:5px;}
+				i{
+					display: table-cell;
+					vertical:{align:middle;}
+					font:{weight:bold;}
+					font:{size:14px;}
+				}
+			}
+		}
 		.content{
 			@include span-columns(12 of 12);
-			span{
+			@include pad(0 15px);
+			.tools-campana{
+				@include fill-parent();
+				@include row();
+				@include pad(0);
+				li{
+					@include span-columns(4.18 of 12);
+					@include pad(0 15px);
+					@include omega();
+					@include textAligns(center);
+					height:29px;
+					color:$color_font2;
+					font:{size:11px;}
+					display: table;
+					border:{bottom:1px solid $color_font2;top:1px solid $color_font2;}
+					&:first-child{
+						@include border-left-radius(5px);
+						border:{left:1px solid $color_font2;right:1px solid $color_font2;}
+					}
+					&:last-child{
+						@include border-right-radius(5px);
+						border:{right:1px solid $color_font2;left:1px solid $color_font2;}
+					}
+					&:hover{
+						background: {color:$color_font2;}
+						color:#fff;
+					}
+					.tool-txt{
+						float: none;
+						display: table-cell;
+						vertical:{align:middle;}
+						text:{transform:uppercase;}
+						height: 11px;
+					}
+					.tool-ico{
+						display: table-cell;
+						vertical-align:middle;
+					}
+				}
+			}
+			.campa-ico{
 				@include span-columns(5 of 12);
 				@include pad();
 				color:$color_grey;
@@ -87,6 +133,61 @@
 				color:$color_grey;
 				font:{size:12px;style:italic;}
 				margin:{top:0}
+			}
+			.jfilestyle{
+				@include span-columns(12 of 12);
+				@extend .btns;
+				border:{color:$color_font2;}
+				color:$color_font2;
+				@include textAligns(center);
+			}
+			.guardar-campana{
+				@include span-columns(12 of 12);
+				@extend .btns;
+				color:#fff;
+				background: {color:$color_font2;}
+			}
+			.inputs-campana{
+				@include span-columns(12);
+				overflow: hidden;
+				position:relative;
+				i{
+					position:absolute;
+					color:$color_font2;
+					right:1px;
+					top:7px;
+					@extend .hide;
+					font:{size:12px;}
+				}
+				input{
+					width:100%;
+					border:none;
+					@include placeholder{
+					    color: #484d58;
+					    font:{size:10px;}
+					}
+					&[disabled]{
+						background: {color:#fff;}
+					}
+				}
+				textarea{
+					@extend input;
+				    color: $color_grey;
+				    font:{size:10px;style:italic;}
+				}
+				&.descripcion{
+					i{
+						top:0;
+					}
+				}
+				&.nombre{
+					input{
+						line:{height:12px;}
+						@include placeholder{ 
+							font:{size:15px;weight:bold;}
+						}
+					}
+				}
 			}
 		}
 	}
