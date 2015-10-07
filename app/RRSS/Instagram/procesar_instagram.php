@@ -1,5 +1,6 @@
 <?php 
 require('../../conexion.php');
+
 $instagramId =$_POST['instagramId'];
 $accessToken = $_POST['accessToken'];
 $id_persona = $_SESSION['id'];
@@ -13,8 +14,4 @@ $num_row1=mysqli_num_rows($results1);
 if($num_row1 < 1){
 	$results2 = $mysqli->query("INSERT INTO rrss (rrss,descripcion_rrss,rrss_id,persona_id) VALUES ('$nombre','instagram','$instagramId','$id_persona')");
 }
-
-/*INSERCIÓN DE LOS DATOS EN LA BASE DE DATOS*/
-echo "el id del usuario es :".$instagramId."  sus seguidores son :  ".$followers." con accessToken : ".$accessToken;
-
 ?>

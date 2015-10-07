@@ -1,8 +1,8 @@
-<!--DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript">
 
 		var accessToken = null; //the access token is required to make any endpoint calls, http://instagram.com/developer/endpoints/
@@ -16,7 +16,7 @@
 				popupTop = (window.screen.height - popupHeight) / 2;
 
 			//the url needs to point to instagram_auth.php
-			var popup = window.open('./rrss/instagram/instagram_auth.php', '', 'width='+popupWidth+',height='+popupHeight+',left='+popupLeft+',top='+popupTop+'');
+			var popup = window.open('procesar_instagram.php', '', 'width='+popupWidth+',height='+popupHeight+',left='+popupLeft+',top='+popupTop+'');
 
 			popup.onload = function() {
 				//open authorize url in pop-up
@@ -49,7 +49,7 @@
 			alert(instagramId);
 			$.ajax({  
             type: "POST",  
-            url: "./rrss/instagram/procesar_instagram.php",  
+            url: "procesar_instagram.php",  
             data: "instagramId="+instagramId+"&accessToken="+accessToken,
 			
             success: function(html){ 
@@ -68,7 +68,7 @@
 		}
 
 	</script>
-<!--/head>
+<head>
 <body>
 	<a href="#" onclick="login()">Log into Instagram</a>
 
