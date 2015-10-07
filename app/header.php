@@ -30,8 +30,7 @@ header('Location:./');
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	</head>
-	<body>
-	<script id="cambia"></script>';
+	<body>';
 }
 
 if(basename($_SERVER['PHP_SELF'])=='dashboard-agencia.php'){

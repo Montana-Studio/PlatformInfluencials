@@ -111,7 +111,6 @@
 			
 		';
 	}while($row = mysqli_fetch_row($result));
-		 //echo '<div class="volver-campana">cerrar</div>';
 	}
 	if ($num_rows2 > 0){
 		echo '<h2 class="sub-titulo">campañas inactivas</h2>';
@@ -238,10 +237,9 @@
 
 		';
 	}while($row2 = mysqli_fetch_row($result2));
-
-		echo '<div class="volver-campana">cerrar</div>';
 	}
 ?>
+	<div class="volver-campana">cerrar</div>
 
 </div>
 
@@ -274,29 +272,65 @@
 			
 			var contador=0;
 			
-			$(".recientes .cont-campana").on("click",function(){
+			/*$(".recientes .cont-campana").one("click",function(){
 				if (contador==0){
+
+
 					$(".recientes .cont-campana").not(this).slideUp(function(){
 						$(".sub-titulo").slideUp();
+						$('.bg-campana .ver-mas span i').removeClass("fa-angle-down").addClass('fa-angle-up');
 						$(".recientes .content, .volver-campana").slideDown(this);
-					});
+					}).hide('slow');
+
+
 					contador=1;
 				}
+			});*/
+
+
+			$('.recientes .cont-campana .bg-campana .ver-mas').on("click",function(){
+				
+				$('.recientes .cont-campana').toggle(function(){
+					if (contador==0){
+						$(".recientes .cont-campana").not(this).slideUp(function(){
+							$(".sub-titulo").slideUp();
+							$('.bg-campana .ver-mas span i').removeClass("fa-angle-down").addClass('fa-angle-up');
+							$(".recientes .content, .volver-campana").slideDown(this);
+						}).hide('slow');
+
+
+						contador=1;
+					}
+				},function(){
+					if (contador==1){
+					
+						$(".recientes .content").slideUp(function(){
+							$(".sub-titulo").slideDown();
+							$('.bg-campana .ver-mas span i').removeClass('fa-angle-up').addClass("fa-angle-down");
+							$(".recientes .cont-campana").slideDown();
+						});
+						contador=0;
+						$(".volver-campana").hide();
+						
+					}
+				});
 			});
+
+
 			
-			$(".volver-campana").on("click",function(){
+			/*$(".volver-campana").on("click",function(){
 				if (contador==1){
 				
 					$(".recientes .content").slideUp(function(){
 						$(".sub-titulo").slideDown();
+						$('.bg-campana .ver-mas span i').removeClass('fa-angle-up').addClass("fa-angle-down");
 						$(".recientes .cont-campana").slideDown();
 					});
 					contador=0;
-					console.log("fin");
 					$(".volver-campana").hide();
 					
 				}
-			});
+			});*/
 
 		});
 	</script>

@@ -22,7 +22,7 @@ if ((int)$row[0] > 0){ ?>
 						if (contador==0){
 							$(".recientes .cont-campana").not(this).slideUp(function(){
 								$(".recientes .content, .volver").slideDown(this);
-							});
+							}).hide("slow");
 							contador=1;
 						}
 					});
