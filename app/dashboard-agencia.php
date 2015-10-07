@@ -22,7 +22,7 @@ if ((int)$row[0] > 0){ ?>
 						if (contador==0){
 							$(".recientes .cont-campana").not(this).slideUp(function(){
 								$(".recientes .content, .volver").slideDown(this);
-							});
+							}).hide("slow");
 							contador=1;
 						}
 					});
@@ -50,12 +50,6 @@ if ((int)$row[0] > 0){ ?>
 						<div class="bg-campana" style="background-image:url('.$row[3].');">
 							
 							<h3>'.$row[1].'<span>by '.$row[4].'</span></h3>
-
-							<ul class="redes-inline">
-								<li><i class="fa fa-facebook"></i><span>0000</span></li>
-								<li><i class="fa fa-instagram"></i><span>0000</span></li>
-								<li><i class="fa fa-twitter"></i><span>0000</span></li>
-							</ul>
 							
 							<div class="ver-mas"><span><i class="fa fa-angle-down"></i></span></div>
 

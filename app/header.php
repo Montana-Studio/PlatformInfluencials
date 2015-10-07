@@ -5,38 +5,33 @@ header('Location:./');
 		die();
 
 }else{
-echo 
-'<!DOCTYPE html>
-<html lang="es">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	echo 
+	'<!DOCTYPE html>
+	<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title></title>
+		<link rel="apple-touch-icon-precomposed" sizes="57x57" href="img/apple-touch-icon-57x57.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114x114.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72x72.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144x144.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="120x120" href="img/apple-touch-icon-120x120.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/apple-touch-icon-152x152.png" />
+		<link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16" />
+		<meta name="application-name" content="Power Influencer"/>
+		<meta name="msapplication-TileColor" content="#FFFFFF" />
+		<meta name="msapplication-TileImage" content="img/mstile-144x144.png" />
 
-	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="img/apple-touch-icon-57x57.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114x114.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72x72.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144x144.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="img/apple-touch-icon-120x120.png" />
-	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/apple-touch-icon-152x152.png" />
-	<link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
-	<link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16" />
-	<meta name="application-name" content="Power Influencer"/>
-	<meta name="msapplication-TileColor" content="#FFFFFF" />
-	<meta name="msapplication-TileImage" content="img/mstile-144x144.png" />
-
-	<link rel="stylesheet" href="css/platform_influencials.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<title></title>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-</head>
-<body>
-<script id="cambia"></script>';
-
-
+		<link rel="stylesheet" href="css/platform_influencials.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	</head>
+	<body>';
 }
-
-
-
 
 if(basename($_SERVER['PHP_SELF'])=='dashboard-agencia.php'){
 	//if(isset($_SESSION['id'])==false){
@@ -45,32 +40,27 @@ if(basename($_SERVER['PHP_SELF'])=='dashboard-agencia.php'){
 	//}
 	//else{
 		//$mysqli->set_charset('utf8');
-		$id=$_SESSION['id'];
-		$query="SELECT * FROM campana  WHERE idEstado=1 AND idpersona=".$id." ORDER BY id DESC LIMIT 3";
-		$result= mysqli_query($mysqli,$query)or die(mysqli_error());
-		$row= mysqli_fetch_array($result, MYSQLI_NUM);
-	//}
-echo "<script> 
-			$(document).ready(function(){
+	$id=$_SESSION['id'];
+	$query="SELECT * FROM campana  WHERE idEstado=1 AND idpersona=".$id." ORDER BY id DESC LIMIT 3";
+	$result= mysqli_query($mysqli,$query)or die(mysqli_error());
+	$row= mysqli_fetch_array($result, MYSQLI_NUM);
+		//}
+	echo "<script> 
+			jQuery(document).ready(function(){
 				$('title').append('Power Influencer - ".$_SESSION['nombre']."');
+				$('html').css({'background-color':'#fff','background-image':'none','padding-bottom':'40px'});
+				$('body').addClass('dashboard-agencia');
 			})
 		</script>";
-
-echo "<script>
-		jQuery(document).ready(function(){
-			$('html').css({'background-color':'#fff','background-image':'none'});
-			$('body').addClass('dashboard-agencia');
-		});
-	</script>";
 }
 
 
 if(basename($_SERVER['PHP_SELF'])=='nueva-campana.php'){
-	/*if(isset($_SESSION['id'])==false){
-		header('Location:./');
-		die();
-	}
-	else{*/
+		/*if(isset($_SESSION['id'])==false){
+			header('Location:./');
+			die();
+		}
+		else{*/
 		//$mysqli->set_charset('utf8');
 		$query="SELECT id FROM campana ORDER BY id DESC LIMIT 1";
 		$result= mysqli_query($mysqli,$query)or die(mysqli_error());
@@ -80,26 +70,22 @@ if(basename($_SERVER['PHP_SELF'])=='nueva-campana.php'){
 		$query2="SELECT * FROM campana WHERE idpersona='$id'";
 		$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
 		$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
-	//}
-	echo "<script>
-			jQuery(document).ready(function(){
-				$('html').css({'background-color':'#fff','background-image':'none'});
-				$('body').addClass('crear-campanas');
-			});
-		</script>"; 
-	echo "<script> 
-				$(document).ready(function(){
+		//}
+		echo "<script>
+				jQuery(document).ready(function(){
 					$('title').append('Power Influencer - Crear Campaña');
-				})
-		</script>";
+					$('html').css({'background-color':'#fff','background-image':'none'});
+					$('body').addClass('crear-campanas');
+				});
+			</script>";
 }
 
 
 if(basename($_SERVER['PHP_SELF'])=='campana.php'){
-	/*if(isset($_SESSION['id'])==false){
-		header('Location:./');
-		die();
-	}else{*/
+		/*if(isset($_SESSION['id'])==false){
+			header('Location:./');
+			die();
+		}else{*/
 		$query="SELECT * FROM campana WHERE idEstado=1 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
 		$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 		$row= mysqli_fetch_array($result, MYSQLI_NUM);
@@ -110,20 +96,15 @@ if(basename($_SERVER['PHP_SELF'])=='campana.php'){
 		$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 		$num_rows2= mysqli_num_rows($result2);
 
-	//}
+		//}
 
-	echo "<script>
-			jQuery(document).ready(function(){
-				$('html').css({'background-color':'#fff','background-image':'none'});
-				$('body').addClass('campanas');
-			});
-		</script>";
-
-	echo "<script> 
-				$(document).ready(function(){
+		echo "<script>
+				jQuery(document).ready(function(){
 					$('title').append('Power Influencer - Campañas');
-				})
-		</script>";
+					$('html').css({'background-color':'#fff','background-image':'none','padding-bottom':'40px'});
+					$('body').addClass('campanas');
+				});
+			</script>";
 }
 
 
@@ -142,7 +123,8 @@ if(basename($_SERVER['PHP_SELF'])=='campana.php'){
 	
 	<ul>
 		<li><a href="campana.php"><i class="fa fa-suitcase"></i> campañas</a></li>
-		<li><a href="nueva-campana.php"><i class="fa fa-pencil"></i> crear campaña</a></li>
+		<li><a href="#"><i class="fa fa-user"></i> influencers</a></li>
+		<li><i onClick="backHistory()" class="fa fa-mail-reply"></i></li>
 	</ul>
 
 </nav>
