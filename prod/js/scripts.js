@@ -99,5 +99,6 @@ jQuery(document).ready(function($){
 	$('.content .tools-campana .edit-campanas').on('click',function(){
 		$('.content input, .content textarea').css({'border-bottom':'1px solid #ccc'}).removeAttr('disabled');
 		$('.content .inputs-campana i').show();
+		$('div.jfilestyle').slideDown();
 	});
 });

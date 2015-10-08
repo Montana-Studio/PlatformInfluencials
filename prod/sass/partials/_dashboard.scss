@@ -140,6 +140,11 @@
 				border:{color:$color_font2;}
 				color:$color_font2;
 				@include textAligns(center);
+				span{
+					display:block;
+					width:100%;
+					height: 100%;
+				}
 			}
 			.guardar-campana{
 				@include span-columns(12 of 12);

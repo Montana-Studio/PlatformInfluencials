@@ -18,6 +18,7 @@ if ((int)$row[0] > 0){ ?>
 							
 							$(this).siblings(".content").slideToggle();
 							$(this).find("i").toggleClass("fa-angle-up fa-angle-down");
+							$("html,body").animate({scrollTop : $(this).siblings(".bg-campana").offset().top},1000);
 
 					});
 

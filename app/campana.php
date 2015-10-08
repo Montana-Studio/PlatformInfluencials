@@ -241,7 +241,11 @@
 							<textarea placeholder="descripcion" rows=10 cols=40 disabled>'.$row2[2].'</textarea>
 							<i class="fa fa-pencil"></i>
 						</div>
-
+						<script>
+							$(window).load(function(){
+								$("div.jfilestyle").hide();
+							});
+						</script>
 						<input type="file" name="file" class="jfilestyle upload-img-campana" data-input="false" id="file'.$row2[0].'" data-buttonText="subir archivo"/>
 						
 						<button class="guardar-campana" type="submit" id="guardar-campana-'.$row2[0].'">Guardar Campaña</button>

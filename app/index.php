@@ -21,12 +21,24 @@ if(isset($_SESSION['id'])){
 
 	<title>Power Influencer</title>
 
+	<link rel="apple-touch-icon-precomposed" sizes="57x57" href="img/apple-touch-icon-57x57.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="img/apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/apple-touch-icon-152x152.png" />
+	<link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16" />
+	<meta name="application-name" content="Power Influencer"/>
+	<meta name="msapplication-TileColor" content="#FFFFFF" />
+	<meta name="msapplication-TileImage" content="img/mstile-144x144.png" />
+
 	<link rel="stylesheet" href="css/platform_influencials.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-	<script id="facebook-sdk"src="js/facebook-login.js"></script>
+	<script id="facebook-sdk" src="js/facebook-login.js"></script>
 
 </head>
 
@@ -91,7 +103,7 @@ if(isset($_SESSION['id'])){
 							
 						<input type="file" name="file" id="file" required>
 						<label for="file" class="btns">Sube una imágen</label>
-						<label  id="divCheckPasswordMatch"></label>
+						<div id="divCheckPasswordMatch"></div>
 						<button id="registrarse" disabled type="submit">Registrarse</button>
 
 
