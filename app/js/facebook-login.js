@@ -1,47 +1,33 @@
 $(document).ready(function(){
-		
+
+		function call_facebook_api(){
+			(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		}
+
 		$('#facebook-nuevo').click(function(){
-				(function(d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) return;
-				js = d.createElement(s); js.id = id;
-				js.src = "//connect.facebook.net/en_US/sdk.js";
-				fjs.parentNode.insertBefore(js, fjs);
-				}(document, 'script', 'facebook-jssdk'));								
-			 facebookLogin();
+			call_facebook_api()
+			facebookLogin();
 		});
 		
 		$('#facebook-antiguo').click(function(){
-			(function(d, s, id) {
-								var js, fjs = d.getElementsByTagName(s)[0];
-								if (d.getElementById(id)) return;
-								js = d.createElement(s); js.id = id;
-								js.src = "//connect.facebook.net/en_US/sdk.js";
-								fjs.parentNode.insertBefore(js, fjs);
-							  }(document, 'script', 'facebook-jssdk'));
-								facebookLogin();
+			call_facebook_api()
+			facebookLogin();
 		});
 
 		$('#facebook-nuevo-ipe').click(function(){
-				(function(d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) return;
-				js = d.createElement(s); js.id = id;
-				js.src = "//connect.facebook.net/en_US/sdk.js";
-				fjs.parentNode.insertBefore(js, fjs);
-				}(document, 'script', 'facebook-jssdk'));								
-			 facebookLogin();
+			call_facebook_api()
+			facebookLogin();
 		});
 		
 		$('#facebook-antiguo-ipe').click(function(){
-			(function(d, s, id) {
-								var js, fjs = d.getElementsByTagName(s)[0];
-								if (d.getElementById(id)) return;
-								js = d.createElement(s); js.id = id;
-								js.src = "//connect.facebook.net/en_US/sdk.js";
-								fjs.parentNode.insertBefore(js, fjs);
-							  }(document, 'script', 'facebook-jssdk'));
-								facebookLogin();
+			call_facebook_api()
+			facebookLogin();
 		});
 
 
@@ -65,6 +51,7 @@ $(document).ready(function(){
 	facebookUser=name;
 	facebookCorreo=email;
 	console.log(facebookUser,facebookCorreo);
+	alert("56");
 	$.ajax({  
             type: "POST",  
             url: "./procesar_facebook.php",  
