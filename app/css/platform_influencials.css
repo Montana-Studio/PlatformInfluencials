@@ -661,6 +661,8 @@ html {
           clear: both;
           content: "";
           display: table; }
+    html body.formularios-registro {
+      background-image: none; }
 
 main {
   text-align: center; }
@@ -1137,6 +1139,10 @@ main {
         text-align: center; }
         #creadas .recientes .content .jfilestyle:last-child {
           margin-right: 0; }
+        #creadas .recientes .content .jfilestyle span {
+          display: block;
+          width: 100%;
+          height: 100%; }
       #creadas .recientes .content .guardar-campana {
         float: left;
         display: block;

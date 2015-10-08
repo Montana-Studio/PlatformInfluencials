@@ -3,7 +3,6 @@
 	if(isset($_SESSION['id'])==false){
 	header('Location:./');
 			die();
-
 	}else{
 		echo 
 		'<!DOCTYPE html>
@@ -106,6 +105,15 @@
 					});
 				</script>";
 	}
+	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia.php'){
+		echo "<script>
+					jQuery(document).ready(function(){
+						$('title').append('Power Influencer - Completa tus datos');
+						$('html').css({'background-color':'#fff','background-image':'none'});
+						$('body').addClass('formularios-registro');
+					});
+				</script>";
+	}
 	
 ?>
 
@@ -118,16 +126,22 @@
 
 </header>
 
-<nav>
-	
-	<ul>
-		<li><a href="campana.php"><i class="fa fa-suitcase"></i> campañas</a></li>
-		<li><a href="#"><i class="fa fa-user"></i> influencers</a></li>
-		<li><i onClick="backHistory()" class="fa fa-mail-reply"></i></li>
-	</ul>
+<?php 
+	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia.php'){
+		echo '';
+	}else{
+		echo '
+			<nav>
+				<ul>
+					<li><a href="campana.php"><i class="fa fa-suitcase"></i> campañas</a></li>
+					<li><a href="#"><i class="fa fa-user"></i> influencers</a></li>
+					<li><i onClick="backHistory()" class="fa fa-mail-reply"></i></li>
+				</ul>
 
-</nav>
-
+			</nav>
+		';
+	}
+?>
 
 <form id="imagenform">
 	
