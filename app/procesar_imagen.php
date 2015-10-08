@@ -144,7 +144,7 @@ if ($tipo == 'avatar'){
 				move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 				rename("uploads/agencias/registered/$rsid/$campana/$file", "uploads/agencias/registered/$rsid/$campana/1.jpg");
 				//$resultado = "nuevo";
-				echo "nuevo";
+				$resultado = "nuevo";
 			}
 			if ($a==2){// Create directory to save the file in case of Form Login
 				$targetPath = "uploads/agencias/registered/$correo/$campana/".$_FILES['file']['name']; // Target path where file is to be stored
@@ -152,13 +152,16 @@ if ($tipo == 'avatar'){
 				move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 				rename("uploads/agencias/registered/$correo/$campana/$file", "uploads/agencias/registered/$correo/$campana/1.jpg");
 				//$resultado = "nuevo";
-				echo "nuevo";
+				$resultado = "nuevo";
 			}
 		}
 		else{
 			$resultado = valida_extension();
 		}
+	}else{
+		$resultado = "nuevo";
 	}
+
 	echo $resultado;
 }else if($tipo == 'usuario'){
 

@@ -53,79 +53,7 @@ $(document).ready(function(){
 		$('.form_agencias').hide();
 	})
 	
-	$('#ingresar').click(function(){
-		username=$('#username').val();
-		password=$('#password').val();
-		//console.log(username);
-		$.ajax({  
-			type: "POST",  
-			url: "./procesar_login.php",  
-			data: "name="+username+"&pwd="+password, 
-			success: function(html){ 
-				console.log(html);
-				switch (html){
-				case "admin": window.location.href= "./dashboard-admin.php";
-				break;
-				case "agencia": window.location.href = "./dashboard-agencia.php";
-				break;
-				case "ipe": window.location.href = "./dashboard-ipe.php";
-				break;
-				case "inactivo": 	$('#alertRegistrado').show();
-									document.getElementById('alertRegistrado').innerHTML ="usuario inactivo";	
-										
-				break;
-				case "false": 		$('#alertRegistrado').show();
-									document.getElementById('alertRegistrado').innerHTML ="usuario o password no existen";					
-				break;
-				case "vacio": 		$('#alertRegistrado').show();
-									document.getElementById('alertRegistrado').innerHTML ="falta ingresar datos";					
-				break;
-				}
-				}
-		});
-	});
 
-	$('.registerForm').on('submit',(function(e){
-		e.preventDefault();
-		info = new FormData(this);
-		info.append('nuuser',$('.usernamenuevo').val());
-		info.append('nupass',$('.contraseñanuevo').val());
-		info.append('nuempresa',$('.empresanuevo').val());
-		info.append('nucorreo',$('.correonuevo').val());
-		info.append('nutel1',$('.telefono1nuevo').val());
-		info.append('nutel2',$('.telefono2nuevo').val());
-		info.append('tipo','usuario');
-		tipo=$('#perfil option').val();
-		var e = document.getElementById("perfil");
-		var perfil = e.options[e.selectedIndex].value;
-		info.append('ipe',perfil);
-
-		$.ajax({  
-			type: "POST",  
-			url: "./procesar_imagen.php",   
-			data: info,
-			enctype: 'multipart/form-data',
-			contentType: false,      
-			cache: false,             
-			processData:false, 
-			success: function(data){
-				switch (data){
-				case "nuevo": 	$('#alertRegistrado').show();
-								document.getElementById('alertRegistrado').innerHTML ="Registro completo, nos contactaremos con usted";					
-								$('#usernamenuevo, #contraseñanuevo,#ver-password,#empresanuevo,#correonuevo,#telefono1nuevo,#telefono2nuevo').val('');
-				break;
-				case "false":	$('#alertRegistrado').show();
-								document.getElementById('alertRegistrado').innerHTML ="El correo ingresado ya tiene una cuenta asociada";					 
-								$('.correonuevo').val('');
-								;$('.correonuevo').focus();
-				break;
-				case "invalido":
-					console.log('formato invalido');
-				}
-				}
-		});
-
-	}));
 
 	$('#linkedin-nuevo').click(function(){
 
@@ -185,62 +113,22 @@ $(document).ready(function(){
 	$("#telefono2nuevoIpe").keyup(phone2LengthIpe);	
 
 	//DASHBOARD SCRIPTS
-
-	//variables globales
 	var correo,nombre,correo,tel1,tel2,empresa;
 	var rsid = $('#RsId').val();
 	if (rsid != ''){
 	$('#correo input').removeAttr('disabled');
 	}
 	var foto=0;
-		//$('#file').click(function(){
 		$('#file').click(function(){
 		  foto=1; 
-		$("input:file").change(function (){
-			console.log('aa');
-     });
-
-
 	});
 
-	$('#campanaForm-nueva-campana').on('submit',(function (e){
-		e.preventDefault;
-		info = new FormData(this);
-		info.append('nombre',$('#nombre-nueva-campana').val());
-		info.append('marca',$('#marca-nueva-campana').val());
-		info.append('descripcion',$('#descripcion-nueva-campana').val());
-		info.append('tipo','campana');
-		$.ajax({
 
-				type: "POST",  
-				url: "./procesar_imagen.php",  
-				data: info,
-				enctype: 'multipart/form-data',
-				contentType: false,      
-				cache: false,             
-				processData:false, 
-		
-				success: function(info){
-					alert(info);
-					switch (info){
-						case "error": 	alert("arhivo con daños");
-						break;
-						case "nueva":	if (confirm("¿desea ver la campaña?")){
-											window.location.herf("./campana.php");
-										}
-											
 
-						break;
-						case "invalido": alert('el tamaño o formato no es aceptado');
-						break;
-					}
-				}	
 
-					
-			});
 
-	}));
 
+// FUNCTIONS THAT NEED AJAX
 	$('#imagenform').on('submit',(function (e){
 		e.preventDefault;
 		info = new FormData(this);
@@ -251,9 +139,7 @@ $(document).ready(function(){
 		info.append('tel2',$('#tel2 input').val());
 		info.append('empresa',$('#empresa input').val());
 		info.append('tipo','avatar');
-	
 		if(foto==1) {
-			//console.log(foto);
 			$.ajax({
 				type: "POST",  
 				url: "./procesar_imagen.php",  
@@ -263,8 +149,9 @@ $(document).ready(function(){
 				cache: false,             
 				processData:false, 
 				
-				success: function(info){
-					switch (info){
+				success: function(data){
+					
+					switch (data){
 						case "error": 	alert("arhivo con daños");			
 						break;
 						case "nuevo":	alert("imagen cambiada");
@@ -273,13 +160,13 @@ $(document).ready(function(){
 						case "invalido": alert('el tamaño o formato no es aceptado');
 						break;
 					}
-				info ='';
 				}
-			});
+			})
+			console.log("");
 		}
 		else{
 			$.ajax({  
-			
+					
 					type: "POST",  
 					url: "./procesar-dashboard-agencia.php",  
 					data: info,
@@ -288,47 +175,133 @@ $(document).ready(function(){
 					cache: false,             
 					processData:false,
 
-				success: function(info){
-				switch (info){
-					case "actualiza": 	alert("datos actualizados");
-										window.location.reaload();	
-					break;
+				success: function(data){	
+					alert("datos actualizados");
+					window.location.reaload();	
 				}
-				info='';
-			}
-			});
-		};
+
+			})
+			console.log("");
+		}
 	}));	
 
-
-
-
-	/*//campañas creadas 
-	$('#editaCampaña').hide();
-	$('#creadas #guardar').hide();
-
-	//editar
-	$('#creadas #editar').click (function (){
-		$('#editaCampaña').show();
-		$('#creadas #guardar').show();
-		$('#creadas #editar').hide();
-	});
-
-	//guardar cambios
-	$('#creadas #guardar').click (function (){
-		$('#editaCampaña').hide();
-		$('#creadas #guardar').hide();
-		$('#creadas #editar').show();
-	});
-
-	$('#guardar').hide();
-	$('#editar').show();*/
-
-	//CREAR CAMPAÑAS SCRIPT
-	
-
-
 });
+
+
+$('#campanaForm-nueva-campana').on('submit',(function (e){
+	e.preventDefault;
+	info = new FormData(this);
+	info.append('nombre',$('#nombre-nueva-campana').val());
+	info.append('marca',$('#marca-nueva-campana').val());
+	info.append('descripcion',$('#descripcion-nueva-campana').val());
+	info.append('tipo','campana');
+	$.ajax({
+
+			type: "POST",  
+			url: "./procesar_imagen.php",  
+			data: info,
+			enctype: 'multipart/form-data',
+			contentType: false,      
+			cache: false,             
+			processData:false, 
+	
+			success: function(info){
+				alert(info);
+				switch (info){
+					case "error": 	alert("arhivo con daños");
+					break;
+					case "nueva":	if (confirm("¿desea ver la campaña?")){
+										window.location.href("./campana.php");
+									}
+										
+
+					break;
+					case "invalido": alert('el tamaño o formato no es aceptado');
+					break;
+				}
+			}	
+
+				
+		});
+	console.log("");
+
+}));
+
+$('.registerForm').on('submit',(function(e){
+	e.preventDefault();
+	info = new FormData(this);
+	info.append('nuuser',$('.usernamenuevo').val());
+	info.append('nupass',$('.contraseñanuevo').val());
+	info.append('nuempresa',$('.empresanuevo').val());
+	info.append('nucorreo',$('.correonuevo').val());
+	info.append('nutel1',$('.telefono1nuevo').val());
+	info.append('nutel2',$('.telefono2nuevo').val());
+	info.append('tipo','usuario');
+	tipo=$('#perfil option').val();
+	var e = document.getElementById("perfil");
+	var perfil = e.options[e.selectedIndex].value;
+	info.append('ipe',perfil);
+
+	$.ajax({  
+		type: "POST",  
+		url: "./procesar_imagen.php",   
+		data: info,
+		enctype: 'multipart/form-data',
+		contentType: false,      
+		cache: false,             
+		processData:false, 
+		success: function(data){
+			switch (data){
+				case "nuevo": 	$('#alertRegistrado').show();
+								document.getElementById('alertRegistrado').innerHTML ="Registro completo, nos contactaremos con usted";					
+								$('#usernamenuevo, #contraseñanuevo,#ver-password,#empresanuevo,#correonuevo,#telefono1nuevo,#telefono2nuevo').val('');
+				break;
+				case "false":	$('#alertRegistrado').show();
+								document.getElementById('alertRegistrado').innerHTML ="El correo ingresado ya tiene una cuenta asociada";					 
+								$('.correonuevo').val('');
+								;$('.correonuevo').focus();
+				break;
+				case "invalido":
+					//console.log('formato invalido');
+			}
+		}
+	});
+	console.log("");
+
+}));
+
+$('#ingresar').click(function(){
+	username=$('#username').val();
+	password=$('#password').val();
+	//console.log(username);
+	$.ajax({  
+		type: "POST",  
+		url: "./procesar_login.php",  
+		data: "name="+username+"&pwd="+password, 
+		success: function(html){ 
+			
+			switch (html){
+			case "admin": window.location.href= "./dashboard-admin.php";
+			break;
+			case "agencia": window.location.href = "./dashboard-agencia.php";
+			break;
+			case "ipe": window.location.href = "./dashboard-ipe.php";
+			break;
+			case "inactivo": 	$('#alertRegistrado').show();
+								document.getElementById('alertRegistrado').innerHTML ="usuario inactivo";	
+									
+			break;
+			case "false": 		$('#alertRegistrado').show();
+								document.getElementById('alertRegistrado').innerHTML ="usuario o password no existen";					
+			break;
+			case "vacio": 		$('#alertRegistrado').show();
+								document.getElementById('alertRegistrado').innerHTML ="falta ingresar datos";					
+			break;
+			}
+			}
+	});
+});
+
 
 //INICIO FUNCTIONS
 function valida(e){
