@@ -3,6 +3,8 @@
 		echo '';
 	}else if(basename($_SERVER['PHP_SELF'])=='crear-campanas.php'){
 		echo '';
+	}else if(basename($_SERVER['PHP_SELF'])=='dashboard-agencia.php'){
+		echo '';
 	}else if(basename($_SERVER['PHP_SELF'])=='campana.php'){
 		echo '
 			<div class="crear-campana">

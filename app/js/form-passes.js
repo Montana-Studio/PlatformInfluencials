@@ -190,17 +190,15 @@ $(document).ready(function(){
 	var correo,nombre,correo,tel1,tel2,empresa;
 	var rsid = $('#RsId').val();
 	if (rsid != ''){
-	$('#correo input').removeAttr('disabled');
+		$('#correo input').removeAttr('disabled');
 	}
 	var foto=0;
 		//$('#file').click(function(){
-		$('#file').click(function(){
-		  foto=1; 
+	$('#file').click(function(){
+		foto=1; 
 		$("input:file").change(function (){
-			console.log('aa');
-     });
-
-
+			$('.alert-uploadready').slideDown();
+     	});
 	});
 
 	$('#campanaForm-nueva-campana').on('submit',(function (e){
@@ -273,9 +271,9 @@ $(document).ready(function(){
 						case "invalido": alert('el tamaño o formato no es aceptado');
 						break;
 					}
-				info ='';
 				}
 			});
+			console.log('');
 		}
 		else{
 			$.ajax({  
@@ -289,14 +287,14 @@ $(document).ready(function(){
 					processData:false,
 
 				success: function(info){
-				switch (info){
-					case "actualiza": 	alert("datos actualizados");
-										window.location.reaload();	
-					break;
+					switch (info){
+						case "actualiza": 	alert("datos actualizados");
+											window.location.reaload();	
+						break;
+					}
 				}
-				info='';
-			}
 			});
+			console.log('');
 		};
 	}));	
 

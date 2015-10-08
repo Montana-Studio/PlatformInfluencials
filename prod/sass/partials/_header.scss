@@ -132,7 +132,7 @@ nav{
 		@include span-columns(12);
 		@include omega();
 		.imagen{
-			@include span-columns(4);
+			@include span-columns(4 of 12);
 			@include borderRadius(5px);
 			min-height:80px;
 			background: {position:center;size:cover;repeat:no-repeat;}
@@ -158,7 +158,7 @@ nav{
 			}
 		}
 		.datos{
-			@include span-columns(6);
+			@include span-columns(6 of 12);
 			@include shift(.5);
 			h2{
 				@include pad(0);
@@ -193,10 +193,20 @@ nav{
     			}
 			}
 		}
+		.alert-uploadready{
+			@include span-columns(12 of 12);
+			color:$color_font2;
+			font:{size:12px;}
+			@include textAligns(center);
+			padding:{top:10px;}
+			i{
+				font:{size:14px;}
+				margin: {right:5px;}
+			}
+		}
 	}
 	#inicio{
 		@include span-columns(12);
-		margin:{top:20px;}
 		#tabs{
 			@include fill-parent();
 			@include row();

@@ -73,6 +73,7 @@ jQuery(document).ready(function($){
 			width:'30px',
 			height:'30px'
 		},{complete:function(){
+			$('#nombre input, #empresa input, #tel1 input, #tel2 input').removeAttr('disabled');
 			$('#imagenform .misdatos .imagen .selectFile i').animate({opacity:1});	
 		}});
 	});

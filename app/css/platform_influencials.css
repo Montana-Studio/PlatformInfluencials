@@ -420,12 +420,25 @@ nav {
         #imagenform .misdatos .datos .editar span {
           display: table-cell;
           vertical-align: middle; }
+    #imagenform .misdatos .alert-uploadready {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%;
+      color: #18bb9b;
+      font-size: 12px;
+      text-align: center;
+      padding-top: 10px; }
+      #imagenform .misdatos .alert-uploadready:last-child {
+        margin-right: 0; }
+      #imagenform .misdatos .alert-uploadready i {
+        font-size: 14px;
+        margin-right: 5px; }
   #imagenform #inicio {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 100%;
-    margin-top: 20px; }
+    width: 100%; }
     #imagenform #inicio:last-child {
       margin-right: 0; }
     #imagenform #inicio #tabs {
