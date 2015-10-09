@@ -19,13 +19,13 @@
 	$query2="SELECT * FROM persona p WHERE p.RS_id='$faceId' AND p.id_estado=0 AND p.telefono1=0";
 	$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
 	$num_row2= mysqli_num_rows($result2);
-
+/*
 	$query3="SELECT * FROM persona p WHERE p.RS_id='$faceId'";
 	$result3= mysqli_query($mysqli,$query3)or die(mysqli_error());
-	$num_row3= mysqli_num_rows($result3);
+	$num_row3= mysqli_num_rows($result3);*/
 
 	if ($tipo == 2 ){
-	if($num_row>0){
+		if($num_row>0){
 			// en caso que ingrese con facebook y este registrado
 			$_SESSION['id']=$row[0];
 			$_SESSION['nombre']=$row[4];
@@ -40,9 +40,9 @@
 		else if($num_row2>0){
 			echo 'formulario';
 		}
-		else if ($num_row3>0){
+		/*else if ($num_row3>0){
 			echo 'false';
-		}
+		}*/
 		else{
 			$results = $mysqli->query("INSERT INTO persona (nombre, correo, id_tipo, picture_url,RS_id )VALUES ('$username', '$correo','$tipo', '$pictureUrl','$faceId')");
 			$query="SELECT * FROM persona p WHERE p.RS_id='$faceId'";
@@ -51,6 +51,7 @@
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
 			$_SESSION['nombre']=$row[4];
 			$_SESSION['correo']=$row[5];
+			$_SESSION['id']=$row[0];
 			//$_SESSION['faceuser']=$username;
 			echo 'primera';
 		}

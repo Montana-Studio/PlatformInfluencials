@@ -26,8 +26,6 @@ $(document).ready(function(){
 	email= response.email;
 	facebookUser=name;
 	facebookCorreo=email;
-	console.log(facebookUser,facebookCorreo);
-	alert("56");
 	$.ajax({  
             type: "POST",  
             url: "./procesar_facebook.php",  
@@ -35,28 +33,31 @@ $(document).ready(function(){
 			
 			
             success: function(html){ 
+            	//alert(html);
 				switch (html){
-				case "dashboard": window.location.href="./dashboard-agencia.php";
-				break;
-				case "false": 	$('#alertRegistrado').show();
-								document.getElementById('alertRegistrado').innerHTML = "Estimado(a) "+facebookUser+" ya se encuentra registrado nos contactaremos con usted a la brevedad";
-				break;
-				case "primera": window.location.href="./formulario-agencia.php";
-								document.getElementById('alertRegistrado').innerHTML ="Por favor ingrese sus datos en el formulario";					
-				break;
-				case "dashboard-ipe": window.location.href="./dashboard-ipe.php";
-				break;
-				case "primera-ipe": window.location.href="./formulario-agencia3.php";
-								document.getElementById('alertRegistrado').innerHTML ="Por favor ingrese sus datos en el formulario";					
-				break;
-				};
+					case "dashboard": window.location="./dashboard-agencia.php";
+					break;
+					case "false": 	$('#alertRegistrado').show();
+									document.getElementById('alertRegistrado').innerHTML = "Estimado(a) "+facebookUser+" ya se encuentra registrado nos contactaremos con usted a la brevedad";
+					break;
+					case "primera": window.location="./formulario-agencia.php";
+									//document.getElementById('alertRegistrado').innerHTML ="Por favor ingrese sus datos en el formulario";								
+					break;
+					case "formulario": window.location="./formulario-agencia.php";
+					break;
+					case "dashboard-ipe": window.location="./dashboard-ipe.php";
+					break;
+					case "primera-ipe": window.location="./formulario-agencia3.php";
+									//document.getElementById('alertRegistrado').innerHTML ="Por favor ingrese sus datos en el formulario";					
+					break;
 				}
-		});
-	});
+			}
+		})
+	})
 	}
 
 
-	var getFacebook 
+	//var getFacebook 
 	
 	var statusChangeCallback = function(response, callback) {
     if (response.status === 'connected') {
@@ -133,7 +134,7 @@ $(document).ready(function(){
   			facebookLogout();
 		});
 
-		
+
 		
 });
 

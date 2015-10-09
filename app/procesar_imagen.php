@@ -180,9 +180,9 @@ if ($tipo == 'avatar'){
 		$num_row= mysqli_num_rows($result);
 
 		if($num_row>0){
-			$resultado = "false";
-		}else if (file_exists("uploads/$nuevocorreo/test/" . $_FILES["file"]["name"])) {
-			$resultado = "existe";
+			 echo "false";
+	/*	}else if (file_exists("uploads/$nuevocorreo/test/" . $_FILES["file"]["name"])) {
+			$resultado = "existe";*/
 		}else if(valida_extension() == "ok"){
 			mkdir("uploads/agencias/registered/$nuevocorreo", 0777, true);
 			$targetPath = "uploads/agencias/registered/$nuevocorreo/".$_FILES['file']['name']; // Target path where file is to be stored
@@ -190,8 +190,10 @@ if ($tipo == 'avatar'){
 			rename("uploads/agencias/registered/$nuevocorreo/$file", "uploads/agencias/registered/$nuevocorreo/avatar.gif");
 			$results1 = $mysqli->query("INSERT INTO login (user, pass, correo) VALUES ('$nuevousuario','$nuevocontraseña','$nuevocorreo')");
 			$results2 = $mysqli->query("INSERT INTO persona (nombre, correo, empresa, telefono1, telefono2, id_login, id_tipo, picture_url ) VALUES ('$nuevousuario','$nuevocorreo','$nuevoempresa','$nuevotelefono1','$nuevotelefono2', (SELECT id from login WHERE correo='$nuevocorreo'),'2','$nuevaurl')");
-			$resultado = "nuevo";
+			echo "nuevo";
 		}
+			echo "invalido";
+		//echo $resultado;
 	}else{
 		//Verifico que exista el correo en la base de datos
 		$query= "SELECT DISTINCT correo FROM persona WHERE correo='$nuevocorreo'";
@@ -214,10 +216,10 @@ if ($tipo == 'avatar'){
 				$resultado = "nuevo";
 			}
 		}else{
-			$resultado = valida_extension();
+			echo "invalido";
 		}
 	}
-	echo $resultado;
+	
 }
 
 ?>
