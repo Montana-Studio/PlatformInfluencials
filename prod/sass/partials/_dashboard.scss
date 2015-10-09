@@ -16,14 +16,14 @@
 		}
 	}
 }
-#creadas{
+.creadas{
 	@include row();
-	@include span-columns(12);
 	.recientes{
 		@include row();
 		@include pad(0);
 		overflow:hidden;
 		position:relative;
+		display: block;
 		.bg-campana{
 			@include span-columns(12 of 12);
 			@include pad(148px 5px 0);
@@ -46,6 +46,10 @@
 			p{
 				margin:0;
 				@include pad(0);
+			}
+			//MEDIA QUERIES
+			@include media($tabletLand){
+				padding:{top:256px;}
 			}
 		}
 		.ver-mas{
@@ -179,6 +183,7 @@
 					@extend input;
 				    color: $color_grey;
 				    font:{size:10px;style:italic;}
+				    min-height:100px;
 				}
 				&.descripcion{
 					i{
@@ -195,6 +200,12 @@
 				}
 			}
 		}
+		//MEDIA QUERIES
+		@include media($tabletLand){
+			@include span-columns(4);
+  			@include omega(2n);
+  			margin:{right:1.5%;}
+		}
 	}
 	.volver{
 		@extend .btns;
@@ -206,6 +217,9 @@
 	}
 	.volver-campana{
 		@extend .volver;
+	}
+	@include media($tabletLand){
+		@include outer-container;
 	}
 }
 .no-campana{

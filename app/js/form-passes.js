@@ -189,9 +189,9 @@ $(document).ready(function(){
 	//variables globales
 	var correo,nombre,correo,tel1,tel2,empresa;
 	var rsid = $('#RsId').val();
-	if (rsid != ''){
+	/*if (rsid != ''){
 		$('#correo input').removeAttr('disabled');
-	}
+	}*/
 	var foto=0;
 		//$('#file').click(function(){
 	$('#file').click(function(){

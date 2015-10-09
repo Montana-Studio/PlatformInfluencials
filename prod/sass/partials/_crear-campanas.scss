@@ -68,6 +68,9 @@
 		left:0;
 		.focus-jfilestyle{
 			label{
+				width: 100%;
+			    display: block;
+			    cursor: pointer;
 				.count-jfilestyle{
 					@extend .hide;
 				}

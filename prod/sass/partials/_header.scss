@@ -149,7 +149,8 @@ nav{
 				position:absolute;
 				right: 0;
 				bottom:0;
-				overflow:hidden; 
+				overflow:hidden;
+				cursor:pointer;
 				i{
 					display: table-cell;
 					vertical-align: middle;
@@ -221,6 +222,7 @@ nav{
 				@include textAligns(center);
 				font:{size:12px;}
 				color:$color_grey;
+				cursor:pointer;
 				&.tabActiveHeader{
 					color:$color_font2;
 					border:{bottom:1px solid $color_font2;}

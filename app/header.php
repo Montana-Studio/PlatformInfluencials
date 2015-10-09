@@ -169,7 +169,7 @@
 
 	</div>
 	
-	<div id="inicio" disabled>
+	<div id="inicio">
 	
 		<div id="tabContainer">
 			
