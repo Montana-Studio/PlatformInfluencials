@@ -3,9 +3,10 @@
 	if(isset($_SESSION['id'])==false){
 	header('Location:./');
 			die();
-	}else{
-		echo 
-		'<!DOCTYPE html>
+	}
+
+	function muestra_header(){
+		echo 	'<!DOCTYPE html>
 		<html lang="es">
 		<head>
 			<meta charset="UTF-8">
@@ -30,37 +31,37 @@
 			<script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 		</head>
 		<body>';
-	}
+		}
 
 	if(basename($_SERVER['PHP_SELF'])=='dashboard-agencia.php'){
-		//if(isset($_SESSION['id'])==false){
-		//	header('Location:./');
-		//	die();
-		//}
-		//else{
-			//$mysqli->set_charset('utf8');
-		$id=$_SESSION['id'];
-		$query="SELECT * FROM campana  WHERE idEstado=1 AND idpersona=".$id." ORDER BY id DESC LIMIT 3";
-		$result= mysqli_query($mysqli,$query)or die(mysqli_error());
-		$row= mysqli_fetch_array($result, MYSQLI_NUM);
-			//}
-		echo "<script> 
-				jQuery(document).ready(function(){
-					$('title').append('Power Influencer - ".$_SESSION['nombre']."');
-					$('html').css({'background-color':'#fff','background-image':'none','padding-bottom':'40px'});
-					$('body').addClass('dashboard-agencia');
-				})
-			</script>";
+		if(isset($_SESSION['telefono1'])==false){
+			header('Location: logout.php');
+			die();
+		}
+		else{
+			$id=$_SESSION['id'];
+			$query="SELECT * FROM campana  WHERE idEstado=1 AND idpersona=".$id." ORDER BY id DESC LIMIT 3";
+			$result= mysqli_query($mysqli,$query)or die(mysqli_error());
+			$row= mysqli_fetch_array($result, MYSQLI_NUM);
+				//}
+			muestra_header();
+			echo "<script> 
+					jQuery(document).ready(function(){
+						$('title').append('Power Influencer - ".$_SESSION['nombre']."');
+						$('html').css({'background-color':'#fff','background-image':'none','padding-bottom':'40px'});
+						$('body').addClass('dashboard-agencia');
+					})
+				</script>";
+		}
 	}
 
 
 	if(basename($_SERVER['PHP_SELF'])=='nueva-campana.php'){
-			/*if(isset($_SESSION['id'])==false){
-				header('Location:./');
+			if(isset($_SESSION['telefono1'])==false){
+				header('Location: logout.php');
 				die();
 			}
-			else{*/
-			//$mysqli->set_charset('utf8');
+			else{
 			$query="SELECT id FROM campana ORDER BY id DESC LIMIT 1";
 			$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
@@ -69,7 +70,8 @@
 			$query2="SELECT * FROM campana WHERE idpersona='$id'";
 			$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
 			$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
-			//}
+			}
+			muestra_header();
 			echo "<script>
 					jQuery(document).ready(function(){
 						$('title').append('Power Influencer - Crear Campaña');
@@ -81,10 +83,10 @@
 
 
 	if(basename($_SERVER['PHP_SELF'])=='campana.php'){
-			/*if(isset($_SESSION['id'])==false){
-				header('Location:./');
+			if(isset($_SESSION['telefono1'])==false){
+				header('Location: logout.php');
 				die();
-			}else{*/
+			}else{
 			$query="SELECT * FROM campana WHERE idEstado=1 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
 			$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
@@ -95,8 +97,8 @@
 			$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 			$num_rows2= mysqli_num_rows($result2);
 
-			//}
-
+			}
+			muestra_header();
 			echo "<script>
 					jQuery(document).ready(function(){
 						$('title').append('Power Influencer - Campañas');
@@ -106,13 +108,20 @@
 				</script>";
 	}
 	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia.php'){
-		echo "<script>
-					jQuery(document).ready(function(){
-						$('title').append('Power Influencer - Completa tus datos');
-						$('html').css({'background-color':'#fff','background-image':'none'});
-						$('body').addClass('formularios-registro');
-					});
-				</script>";
+		if(isset($_SESSION['id'])==false){
+				header('Location: logout.php');	
+				die();
+			}
+			else{
+				muestra_header();
+				echo "<script>
+							jQuery(document).ready(function(){
+								$('title').append('Power Influencer - Completa tus datos');
+								$('html').css({'background-color':'#fff','background-image':'none'});
+								$('body').addClass('formularios-registro');
+							});
+						</script>";
+			}
 	}
 	
 ?>
@@ -169,7 +178,7 @@
 
 	</div>
 	
-	<div id="inicio" disabled>
+	<div id="inicio">
 	
 		<div id="tabContainer">
 			

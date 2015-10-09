@@ -4,7 +4,7 @@ if ((int)$row[0] > 0){ ?>
 	<?php 
 		echo '
 	
-		<div id="creadas">
+		<div class="creadas">
 
 			<script type="text/javascript">
 
@@ -39,6 +39,7 @@ if ((int)$row[0] > 0){ ?>
 						</div>
 
 						<div class="ver-mas"><span><i class="fa fa-angle-down"></i></span></div>
+						
 						<div class="content">
 							<span class="campa-ico"><i class="fa fa-cog"></i>Publicada</span>
 							<span class="campa-ico"><i class="fa fa-calendar"></i>02 Octubre 2015</span>
@@ -48,11 +49,10 @@ if ((int)$row[0] > 0){ ?>
 					</div>
 
 				 </div>
-		 
+		 </div>
 			'; }while($row = mysqli_fetch_row($result)); ?>
 			
-			<?php echo '<div class="volver">cerrar</div>';?>
-		</div>
+		
 <?php 
 }else{
 	echo '<main class="no-campana"><a href="nueva-campana.php"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Quisque posuere risus erat  at scelerisque felis pulvinar quis.</p><div class="btn_crearcamp">crear campaña</div></a></main>';

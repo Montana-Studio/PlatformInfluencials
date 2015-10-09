@@ -1,6 +1,6 @@
 .dashboard-agencia{
 	background: {image:none;}
-	padding:{bottom:40px;}
+	//padding:{bottom:40px;}
 	.sub-titulo{
 		margin:0;
 		font:{size:14px;style:italic;}
@@ -16,14 +16,14 @@
 		}
 	}
 }
-#creadas{
+.creadas{
 	@include row();
-	@include span-columns(12);
 	.recientes{
 		@include row();
 		@include pad(0);
 		overflow:hidden;
 		position:relative;
+		display: block;
 		.bg-campana{
 			@include span-columns(12 of 12);
 			@include pad(148px 5px 0);
@@ -46,6 +46,10 @@
 			p{
 				margin:0;
 				@include pad(0);
+			}
+			//MEDIA QUERIES
+			@include media($tabletLand){
+				padding:{top:256px;}
 			}
 		}
 		.ver-mas{
@@ -179,6 +183,7 @@
 					@extend input;
 				    color: $color_grey;
 				    font:{size:10px;style:italic;}
+				    min-height:100px;
 				}
 				&.descripcion{
 					i{
@@ -194,6 +199,25 @@
 					}
 				}
 			}
+			//MEDIA QUERIES
+			@include media($tabletLand){
+			   	width:80%;
+			   	margin:0 auto !important;
+			    position: absolute;
+			    background:{color: #fff;}
+			    z-index: 9;
+			    top:50%;
+			    left:0;
+			    right:0;
+			}
+		}
+		//MEDIA QUERIES
+		@include media($tabletLand){
+			@include span-columns(4);
+			@include omega(6n);
+			margin:{bottom:20px;}
+			position:static;
+			overflow:visible;
 		}
 	}
 	.volver{
@@ -206,6 +230,9 @@
 	}
 	.volver-campana{
 		@extend .volver;
+	}
+	@include media($tabletLand){
+		@include outer-container;
 	}
 }
 .no-campana{

@@ -38,12 +38,6 @@
 			echo 'dashboard';
 		}
 		else if($num_row2>0){
-			echo 'formulario';
-		}
-		/*else if ($num_row3>0){
-			echo 'false';
-		}*/
-		else{
 			$results = $mysqli->query("INSERT INTO persona (nombre, correo, id_tipo, picture_url,RS_id )VALUES ('$username', '$correo','$tipo', '$pictureUrl','$faceId')");
 			$query="SELECT * FROM persona p WHERE p.RS_id='$faceId'";
 			$result= mysqli_query($mysqli,$query)or die(mysqli_error());
@@ -52,8 +46,23 @@
 			$_SESSION['nombre']=$row[4];
 			$_SESSION['correo']=$row[5];
 			$_SESSION['id']=$row[0];
+			echo 'formulario';
+		}
+		/*else if ($num_row3>0){
+			echo 'false';
+		}*/
+		else{
+			$results = $mysqli->query("UPDATE INTO persona VALUES nombre ='$username', id_tipo='$tipo', picture_url='$pictureUrl',RS_id='$faceId' WHERE correo='$correo'");
+			$results2 = $mysqli->query("UPDATE INTO login VALUES user ='$username'");
+			$result= mysqli_query($mysqli,$query)or die(mysqli_error());
+			$results2= mysqli_query($mysqli,$query)or die(mysqli_error());
+			$num_row= mysqli_num_rows($result);
+			$row= mysqli_fetch_array($result, MYSQLI_NUM);
+			$_SESSION['nombre']=$row[4];
+			$_SESSION['correo']=$row[5];
+			$_SESSION['id']=$row[0];
 			//$_SESSION['faceuser']=$username;
-			echo 'primera';
+			echo 'formulario';
 		}
 
 
