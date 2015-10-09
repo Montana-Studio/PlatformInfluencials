@@ -1,6 +1,6 @@
 .dashboard-agencia{
 	background: {image:none;}
-	padding:{bottom:40px;}
+	//padding:{bottom:40px;}
 	.sub-titulo{
 		margin:0;
 		font:{size:14px;style:italic;}
@@ -199,12 +199,25 @@
 					}
 				}
 			}
+			//MEDIA QUERIES
+			@include media($tabletLand){
+			   	width:80%;
+			   	margin:0 auto !important;
+			    position: absolute;
+			    background:{color: #fff;}
+			    z-index: 9;
+			    top:50%;
+			    left:0;
+			    right:0;
+			}
 		}
 		//MEDIA QUERIES
 		@include media($tabletLand){
 			@include span-columns(4);
-  			@include omega(2n);
-  			margin:{right:1.5%;}
+			@include omega(6n);
+			margin:{bottom:20px;}
+			position:static;
+			overflow:visible;
 		}
 	}
 	.volver{

@@ -75,11 +75,11 @@ a {
   text-align: center;
   position: fixed;
   bottom: 0;
-  background-image: -webkit-linear-gradient(left, #2c327c 0%, #18bb9b 100%);
-  background-image: linear-gradient(to right, #2c327c 0%, #18bb9b 100%);
+  background-color: #18bb9b;
   height: 40px;
   text-transform: uppercase;
-  font-size: 12px; }
+  font-size: 12px;
+  cursor: pointer; }
   .crear-campana:last-child {
     margin-right: 0; }
   .crear-campana a {
@@ -92,6 +92,9 @@ a {
       vertical-align: middle; }
       .crear-campana a span i {
         margin-right: 3px; }
+  @media screen and (min-width: 1024px) and (max-width: 1279px) {
+    .crear-campana {
+      display: none; } }
 
 header {
   display: block;
@@ -947,8 +950,7 @@ main {
           top: 26%; } }
 
 .dashboard-agencia, .crear-campanas, .campanas {
-  background-image: none;
-  padding-bottom: 40px; }
+  background-image: none; }
   .dashboard-agencia .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo {
     margin: 0;
     font-size: 14px;
@@ -1219,18 +1221,30 @@ main {
           .creadas .recientes .content .inputs-campana.nombre input:-ms-input-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea:-ms-input-placeholder {
             font-size: 15px;
             font-weight: bold; }
+      @media screen and (min-width: 1024px) and (max-width: 1279px) {
+        .creadas .recientes .content {
+          width: 80%;
+          margin: 0 auto !important;
+          position: absolute;
+          background-color: #fff;
+          z-index: 9;
+          top: 50%;
+          left: 0;
+          right: 0; } }
     @media screen and (min-width: 1024px) and (max-width: 1279px) {
       .creadas .recientes {
         float: left;
         display: block;
         margin-right: 2.35765%;
         width: 31.76157%;
-        margin-right: 1.5%; }
+        margin-bottom: 20px;
+        position: static;
+        overflow: visible; }
         .creadas .recientes:last-child {
           margin-right: 0; }
-        .creadas .recientes:nth-child(2n) {
+        .creadas .recientes:nth-child(6n) {
           margin-right: 0; }
-        .creadas .recientes:nth-child(2n+1) {
+        .creadas .recientes:nth-child(6n+1) {
           clear: left; } }
   .creadas .volver, .creadas .volver-campana {
     float: left;
