@@ -1,6 +1,4 @@
 <?php include 'header.php'; ?>
-
-<div id="creadas">
 <?php 
 	if ($num_rows > 0){
 		echo '<h2 class="sub-titulo">campañas activas</h2>';
@@ -67,7 +65,7 @@
 				});
 			</script>
 
-			
+			<div id="creadas">
 			<div class="recientes">
 				
 				<div class="cont-campana">
@@ -202,7 +200,8 @@
 
 				});
 		</script>
-
+		
+		<div id="creadas">
 		<div class="recientes">
 			<div class="cont-campana">
 

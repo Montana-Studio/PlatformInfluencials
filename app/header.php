@@ -165,6 +165,8 @@
 
 		</div>
 
+		<div class="alert-uploadready" style="display:none;"><i class="fa fa-cloud-upload"></i>Imagen seleccionada con exito!</div>
+
 	</div>
 	
 	<div id="inicio" disabled>
@@ -182,7 +184,7 @@
 					
 					<div id="nombre">
 						<small>nombre</small>
-						<input value="<?php echo $_SESSION['nombre']; ?>">
+						<input value="<?php echo $_SESSION['nombre']; ?>" disabled>
 						<i class="fa fa-pencil"></i>
 					</div>
 					<div id="correo">
@@ -196,17 +198,17 @@
 					
 					<div id="empresa">
 						<small>empresa</small>
-						<input value="<?php echo $_SESSION['empresa']; ?>">
+						<input value="<?php echo $_SESSION['empresa']; ?>" disabled>
 						<i class="fa fa-pencil"></i>
 					</div>
 					<div id="tel1">
 						<small>tel. empresa</small>
-						<input type="text"  onkeypress="return valida(event)" value="<?php echo $_SESSION['telefono1']; ?>">
+						<input type="text"  onkeypress="return valida(event)" value="<?php echo $_SESSION['telefono1']; ?>" disabled>
 						<i class="fa fa-pencil"></i>
 					</div>
 					<div id="tel2">
 						<small>tel. personal</small>
-						<input type="text"  onkeypress="return valida(event)" value="<?php echo $_SESSION['telefono2']; ?>">
+						<input type="text"  onkeypress="return valida(event)" value="<?php echo $_SESSION['telefono2']; ?>" disabled>
 						<i class="fa fa-pencil"></i>
 					</div>
 
