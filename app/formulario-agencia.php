@@ -1,7 +1,7 @@
 <?php include 'header.php'; ?>
 		<p>favor ingresar los siguientes datos para continuar</p>
 		<h2>formulario de ingreso</h2> 
-		<form id="formulario_agencias_sin_rs">
+		<form id="formulario_agencias_rs">
 			<div id="inicio">
 				<div id="nombre">
 					<input  value="<?php echo $_SESSION['nombre'];?>" required>
