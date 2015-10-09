@@ -10,31 +10,7 @@ $(document).ready(function(){
 			}(document, 'script', 'facebook-jssdk'));
 		}
 
-		$('#facebook-nuevo').click(function(){
-			call_facebook_api()
-			facebookLogin();
-		});
 		
-		$('#facebook-antiguo').click(function(){
-			call_facebook_api()
-			facebookLogin();
-		});
-
-		$('#facebook-nuevo-ipe').click(function(){
-			call_facebook_api()
-			facebookLogin();
-		});
-		
-		$('#facebook-antiguo-ipe').click(function(){
-			call_facebook_api()
-			facebookLogin();
-		});
-
-
-		$('#salir').click( function(e) {
-			e.preventDefault();
-  			facebookLogout();
-		});
 		
 		var app_id = '973652052702468';
 		//var app_id = '962955813772092';
@@ -130,6 +106,34 @@ $(document).ready(function(){
   		});
 
   	};
+
+  	$('#facebook-nuevo').click(function(){
+			call_facebook_api()
+			facebookLogin();
+		});
+		
+		$('#facebook-antiguo').click(function(){
+			call_facebook_api()
+			facebookLogin();
+		});
+
+		$('#facebook-nuevo-ipe').click(function(){
+			call_facebook_api()
+			facebookLogin();
+		});
+		
+		$('#facebook-antiguo-ipe').click(function(){
+			call_facebook_api()
+			facebookLogin();
+		});
+
+
+		$('#salir').click( function(e) {
+			e.preventDefault();
+  			facebookLogout();
+		});
+
+		
 		
 });
 
