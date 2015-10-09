@@ -1,5 +1,6 @@
 <?php
 require('conexion.php');
+
 if(isset($_SESSION['id'])){
 	$query="SELECT * FROM persona WHERE id_estado = 1 AND id= ".$_SESSION['id'];
 	$result= mysqli_query($mysqli,$query)or die(mysqli_error());
@@ -75,9 +76,9 @@ if(isset($_SESSION['id'])){
 				<h2>Registro</h2>
 
 				<form id="agenciaform" class="registerForm">
-					<form class='registerForm'>
+				
 						<div>		
-							<select id="perfil" required>
+							<select id="perfil">
 							<option value="" disabled selected>selecciona tu perfil </option>
 							<option value="3">influenciador</option>
 							<option value="4">publisher</option>
@@ -104,8 +105,7 @@ if(isset($_SESSION['id'])){
 						<input type="file" name="file" id="file" required>
 						<label for="file" class="btns">Sube una imágen</label>
 						<div id="divCheckPasswordMatch"></div>
-						<button id="registrarse" disabled type="submit">Registrarse</button>
-
+						<button id="registrarse"  type="submit">Registrarse</button>
 
 					</div>
 					

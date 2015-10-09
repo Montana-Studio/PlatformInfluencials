@@ -109,22 +109,25 @@ $(document).ready(function(){
 			cache: false,             
 			processData:false, 
 			success: function(data){
+				//alert(data);
 				switch (data){
-				case "nuevo": 	$('#alertRegistrado').show();
-								document.getElementById('alertRegistrado').innerHTML ="Registro completo, nos contactaremos con usted";					
-								$('#usernamenuevo, #contraseñanuevo,#ver-password,#empresanuevo,#correonuevo,#telefono1nuevo,#telefono2nuevo').val('');
-				break;
-				case "false":	$('#alertRegistrado').show();
-								document.getElementById('alertRegistrado').innerHTML ="El correo ingresado ya tiene una cuenta asociada";					 
-								$('.correonuevo').val('');
-								;$('.correonuevo').focus();
-				break;
-				case "invalido":
-					console.log('formato invalido');
+					case "nuevo": 	alert("gracias por registrarse en Power Influencer, nos contactaremos con usted");
+									window.location.href = "./";
+									/*$('#alertRegistrado').show();
+									document.getElementById('alertRegistrado').innerHTML ="Registro completo, nos contactaremos con usted";					
+									$('#usernamenuevo, #contraseñanuevo,#ver-password,#empresanuevo,#correonuevo,#telefono1nuevo,#telefono2nuevo').val('');*/
+					break;
+					case "false":	//$('#alertRegistrado').show();
+									//document.getElementById('alertRegistrado').innerHTML ="El correo ingresado ya tiene una cuenta asociada";					 
+									alert('el correo '+$('.correonuevo').val()+' ya existe en la base de datos, intente con otro');
+									$('.correonuevo').val('');
+									$('.correonuevo').focus();
+					break;
+					case "invalido": alert('problema con el tamaño o formato de la imagen');
+						//console.log('formato invalido');
 				}
-				}
+			}
 		});
-
 	}));
 
 	$('#linkedin-nuevo').click(function(){
@@ -298,34 +301,38 @@ $(document).ready(function(){
 		};
 	}));	
 
+	//FORMULARIO DE AGENCIAS 
+	$('#formulario_agencias_sin_rs').on('submit',function(e){
+					
+		e.preventDefault();
+					
+		if($("#telefono1nuevo").val().length > 7 && $("#telefono2nuevo").val().length > 7 ){
+				info = new FormData(this);
+				info.append('nombre',$('#nombre input').val());
+				info.append('empresa',$('#empresa input').val());
+				info.append('correo',$('#correo input').val());
+				info.append('tel1',$('#telefono1nuevo').val());
+				info.append('tel2',$('#telefono2nuevo').val());
 
+			$.ajax({
+				type: "POST",  
+				url: "procesar_formulario.php",   
+				data: info,
+				enctype: 'multipart/form-data',
+				contentType: false,      
+				cache: false,             
+				processData:false, 							
+				success: function(data){ 
+					alert("Registro de datos completo, nos contactaremos con usted");
+					window.location.href = "logout.php";
+				}
+			});
+		}else{
 
-
-	/*//campañas creadas 
-	$('#editaCampaña').hide();
-	$('#creadas #guardar').hide();
-
-	//editar
-	$('#creadas #editar').click (function (){
-		$('#editaCampaña').show();
-		$('#creadas #guardar').show();
-		$('#creadas #editar').hide();
+			alert("ingrese telefonos de al menos 8 cifras");
+		}
+		
 	});
-
-	//guardar cambios
-	$('#creadas #guardar').click (function (){
-		$('#editaCampaña').hide();
-		$('#creadas #guardar').hide();
-		$('#creadas #editar').show();
-	});
-
-	$('#guardar').hide();
-	$('#editar').show();*/
-
-	//CREAR CAMPAÑAS SCRIPT
-	
-
-
 });
 
 //INICIO FUNCTIONS
