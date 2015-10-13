@@ -12,6 +12,7 @@ html{
 		font:{family:$fontAll;}
 		background:{image:url('../img/bg_app.png');size:cover;}
 		.contAllPI{
+			position:relative;
 			@include outer-container;
 			@include media($desktop){
 				padding:{top:15% !important;}
@@ -55,6 +56,33 @@ html{
 		}
 		&.formularios-registro{
 			background:{image: none;}
+		}
+		//MEDIA QUERIES
+		@include media($notebook){
+			background:{image: none;}
+			.video-container{
+			    position: fixed;
+			    top:0;
+			    bottom: 0;
+			    left: 0;
+			    height: 100%;
+			    width: 100%;
+			    overflow: hidden;
+			    z-index:0;
+			    display: block !important;
+			    video {
+				    position: absolute;
+				    z-index: 0;
+				    bottom: 0;
+				    top:0;
+				    opacity: .3;
+				    left:-10%;
+				    &.fillWidth {
+					    width: 115%;
+					    height: 100%;
+					}
+				}
+			}
 		}
 	}
 }
