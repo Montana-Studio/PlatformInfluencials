@@ -146,8 +146,8 @@ if(isset($_SESSION['id'])){
 
 				<form class="form_ingreso">
 
-					<input placeholder="Nombre" name="username" id="username"/>
-
+					<!--input placeholder="Nombre" name="username" id="username"/-->
+					<input placeholder="Correo" name="correo" id="correo"/>
 					<input type="password" placeholder="Contraseña" id="password" />
 					
 					<div id="ingresar">ingresar</div>

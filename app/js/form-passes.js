@@ -54,13 +54,13 @@ $(document).ready(function(){
 	})
 	
 	$('#ingresar').click(function(){
-		username=$('#username').val();
+		correo=$('#correo').val();
 		password=$('#password').val();
 		//console.log(username);
 		$.ajax({  
 			type: "POST",  
 			url: "./procesar_login.php",  
-			data: "name="+username+"&pwd="+password, 
+			data: "correo="+correo+"&pwd="+password, 
 			success: function(html){ 
 				console.log(html);
 				switch (html){
