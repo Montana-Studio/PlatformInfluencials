@@ -1,25 +1,26 @@
 <?php 
 require('conexion.php');
-
+/*
 	$username =$_POST['name'];
-	//$password =$_POST['pwd'];
+	//$password =$_POST['pwd'];*/
+	$correo = $_POST['correo'];
 	$password=MD5($_POST['pwd']);
 
-	if(strlen($username) == 0 || strlen($password) == 0){
+	if(strlen($correo) == 0 || strlen($password) == 0){
 		$resultado = "vacio";
 		echo $resultado;
 	}
 
 if ($resultado != "vacio"){
 		//Consulto si existe el Base de Datos
-	$query="SELECT * FROM login WHERE user='$username' AND pass='$password'";
+	$query="SELECT * FROM login WHERE correo='$correo' AND pass='$password'";
 	$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 	$num_row= mysqli_num_rows($result);//si es mayor que uno es porque hay registros
 
 	//Consulto si es que el estado del registro es activo
 	$query2="SELECT * FROM persona AS p, login AS l WHERE p.id_estado>0 AND
-								(l.user=p.nombre AND l.correo=p.correo AND p.id = (SELECT p.id FROM login AS l, persona AS p 
-								WHERE p.nombre='$username' AND l.user='$username'))";
+								( l.correo=p.correo AND p.id = (SELECT p.id FROM login AS l, persona AS p 
+								WHERE p.correo='$correo' AND l.correo='$correo'))";
 	$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
 	$num_row2= mysqli_num_rows($result2);//si es mayor que uno es porque hay registros
 	$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
