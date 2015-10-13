@@ -14,7 +14,7 @@
 			font:{size:18px;weight:normal;}
 		}
 		@include media($desktop){
-			@include outer-container;
+			//@include outer-container;
 			color: $color_grey2;
 			font:{size:18px;weight:normal;}
 		}

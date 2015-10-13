@@ -56,7 +56,6 @@
 		}
 	}
 
-
 	if(basename($_SERVER['PHP_SELF'])=='nueva-campana.php'){
 			if(isset($_SESSION['telefono1'])==false){
 				header('Location: logout.php');
@@ -81,7 +80,6 @@
 					});
 				</script>";
 	}
-
 
 	if(basename($_SERVER['PHP_SELF'])=='campana.php'){
 			if(isset($_SESSION['telefono1'])==false){
