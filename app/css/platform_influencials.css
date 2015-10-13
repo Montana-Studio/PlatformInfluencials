@@ -615,6 +615,7 @@ html {
     background-image: url("../img/bg_app.png");
     background-size: cover; }
     html body .contAllPI {
+      position: relative;
       max-width: 68em;
       margin-left: auto;
       margin-right: auto; }
@@ -682,6 +683,29 @@ html {
           display: table; }
     html body.formularios-registro {
       background-image: none; }
+    @media screen and (min-width: 1280px) {
+      html body {
+        background-image: none; }
+        html body .video-container {
+          position: fixed;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          overflow: hidden;
+          z-index: 0;
+          display: block !important; }
+          html body .video-container video {
+            position: absolute;
+            z-index: 0;
+            bottom: 0;
+            top: 0;
+            opacity: .3;
+            left: -10%; }
+            html body .video-container video.fillWidth {
+              width: 115%;
+              height: 100%; } }
 
 main {
   text-align: center; }
