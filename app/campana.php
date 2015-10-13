@@ -189,11 +189,11 @@
 							data: "idEliminar="+idEliminar+"&tipo="+tipo,
 						
 							success: function(data){ 
-								alert(data);
-								//window.location.reload();
+								window.location.reload();
 							}
 						});  
-						} 
+					}
+					return false; 
 				
 				});
 

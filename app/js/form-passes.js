@@ -221,20 +221,20 @@ $(document).ready(function(){
 				processData:false, 
 		
 				success: function(data){
-					alert(data);
 					switch (data){
 						case "nueva":	if (confirm("¿desea ver la campaña?")){
-											//window.location.href = "./campana.php";
-										}
-										else{
+											window.location.href = "campana.php";
+										}else{
 											window.location.reload();
-										}
+										}		
 						break;
 						default: alert('el tamaño o formato no es aceptado');
 						break;
 					}
 				}
 			});
+
+		return false;
 
 	}));
 
