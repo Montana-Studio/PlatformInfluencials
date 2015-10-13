@@ -191,8 +191,9 @@ if ($tipo == 'avatar'){
 			$results1 = $mysqli->query("INSERT INTO login (user, pass, correo) VALUES ('$nuevousuario','$nuevocontraseña','$nuevocorreo')");
 			$results2 = $mysqli->query("INSERT INTO persona (nombre, correo, empresa, telefono1, telefono2, id_login, id_tipo, picture_url ) VALUES ('$nuevousuario','$nuevocorreo','$nuevoempresa','$nuevotelefono1','$nuevotelefono2', (SELECT id from login WHERE correo='$nuevocorreo'),'2','$nuevaurl')");
 			echo "nuevo";
-		}
+		}else{
 			echo "invalido";
+		}
 		//echo $resultado;
 	}else{
 		//Verifico que exista el correo en la base de datos

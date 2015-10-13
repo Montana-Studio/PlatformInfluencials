@@ -112,7 +112,7 @@ $(document).ready(function(){
 				//alert(data);
 				switch (data){
 					case "nuevo": 	alert("gracias por registrarse en Power Influencer, nos contactaremos con usted");
-									window.location.href = "./";
+									window.location.href = "logout.php";
 									/*$('#alertRegistrado').show();
 									document.getElementById('alertRegistrado').innerHTML ="Registro completo, nos contactaremos con usted";					
 									$('#usernamenuevo, #contraseñanuevo,#ver-password,#empresanuevo,#correonuevo,#telefono1nuevo,#telefono2nuevo').val('');*/
@@ -229,8 +229,6 @@ $(document).ready(function(){
 						case "nueva":	if (confirm("¿desea ver la campaña?")){
 											window.location.herf("./campana.php");
 										}
-											
-
 						break;
 						case "invalido": alert('el tamaño o formato no es aceptado');
 						break;
@@ -302,7 +300,7 @@ $(document).ready(function(){
 	}));	
 
 	//FORMULARIO DE AGENCIAS 
-	$('#formulario_agencias_sin_rs').on('submit',function(e){
+	$('#formulario_agencias_rs').on('submit',function(e){
 					
 		e.preventDefault();
 					

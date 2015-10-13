@@ -1,14 +1,6 @@
 $(document).ready(function(){
 
-		function call_facebook_api(){
-			(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) return;
-			js = d.createElement(s); js.id = id;
-			js.src = "//connect.facebook.net/en_US/sdk.js";
-			fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-		}
+
 
 		
 		
@@ -35,20 +27,20 @@ $(document).ready(function(){
             success: function(html){ 
             	//alert(html);
 				switch (html){
-					case "dashboard": window.location="./dashboard-agencia.php";
+					case "dashboard": window.location.href="./dashboard-agencia.php";
 					break;
-					case "false": 	$('#alertRegistrado').show();
-									document.getElementById('alertRegistrado').innerHTML = "Estimado(a) "+facebookUser+" ya se encuentra registrado nos contactaremos con usted a la brevedad";
+					case "false": 	//$('#alertRegistrado').show();
+									//document.getElementById('alertRegistrado').innerHTML = "Estimado(a) "+facebookUser+" ya se encuentra registrado nos contactaremos con usted a la brevedad";
 					break;
-					case "primera": window.location="./formulario-agencia.php";
+					case "primera":	window.location.href="formulario-agencia.php";
 									//document.getElementById('alertRegistrado').innerHTML ="Por favor ingrese sus datos en el formulario";								
 					break;
-					case "formulario": window.location="./formulario-agencia.php";
+					case "formulario": window.location.href="./formulario-agencia.php";
 					break;
-					case "dashboard-ipe": window.location="./dashboard-ipe.php";
+					case "dashboard-ipe": window.location.href="./dashboard-ipe.php";
 					break;
-					case "primera-ipe": window.location="./formulario-agencia3.php";
-									//document.getElementById('alertRegistrado').innerHTML ="Por favor ingrese sus datos en el formulario";					
+					case "primera-ipe": window.location.href="./formulario-agencia3.php";
+								//document.getElementById('alertRegistrado').innerHTML ="Por favor ingrese sus datos en el formulario";					
 					break;
 				}
 			}
@@ -107,6 +99,33 @@ $(document).ready(function(){
   		});
 
   	};
+
+  	function call_facebook_api(){
+
+			window.fbAsyncInit = function() {
+				FB.init({
+					appId      : app_id,
+					cookie     : true,  
+					status 	   : true,					
+					xfbml      : true,  
+					version    : 'v2.4' 
+				});	
+				FB.getLoginStatus(function(response) {
+				statusChangeCallback(response, function(data){
+				callback(data);
+				});
+				});
+			};
+			
+			(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		}
+
 
   	$('#facebook-nuevo').click(function(){
 			call_facebook_api()

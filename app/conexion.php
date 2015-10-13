@@ -1,5 +1,10 @@
 <?php 
 session_start();
+/*
+if(basename($_SERVER['PHP_SELF'])=='formulario-agencia.php'){
+		session_unset();
+		session_destroy();
+	}*/
 
 ini_set('session.cookie_lifetime', 600); //too keep ir by one year use 60*60*24*365
 ini_set('session.gc-maxlifetime', 600);
