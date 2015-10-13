@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
 		function call_facebook_api(){
 			(function(d, s, id) {
 			var js, fjs = d.getElementsByTagName(s)[0];
@@ -9,20 +8,14 @@ $(document).ready(function(){
 			fjs.parentNode.insertBefore(js, fjs);
 			}(document, 'script', 'facebook-jssdk'));
 		}
-
-		
-		
-
-
-
-	var getFacebook 
 	
 	var statusChangeCallback = function(response, callback) {
-    if (response.status === 'connected') {
-	  getFacebookData();
-    } else {
-		callback(false);//no hace nada si no se conecta
-    }
+	    if (response.status === 'connected') {
+		  getFacebookData();
+	    } 
+	    else {
+			callback(false);//no hace nada si no se conecta
+	    }
 	}
 	
     var checkLoginState = function(callback) {	

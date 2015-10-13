@@ -54,13 +54,13 @@ $(document).ready(function(){
 	})
 	
 	$('#ingresar').click(function(){
-		username=$('#username').val();
+		correo=$('#correo').val();
 		password=$('#password').val();
 		//console.log(username);
 		$.ajax({  
 			type: "POST",  
 			url: "./procesar_login.php",  
-			data: "name="+username+"&pwd="+password, 
+			data: "correo="+correo+"&pwd="+password, 
 			success: function(html){ 
 				console.log(html);
 				switch (html){
@@ -221,20 +221,20 @@ $(document).ready(function(){
 				processData:false, 
 		
 				success: function(data){
-					alert(data);
 					switch (data){
 						case "nueva":	if (confirm("¿desea ver la campaña?")){
-											//window.location.href = "./campana.php";
-										}
-										else{
+											window.location.href = "campana.php";
+										}else{
 											window.location.reload();
-										}
+										}		
 						break;
 						default: alert('el tamaño o formato no es aceptado');
 						break;
 					}
 				}
 			});
+
+		return false;
 
 	}));
 
@@ -270,7 +270,7 @@ $(document).ready(function(){
 					}
 				}
 			});
-			console.log('');
+			//console.log('');
 		}
 		else{
 			$.ajax({  
@@ -286,13 +286,15 @@ $(document).ready(function(){
 				success: function(info){
 					switch (info){
 						case "actualiza": 	alert("datos actualizados");
-											window.location.reaload();	
+											window.location.reload();		
 						break;
 					}
 				}
 			});
-			console.log('');
+			//console.log('');
 		};
+
+		return false;
 	}));	
 
 	//FORMULARIO DE AGENCIAS 

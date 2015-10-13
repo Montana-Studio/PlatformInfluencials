@@ -3,6 +3,7 @@
 if ((int)$row[0] > 0){ ?>
 	<?php 
 		echo '
+		<h2 class="sub-titulo">resumen de campañas</h2>
 		<div class="creadas">
 			<script type="text/javascript">
 
