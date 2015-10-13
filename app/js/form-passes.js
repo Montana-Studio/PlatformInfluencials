@@ -270,7 +270,7 @@ $(document).ready(function(){
 					}
 				}
 			});
-			console.log('');
+			//console.log('');
 		}
 		else{
 			$.ajax({  
@@ -286,13 +286,15 @@ $(document).ready(function(){
 				success: function(info){
 					switch (info){
 						case "actualiza": 	alert("datos actualizados");
-											window.location.reaload();	
+											window.location.reload();		
 						break;
 					}
 				}
 			});
-			console.log('');
+			//console.log('');
 		};
+
+		return false;
 	}));	
 
 	//FORMULARIO DE AGENCIAS 
