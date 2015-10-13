@@ -51,6 +51,9 @@
 			@include media($tabletLand){
 				padding:{top:256px;}
 			}
+			@include media($notebook){
+				padding:{top:256px;}
+			}
 		}
 		.ver-mas{
 			@include span-columns(12);
@@ -231,6 +234,13 @@
 		}
 		//MEDIA QUERIES
 		@include media($tabletLand){
+			@include span-columns(4);
+			@include omega(6n);
+			margin:{bottom:20px;}
+			position:static;
+			overflow:visible;
+		}
+		@include media($notebook){
 			@include span-columns(4);
 			@include omega(6n);
 			margin:{bottom:20px;}
