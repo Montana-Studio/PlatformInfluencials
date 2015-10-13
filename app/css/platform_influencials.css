@@ -1088,7 +1088,8 @@ main {
           font-size: 11px;
           display: table;
           border-bottom: 1px solid #18bb9b;
-          border-top: 1px solid #18bb9b; }
+          border-top: 1px solid #18bb9b;
+          cursor: pointer; }
           .creadas .recientes .content .tools-campana li:last-child {
             margin-right: 0; }
           .creadas .recientes .content .tools-campana li:first-child {
