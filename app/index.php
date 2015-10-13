@@ -121,7 +121,7 @@ if(isset($_SESSION['id'])){
 					<div id="selectImage">
 							
 						<input type="file" name="file" id="file" required>
-						<label for="file" class="btns">Sube una imágen</label>
+						<label for="file" class="btns" required>Sube una imágen</label>
 						<div id="divCheckPasswordMatch"></div>
 						<button id="registrarse"  type="submit">Registrarse</button>
 
