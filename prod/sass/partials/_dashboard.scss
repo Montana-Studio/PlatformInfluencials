@@ -8,11 +8,15 @@
 		color:$color_grey;
 		@include pad(10px);
 		clear:both;
-		@include media($tabletLand){
+		@include media($tabletLandTonotebook){
+			@include outer-container;
 			color: $color_grey2;
 			font:{size:18px;weight:normal;}
-			@include span-columns(11);
-			@include shift(.5);
+		}
+		@include media($desktop){
+			@include outer-container;
+			color: $color_grey2;
+			font:{size:18px;weight:normal;}
 		}
 	}
 }
@@ -48,10 +52,10 @@
 				@include pad(0);
 			}
 			//MEDIA QUERIES
-			@include media($tabletLand){
+			@include media($tabletLandTonotebook){
 				padding:{top:256px;}
 			}
-			@include media($notebook){
+			@include media($desktop){
 				padding:{top:256px;}
 			}
 		}
@@ -204,7 +208,34 @@
 				}
 			}
 			//MEDIA QUERIES
-			@include media($tabletLand){
+			@include media($tabletLandTonotebook){
+			   	width:80%;
+			   	margin:0 auto !important;
+			    position: absolute;
+			    background:{color: #fff;}
+			    z-index: 9;
+			    top:20%;
+			    left:0;
+			    right:0;
+			    overflow: hidden;
+				.img-compana-deskt{
+					@include span-columns(6 of 12);
+					display: block;
+					@include pad(0 20px 20px);
+					img{
+						width:100%;
+						height:auto;
+					}
+				}
+				.btn_close{
+					position:relative;
+					float:right;
+				}
+			    form{
+			    	@include span-columns(6);
+			    }
+			}
+			@include media($desktop){
 			   	width:80%;
 			   	margin:0 auto !important;
 			    position: absolute;
@@ -233,14 +264,14 @@
 			}
 		}
 		//MEDIA QUERIES
-		@include media($tabletLand){
+		@include media($tabletLandTonotebook){
 			@include span-columns(4);
 			@include omega(6n);
 			margin:{bottom:20px;}
 			position:static;
 			overflow:visible;
 		}
-		@include media($notebook){
+		@include media($desktop){
 			@include span-columns(4);
 			@include omega(6n);
 			margin:{bottom:20px;}
@@ -259,7 +290,10 @@
 	.volver-campana{
 		@extend .volver;
 	}
-	@include media($tabletLand){
+	@include media($tabletLandTonotebook){
+		@include outer-container;
+	}
+	@include media($desktop){
 		@include outer-container;
 	}
 	@include media($mobileTomobileLand){
