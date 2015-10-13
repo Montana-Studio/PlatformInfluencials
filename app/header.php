@@ -11,6 +11,7 @@
 		<head>
 			<meta charset="UTF-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta name="theme-color" content="#2c327c">
 			<title></title>
 			<link rel="apple-touch-icon-precomposed" sizes="57x57" href="img/apple-touch-icon-57x57.png" />
 			<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114x114.png" />
@@ -121,7 +122,7 @@
 								$('body').addClass('formularios-registro');
 							});
 						</script>";
-			}
+			}	
 	}
 	
 ?>
