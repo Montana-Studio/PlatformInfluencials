@@ -53,7 +53,6 @@ a{
 	@include textAligns(center);
 	position:fixed;
 	bottom:0;
-	//@include background-image(linear-gradient(left, $color_blue 0%, $color_font2 100%));
 	background:{color: $color_font2;}
 	height:40px;
 	text:{transform:uppercase;}

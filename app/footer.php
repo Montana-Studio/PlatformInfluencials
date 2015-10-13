@@ -29,6 +29,9 @@
 							$("html,body").animate({scrollTop : $(this).siblings(".bg-campana").offset().top},1000);
 
 					});
+					$(".btn_close").on("click",function(){
+							$(this).closest(".content").fadeOut();
+					});
 
 				});
 

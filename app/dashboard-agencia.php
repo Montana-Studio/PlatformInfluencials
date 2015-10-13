@@ -3,9 +3,7 @@
 if ((int)$row[0] > 0){ ?>
 	<?php 
 		echo '
-	
 		<div class="creadas">
-
 			<script type="text/javascript">
 
 				$(document).ready(function(){
@@ -24,12 +22,9 @@ if ((int)$row[0] > 0){ ?>
 
 				});
 
-			</script>
-		
-		';
+			</script>';
 			do{
-			echo '
-				<div class="recientes">
+				echo '<div class="recientes">
 					<div class="cont-campana" id="imagen'.$row[0].'">
 						
 						<div class="bg-campana" style="background-image:url('.$row[3].');">
@@ -49,10 +44,10 @@ if ((int)$row[0] > 0){ ?>
 					</div>
 
 				 </div>
-		 </div>
+		 
 			'; }while($row = mysqli_fetch_row($result)); ?>
 			
-		
+			</div>
 <?php 
 }else{
 	echo '<main class="no-campana"><a href="nueva-campana.php"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Quisque posuere risus erat  at scelerisque felis pulvinar quis.</p><div class="btn_crearcamp">crear campaña</div></a></main>';
