@@ -20,6 +20,7 @@
 					var correo ="'.$_SESSION["correo"].'";
 					var rsid ="'.$_SESSION["rsid"].'";
 					var tipo ="imagen";
+
 					$("#campanaForm'.$row[0].'").on("submit",(function (e){
 						e.preventDefault();
 						info = new FormData(this);
@@ -32,7 +33,6 @@
 						info.append("campana",idCampana);
 						info.append("id",idAgencia);
 						info.append("foto",foto);
-						console.log(foto);
 						$.ajax({
 								type: "POST",  
 								url: "procesar_imagen.php",  
@@ -43,7 +43,8 @@
 								processData:false,
 
 							success: function(data){ 
-							window.location.reload();
+								//console.log(data);
+							
 							}
 						
 						});
@@ -153,7 +154,7 @@
 					info.append("campana",idCampana);
 					info.append("id",idAgencia);
 					info.append("foto",foto);
-					console.log(foto);
+					//console.log(foto);
 					$.ajax({
 							type: "POST",  
 							url: "procesar_imagen.php",  
@@ -164,7 +165,13 @@
 							processData:false,
 
 						success: function(data){ 
-							window.location.reload();
+								switch (data){
+									case "nuevo": 	alert("registro actualizado");
+													window.location.reload();
+									break;
+									default: alert("problema con el tamaño o formato de la imagen");
+									break;
+								}
 						}
 					
 					});
@@ -206,8 +213,6 @@
 
 				});
 		</script>
-		
-		
 			<div class="recientes">
 				<div class="cont-campana">
 

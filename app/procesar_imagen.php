@@ -55,6 +55,15 @@ if ($tipo == 'avatar'){
 				rename("uploads/agencias/registered/$rsid/$file", "uploads/agencias/registered/$rsid/avatar.gif");
 				$results2 = $mysqli->query("UPDATE persona SET nombre='$nombre', telefono1='$tel1', telefono2='$tel2', empresa='$empresa', correo='$correo', picture_url='uploads/agencias/registered/$rsid/avatar.gif' WHERE RS_id='$rsid'");
 				$resultado = "nuevo";
+			}else{
+				mkdir("uploads/agencias/registered/$rsid", 0777, true);
+				$targetPath = "uploads/agencias/registered/$rsid/".$_FILES['file']['name']; // Target path where file is to be stored
+				unlink("uploads/agencias/registered/$rsid/avatar.gif");
+				move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
+				rename("uploads/agencias/registered/$rsid/$file", "uploads/agencias/registered/$rsid/avatar.gif");
+				$results2 = $mysqli->query("UPDATE persona SET nombre='$nombre', telefono1='$tel1', telefono2='$tel2', empresa='$empresa', correo='$correo', picture_url='uploads/agencias/registered/$rsid/avatar.gif' WHERE RS_id='$rsid'");
+				$resultado = "nuevo";
+
 			}
 		}
 		if ($a==2){// Create directory to save the file in case of Form Login and first change on avatar image 
@@ -98,7 +107,7 @@ if ($tipo == 'avatar'){
 			mkdir("uploads/agencias/registered/$rsid/$numero_campana", 0777, true);
 			$targetPath = "uploads/agencias/registered/$rsid/$numero_campana/".$_FILES['file']['name']; // Target path where file is to be stored
 			move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
-			rename("uploads/agencias/registered/$rsid/$campana/$file", "uploads/agencias/registered/$rsid/$numero_campana/1.jpg");
+			rename("uploads/agencias/registered/$rsid/$numero_campana/$file", "uploads/agencias/registered/$rsid/$numero_campana/1.jpg");
 			//
 			//$resultado = $imagenes;
 		}
@@ -132,6 +141,17 @@ if ($tipo == 'avatar'){
 	$descripcion =$_POST['descripcion'];
 	$idCampana =$_POST['idCampana'];
 	$idpersona =$_POST['idpersona'];
+	if($nombre == ''){
+			$results_nombre = $mysqli->query("SELECT nombre FROM campana  WHERE id='$idCampana'");		
+			$row_results_nombre= mysqli_fetch_array($results_nombre, MYSQLI_NUM);
+			$nombre= $row_results_nombre[0];
+
+	}else if($marca == ''){
+			$results_marca = $mysqli->query("SELECT marca FROM campana  WHERE id='$idCampana'");		
+			$row_results_marca= mysqli_fetch_array($results_marca, MYSQLI_NUM);
+			$marca= $row_results_marca[0];
+	}
+
 	$sql = "UPDATE campana SET nombre='$nombre', marca='$marca', descripcion='$descripcion' WHERE idpersona='$idpersona' AND id='$idCampana'";
 	$update = $mysqli->query($sql);
 	if($_POST['foto'] == 1){
@@ -144,7 +164,7 @@ if ($tipo == 'avatar'){
 				move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 				rename("uploads/agencias/registered/$rsid/$campana/$file", "uploads/agencias/registered/$rsid/$campana/1.jpg");
 				//$resultado = "nuevo";
-				$resultado = "nuevo";
+				echo "nuevo";
 			}
 			if ($a==2){// Create directory to save the file in case of Form Login
 				$targetPath = "uploads/agencias/registered/$correo/$campana/".$_FILES['file']['name']; // Target path where file is to be stored
@@ -152,17 +172,17 @@ if ($tipo == 'avatar'){
 				move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 				rename("uploads/agencias/registered/$correo/$campana/$file", "uploads/agencias/registered/$correo/$campana/1.jpg");
 				//$resultado = "nuevo";
-				$resultado = "nuevo";
+				echo "nuevo";
 			}
 		}
 		else{
-			$resultado = valida_extension();
+			echo "false";
 		}
 	}else{
-		$resultado = "nuevo";
+		echo "nuevo";
 	}
 
-	echo $resultado;
+	//echo $resultado;
 }else if($tipo == 'usuario'){
 
 	$nuevousuario=$_POST['nuuser'];
@@ -194,6 +214,8 @@ if ($tipo == 'avatar'){
 		}else{
 			echo "invalido";
 		}
+
+
 		//echo $resultado;
 	}else{
 		//Verifico que exista el correo en la base de datos

@@ -212,7 +212,6 @@ $(document).ready(function(){
 		info.append('descripcion',$('#descripcion-nueva-campana').val());
 		info.append('tipo','campana');
 		$.ajax({
-
 				type: "POST",  
 				url: "./procesar_imagen.php",  
 				data: info,
@@ -221,21 +220,20 @@ $(document).ready(function(){
 				cache: false,             
 				processData:false, 
 		
-				success: function(info){
-					alert(info);
-					switch (info){
-						case "error": 	alert("arhivo con daños");
-						break;
+				success: function(data){
+					alert(data);
+					switch (data){
 						case "nueva":	if (confirm("¿desea ver la campaña?")){
-											window.location.herf("./campana.php");
+											//window.location.href = "./campana.php";
+										}
+										else{
+											window.location.reload();
 										}
 						break;
-						case "invalido": alert('el tamaño o formato no es aceptado');
+						default: alert('el tamaño o formato no es aceptado');
 						break;
 					}
-				}	
-
-					
+				}
 			});
 
 	}));
@@ -264,12 +262,10 @@ $(document).ready(function(){
 				
 				success: function(info){
 					switch (info){
-						case "error": 	alert("arhivo con daños");			
-						break;
 						case "nuevo":	alert("imagen cambiada");
-										window.location.reaload();	
+										window.location.reload();	
 						break;
-						case "invalido": alert('el tamaño o formato no es aceptado');
+						default: alert('el tamaño o formato no es aceptado');
 						break;
 					}
 				}

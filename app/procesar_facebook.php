@@ -19,6 +19,7 @@
 	$query2="SELECT * FROM persona p WHERE p.RS_id='$faceId' AND p.id_estado=0 AND p.telefono1=0";
 	$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
 	$num_row2= mysqli_num_rows($result2);
+	$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 
 	$query3="SELECT * FROM persona p WHERE p.RS_id='$faceId'";
 	$result3= mysqli_query($mysqli,$query3)or die(mysqli_error());
@@ -34,10 +35,13 @@
 			$_SESSION['telefono2']=$row[7];
 			$_SESSION['empresa']=$row[12];
 			$_SESSION['pictureUrl']=$row[11];
-			$_SESSION['RSid']=$row[9];
+			$_SESSION['rsid']=$row[9];
 			echo 'dashboard';
 		}
 		else if($num_row2>0){
+			$_SESSION['id']=$row2[0];
+			$_SESSION['nombre']=$row2[4];
+			$_SESSION['correo']=$row2[5];
 			echo 'formulario';
 		}
 		else if ($num_row3>0){
@@ -66,7 +70,7 @@
 			$_SESSION['telefono2']=$row[7];
 			$_SESSION['empresa']=$row[12];
 			$_SESSION['pictureUrl']=$row[11];
-			$_SESSION['RSid']=$row[9];
+			$_SESSION['rsid']=$row[9];
 			echo 'dashboard-ipe';
 		}
 		else if($num_row2>0){

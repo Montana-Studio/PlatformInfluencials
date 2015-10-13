@@ -121,7 +121,7 @@
 								$('body').addClass('formularios-registro');
 							});
 						</script>";
-			}
+			}	
 	}
 	
 ?>
