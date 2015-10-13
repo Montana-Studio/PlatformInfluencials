@@ -15,7 +15,7 @@ function onSuccess(data) {
 				switch (html){
 				case "dashboard": window.location.href="dashboard-agencia.php";
 				break;
-				case "false": 	$('#alertRegistrado').show();
+				case "false": 	$('#alertRegistrado').slideDown();
 								document.getElementById('alertRegistrado').innerHTML = "Estimado(a) "+nombre+" ya se encuentra registrado nos contactaremos con usted a la brevedad";
 				break;
 				case "primera": document.getElementById('alertRegistrado').innerHTML = "Por favor ingrese sus datos en el formulario";	    
