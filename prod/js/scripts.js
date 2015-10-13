@@ -77,6 +77,7 @@ jQuery(document).ready(function($){
 			$('#imagenform .misdatos .imagen .selectFile i').animate({opacity:1});	
 		}});
 	});
+	
 	$('#inicio .cancel-data, #imagenform .btn_close').on('click',function(){
 		$('#guardarFacturacion, #inicio .cancel-data').slideUp();
 

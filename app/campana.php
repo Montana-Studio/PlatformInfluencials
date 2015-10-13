@@ -83,7 +83,7 @@
 							<div class="ver-mas"><span><i class="fa fa-angle-down"></i></span></div>
 							
 							<div class="content">
-
+								<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
 								<form id="campanaForm'.$row[0].'">		
 									
 									<ul class="tools-campana">
@@ -107,14 +107,18 @@
 									<!--button class="guardar-campana" type="submit" id="guardar-campana-'.$row[0].'">Guardar Cambios en '.$row[1].'</button-->
 									
 								</form>
+
+								<div class="img-compana-deskt hide">
+									<img src="'.$row[3].'"/>
+								</div>
 							</div>
 						
 					</div>
 
 				</div>
-			</div>
 		';
 	}while($row = mysqli_fetch_row($result));
+	echo '</div>';
 	}
 	if ($num_rows2 > 0){
 		echo '<h2 class="sub-titulo">campañas inactivas</h2><div class="creadas">';
@@ -216,7 +220,7 @@
 					<div class="ver-mas"><span><i class="fa fa-angle-down"></i></span></div>
 
 					<div class="content">
-
+						<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
 						<form id="campanaForm'.$row2[0].'">
 
 							<ul class="tools-campana">
@@ -252,6 +256,11 @@
 							<button class="guardar-campana" type="submit" id="guardar-campana-'.$row2[0].'">Guardar Campaña</button>
 						
 						</form>
+
+						<div class="img-compana-deskt hide">
+							<img src="'.$row2[3].'"/>
+						</div>
+
 					</div>
 
 				</div>
@@ -260,9 +269,9 @@
 		
 		';
 	}while($row2 = mysqli_fetch_row($result2));
+	echo '</div>';
 	}
 ?>
-</div>
 </div>
 
 <?php

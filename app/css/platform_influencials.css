@@ -1228,9 +1228,32 @@ main {
           position: absolute;
           background-color: #fff;
           z-index: 9;
-          top: 50%;
+          top: 20%;
           left: 0;
-          right: 0; } }
+          right: 0;
+          overflow: hidden; }
+          .creadas .recientes .content .img-compana-deskt {
+            float: left;
+            display: block;
+            margin-right: 2.35765%;
+            width: 48.82117%;
+            display: block;
+            padding: 0 20px 20px; }
+            .creadas .recientes .content .img-compana-deskt:last-child {
+              margin-right: 0; }
+            .creadas .recientes .content .img-compana-deskt img {
+              width: 100%;
+              height: auto; }
+          .creadas .recientes .content .btn_close {
+            position: relative;
+            float: right; }
+          .creadas .recientes .content form {
+            float: left;
+            display: block;
+            margin-right: 2.35765%;
+            width: 48.82117%; }
+            .creadas .recientes .content form:last-child {
+              margin-right: 0; } }
     @media screen and (min-width: 1024px) and (max-width: 1279px) {
       .creadas .recientes {
         float: left;
@@ -1266,6 +1289,14 @@ main {
         clear: both;
         content: "";
         display: table; } }
+  @media screen and (min-width: 320px) and (max-width: 640px) {
+    .creadas {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%; }
+      .creadas:last-child {
+        margin-right: 0; } }
 
 .no-campana a {
   float: left;
