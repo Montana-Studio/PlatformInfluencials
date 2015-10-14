@@ -250,7 +250,6 @@ $(document).ready(function(){
 		info.append('tipo','avatar');
 	
 		if(foto==1) {
-			//console.log(foto);
 			$.ajax({
 				type: "POST",  
 				url: "./procesar_imagen.php",  
@@ -270,7 +269,6 @@ $(document).ready(function(){
 					}
 				}
 			});
-			//console.log('');
 		}
 		else{
 			$.ajax({  
