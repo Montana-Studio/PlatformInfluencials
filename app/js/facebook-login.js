@@ -80,9 +80,9 @@ $(document).ready(function(){
 		            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id+"&tipo="+document.getElementById('tipoCliente').getAttribute('value'),  
 					
 					
-		            success: function(html){ 
+		            success: function(data){ 
 		            
-						switch (html){
+						switch (data){
 							case "dashboard": window.location.href="dashboard-agencia.php";
 							break;
 							case "false": 	window.location.href="./";
