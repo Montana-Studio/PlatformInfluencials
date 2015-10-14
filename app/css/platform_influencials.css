@@ -70,21 +70,13 @@ a {
 .crear-campana {
   text-align: center;
   position: fixed;
+  overflow: hidden;
   bottom: 10px;
   background-color: #18bb9b;
   height: 40px;
-  width: 40px;
   text-transform: uppercase;
   font-size: 12px;
-  cursor: pointer;
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
-  border-bottom-left-radius: 50%;
-  border-top-left-radius: 50%;
-  border-bottom-right-radius: 50%;
-  border-top-right-radius: 50%;
-  border-bottom-left-radius: 50%;
-  border-bottom-right-radius: 50%; }
+  cursor: pointer; }
   .crear-campana a {
     color: #fff;
     display: table;
@@ -94,8 +86,177 @@ a {
       display: table-cell;
       vertical-align: middle; }
       .crear-campana a span i {
-        margin-right: 3px; }
+        display: inline-block; }
+  .crear-campana.percentBorder {
+    -webkit-animation: formCampanas 0.5s ease-in forwards;
+    -moz-animation: formCampanas 0.5s ease-in forwards;
+    animation: formCampanas 0.5s ease-in forwards; }
+    .crear-campana.percentBorder a span i {
+      margin-right: 0px; }
+    .crear-campana.percentBorder a span div {
+      -webkit-animation: fadeLow 0.5s forwards;
+      -moz-animation: fadeLow 0.5s forwards;
+      animation: fadeLow 0.5s forwards;
+      display: none; }
+  .crear-campana.pixelBorder {
+    -webkit-animation: creaCampanas 0.5s ease-in forwards;
+    -moz-animation: creaCampanas 0.5s ease-in forwards;
+    animation: creaCampanas 0.5s ease-in forwards; }
+    .crear-campana.pixelBorder a span i {
+      margin-right: 3px; }
+    .crear-campana.pixelBorder a span div {
+      -webkit-animation: fadeLow 0.5s reverse;
+      -moz-animation: fadeLow 0.5s reverse;
+      animation: fadeLow 0.5s reverse;
+      display: inline-block; }
 
+@-webkit-keyframes formCampanas {
+  from {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 250px; }
+  to {
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    width: 40px; } }
+@-moz-keyframes formCampanas {
+  from {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 250px; }
+  to {
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    width: 40px; } }
+@keyframes formCampanas {
+  from {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 250px; }
+  to {
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    width: 40px; } }
+@-webkit-keyframes creaCampanas {
+  from {
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    width: 40px;
+    a {
+      border: 1px solid red; } }
+  to {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 250px; } }
+@-moz-keyframes creaCampanas {
+  from {
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    width: 40px;
+    a {
+      border: 1px solid red; } }
+  to {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 250px; } }
+@keyframes creaCampanas {
+  from {
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    width: 40px;
+    a {
+      border: 1px solid red; } }
+  to {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 250px; } }
+@-webkit-keyframes fadeLow {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+@-moz-keyframes fadeLow {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
+@keyframes fadeLow {
+  from {
+    opacity: 1; }
+  to {
+    opacity: 0; } }
 header {
   display: block;
   margin-right: 0;

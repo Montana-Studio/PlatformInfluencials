@@ -101,7 +101,7 @@
 			echo "<script>
 					jQuery(document).ready(function(){
 						$('title').append('Power Influencer - Campañas');
-						$('html').css({'background-color':'#fff','background-image':'none','padding-bottom':'40px'});
+						$('html').css({'background-color':'#fff','background-image':'none'});
 						$('body').addClass('campanas');
 					});
 				</script>";
