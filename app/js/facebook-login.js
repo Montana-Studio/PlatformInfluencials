@@ -1,4 +1,13 @@
 $(document).ready(function(){
+
+
+	  	var app_id = '973652052702468';
+	var scopes= 'email,user_friends';
+	var name;
+	var email;
+
+
+
 		function call_facebook_api(){
 			(function(d, s, id) {
 			var js, fjs = d.getElementsByTagName(s)[0];
@@ -40,10 +49,17 @@ $(document).ready(function(){
 		
 		checkLoginState(function(response){
 			if(!response){ //no esta conectado callback false
-			FB.login(function (response){
+			if( navigator.userAgent.match('CriOS') ){
+   			 window.open('https://www.facebook.com/dialog/oauth?client_id='+app_id+'&scope='+scopes,'', null);
+   			 getFacebookData();
+			}else{
+					FB.login(function (response){
 				if (response.status === 'connected')
 				getFacebookData();
 				}, {scope: scopes});
+			}
+
+		
 			};
 			});
 	};
@@ -59,10 +75,7 @@ $(document).ready(function(){
 
   	};
 
-  	var app_id = '973652052702468';
-	var scopes= 'email,user_friends';
-	var name;
-	var email;
+
 		
 	var getFacebookData = function(){
 		FB.api('/me',{ locale: 'en_US', fields: 'name, email' } 
