@@ -1,13 +1,10 @@
 .crear-campanas{
 	@extend .dashboard-agencia;
-	@include media($tabletLand){
-		background:{color: #eeeef0;}
-	}
-	@include media($desktop){
+	@include media($tabletLandTonotebook){
 		background:{color: #eeeef0;}
 	}
 	.sub-titulo{
-		@include media($desktop){
+		@include media($tabletLandTonotebook){
 			@include outer-container;
 		}
 	}
@@ -54,9 +51,6 @@
 		    right: 0;
 		    bottom: 10px;
 		    color:$color_font2;
-		}	
-		@include media($tabletLand){
-			@include span-columns(4 of 12);
 		}
 	}
 	.jfilestyle{
@@ -96,12 +90,7 @@
 		@include textAligns(center);
 	}
 	//MEDIA QUERIES
-	@include media($tabletLand){
-		@include span-columns(11);
-		@include shift(.5);
-		background: {color:#fff;}
-	}
-	@include media($desktop){
+	@include media($tabletLandTonotebook){
 		@include outer-container;
 		@include pad(0);
 		float:none;
@@ -119,7 +108,7 @@
 		.guardar{
 			@include row(rtl);
 			@include span-columns(4 of 12);
-			//@include shift(8);
+			@include shift(7.8);
 		}
 	}
 }

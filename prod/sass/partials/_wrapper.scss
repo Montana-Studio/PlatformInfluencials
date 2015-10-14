@@ -86,7 +86,7 @@ html{
 		}
 	}
 	//MEDIA QUERIES
-	@include media($desktop){
+	@include media($tabletLandTonotebook){
 		height: 100%;
 	}
 }
