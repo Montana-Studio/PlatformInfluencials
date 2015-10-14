@@ -10,6 +10,37 @@
     $row3= mysqli_fetch_array($result3, MYSQLI_BOTH);
     $num_row3= mysqli_num_rows($result3);
     $_SESSION['instagram']="";
+
+    echo '	   	 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+			<script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+				<script> 
+	 			$(document).ready(function(){
+	 		
+	 				
+					$(".estado_rs").click(function(){
+					//alert(this.name);
+					
+					var idRs = this.id;
+	 				var tipo = "activar_rs";
+	 				var idEstado =this.name;
+						$.ajax({  
+							type: "POST",  
+							url: "procesar_eliminar-campana.php",  
+							data: "idRs="+idRs+"&idEstado="+idEstado+"&tipo="+tipo,
+								
+							success: function(data){ 
+								window.location.reload();
+							}
+						});
+					
+					});
+				});
+			</script>';
+
+
+
+			
 	do{
 		$json_user_url ="https://api.instagram.com/v1/users/".$row3[3]."?access_token=".$row3[6];
 		$json_user= file_get_contents($json_user_url);
@@ -18,16 +49,21 @@
 		$username = $links_user_url->data->username;
 		$avatar = $links_user_url->data->profile_picture;
 	    if ($row3[5] == 1){
-	  		$suma_instagram+=$followers_instagram;
+	  		$suma_instagram+=(int)$followers_instagram;
 	    }	
 	    if ($row3[5] == 0){
-		    $estado="activar";
+	    	$estado= 0;
+		    $estado_descripcion="activar";
 		 }else{
-		    $estado = "desactivar";
+		    $estado= 1;
+		    $estado_descripcion="desactivar";
 		 }
-			$_SESSION['instagram'] .="<h3>".$username."   -    ".(int)$followers_instagram."<button>".$estado."</button><br/></h3><img src='".$avatar."'/>";
+			$_SESSION['instagram'] .="<h3>".$username."   -    ".(int)$followers_instagram."<button class='estado_rs' name='".$estado."' id='".$row3[0]."'>".$estado_descripcion."</button><br/></h3><img src='".$avatar."'/>";
+
+
 	}while($row3 = $result3->fetch_array());
 	$suma += $suma_instagram;
+
 	
 	
 	/****************************************************************************************************
@@ -61,12 +97,14 @@
 	   		$suma_twitter+=	$followers_count1;
 	    }
 	    if ($row4[5] == 0){
-	    	$estado="activar";
+	    	$estado=0;
+	    	$estado_descripcion="activar";
 	    }else{
-	    	$estado = "desactivar";
+	    	$estado=1;
+	    	$estado_descripcion = "desactivar";
 	    }
 
-	   $_SESSION['twitter'] .="<h3>".$username."   -    ".(int)$followers_count1."  <button>".$estado."</button> </h3><img src='".$avatar."'/>
+	   $_SESSION['twitter'] .="<h3>".$username."   -    ".(int)$followers_count1."  <button class='estado_rs' name='".$estado."' id='".$row4[0]."'>".$estado_descripcion."</button> </h3><img src='".$avatar."'/>
 	   <br/><b>últimos tweets</b>";
 
 	   for($i = 0; $i < 3 ; $i++){
@@ -74,6 +112,10 @@
 	   }
 	   $_SESSION['twitter'] .= $text;
 	   $text="";
+
 	}while($row4 = $result4->fetch_array());
 	 $suma += $suma_twitter;
+
+
 ?>
+

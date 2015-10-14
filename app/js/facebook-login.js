@@ -51,10 +51,7 @@ $(document).ready(function(){
 			if(!response){ //no esta conectado callback false
 			if( navigator.userAgent.match('CriOS') ){
    			 window.open('https://www.facebook.com/dialog/oauth?client_id='+app_id+'&scope='+scopes,'', null);
-   			 	FB.login(function (response){
-				if (response.status === 'connected')
-				getFacebookData();
-				}, {scope: scopes});
+   			 getFacebookData();
 			}else{
 					FB.login(function (response){
 				if (response.status === 'connected')
