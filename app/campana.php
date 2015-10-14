@@ -98,7 +98,7 @@
 										<input  placeholder="by '.$row[4].'" disabled />
 									</div>
 									
-									<span class="campa-ico"><i class="fa fa-cog"></i>Desactivada</span>
+									<span class="campa-ico"><i class="fa fa-cog"></i>Activada</span>
 									<span class="campa-ico"><i class="fa fa-calendar"></i>02 Octubre 2015</span>
 									
 									<div class="inputs-campana descripcion" id="descripcion-campana-'.$row[0].'">

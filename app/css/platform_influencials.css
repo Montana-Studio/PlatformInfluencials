@@ -15,10 +15,10 @@ a {
 .show {
   display: block; }
 
-.center-div, html body .contAllPI .ayuda_pi, main.form_agencias #antiguo, main.form_agencias #nuevo {
+.center-div, .crear-campana, html body .contAllPI .ayuda_pi, main.form_agencias #antiguo, main.form_agencias #nuevo {
   margin: 0 auto; }
 
-.center-absolute, html body .contAllPI .ayuda_pi, main.form_agencias #antiguo, main.form_agencias #nuevo {
+.center-absolute, .crear-campana, html body .contAllPI .ayuda_pi, main.form_agencias #antiguo, main.form_agencias #nuevo {
   left: 0;
   right: 0; }
 
@@ -68,20 +68,23 @@ a {
     vertical-align: middle; }
 
 .crear-campana {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 100%;
   text-align: center;
   position: fixed;
-  bottom: 0;
+  bottom: 10px;
   background-color: #18bb9b;
   height: 40px;
+  width: 40px;
   text-transform: uppercase;
   font-size: 12px;
-  cursor: pointer; }
-  .crear-campana:last-child {
-    margin-right: 0; }
+  cursor: pointer;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%; }
   .crear-campana a {
     color: #fff;
     display: table;
@@ -1167,6 +1170,12 @@ main {
           .creadas .recientes .content .tools-campana li .tool-ico {
             display: table-cell;
             vertical-align: middle; }
+        @media screen and (min-width: 1024px) and (max-width: 1440px) {
+          .creadas .recientes .content .tools-campana {
+            padding: 10px 0 0; } }
+        @media screen and (min-width: 1440px) {
+          .creadas .recientes .content .tools-campana {
+            padding: 10px 0 0; } }
       .creadas .recientes .content .campa-ico {
         float: left;
         display: block;
@@ -1285,22 +1294,31 @@ main {
           top: 20%;
           left: 0;
           right: 0;
-          overflow: hidden; }
+          overflow: hidden;
+          padding-bottom: 10px; }
           .creadas .recientes .content .img-compana-deskt {
             float: left;
             display: block;
             margin-right: 2.35765%;
             width: 48.82117%;
-            display: block;
-            padding: 0 20px 20px; }
+            display: block; }
             .creadas .recientes .content .img-compana-deskt:last-child {
               margin-right: 0; }
             .creadas .recientes .content .img-compana-deskt img {
               width: 100%;
               height: auto; }
+          .creadas .recientes .content .campana-data {
+            padding-top: 20px;
+            float: left;
+            display: block;
+            margin-right: 2.35765%;
+            width: 48.82117%; }
+            .creadas .recientes .content .campana-data:last-child {
+              margin-right: 0; }
           .creadas .recientes .content .btn_close {
             position: relative;
-            float: right; }
+            float: right;
+            right: 0; }
           .creadas .recientes .content form {
             float: left;
             display: block;
@@ -1318,22 +1336,31 @@ main {
           top: 20%;
           left: 0;
           right: 0;
-          overflow: hidden; }
+          overflow: hidden;
+          padding-bottom: 10px; }
           .creadas .recientes .content .img-compana-deskt {
             float: left;
             display: block;
             margin-right: 2.35765%;
             width: 48.82117%;
-            display: block;
-            padding: 0 20px 20px; }
+            display: block; }
             .creadas .recientes .content .img-compana-deskt:last-child {
               margin-right: 0; }
             .creadas .recientes .content .img-compana-deskt img {
               width: 100%;
               height: auto; }
+          .creadas .recientes .content .campana-data {
+            padding-top: 20px;
+            float: left;
+            display: block;
+            margin-right: 2.35765%;
+            width: 48.82117%; }
+            .creadas .recientes .content .campana-data:last-child {
+              margin-right: 0; }
           .creadas .recientes .content .btn_close {
             position: relative;
-            float: right; }
+            float: right;
+            right: 0; }
           .creadas .recientes .content form {
             float: left;
             display: block;
@@ -1619,16 +1646,11 @@ main {
         #campanaForm-nueva-campana .upload-deskt:last-child {
           margin-right: 0; }
       #campanaForm-nueva-campana .guardar {
-        display: block;
         float: left;
         display: block;
         margin-right: 2.35765%;
         width: 31.76157%;
         margin-left: 66.53247%; }
-        #campanaForm-nueva-campana .guardar::after {
-          clear: both;
-          content: "";
-          display: table; }
         #campanaForm-nueva-campana .guardar:last-child {
           margin-right: 0; } }
 

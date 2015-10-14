@@ -125,6 +125,12 @@
 						vertical-align:middle;
 					}
 				}
+				@include media($tabletLandTonotebook){
+					@include pad(10px 0 0);
+				}
+				@include media($desktop){
+					@include pad(10px 0 0);
+				}
 			}
 			.campa-ico{
 				@include span-columns(5 of 12);
@@ -218,18 +224,23 @@
 			    left:0;
 			    right:0;
 			    overflow: hidden;
+			    padding:{bottom:10px;}
 				.img-compana-deskt{
 					@include span-columns(6 of 12);
 					display: block;
-					@include pad(0 20px 20px);
 					img{
 						width:100%;
 						height:auto;
 					}
 				}
+				.campana-data{
+					padding-top:20px;
+					@include span-columns(6);
+				}
 				.btn_close{
 					position:relative;
 					float:right;
+					right:0;
 				}
 			    form{
 			    	@include span-columns(6);
@@ -245,18 +256,23 @@
 			    left:0;
 			    right:0;
 			    overflow: hidden;
+			    padding:{bottom:10px;}
 				.img-compana-deskt{
 					@include span-columns(6 of 12);
 					display: block;
-					@include pad(0 20px 20px);
 					img{
 						width:100%;
 						height:auto;
 					}
 				}
+				.campana-data{
+					padding-top:20px;
+					@include span-columns(6);
+				}
 				.btn_close{
 					position:relative;
 					float:right;
+					right:0;
 				}
 			    form{
 			    	@include span-columns(6);

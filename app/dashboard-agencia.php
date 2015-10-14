@@ -16,9 +16,22 @@ if ((int)$row[0] > 0){ ?>
 					$(".ver-mas").on("click",function(event){
 							
 							$(this).siblings(".content").slideToggle();
+							if(document.documentElement.clientWidth > 1024){
+								$(".bg-campana, .ver-mas, .sub-titulo").fadeOut();
+								$(".dashboard-agencia").animate({backgroundColor:"#c7c7c7"},"slow");
+							}
 							$(this).find("i").toggleClass("fa-angle-up fa-angle-down");
 							$("html,body").animate({scrollTop : $(this).siblings(".bg-campana").offset().top},1000);
 
+					});
+					
+					$(".btn_close").on("click",function(){
+							$(this).closest(".content").fadeOut();
+
+							if(document.documentElement.clientWidth > 1024){
+								$(".bg-campana, .ver-mas, .sub-titulo").fadeIn();
+								$(".dashboard-agencia").animate({backgroundColor:"#fff"},"slow");
+							}
 					});
 
 				});
@@ -37,9 +50,18 @@ if ((int)$row[0] > 0){ ?>
 						<div class="ver-mas"><span><i class="fa fa-angle-down"></i></span></div>
 						
 						<div class="content">
-							<span class="campa-ico"><i class="fa fa-cog"></i>Publicada</span>
-							<span class="campa-ico"><i class="fa fa-calendar"></i>02 Octubre 2015</span>
-							<p id="campana'.$row[0].'">'.$row[2].'</p>
+
+							<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
+							
+							<div class="campana-data">
+								<span class="campa-ico"><i class="fa fa-cog"></i>Publicada</span>
+								<span class="campa-ico"><i class="fa fa-calendar"></i>02 Octubre 2015</span>
+								<p id="campana'.$row[0].'">'.$row[2].'</p>
+							</div>
+
+							<div class="img-compana-deskt hide">
+								<img src="'.$row[3].'"/>
+							</div>
 						</div>
 
 					</div>

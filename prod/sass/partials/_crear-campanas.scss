@@ -106,7 +106,6 @@
 			@include pad();
 		}
 		.guardar{
-			@include row(rtl);
 			@include span-columns(4 of 12);
 			@include shift(7.8);
 		}
