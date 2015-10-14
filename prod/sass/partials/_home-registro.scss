@@ -76,8 +76,10 @@ main{
 			width:0;
 			height:0;
 			opacity:0;
-			@include pad(20px);
+			@include pad(20px 20px 0);
 			z-index: 9;
+			overflow:auto;
+			overflow-x: hidden;
 			h2{
 				@extend .hide;
 				color:$color_font2;
@@ -132,6 +134,15 @@ main{
 					background: {color:#0077b5;}
 					margin:{bottom:0;}
 				}
+				#alertRegistrado{
+					@include span-columns(12);
+					border:1px solid red;
+					color:red;
+					font:{size:10px;}
+					text:{transform:uppercase;}
+					display: none;
+					@include pad(10px 0);
+				}
 			}
 			//MediaQueries
 			@include media($mobileLand){
@@ -145,8 +156,6 @@ main{
 		}	
 		#nuevo{
 			@extend #antiguo;
-			overflow: scroll;
-			overflow-x: hidden;
 			padding:{bottom:10px;}
 			h2{
 				margin:0;
@@ -169,6 +178,15 @@ main{
 						background:{color:rgba(2, 147, 119, 0.34);}
 					}
 				}
+				.pass-no-equals{
+					@include span-columns(12);
+					border:1px solid red;
+					color:red;
+					font:{size:10px;}
+					text:{transform:uppercase;}
+					display: none;
+					@include pad(10px 0);
+				}
 				#selectImage{
 					label{
 						@include span-columns(12);
@@ -182,14 +200,6 @@ main{
 					input[type="file"]{
 						@extend .hide;
 					}
-				}
-				.registrationFormAlert{
-					position: absolute;
-					@extend .center-absolute;
-					@extend .center-div;
-					top: 7%;
-					font:{size: 12px;}
-					color: red;
 				}
 			}
 			//MediaQueries

@@ -91,18 +91,27 @@ if(isset($_SESSION['id'])){
 			</div>
 
 			<div id="nuevo">
-				<h2>Registro</h2>
+				<h2>registra tus datos</h2>
 
 				<form id="agenciaform" class="registerForm">
 				
-						<div>		
-							<select id="perfil">
-							<option value="" disabled selected>selecciona tu perfil </option>
-							<option value="3">influenciador</option>
-							<option value="4">publisher</option>
-							<option value="5">editor</option>
-							</select>
-						</div>
+					<div>		
+						<select id="perfil">
+						<option value="" disabled selected>selecciona tu perfil </option>
+						<option value="3">influenciador</option>
+						<option value="4">publisher</option>
+						<option value="5">editor</option>
+						</select>
+					</div>
+					
+					<div id="facebook-nuevo" class="fb_btn" value="registrarse con Facebook">
+						<i class="fa fa-facebook"></i>registrarse con Facebook
+					</div>
+					<div id="linkedin-nuevo" class="lk_btn">
+						<i class="fa fa-linkedin"></i>registrarse con Linkedin
+					</div>
+					
+					<p>o rellena el formulario</p>
 					
 					<input placeholder="Nombre" name="username-nuevo" class="usernamenuevo" required>
 			
@@ -112,9 +121,9 @@ if(isset($_SESSION['id'])){
 					
 					<input type="password" onChange="checkPasswordMatch()" placeholder="Contraseña" id="contraseñanuevo" class="contraseñanuevo" required>
 					<input type="password" onChange="checkPasswordMatch()" placeholder="Repetir Contraseña" id="ver-password" required> 
+					
+					<div id="divCheckPasswordMatch" class="pass-no-equals"><i class="fa fa-times"></i> Las contraseñas no coinciden</div>
 
-					
-					
 					<input class="telefonos telefono1nuevo" placeholder="Tel. Empresa" onkeypress="return valida(event)" name="telefono1-nuevo" id="telefono1nuevo" maxlength="11" required>
 					<input class="telefonos telefono2nuevo" placeholder="Tel. Personal" onkeypress="return valida(event)" name="telefono2-nuevo" id="telefono2nuevo" maxlength="11" required>
 					
@@ -122,19 +131,12 @@ if(isset($_SESSION['id'])){
 							
 						<input type="file" name="file" id="file" required>
 						<label for="file" class="btns" required>Sube una imágen</label>
-						<div id="divCheckPasswordMatch"></div>
+						
 						<button id="registrarse"  type="submit">Registrarse</button>
 
 					</div>
 					
-					<p>o registrate con</p>
-
-					<div id="facebook-nuevo" class="fb_btn" value="registrarse con Facebook">
-						<i class="fa fa-facebook"></i>registrarse con Facebook
-					</div>
-					<div id="linkedin-nuevo" class="lk_btn">
-						<i class="fa fa-linkedin"></i>registrarse con Linkedin
-					</div>
+					
 				</form>
 
 				<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
@@ -142,25 +144,30 @@ if(isset($_SESSION['id'])){
 
 			<div id="antiguo">
 				
-				<h2>Ingresar</h2>
+				<h2>Ingresa con tus datos</h2>
 
 				<form class="form_ingreso">
-
-					<!--input placeholder="Nombre" name="username" id="username"/-->
-					<input placeholder="Correo" name="correo" id="correo"/>
-					<input type="password" placeholder="Contraseña" id="password" />
 					
-					<div id="ingresar">ingresar</div>
-					<div id="alertRegistrado"></div>
-					
-					<p>o ingresa con</p>
-
 					<div id="facebook-antiguo" class="fb_btn" value="ingresar con Facebook">
 						<i class="fa fa-facebook"></i>ingresar con Facebook
 					</div>
 					<div id="linkedin-antiguo" class="lk_btn">
 						<i class="fa fa-linkedin"></i>ingresar con Linkedin
 					</div>
+
+					<p>o ingresa con tu correo</p>
+					
+					<!--input placeholder="Nombre" name="username" id="username"/-->
+					<input placeholder="Correo" name="correo" id="correo"/>
+					<input type="password" placeholder="Contraseña" id="password" />
+					
+					<div id="ingresar">ingresar</div>
+					
+					<div id="alertRegistrado"></div>
+					
+					
+
+					
 
 				</form>
 				

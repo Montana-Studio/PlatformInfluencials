@@ -8,7 +8,6 @@ $(document).ready(function(){
 		$('#perfil').hide();
 	}
 
-	$('#alertRegistrado').hide();
 	$('#facebook-name').hide();
 	$('#volver').hide();
 	
@@ -70,14 +69,14 @@ $(document).ready(function(){
 				break;
 				case "ipe": window.location.href = "./dashboard-ipe.php";
 				break;
-				case "inactivo": 	$('#alertRegistrado').show();
+				case "inactivo": 	$('#alertRegistrado').slideDown();
 									document.getElementById('alertRegistrado').innerHTML ="usuario inactivo";	
 										
 				break;
-				case "false": 		$('#alertRegistrado').show();
+				case "false": 		$('#alertRegistrado').slideDown();
 									document.getElementById('alertRegistrado').innerHTML ="usuario o password no existen";					
 				break;
-				case "vacio": 		$('#alertRegistrado').show();
+				case "vacio": 		$('#alertRegistrado').slideDown();
 									document.getElementById('alertRegistrado').innerHTML ="falta ingresar datos";					
 				break;
 				}
@@ -344,10 +343,10 @@ function checkPasswordMatch() {
 	var confirmPassword = $('#ver-password').val();
 	$('#registrarse').attr('disabled', 'disabled');
 	if (password != confirmPassword || password == ''|| confirmPassword =='' ){
-		$('#divCheckPasswordMatch').html('Las contraseñas no coinciden');
+		$('#divCheckPasswordMatch').slideDown();
 	}
 	else{
-		$('#divCheckPasswordMatch').html('');
+		$('#divCheckPasswordMatch').slideUp();
 		$('#registrarse').removeAttr('disabled');
 	}
 }

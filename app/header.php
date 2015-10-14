@@ -49,13 +49,12 @@
 			echo "<script> 
 					jQuery(document).ready(function(){
 						$('title').append('Power Influencer - ".$_SESSION['nombre']."');
-						$('html').css({'background-color':'#fff','background-image':'none','padding-bottom':'40px'});
+						$('html').css({'background-color':'#fff','background-image':'none'});
 						$('body').addClass('dashboard-agencia');
 					})
 				</script>";
 		}
 	}
-
 
 	if(basename($_SERVER['PHP_SELF'])=='nueva-campana.php'){
 			if(isset($_SESSION['telefono1'])==false){
@@ -81,7 +80,6 @@
 					});
 				</script>";
 	}
-
 
 	if(basename($_SERVER['PHP_SELF'])=='campana.php'){
 			if(isset($_SESSION['telefono1'])==false){

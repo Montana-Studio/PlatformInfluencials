@@ -1,4 +1,5 @@
 <?php 
+
 	if(basename($_SERVER['PHP_SELF'])=='index.php'){
 		echo '';
 	}else if(basename($_SERVER['PHP_SELF'])=='crear-campanas.php'){
