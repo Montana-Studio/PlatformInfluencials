@@ -49,9 +49,12 @@ $(document).ready(function(){
 		
 		checkLoginState(function(response){
 			if(!response){ //no esta conectado callback false
-			if( navigator.userAgent.match('CriOS') ){
+			//if( navigator.userAgent.match('CriOS') || userAgent.match(/iPad/i) || userAgent.match(/iPhone/i) ){
+			if( userAgent.match(/iPad/i) || userAgent.match(/iPhone/i) ){
    			 window.open('https://www.facebook.com/dialog/oauth?client_id='+app_id+'&scope='+scopes,'', null);
-   			 getFacebookData();
+   			 if (response.status === 'connected')
+				getFacebookData();
+				}, {scope: scopes});
 			}else{
 					FB.login(function (response){
 				if (response.status === 'connected')
