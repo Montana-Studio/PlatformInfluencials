@@ -49,10 +49,10 @@ $(document).ready(function(){
 		
 		checkLoginState(function(response){
 			if(!response){ //no esta conectado callback false
-			//if( navigator.userAgent.match('CriOS') || userAgent.match(/iPad/i) || userAgent.match(/iPhone/i) ){
-			if( userAgent.match(/iPad/i) || userAgent.match(/iPhone/i) ){
+			if( navigator.userAgent.match('CriOS') ){
    			 window.open('https://www.facebook.com/dialog/oauth?client_id='+app_id+'&scope='+scopes,'', null);
-   			 if (response.status === 'connected')
+   			 	FB.login(function (response){
+				if (response.status === 'connected')
 				getFacebookData();
 				}, {scope: scopes});
 			}else{
