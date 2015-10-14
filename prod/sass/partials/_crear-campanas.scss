@@ -3,6 +3,14 @@
 	@include media($tabletLand){
 		background:{color: #eeeef0;}
 	}
+	@include media($desktop){
+		background:{color: #eeeef0;}
+	}
+	.sub-titulo{
+		@include media($desktop){
+			@include outer-container;
+		}
+	}
 	.crear-campana{
 		@extend .hide;
 	}
@@ -18,11 +26,6 @@
 #campanaForm-nueva-campana{
 	@include span-columns(12);
 	@include pad();
-	@include media($tabletLand){
-		@include span-columns(11);
-		@include shift(.5);
-		background: {color:#fff;}
-	}
 	input{
 		@extend .inputs;
 		@include span-columns(12);
@@ -91,5 +94,32 @@
 		color:#fff;
 		background: {color:$color_font2;}
 		@include textAligns(center);
+	}
+	//MEDIA QUERIES
+	@include media($tabletLand){
+		@include span-columns(11);
+		@include shift(.5);
+		background: {color:#fff;}
+	}
+	@include media($desktop){
+		@include outer-container;
+		@include pad(0);
+		float:none;
+		background:{color: #FFF}
+		.inputs-deskt{
+			@include span-columns(6 of 12);
+			@include omega();
+			@include pad();
+		}
+		.upload-deskt{
+			@include span-columns(6 of 12);
+			@include omega();
+			@include pad();
+		}
+		.guardar{
+			@include row(rtl);
+			@include span-columns(4 of 12);
+			//@include shift(8);
+		}
 	}
 }
