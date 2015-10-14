@@ -49,15 +49,19 @@ a{
 	}
 }
 .crear-campana{
-	@include span-columns(12);
+	//@include span-columns(12);
 	@include textAligns(center);
 	position:fixed;
-	bottom:0;
+	bottom:10px;
 	background:{color: $color_font2;}
 	height:40px;
+	width:40px;
 	text:{transform:uppercase;}
 	font:{size:12px;}
 	cursor:pointer;
+	@include borderRadius(50%);
+	@extend .center-absolute;
+	@extend .center-div;
 	a{
 		color:#fff;
 		display:table;
