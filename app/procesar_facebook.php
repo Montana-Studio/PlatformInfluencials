@@ -54,7 +54,7 @@
 			$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 			$num_row= mysqli_num_rows($result);
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
-			$_SESSION['id']=$row[0];
+			$_SESSION['id']='lala';
 			$_SESSION['nombre']=$row[4];
 			$_SESSION['correo']=$row[5];
 			//$_SESSION['faceuser']=$username;
