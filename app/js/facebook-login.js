@@ -80,25 +80,28 @@ $(document).ready(function(){
 		            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id+"&tipo="+document.getElementById('tipoCliente').getAttribute('value'),  
 					
 					
-		            success: function(html){ 
+		            success: function(data){ 
+		            //alert(data);
 		            
-						switch (html){
-							case "dashboard": window.location.href="dashboard-agencia.php";
+						switch (data){
+							case "dashboard": window.location.href="../dashboard-agencia.php";
 							break;
 							case "false": 	window.location.href="./";
 							break;
-							case "primera": window.location.href="formulario-agencia.php";
+							case "primera": window.location.href="../formulario-agencia.php";
 							break;
-							case "formulario":  window.location.href="formulario-agencia.php";
+							case "formulario":  window.location.href="../formulario-agencia.php";
 							break;
-							case "dashboard-ipe": window.location.href="dashboard-ipe.php";
+							case "dashboard-ipe": window.location.href="../dashboard-ipe.php";
 							break;
+							/*
 							case "primera-ipe": window.location.href="formulario-agencia3.php";
-							break;
+							break;*/
 						}
 					}
 
 				});
+			console.log('');
 			});
 	}
 
