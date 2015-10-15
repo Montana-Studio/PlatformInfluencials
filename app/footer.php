@@ -14,7 +14,7 @@
 				<a href="nueva-campana.php" target="_top">
 					<span>
 						<i class="fa fa-plus"></i>
-						crear nueva campaña
+						<div>crear nueva campaña</div>
 					</span>
 				</a>
 			</div>
@@ -25,28 +25,19 @@
 					var $window = $(window);
 
 					function check_if_in_view(){
-					  var window_height = $window.height();
 					  var window_top_position = $window.scrollTop();
-					  var window_bottom_position = (window_top_position + window_height);
 					 
-					  $.each($animation_elements, function() {
-					    var $element = $(this);
-					    var element_height = $element.outerHeight();
-					    var element_top_position = $element.offset().top;
-					    var element_bottom_position = (element_top_position + element_height);
-					 
-					    //check to see if this current container is within viewport
-					    if ((element_bottom_position >= window_top_position) &&
-					        (element_top_position <= window_bottom_position)) {
-					      $(".crear-campana").animate({
-								//backgroundColor: "#f90"
-					      });
-					    } else {
-					      $(".crear-campana").animate({
-								backgroundColor: "#fff"
-					      });
+					  $.each($animation_elements, function(){
+					    
+					    if(window_top_position > 99){
+							$animation_elements.removeClass("pixelBorder").addClass("percentBorder");
 					    }
+					    if(window_top_position < 99){
+							$animation_elements.removeClass("percentBorder").addClass("pixelBorder");
+					    }
+
 					  });
+
 					}
 
 					$window.on("scroll resize", check_if_in_view);

@@ -52,14 +52,13 @@ a{
 	//@include span-columns(12);
 	@include textAligns(center);
 	position:fixed;
+	overflow:hidden;
 	bottom:10px;
 	background:{color: $color_font2;}
 	height:40px;
-	width:40px;
 	text:{transform:uppercase;}
 	font:{size:12px;}
 	cursor:pointer;
-	@include borderRadius(50%);
 	@extend .center-absolute;
 	@extend .center-div;
 	a{
@@ -71,7 +70,35 @@ a{
 			display: table-cell;
 			vertical:{align:middle;}
 			i{
-				margin:{right:3px;}
+				display: inline-block;
+			}
+		}
+	}
+	&.percentBorder{
+		@include animation(formCampanas .5s ease-in forwards);
+		a{
+			span{
+				i{
+					margin:{right:0px;}
+				}
+				div{
+					@include animation(fadeLow .5s forwards);
+					display: none;
+				}
+			}
+		}
+	}
+	&.pixelBorder{
+		@include animation(creaCampanas .5s ease-in forwards);
+		a{
+			span{
+				i{
+					margin:{right:3px;}
+				}
+				div{
+					@include animation(fadeLow .5s reverse);
+					display: inline-block;
+				}
 			}
 		}
 	}
