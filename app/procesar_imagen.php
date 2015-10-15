@@ -146,7 +146,8 @@ if ($tipo == 'avatar'){
 			$row_results_nombre= mysqli_fetch_array($results_nombre, MYSQLI_NUM);
 			$nombre= $row_results_nombre[0];
 
-	}else if($marca == ''){
+	}
+	if($marca == ''){
 			$results_marca = $mysqli->query("SELECT marca FROM campana  WHERE id='$idCampana'");		
 			$row_results_marca= mysqli_fetch_array($results_marca, MYSQLI_NUM);
 			$marca= $row_results_marca[0];

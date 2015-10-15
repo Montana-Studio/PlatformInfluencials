@@ -2,68 +2,67 @@
 
 <?php
 
-		echo '<script>
-				$(document).ready(function(){
-					$(".activar-campana").click(function (){
-							var idActualizar = this.id;
-							var idEstado = this.type;
-							alert(this.type);
-							var tipo = "activar";
-								$.ajax({
-									type: "POST",  
-									url: "procesar_eliminar-campana.php",  
-									data: "idActualizar="+idActualizar+"&idEstado="+idEstado+"&tipo="+tipo,
-									success: function(data){ 
-										window.location.reload();
-									}
-								});  
-					});
-
-					$(".btneliminar").click(function (){
-						var idEliminar = this.id;
-						var tipo = "eliminar";
-
-						if (confirm("realmente desea eliminar la campaña  :"+idEliminar)) {
+	echo '<script>
+			$(document).ready(function(){
+				$(".activar-campana").click(function (){
+						var idActualizar = this.id;
+						var idEstado = this.type;
+						var tipo = "activar";
 							$.ajax({
 								type: "POST",  
 								url: "procesar_eliminar-campana.php",  
-								data: "idEliminar="+idEliminar+"&tipo="+tipo,
-							
+								data: "idActualizar="+idActualizar+"&idEstado="+idEstado+"&tipo="+tipo,
 								success: function(data){ 
 									window.location.reload();
 								}
 							});  
-						}
-						return false; 
-					
-					});
+				});
 
-					var foto;
-					$(".file").click(function (){
-						foto = "1";
-					});
+				$(".btneliminar").click(function (){
+					var idEliminar = this.id;
+					var tipo = "eliminar";
 
-					
-				var info;
-				var idCampana = "'.$row2[0].'";
+					if (confirm("realmente desea eliminar la campaña  :"+idEliminar)) {
+						$.ajax({
+							type: "POST",  
+							url: "procesar_eliminar-campana.php",  
+							data: "idEliminar="+idEliminar+"&tipo="+tipo,
+						
+							success: function(data){ 
+								window.location.reload();
+							}
+						});  
+					}
+					return false; 
+				
+				});
+
+				var foto;
+				$(".file").click(function (){
+					foto = "1";
+				});
+
+
 				var idAgencia = '.$_SESSION["id"].';
 				var correo ="'.$_SESSION["correo"].'";
 				var rsid ="'.$_SESSION["rsid"].'";
 				var tipo ="imagen";
 				$(".campanaForm").on("submit",(function (e){
 					e.preventDefault();
-					//alert(this.id);
-					/*info = new FormData(this);
-					info.append("nombre",$("#nombre-campana-"+idCampana+" input").val());
-					info.append("marca",$("#marca-campana-"+idCampana+" input").val());
-					info.append("descripcion",$("#descripcion-campana-"+idCampana+" textarea").val());
-					info.append("idCampana",idCampana);
+					var info = new FormData(this);
+					var id = this.id;
+					var nombre = $("#"+id+" .nombre input").val();
+					var marca = $("#"+id+" .marca input").val();
+					var descripcion = $("#"+id+" .nombre textarea").val();
+					info.append("nombre",nombre);
+					info.append("marca",marca);
+					info.append("descripcion",descripcion);
+					info.append("idCampana",this.id);
 					info.append("idpersona",idAgencia);	
 					info.append("tipo",tipo);	
-					info.append("campana",idCampana);
+					info.append("campana",this.id);
 					info.append("id",idAgencia);
 					info.append("foto",foto);
-					//console.log(foto);
 					$.ajax({
 							type: "POST",  
 							url: "procesar_imagen.php",  
@@ -83,73 +82,18 @@
 								}
 						}
 					
-					});*/
+					});
 				
 				}));
-
-
-
-				});	
-			</script>';
-
-
-
+			});	
+		</script>';
 	if ($num_rows > 0){
 		echo '<h2 class="sub-titulo">campañas activas</h2><div class="creadas">';
 
 
 	do{ 
 		echo '
-			
-			<script>
-				$(document).ready(function(){
-					
-
-					var info;
-					var idCampana = "'.$row[0].'";
-					var idAgencia = '.$_SESSION["id"].';
-					var correo ="'.$_SESSION["correo"].'";
-					var rsid ="'.$_SESSION["rsid"].'";
-					var tipo ="imagen";
-					var foto;
-					$(".file").click(function (){
-						foto = "1";
-					});
-
-					$("#campanaForm'.$row[0].'").on("submit",(function (e){
-						e.preventDefault();
-						info = new FormData(this);
-		
-						info.append("idCampana",idCampana);
-						info.append("idpersona",idAgencia);	
-						info.append("tipo",tipo);	
-						info.append("campana",idCampana);
-						info.append("id",idAgencia);
-						info.append("foto",foto);
-						$.ajax({
-								type: "POST",  
-								url: "procesar_imagen.php",  
-								data: info,
-								enctype: "multipart/form-data",
-								contentType: false,      
-								cache: false,             
-								processData:false,
-
-							success: function(data){ 
-								//console.log(data);
-							
-							}
-						
-						});
-					}));
-					
-					
-				
-				});
-			</script>
-
-			
-				<div class="recientes">
+		<div class="recientes">
 					
 					<div class="cont-campana">
 						
@@ -206,92 +150,6 @@
 
 	do{ 
 		echo '
-		
-		
-		<script>
-
-
-			/*********************************************************************************
-					/*********************************************************************************
-					/*********************************************************************************
-					/*********************************************************************************
-					/*********************************************************************************
-					/*********************************************************************************
-					/*********************************************************************************
-					/*********************************************************************************
-					/*********************************************************************************
-					/*********************************************************************************/
-
-
-					
-			$(document).ready(function(){
-				var foto;
-					$(".file").click(function (){
-						foto = "1";
-					});
-	
-				var info;
-				var idAgencia = '.$_SESSION["id"].';
-				var correo ="'.$_SESSION["correo"].'";
-				var rsid ="'.$_SESSION["rsid"].'";
-				var tipo ="imagen";
-				$(".campanaForm").on("submit",(function (e){
-					e.preventDefault();
-					info = new FormData(this);
-					//info.append("nombre",$("#this.id).val());
-					var id = this.id;
-					alert(id);
-					var nombre = $("#"+id+" .nombre input").val();
-					alert(nombre);
-
-
-					/*********************************************************************************
-					/*********************************************************************************
-					/*********************************************************************************
-					/*********************************************************************************
-					/*********************************************************************************
-					/*********************************************************************************
-					/*********************************************************************************
-					/*********************************************************************************
-					/*********************************************************************************
-					/*********************************************************************************/
-					/*info.append("marca",$("#marca-campana-"+idCampana+" input").val());
-					info.append("descripcion",$("#descripcion-campana-"+idCampana+" textarea").val());
-					info.append("idCampana",this.id);
-					info.append("idpersona",idAgencia);	
-					info.append("tipo",tipo);	
-					info.append("campana",this.id);
-					info.append("id",idAgencia);
-					info.append("foto",foto);
-					//console.log(foto);
-					$.ajax({
-							type: "POST",  
-							url: "procesar_imagen.php",  
-							data: info,
-							enctype: "multipart/form-data",
-							contentType: false,      
-							cache: false,             
-							processData:false,
-
-						success: function(data){ 
-								switch (data){
-									case "nuevo": 	alert("registro actualizado");
-													window.location.reload();
-									break;
-									default: alert("problema con el tamaño o formato de la imagen");
-									break;
-								}
-						}
-					
-					});*/
-				
-				}));					
-		
-			
-
-
-			});
-			</script>
 			<div class="recientes">
 				<div class="cont-campana">
 
