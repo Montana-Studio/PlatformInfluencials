@@ -9,7 +9,7 @@ html {
 a {
   text-decoration: none; }
 
-.hide, #imagenform, #imagenform #inicio .tabpage div i, main.form_agencias, main.form_agencias #antiguo, main.form_agencias #nuevo, main.form_agencias #antiguo h2, main.form_agencias #nuevo h2, main.form_agencias #antiguo a, main.form_agencias #nuevo a, main.form_agencias #antiguo .form_ingreso, main.form_agencias #nuevo .form_ingreso, main.form_agencias #nuevo .registerForm, main.form_agencias #nuevo .registerForm #selectImage input[type="file"], main.form_agencias #nuevo .registerForm #selectImage .creadas .recientes .content .inputs-campana textarea[type="file"], .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm #selectImage textarea[type="file"], .creadas .recientes .content .inputs-campana i, .crear-campanas .crear-campana, #campanaForm-nueva-campana .jfilestyle .focus-jfilestyle label .count-jfilestyle {
+.hide, #imagenform, #imagenform #inicio .tabpage div i, main.form_agencias, main.form_agencias #antiguo, main.form_agencias #nuevo, main.form_agencias #antiguo h2, main.form_agencias #nuevo h2, main.form_agencias #antiguo a, main.form_agencias #nuevo a, main.form_agencias #antiguo .form_ingreso, main.form_agencias #nuevo .form_ingreso, main.form_agencias #nuevo .registerForm, main.form_agencias #nuevo .registerForm #selectImage input[type="file"], main.form_agencias #nuevo .registerForm #selectImage .creadas .recientes .content .inputs-campana textarea[type="file"], .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm #selectImage textarea[type="file"], .creadas .recientes .content .inputs-campana i, .crear-campanas .crear-campana {
   display: none; }
 
 .show {
@@ -21,6 +21,9 @@ a {
 .center-absolute, .crear-campana, html body .contAllPI .ayuda_pi, main.form_agencias #antiguo, main.form_agencias #nuevo {
   left: 0;
   right: 0; }
+
+.count-jfilestyle {
+  display: none !important; }
 
 .inputs, main.form_agencias #antiguo .form_ingreso input, main.form_agencias #nuevo .form_ingreso input, main.form_agencias #nuevo .registerForm input, main.form_agencias #antiguo .form_ingreso .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #antiguo .form_ingreso textarea, main.form_agencias #nuevo .form_ingreso .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .form_ingreso textarea, main.form_agencias #nuevo .registerForm .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm textarea, #campanaForm-nueva-campana input, #campanaForm-nueva-campana textarea {
   font-family: "Open Sans", sans-serif;
