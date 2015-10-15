@@ -107,3 +107,44 @@ a{
 		}
 	}
 }
+.alertElim{
+	@extend .hide;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	background:{color: rgba(0, 0, 0, .4);}
+	.boxElim{
+		top:-100px;
+		opacity: 0;
+		position: relative;
+		@include outer-container;
+		background:{color: #fff;}
+		max-width:35em;
+		@include fill-parent();
+		@include borderRadius(10px);
+		@include boxShadow(0px, 0px, 10px, 0px, #ccc);
+		.hrefCamp{
+			@include span-columns(12);
+			@include row();
+			@extend .center-div;
+			float:none;
+			.btn_crearcamp{
+				@include span-columns(4);
+				&.noElim{
+					@include shift(2);
+					color:$color_font2;
+					background:{color: #fff;}
+					border:1px solid $color_font2;
+				}
+				&.siElim{
+					@include shift(0);
+				}
+			}
+		}
+	}
+}

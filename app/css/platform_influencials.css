@@ -9,13 +9,13 @@ html {
 a {
   text-decoration: none; }
 
-.hide, #imagenform, #imagenform #inicio .tabpage div i, main.form_agencias, main.form_agencias #antiguo, main.form_agencias #nuevo, main.form_agencias #antiguo h2, main.form_agencias #nuevo h2, main.form_agencias #antiguo a, main.form_agencias #nuevo a, main.form_agencias #antiguo .form_ingreso, main.form_agencias #nuevo .form_ingreso, main.form_agencias #nuevo .registerForm, main.form_agencias #nuevo .registerForm #selectImage input[type="file"], main.form_agencias #nuevo .registerForm #selectImage .creadas .recientes .content .inputs-campana textarea[type="file"], .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm #selectImage textarea[type="file"], .creadas .recientes .content .inputs-campana i, .crear-campanas .crear-campana {
+.hide, .alertElim, #imagenform, #imagenform #inicio .tabpage div i, main.form_agencias, main.form_agencias #antiguo, main.form_agencias #nuevo, main.form_agencias #antiguo h2, main.form_agencias #nuevo h2, main.form_agencias #antiguo a, main.form_agencias #nuevo a, main.form_agencias #antiguo .form_ingreso, main.form_agencias #nuevo .form_ingreso, main.form_agencias #nuevo .registerForm, main.form_agencias #nuevo .registerForm #selectImage input[type="file"], main.form_agencias #nuevo .registerForm #selectImage .creadas .recientes .content .inputs-campana textarea[type="file"], .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm #selectImage textarea[type="file"], .creadas .recientes .content .inputs-campana i, .crear-campanas .crear-campana {
   display: none; }
 
 .show {
   display: block; }
 
-.center-div, .crear-campana, html body .contAllPI .ayuda_pi, main.form_agencias #antiguo, main.form_agencias #nuevo {
+.center-div, .crear-campana, .alertElim .boxElim .hrefCamp, html body .contAllPI .ayuda_pi, main.form_agencias #antiguo, main.form_agencias #nuevo {
   margin: 0 auto; }
 
 .center-absolute, .crear-campana, html body .contAllPI .ayuda_pi, main.form_agencias #antiguo, main.form_agencias #nuevo {
@@ -35,7 +35,7 @@ a {
   color: #107977;
   outline: none; }
 
-.btns, #imagenform #inicio #guardarFacturacion, #imagenform #inicio .cancel-data, main.ingreso_eleccion #tipo .btns_accesos, main.form_agencias #inicio .btns_accesos, main.form_agencias #antiguo .form_ingreso #ingresar, main.form_agencias #nuevo .form_ingreso #ingresar, main.form_agencias #nuevo .registerForm #ingresar, main.form_agencias #antiguo .form_ingreso .fb_btn, main.form_agencias #nuevo .form_ingreso .fb_btn, main.form_agencias #nuevo .registerForm .fb_btn, main.form_agencias #antiguo .form_ingreso .lk_btn, main.form_agencias #nuevo .form_ingreso .lk_btn, main.form_agencias #nuevo .registerForm .lk_btn, main.form_agencias #nuevo .registerForm #registrarse, .creadas .recientes .content .jfilestyle, .creadas .recientes .content .guardar-campana, .creadas .volver, .creadas .volver-campana, .no-campana a .btn_crearcamp, #campanaForm-nueva-campana .jfilestyle, #campanaForm-nueva-campana .guardar {
+.btns, #imagenform #inicio #guardarFacturacion, #imagenform #inicio .cancel-data, main.ingreso_eleccion #tipo .btns_accesos, main.form_agencias #inicio .btns_accesos, main.form_agencias #antiguo .form_ingreso #ingresar, main.form_agencias #nuevo .form_ingreso #ingresar, main.form_agencias #nuevo .registerForm #ingresar, main.form_agencias #antiguo .form_ingreso .fb_btn, main.form_agencias #nuevo .form_ingreso .fb_btn, main.form_agencias #nuevo .registerForm .fb_btn, main.form_agencias #antiguo .form_ingreso .lk_btn, main.form_agencias #nuevo .form_ingreso .lk_btn, main.form_agencias #nuevo .registerForm .lk_btn, main.form_agencias #nuevo .registerForm #registrarse, .creadas .recientes .content .jfilestyle, .creadas .recientes .content .guardar-campana, .creadas .volver, .creadas .volver-campana, .no-campana .hrefCamp .btn_crearcamp, #campanaForm-nueva-campana .jfilestyle, #campanaForm-nueva-campana .guardar {
   cursor: pointer;
   float: left;
   display: block;
@@ -55,7 +55,7 @@ a {
   font-size: 13px;
   padding: 10px 0;
   margin-bottom: 10px; }
-  .btns:last-child, #imagenform #inicio #guardarFacturacion:last-child, #imagenform #inicio .cancel-data:last-child, main.ingreso_eleccion #tipo .btns_accesos:last-child, main.form_agencias #inicio .btns_accesos:last-child, main.form_agencias #antiguo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .registerForm #ingresar:last-child, main.form_agencias #antiguo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .registerForm .fb_btn:last-child, main.form_agencias #antiguo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .registerForm .lk_btn:last-child, main.form_agencias #nuevo .registerForm #registrarse:last-child, .creadas .recientes .content .jfilestyle:last-child, .creadas .recientes .content .guardar-campana:last-child, .creadas .volver:last-child, .creadas .volver-campana:last-child, .no-campana a .btn_crearcamp:last-child, #campanaForm-nueva-campana .jfilestyle:last-child, #campanaForm-nueva-campana .guardar:last-child {
+  .btns:last-child, #imagenform #inicio #guardarFacturacion:last-child, #imagenform #inicio .cancel-data:last-child, main.ingreso_eleccion #tipo .btns_accesos:last-child, main.form_agencias #inicio .btns_accesos:last-child, main.form_agencias #antiguo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .registerForm #ingresar:last-child, main.form_agencias #antiguo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .registerForm .fb_btn:last-child, main.form_agencias #antiguo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .registerForm .lk_btn:last-child, main.form_agencias #nuevo .registerForm #registrarse:last-child, .creadas .recientes .content .jfilestyle:last-child, .creadas .recientes .content .guardar-campana:last-child, .creadas .volver:last-child, .creadas .volver-campana:last-child, .no-campana .hrefCamp .btn_crearcamp:last-child, #campanaForm-nueva-campana .jfilestyle:last-child, #campanaForm-nueva-campana .guardar:last-child {
     margin-right: 0; }
 
 .btn_close {
@@ -112,6 +112,69 @@ a {
       -moz-animation: fadeLow 0.5s reverse;
       animation: fadeLow 0.5s reverse;
       display: inline-block; }
+
+.alertElim {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); }
+  .alertElim .boxElim {
+    top: -100px;
+    opacity: 0;
+    position: relative;
+    max-width: 68em;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    max-width: 35em;
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    -webkit-box-shadow: 0px 0px 10px 0px #ccc;
+    -moz-box-shadow: 0px 0px 10px 0px #ccc;
+    box-shadow: 0px 0px 10px 0px #ccc; }
+    .alertElim .boxElim::after {
+      clear: both;
+      content: "";
+      display: table; }
+    .alertElim .boxElim .hrefCamp {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%;
+      display: block;
+      float: none; }
+      .alertElim .boxElim .hrefCamp:last-child {
+        margin-right: 0; }
+      .alertElim .boxElim .hrefCamp::after {
+        clear: both;
+        content: "";
+        display: table; }
+      .alertElim .boxElim .hrefCamp .btn_crearcamp {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 31.76157%; }
+        .alertElim .boxElim .hrefCamp .btn_crearcamp:last-child {
+          margin-right: 0; }
+        .alertElim .boxElim .hrefCamp .btn_crearcamp.noElim {
+          margin-left: 17.05961%;
+          color: #18bb9b;
+          background-color: #fff;
+          border: 1px solid #18bb9b; }
+        .alertElim .boxElim .hrefCamp .btn_crearcamp.siElim {
+          margin-left: 0%; }
 
 @-webkit-keyframes formCampanas {
   from {
@@ -1625,16 +1688,16 @@ main {
       .creadas:last-child {
         margin-right: 0; } }
 
-.no-campana a {
+.no-campana .hrefCamp {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 82.94039%;
   margin-left: 8.5298%;
   padding: 40px 20px 0; }
-  .no-campana a:last-child {
+  .no-campana .hrefCamp:last-child {
     margin-right: 0; }
-  .no-campana a i {
+  .no-campana .hrefCamp i {
     border-top-left-radius: 100%;
     border-top-right-radius: 100%;
     border-bottom-left-radius: 100%;
@@ -1649,43 +1712,43 @@ main {
     padding: 39px;
     font-size: 75px;
     color: #fff; }
-  .no-campana a h2 {
+  .no-campana .hrefCamp h2 {
     font-size: 14px;
     color: #18bb9b;
     text-transform: uppercase; }
-  .no-campana a p {
+  .no-campana .hrefCamp p {
     font-size: 14px;
     font-weight: normal;
     color: #c7c7c7; }
-  .no-campana a .btn_crearcamp {
+  .no-campana .hrefCamp .btn_crearcamp {
     margin-left: 8.5298%;
     background-color: #18bb9b; }
     @media screen and (min-width: 768px) and (max-width: 1023px) {
-      .no-campana a .btn_crearcamp {
+      .no-campana .hrefCamp .btn_crearcamp {
         float: left;
         display: block;
         margin-right: 2.35765%;
         width: 31.76157%;
         margin-left: 34.11922%; }
-        .no-campana a .btn_crearcamp:last-child {
+        .no-campana .hrefCamp .btn_crearcamp:last-child {
           margin-right: 0; } }
     @media screen and (min-width: 1024px) and (max-width: 1279px) {
-      .no-campana a .btn_crearcamp {
+      .no-campana .hrefCamp .btn_crearcamp {
         float: left;
         display: block;
         margin-right: 2.35765%;
         width: 23.23176%;
         margin-left: 38.38412%; }
-        .no-campana a .btn_crearcamp:last-child {
+        .no-campana .hrefCamp .btn_crearcamp:last-child {
           margin-right: 0; } }
     @media screen and (min-width: 1280px) {
-      .no-campana a .btn_crearcamp {
+      .no-campana .hrefCamp .btn_crearcamp {
         float: left;
         display: block;
         margin-right: 2.35765%;
         width: 23.23176%;
         margin-left: 38.38412%; }
-        .no-campana a .btn_crearcamp:last-child {
+        .no-campana .hrefCamp .btn_crearcamp:last-child {
           margin-right: 0; } }
 
 @media screen and (min-width: 1024px) and (max-width: 1440px) {

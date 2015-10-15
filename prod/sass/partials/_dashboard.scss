@@ -207,7 +207,7 @@
 				&.nombre{
 					input{
 						line:{height:12px;}
-						@include placeholder{ 
+						@include placeholder{
 							font:{size:15px;weight:bold;}
 						}
 					}
@@ -317,7 +317,7 @@
 	}
 }
 .no-campana{
-	a{
+	.hrefCamp{
 		@include span-columns(10);
 		@include shift(1);
 		@include pad(40px 20px 0);
