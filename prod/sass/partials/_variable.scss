@@ -1,0 +1,52 @@
+//FONTS
+//$fontAll:'Roboto Condensed', sans-serif;
+$fontAll:'Open Sans', sans-serif;
+$color_font:#107977;//GreenDark
+$color_font2:#18bb9b;//GreenLight
+
+//COLORS
+$color_grey:#c7c7c7;//GreyLight
+$color_grey2:#656b79;//GreyDark
+$color_blue:#2c327c;//Blue from gradient
+$blk-alfa:rgba(0,0,0,0.8);
+
+//TEXT ALIGN
+$text-center:center;
+$text-left:left;
+$text-right:right;
+$text-justify:justify;
+
+@mixin textAligns($aligns){
+	text-align:$aligns;
+}
+
+@mixin borderRadius($roundness){
+	@include border-top-radius($roundness);
+	@include border-left-radius($roundness);
+	@include border-right-radius($roundness);
+	@include border-bottom-radius($roundness);
+}
+
+@mixin boxShadow($top, $left, $blur, $spread, $color, $inset: false) {
+  @if $inset {
+    @include prefixer(box-shadow, $top $left $blur $spread $color, webkit moz spec);
+  } @else {
+    @include prefixer(box-shadow, $top $left $blur $spread $color, webkit moz spec);
+  }
+}
+@mixin bgSize($size){
+	@include prefixer(background-size,$size,moz);
+}
+//RESPONSIVE WIDTH
+$mobile:(max-width em(320));
+$mobileLand:(min-width em(480) max-width em(690));
+$tablet:(min-width em(768) max-width em(1023));
+$tabletLand:(min-width em(1024) max-width em(1279));
+$notebook:(min-width em(1280));
+$notebookLand:(min-width em(1281) max-width em(1439));
+$desktop:(min-width em(1440));
+
+$mobileTomobileLand: (min-width em(320) max-width em(640));
+$mobileLandTotablet: (min-width em(480) max-width em(1024));
+$tabletLandTonotebook: (min-width em(1024) max-width em(1440));
+$notebookTodesktop: (min-width em(1280) min-width em(1440));

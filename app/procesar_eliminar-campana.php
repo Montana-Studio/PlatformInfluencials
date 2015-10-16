@@ -39,8 +39,18 @@ if($_POST['tipo'] == "eliminar"){
 
 echo $_POST['tipo'];
 if($_POST['tipo'] == "activar"){
+	if($_POST['idEstado'] == 1) $idEstado =0;
+	else $idEstado = 1;
 	$idActualizar = $_POST['idActualizar'];
-	$idEstado = $_POST['idEstado'];
 	$actualiza= $mysqli->query("UPDATE campana SET idEstado='$idEstado' WHERE id='$idActualizar'");
 }
+
+if($_POST['tipo'] == "activar_rs"){
+	$idTwitter = $_POST['idRs'];
+	if($_POST['idEstado'] == 1) $idEstado =0;
+	else $idEstado = 1;
+	$actualiza= $mysqli->query("UPDATE rrss SET id_estado='$idEstado' WHERE id='$idTwitter'");
+}
+
+
 ?>

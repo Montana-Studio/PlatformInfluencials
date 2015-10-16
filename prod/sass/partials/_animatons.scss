@@ -1,0 +1,31 @@
+@include keyframes(formCampanas) {
+  from {
+    @include borderRadius(5px);
+    width:250px;
+  }
+  to {
+    @include borderRadius(50%);
+    width:40px;
+  }
+}
+@include keyframes(creaCampanas) {
+  from {
+    @include borderRadius(50%);
+    width:40px;
+    a{
+    	border:1px solid red;
+    }
+  }
+  to {
+    @include borderRadius(5px);
+    width:250px;
+  }
+}
+@include keyframes(fadeLow){
+	from{
+		opacity:1;
+	}
+	to{
+		opacity:0;
+	}
+}
