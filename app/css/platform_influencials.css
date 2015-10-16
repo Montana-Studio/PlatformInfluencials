@@ -9,13 +9,13 @@ html {
 a {
   text-decoration: none; }
 
-.hide, .alertElim, #imagenform, #imagenform #inicio .tabpage div i, main.form_agencias, main.form_agencias #antiguo, main.form_agencias #nuevo, main.form_agencias #antiguo h2, main.form_agencias #nuevo h2, main.form_agencias #antiguo a, main.form_agencias #nuevo a, main.form_agencias #antiguo .form_ingreso, main.form_agencias #nuevo .form_ingreso, main.form_agencias #nuevo .registerForm, main.form_agencias #nuevo .registerForm #selectImage input[type="file"], main.form_agencias #nuevo .registerForm #selectImage .creadas .recientes .content .inputs-campana textarea[type="file"], .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm #selectImage textarea[type="file"], .creadas .recientes .content .inputs-campana i, .crear-campanas .crear-campana {
+.hide, .alertElim, .alertElim #boxElim, .alertElim #boxAlert, #imagenform, #imagenform #inicio .tabpage div i, main.form_agencias, main.form_agencias #antiguo, main.form_agencias #nuevo, main.form_agencias #antiguo h2, main.form_agencias #nuevo h2, main.form_agencias #antiguo a, main.form_agencias #nuevo a, main.form_agencias #antiguo .form_ingreso, main.form_agencias #nuevo .form_ingreso, main.form_agencias #nuevo .registerForm, main.form_agencias #nuevo .registerForm #selectImage input[type="file"], main.form_agencias #nuevo .registerForm #selectImage .creadas .recientes .content .inputs-campana textarea[type="file"], .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm #selectImage textarea[type="file"], .creadas .recientes .content .inputs-campana i, .crear-campanas .crear-campana {
   display: none; }
 
 .show {
   display: block; }
 
-.center-div, .crear-campana, .alertElim .boxElim .hrefCamp, html body .contAllPI .ayuda_pi, main.form_agencias #antiguo, main.form_agencias #nuevo {
+.center-div, .crear-campana, .alertElim #boxElim .hrefCamp, .alertElim #boxAlert .hrefCamp, html body .contAllPI .ayuda_pi, main.form_agencias #antiguo, main.form_agencias #nuevo {
   margin: 0 auto; }
 
 .center-absolute, .crear-campana, html body .contAllPI .ayuda_pi, main.form_agencias #antiguo, main.form_agencias #nuevo {
@@ -123,15 +123,15 @@ a {
   top: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.4); }
-  .alertElim .boxElim {
+  .alertElim #boxElim, .alertElim #boxAlert {
     top: -100px;
     opacity: 0;
     position: relative;
     max-width: 68em;
     margin-left: auto;
     margin-right: auto;
+    max-width: 21em;
     background-color: #fff;
-    max-width: 35em;
     width: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -144,37 +144,52 @@ a {
     -webkit-box-shadow: 0px 0px 10px 0px #ccc;
     -moz-box-shadow: 0px 0px 10px 0px #ccc;
     box-shadow: 0px 0px 10px 0px #ccc; }
-    .alertElim .boxElim::after {
+    .alertElim #boxElim::after, .alertElim #boxAlert::after {
       clear: both;
       content: "";
       display: table; }
-    .alertElim .boxElim .hrefCamp {
+    @media screen and (min-width: 64em) and (max-width: 90em) {
+      .alertElim #boxElim, .alertElim #boxAlert {
+        max-width: 35em; } }
+    .alertElim #boxElim .hrefCamp, .alertElim #boxAlert .hrefCamp {
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 100%;
       display: block;
       float: none; }
-      .alertElim .boxElim .hrefCamp:last-child {
+      .alertElim #boxElim .hrefCamp:last-child, .alertElim #boxAlert .hrefCamp:last-child {
         margin-right: 0; }
-      .alertElim .boxElim .hrefCamp::after {
+      .alertElim #boxElim .hrefCamp::after, .alertElim #boxAlert .hrefCamp::after {
         clear: both;
         content: "";
         display: table; }
-      .alertElim .boxElim .hrefCamp .btn_crearcamp {
+      .alertElim #boxElim .hrefCamp .btn_crearcamp, .alertElim #boxAlert .hrefCamp .btn_crearcamp {
         float: left;
         display: block;
         margin-right: 2.35765%;
-        width: 31.76157%; }
-        .alertElim .boxElim .hrefCamp .btn_crearcamp:last-child {
+        width: 31.76157%;
+        font-size: 0.5em; }
+        .alertElim #boxElim .hrefCamp .btn_crearcamp:last-child, .alertElim #boxAlert .hrefCamp .btn_crearcamp:last-child {
           margin-right: 0; }
-        .alertElim .boxElim .hrefCamp .btn_crearcamp.noElim {
+        .alertElim #boxElim .hrefCamp .btn_crearcamp.noElim, .alertElim #boxAlert .hrefCamp .btn_crearcamp.noElim {
           margin-left: 17.05961%;
           color: #18bb9b;
           background-color: #fff;
           border: 1px solid #18bb9b; }
-        .alertElim .boxElim .hrefCamp .btn_crearcamp.siElim {
+        .alertElim #boxElim .hrefCamp .btn_crearcamp.siElim, .alertElim #boxAlert .hrefCamp .btn_crearcamp.siElim {
           margin-left: 0%; }
+        @media screen and (min-width: 64em) and (max-width: 90em) {
+          .alertElim #boxElim .hrefCamp .btn_crearcamp, .alertElim #boxAlert .hrefCamp .btn_crearcamp {
+            font-size: 0.8125em; } }
+  .alertElim #boxAlert #clearAlert {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+    margin-left: 25.58941%; }
+    .alertElim #boxAlert #clearAlert:last-child {
+      margin-right: 0; }
 
 @-webkit-keyframes formCampanas {
   from {
@@ -356,7 +371,7 @@ header {
       width: 100%;
       height: 100%;
       display: block; }
-    @media screen and (min-width: 1024px) and (max-width: 1440px) {
+    @media screen and (min-width: 64em) and (max-width: 90em) {
       header .logo {
         float: left;
         display: block;
@@ -366,7 +381,7 @@ header {
         background-image: url("../img/logo_pi3-04.svg"); }
         header .logo:last-child {
           margin-right: 0; } }
-    @media screen and (min-width: 1280px) and (min-width: 1440px) {
+    @media screen and (min-width: 80em) and (min-width: 90em) {
       header .logo {
         float: left;
         display: block;
@@ -388,7 +403,7 @@ header {
     height: 40px; }
     header .notes:last-child, header .ayuda_pi:last-child {
       margin-right: 0; }
-    @media screen and (min-width: 1024px) and (max-width: 1440px) {
+    @media screen and (min-width: 64em) and (max-width: 90em) {
       header .notes, header .ayuda_pi {
         float: left;
         display: block;
@@ -396,7 +411,7 @@ header {
         width: 1.90725%; }
         header .notes:last-child, header .ayuda_pi:last-child {
           margin-right: 0; } }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 90em) {
       header .notes, header .ayuda_pi {
         float: left;
         display: block;
@@ -409,13 +424,13 @@ header {
       vertical-align: middle; }
   header .ayuda_pi {
     margin-left: 55.44373%; }
-    @media screen and (min-width: 1280px) and (min-width: 1440px) {
+    @media screen and (min-width: 80em) and (min-width: 90em) {
       header .ayuda_pi {
         margin-left: 51.17883%; } }
-    @media screen and (min-width: 1024px) and (max-width: 1440px) {
+    @media screen and (min-width: 64em) and (max-width: 90em) {
       header .ayuda_pi {
         margin-left: 66.53247%; } }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 90em) {
       header .ayuda_pi {
         margin-left: 66.53247%; } }
   header .menu {
@@ -442,7 +457,7 @@ header {
     z-index: 9; }
     header .menu:last-child {
       margin-right: 0; }
-    @media screen and (min-width: 768px) and (max-width: 1023px) {
+    @media screen and (min-width: 48em) and (max-width: 63.9375em) {
       header .menu {
         float: left;
         display: block;
@@ -451,7 +466,7 @@ header {
         margin-left: 4.2649%; }
         header .menu:last-child {
           margin-right: 0; } }
-    @media screen and (min-width: 1024px) and (max-width: 1440px) {
+    @media screen and (min-width: 64em) and (max-width: 90em) {
       header .menu {
         float: left;
         display: block;
@@ -459,7 +474,7 @@ header {
         width: 3.18672%; }
         header .menu:last-child {
           margin-right: 0; } }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 90em) {
       header .menu {
         float: left;
         display: block;
@@ -616,7 +631,7 @@ nav {
         margin: 0;
         font-size: 18px;
         color: #18bb9b; }
-        @media screen and (max-width: 320px) {
+        @media screen and (max-width: 20em) {
           #imagenform .misdatos .datos h2 {
             font-size: 15px; } }
       #imagenform .misdatos .datos h3 {
@@ -790,7 +805,7 @@ nav {
       padding: 10px 0 0; }
       #imagenform #inicio .logout:last-child {
         margin-right: 0; }
-  @media screen and (min-width: 320px) and (max-width: 640px) {
+  @media screen and (min-width: 20em) and (max-width: 40em) {
     #imagenform {
       float: left;
       display: block;
@@ -798,7 +813,7 @@ nav {
       width: 82.94039%; }
       #imagenform:last-child {
         margin-right: 0; } }
-  @media screen and (min-width: 480px) and (max-width: 1024px) {
+  @media screen and (min-width: 30em) and (max-width: 64em) {
     #imagenform {
       float: left;
       display: block;
@@ -806,7 +821,7 @@ nav {
       width: 48.82117%; }
       #imagenform:last-child {
         margin-right: 0; } }
-  @media screen and (min-width: 1024px) and (max-width: 1440px) {
+  @media screen and (min-width: 64em) and (max-width: 90em) {
     #imagenform {
       float: left;
       display: block;
@@ -815,7 +830,7 @@ nav {
       margin-right: 1% !important; }
       #imagenform:last-child {
         margin-right: 0; } }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 90em) {
     #imagenform {
       float: left;
       display: block;
@@ -850,13 +865,13 @@ html {
         clear: both;
         content: "";
         display: table; }
-      @media screen and (min-width: 1440px) {
+      @media screen and (min-width: 90em) {
         html body .contAllPI {
           padding-top: 15% !important; } }
-      @media screen and (min-width: 1024px) and (max-width: 1440px) {
+      @media screen and (min-width: 64em) and (max-width: 90em) {
         html body .contAllPI {
           padding-top: 20% !important; } }
-      @media screen and (min-width: 480px) and (max-width: 690px) {
+      @media screen and (min-width: 30em) and (max-width: 43.125em) {
         html body .contAllPI {
           padding-top: 3% !important; } }
       html body .contAllPI .logo_pi {
@@ -870,15 +885,12 @@ html {
           clear: both;
           content: "";
           display: table; }
-        @media screen and (max-width: 320px) {
+        @media screen and (max-width: 20em) {
           html body .contAllPI .logo_pi {
             background-size: 85%; } }
-        @media screen and (min-width: 480px) and (max-width: 690px) {
+        @media screen and (min-width: 30em) and (max-width: 43.125em) {
           html body .contAllPI .logo_pi {
             background-size: 55%; } }
-        @media screen and (min-width: 1024px) and (max-width: 1440px) {
-          html body .contAllPI .logo_pi {
-            background-size: 100% 80%; } }
       html body .contAllPI .volverTipo {
         display: block;
         font-size: 9px;
@@ -910,7 +922,7 @@ html {
           display: table; }
     html body.formularios-registro {
       background-image: none; }
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 80em) {
       html body {
         background-image: none; }
         html body .video-container {
@@ -935,7 +947,7 @@ html {
             html body .video-container video.fillWidth {
               width: 100%;
               height: 100%; } }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 90em) {
       html body {
         background-image: none; }
         html body .video-container {
@@ -958,7 +970,7 @@ html {
             html body .video-container video.fillWidth {
               width: 115%;
               height: 100%; } }
-  @media screen and (min-width: 1024px) and (max-width: 1440px) {
+  @media screen and (min-width: 64em) and (max-width: 90em) {
     html {
       height: 100%; } }
 
@@ -968,7 +980,7 @@ main {
     margin-top: 48px; }
     main.ingreso_eleccion #tipo .btns_accesos {
       margin-left: 8.5298%; }
-      @media screen and (min-width: 480px) and (max-width: 690px) {
+      @media screen and (min-width: 30em) and (max-width: 43.125em) {
         main.ingreso_eleccion #tipo .btns_accesos {
           float: left;
           display: block;
@@ -977,7 +989,7 @@ main {
           margin-left: 25.58941%; }
           main.ingreso_eleccion #tipo .btns_accesos:last-child {
             margin-right: 0; } }
-      @media screen and (min-width: 768px) and (max-width: 1023px) {
+      @media screen and (min-width: 48em) and (max-width: 63.9375em) {
         main.ingreso_eleccion #tipo .btns_accesos {
           float: left;
           display: block;
@@ -986,7 +998,7 @@ main {
           margin-left: 34.11922%; }
           main.ingreso_eleccion #tipo .btns_accesos:last-child {
             margin-right: 0; } }
-      @media screen and (min-width: 1024px) and (max-width: 1279px) {
+      @media screen and (min-width: 64em) and (max-width: 79.9375em) {
         main.ingreso_eleccion #tipo .btns_accesos {
           float: left;
           display: block;
@@ -995,7 +1007,7 @@ main {
           margin-left: 38.38412%; }
           main.ingreso_eleccion #tipo .btns_accesos:last-child {
             margin-right: 0; } }
-      @media screen and (min-width: 1280px) {
+      @media screen and (min-width: 80em) {
         main.ingreso_eleccion #tipo .btns_accesos {
           float: left;
           display: block;
@@ -1004,20 +1016,20 @@ main {
           margin-left: 38.38412%; }
           main.ingreso_eleccion #tipo .btns_accesos:last-child {
             margin-right: 0; } }
-    @media screen and (min-width: 1024px) and (max-width: 1440px) {
+    @media screen and (min-width: 64em) and (max-width: 90em) {
       main.ingreso_eleccion {
         margin-top: 10px; } }
-    @media screen and (min-width: 1280px) and (min-width: 1440px) {
+    @media screen and (min-width: 80em) and (min-width: 90em) {
       main.ingreso_eleccion {
         margin-top: 10px; } }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 90em) {
       main.ingreso_eleccion {
         margin-top: 10px; } }
   main.form_agencias {
     margin-top: 48px; }
     main.form_agencias #inicio .btns_accesos {
       margin-left: 8.5298%; }
-      @media screen and (min-width: 480px) and (max-width: 690px) {
+      @media screen and (min-width: 30em) and (max-width: 43.125em) {
         main.form_agencias #inicio .btns_accesos {
           float: left;
           display: block;
@@ -1026,7 +1038,7 @@ main {
           margin-left: 25.58941%; }
           main.form_agencias #inicio .btns_accesos:last-child {
             margin-right: 0; } }
-      @media screen and (min-width: 768px) and (max-width: 1023px) {
+      @media screen and (min-width: 48em) and (max-width: 63.9375em) {
         main.form_agencias #inicio .btns_accesos {
           float: left;
           display: block;
@@ -1035,7 +1047,7 @@ main {
           margin-left: 34.11922%; }
           main.form_agencias #inicio .btns_accesos:last-child {
             margin-right: 0; } }
-      @media screen and (min-width: 1024px) and (max-width: 1279px) {
+      @media screen and (min-width: 64em) and (max-width: 79.9375em) {
         main.form_agencias #inicio .btns_accesos {
           float: left;
           display: block;
@@ -1044,7 +1056,7 @@ main {
           margin-left: 38.38412%; }
           main.form_agencias #inicio .btns_accesos:last-child {
             margin-right: 0; } }
-      @media screen and (min-width: 1280px) {
+      @media screen and (min-width: 80em) {
         main.form_agencias #inicio .btns_accesos {
           float: left;
           display: block;
@@ -1163,10 +1175,10 @@ main {
           padding: 10px 0; }
           main.form_agencias #antiguo .form_ingreso #alertRegistrado:last-child, main.form_agencias #nuevo .form_ingreso #alertRegistrado:last-child, main.form_agencias #nuevo .registerForm #alertRegistrado:last-child {
             margin-right: 0; }
-      @media screen and (min-width: 480px) and (max-width: 690px) {
+      @media screen and (min-width: 30em) and (max-width: 43.125em) {
         main.form_agencias #antiguo, main.form_agencias #nuevo {
           top: 2%; } }
-      @media screen and (min-width: 768px) and (max-width: 1023px) {
+      @media screen and (min-width: 48em) and (max-width: 63.9375em) {
         main.form_agencias #antiguo, main.form_agencias #nuevo {
           top: 23%;
           max-width: 50%;
@@ -1227,22 +1239,22 @@ main {
         color: #18bb9b; }
         main.form_agencias #nuevo .registerForm #selectImage label:last-child {
           margin-right: 0; }
-      @media screen and (min-width: 768px) and (max-width: 1023px) {
+      @media screen and (min-width: 48em) and (max-width: 63.9375em) {
         main.form_agencias #nuevo {
           min-height: 435px; } }
-    @media screen and (min-width: 1024px) and (max-width: 1440px) {
+    @media screen and (min-width: 64em) and (max-width: 90em) {
       main.form_agencias {
         margin-top: 10px; }
         main.form_agencias #antiguo, main.form_agencias #nuevo {
           max-width: 35% !important;
           top: 26%; } }
-    @media screen and (min-width: 1280px) and (min-width: 1440px) {
+    @media screen and (min-width: 80em) and (min-width: 90em) {
       main.form_agencias {
         margin-top: 10px; }
         main.form_agencias #antiguo, main.form_agencias #nuevo {
           max-width: 35% !important;
           top: 26%; } }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 90em) {
       main.form_agencias {
         margin-top: 10px; }
         main.form_agencias #antiguo, main.form_agencias #nuevo {
@@ -1259,7 +1271,7 @@ main {
     color: #c7c7c7;
     padding: 10px;
     clear: both; }
-    @media screen and (min-width: 1024px) and (max-width: 1440px) {
+    @media screen and (min-width: 64em) and (max-width: 90em) {
       .dashboard-agencia .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo {
         max-width: 68em;
         margin-left: auto;
@@ -1271,422 +1283,435 @@ main {
           clear: both;
           content: "";
           display: table; } }
-    @media screen and (min-width: 1440px) {
+    @media screen and (min-width: 90em) {
       .dashboard-agencia .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo {
         color: #656b79;
         font-size: 18px;
         font-weight: normal; } }
 
-.creadas {
+.creadas .recientes {
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
   display: block; }
-  .creadas::after {
+  .creadas .recientes::after {
     clear: both;
     content: "";
     display: table; }
-  .creadas .recientes {
-    display: block;
-    padding: 0;
-    overflow: hidden;
-    position: relative;
-    display: block; }
-    .creadas .recientes::after {
-      clear: both;
-      content: "";
-      display: table; }
-    .creadas .recientes .bg-campana {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 100%;
-      padding: 148px 5px 0;
-      position: relative;
-      overflow: hidden;
-      min-height: 182px;
-      background-position: center;
-      background-size: cover;
-      -webkit-box-shadow: inset 0 -60px 54px -18px rgba(0, 0, 0, 0.8);
-      -moz-box-shadow: inset 0 -60px 54px -18px rgba(0, 0, 0, 0.8);
-      box-shadow: inset 0 -60px 54px -18px rgba(0, 0, 0, 0.8); }
-      .creadas .recientes .bg-campana:last-child {
-        margin-right: 0; }
-      .creadas .recientes .bg-campana h3 {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 91.4702%;
-        color: #fff;
-        font-size: 16px;
-        margin: 0;
-        padding: 0 0 5px; }
-        .creadas .recientes .bg-campana h3:last-child {
-          margin-right: 0; }
-        .creadas .recientes .bg-campana h3 span {
-          display: block;
-          font-size: 11px;
-          font-weight: normal;
-          font-style: italic; }
-      .creadas .recientes .bg-campana p {
-        margin: 0;
-        padding: 0; }
-      @media screen and (min-width: 1024px) and (max-width: 1440px) {
-        .creadas .recientes .bg-campana {
-          padding-top: 256px; } }
-      @media screen and (min-width: 1440px) {
-        .creadas .recientes .bg-campana {
-          padding-top: 256px; } }
-    .creadas .recientes .ver-mas {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 100%;
-      color: #18bb9b;
-      padding: 8px 0 0;
-      cursor: pointer;
-      margin-top: -40px;
-      position: relative; }
-      .creadas .recientes .ver-mas:last-child {
-        margin-right: 0; }
-      .creadas .recientes .ver-mas span {
-        width: 20px;
-        height: 20px;
-        border-top-left-radius: 50%;
-        border-top-right-radius: 50%;
-        border-bottom-left-radius: 50%;
-        border-top-left-radius: 50%;
-        border-bottom-right-radius: 50%;
-        border-top-right-radius: 50%;
-        border-bottom-left-radius: 50%;
-        border-bottom-right-radius: 50%;
-        border: 2px solid #18bb9b;
-        display: table;
-        text-align: center;
-        float: right;
-        margin-right: 5px; }
-        .creadas .recientes .ver-mas span i {
-          display: table-cell;
-          vertical-align: middle;
-          font-weight: bold;
-          font-size: 14px; }
-    .creadas .recientes .content {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 100%;
-      padding: 0 15px; }
-      .creadas .recientes .content:last-child {
-        margin-right: 0; }
-      .creadas .recientes .content .tools-campana {
-        width: 100%;
-        display: block;
-        padding: 0; }
-        .creadas .recientes .content .tools-campana::after {
-          clear: both;
-          content: "";
-          display: table; }
-        .creadas .recientes .content .tools-campana li {
-          float: left;
-          display: block;
-          margin-right: 2.35765%;
-          width: 33.29693%;
-          padding: 0 15px;
-          margin-right: 0;
-          text-align: center;
-          height: 29px;
-          color: #18bb9b;
-          font-size: 11px;
-          display: table;
-          border-bottom: 1px solid #18bb9b;
-          border-top: 1px solid #18bb9b;
-          cursor: pointer; }
-          .creadas .recientes .content .tools-campana li:last-child {
-            margin-right: 0; }
-          .creadas .recientes .content .tools-campana li:first-child {
-            border-bottom-left-radius: 5px;
-            border-top-left-radius: 5px;
-            border-left: 1px solid #18bb9b;
-            border-right: 1px solid #18bb9b; }
-          .creadas .recientes .content .tools-campana li:last-child {
-            border-bottom-right-radius: 5px;
-            border-top-right-radius: 5px;
-            border-right: 1px solid #18bb9b;
-            border-left: 1px solid #18bb9b; }
-          .creadas .recientes .content .tools-campana li:hover {
-            background-color: #18bb9b;
-            color: #fff; }
-          .creadas .recientes .content .tools-campana li .tool-txt {
-            float: none;
-            display: table-cell;
-            vertical-align: middle;
-            text-transform: uppercase;
-            height: 11px; }
-          .creadas .recientes .content .tools-campana li .tool-ico {
-            display: table-cell;
-            vertical-align: middle; }
-        @media screen and (min-width: 1024px) and (max-width: 1440px) {
-          .creadas .recientes .content .tools-campana {
-            padding: 10px 0 0; } }
-        @media screen and (min-width: 1440px) {
-          .creadas .recientes .content .tools-campana {
-            padding: 10px 0 0; } }
-      .creadas .recientes .content .campa-ico {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 40.29137%;
-        padding: 2.35765%;
-        color: #c7c7c7;
-        font-size: 11px; }
-        .creadas .recientes .content .campa-ico:last-child {
-          margin-right: 0; }
-        .creadas .recientes .content .campa-ico:first-child {
-          float: left;
-          display: block;
-          margin-right: 2.35765%;
-          width: 31.76157%;
-          text-transform: uppercase; }
-          .creadas .recientes .content .campa-ico:first-child:last-child {
-            margin-right: 0; }
-        .creadas .recientes .content .campa-ico i {
-          margin-right: 3px; }
-      .creadas .recientes .content p {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 100%;
-        padding: 2.35765%;
-        color: #c7c7c7;
-        font-size: 12px;
-        font-style: italic;
-        margin-top: 0; }
-        .creadas .recientes .content p:last-child {
-          margin-right: 0; }
-      .creadas .recientes .content .jfilestyle {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 100%;
-        border-color: #18bb9b;
-        color: #18bb9b;
-        text-align: center; }
-        .creadas .recientes .content .jfilestyle:last-child {
-          margin-right: 0; }
-        .creadas .recientes .content .jfilestyle span {
-          display: block;
-          width: 100%;
-          height: 100%; }
-      .creadas .recientes .content .guardar-campana {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 100%;
-        color: #fff;
-        background-color: #18bb9b; }
-        .creadas .recientes .content .guardar-campana:last-child {
-          margin-right: 0; }
-      .creadas .recientes .content .inputs-campana {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 100%;
-        overflow: hidden;
-        position: relative; }
-        .creadas .recientes .content .inputs-campana:last-child {
-          margin-right: 0; }
-        .creadas .recientes .content .inputs-campana i {
-          position: absolute;
-          color: #18bb9b;
-          right: 1px;
-          top: 7px;
-          font-size: 12px; }
-        .creadas .recientes .content .inputs-campana input, .creadas .recientes .content .inputs-campana textarea {
-          width: 100%;
-          border: none; }
-          .creadas .recientes .content .inputs-campana input::-webkit-input-placeholder, .creadas .recientes .content .inputs-campana textarea::-webkit-input-placeholder {
-            color: #484d58;
-            font-size: 10px; }
-          .creadas .recientes .content .inputs-campana input::-moz-placeholder, .creadas .recientes .content .inputs-campana textarea::-moz-placeholder {
-            color: #484d58;
-            font-size: 10px; }
-          .creadas .recientes .content .inputs-campana input:-moz-placeholder, .creadas .recientes .content .inputs-campana textarea:-moz-placeholder {
-            color: #484d58;
-            font-size: 10px; }
-          .creadas .recientes .content .inputs-campana input:-ms-input-placeholder, .creadas .recientes .content .inputs-campana textarea:-ms-input-placeholder {
-            color: #484d58;
-            font-size: 10px; }
-          .creadas .recientes .content .inputs-campana input[disabled], .creadas .recientes .content .inputs-campana textarea[disabled] {
-            background-color: #fff; }
-        .creadas .recientes .content .inputs-campana textarea {
-          color: #c7c7c7;
-          font-size: 10px;
-          font-style: italic;
-          min-height: 100px; }
-        .creadas .recientes .content .inputs-campana.descripcion i {
-          top: 0; }
-        .creadas .recientes .content .inputs-campana.nombre input, .creadas .recientes .content .inputs-campana.nombre textarea {
-          line-height: 12px; }
-          .creadas .recientes .content .inputs-campana.nombre input::-webkit-input-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea::-webkit-input-placeholder {
-            font-size: 15px;
-            font-weight: bold; }
-          .creadas .recientes .content .inputs-campana.nombre input::-moz-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea::-moz-placeholder {
-            font-size: 15px;
-            font-weight: bold; }
-          .creadas .recientes .content .inputs-campana.nombre input:-moz-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea:-moz-placeholder {
-            font-size: 15px;
-            font-weight: bold; }
-          .creadas .recientes .content .inputs-campana.nombre input:-ms-input-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea:-ms-input-placeholder {
-            font-size: 15px;
-            font-weight: bold; }
-      @media screen and (min-width: 1024px) and (max-width: 1440px) {
-        .creadas .recientes .content {
-          width: 80%;
-          margin: 0 auto !important;
-          position: absolute;
-          background-color: #fff;
-          z-index: 9;
-          top: 20%;
-          left: 0;
-          right: 0;
-          overflow: hidden;
-          padding-bottom: 10px; }
-          .creadas .recientes .content .img-compana-deskt {
-            float: left;
-            display: block;
-            margin-right: 2.35765%;
-            width: 48.82117%;
-            display: block; }
-            .creadas .recientes .content .img-compana-deskt:last-child {
-              margin-right: 0; }
-            .creadas .recientes .content .img-compana-deskt img {
-              width: 100%;
-              height: auto; }
-          .creadas .recientes .content .campana-data {
-            padding-top: 20px;
-            float: left;
-            display: block;
-            margin-right: 2.35765%;
-            width: 48.82117%; }
-            .creadas .recientes .content .campana-data:last-child {
-              margin-right: 0; }
-          .creadas .recientes .content .btn_close {
-            position: relative;
-            float: right;
-            right: 0; }
-          .creadas .recientes .content form {
-            float: left;
-            display: block;
-            margin-right: 2.35765%;
-            width: 48.82117%; }
-            .creadas .recientes .content form:last-child {
-              margin-right: 0; } }
-      @media screen and (min-width: 1440px) {
-        .creadas .recientes .content {
-          width: 80%;
-          margin: 0 auto !important;
-          position: absolute;
-          background-color: #fff;
-          z-index: 9;
-          top: 20%;
-          left: 0;
-          right: 0;
-          overflow: hidden;
-          padding-bottom: 10px; }
-          .creadas .recientes .content .img-compana-deskt {
-            float: left;
-            display: block;
-            margin-right: 2.35765%;
-            width: 48.82117%;
-            display: block; }
-            .creadas .recientes .content .img-compana-deskt:last-child {
-              margin-right: 0; }
-            .creadas .recientes .content .img-compana-deskt img {
-              width: 100%;
-              height: auto; }
-          .creadas .recientes .content .campana-data {
-            padding-top: 20px;
-            float: left;
-            display: block;
-            margin-right: 2.35765%;
-            width: 48.82117%; }
-            .creadas .recientes .content .campana-data:last-child {
-              margin-right: 0; }
-          .creadas .recientes .content .btn_close {
-            position: relative;
-            float: right;
-            right: 0; }
-          .creadas .recientes .content form {
-            float: left;
-            display: block;
-            margin-right: 2.35765%;
-            width: 48.82117%; }
-            .creadas .recientes .content form:last-child {
-              margin-right: 0; } }
-    @media screen and (min-width: 1024px) and (max-width: 1440px) {
-      .creadas .recientes {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 31.76157%;
-        margin-bottom: 20px;
-        position: static;
-        overflow: visible; }
-        .creadas .recientes:last-child {
-          margin-right: 0; }
-        .creadas .recientes:nth-child(6n) {
-          margin-right: 0; }
-        .creadas .recientes:nth-child(6n+1) {
-          clear: left; } }
-    @media screen and (min-width: 1440px) {
-      .creadas .recientes {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 31.76157%;
-        margin-bottom: 20px;
-        position: static;
-        overflow: visible; }
-        .creadas .recientes:last-child {
-          margin-right: 0; }
-        .creadas .recientes:nth-child(6n) {
-          margin-right: 0; }
-        .creadas .recientes:nth-child(6n+1) {
-          clear: left; } }
-  .creadas .volver, .creadas .volver-campana {
+  .creadas .recientes .bg-campana {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 82.94039%;
-    margin-left: 8.5298%;
-    background-color: #18bb9b;
-    text-align: center;
-    color: #fff; }
-    .creadas .volver:last-child, .creadas .volver-campana:last-child {
+    width: 100%;
+    padding: 148px 5px 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 182px;
+    background-position: center;
+    background-size: cover;
+    -webkit-box-shadow: inset 0 -60px 54px -18px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: inset 0 -60px 54px -18px rgba(0, 0, 0, 0.8);
+    box-shadow: inset 0 -60px 54px -18px rgba(0, 0, 0, 0.8); }
+    .creadas .recientes .bg-campana:last-child {
       margin-right: 0; }
-  @media screen and (min-width: 1024px) and (max-width: 1440px) {
-    .creadas {
-      max-width: 68em;
-      margin-left: auto;
-      margin-right: auto; }
-      .creadas::after {
-        clear: both;
-        content: "";
-        display: table; } }
-  @media screen and (min-width: 1440px) {
-    .creadas {
-      max-width: 68em;
-      margin-left: auto;
-      margin-right: auto; }
-      .creadas::after {
-        clear: both;
-        content: "";
-        display: table; } }
-  @media screen and (min-width: 320px) and (max-width: 640px) {
-    .creadas {
+    .creadas .recientes .bg-campana h3 {
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 100%; }
-      .creadas:last-child {
-        margin-right: 0; } }
+      width: 91.4702%;
+      color: #fff;
+      font-size: 16px;
+      margin: 0;
+      padding: 0 0 5px; }
+      .creadas .recientes .bg-campana h3:last-child {
+        margin-right: 0; }
+      .creadas .recientes .bg-campana h3 span {
+        display: block;
+        font-size: 11px;
+        font-weight: normal;
+        font-style: italic; }
+    .creadas .recientes .bg-campana p {
+      margin: 0;
+      padding: 0; }
+    @media screen and (min-width: 64em) and (max-width: 90em) {
+      .creadas .recientes .bg-campana {
+        padding-top: 256px; } }
+    @media screen and (min-width: 90em) {
+      .creadas .recientes .bg-campana {
+        padding-top: 256px; } }
+  .creadas .recientes .ver-mas {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    color: #18bb9b;
+    padding: 8px 0 0;
+    cursor: pointer;
+    margin-top: -40px;
+    position: relative; }
+    .creadas .recientes .ver-mas:last-child {
+      margin-right: 0; }
+    .creadas .recientes .ver-mas span {
+      width: 20px;
+      height: 20px;
+      border-top-left-radius: 50%;
+      border-top-right-radius: 50%;
+      border-bottom-left-radius: 50%;
+      border-top-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+      border-top-right-radius: 50%;
+      border-bottom-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+      border: 2px solid #18bb9b;
+      display: table;
+      text-align: center;
+      float: right;
+      margin-right: 5px; }
+      .creadas .recientes .ver-mas span i {
+        display: table-cell;
+        vertical-align: middle;
+        font-weight: bold;
+        font-size: 14px; }
+        .creadas .recientes .ver-mas span i.fa-plus {
+          display: none;
+          font-size: 10px; }
+          @media screen and (min-width: 64em) and (max-width: 90em) {
+            .creadas .recientes .ver-mas span i.fa-plus {
+              display: table-cell; } }
+          @media screen and (min-width: 90em) {
+            .creadas .recientes .ver-mas span i.fa-plus {
+              display: table-cell; } }
+        @media screen and (min-width: 64em) and (max-width: 90em) {
+          .creadas .recientes .ver-mas span i.fa-angle-down {
+            display: none; } }
+        @media screen and (min-width: 90em) {
+          .creadas .recientes .ver-mas span i.fa-angle-down {
+            display: none; } }
+  .creadas .recientes .content {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    padding: 0 15px; }
+    .creadas .recientes .content:last-child {
+      margin-right: 0; }
+    .creadas .recientes .content .tools-campana {
+      width: 100%;
+      display: block;
+      padding: 0; }
+      .creadas .recientes .content .tools-campana::after {
+        clear: both;
+        content: "";
+        display: table; }
+      .creadas .recientes .content .tools-campana li {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 33.29693%;
+        padding: 0 15px;
+        margin-right: 0;
+        text-align: center;
+        height: 29px;
+        color: #18bb9b;
+        font-size: 11px;
+        display: table;
+        border-bottom: 1px solid #18bb9b;
+        border-top: 1px solid #18bb9b;
+        cursor: pointer; }
+        .creadas .recientes .content .tools-campana li:last-child {
+          margin-right: 0; }
+        .creadas .recientes .content .tools-campana li:first-child {
+          border-bottom-left-radius: 5px;
+          border-top-left-radius: 5px;
+          border-left: 1px solid #18bb9b;
+          border-right: 1px solid #18bb9b; }
+        .creadas .recientes .content .tools-campana li:last-child {
+          border-bottom-right-radius: 5px;
+          border-top-right-radius: 5px;
+          border-right: 1px solid #18bb9b;
+          border-left: 1px solid #18bb9b; }
+        .creadas .recientes .content .tools-campana li:hover {
+          background-color: #18bb9b;
+          color: #fff; }
+        .creadas .recientes .content .tools-campana li .tool-txt {
+          float: none;
+          display: table-cell;
+          vertical-align: middle;
+          text-transform: uppercase;
+          height: 11px; }
+        .creadas .recientes .content .tools-campana li .tool-ico {
+          display: table-cell;
+          vertical-align: middle; }
+      @media screen and (min-width: 64em) and (max-width: 90em) {
+        .creadas .recientes .content .tools-campana {
+          padding: 10px 0 0; } }
+      @media screen and (min-width: 90em) {
+        .creadas .recientes .content .tools-campana {
+          padding: 10px 0 0; } }
+    .creadas .recientes .content .campa-ico {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 40.29137%;
+      padding: 2.35765%;
+      color: #c7c7c7;
+      font-size: 11px; }
+      .creadas .recientes .content .campa-ico:last-child {
+        margin-right: 0; }
+      .creadas .recientes .content .campa-ico:first-child {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 31.76157%;
+        text-transform: uppercase; }
+        .creadas .recientes .content .campa-ico:first-child:last-child {
+          margin-right: 0; }
+      .creadas .recientes .content .campa-ico i {
+        margin-right: 3px; }
+    .creadas .recientes .content p {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%;
+      padding: 2.35765%;
+      color: #c7c7c7;
+      font-size: 12px;
+      font-style: italic;
+      margin-top: 0; }
+      .creadas .recientes .content p:last-child {
+        margin-right: 0; }
+    .creadas .recientes .content .jfilestyle {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%;
+      border-color: #18bb9b;
+      color: #18bb9b;
+      text-align: center; }
+      .creadas .recientes .content .jfilestyle:last-child {
+        margin-right: 0; }
+      .creadas .recientes .content .jfilestyle span {
+        display: block;
+        width: 100%;
+        height: 100%; }
+    .creadas .recientes .content .guardar-campana {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%;
+      color: #fff;
+      background-color: #18bb9b; }
+      .creadas .recientes .content .guardar-campana:last-child {
+        margin-right: 0; }
+    .creadas .recientes .content .inputs-campana {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%;
+      overflow: hidden;
+      position: relative; }
+      .creadas .recientes .content .inputs-campana:last-child {
+        margin-right: 0; }
+      .creadas .recientes .content .inputs-campana i {
+        position: absolute;
+        color: #18bb9b;
+        right: 1px;
+        top: 7px;
+        font-size: 12px; }
+      .creadas .recientes .content .inputs-campana input, .creadas .recientes .content .inputs-campana textarea {
+        width: 100%;
+        border: none; }
+        .creadas .recientes .content .inputs-campana input::-webkit-input-placeholder, .creadas .recientes .content .inputs-campana textarea::-webkit-input-placeholder {
+          color: #484d58;
+          font-size: 10px; }
+        .creadas .recientes .content .inputs-campana input::-moz-placeholder, .creadas .recientes .content .inputs-campana textarea::-moz-placeholder {
+          color: #484d58;
+          font-size: 10px; }
+        .creadas .recientes .content .inputs-campana input:-moz-placeholder, .creadas .recientes .content .inputs-campana textarea:-moz-placeholder {
+          color: #484d58;
+          font-size: 10px; }
+        .creadas .recientes .content .inputs-campana input:-ms-input-placeholder, .creadas .recientes .content .inputs-campana textarea:-ms-input-placeholder {
+          color: #484d58;
+          font-size: 10px; }
+        .creadas .recientes .content .inputs-campana input[disabled], .creadas .recientes .content .inputs-campana textarea[disabled] {
+          background-color: #fff; }
+      .creadas .recientes .content .inputs-campana textarea {
+        color: #c7c7c7;
+        font-size: 10px;
+        font-style: italic;
+        min-height: 100px; }
+      .creadas .recientes .content .inputs-campana.descripcion i {
+        top: 0; }
+      .creadas .recientes .content .inputs-campana.nombre input, .creadas .recientes .content .inputs-campana.nombre textarea {
+        line-height: 12px; }
+        .creadas .recientes .content .inputs-campana.nombre input::-webkit-input-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea::-webkit-input-placeholder {
+          font-size: 15px;
+          font-weight: bold; }
+        .creadas .recientes .content .inputs-campana.nombre input::-moz-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea::-moz-placeholder {
+          font-size: 15px;
+          font-weight: bold; }
+        .creadas .recientes .content .inputs-campana.nombre input:-moz-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea:-moz-placeholder {
+          font-size: 15px;
+          font-weight: bold; }
+        .creadas .recientes .content .inputs-campana.nombre input:-ms-input-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea:-ms-input-placeholder {
+          font-size: 15px;
+          font-weight: bold; }
+    .creadas .recientes .content .btn_close {
+      visibility: hidden; }
+    @media screen and (min-width: 64em) and (max-width: 90em) {
+      .creadas .recientes .content {
+        width: 80%;
+        margin: 0 auto !important;
+        position: absolute;
+        background-color: #fff;
+        z-index: 9;
+        top: 20%;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+        padding-bottom: 10px; }
+        .creadas .recientes .content .img-compana-deskt {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 48.82117%;
+          display: block; }
+          .creadas .recientes .content .img-compana-deskt:last-child {
+            margin-right: 0; }
+          .creadas .recientes .content .img-compana-deskt img {
+            width: 100%;
+            height: auto; }
+        .creadas .recientes .content .campana-data {
+          padding-top: 20px;
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 48.82117%; }
+          .creadas .recientes .content .campana-data:last-child {
+            margin-right: 0; }
+        .creadas .recientes .content .btn_close {
+          position: relative;
+          float: right;
+          right: 0;
+          visibility: visible; }
+        .creadas .recientes .content form {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 48.82117%; }
+          .creadas .recientes .content form:last-child {
+            margin-right: 0; } }
+    @media screen and (min-width: 90em) {
+      .creadas .recientes .content {
+        width: 80%;
+        margin: 0 auto !important;
+        position: absolute;
+        background-color: #fff;
+        z-index: 9;
+        top: 20%;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+        padding-bottom: 10px; }
+        .creadas .recientes .content .img-compana-deskt {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 48.82117%;
+          display: block; }
+          .creadas .recientes .content .img-compana-deskt:last-child {
+            margin-right: 0; }
+          .creadas .recientes .content .img-compana-deskt img {
+            width: 100%;
+            height: auto; }
+        .creadas .recientes .content .campana-data {
+          padding-top: 20px;
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 48.82117%; }
+          .creadas .recientes .content .campana-data:last-child {
+            margin-right: 0; }
+        .creadas .recientes .content .btn_close {
+          position: relative;
+          float: right;
+          right: 0;
+          visibility: visible; }
+        .creadas .recientes .content form {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 48.82117%; }
+          .creadas .recientes .content form:last-child {
+            margin-right: 0; } }
+  @media screen and (min-width: 64em) and (max-width: 90em) {
+    .creadas .recientes {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      margin-bottom: 20px;
+      position: static;
+      overflow: visible; }
+      .creadas .recientes:last-child {
+        margin-right: 0; }
+      .creadas .recientes:nth-child(3n) {
+        margin-right: 0; }
+      .creadas .recientes:nth-child(3n+1) {
+        clear: left; } }
+  @media screen and (min-width: 90em) {
+    .creadas .recientes {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      margin-bottom: 20px;
+      position: static;
+      overflow: visible; }
+      .creadas .recientes:last-child {
+        margin-right: 0; }
+      .creadas .recientes:nth-child(3n) {
+        margin-right: 0; }
+      .creadas .recientes:nth-child(3n+1) {
+        clear: left; } }
+.creadas .volver, .creadas .volver-campana {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 82.94039%;
+  margin-left: 8.5298%;
+  background-color: #18bb9b;
+  text-align: center;
+  color: #fff; }
+  .creadas .volver:last-child, .creadas .volver-campana:last-child {
+    margin-right: 0; }
+@media screen and (min-width: 64em) and (max-width: 90em) {
+  .creadas {
+    max-width: 68em;
+    margin-left: auto;
+    margin-right: auto; }
+    .creadas::after {
+      clear: both;
+      content: "";
+      display: table; } }
+@media screen and (min-width: 90em) {
+  .creadas {
+    max-width: 68em;
+    margin-left: auto;
+    margin-right: auto; }
+    .creadas::after {
+      clear: both;
+      content: "";
+      display: table; } }
+@media screen and (min-width: 20em) and (max-width: 40em) {
+  .creadas {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%; }
+    .creadas:last-child {
+      margin-right: 0; } }
 
 .no-campana .hrefCamp {
   float: left;
@@ -1723,7 +1748,7 @@ main {
   .no-campana .hrefCamp .btn_crearcamp {
     margin-left: 8.5298%;
     background-color: #18bb9b; }
-    @media screen and (min-width: 768px) and (max-width: 1023px) {
+    @media screen and (min-width: 48em) and (max-width: 63.9375em) {
       .no-campana .hrefCamp .btn_crearcamp {
         float: left;
         display: block;
@@ -1732,7 +1757,7 @@ main {
         margin-left: 34.11922%; }
         .no-campana .hrefCamp .btn_crearcamp:last-child {
           margin-right: 0; } }
-    @media screen and (min-width: 1024px) and (max-width: 1279px) {
+    @media screen and (min-width: 64em) and (max-width: 79.9375em) {
       .no-campana .hrefCamp .btn_crearcamp {
         float: left;
         display: block;
@@ -1741,7 +1766,7 @@ main {
         margin-left: 38.38412%; }
         .no-campana .hrefCamp .btn_crearcamp:last-child {
           margin-right: 0; } }
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: 80em) {
       .no-campana .hrefCamp .btn_crearcamp {
         float: left;
         display: block;
@@ -1751,10 +1776,10 @@ main {
         .no-campana .hrefCamp .btn_crearcamp:last-child {
           margin-right: 0; } }
 
-@media screen and (min-width: 1024px) and (max-width: 1440px) {
+@media screen and (min-width: 64em) and (max-width: 90em) {
   .crear-campanas {
     background-color: #eeeef0; } }
-@media screen and (min-width: 1024px) and (max-width: 1440px) {
+@media screen and (min-width: 64em) and (max-width: 90em) {
   .crear-campanas .sub-titulo {
     max-width: 68em;
     margin-left: auto;
@@ -1867,7 +1892,7 @@ main {
     text-align: center; }
     #campanaForm-nueva-campana .guardar:last-child {
       margin-right: 0; }
-  @media screen and (min-width: 1024px) and (max-width: 1440px) {
+  @media screen and (min-width: 64em) and (max-width: 90em) {
     #campanaForm-nueva-campana {
       max-width: 68em;
       margin-left: auto;

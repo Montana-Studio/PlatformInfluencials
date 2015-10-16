@@ -24,7 +24,7 @@
 
 					$(".alertElim").fadeIn("normal",function(){
 
-						$(".boxElim").animate({
+						$("#boxElim").show().animate({
 							top:"20%",
 							opacity:1
 						},{duration:1500,easing:"easeOutBounce"});
@@ -43,11 +43,12 @@
 						});
 
 						$(".noElim").on("click",function(){
-							$(".boxElim").animate({
+							$("#boxElim").animate({
 								top:"-100px",
 								opacity:0
 							},{duration:500,easing:"easeInOutQuint",complete:function(){
 								$(".alertElim").fadeOut("fast");
+								$(this).hide();
 							}});
 						})
 
@@ -94,10 +95,47 @@
 
 						success: function(data){
 								switch (data){
-									case "nuevo": 	alert("registro actualizado");
-													window.location.reload();
+									case "nuevo":$(".alertElim").fadeIn("normal",function(){
+													$("#boxAlert .hrefCamp h2").text("Campaña editada con exito");
+													$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+													$("#boxAlert .hrefCamp p.messageAlert").text("Puedes seguir editando o crear más campañas.");
+
+													$("#boxAlert").show().animate({
+														top:"20%",
+														opacity:1
+													},{duration:1500,easing:"easeOutBounce"});
+
+													$("#clearAlert").on("click",function(){
+														$("#boxAlert").animate({
+															top:"-100px",
+															opacity:0
+														},{duration:500,easing:"easeInOutQuint",complete:function(){
+															$(".alertElim").fadeOut("fast");
+															window.location.reload();
+														}});
+													});
+											});
 									break;
-									default: alert("problema con el tamaño o formato de la imagen");
+									default: $(".alertElim").fadeIn("normal",function(){
+													$("#boxAlert .hrefCamp h2").text("algo anda mal");
+													$("#boxAlert .hrefCamp i").addClass("fa-warning");
+													$("#boxAlert .hrefCamp p.messageAlert").text("Formato no corresponde o el peso supera los 200kb");
+
+													$("#boxAlert").show().animate({
+														top:"20%",
+														opacity:1
+													},{duration:1500,easing:"easeOutBounce"});
+
+													$("#clearAlert").on("click",function(){
+														$("#boxAlert").animate({
+															top:"-100px",
+															opacity:0
+														},{duration:500,easing:"easeInOutQuint",complete:function(){
+															$(".alertElim").fadeOut("fast");
+															$(this).hide();
+														}});
+													});
+											});
 									break;
 								}
 						}
@@ -110,7 +148,6 @@
 	if ($num_rows > 0){
 		echo '<h2 class="sub-titulo">campañas activas</h2><div class="creadas">';
 
-
 	do{
 		echo '
 		<div class="recientes">
@@ -121,18 +158,19 @@
 
 								<h3>'.$row[1].'<span>by '.$row[4].'</span></h3>
 
-
 								<div class="edit-campana" style="display:none;float:left;clear:both;"></div>
 
 							</div>
 
-							<div class="ver-mas"><span><i class="fa fa-angle-down"></i></span></div>
+							<div class="ver-mas"><span><i class="fa fa-angle-down"></i><i class="fa fa-plus"></i></span></div>
 
 							<div class="content">
 								<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
 								<form class="campanaForm" id="'.$row[0].'">
 									<ul class="tools-campana">
-										<li class="activar-campana" type="1" id="'.$row[0].'" ><i class="tool-ico fa fa-remove"></i><span class="tool-txt"> desactivar</span></li>
+										<li class="activar-campana" type="1" id="'.$row[0].'" >
+											<i class="tool-ico fa fa-remove"></i><span class="tool-txt"> desactivar</span>
+										</li>
 									</ul>
 									<div class="inputs-campana nombre nombre-campana" id="'.$row[0].'">
 										<input placeholder="'.$row[1].'" disabled />
@@ -170,23 +208,6 @@
 
 	do{
 		echo '
-		<div class="alertElim">
-			<main class="no-campana boxElim">
-				<div class="hrefCamp">
-					<i class="fa fa-trash-o"></i>
-					<h2>Estas a punto de eliminar la campaña</h2>
-					<p>
-						Si eliminas tu campaña, pederas tus datos sin posibilidad de recuperarlos.
-					</p>
-					<div class="btn_crearcamp noElim">
-						cancelar
-					</div>
-					<div class="btn_crearcamp siElim">
-						eliminar campaña
-					</div>
-				</div>
-			</main>
-		</div>
 			<div class="recientes">
 				<div class="cont-campana">
 
@@ -196,7 +217,7 @@
 
 					</div>
 
-					<div class="ver-mas"><span><i class="fa fa-angle-down"></i></span></div>
+					<div class="ver-mas"><span><i class="fa fa-angle-down"></i><i class="fa fa-plus"></i></span></div>
 
 					<div class="content">
 						<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>

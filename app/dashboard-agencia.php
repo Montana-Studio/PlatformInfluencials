@@ -20,7 +20,9 @@ if ((int)$row[0] > 0){ ?>
 								$(".bg-campana, .ver-mas, .sub-titulo").fadeOut();
 								$(".dashboard-agencia").animate({backgroundColor:"#c7c7c7"},"slow");
 							}
-							$(this).find("i").toggleClass("fa-angle-up fa-angle-down");
+							if(document.documentElement.clientWidth < 1024){
+								$(this).find("i").toggleClass("fa-angle-up fa-angle-down");
+							}
 							$("html,body").animate({scrollTop : $(this).siblings(".bg-campana").offset().top},1000);
 
 					});
@@ -47,7 +49,7 @@ if ((int)$row[0] > 0){ ?>
 
 						</div>
 
-						<div class="ver-mas"><span><i class="fa fa-angle-down"></i></span></div>
+						<div class="ver-mas"><span><i class="fa fa-angle-down"></i><i class="fa fa-plus"></i></span></div>
 
 						<div class="content">
 

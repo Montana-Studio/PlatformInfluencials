@@ -224,8 +224,7 @@ $(document).ready(function(){
 					switch (data){
 						case "nueva":
 							$(".alertElim").fadeIn("normal",function(){
-									$("#boxAlert").hide();
-								$(".boxElim").animate({
+								$("#boxElim").show().animate({
 									top:"20%",
 									opacity:1
 								},{duration:1500,easing:"easeOutBounce"});
@@ -243,21 +242,21 @@ $(document).ready(function(){
 						case "invalido" :
 									$(".alertElim").fadeIn("normal",function(){
 
-											$("#boxAlert").animate({
+											$("#boxAlert").show().animate({
 												top:"20%",
 												opacity:1
 											},{duration:1500,easing:"easeOutBounce"});
 
 											$("#clearAlert").on("click",function(){
-												$(".boxElim").animate({
+												$("#boxAlert").animate({
 													top:"-100px",
 													opacity:0
 												},{duration:500,easing:"easeInOutQuint",complete:function(){
 													$(".alertElim").fadeOut("fast");
+													$(this).hide();
 												}});
 											});
-
-										});
+									});
 						break;
 					}
 				}

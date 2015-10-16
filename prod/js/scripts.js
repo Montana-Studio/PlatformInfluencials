@@ -3,7 +3,6 @@ function backHistory(){
 	window.history.back();
 }
 jQuery(document).ready(function($){
-
 	//PARA CERRAR
 	$('.btn_close').click(function(){
 		$('#antiguo, #nuevo').fadeOut(100).animate({
