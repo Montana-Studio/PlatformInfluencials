@@ -3,7 +3,6 @@ function backHistory(){
 	window.history.back();
 }
 jQuery(document).ready(function($){
-
 	//PARA CERRAR
 	$('.btn_close').click(function(){
 		$('#antiguo, #nuevo').fadeOut(100).animate({
@@ -23,7 +22,7 @@ jQuery(document).ready(function($){
 	});
 
 	$('#acceder').on('click',function(){
-		
+
 		$('#antiguo #username').attr('autofocus','autofocus');
 
 		$('#antiguo a').hide();
@@ -33,24 +32,24 @@ jQuery(document).ready(function($){
 			height:'357px'
 		},{duration:500, easing:'easeInOutCirc', complete:function(){
 
-				$('#antiguo a,#antiguo h2, #antiguo .form_ingreso, #antiguo .btn_close').delay(800).fadeIn(500);	
+				$('#antiguo a,#antiguo h2, #antiguo .form_ingreso, #antiguo .btn_close').delay(800).fadeIn(500);
 			}
 		});
 
 	});
 
 	$('#registrar').on('click',function(){
-		
+
 		$('#nuevo').fadeIn(100).animate({
 			opacity:1,
 			width:'85%',
 			height:'357px'
 		},{duration:500, easing:'easeInOutCirc', complete:function(){
 
-				$('#nuevo a,#nuevo h2, #nuevo .registerForm, #nuevo .btn_close').delay(800).fadeIn(500);	
+				$('#nuevo a,#nuevo h2, #nuevo .registerForm, #nuevo .btn_close').delay(800).fadeIn(500);
 			}
 		});
-		
+
 	});
 
 	//MENU
@@ -74,10 +73,10 @@ jQuery(document).ready(function($){
 			height:'30px'
 		},{complete:function(){
 			$('#nombre>input, #empresa>input, #tel1>input, #tel2>input').removeAttr('disabled');
-			$('#imagenform .misdatos .imagen .selectFile i').animate({opacity:1});	
+			$('#imagenform .misdatos .imagen .selectFile i').animate({opacity:1});
 		}});
 	});
-	
+
 	$('#inicio .cancel-data, #imagenform .btn_close').on('click',function(){
 		$('#guardarFacturacion, #inicio .cancel-data').slideUp();
 
@@ -87,7 +86,7 @@ jQuery(document).ready(function($){
 			$('#imagenform .misdatos .imagen .selectFile').animate({
 				width:0,
 				height:0
-			});	
+			});
 		}});
 		$('#inicio .tabpage div i').animate({
 			right:'10px',

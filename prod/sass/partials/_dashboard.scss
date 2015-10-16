@@ -21,7 +21,6 @@
 	}
 }
 .creadas{
-	@include row();
 	.recientes{
 		@include row();
 		@include pad(0);
@@ -80,6 +79,24 @@
 					vertical:{align:middle;}
 					font:{weight:bold;}
 					font:{size:14px;}
+					&.fa-plus{
+						display: none;
+						font:{size:10px}
+						@include media($tabletLandTonotebook){
+							display:table-cell;
+						}
+						@include media($desktop){
+							display:table-cell;
+						}
+					}
+					&.fa-angle-down{
+						@include media($tabletLandTonotebook){
+							display: none;
+						}
+						@include media($desktop){
+							display: none;
+						}
+					}
 				}
 			}
 		}
@@ -207,11 +224,14 @@
 				&.nombre{
 					input{
 						line:{height:12px;}
-						@include placeholder{ 
+						@include placeholder{
 							font:{size:15px;weight:bold;}
 						}
 					}
 				}
+			}
+			.btn_close{
+				visibility:hidden;
 			}
 			//MEDIA QUERIES
 			@include media($tabletLandTonotebook){
@@ -241,10 +261,11 @@
 					position:relative;
 					float:right;
 					right:0;
+					visibility: visible;
 				}
-			    form{
-			    	@include span-columns(6);
-			    }
+				form{
+					@include span-columns(6);
+				}
 			}
 			@include media($desktop){
 			   	width:80%;
@@ -273,6 +294,7 @@
 					position:relative;
 					float:right;
 					right:0;
+					visibility: visible;
 				}
 			    form{
 			    	@include span-columns(6);
@@ -282,14 +304,14 @@
 		//MEDIA QUERIES
 		@include media($tabletLandTonotebook){
 			@include span-columns(4);
-			@include omega(6n);
+			@include omega(3n);
 			margin:{bottom:20px;}
 			position:static;
 			overflow:visible;
 		}
 		@include media($desktop){
 			@include span-columns(4);
-			@include omega(6n);
+			@include omega(3n);
 			margin:{bottom:20px;}
 			position:static;
 			overflow:visible;
@@ -317,7 +339,7 @@
 	}
 }
 .no-campana{
-	a{
+	.hrefCamp{
 		@include span-columns(10);
 		@include shift(1);
 		@include pad(40px 20px 0);

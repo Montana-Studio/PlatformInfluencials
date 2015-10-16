@@ -10,7 +10,7 @@ $(document).ready(function(){
 
 	$('#facebook-name').hide();
 	$('#volver').hide();
-	
+
 	$('#agencia1').click(function(){
 		$("#tipoCliente").attr("value", "2");
 		$('.form_agencias').show();
@@ -39,7 +39,7 @@ $(document).ready(function(){
 
 	$('.volverTipo').click(function(){
 		$('.form_agencias').hide();
-		$('.ingreso_eleccion').show();	
+		$('.ingreso_eleccion').show();
 		$(".volverTipo").hide();
 		$('#ipe').hide();
 	})
@@ -47,20 +47,20 @@ $(document).ready(function(){
 	$('#volver').click(function(){
 		$('#registrar').show();
 		$('#acceder').show();
-		$('.ingreso_eleccion').show();	
+		$('.ingreso_eleccion').show();
 		$("#volver").hide();
 		$('.form_agencias').hide();
 	})
-	
+
 	$('#ingresar').click(function(){
 		correo=$('#correo').val();
 		password=$('#password').val();
 		//console.log(username);
-		$.ajax({  
-			type: "POST",  
-			url: "./procesar_login.php",  
-			data: "correo="+correo+"&pwd="+password, 
-			success: function(html){ 
+		$.ajax({
+			type: "POST",
+			url: "./procesar_login.php",
+			data: "correo="+correo+"&pwd="+password,
+			success: function(html){
 				console.log(html);
 				switch (html){
 				case "admin": window.location.href= "./dashboard-admin.php";
@@ -70,14 +70,14 @@ $(document).ready(function(){
 				case "ipe": window.location.href = "./dashboard-ipe.php";
 				break;
 				case "inactivo": 	$('#alertRegistrado').slideDown();
-									document.getElementById('alertRegistrado').innerHTML ="usuario inactivo";	
-										
+									document.getElementById('alertRegistrado').innerHTML ="usuario inactivo";
+
 				break;
 				case "false": 		$('#alertRegistrado').slideDown();
-									document.getElementById('alertRegistrado').innerHTML ="usuario o password no existen";					
+									document.getElementById('alertRegistrado').innerHTML ="usuario o password no existen";
 				break;
 				case "vacio": 		$('#alertRegistrado').slideDown();
-									document.getElementById('alertRegistrado').innerHTML ="falta ingresar datos";					
+									document.getElementById('alertRegistrado').innerHTML ="falta ingresar datos";
 				break;
 				}
 				}
@@ -99,25 +99,25 @@ $(document).ready(function(){
 		var perfil = e.options[e.selectedIndex].value;
 		info.append('ipe',perfil);
 
-		$.ajax({  
-			type: "POST",  
-			url: "./procesar_imagen.php",   
+		$.ajax({
+			type: "POST",
+			url: "./procesar_imagen.php",
 			data: info,
 			enctype: 'multipart/form-data',
-			contentType: false,      
-			cache: false,             
-			processData:false, 
+			contentType: false,
+			cache: false,
+			processData:false,
 			success: function(data){
 				//alert(data);
 				switch (data){
 					case "nuevo": 	alert("gracias por registrarse en Power Influencer, nos contactaremos con usted");
 									window.location.href = "logout.php";
 									/*$('#alertRegistrado').show();
-									document.getElementById('alertRegistrado').innerHTML ="Registro completo, nos contactaremos con usted";					
+									document.getElementById('alertRegistrado').innerHTML ="Registro completo, nos contactaremos con usted";
 									$('#usernamenuevo, #contraseñanuevo,#ver-password,#empresanuevo,#correonuevo,#telefono1nuevo,#telefono2nuevo').val('');*/
 					break;
 					case "false":	//$('#alertRegistrado').show();
-									//document.getElementById('alertRegistrado').innerHTML ="El correo ingresado ya tiene una cuenta asociada";					 
+									//document.getElementById('alertRegistrado').innerHTML ="El correo ingresado ya tiene una cuenta asociada";
 									alert('el correo '+$('.correonuevo').val()+' ya existe en la base de datos, intente con otro');
 									$('.correonuevo').val('');
 									$('.correonuevo').focus();
@@ -140,9 +140,9 @@ $(document).ready(function(){
 		head.appendChild(script);
 		//$("#tipoCliente").attr("value", "2");
 	});
-	
+
 	$('#linkedin-antiguo').click(function(){
-		
+
 		var head = document.getElementsByTagName('head')[0];
 		var script = document.createElement('script');
 		script.type = 'text/javascript';
@@ -165,7 +165,7 @@ $(document).ready(function(){
 		head.appendChild(script);
 		//$("#tipoCliente").attr("value", "3");
 	});
-	
+
 	$('#linkedin-antiguo-Ipe').click(function(){
 		var head = document.getElementsByTagName('head')[0];
 		var script = document.createElement('script');
@@ -180,11 +180,11 @@ $(document).ready(function(){
 
 	$("#ver-password").keyup(checkPasswordMatch);
 	$("#telefono1nuevo").keyup(phone1Length);
-	$("#telefono2nuevo").keyup(phone2Length);	
+	$("#telefono2nuevo").keyup(phone2Length);
 
 	$("#ver-passwordIpe").keyup(checkPasswordMatchIpe);
 	$("#telefono1nuevoIpe").keyup(phone1LengthIpe);
-	$("#telefono2nuevoIpe").keyup(phone2LengthIpe);	
+	$("#telefono2nuevoIpe").keyup(phone2LengthIpe);
 
 	//DASHBOARD SCRIPTS
 
@@ -197,7 +197,7 @@ $(document).ready(function(){
 	var foto=0;
 		//$('#file').click(function(){
 	$('#file').click(function(){
-		foto=1; 
+		foto=1;
 		$("input:file").change(function (){
 			$('.alert-uploadready').slideDown();
      	});
@@ -211,23 +211,52 @@ $(document).ready(function(){
 		info.append('descripcion',$('#descripcion-nueva-campana').val());
 		info.append('tipo','campana');
 		$.ajax({
-				type: "POST",  
-				url: "./procesar_imagen.php",  
+				type: "POST",
+				url: "./procesar_imagen.php",
 				data: info,
 				enctype: 'multipart/form-data',
-				contentType: false,      
-				cache: false,             
-				processData:false, 
-		
+				contentType: false,
+				cache: false,
+				processData:false,
+
 				success: function(data){
+					//alert(data);
 					switch (data){
-						case "nueva":	if (confirm("¿desea ver la campaña?")){
-											window.location.href = "campana.php";
-										}else{
-											window.location.reload();
-										}		
+						case "nueva":
+							$(".alertElim").fadeIn("normal",function(){
+								$("#boxElim").show().animate({
+									top:"20%",
+									opacity:1
+								},{duration:1500,easing:"easeOutBounce"});
+
+								$(".siElim").on("click",function(){
+									window.location.href = "campana.php";
+								});
+
+								$(".noElim").on("click",function(){
+									window.location.reload();
+								})
+
+							});
 						break;
-						default: alert('el tamaño o formato no es aceptado');
+						case "invalido" :
+									$(".alertElim").fadeIn("normal",function(){
+
+											$("#boxAlert").show().animate({
+												top:"20%",
+												opacity:1
+											},{duration:1500,easing:"easeOutBounce"});
+
+											$("#clearAlert").on("click",function(){
+												$("#boxAlert").animate({
+													top:"-100px",
+													opacity:0
+												},{duration:500,easing:"easeInOutQuint",complete:function(){
+													$(".alertElim").fadeOut("fast");
+													$(this).hide();
+												}});
+											});
+									});
 						break;
 					}
 				}
@@ -247,21 +276,21 @@ $(document).ready(function(){
 		info.append('tel2',$('#tel2 input').val());
 		info.append('empresa',$('#empresa input').val());
 		info.append('tipo','avatar');
-	
+
 		if(foto==1) {
 			$.ajax({
-				type: "POST",  
-				url: "./procesar_imagen.php",  
+				type: "POST",
+				url: "./procesar_imagen.php",
 				data: info,
 				enctype: 'multipart/form-data',
-				contentType: false,      
-				cache: false,             
-				processData:false, 
-				
+				contentType: false,
+				cache: false,
+				processData:false,
+
 				success: function(info){
 					switch (info){
 						case "nuevo":	alert("imagen cambiada");
-										window.location.reload();	
+										window.location.reload();
 						break;
 						default: alert('el tamaño o formato no es aceptado');
 						break;
@@ -270,20 +299,20 @@ $(document).ready(function(){
 			});
 		}
 		else{
-			$.ajax({  
-			
-					type: "POST",  
-					url: "./procesar-dashboard-agencia.php",  
+			$.ajax({
+
+					type: "POST",
+					url: "./procesar-dashboard-agencia.php",
 					data: info,
 					enctype: 'multipart/form-data',
-					contentType: false,      
-					cache: false,             
+					contentType: false,
+					cache: false,
 					processData:false,
 
 				success: function(info){
 					switch (info){
 						case "actualiza": 	alert("datos actualizados");
-											window.location.reload();		
+											window.location.reload();
 						break;
 					}
 				}
@@ -292,13 +321,13 @@ $(document).ready(function(){
 		};
 
 		return false;
-	}));	
+	}));
 
-	//FORMULARIO DE AGENCIAS 
+	//FORMULARIO DE AGENCIAS
 	$('#formulario_agencias_rs').on('submit',function(e){
-					
+
 		e.preventDefault();
-					
+
 		if($("#telefono1nuevo").val().length > 7 && $("#telefono2nuevo").val().length > 7 ){
 				info = new FormData(this);
 				info.append('nombre',$('#nombre input').val());
@@ -308,14 +337,14 @@ $(document).ready(function(){
 				info.append('tel2',$('#telefono2nuevo').val());
 
 			$.ajax({
-				type: "POST",  
-				url: "procesar_formulario.php",   
+				type: "POST",
+				url: "procesar_formulario.php",
 				data: info,
 				enctype: 'multipart/form-data',
-				contentType: false,      
-				cache: false,             
-				processData:false, 							
-				success: function(data){ 
+				contentType: false,
+				cache: false,
+				processData:false,
+				success: function(data){
 					alert("Registro de datos completo, nos contactaremos con usted");
 					window.location.href = "logout.php";
 				}
@@ -324,7 +353,7 @@ $(document).ready(function(){
 
 			alert("ingrese telefonos de al menos 8 cifras");
 		}
-		
+
 	});
 });
 
@@ -337,7 +366,7 @@ function valida(e){
 	patron =/[0-9]/;
 	tecla_final = String.fromCharCode(tecla);
 	return patron.test(tecla_final);
-};		
+};
 function checkPasswordMatch() {
 	var password = $('#contraseñanuevo').val();
 	var confirmPassword = $('#ver-password').val();

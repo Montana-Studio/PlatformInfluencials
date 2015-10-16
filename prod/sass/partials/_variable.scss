@@ -34,17 +34,19 @@ $text-justify:justify;
     @include prefixer(box-shadow, $top $left $blur $spread $color, webkit moz spec);
   }
 }
+@mixin bgSize($size){
+	@include prefixer(background-size,$size,moz);
+}
 //RESPONSIVE WIDTH
-$mobile:(max-width 320px);
-$mobileLand:(min-width 480px max-width 690px);
-$tablet:(min-width 768px max-width 1023px);
-$tabletLand:(min-width 1024px max-width 1279px);
-$notebook:(min-width 1280px);
-$notebookLand:(min-width 1281px max-width 1439px);
-$desktop:(min-width 1440px);
+$mobile:(max-width em(320));
+$mobileLand:(min-width em(480) max-width em(690));
+$tablet:(min-width em(768) max-width em(1023));
+$tabletLand:(min-width em(1024) max-width em(1279));
+$notebook:(min-width em(1280));
+$notebookLand:(min-width em(1281) max-width em(1439));
+$desktop:(min-width em(1440));
 
-$mobileTomobileLand: (min-width 320px max-width 640px);
-$mobileLandTotablet: (min-width 480px max-width 1024px);
-$tabletLandTonotebook: (min-width 1024px max-width 1440px); 
-$notebookTodesktop: (min-width 1280px min-width 1440px); 
-
+$mobileTomobileLand: (min-width em(320) max-width em(640));
+$mobileLandTotablet: (min-width em(480) max-width em(1024));
+$tabletLandTonotebook: (min-width em(1024) max-width em(1440));
+$notebookTodesktop: (min-width em(1280) min-width em(1440));

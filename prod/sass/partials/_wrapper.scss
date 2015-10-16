@@ -33,9 +33,6 @@ html{
 				@include media($mobileLand){
 					background:{size:55%;}
 				}
-				@include media($tabletLandTonotebook){
-					background:{size:100% 80%;}
-				}
 			}
 			.volverTipo{
 				@include row();

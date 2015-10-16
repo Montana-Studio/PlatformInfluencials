@@ -17,7 +17,7 @@ header{
 		@include media($tabletLandTonotebook){
 			@include span-columns(2.5 of 12);
 			background:{position:left;image:url('../img/logo_pi3-04.svg');}
-		}	
+		}
 		@include media($notebookTodesktop){
 			@include span-columns(2.5 of 12);
 			background:{position:left;image:url('../img/logo_pi3-04.svg');}
