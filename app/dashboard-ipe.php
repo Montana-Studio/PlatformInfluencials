@@ -16,7 +16,7 @@
 				  foto=1; 
 			});
 				
-				$('#imagenform').on('submit',(function (e){
+			$('#imagenform').on('submit',(function (e){
 				e.preventDefault;
 				info = new FormData(this);
 				info.append('correo',$('#correo input').val());
@@ -60,7 +60,11 @@
 				};
 			}));	
 	
-
+	/*	$('#youtube').click(function (){
+			$('#youtube-script').attr('src','rrss/youtube/auth.js');
+			//youtubeLogin();
+		});
+*/
 		
 		function valida(e){
 				tecla = (document.all) ? e.keyCode : e.which;
@@ -89,7 +93,8 @@
 			else
 				$('#registrarse').attr('disabled','disabled');
 		}
-	})	;
+
+	});
 	</script>
 
 	<style>
@@ -109,6 +114,9 @@
 			display:none;
 		}
 	</style>
+	<script type="text/javascript" id="youtube-script" src="rrss/youtube/auth.js" ></script>
+    <!--script type="text/javascript" src="my_uploads.js"></script-->
+    <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
 
 <?php
 	require('conexion.php');
@@ -120,6 +128,7 @@
 	include_once('procesar_mostrar_followers.php');
 	}
 ?>
+<script id="facebook-sdk" src="js/facebook-login.js"></script>
 </head>
 <body>
 <input id="idlinkedin"/>
@@ -161,11 +170,12 @@
 	<div id = "redes sociales">
 		<h2>registra tus redes sociales</h2>  
 		
-			<button id="facebook">Facebook</button>
+			<button id="registra-facebook-ipe">Facebook</button>
 		
 			<a id= "twitter" class="twitter-div" href="rrss/twitter/process.php" value="<?php echo $num_row3;?>" >twitter</a>
 		
 			<a href="#" onclick="login()">instagram</a>
+
 		
 			<button id="youtube">Youtube</button><a></a>	
 		

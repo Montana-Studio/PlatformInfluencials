@@ -116,6 +116,51 @@
 	}while($row4 = $result4->fetch_array());
 	 $suma += $suma_twitter;
 
+	/****************************************************************************************************
+										YOUTUBE BUTTON AND GET REACH SUM
+	****************************************************************************************************/
+	$query5="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='youtube'";
+    $result5=mysqli_query($mysqli,$query5)or die (mysqli_error());
+    $row5= mysqli_fetch_array($result5, MYSQLI_BOTH);
+    $num_row5=mysqli_num_rows($result5);
+	$_SESSION['youtube']="";
+	do{
+		
+		$json_user_url ="https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=".$row5[3]."&key=AIzaSyDBMZsybp7GcJdmqdhgGDn-jRkGo9jyD-c";
+		$json_user= file_get_contents($json_user_url);
+		$links_user_url= json_decode($json_user);
+		//channelSubscribers = response.items[0].statistics.subscriberCount;
+		$youtubeSubscribers = $links_user_url->items[0]->statistics->subscriberCount;
+		$youtubeName = $links_user_url->items[0]->snippet->title;
+		$youtubeImgUrl = $links_user_url->items[0]->snippet->thumbnails->high->url;
+
+	    if ($row5[5] == 1){
+	  		$suma_youtube+=(int)$youtubeSubscribers;
+	    }	
+	    if ($row5[5] == 0){
+	    	$estado= 0;
+		    $estado_descripcion="activar";
+		 }else{
+		    $estado= 1;
+		    $estado_descripcion="desactivar";
+		 }
+			$_SESSION['youtube'] .="<h3>".$youtubeName."   -    ".(int)$youtubeSubscribers."<button class='estado_rs' name='".$estado."' id='".$row5[0]."'>".$estado_descripcion."</button><br/></h3><img src='".$youtubeImgUrl."'/>";
+
+
+	}while($row5 = $result5->fetch_array());
+	$suma += $suma_youtube;
+
+
+$results1 = $mysqli->query("SELECT rrss_id FROM rrss WHERE rrss_id='$youtubeId' AND descripcion_rrss='youtube'");
+$num_row1=mysqli_num_rows($results1);
+
+if($num_row1 < 1){
+	$results2 = $mysqli->query("INSERT INTO rrss (descripcion_rrss,rrss_id,persona_id) VALUES ('youtube','$youtubeId','$id_persona')");
+}
+
+echo $subscribers;
+
+
 
 ?>
 

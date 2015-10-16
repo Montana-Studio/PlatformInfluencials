@@ -1,5 +1,12 @@
 <?php 
  require('conexion.php');
+ if($_POST['tipo'] == 0){
+echo $_POST['facebookPageName'];
+
+
+
+ }
+ else{
 	$username =$_POST['faceuser'];
 	$correo =$_POST['facecorreo'];
 	$faceId=$_POST['faceUserId'];
@@ -95,6 +102,6 @@
 
 
 	}
-	
+}	
 
 ?>
