@@ -143,8 +143,8 @@
 			<nav>
 				<ul>
 					<li><a href="campana.php"><i class="fa fa-suitcase"></i> campañas</a></li>
-					<li><a href="#"><i class="fa fa-user"></i> influencers</a></li>
 					<li id="nuevaCampain"><a href="nueva-campana.php"><i class="fa fa-plus"></i> crear campañas</a></li>
+					<li><a href="#"><i class="fa fa-user"></i> influencers</a></li>
 					<li><i onClick="backHistory()" class="fa fa-mail-reply"></i></li>
 				</ul>
 

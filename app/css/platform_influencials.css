@@ -950,7 +950,7 @@ html {
           display: table; }
     html body.formularios-registro {
       background-image: none; }
-    @media screen and (min-width: 80em) {
+    @media screen and (min-width: 64em) and (max-width: 90em) {
       html body {
         background-image: none; }
         html body .video-container {

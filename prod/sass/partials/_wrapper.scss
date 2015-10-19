@@ -55,7 +55,7 @@ html{
 			background:{image: none;}
 		}
 		//MEDIA QUERIES
-		@include media($notebook){
+		@include media($tabletLandTonotebook){
 			background:{image: none;}
 			.video-container{
 			    position: fixed;
