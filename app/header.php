@@ -1,4 +1,4 @@
-<?php 
+<?php
 	require('conexion.php');
 	if(isset($_SESSION['id'])==false){
 	header('Location:./');
@@ -27,7 +27,7 @@
 
 			<link rel="stylesheet" href="css/platform_influencials.css">
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-			
+
 			<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 			<script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 		</head>
@@ -46,7 +46,7 @@
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
 				//}
 			muestra_header();
-			echo "<script> 
+			echo "<script>
 					jQuery(document).ready(function(){
 						$('title').append('Power Influencer - ".$_SESSION['nombre']."');
 						$('html').css({'background-color':'#fff','background-image':'none'});
@@ -106,9 +106,10 @@
 					});
 				</script>";
 	}
+
 	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia.php'){
 		if(isset($_SESSION['id'])==false){
-				header('Location: logout.php');	
+				header('Location: logout.php');
 				die();
 			}
 			else{
@@ -120,13 +121,13 @@
 								$('body').addClass('formularios-registro');
 							});
 						</script>";
-			}	
+			}
 	}
-	
+
 ?>
 
 <header>
-	
+
 	<div class="logo"><a href="./dashboard-agencia.php" target="_top"></a></div>
 	<a href="#" class="ayuda_pi"><i class="fa fa-life-ring"></i></a>
 	<a href="#" class="notes" ><i class="fa fa-bell-o"></i></a>
@@ -134,7 +135,7 @@
 
 </header>
 
-<?php 
+<?php
 	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia.php'){
 		echo '';
 	}else{
@@ -143,6 +144,7 @@
 				<ul>
 					<li><a href="campana.php"><i class="fa fa-suitcase"></i> campañas</a></li>
 					<li><a href="#"><i class="fa fa-user"></i> influencers</a></li>
+					<li id="nuevaCampain"><a href="nueva-campana.php"><i class="fa fa-plus"></i> crear campañas</a></li>
 					<li><i onClick="backHistory()" class="fa fa-mail-reply"></i></li>
 				</ul>
 
@@ -152,23 +154,23 @@
 ?>
 
 <form id="imagenform">
-	
+
 	<div class="fle-top"></div>
-	
+
 	<div class="misdatos">
-		
+
 		<div class="imagen" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);">
-		
+
 			<input type="file" name="file" id="file" class="hide"/>
 			<label class="selectFile" for="file"><i class="fa fa-pencil"></i></label>
 
 		</div>
-		
+
 		<div class="datos">
-			
+
 			<h2><?php echo $_SESSION['nombre']; ?></h2>
 			<h3><?php echo $_SESSION['empresa']; ?></h3>
-			
+
 			<div class="editar"><span>editar perfil</span></div>
 
 		</div>
@@ -176,20 +178,20 @@
 		<div class="alert-uploadready" style="display:none;"><i class="fa fa-cloud-upload"></i>Imagen seleccionada con exito!</div>
 
 	</div>
-	
+
 	<div id="inicio">
-	
+
 		<div id="tabContainer">
-			
+
 			<ul id="tabs">
 				<li id="tabHeader_1" class="clickTab">Perfil Personales</li>
 				<li id="tabHeader_2" class="clickTab">Datos Empresa</li>
 			</ul>
 
 			<div id="tabscontent">
-				
+
 				<div class="tabpage tab-hide" id="tabpage_1">
-					
+
 					<div id="nombre">
 						<small>nombre</small>
 						<input value="<?php echo $_SESSION['nombre']; ?>" disabled>
@@ -203,7 +205,7 @@
 				</div>
 
 				<div class="tabpage tab-hide" id="tabpage_2">
-					
+
 					<div id="empresa">
 						<small>empresa</small>
 						<input value="<?php echo $_SESSION['empresa']; ?>" disabled>
@@ -225,13 +227,13 @@
 			</div>
 
 		</div>
-		
+
 		<div class="cancel-data">Cancelar</div>
 
 		<button id="guardarFacturacion" type="submit">Guardar cambios</button>
 
 		<a href="logout.php" class="logout"><i class="fa fa-times-circle-o"></i> cerrar sesion</a>
 	</div>
-	
+
 	<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
 </form>

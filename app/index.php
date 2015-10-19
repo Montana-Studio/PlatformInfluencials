@@ -41,7 +41,7 @@ if(isset($_SESSION['id'])){
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	<script id="facebook-sdk" src="js/facebook-login.js"></script>
-	
+
 </head>
 
 <body>
@@ -61,15 +61,15 @@ if(isset($_SESSION['id'])){
     </div>';
 
 	?>
-	
+
 	<main class="contAllPI" style="padding-top:30%;">
-		
+
 		<div style="display:none;" id="tipoCliente" value="2"></div>
-		
+
 		<div class="logo_pi"><a href="/" target="_top"></a></div>
-		
+
 		<main class="ingreso_eleccion">
-			
+
 			<!-- ELECCION DE USUARIO -->
 
 			<div id="tipo">
@@ -80,7 +80,7 @@ if(isset($_SESSION['id'])){
 		</main>
 
 		<main class="form_agencias">
-			
+
 			<!-- Formularios para perfil de Agencias -->
 
 			<div id="inicio">
@@ -94,8 +94,8 @@ if(isset($_SESSION['id'])){
 				<h2>registra tus datos</h2>
 
 				<form id="agenciaform" class="registerForm">
-				
-					<div>		
+
+					<div>
 						<select id="perfil">
 						<option value="" disabled selected>selecciona tu perfil </option>
 						<option value="3">influenciador</option>
@@ -103,51 +103,51 @@ if(isset($_SESSION['id'])){
 						<option value="5">editor</option>
 						</select>
 					</div>
-					
+
 					<div id="facebook-nuevo" class="fb_btn" value="registrarse con Facebook">
 						<i class="fa fa-facebook"></i>registrarse con Facebook
 					</div>
 					<div id="linkedin-nuevo" class="lk_btn">
 						<i class="fa fa-linkedin"></i>registrarse con Linkedin
 					</div>
-					
+
 					<p>o rellena el formulario</p>
-					
+
 					<input placeholder="Nombre" name="username-nuevo" class="usernamenuevo" required>
-			
+
 					<input type="email" placeholder="Correo electrónico" class="correonuevo" required>
-					
+
 					<input placeholder="Empresa" name="empresa-nuevo" class="empresanuevo" required>
-					
+
 					<input type="password" onChange="checkPasswordMatch()" placeholder="Contraseña" id="contraseñanuevo" class="contraseñanuevo" required>
-					<input type="password" onChange="checkPasswordMatch()" placeholder="Repetir Contraseña" id="ver-password" required> 
-					
+					<input type="password" onChange="checkPasswordMatch()" placeholder="Repetir Contraseña" id="ver-password" required>
+
 					<div id="divCheckPasswordMatch" class="pass-no-equals"><i class="fa fa-times"></i> Las contraseñas no coinciden</div>
 
 					<input class="telefonos telefono1nuevo" placeholder="Tel. Empresa" onkeypress="return valida(event)" name="telefono1-nuevo" id="telefono1nuevo" maxlength="11" required>
 					<input class="telefonos telefono2nuevo" placeholder="Tel. Personal" onkeypress="return valida(event)" name="telefono2-nuevo" id="telefono2nuevo" maxlength="11" required>
-					
+
 					<div id="selectImage">
-							
+
 						<input type="file" name="file" id="file" required>
 						<label for="file" class="btns" required>Sube una imágen</label>
-						
+
 						<button id="registrarse"  type="submit">Registrarse</button>
 
 					</div>
-					
-					
+
+
 				</form>
 
 				<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
 			</div>
 
 			<div id="antiguo">
-				
+
 				<h2>Ingresa con tus datos</h2>
 
 				<form class="form_ingreso">
-					
+
 					<div id="facebook-antiguo" class="fb_btn" value="ingresar con Facebook">
 						<i class="fa fa-facebook"></i>ingresar con Facebook
 					</div>
@@ -156,23 +156,23 @@ if(isset($_SESSION['id'])){
 					</div>
 
 					<p>o ingresa con tu correo</p>
-					
+
 					<!--input placeholder="Nombre" name="username" id="username"/-->
 					<input placeholder="Correo" name="correo" id="correo"/>
 					<input type="password" placeholder="Contraseña" id="password" />
-					
-					<div id="ingresar">ingresar</div>
-					
-					<div id="alertRegistrado"></div>
-					
-					
 
-					
+					<div id="ingresar">ingresar</div>
+
+					<div id="alertRegistrado"></div>
+
+
+
+
 
 				</form>
-				
+
 				<a href="#">¿No recuerdas tu contraseña?</a>
-				
+
 				<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
 
 			</div>
@@ -182,10 +182,25 @@ if(isset($_SESSION['id'])){
 		</main>
 
 
-		<a href="#" class="ayuda_pi">¿Necesitas ayuda?</a>	
+		<a href="#" class="ayuda_pi">¿Necesitas ayuda?</a>
 
 	</main>
-	
+
+	<div class="alertElim">
+
+		<main class="no-campana" id="boxAlert">
+			<div class="hrefCamp">
+				<i class="fa"><img src="img/logo_pi-06.svg" alt="" /></i>
+				<h2></h2>
+				<p class="messageAlert"></p>
+				<div class="btn_crearcamp" id="clearAlert">
+					continuar
+				</div>
+			</div>
+		</main>
+
+	</div>
+
 	<script type="text/javascript" async src="js/platform_influencials.min.js"></script>
 	<script type="text/javascript" src="js/form-passes.js"></script>
 	<script type="text/javascript" src="js/form-data.js"></script>

@@ -110,11 +110,27 @@ $(document).ready(function(){
 			success: function(data){
 				//alert(data);
 				switch (data){
-					case "nuevo": 	alert("gracias por registrarse en Power Influencer, nos contactaremos con usted");
-									window.location.href = "logout.php";
-									/*$('#alertRegistrado').show();
-									document.getElementById('alertRegistrado').innerHTML ="Registro completo, nos contactaremos con usted";
-									$('#usernamenuevo, #contraseñanuevo,#ver-password,#empresanuevo,#correonuevo,#telefono1nuevo,#telefono2nuevo').val('');*/
+					case "nuevo":
+									$(".alertElim").fadeIn("normal",function(){
+											$("#boxAlert .hrefCamp h2").text("Gracias por registrarte en Power-Influencers");
+											$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+											$("#boxAlert .hrefCamp p.messageAlert").text("Tu cuenta sera activada proximamente, pronto nos contactaremos contigo.");
+
+											$("#boxAlert").show().animate({
+												top:"20%",
+												opacity:1
+											},{duration:1500,easing:"easeOutBounce"});
+
+											$("#clearAlert").on("click",function(){
+												$("#boxAlert").animate({
+													top:"-100px",
+													opacity:0
+												},{duration:500,easing:"easeInOutQuint",complete:function(){
+													$(".alertElim").fadeOut("fast");
+													window.location.href = "logout.php";
+												}});
+											});
+									});
 					break;
 					case "false":	//$('#alertRegistrado').show();
 									//document.getElementById('alertRegistrado').innerHTML ="El correo ingresado ya tiene una cuenta asociada";
