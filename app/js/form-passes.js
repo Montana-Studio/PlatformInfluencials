@@ -110,20 +110,74 @@ $(document).ready(function(){
 			success: function(data){
 				//alert(data);
 				switch (data){
-					case "nuevo": 	alert("gracias por registrarse en Power Influencer, nos contactaremos con usted");
-									window.location.href = "logout.php";
-									/*$('#alertRegistrado').show();
-									document.getElementById('alertRegistrado').innerHTML ="Registro completo, nos contactaremos con usted";
-									$('#usernamenuevo, #contraseñanuevo,#ver-password,#empresanuevo,#correonuevo,#telefono1nuevo,#telefono2nuevo').val('');*/
+					case "nuevo":
+									$(".alertElim").fadeIn("normal",function(){
+											$("#boxAlert .hrefCamp h2").text("Gracias por registrarte en Power-Influencers");
+											$("#boxAlert .hrefCamp i").append("<img src='img/logo_pi-06.svg' width='100%' height='100%'/>");
+											$("#boxAlert .hrefCamp p.messageAlert").text("Tu cuenta sera activada proximamente, pronto nos contactaremos contigo.");
+
+											$("#boxAlert").show().animate({
+												top:"20%",
+												opacity:1
+											},{duration:1500,easing:"easeOutBounce"});
+
+											$("#clearAlert").on("click",function(){
+												$("#boxAlert").animate({
+													top:"-100px",
+													opacity:0
+												},{duration:500,easing:"easeInOutQuint",complete:function(){
+													$(".alertElim").fadeOut("fast");
+													window.location.href = "logout.php";
+													window.location.reload();
+												}});
+											});
+									});
 					break;
-					case "false":	//$('#alertRegistrado').show();
-									//document.getElementById('alertRegistrado').innerHTML ="El correo ingresado ya tiene una cuenta asociada";
-									alert('el correo '+$('.correonuevo').val()+' ya existe en la base de datos, intente con otro');
-									$('.correonuevo').val('');
-									$('.correonuevo').focus();
+					case "false":$(".alertElim").fadeIn("normal",function(){
+													$("#boxAlert .hrefCamp h2").text("algo anda mal");
+													$("#boxAlert .hrefCamp i").addClass("fa-warning");
+													$("#boxAlert .hrefCamp p.messageAlert").text("El correo "+$('.correonuevo').val()+" ya existe en la base de datos, intente con otro.");
+
+													$("#boxAlert").show().animate({
+														top:"20%",
+														opacity:1
+													},{duration:1500,easing:"easeOutBounce"});
+
+													$("#clearAlert").on("click",function(){
+														$("#boxAlert").animate({
+															top:"-100px",
+															opacity:0
+														},{duration:500,easing:"easeInOutQuint",complete:function(){
+															$(".alertElim").fadeOut("fast");
+															$(this).hide();
+															$("#boxAlert .hrefCamp i").removeClass("fa-warning");
+															$('.correonuevo').val('');
+															$('.correonuevo').focus();
+														}});
+													});
+											});
 					break;
-					case "invalido": alert('problema con el tamaño o formato de la imagen');
-						//console.log('formato invalido');
+					case "invalido":$(".alertElim").fadeIn("normal",function(){
+														$("#boxAlert .hrefCamp h2").text("algo anda mal");
+														$("#boxAlert .hrefCamp i").addClass("fa-warning");
+														$("#boxAlert .hrefCamp p.messageAlert").text("Problema con el tamaño o formato de la imagen.");
+
+														$("#boxAlert").show().animate({
+															top:"20%",
+															opacity:1
+														},{duration:1500,easing:"easeOutBounce"});
+
+														$("#clearAlert").on("click",function(){
+															$("#boxAlert").animate({
+																top:"-100px",
+																opacity:0
+															},{duration:500,easing:"easeInOutQuint",complete:function(){
+																$(".alertElim").fadeOut("fast");
+																$("#boxAlert .hrefCamp i").removeClass("fa-warning");
+																$(this).hide();
+															}});
+														});
+												});
 				}
 			}
 		});
@@ -222,41 +276,47 @@ $(document).ready(function(){
 				success: function(data){
 					//alert(data);
 					switch (data){
-						case "nueva":
-							$(".alertElim").fadeIn("normal",function(){
-								$("#boxElim").show().animate({
+						case "nueva":$(".alertElim").fadeIn("normal",function(){
+									$("#boxElim .hrefCamp h2").text("Campaña creada con exito");
+									$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
+									$("#boxElim .hrefCamp p").text("Puedes ver o seguir creando más campañas.");
+									$(".siElim").text("ver campaña");
+									$(".noElim").text("crear otra");
+
+									$("#boxElim").show().animate({
+										top:"20%",
+										opacity:1
+									},{duration:1500,easing:"easeOutBounce"});
+
+									$(".siElim").on("click",function(){
+										window.location.href = "campana.php";
+									});
+
+									$(".noElim").on("click",function(){
+										window.location.reload();
+									});
+							});
+						break;
+						case "invalido" :$(".alertElim").fadeIn("normal",function(){
+								$("#boxAlert .hrefCamp h2").text("algo anda mal");
+								$("#boxAlert .hrefCamp i").addClass("fa-warning");
+								$("#boxAlert .hrefCamp p.messageAlert").text("Tu imagen puede que supere el tamaño permitido, el formato no corresponde o no hay nada adjunto.");
+
+								$("#boxAlert").show().animate({
 									top:"20%",
 									opacity:1
 								},{duration:1500,easing:"easeOutBounce"});
 
-								$(".siElim").on("click",function(){
-									window.location.href = "campana.php";
+								$("#clearAlert").on("click",function(){
+									$("#boxAlert").animate({
+										top:"-100px",
+										opacity:0
+									},{duration:500,easing:"easeInOutQuint",complete:function(){
+										$(".alertElim").fadeOut("fast");
+										$(this).hide();
+									}});
 								});
-
-								$(".noElim").on("click",function(){
-									window.location.reload();
-								})
-
-							});
-						break;
-						case "invalido" :
-									$(".alertElim").fadeIn("normal",function(){
-
-											$("#boxAlert").show().animate({
-												top:"20%",
-												opacity:1
-											},{duration:1500,easing:"easeOutBounce"});
-
-											$("#clearAlert").on("click",function(){
-												$("#boxAlert").animate({
-													top:"-100px",
-													opacity:0
-												},{duration:500,easing:"easeInOutQuint",complete:function(){
-													$(".alertElim").fadeOut("fast");
-													$(this).hide();
-												}});
-											});
-									});
+						});
 						break;
 					}
 				}
@@ -289,8 +349,26 @@ $(document).ready(function(){
 
 				success: function(info){
 					switch (info){
-						case "nuevo":	alert("imagen cambiada");
+						case "nuevo":$(".alertElim").fadeIn("normal",function(){
+								$("#boxAlert .hrefCamp h2").text("imagen cambiada");
+								$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+								$("#boxAlert .hrefCamp p.messageAlert").text("Imagen cambiada con exito.");
+
+								$("#boxAlert").show().animate({
+									top:"20%",
+									opacity:1
+								},{duration:1500,easing:"easeOutBounce"});
+
+								$("#clearAlert").on("click",function(){
+									$("#boxAlert").animate({
+										top:"-100px",
+										opacity:0
+									},{duration:500,easing:"easeInOutQuint",complete:function(){
+										$(".alertElim").fadeOut("fast");
 										window.location.reload();
+									}});
+								});
+						});
 						break;
 						default: alert('el tamaño o formato no es aceptado');
 						break;
@@ -311,8 +389,26 @@ $(document).ready(function(){
 
 				success: function(info){
 					switch (info){
-						case "actualiza": 	alert("datos actualizados");
-											window.location.reload();
+						case "actualiza":$(".alertElim").fadeIn("normal",function(){
+								$("#boxAlert .hrefCamp h2").text("datos actualizados");
+								$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+								$("#boxAlert .hrefCamp p.messageAlert").text("Tus datos se han actualizado, la pagina se actualizara para reflejar los cambios.");
+
+								$("#boxAlert").show().animate({
+									top:"20%",
+									opacity:1
+								},{duration:1500,easing:"easeOutBounce"});
+
+								$("#clearAlert").on("click",function(){
+									$("#boxAlert").animate({
+										top:"-100px",
+										opacity:0
+									},{duration:500,easing:"easeInOutQuint",complete:function(){
+										$(".alertElim").fadeOut("fast");
+										window.location.reload();
+									}});
+								});
+						});
 						break;
 					}
 				}

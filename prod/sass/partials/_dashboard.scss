@@ -345,12 +345,12 @@
 		@include pad(40px 20px 0);
 		i{
 			@include borderRadius(100%);
-		    width: 150px;
-		    height: 150px;
-		    background:{color: $color_font2;}
-		    @include pad(39px);
-		    font:{size: 75px;}
-		    color: #fff;
+	    width: 150px;
+	    height: 150px;
+	    background:{color: $color_font2;}
+	    @include pad(39px);
+	    font:{size: 75px;}
+	    color: #fff;
 		}
 		h2{
 			font:{size:14px;}

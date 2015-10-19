@@ -23,35 +23,39 @@
 					var tipo = "eliminar";
 
 					$(".alertElim").fadeIn("normal",function(){
+							$("#boxElim .hrefCamp h2").text("Estas a punto de eliminar la campaña");
+							$("#boxElim .hrefCamp i").addClass("fa-trash-o");
+							$("#boxElim .hrefCamp p").text("Si eliminas tu campaña, pederas tus datos sin posibilidad de recuperarlos.");
+							$(".siElim").text("eliminar campaña");
+							$(".noElim").text("volver");
 
-						$("#boxElim").show().animate({
-							top:"20%",
-							opacity:1
-						},{duration:1500,easing:"easeOutBounce"});
+							$("#boxElim").show().animate({
+								top:"20%",
+								opacity:1
+							},{duration:1500,easing:"easeOutBounce"});
 
-						$(".siElim").on("click",function(){
-							$.ajax({
-								type: "POST",
-								url: "procesar_eliminar-campana.php",
-								data: "idEliminar="+idEliminar+"&tipo="+tipo,
+							$(".siElim").on("click",function(){
 
-								success: function(data){
-									window.location.reload();
-								}
+								$.ajax({
+									type: "POST",
+									url: "procesar_eliminar-campana.php",
+									data: "idEliminar="+idEliminar+"&tipo="+tipo,
+
+									success: function(data){
+										window.location.reload();
+									}
+								});
 							});
 
-						});
-
-						$(".noElim").on("click",function(){
-							$("#boxElim").animate({
-								top:"-100px",
-								opacity:0
-							},{duration:500,easing:"easeInOutQuint",complete:function(){
-								$(".alertElim").fadeOut("fast");
-								$(this).hide();
-							}});
-						})
-
+							$(".noElim").on("click",function(){
+								$("#boxElim").animate({
+									top:"-100px",
+									opacity:0
+								},{duration:500,easing:"easeInOutQuint",complete:function(){
+									$(".alertElim").fadeOut("fast");
+									$(this).hide();
+								}});
+							});
 					});
 
 					return false;
@@ -217,7 +221,11 @@
 
 					</div>
 
-					<div class="ver-mas"><span><i class="fa fa-angle-down"></i><i class="fa fa-plus"></i></span></div>
+					<div class="ver-mas">
+						<span>
+							<i class="fa"></i>
+						</span>
+					</div>
 
 					<div class="content">
 						<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>

@@ -53,7 +53,6 @@ a{
 	}
 }
 .crear-campana{
-	//@include span-columns(12);
 	@include textAligns(center);
 	position:fixed;
 	overflow:hidden;
@@ -105,6 +104,9 @@ a{
 				}
 			}
 		}
+	}
+	@include media($tabletLandTonotebook){
+		display:none !important;
 	}
 }
 .alertElim{

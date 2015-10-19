@@ -16,6 +16,12 @@
 			li{
 				a{color:$color_grey;}
 				border:{bottom:1px solid $color_grey;}
+				&#nuevaCampain{
+					a{
+						color:$color_font2;
+					}
+					border:{bottom:2px $color_font2 inset;}
+				}
 			}
 		}
 	}

@@ -99,10 +99,26 @@ nav{
 			height:34px;
 			a{
 				color:$color_grey;
-			}&:last-child{
+			}
+			&:last-child{
 				@include span-columns(2 of 12);
 				cursor:pointer;
 				color:$color_grey;
+			}
+			&#nuevaCampain{
+				display: none !important;
+			}
+			@include media($tabletLandTonotebook){
+				@include span-columns(3.27 of 12);
+				@include omega();
+				@include textAligns(left);
+				padding:{left:20px}
+				&:last-child{
+					@include span-columns(3 of 12);
+					@include textAligns(right);
+					padding:{right:10px;left:0;}
+				}
+				&#nuevaCampain{display: block !important;}
 			}
 		}
 	}
