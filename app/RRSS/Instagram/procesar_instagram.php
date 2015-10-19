@@ -16,9 +16,5 @@ if($num_row1 < 1){
 }
 
 echo $followers_instagram;
-/*
-else{
-	echo "ya inscribió este perfil, favor intente con otro";
-}
-*/
+
 ?>

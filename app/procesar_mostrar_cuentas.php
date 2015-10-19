@@ -3,10 +3,6 @@
 echo'
 <h2>Redes Registradas - reach actual '.(int)$suma.'</h2>
 	<h3>instagram reach : '.(int)$suma_instagram.'</h3>';
-
-		/****************************************************************************************************
-												PHP TO SHOW INSTAGRAM FOLLOWERS
-		****************************************************************************************************/
 		echo $_SESSION['instagram'];
 
 echo '
@@ -15,4 +11,8 @@ echo '
 	
 echo $_SESSION['twitter'];
 
+echo '
+<h3>youtube reach : '.(int)$suma_youtube.'</h3>';
+
+echo $_SESSION['youtube'];
 ?>

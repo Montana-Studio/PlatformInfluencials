@@ -1,6 +1,10 @@
 <?php 
 require('conexion.php');
-
+/************************************************************************************
+*************************************************************************************
+***************************PROCESAMIENTO DE CAMPAÑAS ********************************
+*************************************************************************************
+*************************************************************************************/
 function deleteDir($dir){
 	$it = new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS);
 	$files = new RecursiveIteratorIterator($it,
@@ -45,11 +49,19 @@ if($_POST['tipo'] == "activar"){
 	$actualiza= $mysqli->query("UPDATE campana SET idEstado='$idEstado' WHERE id='$idActualizar'");
 }
 
+
+/************************************************************************************
+*************************************************************************************
+************************PROCESAMIENTO DE REDES SOCIALES *****************************
+*************************************************************************************
+*************************************************************************************/
+
+
 if($_POST['tipo'] == "activar_rs"){
-	$idTwitter = $_POST['idRs'];
+	$idRs = $_POST['idRs'];
 	if($_POST['idEstado'] == 1) $idEstado =0;
 	else $idEstado = 1;
-	$actualiza= $mysqli->query("UPDATE rrss SET id_estado='$idEstado' WHERE id='$idTwitter'");
+	$actualiza= $mysqli->query("UPDATE rrss SET id_estado='$idEstado' WHERE id='$idRs'");
 }
 
 

@@ -1,11 +1,11 @@
 $(document).ready(function(){
 
 
-	  	var app_id = '973652052702468';
-	var scopes= 'email,user_friends';
+	var app_id = '973652052702468';
+	var scopes= 'email,user_friends,manage_pages';
 	var name;
 	var email;
-
+	var tipo = 1; 
 
 
 		function call_facebook_api(){
@@ -19,30 +19,40 @@ $(document).ready(function(){
 		}
 	
 	var statusChangeCallback = function(response, callback) {
-	    if (response.status === 'connected') {
+	 if(tipo == 1){
+	 		if (response.status === 'connected') {
 		  getFacebookData();
 	    } 
 	    else {
 			callback(false);//no hace nada si no se conecta
 	    }
+	 }
+	 if(tipo == 0){
+	 		if (response.status === 'connected') {
+		  getFacebookPages();
+	    } 
+	    else {
+			callback(false);//no hace nada si no se conecta
+	    }
+	 }    
+	    
 	}
 	
     var checkLoginState = function(callback) {	
-	
-	window.fbAsyncInit = function() {
-		FB.init({
-			appId      : app_id,
-			cookie     : true,  
-			status 	   : true,					
-			xfbml      : true,  
-			version    : 'v2.4' 
-		});	
-		FB.getLoginStatus(function(response) {
-		statusChangeCallback(response, function(data){
-		callback(data);
-		});
-		});
-	};
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId      : app_id,
+				cookie     : true,  
+				status 	   : true,					
+				xfbml      : true,  
+				version    : 'v2.4' 
+			});	
+			FB.getLoginStatus(function(response) {
+				statusChangeCallback(response, function(data){
+				callback(data);
+				});
+			});
+		};
 	};
 	
 	var facebookLogin= function (){
@@ -64,6 +74,25 @@ $(document).ready(function(){
 			});
 	};
 	
+	var facebookPages= function (){
+		tipo=0;
+		checkLoginState(function(response){
+			if(!response){ //no esta conectado callback false
+			if( navigator.userAgent.match('CriOS') ){
+   			 window.open('https://www.facebook.com/dialog/oauth?client_id='+app_id+'&scope='+scopes,'', null);
+   			 getFacebookPages();
+			}else{
+					FB.login(function (response){
+				if (response.status === 'connected')
+				getFacebookPages();
+				}, {scope: scopes});
+			}
+
+		
+			};
+			});
+	};
+
 	var facebookLogout = function() {
   		checkLoginState(function(data) {
   			if (data.status === 'connected') {
@@ -80,21 +109,15 @@ $(document).ready(function(){
 	var getFacebookData = function(){
 		FB.api('/me',{ locale: 'en_US', fields: 'name, email' } 
 		,function (response){
-		name= response.name;
 		id= response.id;
-		email= response.email;
-		facebookUser=name;
-		facebookCorreo=email;
-		//console.log(facebookUser,facebookCorreo);
-		
+		facebookUser=response.name;;
+		facebookCorreo=response.email;
 			$.ajax({  
 		            type: "POST",  
 		            url: "./procesar_facebook.php",  
 		            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id+"&tipo="+document.getElementById('tipoCliente').getAttribute('value'),  
 					
-					
 		            success: function(data){ 
-		            
 						switch (data){
 							case "dashboard": window.location.href="dashboard-agencia.php";
 							break;
@@ -115,14 +138,49 @@ $(document).ready(function(){
 			});
 	}
 
+	var getFacebookPages = function(){
+			FB.api(
+			    "/me/accounts?fields=name",
+			    function (response) {
+			     // if (response && !response.error) {
+			        alert(response.name);
+			      //}
+			    }
+			);
 
-  	$('#facebook-nuevo').click(function(){
-			call_facebook_api()
+		/*FB.api('/me/accounts',{ locale: 'en_US', fields: 'name, id' } 
+		,function (response){
+		id= response.id;
+		facebookPage=response.name;
+
+
+		
+
+		$.ajax({  
+		            type: "POST",  
+		            url: "./procesar_facebook.php",  
+		            data: "facebookPageId="+id+"&facebookPageName="+facebookPage+"&tipo=0",  
+					
+		            success: function(data){ 
+		            alert(data);
+					//	switch (data){
+
+					//	}
+					}
+
+				});
+			});*/
+	}
+
+
+
+  		$('#facebook-nuevo').click(function(){
+			call_facebook_api();
 			facebookLogin();
 		});
 		
 		$('#facebook-antiguo').click(function(){
-			call_facebook_api()
+			call_facebook_api();
 			facebookLogin();
 		});
 
@@ -132,7 +190,7 @@ $(document).ready(function(){
 		});
 		
 		$('#facebook-antiguo-ipe').click(function(){
-			call_facebook_api()
+			call_facebook_api();
 			facebookLogin();
 		});
 
@@ -141,6 +199,13 @@ $(document).ready(function(){
 			e.preventDefault();
   			facebookLogout();
 		});
+
+		$('#registra-facebook-ipe').click(function() {
+			call_facebook_api();
+			facebookPages();
+  			
+		});
+
 
 		
 		
