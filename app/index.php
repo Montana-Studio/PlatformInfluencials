@@ -190,7 +190,7 @@ if(isset($_SESSION['id'])){
 
 		<main class="no-campana" id="boxAlert">
 			<div class="hrefCamp">
-				<i class="fa"><img src="img/logo_pi-06.svg" alt="" /></i>
+				<i class="fa"></i>
 				<h2></h2>
 				<p class="messageAlert"></p>
 				<div class="btn_crearcamp" id="clearAlert">
