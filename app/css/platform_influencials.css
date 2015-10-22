@@ -25,7 +25,7 @@ a {
 .count-jfilestyle {
   display: none !important; }
 
-.inputs, main.form_agencias #antiguo .form_ingreso input, main.form_agencias #nuevo .form_ingreso input, main.form_agencias #nuevo .registerForm input, main.form_agencias #antiguo .form_ingreso .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #antiguo .form_ingreso textarea, main.form_agencias #nuevo .form_ingreso .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .form_ingreso textarea, main.form_agencias #nuevo .registerForm .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm textarea, #campanaForm-nueva-campana input, #campanaForm-nueva-campana textarea {
+.inputs, html body.formularios-registro .cont_formRegistro .cont-inputs div input, html body.formularios-registro .cont_formRegistro .cont-inputs div .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana html body.formularios-registro .cont_formRegistro .cont-inputs div textarea, main.form_agencias #antiguo .form_ingreso input, main.form_agencias #nuevo .form_ingreso input, main.form_agencias #nuevo .registerForm input, main.form_agencias #antiguo .form_ingreso .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #antiguo .form_ingreso textarea, main.form_agencias #nuevo .form_ingreso .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .form_ingreso textarea, main.form_agencias #nuevo .registerForm .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm textarea, #campanaForm-nueva-campana input, #campanaForm-nueva-campana textarea {
   font-family: "Open Sans", sans-serif;
   height: 40px;
   margin-bottom: 5px;
@@ -35,7 +35,7 @@ a {
   color: #107977;
   outline: none; }
 
-.btns, #imagenform #inicio #guardarFacturacion, #imagenform #inicio .cancel-data, main.ingreso_eleccion #tipo .btns_accesos, main.form_agencias #inicio .btns_accesos, main.form_agencias #antiguo .form_ingreso #ingresar, main.form_agencias #nuevo .form_ingreso #ingresar, main.form_agencias #nuevo .registerForm #ingresar, main.form_agencias #antiguo .form_ingreso .fb_btn, main.form_agencias #nuevo .form_ingreso .fb_btn, main.form_agencias #nuevo .registerForm .fb_btn, main.form_agencias #antiguo .form_ingreso .lk_btn, main.form_agencias #nuevo .form_ingreso .lk_btn, main.form_agencias #nuevo .registerForm .lk_btn, main.form_agencias #nuevo .registerForm #registrarse, .creadas .recientes .content .jfilestyle, .creadas .recientes .content .guardar-campana, .creadas .volver, .creadas .volver-campana, .no-campana .hrefCamp .btn_crearcamp, #campanaForm-nueva-campana .jfilestyle, #campanaForm-nueva-campana .guardar {
+.btns, #imagenform #inicio #guardarFacturacion, #imagenform #inicio .cancel-data, html body.formularios-registro .cont_formRegistro .cont-inputs #guardar, main.ingreso_eleccion #tipo .btns_accesos, main.form_agencias #inicio .btns_accesos, main.form_agencias #antiguo .form_ingreso #ingresar, main.form_agencias #nuevo .form_ingreso #ingresar, main.form_agencias #nuevo .registerForm #ingresar, main.form_agencias #antiguo .form_ingreso .fb_btn, main.form_agencias #nuevo .form_ingreso .fb_btn, main.form_agencias #nuevo .registerForm .fb_btn, main.form_agencias #antiguo .form_ingreso .lk_btn, main.form_agencias #nuevo .form_ingreso .lk_btn, main.form_agencias #nuevo .registerForm .lk_btn, main.form_agencias #nuevo .registerForm #registrarse, .creadas .recientes .content .jfilestyle, .creadas .recientes .content .guardar-campana, .creadas .volver, .creadas .volver-campana, .no-campana .hrefCamp .btn_crearcamp, #campanaForm-nueva-campana .jfilestyle, #campanaForm-nueva-campana .guardar {
   cursor: pointer;
   float: left;
   display: block;
@@ -55,7 +55,7 @@ a {
   font-size: 13px;
   padding: 10px 0;
   margin-bottom: 10px; }
-  .btns:last-child, #imagenform #inicio #guardarFacturacion:last-child, #imagenform #inicio .cancel-data:last-child, main.ingreso_eleccion #tipo .btns_accesos:last-child, main.form_agencias #inicio .btns_accesos:last-child, main.form_agencias #antiguo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .registerForm #ingresar:last-child, main.form_agencias #antiguo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .registerForm .fb_btn:last-child, main.form_agencias #antiguo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .registerForm .lk_btn:last-child, main.form_agencias #nuevo .registerForm #registrarse:last-child, .creadas .recientes .content .jfilestyle:last-child, .creadas .recientes .content .guardar-campana:last-child, .creadas .volver:last-child, .creadas .volver-campana:last-child, .no-campana .hrefCamp .btn_crearcamp:last-child, #campanaForm-nueva-campana .jfilestyle:last-child, #campanaForm-nueva-campana .guardar:last-child {
+  .btns:last-child, #imagenform #inicio #guardarFacturacion:last-child, #imagenform #inicio .cancel-data:last-child, html body.formularios-registro .cont_formRegistro .cont-inputs #guardar:last-child, main.ingreso_eleccion #tipo .btns_accesos:last-child, main.form_agencias #inicio .btns_accesos:last-child, main.form_agencias #antiguo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .registerForm #ingresar:last-child, main.form_agencias #antiguo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .registerForm .fb_btn:last-child, main.form_agencias #antiguo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .registerForm .lk_btn:last-child, main.form_agencias #nuevo .registerForm #registrarse:last-child, .creadas .recientes .content .jfilestyle:last-child, .creadas .recientes .content .guardar-campana:last-child, .creadas .volver:last-child, .creadas .volver-campana:last-child, .no-campana .hrefCamp .btn_crearcamp:last-child, #campanaForm-nueva-campana .jfilestyle:last-child, #campanaForm-nueva-campana .guardar:last-child {
     margin-right: 0; }
 
 .btn_close {
@@ -950,6 +950,69 @@ html {
           display: table; }
     html body.formularios-registro {
       background-image: none; }
+      html body.formularios-registro .info_form {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%;
+        padding: 2.35765%;
+        margin: 0;
+        font-size: 10px;
+        font-style: italic;
+        text-transform: uppercase;
+        color: #c7c7c7;
+        border-bottom: 1px solid #c7c7c7; }
+        html body.formularios-registro .info_form:last-child {
+          margin-right: 0; }
+      html body.formularios-registro .cont_formRegistro {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%;
+        padding: 2.35765%; }
+        html body.formularios-registro .cont_formRegistro:last-child {
+          margin-right: 0; }
+        html body.formularios-registro .cont_formRegistro .sub-title {
+          font-size: 14px;
+          font-weight: normal;
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 100%;
+          margin: 10px 0;
+          text-transform: uppercase;
+          color: #656b79; }
+          html body.formularios-registro .cont_formRegistro .sub-title:last-child {
+            margin-right: 0; }
+        html body.formularios-registro .cont_formRegistro .cont-inputs #guardar {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 100%;
+          background-color: #18bb9b; }
+          html body.formularios-registro .cont_formRegistro .cont-inputs #guardar:last-child {
+            margin-right: 0; }
+        html body.formularios-registro .cont_formRegistro .cont-inputs div {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 100%;
+          position: relative;
+          overflow: hidden; }
+          html body.formularios-registro .cont_formRegistro .cont-inputs div:last-child {
+            margin-right: 0; }
+          html body.formularios-registro .cont_formRegistro .cont-inputs div i {
+            position: absolute;
+            right: 0;
+            bottom: 10px;
+            color: #18bb9b; }
+          html body.formularios-registro .cont_formRegistro .cont-inputs div input, html body.formularios-registro .cont_formRegistro .cont-inputs div .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana html body.formularios-registro .cont_formRegistro .cont-inputs div textarea {
+            float: left;
+            display: block;
+            margin-right: 2.35765%;
+            width: 100%; }
+            html body.formularios-registro .cont_formRegistro .cont-inputs div input:last-child, html body.formularios-registro .cont_formRegistro .cont-inputs div .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana html body.formularios-registro .cont_formRegistro .cont-inputs div textarea:last-child {
+              margin-right: 0; }
     @media screen and (min-width: 64em) and (max-width: 90em) {
       html body {
         background-image: none; }
