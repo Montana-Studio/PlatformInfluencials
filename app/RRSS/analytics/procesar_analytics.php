@@ -21,7 +21,8 @@ $(document).ready(function(){
       url: "procesar_listado_analytics.php",
       data: "id="+id+"&name="+name+"&tipo="+tipo,
       success: function(data){ 
-        alert(data);
+        $('#muestra_datos p').html(data);
+        
         }
     });
   })
@@ -67,11 +68,6 @@ function queryAccounts() {
 }
 
 
-/*
- * Example 2:
- * The results of the list method are passed as the response object.
- * The following code shows how to iterate through them.
- */
 function handleResponse(response) {
   if (response && !response.error) {
     if (response.items) {
@@ -84,17 +80,43 @@ function handleResponse(response) {
 
 
 function printAccountSummaries(accounts) {
+  var a = "-";
   for (var i = 0, account; account = accounts[i]; i++) {
-    console.log('Account id: ' + account.id);
+    $('#listado').append('<optgroup label='+account.name+'>');
+    /*console.log('Account id: ' + account.id);
     console.log('Account name: ' + account.name);
-    console.log('Account kind: ' + account.kind);
+    console.log('Account kind: ' + account.kind);*/
 
     // Print the properties.
     if (account.webProperties) {
-      printProperties(account.webProperties);
+       // printProperties(account.webProperties);
+      for (var j = 0, property; property = account.webProperties[j]; j++) {
+        $('#listado').append('<optgroup label='+a+property.name+'>');
+       /* console.log('Property id: ' + property.id);
+        console.log('Property name: ' + property.name);
+        console.log('Property kind: ' + property.kind);
+        console.log('Internal id: ' + property.internalWebPropertyId);
+        console.log('Property level: ' + property.level);
+        console.log('Property url: ' + property.websiteUrl);*/
+
+        // Print the views (profiles).
+        if (property.profiles) {
+            //printProfiles(property.profiles);
+          for (var k = 0, profile; profile = property.profiles[k]; k++) { 
+           $('#listado').append('<option id='+profile.id+'>'+a+a+property.name+' - '+profile.name+'</option>');
+            /*console.log('Profile id: ' + profile.id);
+            console.log('Profile name: ' + profile.name);
+            console.log('Profile kind: ' + profile.kind);
+            console.log('Profile type: ' + profile.type);*/
+          }
+        }
+        $('#listado').append('</optgroup>');
+      }
     }
+     $('#listado').append('</optgroup>');
   }
 }
+/*
 
 
 function printProperties(properties) {
@@ -108,20 +130,37 @@ function printProperties(properties) {
 
     // Print the views (profiles).
     if (property.profiles) {
-      printProfiles(property.profiles);
+//      printProfiles(property.profiles);
+       for (var k = 0, profile; profile = property.profiles[k]; k++) {
+    
+     $('#listado').append('<option id='+profile.id+'>'+property.name+' - '+profile.name+'</option>');
+    console.log('Profile id: ' + profile.id);
+    console.log('Profile name: ' + profile.name);
+    console.log('Profile kind: ' + profile.kind);
+    console.log('Profile type: ' + profile.type);
+  }
+
     }
   }
 }
 
 
 function printProfiles(profiles) {
+    $(document).ready(function(){
+      
   for (var k = 0, profile; profile = profiles[k]; k++) {
+    
+     $('#listado').append('<option id='+profile.id+'>'+profile.name+'</option>');
     console.log('Profile id: ' + profile.id);
     console.log('Profile name: ' + profile.name);
     console.log('Profile kind: ' + profile.kind);
     console.log('Profile type: ' + profile.type);
   }
+
+   //$('#listado').html(resultado); 
+  });
 }
+
 
 /*
 function queryAccounts() {
@@ -262,6 +301,9 @@ document.getElementById('auth-button').addEventListener('click', authorize);
 <script src="https://apis.google.com/js/client.js?onload=authorize"></script>
 <select id="listado"><option value="defaultvalue">seleccione propiedad</option></select>
 <button id="subscribeAnalytics">agregar página</button>
+<div id="muestra_datos">
+  <p></p>
+</div>
 
 </body>
 </html>

@@ -17,10 +17,13 @@ if($_POST['tipo']=='listado'){
 
 if($_POST['tipo']== 'inscripcion'){
 
- $results2 = $mysqli->query("INSERT INTO rrss (rrss,descripcion_rrss,rrss_id,id_estado) VALUES ('$name','analytics','$id','0')");
-   echo 'registro exitoso';
-
-
+ 	$results2 = $mysqli->query("INSERT INTO rrss (rrss,descripcion_rrss,rrss_id,id_estado) VALUES ('$name','analytics','$id','0')");
+  	$json_user_url ="https://www.googleapis.com/analytics/v3/data/ga?ids=ga%3A.$id.&start-date=90daysAgo&end-date=today&metrics=ga%3Avisits&key=AIzaSyDBMZsybp7GcJdmqdhgGDn-jRkGo9jyD-c";
+	$json_user= file_get_contents($json_user_url);
+	$links_user_url= json_decode($json_user);
+	//channelSubscribers = response.items[0].statistics.subscriberCount;
+	$visits = $links_user_url->rows[0];
+	echo $visits;
 }
 
 
