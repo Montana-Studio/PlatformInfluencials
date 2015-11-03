@@ -3,10 +3,7 @@
 // If you run this code from a server other than http://localhost,
 // you need to register your own client ID.
 var OAUTH2_CLIENT_ID = '1045210216843-rplujhgcennvu03bhggu891cbuojf3bn.apps.googleusercontent.com';
-var OAUTH2_SCOPES = [
-  'https://www.googleapis.com/auth/youtube'
-  //'https://www.googleapis.com/youtube/v3/channels?part=id&mine=true&key==AIzaSyDBMZsybp7GcJdmqdhgGDn-jRkGo9jyD-c'
-];
+var OAUTH2_SCOPES = ['https://www.googleapis.com/auth/youtube'];
 
 // Upon loading, the Google APIs JS client automatically invokes this callback.
 googleApiClientReady = function() {
@@ -80,7 +77,7 @@ function handleAuthResult(authResult) {
       // you want to retrieve the currently authenticated user's channel.
       mine: true,
       part: 'snippet, statistics'
-    });
+    });                 
 
     request.execute(function(response) {
       if ('error' in response) {
@@ -93,17 +90,15 @@ function handleAuthResult(authResult) {
         //channelSubscribers = response.items[0].statistics.subscriberCount;
         //channelImg = response.items[0].snippet.thumbnails.high.url;
         //tipo= "youtube";
-       // alert("youtubeId: "+channelId+"-  youtubeName: "+channelName+"-  youtubeSubscribers: "+ channelSubscribers+"- img link: "+ channelImg);
+       // alert("youtubeId: " +channelId+"-  youtubeName: "+channelName+"-  youtubeSubscribers: "+ channelSubscribers+"- img link: "+ channelImg);
           $.ajax({  
             type: "POST",  
             url: "rrss/youtube/procesar_youtube.php",  
             data: "youtubeId="+channelId, //"&youtubeName="+channelName+"&youtubeSubscribers="+channelSubscribers+"&youtubeImgUrl="+channelImg, 
             success: function(data){ 
               //alert(data);
-              
               }
-          
-    });
+          });
 
       }
     });

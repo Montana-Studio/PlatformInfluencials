@@ -120,12 +120,15 @@
 
 <?php
 	require('conexion.php');
+	require('rrss/Facebook/facebook-auth.php');
+	require('rrss/googleplus/auth.php');
 	if(isset($_SESSION['nombre'])==false){
 	header('Location:index.php');
 	die();
 	}
 	else{
 	include_once('procesar_mostrar_followers.php');
+
 	}
 ?>
 <script id="facebook-sdk" src="js/facebook-login.js"></script>
@@ -202,4 +205,4 @@
 	</div-->
 
 </body>
-</html>
+</html>	
