@@ -7,14 +7,14 @@
 	 		
 	 				
 					$(".estado_rs").click(function(){			
-					var id = this.id;
+					var id_activar_rs = this.id;
 	 				var tipo = "activar_rs";
 	 				var estado =parseInt(this.name);
-	 				alert(id+"-"+tipo+"-"+estado);
+	 				alert(id_activar_rs+"-"+tipo+"-"+estado);
 						$.ajax({  
 							type: "POST",  
 							url: "./rrss/procesar_activar_rs.php",  
-							data: "id="+id+"&estado="+estado+"&tipo="+tipo,
+							data: "id_activar_rs="+id_activar_rs+"&estado="+estado+"&tipo="+tipo,
 								
 							success: function(data){ 
 								alert(data);
