@@ -5,6 +5,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script>
 		$(document).ready(function(){
+			//variables globales
 			var correo,nombre,correo,tel1,tel2,empresa;
 			var rsid = $('#RsId').val();
 			if (rsid != ''){
@@ -58,17 +59,22 @@
 					});
 				};
 			}));	
+	
+	/*	$('#youtube').click(function (){
+			$('#youtube-script').attr('src','rrss/youtube/auth.js');
+			//youtubeLogin();
 		});
-
+*/
+		
 		function valida(e){
-			tecla = (document.all) ? e.keyCode : e.which;
-			if (tecla==8){
-				return true;
+				tecla = (document.all) ? e.keyCode : e.which;
+				if (tecla==8){
+					return true;
+				};
+				patron =/[0-9]/;
+				tecla_final = String.fromCharCode(tecla);
+				return patron.test(tecla_final);
 			};
-			patron =/[0-9]/;
-			tecla_final = String.fromCharCode(tecla);
-			return patron.test(tecla_final);
-		};
 		function phone1Length(){
 			var tel1 = $('#telefono1nuevo').val();
 			var tel2 = $('#telefono2nuevo').val();
@@ -87,6 +93,8 @@
 			else
 				$('#registrarse').attr('disabled','disabled');
 		}
+
+	});
 	</script>
 
 	<style>
@@ -116,13 +124,15 @@
 	header('Location:index.php');
 	die();
 	}
-	else{
-		include_once('procesar_mostrar_followers.php');
-	}
+	//else{
+	//include_once('procesar_mostrar_followers.php');
+
+	//}
 ?>
 <script id="facebook-sdk" src="js/facebook-login.js"></script>
 </head>
 <body>
+<input id="idlinkedin"/>
 	<div style="text-align:right;">
 		<a href="logout.php">cerrar sesion</a>
 		-
@@ -176,16 +186,26 @@
 			<!--button id="pinterest-inscription">Pinterest</button-->
 		
 	</div>
-	
+			
 		<?php 
-			require("rrss/twitter/inc/twitteroauth.php");
-			require('rrss/twitter/inc/TwitterAPIExchange.php');
-			require('rrss/instagram/instagram.php');
-			require('rrss/Facebook/facebook-auth.php');
-			require('rrss/youtube/auth.php');
-			require('rrss/googleplus/auth.php');
-			include_once('procesar_mostrar_cuentas.php');
-		?>
+		require("rrss/twitter/inc/twitteroauth.php");
+		require('rrss/twitter/inc/TwitterAPIExchange.php');
+		require('rrss/instagram/instagram.php');
+		require('rrss/Facebook/facebook-auth.php');
+		require('rrss/googleplus/auth.php');
+		include_once('procesar_mostrar_cuentas.php');?>
+	<!--div id="contacto">
+		<h2>contacto</h2>
+		<div>
+			<input placeholder="asunto">
+		</div>
+		<div>
+			<textarea  placeholder="descripcion" rows="10" cols="40"></textarea>
+		</div>
+		<div>
+			<button>enviar</button>
+		</div>
+	</div-->
 
 </body>
 </html>	

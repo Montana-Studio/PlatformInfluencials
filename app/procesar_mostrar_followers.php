@@ -1,4 +1,6 @@
 <?php
+
+	
     echo '	   	 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 			<script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
@@ -98,22 +100,16 @@ $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 		    	$estado=1;
 		    	$estado_descripcion = "desactivar";
 		    }
-
 		   $_SESSION['twitter'] .="<h3>".$username."   -    ".(int)$followers_count1."  <button class='estado_rs' name='".$estado."' id='".$row4[0]."'>".$estado_descripcion."</button> </h3><img src='".$avatar."'/>
 		   <br/><b>últimos tweets</b>";
-
 		   for($i = 0; $i < 3 ; $i++){
 		   	$text.="<br/>".$data1[$i]['text'];
 		   }
 		   $_SESSION['twitter'] .= $text;
 		   $text="";
-
 			}while($row4 = $result4->fetch_array());
 			 $suma += $suma_twitter;
 		}
-		/****************************************************************************************************
-											YOUTUBE BUTTON AND GET REACH SUM
-		****************************************************************************************************/
 	$query5="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='youtube'";
 	$result5=mysqli_query($mysqli,$query5)or die (mysqli_error());
 	$row5= mysqli_fetch_array($result5, MYSQLI_BOTH);
