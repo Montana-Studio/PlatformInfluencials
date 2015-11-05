@@ -1,6 +1,6 @@
 <?php
 
-	
+
     echo '	   	 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 			<script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
@@ -100,7 +100,7 @@ $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 		    	$estado=1;
 		    	$estado_descripcion = "desactivar";
 		    }
-		   $_SESSION['twitter'] .="<h3>".$username."   -    ".(int)$followers_count1."  <button class='estado_rs' name='".$estado."' id='".$row4[0]."'>".$estado_descripcion."</button> </h3><img src='".$avatar."'/>
+		   $_SESSION['twitter'] .="<h3>".$username."   -    ".(int)$followers_count1."  <button class='estado_rs' name='".$estado."' id='".$row4[3]."'>".$estado_descripcion."</button> </h3><img src='".$avatar."'/>
 		   <br/><b>últimos tweets</b>";
 		   for($i = 0; $i < 3 ; $i++){
 		   	$text.="<br/>".$data1[$i]['text'];
