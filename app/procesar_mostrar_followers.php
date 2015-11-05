@@ -1,16 +1,4 @@
 <?php
-	include("rrss/twitter/inc/twitteroauth.php");
-	include('rrss/twitter/inc/TwitterAPIExchange.php');
-	include('rrss/instagram/instagram.php');
-	/****************************************************************************************************
-									GET INSTAGRAM REACH
-	****************************************************************************************************/
-	$query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='instagram'";
- $result3=mysqli_query($mysqli,$query3)or die (mysqli_error());
- $row3= mysqli_fetch_array($result3, MYSQLI_BOTH);
- $num_row3= mysqli_num_rows($result3);
- $_SESSION['instagram']="";
-
     echo '	   	 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 			<script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
@@ -18,18 +6,18 @@
 	 			$(document).ready(function(){
 	 		
 	 				
-					$(".estado_rs").click(function(){
-					//alert(this.name);
-					
-					var idRs = this.id;
+					$(".estado_rs").click(function(){			
+					var id = this.id;
 	 				var tipo = "activar_rs";
-	 				var idEstado =this.name;
+	 				var estado =parseInt(this.name);
+	 				alert(id+"-"+tipo+"-"+estado);
 						$.ajax({  
 							type: "POST",  
-							url: "procesar_eliminar-campana.php",  
-							data: "idRs="+idRs+"&idEstado="+idEstado+"&tipo="+tipo,
+							url: "./rrss/procesar_activar_rs.php",  
+							data: "id="+id+"&estado="+estado+"&tipo="+tipo,
 								
 							success: function(data){ 
+								alert(data);
 								window.location.reload();
 							}
 						});
@@ -37,6 +25,14 @@
 					});
 				});
 			</script>';
+	/****************************************************************************************************
+									GET INSTAGRAM REACH
+	****************************************************************************************************/
+$query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='instagram'";
+ $result3=mysqli_query($mysqli,$query3)or die (mysqli_error());
+ $row3= mysqli_fetch_array($result3, MYSQLI_BOTH);
+ $num_row3= mysqli_num_rows($result3);
+ $_SESSION['instagram']="";
 	if($num_row3>0){
 		do{
 		$json_user_url ="https://api.instagram.com/v1/users/".$row3[3]."?access_token=".$row3[6];
@@ -55,7 +51,7 @@
 		    $estado= 1;
 		    $estado_descripcion="desactivar";
 		 }
-			$_SESSION['instagram'] .="<h3>".$username."   -    ".(int)$followers_instagram."<button class='estado_rs' name='".$estado."' id='".$row3[0]."'>".$estado_descripcion."</button><br/></h3><img src='".$avatar."'/>";
+			$_SESSION['instagram'] .="<h3>".$username."   -    ".(int)$followers_instagram."<button class='estado_rs' name='".$estado."' id='".$row3[3]."'>".$estado_descripcion."</button><br/></h3><img src='".$avatar."'/>";
 
 
 	}while($row3 = $result3->fetch_array());
@@ -194,7 +190,7 @@
 				/****************************************************************************************************
 										GOOGLEPLUS  GET REACH SUM
 	****************************************************************************************************/
-		$query7="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='googleplus'";
+	 $query7="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='googleplus'";
 	 $result7=mysqli_query($mysqli,$query7)or die (mysqli_error());
 	 $row7= mysqli_fetch_array($result7, MYSQLI_BOTH);
 	 $num_row7=mysqli_num_rows($result7);
@@ -208,13 +204,12 @@
 					$json_user_url ="https://www.googleapis.com/plus/v1/people/".$googleplusId."?key=".$googleplusKey;
 					$json_user= file_get_contents($json_user_url);
 					$links_user_url= json_decode($json_user);			
-					$googleplusSubscriber =$links_user_url->plusOneCount;
+					$googleplusSubscriber =$links_user_url->circledByCount;
 					$googleplusName =$links_user_url->displayName;
-					echo var_dump($links_user_url);
-					if ($row6[5] == 1){
+					if ($row7[5] == 1){
 				  		$suma_googleplus+=(int)$googleplusSubscriber;
 				    }	
-				    if ($row6[5] == 0){
+				    if ($row7[5] == 0){
 				    	$estado= 0;
 					    $estado_descripcion="activar";
 					 }else{

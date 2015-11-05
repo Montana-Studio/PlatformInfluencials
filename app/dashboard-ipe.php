@@ -5,7 +5,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script>
 		$(document).ready(function(){
-			//variables globales
 			var correo,nombre,correo,tel1,tel2,empresa;
 			var rsid = $('#RsId').val();
 			if (rsid != ''){
@@ -59,22 +58,17 @@
 					});
 				};
 			}));	
-	
-	/*	$('#youtube').click(function (){
-			$('#youtube-script').attr('src','rrss/youtube/auth.js');
-			//youtubeLogin();
 		});
-*/
-		
+
 		function valida(e){
-				tecla = (document.all) ? e.keyCode : e.which;
-				if (tecla==8){
-					return true;
-				};
-				patron =/[0-9]/;
-				tecla_final = String.fromCharCode(tecla);
-				return patron.test(tecla_final);
+			tecla = (document.all) ? e.keyCode : e.which;
+			if (tecla==8){
+				return true;
 			};
+			patron =/[0-9]/;
+			tecla_final = String.fromCharCode(tecla);
+			return patron.test(tecla_final);
+		};
 		function phone1Length(){
 			var tel1 = $('#telefono1nuevo').val();
 			var tel2 = $('#telefono2nuevo').val();
@@ -93,8 +87,6 @@
 			else
 				$('#registrarse').attr('disabled','disabled');
 		}
-
-	});
 	</script>
 
 	<style>
@@ -114,27 +106,23 @@
 			display:none;
 		}
 	</style>
-	<script type="text/javascript" id="youtube-script" src="rrss/youtube/auth.js" ></script>
+	<!--script type="text/javascript" id="youtube-script" src="rrss/youtube/auth.js" ></script>
     <!--script type="text/javascript" src="my_uploads.js"></script-->
     <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
 
 <?php
 	require('conexion.php');
-	require('rrss/Facebook/facebook-auth.php');
-	require('rrss/googleplus/auth.php');
 	if(isset($_SESSION['nombre'])==false){
 	header('Location:index.php');
 	die();
 	}
 	else{
-	include_once('procesar_mostrar_followers.php');
-
+		include_once('procesar_mostrar_followers.php');
 	}
 ?>
 <script id="facebook-sdk" src="js/facebook-login.js"></script>
 </head>
 <body>
-<input id="idlinkedin"/>
 	<div style="text-align:right;">
 		<a href="logout.php">cerrar sesion</a>
 		-
@@ -173,36 +161,31 @@
 	<div id = "redes sociales">
 		<h2>registra tus redes sociales</h2>  
 		
-			<button id="registra-facebook-ipe">Facebook</button>
+			<button id="facebook-inscription" class="rs-inscription" onclick="checkAuthFacebookPages()">Facebook</button>
 		
-			<a id= "twitter" class="twitter-div" href="rrss/twitter/process.php" value="<?php echo $num_row3;?>" >twitter</a>
+			<a id= "twitter-inscription" class="rs-inscription" href="./rrss/twitter/process.php" value="<?php echo $num_row3;?>" >twitter</a>
 		
-			<a href="#" onclick="login()">instagram</a>
+			<button class="rs-inscription" onclick="login()">Instagram</button>
 
+			<button id="youtube-inscription" class="rs-inscription" onclick="checkAuthYoutube()">Youtube</button>	
 		
-			<button id="youtube">Youtube</button><a></a>	
+			<button id="analytics-inscription" class="rs-inscription">Analytics</button>
 		
-			<button id="analytics">Analytics</button><a></a>
+			<button id="googleplus-inscription" class="rs-inscription" onclick="checkAuthGooglePlus()">Google+</button>
 		
-			<button id="googleplus">Google+</button><a></a>
-		
-			<button id="pinterest">Pinterest</button><a></a>
+			<!--button id="pinterest-inscription">Pinterest</button-->
 		
 	</div>
 	
-		<?php include_once('procesar_mostrar_cuentas.php');?>
-	<!--div id="contacto">
-		<h2>contacto</h2>
-		<div>
-			<input placeholder="asunto">
-		</div>
-		<div>
-			<textarea  placeholder="descripcion" rows="10" cols="40"></textarea>
-		</div>
-		<div>
-			<button>enviar</button>
-		</div>
-	</div-->
+		<?php 
+			require("rrss/twitter/inc/twitteroauth.php");
+			require('rrss/twitter/inc/TwitterAPIExchange.php');
+			require('rrss/instagram/instagram.php');
+			require('rrss/Facebook/facebook-auth.php');
+			require('rrss/youtube/auth.php');
+			require('rrss/googleplus/auth.php');
+			include_once('procesar_mostrar_cuentas.php');
+		?>
 
 </body>
 </html>	

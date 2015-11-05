@@ -1,3 +1,4 @@
+<script>
 // The client ID is obtained from the Google Developers Console
 // at https://console.developers.google.com/.
 // If you run this code from a server other than http://localhost,
@@ -8,7 +9,7 @@ var OAUTH2_SCOPES = ['https://www.googleapis.com/auth/youtube'];
 // Upon loading, the Google APIs JS client automatically invokes this callback.
 googleApiClientReady = function() {
   gapi.auth.init(function() {
-    window.setTimeout(checkAuth, 1);
+    window.setTimeout(checkAuthYoutube, 1);
   });
 }
 
@@ -17,14 +18,12 @@ googleApiClientReady = function() {
 // the client specified as the OAUTH2_CLIENT_ID, then the authorization
 // succeeds with no user intervention. Otherwise, it fails and the
 // user interface that prompts for authorization needs to display.
-function checkAuth() {
-  $('#youtube').click(function() {
-    gapi.auth.authorize({
-      client_id: OAUTH2_CLIENT_ID,
-      scope: OAUTH2_SCOPES,
-      immediate: false
-    }, handleAuthResult);
-   });
+function checkAuthYoutube() {
+  gapi.auth.authorize({
+  client_id: OAUTH2_CLIENT_ID,
+  scope: OAUTH2_SCOPES,
+  immediate: false
+  }, handleAuthResult);   
 }
 
 // Handle the result of a gapi.auth.authorize() call.
@@ -96,6 +95,8 @@ function handleAuthResult(authResult) {
             url: "rrss/youtube/procesar_youtube.php",  
             data: "youtubeId="+channelId, //"&youtubeName="+channelName+"&youtubeSubscribers="+channelSubscribers+"&youtubeImgUrl="+channelImg, 
             success: function(data){ 
+              if(data == 'registrado') alert('La cuenta ya está asociada')
+              if(data == 'otro') alert('La cuenta está asociada a otro usuario');
               //alert(data);
               }
           });
@@ -103,3 +104,5 @@ function handleAuthResult(authResult) {
       }
     });
   }
+
+  </script>

@@ -8,15 +8,38 @@
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <button id="auth-button" hidden>Authorize</button>
 <textarea cols="80" rows="20" id="query-output"></textarea>
-<p>Datos</p>
-Profile<p id="profileName"></p>
-Views<p id="pageviews" class="desktop"></p>
-Sessions<p id="sessions" class="desktop"></p>
-SessionDuration<p id="sessionDuration" class="desktop"></p>
-PageviewsPerSession<p id="pageviewsPerSession" class="desktop"></p>
-UniquePageviews<p id="uniquePageviews" class="desktop"></p>
-AvgTimeOnPage<p id="avgTimeOnPage" class="desktop"></p>
-SessionsPerUser<p id="sessionsPerUser" class="desktop"></p>
+
+<h1 id="profileName"></h1> 
+<table id="desktop">
+  <tr><h2>Desktop</h2></tr>
+    <tr><td>Views </td><td id="pageviews-desktop" class="desktop"></td></tr>
+    <tr><td>Sessions </td><td id="sessions-desktop" class="desktop"></td></tr>
+    <tr><td>SessionDuration </td><td id="sessionDuration-desktop" class="desktop"></td></tr>
+    <tr><td>PageviewsPerSession </td><td id="pageviewsPerSession-desktop" class="desktop"></td></tr>
+    <tr><td>UniquePageviews </td><td id="uniquePageviews-desktop" class="desktop"></td></tr>
+    <tr><td>AvgTimeOnPage </td><td id="avgTimeOnPage-desktop" class="desktop"></td></tr>
+    <tr><td>SessionsPerUser </td><td id="sessionsPerUser-desktop" class="desktop"></td></tr>
+</table>
+<table id="mobile">
+  <tr><h2>Mobile</h2></tr>
+    <tr><td>Views </td><td id="pageviews-mobile" class="mobile"></td></tr>
+    <tr><td>Sessions </td><td id="sessions-mobile" class="mobile"></td></tr>
+    <tr><td>SessionDuration </td><td id="sessionDuration-mobile" class="mobile"></td></tr>
+    <tr><td>PageviewsPerSession </td><td id="pageviewsPerSession-mobile" class="mobile"></td></tr>
+    <tr><td>UniquePageviews </td><td id="uniquePageviews-mobile" class="mobile"></td></tr>
+    <tr><td>AvgTimeOnPage </td><td id="avgTimeOnPage-mobile" class="mobile"></td></tr>
+    <tr><td>SessionsPerUser </td><td id="sessionsPerUser-mobile" class="mobile"></td></tr>
+</table>
+<table id="tablet">
+  <tr><h2>Tablet</h2></tr>
+    <tr><td>Views </td><td id="pageviews-tablet" class="tablet"></td></tr>
+    <tr><td>Sessions </td><td id="sessions-tablet" class="tablet"></td></tr>
+    <tr><td>SessionDuration </td><td id="sessionDuration-tablet" class="tablet"></td></tr>
+    <tr><td>PageviewsPerSession </td><td id="pageviewsPerSession-tablet" class="tablet"></td></tr>
+    <tr><td>UniquePageviews </td><td id="uniquePageviews-tablet" class="tablet"></td></tr>
+    <tr><td>AvgTimeOnPage </td><td id="avgTimeOnPage-tablet" class="tablet"></td></tr>
+    <tr><td>SessionsPerUser </td><td id="sessionsPerUser-tablet" class="tablet"></td></tr>
+</table>
 
 <script>
   $(document).ready(function(){
@@ -102,7 +125,7 @@ SessionsPerUser<p id="sessionsPerUser" class="desktop"></p>
     gapi.client.analytics.data.ga.get({
       'ids': 'ga:'+profile,
       'start-date': '90daysAgo',
-      'end-date': 'today',
+      'end-date': 'yesterday',
       'metrics': 'ga:pageviews, ga:sessions, ga:sessionDuration, ga:pageviewsPerSession, ga:uniquePageviews, ga:avgTimeOnPage, ga:sessionsPerUser',
       'dimensions' : 'ga:deviceCategory', 
     })
@@ -110,7 +133,7 @@ SessionsPerUser<p id="sessionsPerUser" class="desktop"></p>
       var formattedJson = JSON.stringify(response.result, null, 2);
       document.getElementById('query-output').value = formattedJson;
          obj = JSON.parse(formattedJson);
-         //document.getElemetsByTag('p').value= obj.rows[0];
+         document.getElemetsByTag('p').value= obj.rows[0];
         alert(obj.rows[0][1]);
     })
     .then(null, function(err) {
@@ -125,31 +148,36 @@ SessionsPerUser<p id="sessionsPerUser" class="desktop"></p>
       gapi.client.analytics.data.ga.get({
         'ids': 'ga:'+profile,
         'start-date': '90daysAgo',
-        'end-date': 'today',
+        'end-date': 'yesterday',
         'metrics': 'ga:pageviews, ga:sessions, ga:sessionDuration, ga:pageviewsPerSession, ga:uniquePageviews, ga:avgTimeOnPage, ga:sessionsPerUser',
         'dimensions' : 'ga:deviceCategory', 
       })
       .then(function(response) {
         var formattedJson = JSON.stringify(response.result, null, 2);
         obj = JSON.parse(formattedJson);
-        document.getElementById('profileName').innerHTML = obj.profileInfo.profileName;
-        document.getElementById('pageviews').innerHTML = obj.rows[0][1];
-        document.getElementById('sessions').innerHTML = obj.rows[0][2];
-        document.getElementById('sessionDuration').innerHTML = parseInt(obj.rows[0][3]);
-        document.getElementById('pageviewsPerSession').innerHTML = parseFloat(obj.rows[0][4]).toFixed(2);
-        document.getElementById('uniquePageviews').innerHTML = obj.rows[0][5];
-        document.getElementById('avgTimeOnPage').innerHTML = parseInt(obj.rows[0][6]) + " segundos";
-        document.getElementById('sessionsPerUser').innerHTML = obj.rows[0][7];
-       /* var PageName = obj.profileInfo.profileName;
-        var Pageviews = obj.rows[0][1];
-        var Sessions= obj.rows[0][2];
-        var SessionsDuration= parseInt(obj.rows[0][3]);
-        var PageviewsPerSession = parseFloat(obj.rows[0][4]).toFixed(2);
-        alert(pageviewsPerSession);
-        var UniquePageviews = obj.rows[0][5];
-        var AvgTimeOnPage= parseInt(obj.rows[0][6]) + " segundos";
-        var SessionsPerUser = obj.rows[0][7];
-        var tipo = 'inscripcion';*/
+        document.getElementById('profileName').innerHTML ="Datos de "+ obj.profileInfo.profileName;
+        document.getElementById('pageviews-desktop').innerHTML = obj.rows[0][1];
+        document.getElementById('sessions-desktop').innerHTML = obj.rows[0][2];
+        document.getElementById('sessionDuration-desktop').innerHTML = parseInt(obj.rows[0][3]);
+        document.getElementById('pageviewsPerSession-desktop').innerHTML = parseFloat(obj.rows[0][4]).toFixed(2);
+        document.getElementById('uniquePageviews-desktop').innerHTML = obj.rows[0][5];
+        document.getElementById('avgTimeOnPage-desktop').innerHTML = parseInt(obj.rows[0][6]) + " segundos";
+        document.getElementById('sessionsPerUser-desktop').innerHTML = obj.rows[0][7];
+        document.getElementById('pageviews-mobile').innerHTML = obj.rows[1][1];
+        document.getElementById('sessions-mobile').innerHTML = obj.rows[1][2];
+        document.getElementById('sessionDuration-mobile').innerHTML = parseInt(obj.rows[1][3]);
+        document.getElementById('pageviewsPerSession-mobile').innerHTML = parseFloat(obj.rows[1][4]).toFixed(2);
+        document.getElementById('uniquePageviews-mobile').innerHTML = obj.rows[1][5];
+        document.getElementById('avgTimeOnPage-mobile').innerHTML = parseInt(obj.rows[1][6]) + " segundos";
+        document.getElementById('sessionsPerUser-mobile').innerHTML = obj.rows[1][7];
+        document.getElementById('pageviews-tablet').innerHTML = obj.rows[2][1];
+        document.getElementById('sessions-tablet').innerHTML = obj.rows[2][2];
+        document.getElementById('sessionDuration-tablet').innerHTML = parseInt(obj.rows[2][3]);
+        document.getElementById('pageviewsPerSession-tablet').innerHTML = parseFloat(obj.rows[2][4]).toFixed(2);
+        document.getElementById('uniquePageviews-tablet').innerHTML = obj.rows[2][5];
+        document.getElementById('avgTimeOnPage-tablet').innerHTML = parseInt(obj.rows[2][6]) + " segundos";
+        document.getElementById('sessionsPerUser-tablet').innerHTML = obj.rows[2][7];
+        document.getElementById('query-output').value = formattedJson;
         $(document).ready(function(){
              var name= $('#listado option:selected').val();
             var account= $('#listado option:selected').attr('id');

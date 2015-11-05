@@ -1,15 +1,10 @@
 
 <script>
-$(document).ready(function(){
-
-
-
 	var app_id = '973652052702468';
 	var scopes= 'email,user_friends,manage_pages';
 	var name;
 	var email;
 	var tipo = 1; 
-
 
 		function call_facebook_api(){
 			(function(d, s, id) {
@@ -140,28 +135,15 @@ $(document).ready(function(){
 					            success: function(html){ 
 									console.log(html);
 								}
-
 							});
-
-
-			        	
 			        }
-			        	//console.log(facebook_page_id);
-			     
-
-			        	
-			      //}
-
 			    }
 			);
 	}
 
-
-
-		$('#registra-facebook-ipe').click(function() {
-			call_facebook_api();
-			facebookPages();
-		});		
-	});
+	function checkAuthFacebookPages(){
+		call_facebook_api();
+		facebookPages();
+	}
 
 </script>

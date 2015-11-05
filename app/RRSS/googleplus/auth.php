@@ -5,19 +5,17 @@ var OAUTH2_SCOPES = ['https://www.googleapis.com/auth/plus.me'];
 // Upon loading, the Google APIs JS client automatically invokes this callback.
 googleApiClientReady = function() {
   gapi.auth.init(function() {
-    window.setTimeout(checkAuth, 1);
+    window.setTimeout(checkAuthGooglePlus, 1);
   });
 }
 
 
-function checkAuth() {
-  $('#googleplus').click(function() {
-    gapi.auth.authorize({
+function checkAuthGooglePlus() {
+   gapi.auth.authorize({
       client_id: OAUTH2_CLIENT_ID,
       scope: OAUTH2_SCOPES,
       immediate: false
-    }, handleAuthResult);
-   });
+    }, handleAuthResult);  
 }
 
 
@@ -47,6 +45,8 @@ function handleAuthResult(authResult) {
             url: "rrss/googleplus/procesar_googleplus.php",  
             data: "googlePlusId="+id, //"&youtubeName="+channelName+"&youtubeSubscribers="+channelSubscribers+"&youtubeImgUrl="+channelImg, 
             success: function(data){ 
+                if(data == 'registrado') alert('La cuenta ya está asociada')
+                if(data == 'otro') alert('La cuenta está asociada a otro usuario');
             
             }
         });
@@ -54,8 +54,4 @@ function handleAuthResult(authResult) {
     
     })
   }
-
-          
-
-
 </script>
