@@ -66,35 +66,37 @@
 		});
 */
 		
-		function valida(e){
-				tecla = (document.all) ? e.keyCode : e.which;
-				if (tecla==8){
-					return true;
-				};
-				patron =/[0-9]/;
-				tecla_final = String.fromCharCode(tecla);
-				return patron.test(tecla_final);
-			};
-		function phone1Length(){
-			var tel1 = $('#telefono1nuevo').val();
-			var tel2 = $('#telefono2nuevo').val();
-			$('#registrarse').attr('disabled','disabled');
-			if (tel1.length > 7 && tel2.length > 7)
-				$('#registrarse').removeAttr('disabled');
-			else
-				$('#registrarse').attr('disabled','disabled');
-			}
-		function phone2Length(){
-			var tel1 = $('#telefono1nuevo').val();
-			var tel2 = $('#telefono2nuevo').val();
-			$('#registrarse').attr('disabled','disabled');
-			if (tel1.length > 7 && tel2.length > 7)
-				$('#registrarse').removeAttr('disabled');
-			else
-				$('#registrarse').attr('disabled','disabled');
-		}
+
 
 	});
+
+	function valida(e){
+		tecla = (document.all) ? e.keyCode : e.which;
+		if (tecla==8){
+			return true;
+		};
+		patron =/[0-9]/;
+		tecla_final = String.fromCharCode(tecla);
+		return patron.test(tecla_final);
+	};
+	function phone1Length(){
+		var tel1 = $('#telefono1nuevo').val();
+		var tel2 = $('#telefono2nuevo').val();
+		$('#registrarse').attr('disabled','disabled');
+		if (tel1.length > 7 && tel2.length > 7)
+			$('#registrarse').removeAttr('disabled');
+		else
+			$('#registrarse').attr('disabled','disabled');
+		}
+	function phone2Length(){
+		var tel1 = $('#telefono1nuevo').val();
+		var tel2 = $('#telefono2nuevo').val();
+		$('#registrarse').attr('disabled','disabled');
+		if (tel1.length > 7 && tel2.length > 7)
+			$('#registrarse').removeAttr('disabled');
+		else
+			$('#registrarse').attr('disabled','disabled');
+	}
 	</script>
 
 	<style>
