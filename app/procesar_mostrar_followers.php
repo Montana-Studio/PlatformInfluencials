@@ -185,6 +185,7 @@ $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 					 }
 
 			}while($row6 = $result6->fetch_array());
+			$suma += $suma_facebook;
 		}
 
 				/****************************************************************************************************
@@ -221,6 +222,8 @@ $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 					 }
 
 			}while($row7 = $result7->fetch_array());
+			$suma += $suma_googleplus;
+
 		}
 
 
