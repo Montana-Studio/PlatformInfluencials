@@ -55,7 +55,8 @@ SessionsPerUser<input id="sessionsPerUser" class="desktop"></input><br/-->
     var authData = {
       client_id: CLIENT_ID,
       scope: SCOPES,
-      immediate: useImmdiate
+      immediate: useImmdiate,
+      access_type: offline,
     };
 
     gapi.auth.authorize(authData, function(response) {

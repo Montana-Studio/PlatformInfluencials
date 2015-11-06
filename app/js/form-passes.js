@@ -418,6 +418,100 @@ $(document).ready(function(){
 
 		return false;
 	}));
+	
+		$('#imagenform-ipe').on('submit',(function (e){
+		e.preventDefault;
+		info = new FormData(this);
+		info.append('correo',$('#correo input').val());
+		info.append('rsid',$('#RsId').val());
+		info.append('nombre',$('#nombre input').val());
+		info.append('tel1',$('#tel1 input').val());
+		info.append('tel2',$('#tel2 input').val());
+		info.append('empresa',$('#empresa input').val());
+		info.append('descripcion',$('#descripcion textarea').val());
+		info.append('tipo','avatar-ipe');
+
+		if(foto==1) {
+			$.ajax({
+				type: "POST",
+				url: "./procesar_imagen.php",
+				data: info,
+				enctype: 'multipart/form-data',
+				contentType: false,
+				cache: false,
+				processData:false,
+
+				success: function(info){
+					switch (info){
+						case "nuevo":$(".alertElim").fadeIn("normal",function(){
+								$("#boxAlert .hrefCamp h2").text("imagen cambiada");
+								$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+								$("#boxAlert .hrefCamp p.messageAlert").text("Imagen cambiada con exito.");
+
+								$("#boxAlert").show().animate({
+									top:"20%",
+									opacity:1
+								},{duration:1500,easing:"easeOutBounce"});
+
+								$("#clearAlert").on("click",function(){
+									$("#boxAlert").animate({
+										top:"-100px",
+										opacity:0
+									},{duration:500,easing:"easeInOutQuint",complete:function(){
+										$(".alertElim").fadeOut("fast");
+										window.location.reload();
+									}});
+								});
+						});
+						break;
+						default: alert('el tamaño o formato no es aceptado');
+						break;
+					}
+				}
+			});
+		}
+		else{
+			$.ajax({
+
+					type: "POST",
+					url: "./procesar-dashboard-ipe.php",
+					data: info,
+					enctype: 'multipart/form-data',
+					contentType: false,
+					cache: false,
+					processData:false,
+
+				success: function(info){
+					switch (info){
+						case "actualiza":$(".alertElim").fadeIn("normal",function(){
+								$("#boxAlert .hrefCamp h2").text("datos actualizados");
+								$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+								$("#boxAlert .hrefCamp p.messageAlert").text("Tus datos se han actualizado, la pagina se actualizara para reflejar los cambios.");
+
+								$("#boxAlert").show().animate({
+									top:"20%",
+									opacity:1
+								},{duration:1500,easing:"easeOutBounce"});
+
+								$("#clearAlert").on("click",function(){
+									$("#boxAlert").animate({
+										top:"-100px",
+										opacity:0
+									},{duration:500,easing:"easeInOutQuint",complete:function(){
+										$(".alertElim").fadeOut("fast");
+										window.location.reload();
+									}});
+								});
+						});
+						break;
+					}
+				}
+			});
+			//console.log('');
+		};
+
+		return false;
+	}));
 
 	//FORMULARIO DE AGENCIAS
 	$('#formulario_agencias_rs').on('submit',function(e){

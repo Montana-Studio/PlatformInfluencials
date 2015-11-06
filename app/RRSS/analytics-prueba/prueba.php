@@ -1,6 +1,6 @@
 <?php
 
-/* OAuth2 service account p12 key file
+// OAuth2 service account p12 key file
 $p12FilePath = 'client_secrets.p12';
 
 // OAuth2 service account ClientId
@@ -19,7 +19,7 @@ $googleAssertionCredentials = new Google_Auth_AssertionCredentials(
     $scopes,
     file_get_contents($p12FilePath)
 );
-*/
+
 $client_email = '1045210216843-cefe3gbi031hpdrrgihdocpfr79qgqjr@developer.gserviceaccount.com';
 $private_key = file_get_contents('client_secrets.p12');
 $scopes = array('https://www.googleapis.com/auth/analytics.readonly');
@@ -40,7 +40,7 @@ $client->setApplicationName("prueba");
 // Create Google Service Analytics object with our preconfigured Google_Client
 $analytics = new Google_Service_Analytics($client);
 
-/* Add Analytics View ID, prefixed with "ga:"
+// Add Analytics View ID, prefixed with "ga:"
 $analyticsViewId    = 'ga:54334926';
 
 $startDate          = '2015-01-01';
@@ -54,5 +54,5 @@ $data = $analytics->data_ga->get($analyticsViewId, $startDate, $endDate, $metric
 // Data 
 $items = $data->getRows();
 
-echo $items;*/
+echo $items;
 ?>

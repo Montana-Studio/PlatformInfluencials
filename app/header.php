@@ -345,12 +345,12 @@
 					</div>
 					<div id="tel1">
 						<small>tel. empresa</small>
-						<input type="text"  onkeypress="return valida(event)" value="<?php echo $_SESSION['telefono1']; ?>" disabled>
+						<input type="text"  onkeypress="return valida(event)" maxlength="11" value="<?php echo $_SESSION['telefono1']; ?>" disabled>
 						<i class="fa fa-pencil"></i>
 					</div>
 					<div id="tel2">
 						<small>tel. personal</small>
-						<input type="text"  onkeypress="return valida(event)" value="<?php echo $_SESSION['telefono2']; ?>" disabled>
+						<input type="text"  onkeypress="return valida(event)" maxlength="11" value="<?php echo $_SESSION['telefono2']; ?>" disabled>
 						<i class="fa fa-pencil"></i>
 					</div>
 
