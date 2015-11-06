@@ -483,7 +483,9 @@ $(document).ready(function(){
 
 				success: function(info){
 					switch (info){
-						case "actualiza":$(".alertElim").fadeIn("normal",function(){
+						case "actualiza":
+						console.log('actualiza');
+						$(".alertElim").fadeIn("normal",function(){
 								$("#boxAlert .hrefCamp h2").text("datos actualizados");
 								$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
 								$("#boxAlert .hrefCamp p.messageAlert").text("Tus datos se han actualizado, la pagina se actualizara para reflejar los cambios.");

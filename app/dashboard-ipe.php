@@ -42,10 +42,11 @@
 			die();
 		}
 	?>
-<script id="facebook-sdk" src="js/facebook-login.js"></script>
+	<script id="facebook-sdk" src="js/facebook-login.js"></script>
+	<link rel="stylesheet" href="css/platform_influencials.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 <body>
-<input id="idlinkedin"/>
 	<div style="text-align:right;">
 		<a href="logout.php">cerrar sesion</a>
 		-

@@ -130,7 +130,7 @@ if ($tipo == 'avatar-ipe'){
 	}else{
 		$resultado = valida_extension();
 	}
-
+	$_SESSION['picture_url']=$targetPath."avatar.gif";
 	echo $resultado;
 
 }else if ($tipo == 'campana'){
