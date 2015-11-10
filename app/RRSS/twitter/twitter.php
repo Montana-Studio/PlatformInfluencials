@@ -5,8 +5,8 @@ include_once('inc/TwitterAPIExchange.php');
     /****************************************************************
     Ask if the persona_id exist on table rrss twitter data
     ****************************************************************/
-    
-    $mysqli = mysqli_connect("localhost","root","root","adnativo_pi") or die("Error " . mysqli_error($link)); 
+
+    $mysqli = mysqli_connect("localhost","adnativo_user","}O%X;&KD[1_*","adnativo_ipe") or die("Error " . mysqli_error($link)); 
     $mysqli->set_charset('utf8');
     $query2="SELECT rrss_id FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter'";
     $result2=mysqli_query($mysqli,$query2)or die (mysqli_error());
@@ -39,13 +39,13 @@ include_once('inc/TwitterAPIExchange.php');
     $num_row2= mysqli_num_rows($result2);
    // header("../../."$_SESSION['id']."/".(int)$usuario1);
     /****************************************************************
-    If the user has 3 registered accounts 
+    If the user has 3 registered accounts
     /****************************************************************/
       if((int)$num_row > 2){
         $displaydb = "none";
        // header('Location: ../../dashboard-ipe.php');
-      
-   
+
+
     /****************************************************************
     Success, redirected back from process.php with varified status.
     retrive variables
@@ -62,7 +62,7 @@ include_once('inc/TwitterAPIExchange.php');
              header('Location: ../../dashboard-ipe.php');
             }else{
                  //  header('Location: ../../dashboard-ipe.php');
-            
+
                 $oauth_token        = $_SESSION['request_vars']['oauth_token'];
                 $oauth_token_secret = $_SESSION['request_vars']['oauth_token_secret'];
                 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $oauth_token, $oauth_token_secret);
@@ -87,6 +87,6 @@ include_once('inc/TwitterAPIExchange.php');
 
 
             }
-          
+
         }
     ?>
