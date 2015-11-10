@@ -1,3 +1,11 @@
+<?php
+include('conexion.php');
+if(isset($_SESSION['nombre'])==false){
+	header('Location:index.php');
+	die();
+}
+
+?>
 <html>
 <head>
 	<meta  charset="UTF-8" >
@@ -12,7 +20,7 @@
 			}
 			var foto=0;
 				$('#file').click(function(){
-				  foto=1; 
+				  foto=1;
 			});
 		});
 	</script>
@@ -36,11 +44,7 @@
 	</style>
     <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
 	<?php
-		require('conexion.php');
-		if(isset($_SESSION['nombre'])==false){
-			header('Location:index.php');
-			die();
-		}
+
 	?>
 	<script id="facebook-sdk" src="js/facebook-login.js"></script>
 	<link rel="stylesheet" href="css/platform_influencials.css">
@@ -66,7 +70,7 @@
 			<input value="<?php echo $_SESSION['empresa']; ?>">
 		</div>
 
-		<div id="descripcion" >	
+		<div id="descripcion" >
 			<textarea rows="10" cols="40"><?php echo $_SESSION['descripcion']; ?></textarea>
 		</div>
 	<h2>datos de facturaci&oacuten </h2>
@@ -83,15 +87,15 @@
 		</div>
 	</form>
 	<div id = "redes sociales">
-		<h2>registra tus redes sociales</h2>  
+		<h2>registra tus redes sociales</h2>
 			<button id="facebook-inscription" class="rs-inscription" onclick="checkAuthFacebookPages()">Facebook</button>
 			<a id= "twitter-inscription" class="rs-inscription" href="./rrss/twitter/process.php" value="<?php echo $num_row3;?>" >twitter</a>
 			<button class="rs-inscription" onclick="login()">Instagram</button>
-			<button id="youtube-inscription" class="rs-inscription" onclick="checkAuthYoutube()">Youtube</button>	
+			<button id="youtube-inscription" class="rs-inscription" onclick="checkAuthYoutube()">Youtube</button>
 			<button id="analytics-inscription" class="rs-inscription">Analytics</button>
 			<button id="googleplus-inscription" class="rs-inscription" onclick="checkAuthGooglePlus()">Google+</button>
-	</div>	
-	<?php 
+	</div>
+	<?php
 		require("rrss/twitter/inc/twitteroauth.php");
 		require('rrss/twitter/inc/TwitterAPIExchange.php');
 		require('rrss/instagram/instagram.php');
@@ -101,4 +105,4 @@
 		include ('footer-ipe.php');
 	?>
 </body>
-</html>	
+</html>
