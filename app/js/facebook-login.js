@@ -79,7 +79,7 @@ $(document).ready(function(){
 		checkLoginState(function(response){
 			if(!response){ //no esta conectado callback false
 			if( navigator.userAgent.match('CriOS') ){
-   			 window.open('https://www.facebook.com/dialog/oauth?client_id='+app_id+'&scope='+scopes,'', null);
+   			 window.open('https://www.facebook.com/dialog/oauth?client_id='+app_id+'&scope='+scopes+'&redirect_uri=http://desarrollo.adnativo.com/pi/app/','', null);
    			 getFacebookPages();
 			}else{
 					FB.login(function (response){
@@ -140,11 +140,30 @@ $(document).ready(function(){
 
 	var getFacebookPages = function(){
 			FB.api(
-			    "/me/accounts?fields=name",
+			    "/me/accounts", { locale: 'en_US', fields: 'name' },
 			    function (response) {
 			     // if (response && !response.error) {
-			        alert(response.name);
+			        alert(response.data[0].id);
+			        var data  = "";
+			        for(var i=0; i<=response.data.length-1;i++){
+			        	data = data + response.data[i].id + "-";
+			        	
+			        }
+			        	console.log(data);
+			        $.ajax({  
+		            type: "POST",  
+		            url: "./procesar_mostrar_followers.php",  
+		            data: "data="+data,  
+					
+		            success: function(data){ 
+					
+					}
+
+				});
+
+			        	
 			      //}
+
 			    }
 			);
 
@@ -200,11 +219,11 @@ $(document).ready(function(){
   			facebookLogout();
 		});
 
-		$('#registra-facebook-ipe').click(function() {
+	/*	$('#registra-facebook-ipe').click(function() {
 			call_facebook_api();
 			facebookPages();
   			
-		});
+		});*/
 
 
 		

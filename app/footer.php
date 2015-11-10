@@ -8,6 +8,8 @@
 		echo '';
 	}else if(basename($_SERVER['PHP_SELF'])=='formulario-agencia.php'){
 		echo '';
+	}else if(basename($_SERVER['PHP_SELF'])=='formulario-agencia2.php'){
+			echo '';
 	}else if(basename($_SERVER['PHP_SELF'])=='campana.php'){
 		echo '
 			<div class="crear-campana">

@@ -42,6 +42,7 @@ if ($resultado != "vacio"){
 	$_SESSION['rsid']=$row2[9];
 	$_SESSION['id_estado']= $row[2];
 	$_SESSION['id_tipo']= $row[1];
+	$_SESSION['descripcion']= $row[13];
 		switch($row2[1]){
 		case '1':
 			echo 'admin';

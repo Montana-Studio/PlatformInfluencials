@@ -40,6 +40,7 @@
 		$_SESSION['empresa']=$row[12];
 		$_SESSION['pictureUrl']=$row[11];
 		$_SESSION['rsid']=$row[9];
+		$_SESSION['descripcion']= $row[13];
 
 		echo 'dashboard';
 		}else if($num_row2>0){

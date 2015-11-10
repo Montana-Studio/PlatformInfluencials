@@ -53,6 +53,48 @@ html{
 		}
 		&.formularios-registro{
 			background:{image: none;}
+			.info_form{
+				@include span-columns(12);
+				@include pad();
+				margin:0;
+				font:{size:10px;style:italic;}
+				text:{transform:uppercase;}
+				color:$color_grey;
+				border:{bottom:1px solid $color_grey;}
+			}
+			.cont_formRegistro{
+				@include span-columns(12);
+				@include pad();
+				.sub-title{
+					font:{size:14px;weight:normal;}
+					@include span-columns(12 of 12);
+					margin:10px 0;
+					text:{transform:uppercase;}
+					color:$color_grey2;
+				}
+				.cont-inputs{
+					#guardar{
+						@include span-columns(12 of 12);
+						@extend .btns;
+						background:{color: $color_font2;}
+					}
+					div{
+						@include span-columns(12 of 12);
+						position: relative;
+						overflow: hidden;
+						i{
+							position: absolute;
+					    right: 0;
+					    bottom: 10px;
+					    color:$color_font2;
+						}
+						input{
+							@include span-columns(12 of 12);
+							@extend .inputs;
+						}
+					}
+				}
+			}
 		}
 		//MEDIA QUERIES
 		@include media($tabletLandTonotebook){

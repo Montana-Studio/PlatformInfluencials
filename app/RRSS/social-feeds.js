@@ -5,62 +5,58 @@
         
         /* Settings
            ========================================================================== */
-        var facebookPage = "chilerunningscl",
-            youtubeUser = "andro4all",
-            googlePlusId = "XXXXXX",
-            googlePlusKey = "XXXXXX",
-            pinterestUser = "XXXXXX",
-            instagramUserId = "XXXXXX",
-            instagramToken = "XXXXXX",
+        var facebookPage = "296448387178344",
+            youtubeId = "UCbSAk3R9JeqCQYAYrrn_fgQ",
+            googlePlusId = "106493591583179933181",
+            googleKey = "AIzaSyDBMZsybp7GcJdmqdhgGDn-jRkGo9jyD-c",
+            pinterestUser = "marlenetiare",
+            instagramUserId = "2007022744",
+            instagramToken = "2007022744.4c1a459.69ecf02d9af84061ae4186bdd677dab6",
             flickrUserId = "XXXXXX",
-            flickrApiKey = "XXXXXX"; 
-            
+            flickrApiKey = "XXXXXX", 
+            facebookAppId = "973652052702468",
+            facebookKey ="693511c0b86cda985e20ba5a19f556c0";
 
         /* Facebook
            ========================================================================== */
-        $.getJSON('https://graph.facebook.com/'+facebookPage+'?callback=?', function(data) {
+        $.getJSON('https://graph.facebook.com/'+facebookPage+'?access_token='+facebookAppId+'|'+facebookKey+'&fields=likes,talking_about_count,username,website', function(data) {
             var fb_count = data['likes'].toString();
-            fb_count = add_space(fb_count);
-
+            var fb_talking_count = data['talking_about_count'].toString();
+            var username = data['username'].toString();
+            var website = data['website'].toString();
             // Display
+            $('.fb-username').html(username);
+            $('.fb-website').html(website);
             $('.fb-likes').html(fb_count);
+            $('.fb-talking-about').html(fb_talking_count);
         });
 
-
-        /* Youtube
+       /* Youtube
            ========================================================================== */
-
-        $.getJSON('https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername='+youtubeUser+'&fields=items/statistics/subscriberCount&key=AIzaSyDBMZsybp7GcJdmqdhgGDn-jRkGo9jyD-c', function(data) {
-            
-            https://www.googleapis.com/youtube/v3/channels?part=id&mine=true&key={YOUR_API_KEY}
-            // views count
-            var ytViewsCount = data.entry.yt$statistics.totalUploadViews;
-            ytViewsCount = add_space(ytViewsCount);
-
-            // subscribers count
-            var ytSubscriberCount = data.entry.yt$statistics.subscriberCount;
-            ytSubscriberCount = add_space(ytSubscriberCount);
-
-            // uploads count
-            var ytUploadCount = data.entry.gd$feedLink[4].countHint;
-            ytUploadCount = add_space(ytUploadCount);
-
-            // Display
-            $('.yt-views').html(ytViewsCount);
+        $.getJSON('https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id='+youtubeId+'&key='+googleKey, function(data) {
+            var ytSubscriberCount = data.items[0].statistics.subscriberCount;
+            var ytName = data.items[0].snippet.title;
+            var ytImg = data.items[0].snippet.thumbnails.high.url;
+            //Display
             $('.yt-subscribers').html(ytSubscriberCount);
-            $('.yt-uploads').html(ytUploadCount);
-        });
+            $('.yt-name').html(ytName);
+            $('.yt-img img').attr('src',ytImg);
 
+        });
 
         /* Google+
            ========================================================================== */
-        $.getJSON('https://www.googleapis.com/plus/v1/people/'+googlePlusId+'?key='+googlePlusKey, function(data) {
+        $.getJSON('https://www.googleapis.com/plus/v1/people/'+googlePlusId+'?key='+googleKey, function(data) {
             // followers count
             var gpSubscriberCount = data.circledByCount;
             gpSubscriberCount = add_space(gpSubscriberCount);
+            var gpName= data.name.givenName + " " + data.name.familyName;
+            var gpImage = data.image.url;
+            console.log(gpImage);
 
             // Display
             $('.gp-followers').html(gpSubscriberCount);
+            $('.gp-img img').attr('src', gpImage);
         });
 
 
@@ -86,7 +82,7 @@
 
 
         /* Flickr
-           ========================================================================== */
+           ========================================================================== 
         $.getJSON('https://api.flickr.com/services/rest/?method=flickr.people.getInfo&api_key='+flickrApiKey+'&user_id='+flickrUserId+'&format=json&nojsoncallback=1', function(data) {
             // photo count
             var flPhotoCount = data.person.photos.count._content;
