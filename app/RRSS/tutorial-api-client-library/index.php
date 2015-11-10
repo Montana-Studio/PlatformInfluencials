@@ -9,7 +9,7 @@
     // ********************************************************    //
     $client_id = '1045210216843-rplujhgcennvu03bhggu891cbuojf3bn.apps.googleusercontent.com';
     $client_secret = 'sSPlumNW3SyeZ0-GOia2L6ui';
-    $redirect_uri = "http://desarrollo.adnativo.com/pi/app/";
+    $redirect_uri = "http://desarrollo.adnativo.com/pi/app/RRSS/tutorial-api-client-library/index.php";
 
     $client = new Google_Client();
     $client->setApplicationName("platform2-1069");
