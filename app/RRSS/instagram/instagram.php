@@ -6,7 +6,7 @@
 	<script type="text/javascript">
 
 		var accessToken = null; //the access token is required to make any endpoint calls, http://instagram.com/developer/endpoints/
-		
+
 		var authenticateInstagram = function(instagramClientId, instagramRedirectUri, callback) {
 
 			//the pop-up window size, change if you want
@@ -48,12 +48,12 @@
 			var instagramId = accessToken.split(".").shift();
 			var followers_instagram;
 			//alert(instagramId);
-			$.ajax({  
-            type: "POST",  
-            url: "rrss/instagram/procesar_instagram.php",  
+			$.ajax({
+            type: "POST",
+            url: "rrss/instagram/procesar_instagram.php",
             data: "instagramId="+instagramId+"&accessToken="+accessToken,
-			
-            success: function(html){ 
+
+            success: function(html){
             	console.log(html);
 				}
 			});
@@ -62,7 +62,7 @@
 		function login() {
 			authenticateInstagram(
 			    '4c1a45981cee4ec5b742e05ebb8b00b8', //instagram client ID
-			    'http://local.mediatrends/_InfluencialsPlatform/htdocs/app/rrss/Instagram/instagram_auth.php', //instagram redirect URI
+			    'http://desarrollo.adnativo.com/pi/app/rrss/Instagram/instagram_auth.php', //instagram redirect URI
 			    login_callback  //optional - a callback function
 			);
 			return false;
