@@ -1,67 +1,125 @@
 <?php
-   include '../analytics-prueba/google-api-php-client/src/Google/Client.php';
-   set_include_path(get_include_path() . PATH_SEPARATOR . '../analytics-prueba/google-api-php-client/src');
-   session_start();   
-/************************************************ 
- The following 3 values an befound in the setting 
- for the application you created on Google    
- Developers console.     Developers console.
- The Key file should be placed in a location   
- that is not accessable from the web. outside of 
- web root.     web root.
-     
- In order to access your GA account you must  
- Add the Email address as a user at the   
- ACCOUNT Level in the GA admin.     
- ************************************************/
-  $client_id = '1045210216843-rplujhgcennvu03bhggu891cbuojf3bn.apps.googleusercontent.com';
-  $Email_address = 'account-2@platform2-1069.iam.gserviceaccount.com';   
-  $key_file_location = '../p12/client_secrets.p12';    
-  
-  $client = new Google_Client();    
+function getService()
+{
+  // Creates and returns the Analytics service object.
+
+  // Load the Google API PHP Client Library.
+require __DIR__ . '/vendor/autoload.php';
+//
+require_once 'google-api-php-client-master/src/Google/Client.php';
+require_once 'google-api-php-client-master/src/Google/Service.php';
+require_once 'google-api-php-client-master/src/Google/Service/Resource.php';
+require_once 'google-api-php-client-master/src/Google/Model.php';
+require_once 'google-api-php-client-master/src/Google/Collection.php';
+require_once 'google-api-php-client-master/src/Google/Exception.php';
+require_once 'google-api-php-client-master/src/Google/Service/Analytics.php';
+
+
+
+
+  // Use the developers console and replace the values with your
+  // service account email, and relative location of your key file.
+
+
+  // Create and configure a new client object.
+  $client = new Google_Client();
   $client->setApplicationName("HelloAnalytics");
-  $key = file_get_contents($key_file_location);  
+  $analytics = new Google_Service_Analytics($client);
 
-  // seproate additional scopes with a comma   
-  $scopes ="https://www.googleapis.com/auth/analytics.readonly";  
+  // Read the generated client_secrets.p12 key.
+  $key = file_get_contents($key_file_location);
+  $client_email = '045210216843-cefe3gbi031hpdrrgihdocpfr79qgqjr@developer.gserviceaccount.com';
+  $private_key = file_get_contents('key-nibaldo.p12');
+  $scopes = array('https://www.googleapis.com/auth/sqlservice.admin');
+  $credentials = new Google_Auth_AssertionCredentials(
+      $client_email,
+      $scopes,
+      $private_key
+  );
 
-  $cred = new Google_Auth_AssertionCredentials($Email_address,     
-                 array($scopes),    
-                 $key);   
+
+$client->setAuthConfig('/path/to/service-account.json');
 
   $client->setAssertionCredentials($cred);
-  if($client->getAuth()->isAccessTokenExpired()) {    
-     $client->getAuth()->refreshTokenWithAssertion($cred);    
-  }   
+  if($client->getAuth()->isAccessTokenExpired()) {
+    $client->getAuth()->refreshTokenWithAssertion($cred);
+  }
 
-  $service = new Google_Service_Analytics($client);
+  return $analytics;
+}
 
-  
-  
-  //Adding Dimensions
-  $params = array('dimensions' => 'ga:userType'); 
-  // requesting the data  
-  $data = $service->data_ga->get("ga:89798036", "2014-12-14", "2014-12-14", "ga:users,ga:sessions", $params );   
+function getFirstprofileId(&$analytics) {
+  // Get the user's first view (profile) ID.
+
+  // Get the list of accounts for the authorized user.
+  $accounts = $analytics->management_accounts->listManagementAccounts();
+
+  if (count($accounts->getItems()) > 0) {
+    $items = $accounts->getItems();
+    $firstAccountId = $items[0]->getId();
+
+    // Get the list of properties for the authorized user.
+    $properties = $analytics->management_webproperties
+        ->listManagementWebproperties($firstAccountId);
+
+    if (count($properties->getItems()) > 0) {
+      $items = $properties->getItems();
+      $firstPropertyId = $items[0]->getId();
+
+      // Get the list of views (profiles) for the authorized user.
+      $profiles = $analytics->management_profiles
+          ->listManagementProfiles($firstAccountId, $firstPropertyId);
+
+      if (count($profiles->getItems()) > 0) {
+        $items = $profiles->getItems();
+
+        // Return the first view (profile) ID.
+        return $items[0]->getId();
+
+      } else {
+        throw new Exception('No views (profiles) found for this user.');
+      }
+    } else {
+      throw new Exception('No properties found for this user.');
+    }
+  } else {
+    throw new Exception('No accounts found for this user.');
+  }
+}
+
+function getResults(&$analytics, $profileId) {
+  // Calls the Core Reporting API and queries for the number of sessions
+  // for the last seven days.
+   return $analytics->data_ga->get(
+       'ga:' . $profileId,
+       '7daysAgo',
+       'today',
+       'ga:sessions');
+}
+
+function printResults(&$results) {
+  // Parses the response from the Core Reporting API and prints
+  // the profile name and total sessions.
+  if (count($results->getRows()) > 0) {
+
+    // Get the profile name.
+    $profileName = $results->getProfileInfo()->getProfileName();
+
+    // Get the entry for the first entry in the first row.
+    $rows = $results->getRows();
+    $sessions = $rows[0][0];
+
+    // Print the results.
+    print "First view (profile) found: $profileName\n";
+    print "Total sessions: $sessions\n";
+  } else {
+    print "No results found.\n";
+  }
+}
+
+$analytics = getService();
+$profile = getFirstProfileId($analytics);
+$results = getResults($analytics, $profile);
+printResults($results);
+
 ?>
-
-<html>   
-Results for date:  2014-12-14<br>
-  <table border="1">   
-    <tr>   
-    <?php  
-    //Printing column headers
-    foreach($data->getColumnHeaders() as $header){
-       print "<td><b>".$header['name']."</b></td>";     
-      }   
-    ?>    
-    </tr>   
-    <?php   
-    //printing each row.
-    foreach ($data->getRows() as $row) {    
-      print "<tr><td>".$row[0]."</td><td>".$row[1]."</td><td>".$row[2]."</td></tr>";   
-    }  
-?>    
-<tr><td colspan="2">Rows Returned <?php print $data->getTotalResults();?> </td></tr>   
-</table>   
-</html> 
-  ?>

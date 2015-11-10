@@ -89,7 +89,14 @@ $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 		    $followers_count1=$data1[0]['user']['followers_count'];	
 		    $username=$data1[0]['user']['screen_name'];	
 		    $avatar= $data1[0]['user']['profile_image_url'];
-		     	
+	
+
+	 
+    //echo "Result " . $interval->y . " years, " . $interval->m." months, ".$interval->d." days ".$interval->h."hours".$interval->m." minute";
+    
+
+
+
 		    if($row4[5] == 1 ){
 		   		$suma_twitter+=	$followers_count1;
 		    }
@@ -100,16 +107,64 @@ $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 		    	$estado=1;
 		    	$estado_descripcion = "desactivar";
 		    }
+
+		    function month($mnt){
+				if($mnt=='Jan') $mnt='01';
+				if($mnt=='Feb') $mnt='02';
+				if($mnt=='Mar') $mnt='03';
+				if($mnt=='Apr') $mnt='04';
+				if($mnt=='May') $mnt='05';
+				if($mnt=='Jun') $mnt='06';
+				if($mnt=='Jul') $mnt='07';
+				if($mnt=='Aug') $mnt='08';
+				if($mnt=='Sep') $mnt='09';
+				if($mnt=='Oct') $mnt='10';
+				if($mnt=='Nov') $mnt='11';
+				if($mnt=='Dic') $mnt='12';
+				return $mnt;
+			}
+
+
 		   $_SESSION['twitter'] .="<h3>".$username."   -    ".(int)$followers_count1."  <button class='estado_rs' name='".$estado."' id='".$row4[3]."'>".$estado_descripcion."</button> </h3><img src='".$avatar."'/>
-		   <br/><b>últimos tweets</b>";
+		   <div>últimos tweets";
 		   for($i = 0; $i < 3 ; $i++){
-		   	$text.="<br/>".$data1[$i]['text'];
+		   	$start_date = new DateTime("now");
+		   	$postDate = $data1[$i]['created_at'];
+			$years = substr($postDate,26,4);
+			$months = substr($postDate,4,3); //nov
+			$day = substr($postDate,8,2);
+			$time = substr($postDate,11,8);
+			$formattedPostDate= $years."-".month($months)."-".$day." ".$time;	
+			$end_date = new DateTime($formattedPostDate);
+			$interval = $start_date->diff($end_date);
+
+			if(intval($interval->m) > 0){
+				$dateDiff = $interval->m."months";
+			}else if(intval($interval->d)>0){
+				$dateDiff = $interval->d."d";
+			}else if(intval($interval->h)>0){
+				$dateDiff = $interval->h."h";
+			} 
+			else if(intval($interval->m)>0){
+				$dateDiff = $interval->i."m";
+			} 
+
+			
+		   	
+		   	$text.="<h4>".$data1[$i]['text']."</h4>
+		   			<p> Retweet ".$data1[$i]['retweet_count']." - Favourites ".$data1[$i]['favorite_count']." - ".$dateDiff.
+		   			"</div>";
+
 		   }
 		   $_SESSION['twitter'] .= $text;
 		   $text="";
 			}while($row4 = $result4->fetch_array());
 			 $suma += $suma_twitter;
 		}
+
+		
+
+
 	$query5="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='youtube'";
 	$result5=mysqli_query($mysqli,$query5)or die (mysqli_error());
 	$row5= mysqli_fetch_array($result5, MYSQLI_BOTH);
