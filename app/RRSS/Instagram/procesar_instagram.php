@@ -13,8 +13,8 @@ echo $query;
 $results1 = $mysqli->query($query);
 
 $num_row1=mysqli_num_rows($results1);
-
-if($num_row1 < 1){
+ echo intval($num_row1);
+if(intval($num_row1) < 1){
 	$results2 = $mysqli->query("INSERT INTO rrss (rrss,descripcion_rrss,rrss_id,persona_id,access_token) VALUES ('$nombre','instagram','$instagramId','$id_persona','$accessToken')");
 }
 
