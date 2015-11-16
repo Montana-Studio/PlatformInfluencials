@@ -1,10 +1,11 @@
 <?php
 include('conexion.php');
+/*
 if(isset($_SESSION['nombre'])==false){
 	header('Location:index.php');
 	die();
 }
-
+*/
 ?>
 <html>
 <head>
@@ -46,7 +47,7 @@ if(isset($_SESSION['nombre'])==false){
     <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
 	
 	<?php
-<<<<<<< HEAD
+
 		require('conexion.php');
 		require("rrss/twitter/inc/twitteroauth.php");
 		require('rrss/twitter/inc/TwitterAPIExchange.php');
@@ -59,9 +60,7 @@ if(isset($_SESSION['nombre'])==false){
 			header('Location:index.php');
 			die();
 		}
-=======
 
->>>>>>> 421ea01836da34dd44543af8c500a649d6694a14
 	?>
 	<script id="facebook-sdk" src="js/facebook-login.js"></script>
 	<link rel="stylesheet" href="css/platform_influencials.css">
@@ -123,7 +122,7 @@ if(isset($_SESSION['nombre'])==false){
 					var regionElements = document.getElementById("region");
 					var region = regionElements.options[regionElements.selectedIndex].value;
 
-<<<<<<< HEAD
+
 					if (region == 'Región de Tarapacá' ){
 						divComuna.innerHTML = divComuna.innerHTML +'<option value ="Alto Hospicio">Alto Hospicio</option><option value ="Camiña">Camiña</option><option value ="Colchane">Colchane</option><option value ="Huara">Huara</option><option value ="Iquique">Iquique</option><option value ="Pica">Pica</option><option value ="Pozo Almonte">Pozo Almonte</option>';
 					}
@@ -187,10 +186,9 @@ if(isset($_SESSION['nombre'])==false){
 			
 		<div id="descripcion" >	
 			<textarea rows="10" cols="40" placeholder="... descríbete en menos de 500 palabras"><?php echo $_SESSION['descripcion'] ?></textarea>
-=======
+
 		<div id="descripcion" >
 			<textarea rows="10" cols="40"><?php echo $_SESSION['descripcion']; ?></textarea>
->>>>>>> 421ea01836da34dd44543af8c500a649d6694a14
 		</div>
 		<div>
 			<button id="guardarFacturacion" type="submit">Guardar</button>
@@ -201,24 +199,18 @@ if(isset($_SESSION['nombre'])==false){
 			<button id="facebook-inscription" class="rs-inscription" onclick="checkAuthFacebookPages()">Facebook</button>
 			<a id= "twitter-inscription" class="rs-inscription" href="./rrss/twitter/process.php" value="<?php echo $num_row3;?>" >twitter</a>
 			<button class="rs-inscription" onclick="login()">Instagram</button>
-<<<<<<< HEAD
 			<button id="youtube-inscription" class="rs-inscription" onclick="googleApiClientReady()">Youtube</button>	
 			<button id="analytics-inscription" class="rs-inscription">Analytics</button>
 			<button id="googleplus-inscription" class="rs-inscription" onclick="googleApiClientReadyGooglePlus()">Google+</button>
 	</div>	
-	<?php 	
-=======
+	
+
 			<button id="youtube-inscription" class="rs-inscription" onclick="checkAuthYoutube()">Youtube</button>
 			<button id="analytics-inscription" class="rs-inscription">Analytics</button>
 			<button id="googleplus-inscription" class="rs-inscription" onclick="checkAuthGooglePlus()">Google+</button>
 	</div>
 	<?php
-		require("rrss/twitter/inc/twitteroauth.php");
-		require('rrss/twitter/inc/TwitterAPIExchange.php');
-		require('rrss/instagram/instagram.php');
-		require('rrss/Facebook/facebook-auth.php');
-		require('rrss/googleplus/auth.php');
->>>>>>> 421ea01836da34dd44543af8c500a649d6694a14
+
 		include_once('procesar_mostrar_cuentas.php');
 		include ('footer-ipe.php');
 	?>
