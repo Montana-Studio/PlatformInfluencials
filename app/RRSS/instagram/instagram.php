@@ -6,7 +6,7 @@
 	<script type="text/javascript">
 
 		var accessToken = null; //the access token is required to make any endpoint calls, http://instagram.com/developer/endpoints/
-		
+
 		var authenticateInstagram = function(instagramClientId, instagramRedirectUri, callback) {
 
 			//the pop-up window size, change if you want
@@ -48,12 +48,12 @@
 			var instagramId = accessToken.split(".").shift();
 			var followers_instagram;
 			//alert(instagramId);
-			$.ajax({  
-            type: "POST",  
-            url: "rrss/instagram/procesar_instagram.php",  
+			$.ajax({
+            type: "POST",
+            url: "rrss/instagram/procesar_instagram.php",
             data: "instagramId="+instagramId+"&accessToken="+accessToken,
-			
-            success: function(html){ 
+
+            success: function(html){
             	console.log(html);
 				}
 			});

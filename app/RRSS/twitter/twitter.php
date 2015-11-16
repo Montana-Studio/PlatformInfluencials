@@ -5,7 +5,11 @@ include_once('inc/TwitterAPIExchange.php');
     /****************************************************************
     Ask if the persona_id exist on table rrss twitter data
     ****************************************************************/
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 421ea01836da34dd44543af8c500a649d6694a14
     $mysqli = mysqli_connect("localhost","adnativo_user","}O%X;&KD[1_*","adnativo_ipe") or die("Error " . mysqli_error($link)); 
     $mysqli->set_charset('utf8');
     $query2="SELECT rrss_id FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter'";
@@ -36,10 +40,16 @@ include_once('inc/TwitterAPIExchange.php');
     $result2=mysqli_query($mysqli,$query2)or die (mysqli_error());
     $num_row2= mysqli_num_rows($result2);
     /****************************************************************
-    If the user has 3 registered accounts 
+    If the user has 3 registered accounts
     /****************************************************************/
       if((int)$num_row > 2){
         $displaydb = "none";
+<<<<<<< HEAD
+=======
+       // header('Location: ../../dashboard-ipe.php');
+
+
+>>>>>>> 421ea01836da34dd44543af8c500a649d6694a14
     /****************************************************************
     Success, redirected back from process.php with varified status.
     retrive variables
@@ -52,7 +62,13 @@ include_once('inc/TwitterAPIExchange.php');
           if((int)$num_row2 > 0){
              $displaydb = "block";
              header('Location: ../../dashboard-ipe.php');
+<<<<<<< HEAD
             }else{       
+=======
+            }else{
+                 //  header('Location: ../../dashboard-ipe.php');
+
+>>>>>>> 421ea01836da34dd44543af8c500a649d6694a14
                 $oauth_token        = $_SESSION['request_vars']['oauth_token'];
                 $oauth_token_secret = $_SESSION['request_vars']['oauth_token_secret'];
                 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $oauth_token, $oauth_token_secret);
@@ -75,6 +91,6 @@ include_once('inc/TwitterAPIExchange.php');
 
 
             }
-          
+
         }
     ?>
