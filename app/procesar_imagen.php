@@ -39,13 +39,12 @@ if (strlen($_SESSION['rsid'])>2){
 }
 
 if ($tipo == 'avatar-ipe'){
-	$tel1 =$_POST['tel1'];
-	$tel2 =$_POST['tel2'];
-	$empresa= $_POST['empresa'];
-	$picture_url=$_SESSION['picture_url'];
+	$correo =$_POST['correo'];
 	$nombre =$_POST['nombre'];
-	$descripcion =$_POST['descripcion'];
-
+	$comuna= $_POST['comuna'];
+	$region=$_POST['region'];
+	$descripcion= $POST['descripcion'];
+	$picture_url=$_SESSION['picture_url'];
 	if(valida_extension() == "ok"){
 
 		if ($a==1){ // Create directory to save the file in case of Social Login and first change on avatar image
@@ -54,7 +53,7 @@ if ($tipo == 'avatar-ipe'){
 				unlink("uploads/ipe/registered/$rsid/avatar.gif");
 				move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 				rename("uploads/ipe/registered/$rsid/$file", "uploads/ipe/registered/$rsid/avatar.gif");
-				$results2 = $mysqli->query("UPDATE persona SET nombre='$nombre', telefono1='$tel1', telefono2='$tel2', empresa='$empresa', correo='$correo', picture_url='uploads/ipe/registered/$rsid/avatar.gif' , descripcion='$descripcion' WHERE RS_id='$rsid'");
+				$results2 = $mysqli->query("UPDATE persona SET nombre='$nombre', correo='$correo', region='$region', comuna='$comuna', picture_url='uploads/ipe/registered/$rsid/avatar.gif' , descripcion='$descripcion' WHERE RS_id='$rsid'");
 				$resultado = "nuevo";
 			}else{
 				mkdir("uploads/ipe/registered/$rsid", 0777, true);
@@ -62,18 +61,21 @@ if ($tipo == 'avatar-ipe'){
 				unlink("uploads/ipe/registered/$rsid/avatar.gif");
 				move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 				rename("uploads/ipe/registered/$rsid/$file", "uploads/ipe/registered/$rsid/avatar.gif");
-				$results2 = $mysqli->query("UPDATE persona SET nombre='$nombre', telefono1='$tel1', telefono2='$tel2', empresa='$empresa', correo='$correo', picture_url='uploads/ipe/registered/$rsid/avatar.gif' , descripcion='$descripcion'  WHERE RS_id='$rsid'");
+				$results2 = $mysqli->query("UPDATE persona SET nombre='$nombre', correo='$correo',region='$region', comuna='$comuna', picture_url='uploads/ipe/registered/$rsid/avatar.gif' , descripcion='$descripcion' WHERE RS_id='$rsid'");
 				$resultado = "nuevo";
 			}
 		}
+
 		if ($a==2){// Create directory to save the file in case of Form Login and first change on avatar image
+			//echo $comuna;
 			if (file_exists("uploads/ipe/registered/$correo")){
 				$targetPath = "uploads/ipe/registered/$correo/".$_FILES['file']['name']; // Target path where file is to be stored
 				unlink("uploads/ipe/registered/$correo/avatar.gif");
 				move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 				rename("uploads/ipe/registered/$correo/$file", "uploads/ipe/registered/$correo/avatar.gif");
-				$actualiza = $mysqli->query("UPDATE persona SET nombre='$nombre', telefono1='$tel1', telefono2='$tel2', empresa='$empresa' , descripcion='$descripcion'  WHERE correo='$correo'");
+				$results2 = $mysqli->query("UPDATE persona SET nombre='$nombre', region='$region', comuna='$comuna', picture_url='uploads/ipe/registered/$rsid/avatar.gif' , descripcion='$descripcion' WHERE correo='$correo'");
 				$actualizaLogin = $mysqli->query("UPDATE login SET user='$nombre' WHERE correo='$correo'");
+				echo "UPDATE persona SET nombre='$nombre', region='$region', comuna='$comuna', picture_url='uploads/ipe/registered/$rsid/avatar.gif' , descripcion='$descripcion' WHERE correo='$correo'";
 				$resultado = "nuevo";
 			}
 		}
@@ -81,10 +83,10 @@ if ($tipo == 'avatar-ipe'){
 		$resultado = valida_extension();
 	}
 	$_SESSION['nombre']= $nombre;
-	$_SESSION['empresa']=$empresa;
+	//$_SESSION['empresa']=$empresa;
 	$_SESSION['correo']=$correo;
-	$_SESSION['telefono1']=$tel1;
-	$_SESSION['telefono2']=$tel2;
+	$_SESSION['comuna']=$comuna;
+	$_SESSION['region']=$region;
 	$_SESSION['descripcion']=$descripcion;
 	echo $resultado;
 
@@ -239,8 +241,7 @@ if ($tipo == 'avatar-ipe'){
 	}
 
 	//echo $resultado;
-}else if($tipo == 'usuario'){
-
+}else if($tipo == 'agencia'){
 	$nuevousuario=$_POST['nuuser'];
 	$nuevocontraseña=MD5($_POST['nupass']);
 	$nuevoempresa=$_POST['nuempresa'];
@@ -250,7 +251,6 @@ if ($tipo == 'avatar-ipe'){
 	$nuevaurl="./uploads/agencias/registered/$nuevocorreo/avatar.gif";
 	$ipe = $_POST['ipe'];
 
-	if ($ipe == ''){
 		$query= "SELECT DISTINCT correo FROM persona WHERE correo='$nuevocorreo'";
 		$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 		$num_row= mysqli_num_rows($result);
@@ -265,39 +265,54 @@ if ($tipo == 'avatar-ipe'){
 			move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 			rename("uploads/agencias/registered/$nuevocorreo/$file", "uploads/agencias/registered/$nuevocorreo/avatar.gif");
 			$results1 = $mysqli->query("INSERT INTO login (user, pass, correo) VALUES ('$nuevousuario','$nuevocontraseña','$nuevocorreo')");
-			$results2 = $mysqli->query("INSERT INTO persona (nombre, correo, empresa, telefono1, telefono2, id_login, id_tipo, picture_url ) VALUES ('$nuevousuario','$nuevocorreo','$nuevoempresa','$nuevotelefono1','$nuevotelefono2', (SELECT id from login WHERE correo='$nuevocorreo'),'2','$nuevaurl')");
+			$results2 = $mysqli->query("INSERT INTO persona (nombre, correo, empresa, telefono1, telefono2, id_login, id_tipo,descripcion_tipo ,  picture_url, fecha_ingreso ) VALUES ('$nuevousuario','$nuevocorreo','$nuevoempresa','$nuevotelefono1','$nuevotelefono2', (SELECT id from login WHERE correo='$nuevocorreo'),'2','agencia','$nuevaurl', '$hoy')");
 			echo "nuevo";
 		}else{
 			echo "invalido";
 		}
 
+	
 
-		//echo $resultado;
-	}else{
-		//Verifico que exista el correo en la base de datos
+}else if($tipo == 'influenciador'){
+	$nuevocomuna=$_POST['comuna'];
+	$nuevoregion=$_POST['region'];	
+	$nuevousuario=$_POST['nuuser'];
+	$nuevocontraseña=MD5($_POST['nupass']);
+	$nuevocorreo=$_POST['nucorreo'];
+	$nuevaurl="./uploads/ipe/registered/$nuevocorreo/avatar.gif";
+	$ipe = $_POST['ipe'];
+
+	if ($ipe == '3'){
+		$descripciontipo= 'influenciador';
+	} 
+	else if ($ipe == '4'){
+		$descripciontipo= 'publicador';
+	} 
+	else if ($ipe == '5'){
+		$descripciontipo= 'editor';	
+	} 
+
 		$query= "SELECT DISTINCT correo FROM persona WHERE correo='$nuevocorreo'";
 		$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 		$num_row= mysqli_num_rows($result);
 
 		if($num_row>0){
-			$resutlado = "false";
+			 echo "false";
+	/*	}else if (file_exists("uploads/$nuevocorreo/test/" . $_FILES["file"]["name"])) {
+			$resultado = "existe";*/
 		}else if(valida_extension() == "ok"){
-			if (file_exists("uploads/$nuevocorreo/test/" . $_FILES["file"]["name"])) {
-				$resultado = "existe";
-			}
-			else{
-				mkdir("uploads/agencias/registered/$nuevocorreo", 0777, true);
-				$targetPath = "uploads/agencias/registered/$nuevocorreo/".$_FILES['file']['name']; // Target path where file is to be stored
-				move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
-				rename("uploads/agencias/registered/$nuevocorreo/$file", "uploads/agencias/registered/$nuevocorreo/avatar.gif");
-				$results1 = $mysqli->query("INSERT INTO login (user, pass, correo) VALUES ('$nuevousuario','$nuevocontraseña','$nuevocorreo')");
-				$results2 = $mysqli->query("INSERT INTO persona (nombre, correo, empresa, telefono1, telefono2, id_login, id_tipo, picture_url ) VALUES ('$nuevousuario','$nuevocorreo','$nuevoempresa','$nuevotelefono1','$nuevotelefono2', (SELECT id from login WHERE correo='$nuevocorreo'),'$ipe','$nuevaurl')");
-				$resultado = "nuevo";
-			}
+			mkdir("uploads/ipe/registered/$nuevocorreo", 0777, true);
+			$targetPath = "uploads/ipe/registered/$nuevocorreo/".$_FILES['file']['name']; // Target path where file is to be stored
+			move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
+			rename("uploads/ipe/registered/$nuevocorreo/$file", "uploads/ipe/registered/$nuevocorreo/avatar.gif");
+			$results1 = $mysqli->query("INSERT INTO login (user, pass, correo) VALUES ('$nuevousuario','$nuevocontraseña','$nuevocorreo')");
+			$results2 = $mysqli->query("INSERT INTO persona (nombre, correo, id_login, id_tipo, descripcion_tipo,  picture_url, region, comuna, fecha_ingreso ) VALUES ('$nuevousuario','$nuevocorreo', (SELECT id from login WHERE correo='$nuevocorreo'),'$ipe','$descripciontipo','$nuevaurl', '$nuevoregion', '$nuevocomuna', '$hoy')");
+			echo "nuevo";
 		}else{
 			echo "invalido";
 		}
-	}
+
+	
 
 }
 

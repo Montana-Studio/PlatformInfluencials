@@ -189,7 +189,7 @@ $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 					    $estado= 1;
 					    $estado_descripcion="desactivar";
 					 }
-						$_SESSION['youtube'] .="<h3>".$youtubeName."   -    ".(int)$youtubeSubscribers."<button class='estado_rs' name='".$estado."' id='".$row5[0]."'>".$estado_descripcion."</button><br/></h3><img src='".$youtubeImgUrl."'/>";
+						$_SESSION['youtube'] .="<h3>".$youtubeName."   -    ".(int)$youtubeSubscribers."<button class='estado_rs' name='".$estado."' id='".$row5[3]."'>".$estado_descripcion."</button><br/></h3><img src='".$youtubeImgUrl."'/>";
 
 
 			}while($row5 = $result5->fetch_array());
@@ -212,7 +212,8 @@ $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 			do{
 				
 					$facebookPage = $row6[3];
-					$json_user_url ="https://graph.facebook.com/".$facebookPage."?access_token=".$facebookAppId."|".$facebookKey."&fields=likes,talking_about_count,username,website";
+					$json_user_url1 ="https://graph.facebook.com/".$facebookPage."?access_token=".$facebookAppId."|".$facebookKey."&fields=likes,talking_about_count,username,website";
+					$json_user_url = str_replace(" ", "%20", $json_user_url1);
 					$json_user= file_get_contents($json_user_url);
 					$links_user_url= json_decode($json_user);
 					$facebookLikes =$links_user_url->likes;

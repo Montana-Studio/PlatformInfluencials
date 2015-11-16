@@ -1,5 +1,6 @@
 <?php 
 session_start();
+$hoy= date("Y-m-d H:i:s");
 /*
 if(basename($_SERVER['PHP_SELF'])=='formulario-agencia.php'){
 		session_unset();

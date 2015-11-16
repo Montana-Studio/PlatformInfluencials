@@ -1,9 +1,10 @@
 <script>
+
 var OAUTH2_CLIENT_ID = '1045210216843-rplujhgcennvu03bhggu891cbuojf3bn.apps.googleusercontent.com';
 var OAUTH2_SCOPES = ['https://www.googleapis.com/auth/plus.me'];
 
 // Upon loading, the Google APIs JS client automatically invokes this callback.
-googleApiClientReady = function() {
+googleApiClientReadyGooglePlus = function() {
   gapi.auth.init(function() {
     window.setTimeout(checkAuthGooglePlus, 1);
   });
@@ -47,6 +48,7 @@ function handleAuthResult(authResult) {
             success: function(data){ 
                 if(data == 'registrado') alert('La cuenta ya está asociada')
                 if(data == 'otro') alert('La cuenta está asociada a otro usuario');
+                //else window.reload();
             
             }
         });
@@ -54,4 +56,6 @@ function handleAuthResult(authResult) {
     
     })
   }
+
+
 </script>

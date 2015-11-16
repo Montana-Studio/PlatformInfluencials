@@ -8,6 +8,13 @@ $(document).ready(function(){
 		$('#perfil').hide();
 	}
 
+	if (window.location == 'http://local.mediatrends/_InfluencialsPlatform/htdocs/app/influenciador.php'){
+		$("#tipoCliente").attr("value", "2");
+		$('.form_agencias').show();
+		$('#perfil').show();
+	}
+
+
 	$('#facebook-name').hide();
 	$('#volver').hide();
 
@@ -55,36 +62,38 @@ $(document).ready(function(){
 	$('#ingresar').click(function(){
 		correo=$('#correo').val();
 		password=$('#password').val();
+		console.log(correo+password);
 		//console.log(username);
 		$.ajax({
 			type: "POST",
 			url: "./procesar_login.php",
 			data: "correo="+correo+"&pwd="+password,
+
 			success: function(html){
 				console.log(html);
-				switch (html){
-				case "admin": window.location.href= "./dashboard-admin.php";
-				break;
-				case "agencia": window.location.href = "./dashboard-agencia.php";
-				break;
-				case "ipe": window.location.href = "./dashboard-ipe.php";
-				break;
-				case "inactivo": 	$('#alertRegistrado').slideDown();
-									document.getElementById('alertRegistrado').innerHTML ="usuario inactivo";
+					switch (html){
+					case "admin": window.location.href= "./dashboard-admin.php";
+					break;
+					case "agencia": window.location.href = "./dashboard-agencia.php";
+					break;
+					case "ipe": window.location.href = "./dashboard-ipe.php";
+					break;
+					case "inactivo": 	$('#alertRegistrado').slideDown();
+										document.getElementById('alertRegistrado').innerHTML ="usuario inactivo";
 
-				break;
-				case "false": 		$('#alertRegistrado').slideDown();
-									document.getElementById('alertRegistrado').innerHTML ="usuario o password no existen";
-				break;
-				case "vacio": 		$('#alertRegistrado').slideDown();
-									document.getElementById('alertRegistrado').innerHTML ="falta ingresar datos";
-				break;
+					break;
+					case "false": 		$('#alertRegistrado').slideDown();
+										document.getElementById('alertRegistrado').innerHTML ="usuario o password no existen";
+					break;
+					case "vacio": 		$('#alertRegistrado').slideDown();
+										document.getElementById('alertRegistrado').innerHTML ="falta ingresar datos";
+					break;
 				}
-				}
+			}
 		});
 	});
 
-	$('.registerForm').on('submit',(function(e){
+	$('.registerFormAgencia').on('submit',(function(e){
 		e.preventDefault();
 		info = new FormData(this);
 		info.append('nuuser',$('.usernamenuevo').val());
@@ -93,7 +102,8 @@ $(document).ready(function(){
 		info.append('nucorreo',$('.correonuevo').val());
 		info.append('nutel1',$('.telefono1nuevo').val());
 		info.append('nutel2',$('.telefono2nuevo').val());
-		info.append('tipo','usuario');
+		info.append('tipo','agencia');
+		console.log($('#contraseñanuevo').val());
 		tipo=$('#perfil option').val();
 		var e = document.getElementById("perfil");
 		var perfil = e.options[e.selectedIndex].value;
@@ -109,6 +119,110 @@ $(document).ready(function(){
 			processData:false,
 			success: function(data){
 				//alert(data);
+				switch (data){
+					case "nuevo":
+									$(".alertElim").fadeIn("normal",function(){
+											$("#boxAlert .hrefCamp h2").text("Gracias por registrarte en Power-Influencers");
+											$("#boxAlert .hrefCamp i").append("<img src='img/logo_pi-06.svg' width='100%' height='100%'/>");
+											$("#boxAlert .hrefCamp p.messageAlert").text("Tu cuenta sera activada proximamente, pronto nos contactaremos contigo.");
+
+											$("#boxAlert").show().animate({
+												top:"20%",
+												opacity:1
+											},{duration:1500,easing:"easeOutBounce"});
+
+											$("#clearAlert").on("click",function(){
+												$("#boxAlert").animate({
+													top:"-100px",
+													opacity:0
+												},{duration:500,easing:"easeInOutQuint",complete:function(){
+													$(".alertElim").fadeOut("fast");
+													window.location.href = "logout.php";
+													window.location.reload();
+												}});
+											});
+									});
+					break;
+					case "false":$(".alertElim").fadeIn("normal",function(){
+													$("#boxAlert .hrefCamp h2").text("algo anda mal");
+													$("#boxAlert .hrefCamp i").addClass("fa-warning");
+													$("#boxAlert .hrefCamp p.messageAlert").text("El correo "+$('.correonuevo').val()+" ya existe en la base de datos, intente con otro.");
+
+													$("#boxAlert").show().animate({
+														top:"20%",
+														opacity:1
+													},{duration:1500,easing:"easeOutBounce"});
+
+													$("#clearAlert").on("click",function(){
+														$("#boxAlert").animate({
+															top:"-100px",
+															opacity:0
+														},{duration:500,easing:"easeInOutQuint",complete:function(){
+															$(".alertElim").fadeOut("fast");
+															$(this).hide();
+															$("#boxAlert .hrefCamp i").removeClass("fa-warning");
+															$('.correonuevo').val('');
+															$('.correonuevo').focus();
+														}});
+													});
+											});
+					break;
+					case "invalido":$(".alertElim").fadeIn("normal",function(){
+														$("#boxAlert .hrefCamp h2").text("algo anda mal");
+														$("#boxAlert .hrefCamp i").addClass("fa-warning");
+														$("#boxAlert .hrefCamp p.messageAlert").text("Problema con el tamaño o formato de la imagen.");
+
+														$("#boxAlert").show().animate({
+															top:"20%",
+															opacity:1
+														},{duration:1500,easing:"easeOutBounce"});
+
+														$("#clearAlert").on("click",function(){
+															$("#boxAlert").animate({
+																top:"-100px",
+																opacity:0
+															},{duration:500,easing:"easeInOutQuint",complete:function(){
+																$(".alertElim").fadeOut("fast");
+																$("#boxAlert .hrefCamp i").removeClass("fa-warning");
+																$(this).hide();
+															}});
+														});
+												});
+				}
+			}
+		});
+	}));
+		$('.registerFormInfluenciador').on('submit',(function(e){
+		e.preventDefault();
+		info = new FormData(this);
+		info.append('nuuser',$('.usernamenuevo').val());
+		info.append('nupass',$('.contraseña').val());
+		//console.log($('.contraseña').val());
+		info.append('nucorreo',$('.correonuevo').val());
+		info.append('tipo','influenciador');
+		tipo=$('#perfil option').val();
+		var d = document.getElementById("perfil");
+		var perfil = d.options[d.selectedIndex].value;
+		var f = document.getElementById("region");
+		var region = f.options[f.selectedIndex].value;
+		var g = document.getElementById("comuna");
+		var comuna = g.options[g.selectedIndex].value;
+		//console.log(perfil+region+comuna+$('.usernamenuevo').val()+$('#contraseñanuevo').val()+$('.correonuevo').val());
+		info.append('ipe',perfil);
+		info.append('region',region);
+		info.append('comuna',comuna);
+
+		$.ajax({
+			type: "POST",
+			url: "./procesar_imagen.php",
+			data: info,
+			enctype: 'multipart/form-data',
+			contentType: false,
+			cache: false,
+			processData:false,
+			success: function(data){
+
+				console.log(data);
 				switch (data){
 					case "nuevo":
 									$(".alertElim").fadeIn("normal",function(){
@@ -425,9 +539,14 @@ $(document).ready(function(){
 		info.append('correo',$('#correo input').val());
 		info.append('rsid',$('#RsId').val());
 		info.append('nombre',$('#nombre input').val());
-		info.append('tel1',$('#tel1 input').val());
-		info.append('tel2',$('#tel2 input').val());
-		info.append('empresa',$('#empresa input').val());
+		var f = document.getElementById("region");
+		var region = f.options[f.selectedIndex].value;
+		var g = document.getElementById("comuna");
+		var comuna = g.options[g.selectedIndex].value;
+		//console.log(region+comuna+$('#correo input').val()+$('#nombre input').val());
+		//info.append('tel1',$('#tel1 input').val());
+		//info.append('tel2',$('#tel2 input').val());
+		//info.append('empresa',$('#empresa input').val());
 		info.append('descripcion',$('#descripcion textarea').val());
 		info.append('tipo','avatar-ipe');
 
@@ -442,6 +561,7 @@ $(document).ready(function(){
 				processData:false,
 
 				success: function(info){
+					//console.log(info);
 					switch (info){
 						case "nuevo":$(".alertElim").fadeIn("normal",function(){
 								$("#boxAlert .hrefCamp h2").text("imagen cambiada");
@@ -471,10 +591,11 @@ $(document).ready(function(){
 			});
 		}
 		else{
+			//console.log(region+comuna+$('#correo input').val()+$('#nombre input').val());
 			$.ajax({
 
 					type: "POST",
-					url: "./procesar-dashboard-ipe.php",
+					url: "./procesar_imagen.php",
 					data: info,
 					enctype: 'multipart/form-data',
 					contentType: false,
@@ -482,9 +603,10 @@ $(document).ready(function(){
 					processData:false,
 
 				success: function(info){
+					console.log(info);
 					switch (info){
 						case "actualiza":
-						console.log('actualiza');
+						//console.log('actualiza');
 						$(".alertElim").fadeIn("normal",function(){
 								$("#boxAlert .hrefCamp h2").text("datos actualizados");
 								$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
@@ -506,6 +628,28 @@ $(document).ready(function(){
 								});
 						});
 						break;
+					case "invalido":$(".alertElim").fadeIn("normal",function(){
+														$("#boxAlert .hrefCamp h2").text("algo anda mal");
+														$("#boxAlert .hrefCamp i").addClass("fa-warning");
+														$("#boxAlert .hrefCamp p.messageAlert").text("Problema con el tamaño o formato de la imagen.");
+
+														$("#boxAlert").show().animate({
+															top:"20%",
+															opacity:1
+														},{duration:1500,easing:"easeOutBounce"});
+
+														$("#clearAlert").on("click",function(){
+															$("#boxAlert").animate({
+																top:"-100px",
+																opacity:0
+															},{duration:500,easing:"easeInOutQuint",complete:function(){
+																$(".alertElim").fadeOut("fast");
+																$("#boxAlert .hrefCamp i").removeClass("fa-warning");
+																$(this).hide();
+															}});
+														});
+												});
+
 					}
 				}
 			});

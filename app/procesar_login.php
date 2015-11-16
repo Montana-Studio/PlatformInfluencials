@@ -33,16 +33,18 @@ if ($resultado != "vacio"){
 
 	//Rescato datos de persona
 	$_SESSION['id']=$row2[0];
-	$_SESSION['nombre']=$row2[4];
-	$_SESSION['correo']=$row2[5];
-	$_SESSION['telefono1']=$row2[6];
-	$_SESSION['telefono2']=$row2[7];
-	$_SESSION['empresa']=$row2[12];
-	$_SESSION['pictureUrl']=$row2[11];
-	$_SESSION['rsid']=$row2[9];
-	$_SESSION['id_estado']= $row[2];
-	$_SESSION['id_tipo']= $row[1];
-	$_SESSION['descripcion']= $row[13];
+	$_SESSION['nombre']=$row2[5];
+	$_SESSION['correo']=$row2[6];
+	$_SESSION['telefono1']=$row2[7];
+	$_SESSION['telefono2']=$row2[8];
+	$_SESSION['empresa']=$row2[13];
+	$_SESSION['region']=$row2[15];
+	$_SESSION['comuna']=$row2[16];
+	$_SESSION['pictureUrl']=$row2[12];
+	$_SESSION['rsid']=$row2[10];
+	$_SESSION['id_estado']= $row[3];
+	$_SESSION['id_tipo']= $row[2];
+	$_SESSION['descripcion']= $row[14];
 		switch($row2[1]){
 		case '1':
 			echo 'admin';
