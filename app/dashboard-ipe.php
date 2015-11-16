@@ -45,7 +45,7 @@ if(isset($_SESSION['nombre'])==false){
 	</style>
 	<!--script type="text/javascript" id="youtube-script" src="rrss/youtube/auth.js" ></script-->
     <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
-	
+
 	<?php
 
 		require('conexion.php');
@@ -55,7 +55,7 @@ if(isset($_SESSION['nombre'])==false){
 		require('rrss/Facebook/facebook-auth.php');
 		require('rrss/googleplus/auth.php');
 		require('rrss/youtube/auth.php');
-	
+
 		if(isset($_SESSION['nombre'])==false){
 			header('Location:index.php');
 			die();
@@ -110,7 +110,7 @@ if(isset($_SESSION['nombre'])==false){
 		$(document).ready(function(){
 			$('#resultado').hide();
 			$('#formulario_codigo').hide();
-				
+
 
 			$('#region').on('change',function(e){
 				var binario = 0;
@@ -142,7 +142,7 @@ if(isset($_SESSION['nombre'])==false){
 						divComuna.innerHTML = divComuna.innerHTML + '<option value ="Chépica">Chépica</option><option value ="Chimbarongo">Chimbarongo</option><option value ="Codegua">Codegua</option><option value ="Coinco">Coinco</option><option value ="Coltauco">Coltauco</option><option value ="Doñihue">Doñihue</option><option value ="Graneros">Graneros</option><option value ="La Estrella">La Estrella</option><option value ="Las Cabras">Las Cabras</option><option value ="Litueche">Litueche</option><option value ="Lolol">Lolol</option><option value ="Machalí">Machalí</option><option value ="Malloa">Malloa</option><option value ="Marchihue">Marchihue</option><option value ="Mostazal">Mostazal</option><option value ="Nancagua">Nancagua</option><option value ="Navidad">Navidad</option><option value ="Olivar">Olivar</option><option value ="Paredones">Paredones</option><option value ="Palmilla">Palmilla</option><option value ="Peralillo">Peralillo</option><option value ="Peumo">Peumo</option><option value ="Pumanque">Pumanque</option><option value ="Placilla">Placilla</option><option value ="Pichidegua">Pichidegua</option><option value ="Pichilemu">Pichilemu</option><option value ="Quinta de Tilcoco">Quinta de Tilcoco</option><option value ="Rancagua">Rancagua</option><option value ="Rengo">Rengo</option><option value ="Requínoa">Requínoa</option><option value ="San Fernando">San Fernando</option><option value ="San Vicente">San Vicente</option><option value ="Santa Cruz">Santa Cruz</option>';
 					}
 					if (region == 'Región del Maule' ){
-						divComuna.innerHTML = divComuna.innerHTML + '<option value=" Cauquenes">Cauquenes</option><option value=" Chanco">Chanco</option><option value=" Colbún">Colbún</option><option value=" Constitución">Constitución</option><option value=" Curepto">Curepto</option><option value=" Curicó">Curicó</option><option value=" Empedrado">Empedrado</option><option value=" Hualañé">Hualañé</option><option value=" Licantén">Licantén</option><option value=" Linares">Linares</option><option value=" Longaví">Longaví</option><option value=" Maule">Maule</option><option value=" Molina">Molina</option><option value=" Parral">Parral</option><option value=" Pelarco">Pelarco</option><option value=" Pelluhue">Pelluhue</option><option value=" Pencahue">Pencahue</option><option value=" Rauco">Rauco</option><option value=" Retiro">Retiro</option><option value=" Romeral">Romeral</option><option value=" Río Claro">Río Claro</option><option value=" Sagrada Familia">Sagrada Familia</option><option value=" San Clemente">San Clemente</option><option value=" San Javier">San Javier</option><option value=" San Rafael">San Rafael</option><option value=" Talca">Talca</option><option value=" Teno">Teno</option><option value=" Vichuquén">Vichuquén</option><option value=" Villa Alegre">Villa Alegre</option><option value=" Yerbas Buenas">Yerbas Buenas</option>';					
+						divComuna.innerHTML = divComuna.innerHTML + '<option value=" Cauquenes">Cauquenes</option><option value=" Chanco">Chanco</option><option value=" Colbún">Colbún</option><option value=" Constitución">Constitución</option><option value=" Curepto">Curepto</option><option value=" Curicó">Curicó</option><option value=" Empedrado">Empedrado</option><option value=" Hualañé">Hualañé</option><option value=" Licantén">Licantén</option><option value=" Linares">Linares</option><option value=" Longaví">Longaví</option><option value=" Maule">Maule</option><option value=" Molina">Molina</option><option value=" Parral">Parral</option><option value=" Pelarco">Pelarco</option><option value=" Pelluhue">Pelluhue</option><option value=" Pencahue">Pencahue</option><option value=" Rauco">Rauco</option><option value=" Retiro">Retiro</option><option value=" Romeral">Romeral</option><option value=" Río Claro">Río Claro</option><option value=" Sagrada Familia">Sagrada Familia</option><option value=" San Clemente">San Clemente</option><option value=" San Javier">San Javier</option><option value=" San Rafael">San Rafael</option><option value=" Talca">Talca</option><option value=" Teno">Teno</option><option value=" Vichuquén">Vichuquén</option><option value=" Villa Alegre">Villa Alegre</option><option value=" Yerbas Buenas">Yerbas Buenas</option>';
 					}
 
 					if (region == 'Región del Biobío' ){
@@ -180,34 +180,26 @@ if(isset($_SESSION['nombre'])==false){
 				<select id="comuna" >
 				<option value="<?php echo $_SESSION['comuna']?>" disabled selected><?php echo $_SESSION['comuna']?></option>
 				</select>
-			</div>	
-					
+			</div>
+
 		<div>
-			
-		<div id="descripcion" >	
-			<textarea rows="10" cols="40" placeholder="... descríbete en menos de 500 palabras"><?php echo $_SESSION['descripcion'] ?></textarea>
 
 		<div id="descripcion" >
-			<textarea rows="10" cols="40"><?php echo $_SESSION['descripcion']; ?></textarea>
+			<textarea rows="10" cols="40" placeholder="... descríbete en menos de 500 palabras"><?php echo $_SESSION['descripcion'] ?></textarea>
 		</div>
 		<div>
 			<button id="guardarFacturacion" type="submit">Guardar</button>
 		</div>
 	</form>
+
 	<div id = "redes sociales">
 		<h2>registra tus redes sociales</h2>
 			<button id="facebook-inscription" class="rs-inscription" onclick="checkAuthFacebookPages()">Facebook</button>
 			<a id= "twitter-inscription" class="rs-inscription" href="./rrss/twitter/process.php" value="<?php echo $num_row3;?>" >twitter</a>
 			<button class="rs-inscription" onclick="login()">Instagram</button>
-			<button id="youtube-inscription" class="rs-inscription" onclick="googleApiClientReady()">Youtube</button>	
+			<button id="youtube-inscription" class="rs-inscription" onclick="googleApiClientReady()">Youtube</button>
 			<button id="analytics-inscription" class="rs-inscription">Analytics</button>
 			<button id="googleplus-inscription" class="rs-inscription" onclick="googleApiClientReadyGooglePlus()">Google+</button>
-	</div>	
-	
-
-			<button id="youtube-inscription" class="rs-inscription" onclick="checkAuthYoutube()">Youtube</button>
-			<button id="analytics-inscription" class="rs-inscription">Analytics</button>
-			<button id="googleplus-inscription" class="rs-inscription" onclick="checkAuthGooglePlus()">Google+</button>
 	</div>
 	<?php
 
