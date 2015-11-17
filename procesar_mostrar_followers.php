@@ -205,7 +205,7 @@ $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
  $result6=mysqli_query($mysqli,$query6)or die (mysqli_error());
  $row6= mysqli_fetch_array($result6, MYSQLI_BOTH);
  $num_row6=mysqli_num_rows($result6);
- $facebookKey ="693511c0b86cda985e20ba5a19f556c0";
+ $facebookKey ="4ef699b3026eef5e89f3ac482bc404d8";
   $facebookAppId = "979526535448353";
   $_SESSION['facebook']="";
   if($num_row6>0){
