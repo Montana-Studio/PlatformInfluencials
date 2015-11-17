@@ -8,3 +8,16 @@ bower_components/
 .sass-cache/
 /.sass-cache/
 .sass-cache
+Gruntfile.js
+/Gruntfile.js
+adnativo_pi.sql
+/adnativo_pi.sql
+LICENSE-MIT
+/LICENSE-MIT
+package.json
+/package.json
+platform_influencials.json
+/platform_influencials.json
+prod/
+/prod/
+/prod
