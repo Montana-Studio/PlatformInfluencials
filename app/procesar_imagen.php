@@ -43,10 +43,9 @@ if ($tipo == 'avatar-ipe'){
 	$nombre =$_POST['nombre'];
 	$comuna= $_POST['comuna'];
 	$region=$_POST['region'];
-	$descripcion= $POST['descripcion'];
-	$picture_url=$_SESSION['picture_url'];
+	$descripcion= $_POST['descripcion'];
+	//$picture_url=$_SESSION['pictureUrl'];
 	if(valida_extension() == "ok"){
-
 		if ($a==1){ // Create directory to save the file in case of Social Login and first change on avatar image
 			if (file_exists("uploads/ipe/registered/$rsid")){ // cambio a partir de segunda vez con RS
 				$targetPath = "uploads/ipe/registered/$rsid/".$_FILES['file']['name']; // Target path where file is to be stored
@@ -73,17 +72,19 @@ if ($tipo == 'avatar-ipe'){
 				unlink("uploads/ipe/registered/$correo/avatar.gif");
 				move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 				rename("uploads/ipe/registered/$correo/$file", "uploads/ipe/registered/$correo/avatar.gif");
-				$results2 = $mysqli->query("UPDATE persona SET nombre='$nombre', region='$region', comuna='$comuna', picture_url='uploads/ipe/registered/$rsid/avatar.gif' , descripcion='$descripcion' WHERE correo='$correo'");
+				$results2 = $mysqli->query("UPDATE persona SET nombre='$nombre', region='$region', comuna='$comuna', descripcion='$descripcion' WHERE correo='$correo'");
 				$actualizaLogin = $mysqli->query("UPDATE login SET user='$nombre' WHERE correo='$correo'");
-				echo "UPDATE persona SET nombre='$nombre', region='$region', comuna='$comuna', picture_url='uploads/ipe/registered/$rsid/avatar.gif' , descripcion='$descripcion' WHERE correo='$correo'";
+				//echo "UPDATE persona SET nombre='$nombre', region='$region', comuna='$comuna', picture_url='uploads/ipe/registered/$rsid/avatar.gif' , descripcion='$descripcion' WHERE correo='$correo'";
 				$resultado = "nuevo";
 			}
 		}
 	}else{
+		
 		$resultado = valida_extension();
+		
 	}
+	
 	$_SESSION['nombre']= $nombre;
-	//$_SESSION['empresa']=$empresa;
 	$_SESSION['correo']=$correo;
 	$_SESSION['comuna']=$comuna;
 	$_SESSION['region']=$region;

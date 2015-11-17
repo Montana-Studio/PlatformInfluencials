@@ -72,21 +72,22 @@ if(isset($_SESSION['nombre'])==false){
 		-
 		<a href>ayuda</a>
 	</div>
-	<h2>dashboard</h2>
+	<h2>dashboard  </h2>
+
 		<form id='imagenform-ipe'>
-			<div id="inicio" disabled>
 			<h2>datos personales</h2>
 			<div id="nombre">
 				<input value="<?php echo $_SESSION['nombre']?>">
 			</div>
 			<div id="correo">
-				<input value="<?php echo $_SESSION['correo']?>">
+				<input value="<?php echo $_SESSION['correo']?>" disabled>
 			</div>
 
 			<img src="<?php echo $_SESSION['pictureUrl'];?>" width="100" height="auto">
 			<input type="file" name="file" id="file">
 			<input id="RsId" style="display:none" value="<?php echo $_SESSION['rsid']; ?>">
 			<div>
+
 				<select id="region">
 					<option value="<?php echo $_SESSION['region']?>" disabled selected><?php echo $_SESSION['region']?></option>
 					<option value="Región de Tarapacá">Región de Tarapacá</option>
@@ -175,7 +176,6 @@ if(isset($_SESSION['nombre'])==false){
 					});
 				});
 			</script>
-			</div>
 			<div>
 				<select id="comuna" >
 					<option value="<?php echo $_SESSION['comuna']?>" disabled selected><?php echo $_SESSION['comuna']?></option>
@@ -185,7 +185,7 @@ if(isset($_SESSION['nombre'])==false){
 				<textarea rows="10" cols="40" placeholder="... descríbete en menos de 500 palabras"><?php echo $_SESSION['descripcion'] ?></textarea>
 			</div>
 			<div>
-				<button id="guardarFacturacion">Guardar</button>
+				<button id="guardarFacturacion" type="submit">Guardar</button>
 			</div>
 		</form>
 
