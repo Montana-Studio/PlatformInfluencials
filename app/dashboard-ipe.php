@@ -193,7 +193,7 @@ if(isset($_SESSION['nombre'])==false){
 		<h2>registra tus redes sociales</h2>
 			<button id="facebook-inscription" class="rs-inscription" onclick="checkAuthFacebookPages()">Facebook</button>
 			<a id= "twitter-inscription" class="rs-inscription" href="./rrss/twitter/process.php" value="<?php echo $num_row3;?>" >twitter</a>
-			<button class="rs-inscription" onclick="login()">Instagram</button>
+			<button id="instagram-inscription" class="rs-inscription" onclick="login()">Instagram</button>
 			<button id="youtube-inscription" class="rs-inscription" onclick="googleApiClientReady()">Youtube</button>
 			<button id="analytics-inscription" class="rs-inscription">Analytics</button>
 			<button id="googleplus-inscription" class="rs-inscription" onclick="googleApiClientReadyGooglePlus()">Google+</button>

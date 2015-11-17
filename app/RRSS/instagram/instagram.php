@@ -53,16 +53,23 @@
             url: "rrss/instagram/procesar_instagram.php",
             data: "instagramId="+instagramId+"&accessToken="+accessToken,
 
-            success: function(html){
-            	console.log(html);
-				}
+            success: function(data){
+            	 if(data == 'exito'){
+                  alert("gracias por registrar su cuenta");
+                  window.location.reload();
+                }
+                else if(data == 'existe') alert('La cuenta ya está asociada, intente con una cuenta diferente')
+                else if(data == 'otro') alert('La cuenta está asociada a otro usuario');
+                //else window.reload();
+			}
 			});
 		}
 
 		function login() {
 			authenticateInstagram(
 			    '4c1a45981cee4ec5b742e05ebb8b00b8', //instagram client ID
-			    'http://desarrollo.adnativo.com/pi/app/rrss/instagram/instagram_auth.php', //instagram redirect URI
+			   // 'http://desarrollo.adnativo.com/pi/app/rrss/instagram/instagram_auth.php', //instagram redirect URI
+			    'http://local.mediatrends/_InfluencialsPlatform/htdocs/app/rrss/instagram/instagram_auth.php', //instagram redirect URI
 			    login_callback  //optional - a callback function
 			);
 			return false;

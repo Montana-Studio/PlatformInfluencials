@@ -46,8 +46,12 @@ function handleAuthResult(authResult) {
             url: "rrss/googleplus/procesar_googleplus.php",  
             data: "googlePlusId="+id, //"&youtubeName="+channelName+"&youtubeSubscribers="+channelSubscribers+"&youtubeImgUrl="+channelImg, 
             success: function(data){ 
-                if(data == 'registrado') alert('La cuenta ya está asociada')
-                if(data == 'otro') alert('La cuenta está asociada a otro usuario');
+                if(data == 'exito'){
+                  alert("gracias por registrar su cuenta");
+                  window.location.reload();
+                }
+                else if(data == 'existe') alert('La cuenta ya está asociada, intente con una cuenta diferente')
+                else if(data == 'otro') alert('La cuenta está asociada a otro usuario');
                 //else window.reload();
             
             }

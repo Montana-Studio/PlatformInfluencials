@@ -116,6 +116,7 @@
 		            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id+"&tipo="+document.getElementById('tipoCliente').getAttribute('value'),  
 					
 		            success: function(data){ 
+
 					}
 
 				});
@@ -132,8 +133,14 @@
 					            type: "POST",  
 					            url: "./rrss/Facebook/procesar_facebook.php",  
 					            data: "facebook_page_id="+facebook_page_id, 
-					            success: function(html){ 
-									console.log(html);
+					            success: function(data){ 
+									if(data == 'exito'){
+					                  alert("gracias por registrar su cuenta");
+					                  window.location.reload();
+					                }
+					                else if(data == 'existe') alert('La cuenta ya está asociada, intente con una cuenta diferente')
+					                else if(data == 'otro') alert('La cuenta está asociada a otro usuario');
+					                //else window.reload();
 								}
 							});
 			        }

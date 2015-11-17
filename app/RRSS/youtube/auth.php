@@ -56,13 +56,19 @@ function getUserChannel() {
       displayMessage(response.error.message);
     } else {
       channelId = response.items[0].id;
-      alert(channelId);
+      //alert(channelId);
         $.ajax({  
           type: "POST",  
           url: "rrss/youtube/procesar_youtube.php",  
           data: "youtubeId="+channelId,
           success: function(data){ 
-            //locationb.reload();
+            if(data == 'exito'){
+                  alert("gracias por registrar su cuenta");
+                  window.location.reload();
+                }
+                else if(data == 'existe') alert('La cuenta ya está asociada, intente con una cuenta diferente')
+                else if(data == 'otro') alert('La cuenta está asociada a otro usuario');
+                //else window.reload();
             }
         });
 
