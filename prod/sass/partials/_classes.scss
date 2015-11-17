@@ -1,0 +1,167 @@
+a{
+	text:{decoration:none;}
+}
+.hide{
+	display:none;
+}
+.show{
+	display:block;
+}
+.center-div{
+	margin:0 auto;
+}
+.center-absolute{
+	left:0;
+	right:0;
+}
+
+.count-jfilestyle{
+	display: none !important;
+}
+.inputs{
+	font:{family:$fontAll;}
+	height:40px;
+	margin:{bottom:5px;}
+	border:none;
+	border:{bottom:1px solid $color_grey}
+	font:{size:12px;}
+	color:$color_font;
+	outline:none;
+}
+.btns{
+	cursor:pointer;
+	@include span-columns(10);
+	border:1px solid #fff;
+	@include borderRadius(5px);
+	color:#fff;
+	text:{transform:uppercase;}
+	font:{size:13px;}
+	@include pad(10px 0);
+	margin:{bottom:10px}
+}
+.btn_close{
+	color:$color_grey;
+	font:{size:21px;}
+	position: absolute;
+	top:0;
+	right:5px;
+	display:table;
+	cursor:pointer;
+	span{
+		display: table-cell;
+		vertical-align:middle;
+	}
+}
+.crear-campana{
+	@include textAligns(center);
+	position:fixed;
+	overflow:hidden;
+	bottom:10px;
+	background:{color: $color_font2;}
+	height:40px;
+	text:{transform:uppercase;}
+	font:{size:12px;}
+	cursor:pointer;
+	@extend .center-absolute;
+	@extend .center-div;
+	a{
+		color:#fff;
+		display:table;
+		width:100%;
+		height:100%;
+		span{
+			display: table-cell;
+			vertical:{align:middle;}
+			i{
+				display: inline-block;
+			}
+		}
+	}
+	&.percentBorder{
+		@include animation(formCampanas .5s ease-in forwards);
+		a{
+			span{
+				i{
+					margin:{right:0px;}
+				}
+				div{
+					@include animation(fadeLow .5s forwards);
+					display: none;
+				}
+			}
+		}
+	}
+	&.pixelBorder{
+		@include animation(creaCampanas .5s ease-in forwards);
+		a{
+			span{
+				i{
+					margin:{right:3px;}
+				}
+				div{
+					@include animation(fadeLow .5s reverse);
+					display: inline-block;
+				}
+			}
+		}
+	}
+	@include media($tabletLandTonotebook){
+		display:none !important;
+	}
+}
+.alertElim{
+	@extend .hide;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	background:{color: rgba(0, 0, 0, .4);}
+	#boxElim{
+		@extend .hide;
+		top:-100px;
+		opacity: 0;
+		position: relative;
+		@include outer-container;
+		max-width:21em;
+		background:{color: #fff;}
+		@include fill-parent();
+		@include borderRadius(10px);
+		@include boxShadow(0px, 0px, 10px, 0px, #ccc);
+		@include media($tabletLandTonotebook){
+			max-width:35em;
+		}
+		.hrefCamp{
+			@include span-columns(12);
+			@include row();
+			@extend .center-div;
+			float:none;
+			.btn_crearcamp{
+				@include span-columns(4);
+				font:{size:em(8)}
+				&.noElim{
+					@include shift(2);
+					color:$color_font2;
+					background:{color: #fff;}
+					border:1px solid $color_font2;
+				}
+				&.siElim{
+					@include shift(0);
+				}
+				@include media($tabletLandTonotebook){
+					font:{size:em(13)}
+				}
+			}
+		}
+	}
+	#boxAlert{
+		@extend #boxElim;
+		#clearAlert{
+			@include span-columns(6);
+			@include shift(3);
+		}
+	}
+}
