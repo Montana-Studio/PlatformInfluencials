@@ -201,44 +201,43 @@ $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 		/****************************************************************************************************
 										FACEBOOK GET REACH SUM
 	****************************************************************************************************/
-		$query6="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='facebook'";
-	 $result6=mysqli_query($mysqli,$query6)or die (mysqli_error());
-	 $row6= mysqli_fetch_array($result6, MYSQLI_BOTH);
-	 $num_row6=mysqli_num_rows($result6);
-	 $facebookKey ="693511c0b86cda985e20ba5a19f556c0";
-		$facebookAppId = "979526535448353";
-		$_SESSION['facebook']="";
-		if($num_row6>0){
-			do{
+  $query6="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='facebook'";
+ $result6=mysqli_query($mysqli,$query6)or die (mysqli_error());
+ $row6= mysqli_fetch_array($result6, MYSQLI_BOTH);
+ $num_row6=mysqli_num_rows($result6);
+ $facebookKey ="693511c0b86cda985e20ba5a19f556c0";
+  $facebookAppId = "979526535448353";
+  $_SESSION['facebook']="";
+  if($num_row6>0){
+    do{
 
-					$facebookPage = $row6[3];
-					$json_user_url ="https://graph.facebook.com/".$facebookPage."?access_token=".$facebookAppId."|".$facebookKey."&fields=likes,talking_about_count,username,website";
-					//$json_user_url = str_replace(" ", "%20", $json_user_url1);
-          $json_user= file_get_contents($json_user_url);
-		      $links_user_url= json_decode($json_user);
-					$facebookLikes =$links_user_url->likes;
-					$facebookTalkingAbout =$links_user_url->talking_about_count;
-					$facebookUsername =$links_user_url->username;
-					$facebookWebsite =$links_user_url->website;
-					$facebookImgUrl = "https://graph.facebook.com/".$facebookUsername."/picture?type=large";
+        $facebookPage = $row6[3];
+        $json_user_url1 ="https://graph.facebook.com/".$facebookPage."?access_token=".$facebookAppId."|".$facebookKey."&fields=likes,talking_about_count,username,website";
+        $json_user_url = str_replace(" ", "%20", $json_user_url1);
+        $json_user= file_get_contents($json_user_url);
+        $links_user_url= json_decode($json_user);
+        $facebookLikes =$links_user_url->likes;
+        $facebookTalkingAbout =$links_user_url->talking_about_count;
+        $facebookUsername =$links_user_url->username;
+        $facebookWebsite =$links_user_url->website;
+        $facebookImgUrl = "https://graph.facebook.com/".$facebookUsername."/picture?type=large";
 
-					if ($row6[5] == 1){
-				  		$suma_facebook+=(int)$facebookLikes;
-				    }
-				    if ($row6[5] == 0){
-				    	$estado= 0;
-					    $estado_descripcion="activar";
-					 }else{
-					    $estado= 1;
-					    $estado_descripcion="desactivar";
-					 }
-					 if((int)$facebookLikes>0){
-					 	$_SESSION['facebook'] .="<h3>".$facebookUsername."   -    ".(int)$facebookLikes."<button class='estado_rs' name='".$estado."' id='".$facebookPage."'>".$estado_descripcion."</button><br/></h3><h3>Gente hablando : ".$facebookTalkingAbout."</h3><a href=".$facebookWebsite.">".$facebookWebsite."</a><div><img src='".$facebookImgUrl."'/></div>";
-					 }
-
-			}while($row6 = $result6->fetch_array());
-			$suma += $suma_facebook;
-		}
+        if ($row6[5] == 1){
+            $suma_facebook+=(int)$facebookLikes;
+          }
+          if ($row6[5] == 0){
+            $estado= 0;
+            $estado_descripcion="activar";
+         }else{
+            $estado= 1;
+            $estado_descripcion="desactivar";
+         }
+         if((int)$facebookLikes>0){
+          $_SESSION['facebook'] .="<h3>".$facebookUsername."   -    ".(int)$facebookLikes."<button class='estado_rs' name='".$estado."' id='".$facebookPage."'>".$estado_descripcion."</button><br/></h3><h3>Gente hablando : ".$facebookTalkingAbout."</h3><a href=".$facebookWebsite.">".$facebookWebsite."</a><div><img src='".$facebookImgUrl."'/></div>";
+         }
+    }while($row6 = $result6->fetch_array());
+    $suma += $suma_facebook;
+  }
 
 				/****************************************************************************************************
 										GOOGLEPLUS  GET REACH SUM
