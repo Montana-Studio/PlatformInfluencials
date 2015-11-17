@@ -14,7 +14,7 @@
             instagramToken = "2007022744.4c1a459.69ecf02d9af84061ae4186bdd677dab6",
             flickrUserId = "XXXXXX",
             flickrApiKey = "XXXXXX", 
-            facebookAppId = "973652052702468",
+            facebookAppId = "979526535448353",
             facebookKey ="693511c0b86cda985e20ba5a19f556c0";
 
         /* Facebook
