@@ -68,8 +68,8 @@
 		function login() {
 			authenticateInstagram(
 			    '4c1a45981cee4ec5b742e05ebb8b00b8', //instagram client ID
-			   // 'http://desarrollo.adnativo.com/pi/app/rrss/instagram/instagram_auth.php', //instagram redirect URI
-			    'http://local.mediatrends/_InfluencialsPlatform/htdocs/app/rrss/instagram/instagram_auth.php', //instagram redirect URI
+			    'http://desarrollo.adnativo.com/pi/app/rrss/instagram/instagram_auth.php', //instagram redirect URI
+			    //'http://local.mediatrends/_InfluencialsPlatform/htdocs/app/rrss/instagram/instagram_auth.php', //instagram redirect URI
 			    login_callback  //optional - a callback function
 			);
 			return false;
