@@ -212,10 +212,10 @@ $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 			do{
 
 					$facebookPage = $row6[3];
-					$json_user_url1 ="https://graph.facebook.com/".$facebookPage."?access_token=".$facebookAppId."|".$facebookKey."&fields=likes,talking_about_count,username,website";
+					$json_user_url ="https://graph.facebook.com/".$facebookPage."?access_token=".$facebookAppId."|".$facebookKey."&fields=likes,talking_about_count,username,website";
 					//$json_user_url = str_replace(" ", "%20", $json_user_url1);
-					$json_user= file_get_contents($json_user_url1);
-					$links_user_url= json_decode($json_user);
+          $json_user= file_get_contents($json_user_url);
+		      $links_user_url= json_decode($json_user);
 					$facebookLikes =$links_user_url->likes;
 					$facebookTalkingAbout =$links_user_url->talking_about_count;
 					$facebookUsername =$links_user_url->username;
