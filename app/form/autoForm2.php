@@ -4,6 +4,27 @@
 	<title></title>
 </head>
 <body>
-<form id='dsa' method='post'>dsa<div><input id='dsa' class='dsa'></input></div>dsa<div><textarea id='dsa' class='dsa'></textarea></div>sda<div><textarea id='sda' class='dsa'></textarea></div><div>dsa<input id='dsa' type='checkbox' class='dsa'></input>dsa<input id='dsa' type='checkbox' class='dsa'></input></div><button type='text' name='email'>Enviar</button></form>
+<form id='contacto' method='post'>
+ <div>
+ Nombre<input id='Nombre' class='Form'>
+ </div>
+ <div>
+ Descripcion<textarea cols='20' rows='20' id='Descripcion' class='Form'>
+ </textarea>
+ </div>
+ <div>
+M  <input id='M' type='checkbox' class='Form'>
+F  <input id='F' type='checkbox' class='Form'>
+ </div>
+  <button type='text' name='email'>Enviar</button>
+</form>
+<?php
+	/*$action=$_REQUEST['action'] 
+	$Nombre=$_REQUEST['Nombre']; 
+	$Descripcion=$_REQUEST['Descripcion']; 
+	$M=$_REQUEST['M']; 
+	$F=$_REQUEST['F'];
+	*/
+?>
 </body>
 </html>
