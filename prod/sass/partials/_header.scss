@@ -122,6 +122,34 @@ nav{
 			}
 		}
 	}
+	&.nav-ipe{
+		ul{
+			height:40px;
+			background:{color:#153773}
+			li{
+				@include span-columns(8);
+				font-size: 15px;
+				color:#fff;
+				border:none;
+				h1{
+					margin:0;
+					font:{size:14px;weight:normal}
+					text:{transform:capitalize;}
+				}
+				a{
+					width: 100%;
+					height: 100%;
+					display: block;
+				}
+				&:first-child{
+					@include span-columns(2);
+				}
+				&:last-child{
+					@include span-columns(2);
+				}
+			}
+		}
+	}
 }
 #imagenform{
 	@include span-columns(8);
@@ -329,4 +357,99 @@ nav{
 		@include span-columns(4);
 		margin-right:1% !important;
 	}
+}
+.header-ipe{
+	background:{position: center;size:cover;repeat:no-repeat;color:#153773;}
+	position:relative;
+	overflow:hidden;
+	height:325px;
+	@include span-columns(12);
+	@include textAligns(center);
+	color:#fff;
+	.input-file{
+		@extend .hide;
+	}
+	.change-img{
+		opacity:.8;
+		color:#fff;
+		margin: -43px auto 20px;
+    width: 100px;
+    height: 30px;
+    display: block;
+    position: relative;
+    z-index: 3;
+    font:{size: em(30);}
+		@include textAligns(right);
+		&:hover{
+			i{
+				color:#153773;
+			}
+		}
+	}
+	.mask-imguser{
+		width: em(127);
+    height: em(126);
+    margin: 0 auto;
+		display:block;
+		position: relative;
+		z-index: 2;
+		@include filter(drop-shadow(3px 3px 3px black));
+	}
+	h2{
+		font:{size:em(15);weight:bold;}
+		position: relative;
+		z-index: 2;
+	}
+	input{
+		position: relative;
+		z-index: 2;
+	}
+	div{
+		position: relative;
+		z-index: 2;
+		&.geo{
+			font:{size:em(14);weight:normal;}
+		}
+	}
+	p{
+		position: relative;
+		z-index: 2;
+		&.bio{
+			font:{size:em(13);weight:bold;}
+		}
+	}
+	.nav-ipe2{
+		position: relative;
+		z-index: 2;
+		@include span-columns(8);
+		@include shift(2);
+		@include borderRadius(5px);
+		border:1px solid #fff;
+		background:{color: transparent;}
+		ul{
+			@include span-columns(12);
+			@include fill-parent();
+			li{
+				@include span-columns(6.13);
+				@include row();
+				@include omega();
+				border:none;
+				text:{transform:capitalize;}
+				&.active{
+					background:{color: #fff;}
+					color:$color_font2;
+				}
+			}
+		}
+	}
+	&:after {
+    content: '';
+		background-image: linear-gradient(to bottom,rgba(0,0,0,0),#153773);
+		position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+		top:0;
+		z-index:1;
+  }
 }
