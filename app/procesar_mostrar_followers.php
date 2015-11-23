@@ -4,26 +4,26 @@
     echo '	   	 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 			<script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 
-				<script> 
+				<script>
 	 			$(document).ready(function(){
-	 		
-	 				
-					$(".estado_rs").click(function(){			
+
+
+					$(".estado_rs").click(function(){
 					var id_activar_rs = this.id;
 	 				var tipo = "activar_rs";
 	 				var estado =parseInt(this.name);
 	 				//alert(id_activar_rs+"-"+tipo+"-"+estado);
-						
-						$.ajax({  
-							type: "POST",  
-							url: "./rrss/procesar_activar_rs.php",  
-							data: "id_activar_rs="+id_activar_rs+"&estado="+estado+"&tipo="+tipo,	
-							success: function(data){ 
+
+						$.ajax({
+							type: "POST",
+							url: "./rrss/procesar_activar_rs.php",
+							data: "id_activar_rs="+id_activar_rs+"&estado="+estado+"&tipo="+tipo,
+							success: function(data){
 								alert(data);
 								window.location.reload();
 							}
 						});
-					
+
 					});
 				});
 			</script>';
@@ -45,7 +45,7 @@ $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 		$avatar = $links_user_url->data->profile_picture;
 	    if ($row3[5] == 1){
 	  		$suma_instagram+=(int)$followers_instagram;
-	    }	
+	    }
 	    if ($row3[5] == 0){
 	    	$estado= 0;
 		    $estado_descripcion="activar";
@@ -53,7 +53,9 @@ $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 		    $estado= 1;
 		    $estado_descripcion="desactivar";
 		 }
-			$_SESSION['instagram'] .="<h3>".$username."   -    ".(int)$followers_instagram."<button class='estado_rs' name='".$estado."' id='".$row3[3]."'>".$estado_descripcion."</button><br/></h3><img src='".$avatar."'/>";
+			//$_SESSION['instagram'] .=$username." ".(int)$followers_instagram." <button class='estado_rs' name='".$estado."' id='".$row3[3]."'>".$estado_descripcion."</button><br/></h3><img src='".$avatar."'/>";
+
+      $_SESSION['instagram'] .=$username." ".(int)$followers_instagram." <div class='switch'><input type='checkbox' class='btn".$estado_descripcion." estado_rs cmn-toggle' name='".$estado."' id='".$row3[3]."'><label for='".$row3[3]."' data-on='Yes' data-off='No'></label></div><br/></h3><img src='".$avatar."'/>";
 
 
 	}while($row3 = $result3->fetch_array());
@@ -77,7 +79,7 @@ $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 		$ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
 		$requestMethod = 'GET';
 		$_SESSION['twitter']="";
-	if($num_row4>0){    
+	if($num_row4>0){
 		do{
 		    $usuario1 = $row4['rrss_id'];
 		    $getfield1 = '?id='.$usuario1;
@@ -86,14 +88,14 @@ $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 		    ->buildOauth($ta_url, $requestMethod)
 		    ->performRequest();
 		    $data1 = json_decode($follow_count1, true);
-		    $followers_count1=$data1[0]['user']['followers_count'];	
-		    $username=$data1[0]['user']['screen_name'];	
+		    $followers_count1=$data1[0]['user']['followers_count'];
+		    $username=$data1[0]['user']['screen_name'];
 		    $avatar= $data1[0]['user']['profile_image_url'];
-	
 
-	 
+
+
     //echo "Result " . $interval->y . " years, " . $interval->m." months, ".$interval->d." days ".$interval->h."hours".$interval->m." minute";
-    
+
 
 
 
@@ -134,7 +136,7 @@ $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 			$months = substr($postDate,4,3); //nov
 			$day = substr($postDate,8,2);
 			$time = substr($postDate,11,8);
-			$formattedPostDate= $years."-".month($months)."-".$day." ".$time;	
+			$formattedPostDate= $years."-".month($months)."-".$day." ".$time;
 			$end_date = new DateTime($formattedPostDate);
 			$interval = $start_date->diff($end_date);
 
@@ -144,13 +146,13 @@ $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 				$dateDiff = $interval->d."d";
 			}else if(intval($interval->h)>0){
 				$dateDiff = $interval->h."h";
-			} 
+			}
 			else if(intval($interval->m)>0){
 				$dateDiff = $interval->i."m";
-			} 
+			}
 
-			
-		   	
+
+
 		   	$text.="<h4>".$data1[$i]['text']."</h4>
 		   			<p> Retweet ".$data1[$i]['retweet_count']." - Favourites ".$data1[$i]['favorite_count']." - ".$dateDiff.
 		   			"</div>";
@@ -162,7 +164,7 @@ $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 			 $suma += $suma_twitter;
 		}
 
-		
+
 
 
 	$query5="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='youtube'";
@@ -181,7 +183,7 @@ $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 
 				    if ($row5[5] == 1){
 				  		$suma_youtube+=(int)$youtubeSubscribers;
-				    }	
+				    }
 				    if ($row5[5] == 0){
 				    	$estado= 0;
 					    $estado_descripcion="activar";
@@ -210,7 +212,7 @@ $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 		$_SESSION['facebook']="";
 		if($num_row6>0){
 			do{
-				
+
 					$facebookPage = $row6[3];
 					$json_user_url1 ="https://graph.facebook.com/".$facebookPage."?access_token=".$facebookAppId."|".$facebookKey."&fields=likes,talking_about_count,username,website";
 					$json_user_url = str_replace(" ", "%20", $json_user_url1);
@@ -221,10 +223,10 @@ $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 					$facebookUsername =$links_user_url->username;
 					$facebookWebsite =$links_user_url->website;
 					$facebookImgUrl = "https://graph.facebook.com/".$facebookUsername."/picture?type=large";
-					
+
 					if ($row6[5] == 1){
 				  		$suma_facebook+=(int)$facebookLikes;
-				    }	
+				    }
 				    if ($row6[5] == 0){
 				    	$estado= 0;
 					    $estado_descripcion="activar";
@@ -233,7 +235,7 @@ $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 					    $estado_descripcion="desactivar";
 					 }
 					 if((int)$facebookLikes>0){
-					 	$_SESSION['facebook'] .="<h3>".$facebookUsername."   -    ".(int)$facebookLikes."<button class='estado_rs' name='".$estado."' id='".$facebookPage."'>".$estado_descripcion."</button><br/></h3><h3>Gente hablando : ".$facebookTalkingAbout."</h3><a href=".$facebookWebsite.">".$facebookWebsite."</a><div><img src='".$facebookImgUrl."'/></div>";	
+					 	$_SESSION['facebook'] .="<h3>".$facebookUsername."   -    ".(int)$facebookLikes."<button class='estado_rs' name='".$estado."' id='".$facebookPage."'>".$estado_descripcion."</button><br/></h3><h3>Gente hablando : ".$facebookTalkingAbout."</h3><a href=".$facebookWebsite.">".$facebookWebsite."</a><div><img src='".$facebookImgUrl."'/></div>";
 					 }
 
 			}while($row6 = $result6->fetch_array());
@@ -252,16 +254,16 @@ $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 		$_SESSION['googleplus']="";
 		if($num_row7>0){
 			do{
-				
+
 					$googleplusId = $row7[3];
 					$json_user_url ="https://www.googleapis.com/plus/v1/people/".$googleplusId."?key=".$googleplusKey;
 					$json_user= file_get_contents($json_user_url);
-					$links_user_url= json_decode($json_user);			
+					$links_user_url= json_decode($json_user);
 					$googleplusSubscriber =$links_user_url->circledByCount;
 					$googleplusName =$links_user_url->displayName;
 					if ($row7[5] == 1){
 				  		$suma_googleplus+=(int)$googleplusSubscriber;
-				    }	
+				    }
 				    if ($row7[5] == 0){
 				    	$estado= 0;
 					    $estado_descripcion="activar";

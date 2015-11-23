@@ -9,7 +9,7 @@ html {
 a {
   text-decoration: none; }
 
-.hide, .alertElim, .alertElim #boxElim, .alertElim #boxAlert, #imagenform, #imagenform #inicio .tabpage div i, .header-ipe .input-file, main.form_agencias, main.form_agencias #antiguo, main.form_agencias #nuevo, main.form_agencias #antiguo h2, main.form_agencias #nuevo h2, main.form_agencias #antiguo a, main.form_agencias #nuevo a, main.form_agencias #antiguo .form_ingreso, main.form_agencias #nuevo .form_ingreso, main.form_agencias #nuevo .registerForm, main.form_agencias #nuevo .registerForm #selectImage input[type="file"], main.form_agencias #nuevo .registerForm #selectImage .creadas .recientes .content .inputs-campana textarea[type="file"], .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm #selectImage textarea[type="file"], .creadas .recientes .content .inputs-campana i, .crear-campanas .crear-campana {
+.hide, .alertElim, .alertElim #boxElim, .alertElim #boxAlert, #imagenform, #imagenform #inicio .tabpage div i, #imagenform-ipe .header-ipe .input-file, main.form_agencias, main.form_agencias #antiguo, main.form_agencias #nuevo, main.form_agencias #antiguo h2, main.form_agencias #nuevo h2, main.form_agencias #antiguo a, main.form_agencias #nuevo a, main.form_agencias #antiguo .form_ingreso, main.form_agencias #nuevo .form_ingreso, main.form_agencias #nuevo .registerForm, main.form_agencias #nuevo .registerForm #selectImage input[type="file"], main.form_agencias #nuevo .registerForm #selectImage #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="file"], #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .registerForm #selectImage textarea[type="file"], main.form_agencias #nuevo .registerForm #selectImage .creadas .recientes .content .inputs-campana textarea[type="file"], .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm #selectImage textarea[type="file"], .creadas .recientes .content .inputs-campana i, .crear-campanas .crear-campana {
   display: none; }
 
 .show {
@@ -25,7 +25,7 @@ a {
 .count-jfilestyle {
   display: none !important; }
 
-.inputs, html body.formularios-registro .cont_formRegistro .cont-inputs div input, html body.formularios-registro .cont_formRegistro .cont-inputs div .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana html body.formularios-registro .cont_formRegistro .cont-inputs div textarea, main.form_agencias #antiguo .form_ingreso input, main.form_agencias #nuevo .form_ingreso input, main.form_agencias #nuevo .registerForm input, main.form_agencias #antiguo .form_ingreso .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #antiguo .form_ingreso textarea, main.form_agencias #nuevo .form_ingreso .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .form_ingreso textarea, main.form_agencias #nuevo .registerForm .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm textarea, #campanaForm-nueva-campana input, #campanaForm-nueva-campana textarea {
+.inputs, html body.formularios-registro .cont_formRegistro .cont-inputs div input, html body.formularios-registro .cont_formRegistro .cont-inputs #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage html body.formularios-registro .cont_formRegistro .cont-inputs div#descripcion textarea, html body.formularios-registro .cont_formRegistro .cont-inputs div .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana html body.formularios-registro .cont_formRegistro .cont-inputs div textarea, main.form_agencias #antiguo .form_ingreso input, main.form_agencias #nuevo .form_ingreso input, main.form_agencias #nuevo .registerForm input, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #antiguo .form_ingreso textarea, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .form_ingreso textarea, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .registerForm textarea, main.form_agencias #antiguo .form_ingreso .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #antiguo .form_ingreso textarea, main.form_agencias #nuevo .form_ingreso .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .form_ingreso textarea, main.form_agencias #nuevo .registerForm .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm textarea, #campanaForm-nueva-campana input, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea, #campanaForm-nueva-campana textarea {
   font-family: "Open Sans", sans-serif;
   height: 40px;
   margin-bottom: 5px;
@@ -563,7 +563,8 @@ nav {
             display: block !important; } }
   nav.nav-ipe ul {
     height: 40px;
-    background-color: #153773; }
+    background-color: #153773;
+    padding-top: 5px; }
     nav.nav-ipe ul li {
       float: left;
       display: block;
@@ -809,7 +810,7 @@ nav {
           clear: both;
           font-size: 9px;
           text-transform: uppercase; }
-        #imagenform #inicio .tabpage div input, #imagenform #inicio .tabpage div .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana #imagenform #inicio .tabpage div textarea {
+        #imagenform #inicio .tabpage div input, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent #imagenform #inicio .tabpage div#descripcion textarea, #imagenform #inicio .tabpage div .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana #imagenform #inicio .tabpage div textarea {
           font-family: "Open Sans", sans-serif;
           float: left;
           display: block;
@@ -822,9 +823,9 @@ nav {
           font-size: 12px;
           color: #c7c7c7;
           outline: none; }
-          #imagenform #inicio .tabpage div input:last-child, #imagenform #inicio .tabpage div .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana #imagenform #inicio .tabpage div textarea:last-child {
+          #imagenform #inicio .tabpage div input:last-child, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:last-child, #imagenform-ipe #tabscontent #imagenform #inicio .tabpage div#descripcion textarea:last-child, #imagenform #inicio .tabpage div .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana #imagenform #inicio .tabpage div textarea:last-child {
             margin-right: 0; }
-          #imagenform #inicio .tabpage div input[disabled], #imagenform #inicio .tabpage div .creadas .recientes .content .inputs-campana textarea[disabled], .creadas .recientes .content .inputs-campana #imagenform #inicio .tabpage div textarea[disabled] {
+          #imagenform #inicio .tabpage div input[disabled], #imagenform #inicio #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[disabled], #imagenform-ipe #tabscontent #imagenform #inicio .tabpage div#descripcion textarea[disabled], #imagenform #inicio .tabpage div .creadas .recientes .content .inputs-campana textarea[disabled], .creadas .recientes .content .inputs-campana #imagenform #inicio .tabpage div textarea[disabled] {
             background-color: #fff; }
         #imagenform #inicio .tabpage div#tel1, #imagenform #inicio .tabpage div#tel2 {
           float: left;
@@ -904,7 +905,195 @@ nav {
       #imagenform:last-child {
         margin-right: 0; } }
 
-.header-ipe {
+#imagenform-ipe #tabs {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  width: 100%;
+  display: block;
+  list-style: none;
+  padding: 0;
+  background-color: #fff;
+  margin: 0; }
+  #imagenform-ipe #tabs:last-child {
+    margin-right: 0; }
+  #imagenform-ipe #tabs::after {
+    clear: both;
+    content: "";
+    display: table; }
+  #imagenform-ipe #tabs li {
+    padding: 10px 0 8px;
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 49.9727%;
+    display: block;
+    margin-right: 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #c7c7c7;
+    cursor: pointer; }
+    #imagenform-ipe #tabs li:last-child {
+      margin-right: 0; }
+    #imagenform-ipe #tabs li::after {
+      clear: both;
+      content: "";
+      display: table; }
+    #imagenform-ipe #tabs li.tabActiveHeader {
+      color: #18bb9b;
+      border-bottom: 2px inset #18bb9b; }
+    #imagenform-ipe #tabs li:first-child {
+      border-right: 1px solid #c7c7c7; }
+#imagenform-ipe #tabscontent {
+  padding: 0.625em 0.3125em; }
+  #imagenform-ipe #tabscontent .tabpage {
+    width: 100%;
+    padding: 0.625em;
+    width: 100%;
+    display: block; }
+    #imagenform-ipe #tabscontent .tabpage::after {
+      clear: both;
+      content: "";
+      display: table; }
+    #imagenform-ipe #tabscontent .tabpage:first-child {
+      border-top-left-radius: 0.625em;
+      border-top-right-radius: 0.625em;
+      border-bottom-left-radius: 0.625em;
+      border-top-left-radius: 0.625em;
+      border-bottom-right-radius: 0.625em;
+      border-top-right-radius: 0.625em;
+      border-bottom-left-radius: 0.625em;
+      border-bottom-right-radius: 0.625em;
+      background-color: #fff; }
+    #imagenform-ipe #tabscontent .tabpage div {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%;
+      display: block;
+      overflow: hidden;
+      position: relative; }
+      #imagenform-ipe #tabscontent .tabpage div:last-child {
+        margin-right: 0; }
+      #imagenform-ipe #tabscontent .tabpage div::after {
+        clear: both;
+        content: "";
+        display: table; }
+      #imagenform-ipe #tabscontent .tabpage div small {
+        color: #c7c7c7;
+        clear: both;
+        font-size: 9px;
+        text-transform: uppercase; }
+      #imagenform-ipe #tabscontent .tabpage div input, #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div textarea {
+        font-family: "Open Sans", sans-serif;
+        font-weight: bold;
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%;
+        height: 40px;
+        margin-bottom: 0.3125em;
+        border: none;
+        border-bottom: 1px solid #c7c7c7;
+        font-size: 0.75em;
+        color: #18bb9b;
+        outline: none; }
+        #imagenform-ipe #tabscontent .tabpage div input:last-child, #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:last-child, #imagenform-ipe #tabscontent .tabpage div .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div textarea:last-child {
+          margin-right: 0; }
+        #imagenform-ipe #tabscontent .tabpage div input[disabled], #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[disabled], #imagenform-ipe #tabscontent .tabpage div .creadas .recientes .content .inputs-campana textarea[disabled], .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div textarea[disabled] {
+          background-color: #fff;
+          color: #c7c7c7; }
+      #imagenform-ipe #tabscontent .tabpage div#descripcion textarea {
+        color: #c7c7c7;
+        min-height: 3.125em;
+        padding-top: 0.3125em;
+        font-size: 0.625em; }
+      #imagenform-ipe #tabscontent .tabpage div#descripcion i {
+        top: 0; }
+      #imagenform-ipe #tabscontent .tabpage div i {
+        position: absolute;
+        top: 30px;
+        right: 10px;
+        color: #18bb9b;
+        z-index: 1; }
+      #imagenform-ipe #tabscontent .tabpage div.selects select {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+        font-weight: bold;
+        height: 40px;
+        border: none;
+        border-bottom: 1px solid #c7c7c7;
+        margin-bottom: 5px;
+        box-shadow: none;
+        background-color: transparent;
+        background-image: none;
+        font-size: 12px;
+        color: #18bb9b;
+        position: relative;
+        z-index: 2; }
+        #imagenform-ipe #tabscontent .tabpage div.selects select:last-child {
+          margin-right: 0; }
+        #imagenform-ipe #tabscontent .tabpage div.selects select:focus {
+          outline: none; }
+    #imagenform-ipe #tabscontent .tabpage #guardarFacturacion, #imagenform-ipe #tabscontent .tabpage #imagenform #inicio .cancel-data, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage .cancel-data {
+      width: 100%;
+      margin-top: 5px;
+      background-color: #18bb9b; }
+    #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription span .switch .cmn-toggle {
+      padding: 2px;
+      width: 120px;
+      height: 60px;
+      background-color: #dddddd;
+      border-radius: 60px; }
+      #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription span .switch .cmn-toggle:checked + label:before {
+        background-color: #8ce196; }
+      #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription span .switch .cmn-toggle:checked + label:after {
+        margin-left: 60px; }
+      #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription span .switch .cmn-toggle + label {
+        display: block;
+        position: relative;
+        cursor: pointer;
+        outline: none;
+        -webkit-user-select: none;
+        /* Chrome all / Safari all */
+        -moz-user-select: none;
+        /* Firefox all */
+        -ms-user-select: none;
+        /* IE 10+ */
+        user-select: none; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription span .switch .cmn-toggle + label:before {
+          display: block;
+          position: absolute;
+          top: 1px;
+          left: 1px;
+          bottom: 1px;
+          content: "";
+          right: 1px;
+          background-color: #f1f1f1;
+          border-radius: 60px;
+          transition: background 0.4s; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription span .switch .cmn-toggle + label:after {
+          display: block;
+          position: absolute;
+          top: 1px;
+          left: 1px;
+          bottom: 1px;
+          content: "";
+          width: 58px;
+          background-color: #fff;
+          border-radius: 100%;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+          transition: margin 0.4s; }
+#imagenform-ipe .header-ipe {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -918,9 +1107,9 @@ nav {
   width: 100%;
   text-align: center;
   color: #fff; }
-  .header-ipe:last-child {
+  #imagenform-ipe .header-ipe:last-child {
     margin-right: 0; }
-  .header-ipe .change-img {
+  #imagenform-ipe .header-ipe .change-img {
     opacity: .8;
     color: #fff;
     margin: -43px auto 20px;
@@ -931,9 +1120,9 @@ nav {
     z-index: 3;
     font-size: 1.875em;
     text-align: right; }
-    .header-ipe .change-img:hover i {
+    #imagenform-ipe .header-ipe .change-img:hover i {
       color: #153773; }
-  .header-ipe .mask-imguser {
+  #imagenform-ipe .header-ipe .mask-imguser {
     width: 7.9375em;
     height: 7.875em;
     margin: 0 auto;
@@ -942,27 +1131,27 @@ nav {
     z-index: 2;
     -webkit-filter: drop-shadow(3px 3px 3px black);
     filter: drop-shadow(3px 3px 3px black); }
-  .header-ipe h2 {
+  #imagenform-ipe .header-ipe h2 {
     font-size: 0.9375em;
     font-weight: bold;
     position: relative;
     z-index: 2; }
-  .header-ipe input, .header-ipe .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana .header-ipe textarea {
+  #imagenform-ipe .header-ipe input, #imagenform-ipe .header-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion .header-ipe textarea, #imagenform-ipe .header-ipe .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana #imagenform-ipe .header-ipe textarea {
     position: relative;
     z-index: 2; }
-  .header-ipe div {
+  #imagenform-ipe .header-ipe div {
     position: relative;
     z-index: 2; }
-    .header-ipe div.geo {
+    #imagenform-ipe .header-ipe div.geo {
       font-size: 0.875em;
       font-weight: normal; }
-  .header-ipe p {
+  #imagenform-ipe .header-ipe p {
     position: relative;
     z-index: 2; }
-    .header-ipe p.bio {
+    #imagenform-ipe .header-ipe p.bio {
       font-size: 0.8125em;
       font-weight: bold; }
-  .header-ipe .nav-ipe2 {
+  #imagenform-ipe .header-ipe .nav-ipe2 {
     position: relative;
     z-index: 2;
     float: left;
@@ -980,17 +1169,17 @@ nav {
     border-bottom-right-radius: 5px;
     border: 1px solid #fff;
     background-color: transparent; }
-    .header-ipe .nav-ipe2:last-child {
+    #imagenform-ipe .header-ipe .nav-ipe2:last-child {
       margin-right: 0; }
-    .header-ipe .nav-ipe2 ul {
+    #imagenform-ipe .header-ipe .nav-ipe2 ul {
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 100%;
       width: 100%; }
-      .header-ipe .nav-ipe2 ul:last-child {
+      #imagenform-ipe .header-ipe .nav-ipe2 ul:last-child {
         margin-right: 0; }
-      .header-ipe .nav-ipe2 ul li {
+      #imagenform-ipe .header-ipe .nav-ipe2 ul li {
         float: left;
         display: block;
         margin-right: 2.35765%;
@@ -999,16 +1188,16 @@ nav {
         margin-right: 0;
         border: none;
         text-transform: capitalize; }
-        .header-ipe .nav-ipe2 ul li:last-child {
+        #imagenform-ipe .header-ipe .nav-ipe2 ul li:last-child {
           margin-right: 0; }
-        .header-ipe .nav-ipe2 ul li::after {
+        #imagenform-ipe .header-ipe .nav-ipe2 ul li::after {
           clear: both;
           content: "";
           display: table; }
-        .header-ipe .nav-ipe2 ul li.active {
+        #imagenform-ipe .header-ipe .nav-ipe2 ul li.active {
           background-color: #fff;
           color: #18bb9b; }
-  .header-ipe:after {
+  #imagenform-ipe .header-ipe:after {
     content: '';
     background-image: linear-gradient(to bottom, transparent, #153773);
     position: absolute;
@@ -1156,12 +1345,12 @@ html {
             right: 0;
             bottom: 10px;
             color: #18bb9b; }
-          html body.formularios-registro .cont_formRegistro .cont-inputs div input, html body.formularios-registro .cont_formRegistro .cont-inputs div .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana html body.formularios-registro .cont_formRegistro .cont-inputs div textarea {
+          html body.formularios-registro .cont_formRegistro .cont-inputs div input, html body.formularios-registro .cont_formRegistro .cont-inputs #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage html body.formularios-registro .cont_formRegistro .cont-inputs div#descripcion textarea, html body.formularios-registro .cont_formRegistro .cont-inputs div .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana html body.formularios-registro .cont_formRegistro .cont-inputs div textarea {
             float: left;
             display: block;
             margin-right: 2.35765%;
             width: 100%; }
-            html body.formularios-registro .cont_formRegistro .cont-inputs div input:last-child, html body.formularios-registro .cont_formRegistro .cont-inputs div .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana html body.formularios-registro .cont_formRegistro .cont-inputs div textarea:last-child {
+            html body.formularios-registro .cont_formRegistro .cont-inputs div input:last-child, html body.formularios-registro .cont_formRegistro .cont-inputs #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:last-child, #imagenform-ipe #tabscontent .tabpage html body.formularios-registro .cont_formRegistro .cont-inputs div#descripcion textarea:last-child, html body.formularios-registro .cont_formRegistro .cont-inputs div .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana html body.formularios-registro .cont_formRegistro .cont-inputs div textarea:last-child {
               margin-right: 0; }
     @media screen and (min-width: 64em) and (max-width: 90em) {
       html body {
@@ -1370,12 +1559,12 @@ main {
             display: table; }
           main.form_agencias #antiguo .form_ingreso p:last-child, main.form_agencias #nuevo .form_ingreso p:last-child, main.form_agencias #nuevo .registerForm p:last-child {
             margin-right: 0; }
-        main.form_agencias #antiguo .form_ingreso input, main.form_agencias #nuevo .form_ingreso input, main.form_agencias #nuevo .registerForm input, main.form_agencias #antiguo .form_ingreso .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #antiguo .form_ingreso textarea, main.form_agencias #nuevo .form_ingreso .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .form_ingreso textarea, main.form_agencias #nuevo .registerForm .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm textarea {
+        main.form_agencias #antiguo .form_ingreso input, main.form_agencias #nuevo .form_ingreso input, main.form_agencias #nuevo .registerForm input, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #antiguo .form_ingreso textarea, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .form_ingreso textarea, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .registerForm textarea, main.form_agencias #antiguo .form_ingreso .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #antiguo .form_ingreso textarea, main.form_agencias #nuevo .form_ingreso .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .form_ingreso textarea, main.form_agencias #nuevo .registerForm .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm textarea {
           float: left;
           display: block;
           margin-right: 2.35765%;
           width: 100%; }
-          main.form_agencias #antiguo .form_ingreso input:last-child, main.form_agencias #nuevo .form_ingreso input:last-child, main.form_agencias #nuevo .registerForm input:last-child, main.form_agencias #antiguo .form_ingreso .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana main.form_agencias #antiguo .form_ingreso textarea:last-child, main.form_agencias #nuevo .form_ingreso .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .form_ingreso textarea:last-child, main.form_agencias #nuevo .registerForm .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm textarea:last-child {
+          main.form_agencias #antiguo .form_ingreso input:last-child, main.form_agencias #nuevo .form_ingreso input:last-child, main.form_agencias #nuevo .registerForm input:last-child, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:last-child, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #antiguo .form_ingreso textarea:last-child, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:last-child, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .form_ingreso textarea:last-child, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:last-child, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .registerForm textarea:last-child, main.form_agencias #antiguo .form_ingreso .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana main.form_agencias #antiguo .form_ingreso textarea:last-child, main.form_agencias #nuevo .form_ingreso .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .form_ingreso textarea:last-child, main.form_agencias #nuevo .registerForm .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm textarea:last-child {
             margin-right: 0; }
         main.form_agencias #antiguo .form_ingreso #ingresar, main.form_agencias #nuevo .form_ingreso #ingresar, main.form_agencias #nuevo .registerForm #ingresar {
           float: left;
@@ -1502,9 +1691,9 @@ main {
           max-width: 35% !important;
           top: 26%; } }
 
-.dashboard-agencia, .crear-campanas, .campanas {
+.dashboard-agencia, .dashboard-ipe, .crear-campanas, .campanas {
   background-image: none; }
-  .dashboard-agencia .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo {
+  .dashboard-agencia .sub-titulo, .dashboard-ipe .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo {
     margin: 0;
     font-size: 14px;
     font-style: italic;
@@ -1513,22 +1702,25 @@ main {
     padding: 10px;
     clear: both; }
     @media screen and (min-width: 64em) and (max-width: 90em) {
-      .dashboard-agencia .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo {
+      .dashboard-agencia .sub-titulo, .dashboard-ipe .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo {
         max-width: 68em;
         margin-left: auto;
         margin-right: auto;
         color: #656b79;
         font-size: 18px;
         font-weight: normal; }
-        .dashboard-agencia .sub-titulo::after, .crear-campanas .sub-titulo::after, .campanas .sub-titulo::after {
+        .dashboard-agencia .sub-titulo::after, .dashboard-ipe .sub-titulo::after, .crear-campanas .sub-titulo::after, .campanas .sub-titulo::after {
           clear: both;
           content: "";
           display: table; } }
     @media screen and (min-width: 90em) {
-      .dashboard-agencia .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo {
+      .dashboard-agencia .sub-titulo, .dashboard-ipe .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo {
         color: #656b79;
         font-size: 18px;
         font-weight: normal; } }
+
+.dashboard-ipe {
+  background-color: #c7c7c7; }
 
 .creadas .recientes {
   display: block;
@@ -1760,22 +1952,22 @@ main {
         right: 1px;
         top: 7px;
         font-size: 12px; }
-      .creadas .recientes .content .inputs-campana input, .creadas .recientes .content .inputs-campana textarea {
+      .creadas .recientes .content .inputs-campana input, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana textarea {
         width: 100%;
         border: none; }
-        .creadas .recientes .content .inputs-campana input::-webkit-input-placeholder, .creadas .recientes .content .inputs-campana textarea::-webkit-input-placeholder {
+        .creadas .recientes .content .inputs-campana input::-webkit-input-placeholder, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea::-webkit-input-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana textarea::-webkit-input-placeholder, .creadas .recientes .content .inputs-campana textarea::-webkit-input-placeholder {
           color: #484d58;
           font-size: 10px; }
-        .creadas .recientes .content .inputs-campana input::-moz-placeholder, .creadas .recientes .content .inputs-campana textarea::-moz-placeholder {
+        .creadas .recientes .content .inputs-campana input::-moz-placeholder, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea::-moz-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana textarea::-moz-placeholder, .creadas .recientes .content .inputs-campana textarea::-moz-placeholder {
           color: #484d58;
           font-size: 10px; }
-        .creadas .recientes .content .inputs-campana input:-moz-placeholder, .creadas .recientes .content .inputs-campana textarea:-moz-placeholder {
+        .creadas .recientes .content .inputs-campana input:-moz-placeholder, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:-moz-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana textarea:-moz-placeholder, .creadas .recientes .content .inputs-campana textarea:-moz-placeholder {
           color: #484d58;
           font-size: 10px; }
-        .creadas .recientes .content .inputs-campana input:-ms-input-placeholder, .creadas .recientes .content .inputs-campana textarea:-ms-input-placeholder {
+        .creadas .recientes .content .inputs-campana input:-ms-input-placeholder, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:-ms-input-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana textarea:-ms-input-placeholder, .creadas .recientes .content .inputs-campana textarea:-ms-input-placeholder {
           color: #484d58;
           font-size: 10px; }
-        .creadas .recientes .content .inputs-campana input[disabled], .creadas .recientes .content .inputs-campana textarea[disabled] {
+        .creadas .recientes .content .inputs-campana input[disabled], .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[disabled], #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana textarea[disabled], .creadas .recientes .content .inputs-campana textarea[disabled] {
           background-color: #fff; }
       .creadas .recientes .content .inputs-campana textarea {
         color: #c7c7c7;
@@ -1784,18 +1976,18 @@ main {
         min-height: 100px; }
       .creadas .recientes .content .inputs-campana.descripcion i {
         top: 0; }
-      .creadas .recientes .content .inputs-campana.nombre input, .creadas .recientes .content .inputs-campana.nombre textarea {
+      .creadas .recientes .content .inputs-campana.nombre input, .creadas .recientes .content .inputs-campana.nombre #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana.nombre textarea, .creadas .recientes .content .inputs-campana.nombre textarea {
         line-height: 12px; }
-        .creadas .recientes .content .inputs-campana.nombre input::-webkit-input-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea::-webkit-input-placeholder {
+        .creadas .recientes .content .inputs-campana.nombre input::-webkit-input-placeholder, .creadas .recientes .content .inputs-campana.nombre #imagenform-ipe #tabscontent .tabpage div#descripcion textarea::-webkit-input-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana.nombre textarea::-webkit-input-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea::-webkit-input-placeholder {
           font-size: 15px;
           font-weight: bold; }
-        .creadas .recientes .content .inputs-campana.nombre input::-moz-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea::-moz-placeholder {
+        .creadas .recientes .content .inputs-campana.nombre input::-moz-placeholder, .creadas .recientes .content .inputs-campana.nombre #imagenform-ipe #tabscontent .tabpage div#descripcion textarea::-moz-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana.nombre textarea::-moz-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea::-moz-placeholder {
           font-size: 15px;
           font-weight: bold; }
-        .creadas .recientes .content .inputs-campana.nombre input:-moz-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea:-moz-placeholder {
+        .creadas .recientes .content .inputs-campana.nombre input:-moz-placeholder, .creadas .recientes .content .inputs-campana.nombre #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:-moz-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana.nombre textarea:-moz-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea:-moz-placeholder {
           font-size: 15px;
           font-weight: bold; }
-        .creadas .recientes .content .inputs-campana.nombre input:-ms-input-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea:-ms-input-placeholder {
+        .creadas .recientes .content .inputs-campana.nombre input:-ms-input-placeholder, .creadas .recientes .content .inputs-campana.nombre #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:-ms-input-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana.nombre textarea:-ms-input-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea:-ms-input-placeholder {
           font-size: 15px;
           font-weight: bold; }
     .creadas .recientes .content .btn_close {
@@ -2046,30 +2238,30 @@ main {
   padding: 2.35765%; }
   #campanaForm-nueva-campana:last-child {
     margin-right: 0; }
-  #campanaForm-nueva-campana input, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea {
+  #campanaForm-nueva-campana input, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 100%; }
-    #campanaForm-nueva-campana input:last-child, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea:last-child {
+    #campanaForm-nueva-campana input:last-child, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:last-child, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea:last-child, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea:last-child {
       margin-right: 0; }
-    #campanaForm-nueva-campana input::-webkit-input-placeholder, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea::-webkit-input-placeholder, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea::-webkit-input-placeholder {
+    #campanaForm-nueva-campana input::-webkit-input-placeholder, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea::-webkit-input-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea::-webkit-input-placeholder, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea::-webkit-input-placeholder, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea::-webkit-input-placeholder {
       font-size: 12px;
       font-style: italic;
       text-transform: normal; }
-    #campanaForm-nueva-campana input::-moz-placeholder, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea::-moz-placeholder, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea::-moz-placeholder {
+    #campanaForm-nueva-campana input::-moz-placeholder, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea::-moz-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea::-moz-placeholder, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea::-moz-placeholder, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea::-moz-placeholder {
       font-size: 12px;
       font-style: italic;
       text-transform: normal; }
-    #campanaForm-nueva-campana input:-moz-placeholder, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea:-moz-placeholder, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea:-moz-placeholder {
+    #campanaForm-nueva-campana input:-moz-placeholder, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:-moz-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea:-moz-placeholder, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea:-moz-placeholder, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea:-moz-placeholder {
       font-size: 12px;
       font-style: italic;
       text-transform: normal; }
-    #campanaForm-nueva-campana input:-ms-input-placeholder, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea:-ms-input-placeholder, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea:-ms-input-placeholder {
+    #campanaForm-nueva-campana input:-ms-input-placeholder, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:-ms-input-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea:-ms-input-placeholder, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea:-ms-input-placeholder, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea:-ms-input-placeholder {
       font-size: 12px;
       font-style: italic;
       text-transform: normal; }
-    #campanaForm-nueva-campana input#file2, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea#file2, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea#file2 {
+    #campanaForm-nueva-campana input#file2, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea#file2, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea#file2, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea#file2, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea#file2 {
       display: none !important; }
   #campanaForm-nueva-campana textarea {
     min-height: 100px;
