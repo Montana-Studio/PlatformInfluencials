@@ -58,7 +58,6 @@ if(isset($_SESSION['id'])){
 	?>
 	<main class="contAllPI" style="padding-top:30%;">
 		<div style="display:none;" id="tipoCliente" value="2"></div>
-		<div id="alertRegistrado"></div>
 		<div class="logo_pi"><a href="/" target="_top"></a></div>
 		<main class="form_agencias">
 		<div id="inicio">
@@ -69,7 +68,7 @@ if(isset($_SESSION['id'])){
 			<h2>Registro</h2>
 			<form class="registerForm registerFormAgencia">
 				<form class='registerForm'>
-					<div>		
+					<div>
 						<select id="perfil" >
 						<option value="2" disabled selected>perfil de agencia </option>
 						</select>
@@ -81,9 +80,9 @@ if(isset($_SESSION['id'])){
 					<div id="linkedin-nuevo" class="lk_btn">
 						<i class="fa fa-linkedin"></i>registrarse con Linkedin
 					</div>
-				
+
 					<p>o rellena el formulario</p>
-					
+
 					<input placeholder="Nombre" name="username-nuevo" class="usernamenuevo" required>
 					<input type="email" placeholder="Correo electrónico" class="correonuevo" required>
 					<input placeholder="Empresa" name="empresa-nuevo" class="empresanuevo" required>
@@ -136,7 +135,7 @@ if(isset($_SESSION['id'])){
 		</main>
 
 	</div>
-	
+
 	<script type="text/javascript" async src="js/platform_influencials.min.js"></script>
 	<script type="text/javascript" src="js/form-passes.js"></script>
 	<script type="text/javascript" src="js/form-data.js"></script>

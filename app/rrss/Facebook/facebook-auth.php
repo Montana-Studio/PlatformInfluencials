@@ -1,10 +1,10 @@
 
-<script>
+<script async type="text/javascript">
 	var app_id = '973652052702468';
 	var scopes= 'email,user_friends,manage_pages';
 	var name;
 	var email;
-	var tipo = 1; 
+	var tipo = 1;
 
 		function call_facebook_api(){
 			(function(d, s, id) {
@@ -15,12 +15,12 @@
 			fjs.parentNode.insertBefore(js, fjs);
 			}(document, 'script', 'facebook-jssdk'));
 		}
-	
+
 	var statusChangeCallback = function(response, callback) {
 	 if(tipo == 1){
 	 		if (response.status === 'connected') {
 		  getFacebookData();
-	    } 
+	    }
 	    else {
 			callback(false);//no hace nada si no se conecta
 	    }
@@ -28,23 +28,23 @@
 	 if(tipo == 0){
 	 		if (response.status === 'connected') {
 		  getFacebookPages();
-	    } 
+	    }
 	    else {
 			callback(false);//no hace nada si no se conecta
 	    }
-	 }    
-	    
+	 }
+
 	}
-	
-    var checkLoginState = function(callback) {	
+
+    var checkLoginState = function(callback) {
 		window.fbAsyncInit = function() {
 			FB.init({
 				appId      : app_id,
-				cookie     : true,  
-				status 	   : true,					
-				xfbml      : true,  
-				version    : 'v2.4' 
-			});	
+				cookie     : true,
+				status 	   : true,
+				xfbml      : true,
+				version    : 'v2.4'
+			});
 			FB.getLoginStatus(function(response) {
 				statusChangeCallback(response, function(data){
 				callback(data);
@@ -52,9 +52,9 @@
 			});
 		};
 	};
-	
+
 	var facebookLogin= function (){
-		
+
 		checkLoginState(function(response){
 			if(!response){ //no esta conectado callback false
 			if( navigator.userAgent.match('CriOS') ){
@@ -67,11 +67,11 @@
 				}, {scope: scopes});
 			}
 
-		
+
 			};
 			});
 	};
-	
+
 	var facebookPages= function (){
 		tipo=0;
 		checkLoginState(function(response){
@@ -86,7 +86,7 @@
 				}, {scope: scopes});
 			}
 
-		
+
 			};
 			});
 	};
@@ -103,19 +103,19 @@
   	};
 
 
-		
+
 	var getFacebookData = function(){
-		FB.api('/me',{ locale: 'en_US', fields: 'name, email' } 
+		FB.api('/me',{ locale: 'en_US', fields: 'name, email' }
 		,function (response){
 		id= response.id;
 		facebookUser=response.name;;
 		facebookCorreo=response.email;
-			$.ajax({  
-		            type: "POST",  
-		            url: "./procesar_facebook.php",  
-		            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id+"&tipo="+document.getElementById('tipoCliente').getAttribute('value'),  
-					
-		            success: function(data){ 
+			$.ajax({
+		            type: "POST",
+		            url: "./procesar_facebook.php",
+		            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id+"&tipo="+document.getElementById('tipoCliente').getAttribute('value'),
+
+		            success: function(data){
 
 					}
 
@@ -129,11 +129,11 @@
 			    function (response) {
 			        for(var i=0; i<=response.data.length-1;i++){
 			        	var facebook_page_id = response.data[i].id;
-			        	   $.ajax({  
-					            type: "POST",  
-					            url: "./rrss/Facebook/procesar_facebook.php",  
-					            data: "facebook_page_id="+facebook_page_id, 
-					            success: function(data){ 
+			        	   $.ajax({
+					            type: "POST",
+					            url: "./rrss/Facebook/procesar_facebook.php",
+					            data: "facebook_page_id="+facebook_page_id,
+					            success: function(data){
 									if(data == 'exito'){
 					                  alert("gracias por registrar su cuenta");
 					                  window.location.reload();

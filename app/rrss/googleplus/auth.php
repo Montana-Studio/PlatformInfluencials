@@ -1,4 +1,4 @@
-<script>
+<script  async type="text/javascript">
 
 var OAUTH2_CLIENT_ID = '1045210216843-rplujhgcennvu03bhggu891cbuojf3bn.apps.googleusercontent.com';
 var OAUTH2_SCOPES = ['https://www.googleapis.com/auth/plus.me'];
@@ -16,14 +16,14 @@ function checkAuthGooglePlus() {
       client_id: OAUTH2_CLIENT_ID,
       scope: OAUTH2_SCOPES,
       immediate: false
-    }, handleAuthResult);  
+    }, handleAuthResult);
 }
 
 
 function handleAuthResult(authResult) {
   if (authResult && !authResult.error) {
     loadAPIClientInterfaces();
-   
+
   } else {
     gapi.auth.authorize({
       client_id: OAUTH2_CLIENT_ID,
@@ -41,11 +41,11 @@ function handleAuthResult(authResult) {
 
        request.execute(function(resp) {
         var id = resp.id;
-        $.ajax({  
-            type: "POST",  
-            url: "rrss/googleplus/procesar_googleplus.php",  
-            data: "googlePlusId="+id, //"&youtubeName="+channelName+"&youtubeSubscribers="+channelSubscribers+"&youtubeImgUrl="+channelImg, 
-            success: function(data){ 
+        $.ajax({
+            type: "POST",
+            url: "rrss/googleplus/procesar_googleplus.php",
+            data: "googlePlusId="+id, //"&youtubeName="+channelName+"&youtubeSubscribers="+channelSubscribers+"&youtubeImgUrl="+channelImg,
+            success: function(data){
                 if(data == 'exito'){
                   alert("gracias por registrar su cuenta");
                   window.location.reload();
@@ -53,13 +53,11 @@ function handleAuthResult(authResult) {
                 else if(data == 'existe') alert('La cuenta ya está asociada, intente con una cuenta diferente')
                 else if(data == 'otro') alert('La cuenta está asociada a otro usuario');
                 //else window.reload();
-            
+
             }
         });
       })
-    
+
     })
   }
-
-
 </script>

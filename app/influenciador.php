@@ -60,8 +60,7 @@ if(isset($_SESSION['id'])){
 
 	?>
 	<main class="contAllPI" style="padding-top:30%;">
-		<div style="display:none;" id="tipoCliente" value="2"></div>
-		<div id="alertRegistrado"></div>	
+		<div style="display:none;" id="tipoCliente" value="2"></div>	
 		<div class="logo_pi"><a href="/" target="_top"></a></div>
 		<main class="form_agencias">
 			<div id="inicio">
@@ -80,7 +79,7 @@ if(isset($_SESSION['id'])){
 							<option value="5">editor</option>
 							</select>
 						</div>
-					
+
 					<div id="facebook-nuevo" class="fb_btn" value="registrarse con Facebook">
 						<i class="fa fa-facebook"></i>registrarse con Facebook
 					</div>
@@ -116,7 +115,7 @@ if(isset($_SESSION['id'])){
 		$(document).ready(function(){
 			$('#resultado').hide();
 			$('#formulario_codigo').hide();
-				
+
 
 			$('#region').on('change',function(e){
 				var binario = 0;
@@ -147,7 +146,7 @@ if(isset($_SESSION['id'])){
 						divComuna.innerHTML = divComuna.innerHTML + '<option value ="Chépica">Chépica</option><option value ="Chimbarongo">Chimbarongo</option><option value ="Codegua">Codegua</option><option value ="Coinco">Coinco</option><option value ="Coltauco">Coltauco</option><option value ="Doñihue">Doñihue</option><option value ="Graneros">Graneros</option><option value ="La Estrella">La Estrella</option><option value ="Las Cabras">Las Cabras</option><option value ="Litueche">Litueche</option><option value ="Lolol">Lolol</option><option value ="Machalí">Machalí</option><option value ="Malloa">Malloa</option><option value ="Marchihue">Marchihue</option><option value ="Mostazal">Mostazal</option><option value ="Nancagua">Nancagua</option><option value ="Navidad">Navidad</option><option value ="Olivar">Olivar</option><option value ="Paredones">Paredones</option><option value ="Palmilla">Palmilla</option><option value ="Peralillo">Peralillo</option><option value ="Peumo">Peumo</option><option value ="Pumanque">Pumanque</option><option value ="Placilla">Placilla</option><option value ="Pichidegua">Pichidegua</option><option value ="Pichilemu">Pichilemu</option><option value ="Quinta de Tilcoco">Quinta de Tilcoco</option><option value ="Rancagua">Rancagua</option><option value ="Rengo">Rengo</option><option value ="Requínoa">Requínoa</option><option value ="San Fernando">San Fernando</option><option value ="San Vicente">San Vicente</option><option value ="Santa Cruz">Santa Cruz</option>';
 					}
 					if (region == 'Región del Maule' ){
-						divComuna.innerHTML = divComuna.innerHTML + '<option value=" Cauquenes">Cauquenes</option><option value=" Chanco">Chanco</option><option value=" Colbún">Colbún</option><option value=" Constitución">Constitución</option><option value=" Curepto">Curepto</option><option value=" Curicó">Curicó</option><option value=" Empedrado">Empedrado</option><option value=" Hualañé">Hualañé</option><option value=" Licantén">Licantén</option><option value=" Linares">Linares</option><option value=" Longaví">Longaví</option><option value=" Maule">Maule</option><option value=" Molina">Molina</option><option value=" Parral">Parral</option><option value=" Pelarco">Pelarco</option><option value=" Pelluhue">Pelluhue</option><option value=" Pencahue">Pencahue</option><option value=" Rauco">Rauco</option><option value=" Retiro">Retiro</option><option value=" Romeral">Romeral</option><option value=" Río Claro">Río Claro</option><option value=" Sagrada Familia">Sagrada Familia</option><option value=" San Clemente">San Clemente</option><option value=" San Javier">San Javier</option><option value=" San Rafael">San Rafael</option><option value=" Talca">Talca</option><option value=" Teno">Teno</option><option value=" Vichuquén">Vichuquén</option><option value=" Villa Alegre">Villa Alegre</option><option value=" Yerbas Buenas">Yerbas Buenas</option>';					
+						divComuna.innerHTML = divComuna.innerHTML + '<option value=" Cauquenes">Cauquenes</option><option value=" Chanco">Chanco</option><option value=" Colbún">Colbún</option><option value=" Constitución">Constitución</option><option value=" Curepto">Curepto</option><option value=" Curicó">Curicó</option><option value=" Empedrado">Empedrado</option><option value=" Hualañé">Hualañé</option><option value=" Licantén">Licantén</option><option value=" Linares">Linares</option><option value=" Longaví">Longaví</option><option value=" Maule">Maule</option><option value=" Molina">Molina</option><option value=" Parral">Parral</option><option value=" Pelarco">Pelarco</option><option value=" Pelluhue">Pelluhue</option><option value=" Pencahue">Pencahue</option><option value=" Rauco">Rauco</option><option value=" Retiro">Retiro</option><option value=" Romeral">Romeral</option><option value=" Río Claro">Río Claro</option><option value=" Sagrada Familia">Sagrada Familia</option><option value=" San Clemente">San Clemente</option><option value=" San Javier">San Javier</option><option value=" San Rafael">San Rafael</option><option value=" Talca">Talca</option><option value=" Teno">Teno</option><option value=" Vichuquén">Vichuquén</option><option value=" Villa Alegre">Villa Alegre</option><option value=" Yerbas Buenas">Yerbas Buenas</option>';
 					}
 
 					if (region == 'Región del Biobío' ){
@@ -185,9 +184,9 @@ if(isset($_SESSION['id'])){
 						<select id="comuna" required>
 						<option value="" disabled selected>selecciona tu comuna </option>
 						</select>
-					</div>					
+					</div>
 					<input class= "contraseña" type="password" placeholder="Contraseña" id="contraseñanuevo"  required>
-					<input type="password" onChange="checkPasswordMatch();" placeholder="Repetir Contraseña" id="ver-password" required> 
+					<input type="password" onChange="checkPasswordMatch();" placeholder="Repetir Contraseña" id="ver-password" required>
 					<div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
 					<div id="selectImage">
 						<input type="file" name="file" id="file" required>
@@ -232,10 +231,10 @@ if(isset($_SESSION['id'])){
 		</main>
 
 	</div>
-	
+
 	<script type="text/javascript" async src="js/platform_influencials.min.js"></script>
 	<script type="text/javascript" src="js/form-passes.js"></script>
 	<script type="text/javascript" src="js/form-data.js"></script>
-		
+
 </body>
 </html>

@@ -1,4 +1,4 @@
-<script>
+<script async type="text/javascript">
 
 
 var OAUTH2_CLIENT_ID = '1045210216843-rplujhgcennvu03bhggu891cbuojf3bn.apps.googleusercontent.com';
@@ -30,7 +30,7 @@ function handleAuthResultYoutube(authResult) {
         scope: OAUTH2_SCOPES_YOUTUBE,
         immediate: false
         }, handleAuthResultYoutube);
-   
+
   }
 }
 
@@ -49,7 +49,7 @@ function getUserChannel() {
   var request = gapi.client.youtube.channels.list({
     mine: true,
     part: 'snippet, statistics'
-  });                 
+  });
 
   request.execute(function(response) {
     if ('error' in response) {
@@ -57,11 +57,11 @@ function getUserChannel() {
     } else {
       channelId = response.items[0].id;
       //alert(channelId);
-        $.ajax({  
-          type: "POST",  
-          url: "rrss/youtube/procesar_youtube.php",  
+        $.ajax({
+          type: "POST",
+          url: "rrss/youtube/procesar_youtube.php",
           data: "youtubeId="+channelId,
-          success: function(data){ 
+          success: function(data){
             if(data == 'exito'){
                   alert("gracias por registrar su cuenta");
                   window.location.reload();
