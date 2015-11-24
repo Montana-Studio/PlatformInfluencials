@@ -367,20 +367,28 @@ nav{
 		list:{style:none;}
 		@include pad(0);
 		background:{color: #fff;}
-		margin:0;
+		margin:0 0 em(5);
 		li{
-			@include pad(10px 0 8px);
 			@include span-columns(6.135 of 12);
 			@include row();
 			@include omega();
 			@include textAligns(center);
 			text:{transform:uppercase}
 			font:{size:12px;}
-			color:$color_grey;
-			cursor:pointer;
-			&.tabActiveHeader{
+			a{
+				display: block;
+				width:100%;
+				height:100%;
+				@include pad(10px 0 8px);
+				outline:none;
+				color:$color_grey;
+			}
+			&[aria-selected="true"]{
 				color:$color_font2;
 				border:{bottom:2px inset $color_font2;}
+				a{
+					color:$color_font2;
+				}
 			}
 			&:first-child{
 				border:{right:1px solid $color_grey}
@@ -389,6 +397,11 @@ nav{
 	}
 	#tabscontent{
 		@include pad(em(10) em(5));
+		&::before{
+			content:"";
+			clear:both;
+			display: block;
+		}
 		.tabpage{
 			width:100%;
 			@include fill-parent();
@@ -477,15 +490,15 @@ nav{
 					background:{color: #fff;}
 					width:100%;
 					span{
-							@include span-columns(8);
-							h2{
-								margin:0;
-								font:{size:em(14);}
-								color:$color_grey2;
-							}
-							small{
-								text:{transform:none;}
-							}
+						@include span-columns(8);
+						h2{
+							margin:0;
+							font:{size:em(14);}
+							color:$color_grey2;
+						}
+						small{
+							text:{transform:none;}
+						}
 					}
 					.total-number{
 						@include span-columns(4);
@@ -495,30 +508,111 @@ nav{
 						font:{size:em(20);weight:bold;}
 					}
 				}
-				.rs-inscription{
-					@include row();
-					@include borderRadius(em(10));
+				.red-title{
 					@include pad(em(10));
+					@include row();
 					margin:{top:em(5);}
 					background:{color: #fff;}
 					width:100%;
-					.red-title{
+					outline:none;
+					i{
+						position: relative;
+						top:inherit;
+						right:inherit;
+						@include span-columns(1);
+						font:{size:em(22);}
+						&.fa-instagram{
+							color:#517fa4;
+						}
+						&.fa-facebook{
+							color:#3b5998;
+						}
+						&.fa-twitter{
+							color:#55acee;
+						}
+						&.fa-youtube-play{
+							color:#ee0f0f;
+						}
+						&.fa-google-plus{
+							@extend .fa-youtube-play;
+						}
+						&:last-child{
+							color:$color_grey2;
+							font:{size:em(12);}
+							@include pad(em(6) 0 0);
+							&::before{font:{family: FontAwesome;}content: "\f078";}
+						}
+					}
+					&[aria-expanded="true"]{
+						@include border-top-radius(em(10));
+						@include pad(em(10) em(10) 0);
 						i{
-							position: relative;
-							top:inherit;
-							right:inherit;
-							@include span-columns(1);
-							&.fa-instagram{
-								color:#517fa4;
-							}
 							&:last-child{
-								color:$color_grey2;
+								&::before{font:{family: FontAwesome;}content: "\f077";}
 							}
 						}
+					}
+					&[aria-expanded="false"]{
+						@include borderRadius(em(10));
+					}
+					.red-name{
+						@include span-columns(10);
+						font:{size:em(14)}
+						color:$color_grey2;
+						@include pad(em(3) 0 0);
+					}
+				}
+				.rs-inscription{
+					@include row();
+					@include border-bottom-radius(em(10));
+					@include pad(em(10) em(10) em(10));
+					background:{color: #fff;}
+					width:100%;
+					.reach-total{
+						font:{size:em(14)}
+						text:{transform:capitalize;}
+						color:$color_grey2;
+						@include span-columns(12);
+						@include textAligns(center);
+						@include pad(0 0 em(10));
+						border:{bottom:1px solid $color_grey;}
 						span{
-							@include span-columns(10);
-							font:{size:em(14)}
+							color:$color_font2;
+							font:{size:em(20);}
+						}
+					}
+					.red-info{
+						@include pad(0 0 em(10));
+						h3{
+							font:{size:em(12);}
+							text:{transform:uppercase;}
 							color:$color_grey2;
+						}
+						ul{
+							margin:0;
+							@include pad(0);
+							list:{style:none;}
+							li{
+								@include span-columns(2);
+								color:$color_grey;
+								font:{size:em(12);weight:normal;}
+								height:50px;
+								span{
+									font:{size:em(22);}
+									text:{transform:capitalize;}
+									color:$color_font2;
+								}
+								img{
+									@include borderRadius(100%);
+									width:50px;
+									height:50px;
+								}
+								&:last-child{
+									@include span-columns(4);
+									border:{left:1px solid $color_grey;}
+									@include pad(0 0 0 em(10));
+								}
+							}
 						}
 					}
 					.btns{
@@ -526,6 +620,7 @@ nav{
 						@include textAligns(center);
 						display:block;
 						background:{color:$color_font2;}
+						margin:{bottom:0;}
 					}
 					span{
 						.switch{
@@ -602,12 +697,12 @@ nav{
 			opacity:.8;
 			color:#fff;
 			margin: -43px auto 20px;
-	    width: 100px;
-	    height: 30px;
-	    display: block;
-	    position: relative;
-	    z-index: 3;
-	    font:{size: em(30);}
+			width: 100px;
+			height: 30px;
+			display: block;
+			position: relative;
+			z-index: 3;
+			font:{size: em(30);}
 			@include textAligns(right);
 			&:hover{
 				i{
@@ -617,8 +712,8 @@ nav{
 		}
 		.mask-imguser{
 			width: em(127);
-	    height: em(126);
-	    margin: 0 auto;
+	    	height: em(126);
+	    	margin: 0 auto;
 			display:block;
 			position: relative;
 			z-index: 2;
@@ -673,13 +768,13 @@ nav{
 		}
 		&:after {
 	    content: '';
-			background-image: linear-gradient(to bottom,rgba(0,0,0,0),#153773);
-			position: absolute;
-	    left: 0;
-	    right: 0;
-	    bottom: 0;
-			top:0;
-			z-index:1;
+		background-image: linear-gradient(to bottom,rgba(0,0,0,0),#153773);
+		position: absolute;
+    	left: 0;
+    	right: 0;
+    	bottom: 0;
+		top:0;
+		z-index:1;
 	  }
 	}
 }

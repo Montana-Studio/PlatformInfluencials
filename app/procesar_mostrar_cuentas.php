@@ -13,20 +13,32 @@
 	?>
 
 	<!--div id="analytics-inscription" class="rs-inscription">Analytics</div-->
+	<div class="red-title"><i class="fa fa-facebook"></i> <span class="red-name">Facebook</span> <i class="fa"></i></div>
+	<div class="rs-inscription">
+		
+		<?php
+			if($num_row6 > 0){
+				echo '<div class="reach-total">facebook reach <span>'.(int)$suma_facebook.'</span></div>';
+				echo $_SESSION['facebook'];
+			}
+		?>
+		<div id="facebook-inscription" onclick="checkAuthFacebookPages()" class="btns">Conectar Facebook</div>
+	</div>
 
-	<div  class="rs-inscription">
-		<div class="red-title"><i class="fa fa-instagram"></i> <span>Instagram</span> <i class="fa fa-chevron-down"></i></div>
+	<div class="red-title"><i class="fa fa-instagram"></i> <span class="red-name">Instagram</span> <i class="fa"></i></div>
+	<div class="rs-inscription">
 		<?php
 			if($num_row3 > 0){
-				echo '
-						<span>'.(int)$suma_instagram.''.$_SESSION['instagram'].'</span>';
+				echo '<div class="reach-total">instagram reach <span>'.(int)$suma_instagram.'</span></div>';
+				echo $_SESSION['instagram'];
 	  	}
 		?>
 		<div id="instagram-inscription" onclick="login()" class="btns">Conectar Instagram</div>
 	</div>
-
+	
+	<div class="red-title"><i class="fa fa-twitter"></i> <span class="red-name">Twitter</span> <i class="fa"></i></div>
 	<div class="rs-inscription">
-		<div class="red-title"><i class="fa fa-twitter"></i> <span>Twitter</span> <i class="fa fa-chevron-down"></i></div>
+		
 		<?php
 			if($num_row4 > 0){
 				echo '<h3>twitter reach : '.(int)$suma_twitter.'</h3>';
@@ -35,31 +47,25 @@
 		?>
 		<a id="twitter-inscription" href="./rrss/twitter/process.php" value="<?php echo $num_row3;?>" class="btns">Conectar Twitter</a>
 	</div>
+
+	<div class="red-title"><i class="fa fa-youtube-play"></i> <span class="red-name">Youtube</span> <i class="fa"></i></div>
 	<div class="rs-inscription">
-		<div class="red-title"><i class="fa fa-youtube"></i> <span>Youtube</span> <i class="fa fa-chevron-down"></i></div>
+		
 		<?php
 			if($num_row5 > 0){
-				echo '<h3>youtube reach : '.(int)$suma_youtube.'</h3>';
+				echo '<div class="reach-total">youtube reach <span>'.(int)$suma_youtube.'</span></div>';
 				echo $_SESSION['youtube'];
 			}
 		?>
 		<div id="youtube-inscription" onclick="googleApiClientReady()" class="btns">Conectar Youtube</div>
 	</div>
+
+	<div class="red-title"><i class="fa fa-google-plus"></i> <span class="red-name">Google Plus</span> <i class="fa"></i></div>
 	<div class="rs-inscription">
-		<div class="red-title"><i class="fa fa-facebook"></i> <span>Facebook</span> <i class="fa fa-chevron-down"></i></div>
-		<?php
-			if($num_row6 > 0){
-				echo '<div >Facebook</div><h3>facebook reach : '.(int)$suma_facebook.'</h3>';
-				echo $_SESSION['facebook'];
-			}
-		?>
-		<div id="facebook-inscription" onclick="checkAuthFacebookPages()" class="btns">Conectar Facebook</div>
-	</div>
-	<div class="rs-inscription">
-		<div class="red-title"><i class="fa fa-google-plus"></i> <span>Google Plus</span> <i class="fa fa-chevron-down"></i></div>
+		
 		<?php
 				if($num_row7 > 0){
-					echo '<h3>googleplus reach : '.(int)$suma_googleplus.'</h3>';
+					echo '<div class="reach-total">google plus reach <span>'.(int)$suma_googleplus.'</span></div>';
 					echo $_SESSION['googleplus'];
 				}
 	    }

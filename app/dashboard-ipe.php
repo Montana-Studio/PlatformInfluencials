@@ -32,18 +32,13 @@
 			</nav>
 
 		</div>
-		<div id="tabContainer">
+		<div id="tab-examp">
 			<ul id="tabs">
-				<li id="tabHeader_1" class="clickTab">Perfil</li>
-				<li id="tabHeader_2" class="clickTab"><a href="rrss-tab">Redes Sociales</a></li>
+				<li><a href="#fragment-1"><span>Perfil</span></a></li>
+				<li><a href="#fragment-2"><span>Redes Sociales</span></a></li>
 			</ul>
-
-			<div style="clear:both"></div>
-
 			<div id="tabscontent">
-
-				<div class="tabpage tab-hide" id="tabpage_1">
-
+				<div id="fragment-1" class="tabpage">
 					<div id="nombre">
 						<small>Nombre</small>
 						<input value="<?php echo $_SESSION['nombre']?>">
@@ -76,6 +71,7 @@
 						</select>
 						<i class="fa fa-chevron-down"></i>
 					</div>
+					
 					<script async>
 						$(document).ready(function(){
 							$('#resultado').hide();
@@ -163,15 +159,12 @@
 					<button id="guardarFacturacion" class="btns" type="submit">Guardar</button>
 
 				</div>
-
-				<div class="tabpage tab-hide" id="tabpage_2">
-
+				<div id="fragment-2" class="tabpage">
 					<?php include_once('procesar_mostrar_cuentas.php');?>
-
 				</div>
-
 			</div>
 		</div>
+
 	</form>
 
 	<?php

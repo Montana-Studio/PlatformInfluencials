@@ -7,10 +7,10 @@
 
 
 					$(".estado_rs").click(function(){
-					var id_activar_rs = this.id;
-	 				var tipo = "activar_rs";
-	 				var estado =parseInt(this.name);
-	 				//alert(id_activar_rs+"-"+tipo+"-"+estado);
+  					var id_activar_rs = this.id;
+  	 				var tipo = "activar_rs";
+  	 				var estado =parseInt(this.name);
+  	 				//alert(id_activar_rs+"-"+tipo+"-"+estado);
 
 						$.ajax({
 							type: "POST",
@@ -52,7 +52,15 @@
         $estado_descripcion="desactivar";
 		    }
      //$_SESSION['instagram'] .=$username." ".(int)$followers_instagram." <button class='estado_rs' name='".$estado."' id='".$row3[3]."'>".$estado_descripcion."</button><br/></h3><img src='".$avatar."'/>";
-     $_SESSION['instagram'] .=$username." ".(int)$followers_instagram." <div class='switch'><input type='checkbox' class='btn".$estado_descripcion." estado_rs cmn-toggle' name='".$estado."' id='".$row3[3]."'><label for='".$row3[3]."' data-on='Yes' data-off='No'></label></div><br/></h3><img src='".$avatar."'/>";
+     $_SESSION['instagram'] .=
+      "<div class='red-info'>
+      <h3>".$username."</h3>
+      <ul>
+      <li><img src='".$avatar."'/></li>
+      <li>Followers <span>".(int)$followers_instagram."</span></li>
+      </ul>
+      <button type='checkbox' class='btn".$estado_descripcion." estado_rs cmn-toggle' name='".$estado."' id='".$row3[3]."'>".$estado_descripcion."</button>
+      </div>";
     }while($row3 = $result3->fetch_array());
       $suma += $suma_instagram;
 	}
@@ -139,6 +147,10 @@
       }while($row4 = $result4->fetch_array());
         $suma += $suma_twitter;
     }
+
+/****************************************************************************************************
+            YOUTUBE  GET REACH SUM
+****************************************************************************************************/
     $query5="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='youtube'";
     $result5=mysqli_query($mysqli,$query5)or die (mysqli_error());
     $row5= mysqli_fetch_array($result5, MYSQLI_BOTH);
@@ -163,7 +175,15 @@
           $estado= 1;
           $estado_descripcion="desactivar";
         }
-        $_SESSION['youtube'] .="<h3>".$youtubeName."   -    ".(int)$youtubeSubscribers."<button class='estado_rs' name='".$estado."' id='".$row5[3]."'>".$estado_descripcion."</button><br/></h3><img src='".$youtubeImgUrl."'/>";
+        $_SESSION['youtube'] .="
+        <div class='red-info'>
+        <h3>".$youtubeName."</h3>
+        <ul>
+        <li><img src='".$youtubeImgUrl."'/></li>
+        <li>Suscriptos <span>".(int)$youtubeSubscribers."</span></li>
+        </ul>
+        <button class='estado_rs' name='".$estado."' id='".$row5[3]."'>".$estado_descripcion."</button>
+        </div>";
       }while($row5 = $result5->fetch_array());
     }
 		$suma += $suma_youtube;
@@ -204,7 +224,17 @@
           $estado_descripcion="desactivar";
         }
         if((int)$facebookLikes>0){
-          $_SESSION['facebook'] .="<h3>".$facebookUsername."   -    ".(int)$facebookLikes."<button class='estado_rs' name='".$estado."' id='".$facebookPage."'>".$estado_descripcion."</button><br/></h3><h3>Gente hablando : ".$facebookTalkingAbout."</h3><a href=".$facebookWebsite.">".$facebookWebsite."</a><div><img src='".$facebookImgUrl."'/></div>";
+          $_SESSION['facebook'] .="
+            <div class='red-info'>
+            <h3>".$facebookUsername."</h3>
+            <ul>
+            <li><img src='".$facebookImgUrl."'/></li>
+            <li>Likes <br/><span>".(int)$facebookLikes."</span></li>
+            <li>Gente hablando <br/><span>".$facebookTalkingAbout."</span></li>
+            <!--li><a href=".$facebookWebsite.">ver sitio</a></li-->
+            </ul>
+            <button class='estado_rs' name='".$estado."' id='".$facebookPage."'>".$estado_descripcion."</button>
+            </div>";
         }
 
       }while($row6 = $result6->fetch_array());
@@ -240,7 +270,14 @@
           $estado_descripcion="desactivar";
         }
         if((int)$googleplusSubscriber>0){
-          $_SESSION['googleplus'] .="<h3>".$googleplusName."   -    ".(int)$googleplusSubscriber."<button class='estado_rs' name='".$estado."' id='".$googleplusId."'>".$estado_descripcion."</button><br/></h3>";
+          $_SESSION['googleplus'] .="
+          <div class='red-info'>
+          <h3>".$googleplusName."</h3>
+          <ul>
+          <li>Followers <span>".(int)$googleplusSubscriber."</span></li>
+          </ul>
+          <button class='estado_rs' name='".$estado."' id='".$googleplusId."'>".$estado_descripcion."</button>
+          </div>";
         }
 
       }while($row7 = $result7->fetch_array());

@@ -102,4 +102,15 @@ jQuery(document).ready(function($){
 		$('.content .inputs-campana i').show();
 		$('div.jfilestyle').slideDown();
 	});
+
+	//TABS
+
+	$('#tab-examp').tabs({show:'fade',hide:'fade'});
+
+	//ACCODION
+	$('#redesociales').accordion({
+		header: '.red-title',
+		heightStyle: 'content',
+		collapsible: true
+	});
 });

@@ -23,6 +23,7 @@
 .dashboard-ipe{
 	@extend .dashboard-agencia;
 	background:{color: $color_grey;}
+	font:{family:$fontAll2;}
 }
 .creadas{
 	.recientes{
