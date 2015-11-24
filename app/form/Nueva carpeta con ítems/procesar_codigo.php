@@ -39,59 +39,8 @@ $acumula_variables.="\n\t\techo '<div><p>div de respuesta</p></div>';";
 $acumula_variables.="\n\t\t}";
 $acumula_variables.="\n\t}";
 
-//echo $inicio."\n\t"."if(".$peso."action==''){".$termino."\n".$resultado."\n".$apertura."\n\t}\n\telse{\n\t".$acumula_variables.$termino;
+
 echo $resultado."\n".$inicio."\n\t"."if(".$peso."action!=''){\n\t".$acumula_variables.$termino;
-/*<?php 
-$action=$_REQUEST['action']; 
-if ($action!=""){ 
-    $name=$_REQUEST['name']; 
-    $email=$_REQUEST['correo']; 
-    $message=$_REQUEST['message'];
-    $asunto=$_REQUEST['asunto']; 
-    $email_from="elperoy@gmail.com"; 
-    $headers = 'From: '.$email_from;
-    if (($name=="")||($email=="")||($message=="")) 
-        { 
-        echo "All fields are required, please fill <a href=\"\">the form</a> again."; 
-        } 
-    else{         
-        $from="From: ".$name."<".$email.">"; 
-        $subject=$asunto; 
-        mail($email_from, $subject, $message, null, '-f'.$email.''); 
-        echo '  <div>
-                    <p>div de respuesta</p>
-                </div>'; 
-        } 
-}   
-?> 
-
-/*
-    <?php 
-    }  
-else                /* send the submitted data  
-    { 
-    $name=$_REQUEST['name']; 
-    $email=$_REQUEST['correo']; 
-    $message=$_REQUEST['message'];
-    $asunto=$_REQUEST['asunto'];  
-    if (($name=="")||($email=="")||($message=="")) 
-        { 
-        echo "All fields are required, please fill <a href=\"\">the form</a> again."; 
-        } 
-    else{         
-        $from="From: $name<$email>;"; 
-        $subject=$asunto; 
-        mail("elperoy@gmail.com", $subject, $message, $from); 
-        echo "Email sent!"; 
-        } 
-    }   
-
-
-
-*/
-
-
-
 
 
 ?>
