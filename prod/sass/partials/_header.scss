@@ -391,10 +391,10 @@ nav{
 		@include pad(em(10) em(5));
 		.tabpage{
 			width:100%;
-			@include pad(em(10));
 			@include fill-parent();
 			@include row();
 			&:first-child{
+				@include pad(em(10));
 				@include borderRadius(em(10));
 				background:{color:#fff;}
 			}
@@ -470,7 +470,63 @@ nav{
 				background:{color: $color_font2;}
 			}
 			#redesociales{
+				.total_reach{
+					@include row();
+					@include borderRadius(em(10));
+					@include pad(em(10));
+					background:{color: #fff;}
+					width:100%;
+					span{
+							@include span-columns(8);
+							h2{
+								margin:0;
+								font:{size:em(14);}
+								color:$color_grey2;
+							}
+							small{
+								text:{transform:none;}
+							}
+					}
+					.total-number{
+						@include span-columns(4);
+						@include textAligns(right);
+						@include pad(em(6) 0 0);
+						color:$color_font2;
+						font:{size:em(20);weight:bold;}
+					}
+				}
 				.rs-inscription{
+					@include row();
+					@include borderRadius(em(10));
+					@include pad(em(10));
+					margin:{top:em(5);}
+					background:{color: #fff;}
+					width:100%;
+					.red-title{
+						i{
+							position: relative;
+							top:inherit;
+							right:inherit;
+							@include span-columns(1);
+							&.fa-instagram{
+								color:#517fa4;
+							}
+							&:last-child{
+								color:$color_grey2;
+							}
+						}
+						span{
+							@include span-columns(10);
+							font:{size:em(14)}
+							color:$color_grey2;
+						}
+					}
+					.btns{
+						@include span-columns(12);
+						@include textAligns(center);
+						display:block;
+						background:{color:$color_font2;}
+					}
 					span{
 						.switch{
 							.cmn-toggle{

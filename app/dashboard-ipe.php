@@ -35,7 +35,7 @@
 		<div id="tabContainer">
 			<ul id="tabs">
 				<li id="tabHeader_1" class="clickTab">Perfil</li>
-				<li id="tabHeader_2" class="clickTab">Redes Sociales</li>
+				<li id="tabHeader_2" class="clickTab"><a href="rrss-tab">Redes Sociales</a></li>
 			</ul>
 
 			<div style="clear:both"></div>
@@ -145,6 +145,7 @@
 							});
 						});
 					</script>
+
 					<div class="selects">
 						<small>Comuna</small>
 						<select id="comuna" >
