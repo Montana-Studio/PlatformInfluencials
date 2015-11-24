@@ -43,10 +43,17 @@ if($_POST['tipo'] == "eliminar"){
 
 echo $_POST['tipo'];
 if($_POST['tipo'] == "activar"){
-	if($_POST['idEstado'] == 1) $idEstado =0;
-	else $idEstado = 1;
 	$idActualizar = $_POST['idActualizar'];
-	$actualiza= $mysqli->query("UPDATE campana SET idEstado='$idEstado' WHERE id='$idActualizar'");
+	if($_POST['idEstado'] == 1){
+		$idEstado =0;
+		$actualiza= $mysqli->query("UPDATE campana SET idEstado='$idEstado' , fecha_inicio= '' WHERE id='$idActualizar'");
+	}
+	else{
+		$idEstado = 1;
+		$actualiza= $mysqli->query("UPDATE campana SET idEstado='$idEstado' , fecha_inicio= '$hoyFormatted' WHERE id='$idActualizar'");
+	} 
+	
+	
 }
 
 ?>

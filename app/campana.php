@@ -78,7 +78,7 @@
 					var id = this.id;
 					var nombre = $("#"+id+" .nombre input").val();
 					var marca = $("#"+id+" .marca input").val();
-					var descripcion = $("#"+id+" .nombre textarea").val();
+					var descripcion = $("#"+id+" #descripcion-campana-"+id+" textarea").val();
 					info.append("nombre",nombre);
 					info.append("marca",marca);
 					info.append("descripcion",descripcion);
@@ -185,7 +185,9 @@
 									</div>
 
 									<span class="campa-ico"><i class="fa fa-cog"></i>Activada</span>
-									<span class="campa-ico"><i class="fa fa-calendar"></i>02 Octubre 2015</span>
+
+									
+									<span class="campa-ico"><i class="fa fa-calendar"></i>'.$row[7].'</span>
 
 									<div class="inputs-campana descripcion descripcion-campana" id="'.$row[0].'">
 										<textarea placeholder="descripcion" disabled>'.$row[2].'</textarea>
@@ -248,7 +250,7 @@
 							</div>
 
 							<span class="campa-ico"><i class="fa fa-cog"></i>Desactivada</span>
-							<span class="campa-ico"><i class="fa fa-calendar"></i>02 Octubre 2015</span>
+							
 
 							<div class="inputs-campana descripcion" id="descripcion-campana-'.$row2[0].'">
 								<textarea placeholder="descripcion" disabled>'.$row2[2].'</textarea>

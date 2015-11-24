@@ -1,6 +1,54 @@
 <?php 
 session_start();
+
+setlocale(LC_ALL,"es_ES");
 $hoy= date("Y-m-d H:i:s");
+$hoyFormatted= date("d M Y");
+$day=trim(substr($hoy, 0 , 2));
+$month= trim(substr($hoyFormatted,3,-5));
+$year= trim(substr($hoyFormatted,-4));
+
+if($month == 'Jan'){
+	$month='Enero';
+}
+if($month == 'Feb'){
+	$month='Febrero';
+}
+if($month == 'Mar'){
+	$month='Marzo';
+}
+if($month == 'Apr'){
+	$month='Abril';
+}
+if($month == 'May'){
+	$month='Mayo';
+}
+if($month == 'Jun'){
+	$month='Junio';
+}
+if($month == 'Jul'){
+	$month='Julio';
+}
+if($month == 'Aug'){
+	$month='Agosto';
+}
+if($month == 'Sep'){
+	$month='Septiembre';
+}
+if($month == 'Oct'){
+	$month='Octubre';
+}
+if($month == 'Nov'){
+	$month='Noviembre';
+}
+if($month == 'Dec'){
+	$month='Diciembre';
+}
+
+$hoyFormatted=$day." ".$month." ".$year;
+
+
+//if(substr($hoyFormatted,3,2))
 /*
 if(basename($_SERVER['PHP_SELF'])=='formulario-agencia.php'){
 		session_unset();
