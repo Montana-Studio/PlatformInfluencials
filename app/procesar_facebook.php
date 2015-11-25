@@ -36,20 +36,20 @@ echo $_POST['facebookPageName'];
 	if($num_row>0){
 			// en caso que ingrese con facebook y este registrado
 			$_SESSION['id']=$row[0];
-			$_SESSION['nombre']=$row[4];
-			$_SESSION['correo']=$row[5];
-			$_SESSION['telefono1']=$row[6];
-			$_SESSION['telefono2']=$row[7];
-			$_SESSION['empresa']=$row[12];
-			$_SESSION['pictureUrl']=$row[11];
-			$_SESSION['rsid']=$row[9];
-			$_SESSION['descripcion']= $row[13];
+			$_SESSION['nombre']=$row[5];
+			$_SESSION['correo']=$row[6];
+			$_SESSION['telefono1']=$row[7];
+			$_SESSION['telefono2']=$row[8];
+			$_SESSION['empresa']=$row[13];
+			$_SESSION['pictureUrl']=$row[12];
+			$_SESSION['rsid']=$row[10];
+			$_SESSION['descripcion']= $row[14];
 			echo 'dashboard';
 		}
 		else if($num_row2>0){
 			$_SESSION['id']=$row2[0];
-			$_SESSION['nombre']=$row2[4];
-			$_SESSION['correo']=$row2[5];
+			$_SESSION['nombre']=$row2[5];
+			$_SESSION['correo']=$row2[6];
 			echo 'formulario';
 		}
 		/*
@@ -62,9 +62,9 @@ echo $_POST['facebookPageName'];
 			$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 			$num_row= mysqli_num_rows($result);
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
-			$_SESSION['id']='lala';
-			$_SESSION['nombre']=$row[4];
-			$_SESSION['correo']=$row[5];
+			$_SESSION['id']=$row2[0];
+			$_SESSION['nombre']=$row2[5];
+			$_SESSION['correo']=$row2[6];
 			//$_SESSION['faceuser']=$username;
 			echo 'primera';
 		}
@@ -74,13 +74,13 @@ echo $_POST['facebookPageName'];
 		if($num_row>0){
 			// en caso que ingrese con facebook y este registrado
 			$_SESSION['id']=$row[0];
-			$_SESSION['nombre']=$row[4];
-			$_SESSION['correo']=$row[5];
-			$_SESSION['telefono1']=$row[6];
-			$_SESSION['telefono2']=$row[7];
-			$_SESSION['empresa']=$row[12];
-			$_SESSION['pictureUrl']=$row[11];
-			$_SESSION['rsid']=$row[9];
+			$_SESSION['nombre']=$row[5];
+			$_SESSION['correo']=$row[6];
+			$_SESSION['telefono1']=$row[7];
+			$_SESSION['telefono2']=$row[8];
+			$_SESSION['empresa']=$row[13];
+			$_SESSION['pictureUrl']=$row[12];
+			$_SESSION['rsid']=$row[10];
 			echo 'dashboard-ipe';
 		}
 		else if($num_row2>0){
@@ -96,8 +96,8 @@ echo $_POST['facebookPageName'];
 			$num_row= mysqli_num_rows($result);
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
 			$_SESSION['id']=$row[0];
-			$_SESSION['nombre']=$row[4];
-			$_SESSION['correo']=$row[5];
+			$_SESSION['nombre']=$row[5];
+			$_SESSION['correo']=$row[6];
 			echo 'primera-ipe';
 		}
 
