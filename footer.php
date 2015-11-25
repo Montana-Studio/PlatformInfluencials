@@ -10,6 +10,15 @@
 		echo '';
 	}else if(basename($_SERVER['PHP_SELF'])=='formulario-agencia2.php'){
 			echo '';
+	}else if(basename($_SERVER['PHP_SELF'])=='influenciador-publico.php'){
+			echo '<div class="crear-campana">
+		<a href="#" target="_top">
+			<span>
+				<i class="fa fa-plus"></i>
+				cotizar
+			</span>
+		</a>
+	</div>';
 	}else if(basename($_SERVER['PHP_SELF'])=='campana.php'){
 		echo '
 			<div class="crear-campana">

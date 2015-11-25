@@ -16,6 +16,11 @@
 			<div class="cont-input descripcion">
 				<textarea placeholder="Descripción" id="descripcion-nueva-campana" rows="10" cols="40" required></textarea>
 				<i class="fa fa-pencil"></i>
+
+			<div>
+				<p>Fecha de término: <input class="fecha_termino" type="text" id="datepicker"></p>
+			</div>
+				
 			</div>
 		</div>
 

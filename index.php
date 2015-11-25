@@ -165,10 +165,6 @@ if(isset($_SESSION['id'])){
 
 					<div id="alertRegistrado"></div>
 
-
-
-
-
 				</form>
 
 				<a href="#">¿No recuerdas tu contraseña?</a>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 require('conexion.php');
 /*
 	$username =$_POST['name'];
@@ -19,7 +19,7 @@ if ($resultado != "vacio"){
 
 	//Consulto si es que el estado del registro es activo
 	$query2="SELECT * FROM persona AS p, login AS l WHERE p.id_estado>0 AND
-								( l.correo=p.correo AND p.id = (SELECT p.id FROM login AS l, persona AS p 
+								( l.correo=p.correo AND p.id = (SELECT p.id FROM login AS l, persona AS p
 								WHERE p.correo='$correo' AND l.correo='$correo'))";
 	$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
 	$num_row2= mysqli_num_rows($result2);//si es mayor que uno es porque hay registros
@@ -42,9 +42,10 @@ if ($resultado != "vacio"){
 	$_SESSION['comuna']=$row2[16];
 	$_SESSION['pictureUrl']=$row2[12];
 	$_SESSION['rsid']=$row2[10];
-	$_SESSION['id_estado']= $row[3];
-	$_SESSION['id_tipo']= $row[2];
-	$_SESSION['descripcion']= $row[14];
+	$_SESSION['id_estado']= $row2[3];
+	$_SESSION['descripcion_tipo']= $row2[2];
+	$_SESSION['descripcion']= $row2[14];
+	//$_SESSION['descripcion_tipo']= $row[2];
 		switch($row2[1]){
 		case '1':
 			echo 'admin';

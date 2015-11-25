@@ -1,9 +1,4 @@
-<!--!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script-->
-	<script type="text/javascript">
+<script async type="text/javascript">
 
 		var accessToken = null; //the access token is required to make any endpoint calls, http://instagram.com/developer/endpoints/
 
@@ -76,11 +71,3 @@
 		}
 
 	</script>
-<!--head>
-<body>
-	<a href="#" onclick="login()">Log into Instagram</a>
-
-
-</body>
-
-</html-->

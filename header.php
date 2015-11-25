@@ -123,6 +123,41 @@
 						</script>";
 			}
 	}
+
+	if(basename($_SERVER['PHP_SELF'])=='influenciador-publico.php'){
+		if(isset($_SESSION['telefono1'])==false){
+			header('Location: logout.php');
+			die();
+		}
+		else{
+			//$id=$_SESSION['id'];
+			//$query="SELECT * FROM campana  WHERE idEstado=1 AND idpersona=".$id." ORDER BY id DESC LIMIT 3";
+			$id=$_SESSION['id'];
+			$query="SELECT * FROM persona WHERE id_estado=1 AND id_tipo>2 ORDER BY fecha_ingreso ASC";
+			$result= mysqli_query($mysqli,$query)or die(mysqli_error());
+			$row= mysqli_fetch_array($result, MYSQLI_NUM);
+			$num_rows= mysqli_num_rows($result);
+
+			//$id=$_SESSION['id'];
+			$query2="SELECT nombre FROM campana WHERE idpersona=".$id." AND idEstado=1";
+			$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
+			$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
+			$num_rows2= mysqli_num_rows($result2);
+		
+			//$result= mysqli_query($mysqli,$query)or die(mysqli_error());
+			//$row= mysqli_fetch_array($result, MYSQLI_NUM);
+				//}
+			muestra_header();
+			echo "<script>
+					jQuery(document).ready(function(){
+						$('title').append('Power Influencer - ".$_SESSION['nombre']."');
+						$('html').css({'background-color':'#fff','background-image':'none'});
+						$('body').addClass('dashboard-agencia');
+					})
+				</script>";
+		}
+	}
+
 	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia2.php'){
 		if(isset($_SESSION['nombre'])==false){
 			header('Location:./');
@@ -253,7 +288,6 @@
 					</script>";
 			}
 	}
-
 ?>
 
 <header>
@@ -262,7 +296,6 @@
 	<a href="#" class="ayuda_pi"><i class="fa fa-life-ring"></i></a>
 	<a href="#" class="notes" ><i class="fa fa-bell-o"></i></a>
 	<div class="menu" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);"></div>
-
 </header>
 
 <?php
@@ -276,7 +309,7 @@
 				<ul>
 					<li><a href="campana.php"><i class="fa fa-suitcase"></i> campañas</a></li>
 					<li id="nuevaCampain"><a href="nueva-campana.php"><i class="fa fa-plus"></i> crear campañas</a></li>
-					<li><a href="#"><i class="fa fa-user"></i> influencers</a></li>
+					<li><a href="influenciador-publico.php"><i class="fa fa-user"></i> influencers</a></li>
 					<li><i onClick="backHistory()" class="fa fa-mail-reply"></i></li>
 				</ul>
 
@@ -284,7 +317,6 @@
 		';
 	}
 ?>
-
 <form id="imagenform">
 
 	<div class="fle-top"></div>

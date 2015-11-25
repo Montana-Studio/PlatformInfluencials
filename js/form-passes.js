@@ -377,6 +377,7 @@ $(document).ready(function(){
 		info.append('nombre',$('#nombre-nueva-campana').val());
 		info.append('marca',$('#marca-nueva-campana').val());
 		info.append('descripcion',$('#descripcion-nueva-campana').val());
+		info.append('fecha_termino',$('.fecha_termino').val())
 		info.append('tipo','campana');
 		$.ajax({
 				type: "POST",
@@ -543,11 +544,10 @@ $(document).ready(function(){
 		var region = f.options[f.selectedIndex].value;
 		var g = document.getElementById("comuna");
 		var comuna = g.options[g.selectedIndex].value;
-		//console.log(region+comuna+$('#correo input').val()+$('#nombre input').val());
-		//info.append('tel1',$('#tel1 input').val());
-		//info.append('tel2',$('#tel2 input').val());
-		//info.append('empresa',$('#empresa input').val());
 		info.append('descripcion',$('#descripcion textarea').val());
+		console.log($('#descripcion textarea').val());
+		info.append('comuna',comuna);
+		info.append('region',region);
 		info.append('tipo','avatar-ipe');
 
 		if(foto==1) {
@@ -561,7 +561,7 @@ $(document).ready(function(){
 				processData:false,
 
 				success: function(info){
-					//console.log(info);
+					console.log(info);
 					switch (info){
 						case "nuevo":$(".alertElim").fadeIn("normal",function(){
 								$("#boxAlert .hrefCamp h2").text("imagen cambiada");
@@ -595,7 +595,7 @@ $(document).ready(function(){
 			$.ajax({
 
 					type: "POST",
-					url: "./procesar_imagen.php",
+					url: "./procesar-dashboard-ipe.php",
 					data: info,
 					enctype: 'multipart/form-data',
 					contentType: false,
@@ -628,27 +628,7 @@ $(document).ready(function(){
 								});
 						});
 						break;
-					case "invalido":$(".alertElim").fadeIn("normal",function(){
-														$("#boxAlert .hrefCamp h2").text("algo anda mal");
-														$("#boxAlert .hrefCamp i").addClass("fa-warning");
-														$("#boxAlert .hrefCamp p.messageAlert").text("Problema con el tamaño o formato de la imagen.");
-
-														$("#boxAlert").show().animate({
-															top:"20%",
-															opacity:1
-														},{duration:1500,easing:"easeOutBounce"});
-
-														$("#clearAlert").on("click",function(){
-															$("#boxAlert").animate({
-																top:"-100px",
-																opacity:0
-															},{duration:500,easing:"easeInOutQuint",complete:function(){
-																$(".alertElim").fadeOut("fast");
-																$("#boxAlert .hrefCamp i").removeClass("fa-warning");
-																$(this).hide();
-															}});
-														});
-												});
+					
 
 					}
 				}
@@ -730,6 +710,54 @@ $(document).ready(function(){
 });
 
 //INICIO FUNCTIONS
+/* Inicialización en español para la extensión 'UI date picker' para jQuery. */
+/* Traducido por Vester (xvester@gmail.com). */
+( function( factory ) {
+	if ( typeof define === "function" && define.amd ) {
+
+		// AMD. Register as an anonymous module.
+		define( [ "../widgets/datepicker" ], factory );
+	} else {
+
+		// Browser globals
+		factory( jQuery.datepicker );
+	}
+}( function( datepicker ) {
+
+datepicker.regional.es = {
+	closeText: "Cerrar",
+	prevText: "&#x3C;Ant",
+	nextText: "Sig&#x3E;",
+	currentText: "Hoy",
+	monthNames: [ "Enero","Febrero","Marzo","Abril","Mayo","Junio",
+	"Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre" ],
+	monthNamesShort: [ "ene","feb","mar","abr","may","jun",
+	"jul","ago","sep","oct","nov","dic" ],
+	dayNames: [ "domingo","lunes","martes","miércoles","jueves","viernes","sábado" ],
+	dayNamesShort: [ "dom","lun","mar","mié","jue","vie","sáb" ],
+	dayNamesMin: [ "D","L","M","X","J","V","S" ],
+	weekHeader: "Sm",
+	dateFormat: "dd/mm/yy",
+	firstDay: 1,
+	isRTL: false,
+	showMonthAfterYear: false,
+	yearSuffix: "" };
+datepicker.setDefaults( datepicker.regional.es );
+
+return datepicker.regional.es;
+
+} ) );
+
+
+$(function() {
+	var tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+	//var dateToday = new Date();
+	//dateToday++;
+	$( "#datepicker" ).datepicker({dateFormat: "dd MM yy", firstDay:1, minDate: tomorrow});
+});
+
+
+
 function valida(e){
 	tecla = (document.all) ? e.keyCode : e.which;
 	if (tecla==8){
