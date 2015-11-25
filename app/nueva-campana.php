@@ -18,7 +18,7 @@
 				<i class="fa fa-pencil"></i>
 
 			<div>
-				<p>Fecha de término: <input type="text" id="datepicker"></p>
+				<p>Fecha de término: <input class="fecha_termino" type="text" id="datepicker"></p>
 			</div>
 				
 			</div>

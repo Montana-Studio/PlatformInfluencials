@@ -4,7 +4,9 @@ session_start();
 setlocale(LC_ALL,"es_ES");
 $hoy= date("Y-m-d H:i:s");
 $hoyFormatted= date("d M Y");
-$day=trim(substr($hoy, 0 , 2));
+
+$day=trim(substr($hoy, 8 , 2));
+
 $month= trim(substr($hoyFormatted,3,-5));
 $year= trim(substr($hoyFormatted,-4));
 

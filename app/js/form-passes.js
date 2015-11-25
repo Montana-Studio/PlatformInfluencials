@@ -377,6 +377,7 @@ $(document).ready(function(){
 		info.append('nombre',$('#nombre-nueva-campana').val());
 		info.append('marca',$('#marca-nueva-campana').val());
 		info.append('descripcion',$('#descripcion-nueva-campana').val());
+		info.append('fecha_termino',$('.fecha_termino').val())
 		info.append('tipo','campana');
 		$.ajax({
 				type: "POST",
@@ -728,8 +729,8 @@ datepicker.regional.es = {
 	prevText: "&#x3C;Ant",
 	nextText: "Sig&#x3E;",
 	currentText: "Hoy",
-	monthNames: [ "enero","febrero","marzo","abril","mayo","junio",
-	"julio","agosto","septiembre","octubre","noviembre","diciembre" ],
+	monthNames: [ "Enero","Febrero","Marzo","Abril","Mayo","Junio",
+	"Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre" ],
 	monthNamesShort: [ "ene","feb","mar","abr","may","jun",
 	"jul","ago","sep","oct","nov","dic" ],
 	dayNames: [ "domingo","lunes","martes","miércoles","jueves","viernes","sábado" ],
@@ -747,8 +748,12 @@ return datepicker.regional.es;
 
 } ) );
 
+
 $(function() {
-	$( "#datepicker" ).datepicker({dateFormat: "dd MM yy"});
+	var tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+	//var dateToday = new Date();
+	//dateToday++;
+	$( "#datepicker" ).datepicker({dateFormat: "dd MM yy", firstDay:1, minDate: tomorrow});
 });
 
 

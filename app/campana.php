@@ -1,17 +1,17 @@
 <?php include 'header.php'; ?>
 
 <?php
-
 	echo '<script>
 			$(document).ready(function(){
 				$(".activar-campana").click(function (){
 						var idActualizar = this.id;
 						var idEstado = this.type;
 						var tipo = "activar";
+						var fecha_termino = $("#"+idActualizar+" .campa-ico .fecha_termino").val();
 							$.ajax({
 								type: "POST",
 								url: "procesar_eliminar-campana.php",
-								data: "idActualizar="+idActualizar+"&idEstado="+idEstado+"&tipo="+tipo,
+								data: "idActualizar="+idActualizar+"&idEstado="+idEstado+"&tipo="+tipo+"&fecha_termino="+fecha_termino,
 								success: function(data){
 									window.location.reload();
 								}
@@ -78,7 +78,8 @@
 					var id = this.id;
 					var nombre = $("#"+id+" .nombre input").val();
 					var marca = $("#"+id+" .marca input").val();
-					var descripcion = $("#"+id+" #descripcion-campana-"+id+" textarea").val();
+					var fecha_termino = $("#"+id+" .campa-ico .fecha_termino").val();
+					var descripcion = $("#"+id+" #descripcion-campana-"+id+" textarea").val();					
 					info.append("nombre",nombre);
 					info.append("marca",marca);
 					info.append("descripcion",descripcion);
@@ -88,6 +89,7 @@
 					info.append("campana",this.id);
 					info.append("id",idAgencia);
 					info.append("foto",foto);
+					info.append("fecha_termino", fecha_termino);
 					$.ajax({
 							type: "POST",
 							url: "procesar_imagen.php",
@@ -187,8 +189,10 @@
 									<span class="campa-ico"><i class="fa fa-cog"></i>Activada</span>
 
 									
-									<span class="campa-ico"><i class="fa fa-calendar"></i>'.$row[7].'</span>
-
+									<span class="campa-ico"><i class="fa fa-calendar"> Inicio </i>'.$row[7].'
+									 <i class="fa fa-calendar"> - Término </i> '.$row[8].'</span>
+															
+									
 									<div class="inputs-campana descripcion descripcion-campana" id="'.$row[0].'">
 										<textarea placeholder="descripcion" disabled>'.$row[2].'</textarea>
 									</div>
@@ -256,6 +260,11 @@
 								<textarea placeholder="descripcion" disabled>'.$row2[2].'</textarea>
 								<i class="fa fa-pencil"></i>
 							</div>
+
+							<div>
+								<span class="campa-ico"><i class="fa fa-calendar">Término <input class="fecha_termino" type="text" id="datepicker" value="'.$row2[8].'"></span></i>
+							</div>
+										
 							<script>
 								$(window).load(function(){
 									$("div.jfilestyle").hide();

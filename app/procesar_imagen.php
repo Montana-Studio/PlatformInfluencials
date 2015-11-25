@@ -141,6 +141,7 @@ if ($tipo == 'avatar-ipe'){
 	$nombre =$_POST['nombre'];
 	$marca = $_POST['marca'];
 	$descripcion= $_POST['descripcion'];
+	$fecha_termino = $_POST['fecha_termino'];
   if(strlen($nombre)*strlen($marca)*strlen($descripcion) == 0){
     $resultado = "incompleto";
   }else{
@@ -152,7 +153,7 @@ if ($tipo == 'avatar-ipe'){
   	if(valida_extension() == "ok"){
   		if ($a==1){ // Create directory to save the file in case of Social Login and first change on avatar image
   			//$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,imagenes,marca,idpersona) VALUES ('$nombre','$descripcion','uploads/agencias/registered/$rsid/$campana/1.jpg','$marca','$id')");
-  			$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,marca,idpersona) VALUES ('$nombre','$descripcion','$marca','$id')");
+  			$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,marca,idpersona, fecha_termino) VALUES ('$nombre','$descripcion','$marca','$id', '$fecha_termino')");
   			$inicio_imagenes ='uploads/agencias/registered/'.$rsid.'/';
   			$fin_imagenes = '/1.jpg';
   			$results4 = $mysqli->query("SELECT id FROM campana  WHERE nombre = '$nombre' AND descripcion = '$descripcion' AND marca = '$marca' AND idpersona = '$id'");
@@ -169,7 +170,7 @@ if ($tipo == 'avatar-ipe'){
   		}
   		if ($a==2){// Create directory to save the file in case of Form Login and first change on avatar image
   			//$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,imagenes,marca,idpersona) VALUES ('$nombre','$descripcion','uploads/agencias/registered/$correo/$campana/1.jpg','$marca','$id')");
-  			$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,marca,idpersona) VALUES ('$nombre','$descripcion','$marca','$id')");
+  			$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,marca,idpersona, fecha_termino) VALUES ('$nombre','$descripcion','$marca','$id', '$fecha_termino')");
   			$inicio_imagenes ='uploads/agencias/registered/'.$correo.'/';
   			$fin_imagenes = '/1.jpg';
   			$results4 = $mysqli->query("SELECT id FROM campana  WHERE nombre = '$nombre' AND descripcion = '$descripcion' AND marca = '$marca' AND idpersona = '$id'");
@@ -199,6 +200,7 @@ if ($tipo == 'avatar-ipe'){
 	$descripcion =$_POST['descripcion'];
 	$idCampana =$_POST['idCampana'];
 	$idpersona =$_POST['idpersona'];
+	$fecha_termino = $_POST['fecha_termino'];
 	if($nombre == ''){
 			$results_nombre = $mysqli->query("SELECT nombre FROM campana  WHERE id='$idCampana'");
 			$row_results_nombre= mysqli_fetch_array($results_nombre, MYSQLI_NUM);
@@ -211,7 +213,7 @@ if ($tipo == 'avatar-ipe'){
 			$marca= $row_results_marca[0];
 	}
 
-	$sql = "UPDATE campana SET nombre='$nombre', marca='$marca', descripcion='$descripcion' WHERE idpersona='$idpersona' AND id='$idCampana'";
+	$sql = "UPDATE campana SET nombre='$nombre', marca='$marca', descripcion='$descripcion', fecha_termino='$fecha_termino' WHERE idpersona='$idpersona' AND id='$idCampana'";
 	$update = $mysqli->query($sql);
 	if($_POST['foto'] == 1){
 		if(valida_extension() == "ok"){
