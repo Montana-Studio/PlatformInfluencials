@@ -36,7 +36,7 @@ main{
 		}
 	}
 	&.form_agencias{
-		@extend .hide;
+		//@extend .hide;
 		margin:{top:48px;}
 		#inicio{
 			.btns_accesos{
