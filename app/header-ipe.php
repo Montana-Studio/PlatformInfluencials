@@ -73,6 +73,7 @@
 					$('body').addClass('dashboard-ipe');
 				})
 			</script>
+
 		</head>
 		<body>";
 	}

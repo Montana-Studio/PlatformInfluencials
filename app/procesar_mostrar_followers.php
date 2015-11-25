@@ -5,7 +5,6 @@
 			<script>
 	 			$(document).ready(function(){
 
-
 					$(".estado_rs").click(function(){
   					var id_activar_rs = this.id;
   	 				var tipo = "activar_rs";
@@ -17,7 +16,7 @@
 							url: "./rrss/procesar_activar_rs.php",
 							data: "id_activar_rs="+id_activar_rs+"&estado="+estado+"&tipo="+tipo,
 							success: function(data){
-								alert(data);
+								//alert(data);
 								window.location.reload();
 							}
 						});
@@ -57,9 +56,13 @@
       <h3>".$username."</h3>
       <ul>
       <li><img src='".$avatar."'/></li>
-      <li>Followers <span>".(int)$followers_instagram."</span></li>
+      <li>Followers<br><span>".(int)$followers_instagram."</span></li>
       </ul>
-      <button type='checkbox' class='btn".$estado_descripcion." estado_rs cmn-toggle' name='".$estado."' id='".$row3[3]."'>".$estado_descripcion."</button>
+      <!--button type='checkbox' class='btn".$estado_descripcion." estado_rs cmn-toggle' name='".$estado."' id='".$row3[3]."'>".$estado_descripcion."</button-->
+      <div class='onoffswitch'>
+          <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs onoffswitch-checkbox' id='".$row3[3]."'>
+          <label class='btn".$estado_descripcion." onoffswitch-label' for='".$row3[3]."'></label>
+      </div>
       </div>";
     }while($row3 = $result3->fetch_array());
       $suma += $suma_instagram;
@@ -180,9 +183,13 @@
         <h3>".$youtubeName."</h3>
         <ul>
         <li><img src='".$youtubeImgUrl."'/></li>
-        <li>Suscriptos <span>".(int)$youtubeSubscribers."</span></li>
+        <li>Suscriptos<br><span>".(int)$youtubeSubscribers."</span></li>
         </ul>
-        <button class='estado_rs' name='".$estado."' id='".$row5[3]."'>".$estado_descripcion."</button>
+        <!--button class='estado_rs' name='".$estado."' id='".$row5[3]."'>".$estado_descripcion."</button-->
+        <div class='onoffswitch'>
+          <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs onoffswitch-checkbox' id='".$row3[3]."'>
+          <label class='btn".$estado_descripcion." onoffswitch-label' for='".$row5[3]."'></label>
+      </div>
         </div>";
       }while($row5 = $result5->fetch_array());
     }
@@ -233,7 +240,12 @@
             <li>Gente hablando <br/><span>".$facebookTalkingAbout."</span></li>
             <!--li><a href=".$facebookWebsite.">ver sitio</a></li-->
             </ul>
-            <button class='estado_rs' name='".$estado."' id='".$facebookPage."'>".$estado_descripcion."</button>
+            <!--button class='estado_rs' name='".$estado."' id='".$facebookPage."'>".$estado_descripcion."</button-->
+            <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
+            <div class='onoffswitch'>
+                <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs onoffswitch-checkbox' id='".$facebookPage."'>
+                <label class='btn".$estado_descripcion." onoffswitch-label' for='".$facebookPage."'></label>
+            </div>
             </div>";
         }
 
@@ -274,9 +286,13 @@
           <div class='red-info'>
           <h3>".$googleplusName."</h3>
           <ul>
-          <li>Followers <span>".(int)$googleplusSubscriber."</span></li>
+          <li>Followers<br><span>".(int)$googleplusSubscriber."</span></li>
           </ul>
-          <button class='estado_rs' name='".$estado."' id='".$googleplusId."'>".$estado_descripcion."</button>
+          <!--button class='estado_rs' name='".$estado."' id='".$googleplusId."'>".$estado_descripcion."</button-->
+          <div class='onoffswitch'>
+              <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs onoffswitch-checkbox' id='".$googleplusId."'>
+              <label class='btn".$estado_descripcion." onoffswitch-label' for='".$googleplusId."'></label>
+          </div>
           </div>";
         }
 

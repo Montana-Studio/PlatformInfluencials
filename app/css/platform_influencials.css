@@ -948,7 +948,7 @@ nav {
       color: #c7c7c7; }
     #imagenform-ipe #tabs li[aria-selected="true"] {
       color: #18bb9b;
-      border-bottom: 2px inset #18bb9b; }
+      border-bottom: 2px solid #18bb9b; }
       #imagenform-ipe #tabs li[aria-selected="true"] a {
         color: #18bb9b; }
     #imagenform-ipe #tabs li:first-child {
@@ -1236,6 +1236,112 @@ nav {
               padding: 0 0 0 0.625em; }
               #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info ul li:last-child:last-child {
                 margin-right: 0; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .txt-activar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .txt-desactivar {
+          height: 20px;
+          width: 55px;
+          text-transform: uppercase;
+          text-align: center;
+          float: right;
+          font-size: 9px;
+          color: #656b79;
+          margin-right: 10px; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .txt-desactivar {
+          color: #c7c7c7; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch {
+          position: relative;
+          width: 3.4375em;
+          overflow: visible;
+          float: right;
+          clear: right;
+          margin-right: 10px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none; }
+          #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch input[type="checkbox"], #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch div#descripcion textarea[type="checkbox"], #imagenform-ipe #tabscontent .tabpage div#descripcion #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"], #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .creadas .recientes .content .inputs-campana textarea[type="checkbox"], .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"] {
+            display: none; }
+            #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch input[type="checkbox"]:checked + label.btndesactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch div#descripcion textarea[type="checkbox"]:checked + label.btndesactivar, #imagenform-ipe #tabscontent .tabpage div#descripcion #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btndesactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btndesactivar, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btndesactivar {
+              -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+              -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+              transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+              background-color: #c7c7c7; }
+              #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch input[type="checkbox"]:checked + label.btndesactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch div#descripcion textarea[type="checkbox"]:checked + label.btndesactivar::before, #imagenform-ipe #tabscontent .tabpage div#descripcion #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btndesactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btndesactivar::before, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btndesactivar::before {
+                -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+                -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+                transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+                border-color: #c7c7c7;
+                right: 1.875em;
+                background-color: #fff; }
+            #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch input[type="checkbox"]:checked + label.btnactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch div#descripcion textarea[type="checkbox"]:checked + label.btnactivar, #imagenform-ipe #tabscontent .tabpage div#descripcion #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btnactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btnactivar, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btnactivar {
+              -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+              -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+              transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+              background-color: #18bb9b; }
+              #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch input[type="checkbox"]:checked + label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch div#descripcion textarea[type="checkbox"]:checked + label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage div#descripcion #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btnactivar::before, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btnactivar::before {
+                -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+                -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+                transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+                border-color: #c7c7c7;
+                right: 0;
+                background-color: #fff; }
+          #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch label {
+            padding: 0;
+            border-top-left-radius: 2.125em;
+            border-top-right-radius: 2.125em;
+            border-bottom-left-radius: 2.125em;
+            border-top-left-radius: 2.125em;
+            border-bottom-right-radius: 2.125em;
+            border-top-right-radius: 2.125em;
+            border-bottom-left-radius: 2.125em;
+            border-bottom-right-radius: 2.125em;
+            -webkit-transition: background-color 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            -moz-transition: background-color 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: background-color 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            display: block;
+            cursor: pointer;
+            height: 24px;
+            line-height: 24px;
+            border: 2px solid #c7c7c7;
+            background-color: #fff; }
+            #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch label::before {
+              border-top-left-radius: 2.125em;
+              border-top-right-radius: 2.125em;
+              border-bottom-left-radius: 2.125em;
+              border-top-left-radius: 2.125em;
+              border-bottom-right-radius: 2.125em;
+              border-top-right-radius: 2.125em;
+              border-bottom-left-radius: 2.125em;
+              border-bottom-right-radius: 2.125em;
+              -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+              -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+              transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+              content: "";
+              display: block;
+              width: 24px;
+              margin: 0px;
+              background-color: #fff;
+              position: absolute;
+              top: 0;
+              bottom: 0;
+              right: 0;
+              border: 2px solid #c7c7c7;
+              -webkit-box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.8);
+              -moz-box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.8);
+              box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.8); }
+            #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch label.btndesactivar {
+              background-color: #18bb9b; }
+            #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch label.btnactivar {
+              background-color: #c7c7c7;
+              -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+              -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+              transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s; }
+              #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch label.btnactivar::before {
+                -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+                -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+                transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+                border-color: #c7c7c7;
+                right: 1.875em;
+                background-color: #fff; }
       #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #imagenform #inicio #guardarFacturacion, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #guardarFacturacion, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #imagenform #inicio .cancel-data, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .cancel-data, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription html body.formularios-registro .cont_formRegistro .cont-inputs #guardar, html body.formularios-registro .cont_formRegistro .cont-inputs #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #guardar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.ingreso_eleccion #tipo .btns_accesos, main.ingreso_eleccion #tipo #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns_accesos, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #inicio .btns_accesos, main.form_agencias #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns_accesos, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso #ingresar, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso #ingresar, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm #ingresar, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso .fb_btn, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso .fb_btn, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm .fb_btn, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso .lk_btn, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso .lk_btn, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm .lk_btn, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm #registrarse, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #registrarse, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .recientes .content .jfilestyle, .creadas .recientes .content #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .jfilestyle, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .recientes .content .guardar-campana, .creadas .recientes .content #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .guardar-campana, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .volver, .creadas #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .volver, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .volver-campana, .creadas #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .volver-campana, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .no-campana .hrefCamp .btn_crearcamp, .no-campana .hrefCamp #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btn_crearcamp, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #campanaForm-nueva-campana .jfilestyle, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .jfilestyle, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #campanaForm-nueva-campana .guardar, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .guardar {
         float: left;
         display: block;
@@ -1247,51 +1353,6 @@ nav {
         margin-bottom: 0; }
         #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #imagenform #inicio #guardarFacturacion:last-child, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #guardarFacturacion:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #imagenform #inicio .cancel-data:last-child, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .cancel-data:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription html body.formularios-registro .cont_formRegistro .cont-inputs #guardar:last-child, html body.formularios-registro .cont_formRegistro .cont-inputs #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #guardar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.ingreso_eleccion #tipo .btns_accesos:last-child, main.ingreso_eleccion #tipo #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns_accesos:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #inicio .btns_accesos:last-child, main.form_agencias #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns_accesos:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso #ingresar:last-child, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm #ingresar:last-child, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso .fb_btn:last-child, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm .fb_btn:last-child, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso .lk_btn:last-child, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm .lk_btn:last-child, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm #registrarse:last-child, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #registrarse:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .recientes .content .jfilestyle:last-child, .creadas .recientes .content #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .jfilestyle:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .recientes .content .guardar-campana:last-child, .creadas .recientes .content #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .guardar-campana:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .volver:last-child, .creadas #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .volver:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .volver-campana:last-child, .creadas #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .volver-campana:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .no-campana .hrefCamp .btn_crearcamp:last-child, .no-campana .hrefCamp #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btn_crearcamp:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #campanaForm-nueva-campana .jfilestyle:last-child, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .jfilestyle:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #campanaForm-nueva-campana .guardar:last-child, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .guardar:last-child {
           margin-right: 0; }
-      #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription span .switch .cmn-toggle {
-        padding: 2px;
-        width: 120px;
-        height: 60px;
-        background-color: #dddddd;
-        border-radius: 60px; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription span .switch .cmn-toggle:checked + label:before {
-          background-color: #8ce196; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription span .switch .cmn-toggle:checked + label:after {
-          margin-left: 60px; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription span .switch .cmn-toggle + label {
-          display: block;
-          position: relative;
-          cursor: pointer;
-          outline: none;
-          -webkit-user-select: none;
-          /* Chrome all / Safari all */
-          -moz-user-select: none;
-          /* Firefox all */
-          -ms-user-select: none;
-          /* IE 10+ */
-          user-select: none; }
-          #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription span .switch .cmn-toggle + label:before {
-            display: block;
-            position: absolute;
-            top: 1px;
-            left: 1px;
-            bottom: 1px;
-            content: "";
-            right: 1px;
-            background-color: #f1f1f1;
-            border-radius: 60px;
-            transition: background 0.4s; }
-          #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription span .switch .cmn-toggle + label:after {
-            display: block;
-            position: absolute;
-            top: 1px;
-            left: 1px;
-            bottom: 1px;
-            content: "";
-            width: 58px;
-            background-color: #fff;
-            border-radius: 100%;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-            transition: margin 0.4s; }
 #imagenform-ipe .header-ipe {
   background-position: center;
   background-size: cover;
@@ -1349,7 +1410,10 @@ nav {
     z-index: 2; }
     #imagenform-ipe .header-ipe p.bio {
       font-size: 0.8125em;
-      font-weight: bold; }
+      font-weight: bold;
+      max-width: 350px;
+      margin-left: auto;
+      margin-right: auto; }
   #imagenform-ipe .header-ipe .nav-ipe2 {
     position: relative;
     z-index: 2;
