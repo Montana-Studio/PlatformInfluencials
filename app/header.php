@@ -138,6 +138,12 @@
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
 			$num_rows= mysqli_num_rows($result);
 
+			//$id=$_SESSION['id'];
+			$query2="SELECT nombre FROM campana WHERE idpersona=".$id." AND idEstado=1";
+			$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
+			$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
+			$num_rows2= mysqli_num_rows($result2);
+		
 			//$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 			//$row= mysqli_fetch_array($result, MYSQLI_NUM);
 				//}
