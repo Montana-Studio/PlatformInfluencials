@@ -123,6 +123,7 @@
 						</script>";
 			}
 	}
+
 	if(basename($_SERVER['PHP_SELF'])=='influenciador-publico.php'){
 		if(isset($_SESSION['telefono1'])==false){
 			header('Location: logout.php');
@@ -150,6 +151,7 @@
 				</script>";
 		}
 	}
+
 	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia2.php'){
 		if(isset($_SESSION['nombre'])==false){
 			header('Location:./');
@@ -280,7 +282,6 @@
 					</script>";
 			}
 	}
-
 ?>
 
 <header>
@@ -289,7 +290,6 @@
 	<a href="#" class="ayuda_pi"><i class="fa fa-life-ring"></i></a>
 	<a href="#" class="notes" ><i class="fa fa-bell-o"></i></a>
 	<div class="menu" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);"></div>
-
 </header>
 
 <?php
@@ -311,10 +311,6 @@
 		';
 	}
 ?>
-
-
-
-
 <form id="imagenform">
 
 	<div class="fle-top"></div>
