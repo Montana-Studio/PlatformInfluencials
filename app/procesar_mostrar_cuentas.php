@@ -10,6 +10,7 @@
 			echo '<h2>No registra redes sociales actualmente</h2>';
 		}else{
 			echo '<div class="total_reach"><span><h2>Reach actual</h2><small>Alcance total de tus redes sociales</small></span><div class="total-number">'.(int)$suma.'</div></div>';
+		}
 	?>
 
 	<!--div id="analytics-inscription" class="rs-inscription">Analytics</div-->
@@ -31,7 +32,7 @@
 			if($num_row3 > 0){
 				echo '<div class="reach-total">instagram reach <span>'.(int)$suma_instagram.'</span></div>';
 				echo $_SESSION['instagram'];
-	  	}
+	  		}
 		?>
 		<div id="instagram-inscription" onclick="login()" class="btns">Conectar Instagram</div>
 	</div>
@@ -41,9 +42,9 @@
 		
 		<?php
 			if($num_row4 > 0){
-				echo '<h3>twitter reach : '.(int)$suma_twitter.'</h3>';
+				echo '<div class="reach-total">twitter reach <span>'.(int)$suma_twitter.'</span></div>';
+				echo $_SESSION['twitter'];
 			}
-			echo $_SESSION['twitter'];
 		?>
 		<a id="twitter-inscription" href="./rrss/twitter/process.php" value="<?php echo $num_row3;?>" class="btns">Conectar Twitter</a>
 	</div>
@@ -64,11 +65,10 @@
 	<div class="rs-inscription">
 		
 		<?php
-				if($num_row7 > 0){
-					echo '<div class="reach-total">google plus reach <span>'.(int)$suma_googleplus.'</span></div>';
-					echo $_SESSION['googleplus'];
-				}
-	    }
+			if($num_row7 > 0){
+				echo '<div class="reach-total">google plus reach <span>'.(int)$suma_googleplus.'</span></div>';
+				echo $_SESSION['googleplus'];
+			}
 		?>
 		<div id="googleplus-inscription" onclick="googleApiClientReadyGooglePlus()" class="btns">Conectar Google+</div>
 	</div>

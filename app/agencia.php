@@ -68,9 +68,9 @@ if(isset($_SESSION['id'])){
 			<h2>Registro</h2>
 			<form class="registerForm registerFormAgencia">
 				<form class='registerForm'>
-					<div>
+					<div style="display:none;">
 						<select id="perfil" >
-						<option value="2" disabled selected>perfil de agencia </option>
+							<option value="2" disabled selected>perfil de agencia </option>
 						</select>
 					</div>
 

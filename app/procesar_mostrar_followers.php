@@ -1,8 +1,5 @@
 <?php
-    echo '<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-			<script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
-			<script>
+    echo '<script>
 	 			$(document).ready(function(){
 
 					$(".estado_rs").click(function(){
@@ -59,6 +56,7 @@
       <li>Followers<br><span>".(int)$followers_instagram."</span></li>
       </ul>
       <!--button type='checkbox' class='btn".$estado_descripcion." estado_rs cmn-toggle' name='".$estado."' id='".$row3[3]."'>".$estado_descripcion."</button-->
+      <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
       <div class='onoffswitch'>
           <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs onoffswitch-checkbox' id='".$row3[3]."'>
           <label class='btn".$estado_descripcion." onoffswitch-label' for='".$row3[3]."'></label>
@@ -121,7 +119,22 @@
           if($mnt=='Dic') $mnt='12';
           return $mnt;
         }
-        $_SESSION['twitter'] .="<h3>".$username."   -    ".(int)$followers_count1."  <button class='estado_rs' name='".$estado."' id='".$row4[3]."'>".$estado_descripcion."</button> </h3><img src='".$avatar."'/><div>últimos tweets";
+        $_SESSION['twitter'] .="
+        <div class='red-info'>
+        <h3>".$username."</h3>
+        <ul>
+        <li><img src='".$avatar."'/></li>
+        <li>Followers<br><span>".(int)$followers_count1."</span></li>
+        </ul>
+        <!--button type='checkbox' class='btn".$estado_descripcion." estado_rs cmn-toggle' name='".$estado."' id='".$row3[3]."'>".$estado_descripcion."</button-->
+        <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
+        <div class='onoffswitch'>
+            <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs onoffswitch-checkbox' id='".$row4[3]."'>
+            <label class='btn".$estado_descripcion." onoffswitch-label' for='".$row4[3]."'></label>
+        </div>
+        </div>
+        últimos tweets";
+        
         for($i = 0; $i < 3 ; $i++){
           $start_date = new DateTime("now");
           $postDate = $data1[$i]['created_at'];
@@ -143,7 +156,9 @@
           else if(intval($interval->m)>0){
             $dateDiff = $interval->i."m";
           }
-          $text.="<h4>".$data1[$i]['text']."</h4><p> Retweet ".$data1[$i]['retweet_count']." - Favourites ".$data1[$i]['favorite_count']." - ".$dateDiff."</div>";
+          $text.="
+          <h3>".$data1[$i]['text']."</h3>
+          <p>Retweet ".$data1[$i]['retweet_count']." - Favourites ".$data1[$i]['favorite_count']." - ".$dateDiff."</p>";
         }
         $_SESSION['twitter'] .= $text;
         $text="";
@@ -186,6 +201,7 @@
         <li>Suscriptos<br><span>".(int)$youtubeSubscribers."</span></li>
         </ul>
         <!--button class='estado_rs' name='".$estado."' id='".$row5[3]."'>".$estado_descripcion."</button-->
+        <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
         <div class='onoffswitch'>
           <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs onoffswitch-checkbox' id='".$row3[3]."'>
           <label class='btn".$estado_descripcion." onoffswitch-label' for='".$row5[3]."'></label>
@@ -205,7 +221,7 @@
     $row6= mysqli_fetch_array($result6, MYSQLI_BOTH);
     $num_row6=mysqli_num_rows($result6);
     $facebookKey ="693511c0b86cda985e20ba5a19f556c0";
-    $facebookAppId = "973652052702468";
+    $facebookAppId = "979526535448353";
     $_SESSION['facebook']="";
     if($num_row6>0){
       do{
@@ -289,6 +305,7 @@
           <li>Followers<br><span>".(int)$googleplusSubscriber."</span></li>
           </ul>
           <!--button class='estado_rs' name='".$estado."' id='".$googleplusId."'>".$estado_descripcion."</button-->
+          <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
           <div class='onoffswitch'>
               <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs onoffswitch-checkbox' id='".$googleplusId."'>
               <label class='btn".$estado_descripcion." onoffswitch-label' for='".$googleplusId."'></label>
