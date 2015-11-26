@@ -149,6 +149,16 @@
 					});
 
 				}));
+
+					$(".ir_a_cotizar_influenciador").click(function(){
+						var campana_seleccionada=this.id;
+						//console.log(campana_seleccionada);
+						window.location.replace("influenciador-publico.php?campana="+campana_seleccionada);
+						//location.href("influenciador-publico.php?"+campana_seleccionada);
+
+					});
+
+
 			});
 		</script>';
 	if ($num_rows > 0){
@@ -195,6 +205,10 @@
 									
 									<div class="inputs-campana descripcion descripcion-campana" id="'.$row[0].'">
 										<textarea placeholder="descripcion" disabled>'.$row[2].'</textarea>
+									</div>
+
+									<div>
+										<a class="ir_a_cotizar_influenciador" id="'.$row[1].'">cotizar influenciadores</a>
 									</div>
 
 									<!--button class="guardar-campana" type="submit" id="guardar-campana-'.$row[0].'">Guardar Cambios en '.$row[1].'</button-->

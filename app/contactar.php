@@ -1,9 +1,12 @@
 <?php
 require('conexion.php');
+
 $agencia = $_POST['agencia'];
 $correo_agencia = $_POST['correo_agencia'];
 $influenciador = $_POST['influenciador'];
 $influenciador_id = $_POST['influenciador_id'];
+$campana = $_POST['campana'];
+
 //echo $agencia.$correo_agencia.$influenciador.$influenciador_id;
 
 
@@ -23,7 +26,7 @@ mail('elperoy@gmail.com', $asunto , $mensaje, null, '-f'.$correo_agencia.'');
 
 
 
-$results = $mysqli->query("INSERT INTO solicitudes (agencia, correo_agencia,influenciador , correo_influenciador, fecha_solicitud )VALUES ('$agencia', '$correo_agencia','$influenciador', '$row[0]', '$hoy' )");
+$results = $mysqli->query("INSERT INTO solicitudes (agencia, correo_agencia,influenciador , correo_influenciador, fecha_solicitud, campana )VALUES ('$agencia', '$correo_agencia','$influenciador', '$row[0]', '$hoy' , '$campana' )");
 
 
 
