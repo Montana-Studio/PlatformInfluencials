@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+  <!--DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -41,20 +41,23 @@
     <tr><td>SessionsPerUser </td><td id="sessionsPerUser-tablet" class="tablet"></td></tr>
 </table>
 
+<script-->
 <script>
   $(document).ready(function(){
+      var CLIENT_ID = '1045210216843-rplujhgcennvu03bhggu891cbuojf3bn.apps.googleusercontent.com';
+      var SCOPES = ['https://www.googleapis.com/auth/analytics.readonly'];
+
+
       $('#auth-button').click(function(){
         authorize();
      });
+
     $('#subscribeAnalytics').click(function(){
       var profile= $('#listado option:selected').attr('value');
       queryPageViews(profile);
     });
   });
  
-  var CLIENT_ID = '1045210216843-rplujhgcennvu03bhggu891cbuojf3bn.apps.googleusercontent.com';
-  var SCOPES = ['https://www.googleapis.com/auth/analytics.readonly'];
-
   function authorize(event) {
     // Handles the authorization flow.
     // `immediate` should be false when invoked from the button click
@@ -213,7 +216,7 @@
   document.getElementById('auth-button').addEventListener('click', authorize);
 </script>
 
-<script src="https://apis.google.com/js/client.js?onload=authorize"></script>
+<!--script src="https://apis.google.com/js/client.js?onload=authorize"></script>
 <select id="listado"><option value="defaultvalue">seleccione propiedad</option></select>
 <button id="subscribeAnalytics">agregar página</button>
 <div id="muestra_datos">
@@ -221,4 +224,4 @@
 </div>
 
 </body>
-</html>
+</html-->

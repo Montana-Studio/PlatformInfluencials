@@ -276,6 +276,10 @@
 							</div>
 
 							<div>
+								<a class="ir_a_cotizar_influenciador" id="'.$row2[1].'">cotizar influenciadores</a>
+							</div>
+
+							<div>
 								<span class="campa-ico"><i class="fa fa-calendar">Término <input class="fecha_termino" type="text" id="datepicker" value="'.$row2[8].'"></span></i>
 							</div>
 										

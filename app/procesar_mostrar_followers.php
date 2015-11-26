@@ -81,6 +81,21 @@
 		$ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
 		$requestMethod = 'GET';
 		$_SESSION['twitter']="";
+     function month($mnt){
+          if($mnt=='Jan') $mnt='01';
+          if($mnt=='Feb') $mnt='02';
+          if($mnt=='Mar') $mnt='03';
+          if($mnt=='Apr') $mnt='04';
+          if($mnt=='May') $mnt='05';
+          if($mnt=='Jun') $mnt='06';
+          if($mnt=='Jul') $mnt='07';
+          if($mnt=='Aug') $mnt='08';
+          if($mnt=='Sep') $mnt='09';
+          if($mnt=='Oct') $mnt='10';
+          if($mnt=='Nov') $mnt='11';
+          if($mnt=='Dic') $mnt='12';
+          return $mnt;
+        }
     if($num_row4>0){
   		do{
         $usuario1 = $row4['rrss_id'];
@@ -104,21 +119,7 @@
           $estado=1;
           $estado_descripcion = "desactivar";
         }
-        function month($mnt){
-          if($mnt=='Jan') $mnt='01';
-          if($mnt=='Feb') $mnt='02';
-          if($mnt=='Mar') $mnt='03';
-          if($mnt=='Apr') $mnt='04';
-          if($mnt=='May') $mnt='05';
-          if($mnt=='Jun') $mnt='06';
-          if($mnt=='Jul') $mnt='07';
-          if($mnt=='Aug') $mnt='08';
-          if($mnt=='Sep') $mnt='09';
-          if($mnt=='Oct') $mnt='10';
-          if($mnt=='Nov') $mnt='11';
-          if($mnt=='Dic') $mnt='12';
-          return $mnt;
-        }
+       
         $_SESSION['twitter'] .="
         <div class='red-info'>
         <h3>".$username."</h3>
@@ -283,10 +284,18 @@
       do{
         $googleplusId = $row7[3];
         $json_user_url ="https://www.googleapis.com/plus/v1/people/".$googleplusId."?key=".$googleplusKey;
+        $json_user_picture="https://www.googleapis.com/plus/v1/people/".$googleplusId."?fields=image&key=".$googleplusKey;
+
         $json_user= file_get_contents($json_user_url);
         $links_user_url= json_decode($json_user);
         $googleplusSubscriber =$links_user_url->circledByCount;
         $googleplusName =$links_user_url->displayName;
+
+        $json_picture = file_get_contents($json_user_picture);
+        $links_user_url2 = json_decode($json_picture);
+        $picture = $links_user_url2->image->url;
+        $pictureSize= "100";
+        $googleplusImage=substr($picture,0,-2).$pictureSize;
         if ($row7[5] == 1){
           $suma_googleplus+=(int)$googleplusSubscriber;
         }
@@ -308,6 +317,7 @@
           <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
           <div class='onoffswitch'>
               <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs onoffswitch-checkbox' id='".$googleplusId."'>
+              <img src='".$picture."'/>
               <label class='btn".$estado_descripcion." onoffswitch-label' for='".$googleplusId."'></label>
           </div>
           </div>";
@@ -316,4 +326,41 @@
       }while($row7 = $result7->fetch_array());
       $suma += $suma_googleplus;
     }
+/****************************************************************************************************
+            GOOGLEPLUS  GET REACH SUM
+****************************************************************************************************/
+    $query8="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='analytics'";
+    $result8=mysqli_query($mysqli,$query8)or die (mysqli_error());
+    $row8= mysqli_fetch_array($result8, MYSQLI_BOTH);
+    $num_row8=mysqli_num_rows($result8);
+
+    //$googleplusKey ="AIzaSyDBMZsybp7GcJdmqdhgGDn-jRkGo9jyD-c";
+    $_SESSION['analytics']="";
+    if($num_row8>0){
+      do{
+        if ($row8[5] == 0){
+          $estado= 0;
+          $estado_descripcion="activar";
+        }else{
+          $estado= 1;
+          $estado_descripcion="desactivar";
+        }
+
+        $_SESSION['analytics'] .= "
+          <div class='red-info'>
+          <h3>".$row8[8]."</h3>
+          <ul>
+          <!--li>Followers<br><span>".(int)$googleplusSubscriber."</span></li-->
+          </ul>
+          <!--button class='estado_rs' name='".$estado."' id='".$row8[8]."'>".$estado_descripcion."</button-->
+          <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
+          <div class='onoffswitch'>
+              <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs onoffswitch-checkbox' id='".$googleplusId."'>
+              <label class='btn".$estado_descripcion." onoffswitch-label' for='".$row8[8]."'></label>
+          </div>
+          </div>";
+      }while($row8 = $result8->fetch_array());
+      $suma += $suma_analytics;
+    }
+
 ?>

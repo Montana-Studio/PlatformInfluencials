@@ -13,7 +13,19 @@
 		}
 	?>
 
-	<!--div id="analytics-inscription" class="rs-inscription">Analytics</div-->
+	<div class="red-title"><i class="fa fa-analytics"></i> <span class="red-name">Analytics</span> <i class="fa"></i></div>
+	<div class="rs-inscription">
+		<?php
+			if($num_row8 > 0){
+				//echo '<div class="reach-total">google plus reach <span>'.(int)$suma_googleplus.'</span></div>';
+				echo $_SESSION['analytics'];
+
+			}
+		?>
+		<div id="analytics-inscription" onclick="authorize()" class="btns">Conectar Analytics</div>
+	</div>
+
+	
 	<div class="red-title"><i class="fa fa-facebook"></i> <span class="red-name">Facebook</span> <i class="fa"></i></div>
 	<div class="rs-inscription">
 		

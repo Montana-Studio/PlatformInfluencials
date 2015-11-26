@@ -1,6 +1,27 @@
 <?php
+require('../../conexion.php');
 
-$mysqli = mysqli_connect("localhost","root","root","adnativo_pi") or die("Error " . mysqli_error($link)); 
+if($_POST['tipo']== 'muestra_cuentas'){
+$id = $_SESSION['id'];
+$paginas_analytics=$_POST['paginas_analytics'];
+$id_paginas_analytics=$_POST['id_paginas_analytics'];
+$array_paginas_analytics = explode(',',$paginas_analytics);
+echo count($array_paginas_analytics);
+
+$array_id_paginas_analytics = explode(',',$id_paginas_analytics);
+echo count($array_id_paginas_analytics);
+
+
+for($i=0;$i<count($array_paginas_analytics);$i++){
+  if($array_id_paginas_analytics[$i] != ''){
+    $results= $mysqli->query("INSERT INTO rrss (descripcion_rrss,analytics_page,persona_id,id_estado, analytics_page_name) VALUES ('analytics','$array_id_paginas_analytics[$i]', '$id' , '0' , '$array_paginas_analytics[$i]' )");
+  }
+  
+}
+
+}else{
+  //prueba para prueba_analytics.php
+  $mysqli = mysqli_connect("localhost","root","root","adnativo_pi") or die("Error " . mysqli_error($link)); 
 $mysqli->set_charset('utf8');
 //if($_POST['tipo'] == 'agregaListado'){
 $account =$_POST['account'];
@@ -22,23 +43,10 @@ if($_POST['tipo']=='inscripcion'){
 
   if($num_rows<1){
    $results2 = $mysqli->query("INSERT INTO Analytics (account_id,webProperty_id,profile_id,PN,PV,SS,SSD,PVPSS,UPV,ATP,SSPU) VALUES ('$account','$webProperty','$profile','$pn','$pv','$ss','$ssd','$pvps','$upv','$atp','$sspu')");
-  // echo 'registro exitoso';
- /* $json_user_url ="https://www.googleapis.com/analytics/v3/data/ga?ids=ga%3A".$profile."&start-date=30daysAgo&end-date=yesterday&metrics=ga%3Apageviews";
-  $json_user= file_get_contents($json_user_url);
-  $links_user_url= json_decode($json_user);
 
-  $analyticsSubscribers = $links_user_url->response;
-  echo $analyticsSubscribers;*/
   }
 }
-/*
-if($_POST['tipo']== 'inscripcion'){
 
- 	$results2 = $mysqli->query("INSERT INTO rrss (rrss,descripcion_rrss,rrss_id,id_estado) VALUES ('$name','analytics','$id','0')");
-
-	//channelSubscribers = response.items[0].statistics.subscriberCount;
-	$visits = $links_user_url->rows[0];
-	echo $visits;
 }
-*/
+
 ?>

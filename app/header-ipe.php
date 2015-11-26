@@ -60,6 +60,7 @@
 		require('rrss/Facebook/facebook-auth.php');
 		require('rrss/googleplus/auth.php');
 		require('rrss/youtube/auth.php');
+		require('rrss/analytics/procesar_analytics.php');
 
 		if(isset($_SESSION['nombre'])==false){
 			header('Location:index.php');
