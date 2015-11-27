@@ -49,7 +49,7 @@
 		{
 		echo 'false';
 		}else{
-		$results = $mysqli->query("INSERT INTO persona (nombre, correo, id_tipo, picture_url, RS_id, oauth_id )VALUES ('$nombre', '$correo','$tipo', '$pictureUrl', '$rsid' , '$conn')");
+		$results = $mysqli->query("INSERT INTO persona (nombre, correo, id_tipo, picture_url, RS_id, oauth_id, fecha_ingreso )VALUES ('$nombre', '$correo','$tipo', '$pictureUrl', '$rsid' , '$conn' , '$hoyFormatted')");
 		echo 'primera';
 		}
 
@@ -73,7 +73,7 @@
 		{
 		echo 'false';
 		}else{
-		$results = $mysqli->query("INSERT INTO persona (nombre, correo, id_tipo, picture_url, RS_id, oauth_id )VALUES ('$nombre', '$correo','$tipo', '$pictureUrl', '$rsid' , '$conn')");
+		$results = $mysqli->query("INSERT INTO persona (nombre, correo, id_tipo, picture_url, RS_id, oauth_id )VALUES ('$nombre', '$correo','$tipo', '$pictureUrl', '$rsid' , '$conn', '$hoyFormatted')");
 		echo 'primera-ipe';
 		}
 	}

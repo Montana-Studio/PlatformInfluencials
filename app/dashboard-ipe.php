@@ -27,7 +27,7 @@
 			<nav class="nav-ipe2">
 				<ul>
 					<li class="active">Perfil</li>
-					<li>Campañas</li>
+					<li><a href="campanas-ipe.php">Campañas</a></li>
 				</ul>
 			</nav>
 

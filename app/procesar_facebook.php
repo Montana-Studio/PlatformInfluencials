@@ -57,7 +57,7 @@ echo $_POST['facebookPageName'];
 			echo 'false';
 		}*/
 		else{
-			$results = $mysqli->query("INSERT INTO persona (nombre, correo, id_tipo, picture_url,RS_id )VALUES ('$username', '$correo','$tipo', '$pictureUrl','$faceId')");
+			$results = $mysqli->query("INSERT INTO persona (nombre, correo, id_tipo, picture_url,RS_id, fecha_ingreso )VALUES ('$username', '$correo','$tipo', '$pictureUrl','$faceId', '$hoyFormatted')");
 			$query="SELECT * FROM persona p WHERE p.RS_id='$faceId'";
 			$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 			$num_row= mysqli_num_rows($result);
@@ -90,7 +90,7 @@ echo $_POST['facebookPageName'];
 			echo 'false';
 		}
 		else{
-			$results = $mysqli->query("INSERT INTO persona (nombre, correo, id_tipo, picture_url,RS_id )VALUES ('$username', '$correo','$tipo', '$pictureUrl','$faceId')");
+			$results = $mysqli->query("INSERT INTO persona (nombre, correo, id_tipo, picture_url,RS_id, fecha_ingreso)VALUES ('$username', '$correo','$tipo', '$pictureUrl','$faceId', '$hoyFormatted')");
 			$query="SELECT * FROM persona p WHERE p.RS_id='$faceId'";
 			$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 			$num_row= mysqli_num_rows($result);
