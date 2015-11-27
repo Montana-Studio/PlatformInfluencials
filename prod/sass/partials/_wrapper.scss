@@ -151,6 +151,94 @@ html{
 				}
 			}
 		}
+		.ui-datepicker{
+			background:{color: #fff}
+			border:1px solid $color_grey;
+			@include borderRadius(3);
+			max-width: em(220);
+			.ui-datepicker-header{
+				@include fill-parent();
+				@include row(table);
+				position:relative;
+				overflow: hidden;
+				a{
+					@include span-columns(6);
+					@include reset-display;
+					@include pad();
+					font:{family: FontAwesome;}
+					position:relative;
+					z-index: 2;
+					color:$color_grey;
+					span{
+						display: none;
+					}
+					&.ui-datepicker-prev{
+						&::before{
+							content:"\f104";
+						}
+					}
+					&.ui-datepicker-next{
+						@include textAligns(right);
+						&::before{
+							content:"\f105";
+						}
+					}
+				}
+				.ui-datepicker-title{
+					width:100%;
+					position:absolute;
+					z-index: 1;
+					left:0;
+					top:0;
+					@include textAligns(center);
+					font:{size:em(13);weight:bold;}
+					padding:{top:em(5);}
+					color:$color_grey;
+				}
+			}
+			.ui-datepicker-calendar{
+				@include span-columns(12);
+				thead{
+					@include span-columns(12);
+					background:{color:$color_grey;}
+					padding:em(5) 0;
+					tr{
+						@include span-columns(12);
+						th{
+							@include span-columns(1.7);
+							@include pad();
+							font:{size:em(8)}
+							@include textAligns(center);
+							text:{transform:uppercase;}
+						}
+					}
+				}
+				tbody{
+					@include span-columns(12);
+					tr{
+						@include span-columns(12);
+						@include row(table);
+						border:{spacing: 0;}
+						border:{top:1px solid $color_grey;}
+						td{
+							@include span-columns(1.7);
+							@include reset-display;
+							@include pad(3);
+							@include textAligns(center);
+							font:{size:em(12)}
+							color:$color_grey;
+							border:{right:1px solid $color_grey;}
+							a{
+								color:$color_font2;
+							}
+							&:nth-child(7){
+								border:none;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 	//MEDIA QUERIES
 	@include media($tabletLandTonotebook){

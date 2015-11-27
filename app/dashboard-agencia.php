@@ -56,8 +56,10 @@ if ((int)$row[0] > 0){ ?>
 							<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
 
 							<div class="campana-data">
-								<span class="campa-ico"><i class="fa fa-cog"></i>Publicada</span>
-								<span class="campa-ico"><i class="fa fa-calendar"></i>02 Octubre 2015</span>
+								<span class="campa-ico activada"><i class="fa fa-cog"></i>Publicada</span>
+								<span class="campa-ico fecha-activada">
+									<i class="fa fa-calendar"> Inicio </i><span>'.$row[7].'</span> al <span>'.$row[8].'</span>
+								</span>
 								<p id="campana'.$row[0].'">'.$row[2].'</p>
 							</div>
 

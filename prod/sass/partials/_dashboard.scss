@@ -113,7 +113,7 @@
 				@include row();
 				@include pad(0);
 				li{
-					@include span-columns(4.18 of 12);
+					@include span-columns(3.18 of 12);
 					@include pad(0 15px);
 					@include omega();
 					@include textAligns(center);
@@ -126,6 +126,9 @@
 					&:first-child{
 						@include border-left-radius(5px);
 						border:{left:1px solid $color_font2;right:1px solid $color_font2;}
+					}
+					&:nth-child(2){
+						border:{right:1px solid $color_font2;}
 					}
 					&:last-child{
 						@include border-right-radius(5px);
@@ -155,16 +158,44 @@
 				}
 			}
 			.campa-ico{
-				@include span-columns(5 of 12);
+				@include span-columns(6 of 12);
+				@include omega();
 				@include pad();
 				color:$color_grey;
 				font:{size:11px;}
+				overflow: hidden;
+				position:relative;
 				&:first-child{
 					@include span-columns(4 of 12);
 					text:{transform:uppercase;}
 				}
 				i{
 					margin:{right:3px;}
+					&.fecha-edit{
+						position:absolute;
+						color:$color_font2;
+						right:1px;
+						top:7px;
+						@extend .hide;
+						font:{size:12px;}
+					}
+				}
+				input{
+					border:none;
+					outline:none;
+					color:$color_font2;
+					width:50%;
+				}
+				&.activada{
+					@include span-columns(3 of 12);
+					@include pad(5px 0);
+				}
+				&.fecha-activada{
+					@include span-columns(7 of 12);
+					@include pad(5px 0);
+					span{
+						color:$color_font2;
+					}
 				}
 			}
 			p{

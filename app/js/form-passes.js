@@ -753,7 +753,7 @@ $(function() {
 	var tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
 	//var dateToday = new Date();
 	//dateToday++;
-	$( "#datepicker" ).datepicker({dateFormat: "dd MM yy", firstDay:1, minDate: tomorrow});
+	$( "#datepicker" ).datepicker({dateFormat: "dd MM yy", firstDay:1, minDate: tomorrow,dayNamesMin:["dom","lun","mar","mie","jue","vie","sab"]});
 });
 
 

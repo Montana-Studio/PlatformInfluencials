@@ -99,7 +99,7 @@ jQuery(document).ready(function($){
 	//EDITAR CAMAÑAS
 	$('.content .tools-campana .edit-campanas').on('click',function(){
 		$('.content input, .content textarea').css({'border-bottom':'1px solid #ccc'}).removeAttr('disabled');
-		$('.content .inputs-campana i').show();
+		$('.content .inputs-campana i, .content .campa-ico .fecha-edit').show();
 		$('div.jfilestyle').slideDown();
 	});
 

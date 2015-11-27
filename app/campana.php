@@ -187,6 +187,9 @@
 										<li class="activar-campana" type="1" id="'.$row[0].'" >
 											<i class="tool-ico fa fa-remove"></i><span class="tool-txt"> desactivar</span>
 										</li>
+										<li class="cotizar-campana" style="border-left:none;">
+											<i class="tool-ico fa fa fa-users"></i><a class="tool-txt ir_a_cotizar_influenciador" id="'.$row[1].'">cotizar</a>
+										</li>
 									</ul>
 									<div class="inputs-campana nombre nombre-campana" id="'.$row[0].'">
 										<input placeholder="'.$row[1].'" disabled />
@@ -196,19 +199,16 @@
 										<input  placeholder="by '.$row[4].'" disabled />
 									</div>
 
-									<span class="campa-ico"><i class="fa fa-cog"></i>Activada</span>
+									<span class="campa-ico activada"><i class="fa fa-cog"></i>Activada</span>
 
 									
-									<span class="campa-ico"><i class="fa fa-calendar"> Inicio </i>'.$row[7].'
-									 <i class="fa fa-calendar"> - Término </i> '.$row[8].'</span>
+									<span class="campa-ico fecha-activada">
+										<i class="fa fa-calendar"> Inicio </i><span>'.$row[7].'</span> al <span>'.$row[8].'</span>
+									</span>
 															
 									
 									<div class="inputs-campana descripcion descripcion-campana" id="'.$row[0].'">
 										<textarea placeholder="descripcion" disabled>'.$row[2].'</textarea>
-									</div>
-
-									<div>
-										<a class="ir_a_cotizar_influenciador" id="'.$row[1].'">cotizar influenciadores</a>
 									</div>
 
 									<!--button class="guardar-campana" type="submit" id="guardar-campana-'.$row[0].'">Guardar Cambios en '.$row[1].'</button-->
@@ -252,6 +252,7 @@
 						<form class="campanaForm" id="'.$row2[0].'">
 
 							<ul class="tools-campana">
+								<li class="cotizar-campana"><i class="tool-ico fa fa-users"></i><a class="tool-txt ir_a_cotizar_influenciador" id="'.$row2[1].'">cotizar</a></li>
 								<li class="edit-campanas"><i class="tool-ico fa fa-pencil"></i><span class="tool-txt"> editar</span></li>
 								<li class="activar-campana" id="'.$row2[0].'" name="0"><i class="tool-ico fa fa-check"></i><span class="tool-txt"> activar</span></li>
 								<li class="btneliminar" id="'.$row2[0].'"><i class="tool-ico fa fa-trash-o"></i><span class="tool-txt"> eliminar</span></li>
@@ -268,19 +269,18 @@
 							</div>
 
 							<span class="campa-ico"><i class="fa fa-cog"></i>Desactivada</span>
-							
+
+							<span class="campa-ico">
+								<i class="fa fa-calendar"></i>
+								Fecha de término 
+								<input class="fecha_termino" type="text" id="datepicker" value="'.$row2[8].'">
+								<i class="fecha-edit fa fa-pencil"></i>
+							</span>
+
 
 							<div class="inputs-campana descripcion" id="descripcion-campana-'.$row2[0].'">
 								<textarea placeholder="descripcion" disabled>'.$row2[2].'</textarea>
 								<i class="fa fa-pencil"></i>
-							</div>
-
-							<div>
-								<a class="ir_a_cotizar_influenciador" id="'.$row2[1].'">cotizar influenciadores</a>
-							</div>
-
-							<div>
-								<span class="campa-ico"><i class="fa fa-calendar">Término <input class="fecha_termino" type="text" id="datepicker" value="'.$row2[8].'"></span></i>
 							</div>
 										
 							<script>

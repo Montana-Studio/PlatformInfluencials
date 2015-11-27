@@ -457,23 +457,10 @@ nav{
 					z-index: 1;
 				}
 				&.selects{
+					position:relative;
+					overflow:hidden;
 					select{
-						@include span-columns(12);
-						@include appearance(none);
-						font:{weight:bold;}
-						height:40px;
-						border: none;
-						border:{bottom:1px solid $color_grey}
-						margin:{bottom:5px;}
-				    box-shadow: none;
-				    background:{color: transparent;image: none;}
-						font:{size:12px;}
-						color:$color_font2;
-						position: relative;
-						z-index:2;
-						&:focus{
-							outline: none;
-						}
+						@extend .style-select;
 					}
 				}
 			}
