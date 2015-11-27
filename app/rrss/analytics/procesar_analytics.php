@@ -22,12 +22,9 @@
     };
 
     gapi.auth.authorize(authData, function(response) {
-    //  var authButton = document.getElementById('auth-button');
       if (response.error) {
-      //  authButton.hidden = false;
       }
       else {
-      //  authButton.hidden = true;
         queryAccounts();
       }
     });
@@ -52,62 +49,41 @@
   }
 
 
-  function printAccountSummaries(accounts) {
+  function printAccountSummaries(accounts){
     var paginas_analytics ="";
-    var paginas_analytics_nombre =""; 
+    var page_name_analytics ="";
+    var array_paginas_analytics = "" ;
+    var largo_array_paginas_analytics = "" ;
+    var array_paginas_analytics_nombre = "" ;
+    var largo_array_paginas_analytics_nombre = "" ;
     var tipo= "muestra_cuentas";
-    //$('#listado').show();
-    for (var i = 0, account; account = accounts[i]; i++) {
-     // $('#listado').append('<optgroup label='+account.name+'>');
+    for (var i = 0, account; account = accounts[i]; i++){
       if (account.webProperties) {
-        for (var j = 0, property; property = account.webProperties[j]; j++) {
+        for (var j = 0, property; property = account.webProperties[j]; j++){
           if (property.profiles) {
-            for (var k = 0, profile; profile = property.profiles[k]; k++) { 
-            // $('#listado').append('<option id='+account.id+' name='+property.id+' value = '+profile.id+'>'+property.name+' - '+profile.name+'</option>');
-            paginas_analytics_nombre += profile.name+",";
-            paginas_analytics += profile.id+",";
-            }
+            for (var k = 0, profile; profile = property.profiles[k]; k++){ 
+                page_name_analytics += profile.name+",";
+                paginas_analytics += profile.id+",";
+                array_paginas_analytics = paginas_analytics.split(",");
+                largo_array_paginas_analytics = array_paginas_analytics.length - 1;
+                array_paginas_analytics_nombre = page_name_analytics.split(",");
+                largo_array_paginas_analytics_nombre = array_paginas_analytics_nombre.length - 1;
+               
+             }
           }
-        //  $('#listado').append('</optgroup>');
         }
       }
-      // $('#listado').append('</optgroup>');
     }
 
-      $.ajax({  
-            type: "POST",  
-            url: "./rrss/analytics/procesar_listado_analytics.php",
-            data: "id_paginas_analytics="+paginas_analytics+"&paginas_analytics="+paginas_analytics_nombre+"&tipo="+tipo,
-              success: function(data){ 
-                console.log(data);
+     for( var l=0; l<largo_array_paginas_analytics;l++){
+       queryPageViews(array_paginas_analytics[l],array_paginas_analytics_nombre[l],tipo);
+       console.log("Consulta a queryPageViews = "+array_paginas_analytics[l],array_paginas_analytics_nombre[l],tipo);
+        if(l==largo_array_paginas_analytics-1)alert('Gracias por registrar sus redes');
+    }
 
-              }
-           });
-
-   // console.log(paginas_analytics);
-  }
-/*
-  function queryCoreReportingApi(profile) {
-    gapi.client.analytics.data.ga.get({
-      'ids': 'ga:'+profile,
-      'start-date': '90daysAgo',
-      'end-date': 'yesterday',
-      'metrics': 'ga:pageviews, ga:sessions, ga:sessionDuration, ga:pageviewsPerSession, ga:uniquePageviews, ga:avgTimeOnPage, ga:sessionsPerUser',
-      'dimensions' : 'ga:deviceCategory', 
-    })
-    .then(function(response) {
-      var formattedJson = JSON.stringify(response.result, null, 2);
-      document.getElementById('query-output').value = formattedJson;
-         obj = JSON.parse(formattedJson);
-         document.getElemetsByTag('p').value= obj.rows[0];
-        alert(obj.rows[0][1]);
-    })
-    .then(null, function(err) {
-        console.log(err);
-    });
   }
 
-   function queryPageViews(profile) {
+   function queryPageViews(profile,profile_name,tipo) {
       gapi.client.analytics.data.ga.get({
         'ids': 'ga:'+profile,
         'start-date': '90daysAgo',
@@ -118,60 +94,47 @@
       .then(function(response) {
         var formattedJson = JSON.stringify(response.result, null, 2);
         obj = JSON.parse(formattedJson);
-        document.getElementById('profileName').innerHTML ="Datos de "+ obj.profileInfo.profileName;
-        document.getElementById('pageviews-desktop').innerHTML = obj.rows[0][1];
-        document.getElementById('sessions-desktop').innerHTML = obj.rows[0][2];
-        document.getElementById('sessionDuration-desktop').innerHTML = parseInt(obj.rows[0][3]);
-        document.getElementById('pageviewsPerSession-desktop').innerHTML = parseFloat(obj.rows[0][4]).toFixed(2);
-        document.getElementById('uniquePageviews-desktop').innerHTML = obj.rows[0][5];
-        document.getElementById('avgTimeOnPage-desktop').innerHTML = parseInt(obj.rows[0][6]) + " segundos";
-        document.getElementById('sessionsPerUser-desktop').innerHTML = obj.rows[0][7];
-        document.getElementById('pageviews-mobile').innerHTML = obj.rows[1][1];
-        document.getElementById('sessions-mobile').innerHTML = obj.rows[1][2];
-        document.getElementById('sessionDuration-mobile').innerHTML = parseInt(obj.rows[1][3]);
-        document.getElementById('pageviewsPerSession-mobile').innerHTML = parseFloat(obj.rows[1][4]).toFixed(2);
-        document.getElementById('uniquePageviews-mobile').innerHTML = obj.rows[1][5];
-        document.getElementById('avgTimeOnPage-mobile').innerHTML = parseInt(obj.rows[1][6]) + " segundos";
-        document.getElementById('sessionsPerUser-mobile').innerHTML = obj.rows[1][7];
-        document.getElementById('pageviews-tablet').innerHTML = obj.rows[2][1];
-        document.getElementById('sessions-tablet').innerHTML = obj.rows[2][2];
-        document.getElementById('sessionDuration-tablet').innerHTML = parseInt(obj.rows[2][3]);
-        document.getElementById('pageviewsPerSession-tablet').innerHTML = parseFloat(obj.rows[2][4]).toFixed(2);
-        document.getElementById('uniquePageviews-tablet').innerHTML = obj.rows[2][5];
-        document.getElementById('avgTimeOnPage-tablet').innerHTML = parseInt(obj.rows[2][6]) + " segundos";
-        document.getElementById('sessionsPerUser-tablet').innerHTML = obj.rows[2][7];
-        document.getElementById('query-output').value = formattedJson;
-        $(document).ready(function(){
-             var name= $('#listado option:selected').val();
-            var account= $('#listado option:selected').attr('id');
-            var webProperty= $('#listado option:selected').attr('name');
-            var profile= $('#listado option:selected').attr('value');
-            var tipo="inscripcion";
-            //var PageName = $('#profileName').html();
-            var Pageviews = $('#pageviews').html();
-            var Sessions = $('#sessions').html();
-            var SessionsDuration = $('#sessionDuration').html();
-            var PageviewsPerSession = $('#pageviewsPerSession').html();
-            var UniquePageviews = $('#uniquePageviews').html();
-            var AvgTimeOnPage = $('#avgTimeOnPage').html();
-            var SessionsPerUser = $('#sessionsPerUser').html();
+        var pageviews_desktop = obj.rows[0][1];
+        var sessions_desktop= obj.rows[0][2];
+        var sessionDuration_desktop = parseInt(obj.rows[0][3]);
+        var pageviewsPerSession_desktop = parseFloat(obj.rows[0][4]).toFixed(2);
+        var uniquePageviews_desktop = obj.rows[0][5];
+        var avgTimeOnPage_desktop = parseInt(obj.rows[0][6]) + " segundos";
+        var sessionsPerUser_desktop = obj.rows[0][7];
+        var pageviews_mobile = obj.rows[1][1];
+        var sessions_mobile = obj.rows[1][2];
+        var sessionDuration_mobile = parseInt(obj.rows[1][3]);
+        var pageviewsPerSession_mobile = parseFloat(obj.rows[1][4]).toFixed(2);
+        var uniquePageviews_mobile = obj.rows[1][5];
+        var avgTimeOnPage_mobile = parseInt(obj.rows[1][6]) + " segundos";
+        var sessionsPerUser_mobile = obj.rows[1][7];
+        var pageviews_tablet = obj.rows[2][1];
+        var sessions_tablet = obj.rows[2][2];
+        var sessionDuration_tablet = parseInt(obj.rows[2][3]);
+        var pageviewsPerSession_tablet = parseFloat(obj.rows[2][4]).toFixed(2);
+        var uniquePageviews_tablet = obj.rows[2][5];
+        var avgTimeOnPage_tablet = parseInt(obj.rows[2][6]) + " segundos";
+        var sessionsPerUser_tablet  = obj.rows[2][7];
 
-            $.ajax({  
+        console.log(pageviews_desktop+sessions_desktop+sessionDuration_desktop+pageviewsPerSession_desktop);
+       $.ajax({  
             type: "POST",  
-            url: "procesar_listado_analytics.php",
-            data: "account="+account+"&webProperty="+webProperty+"&profile="+profile+"&tipo="+tipo+"&pn="+name+"&pv="+Pageviews+"&ss="+Sessions+"&ssd="+SessionsDuration+"&pvps="+PageviewsPerSession+"&upv="+UniquePageviews+"&atp="+AvgTimeOnPage+"&sspu="+SessionsPerUser,
+            url: "./rrss/analytics/procesar_listado_analytics.php",
+            data: "id_paginas_analytics="+profile+"&paginas_analytics="+profile_name+"&tipo="+tipo+"&pageviews_desktop="+pageviews_desktop+"&sessions_desktop="+sessions_desktop+"&sessionDuration_desktop="+sessionDuration_desktop+"&pageviewsPerSession_desktop="+pageviewsPerSession_desktop+"&uniquePageviews_desktop="+uniquePageviews_desktop+"&avgTimeOnPage_desktop="+avgTimeOnPage_desktop+"&sessionsPerUser_desktop="+sessionsPerUser_desktop+"&pageviews_mobile="+pageviews_mobile+"&sessions_mobile="+sessions_mobile+"&sessionDuration_mobile="+sessionDuration_mobile+"&pageviewsPerSession_mobile="+pageviewsPerSession_mobile+"&uniquePageviews_mobile="+uniquePageviews_mobile+"&avgTimeOnPage_mobile="+avgTimeOnPage_mobile+"&sessionsPerUser_mobile="+sessionsPerUser_mobile+"&pageviews_tablet="+pageviews_tablet+"&sessions_tablet="+sessions_tablet+"&sessionDuration_tablet="+sessionDuration_tablet+"&pageviewsPerSession_tablet="+pageviewsPerSession_tablet+"&uniquePageviews_tablet="+uniquePageviews_tablet+"&avgTimeOnPage_tablet="+avgTimeOnPage_tablet+"&sessionsPerUser_tablet="+sessionsPerUser_tablet,
               success: function(data){ 
-
               }
-           });
-        })
-        
+        });
+
+
       })
       .then(null, function(err) {
           console.log(err);
       });
   }
 
-  document.getElementById('auth-button').addEventListener('click', authorize);
-  */
+
+
+
+//  document.getElementById('auth-button').addEventListener('click', authorize);
+
 </script>

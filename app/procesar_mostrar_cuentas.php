@@ -16,8 +16,8 @@
 	<div class="red-title"><i class="fa fa-analytics"></i> <span class="red-name">Analytics</span> <i class="fa"></i></div>
 	<div class="rs-inscription">
 		<?php
-			if($num_row8 > 0){
-				//echo '<div class="reach-total">google plus reach <span>'.(int)$suma_googleplus.'</span></div>';
+			if($num_row9 > 0){
+				echo '<div class="reach-total">analytics reach <span>'.(int)$suma_analytics.'</span></div>';
 				echo $_SESSION['analytics'];
 
 			}

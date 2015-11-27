@@ -78,6 +78,45 @@
 		</head>
 		<body>";
 	}
+
+	if(basename($_SERVER['PHP_SELF'])=='campanas-ipe.php'){
+		muestra_header();
+		echo "
+		<script>
+			$(document).ready(function(){
+				var correo,nombre,correo,tel1,tel2,empresa;
+				var rsid = $('#RsId').val();
+				if (rsid != ''){
+				$('#correo input').removeAttr('disabled');
+				}
+				var foto=0;
+					$('#file').click(function(){
+						foto=1;
+				});
+			});
+		</script>
+		<script src='https://apis.google.com/js/client.js?onload=googleApiClientReady'></script>
+		";
+
+
+		if(isset($_SESSION['nombre'])==false){
+			header('Location:index.php');
+			die();
+		}
+		echo "<script id='facebook-sdk' src='js/facebook-login.js'></script>
+			<script>
+				jQuery(document).ready(function(){
+					$('title').append('Dashboard - ".$_SESSION['nombre']."');
+					$('html').css({'background-color':'#fff','background-image':'none'});
+					$('body').addClass('dashboard-ipe');
+				})
+			</script>
+
+		</head>
+		<body>";
+	}
+
+
 ?>
 <nav class="nav-ipe">
 	<ul>

@@ -3,20 +3,32 @@
 	 			$(document).ready(function(){
 
 					$(".estado_rs").click(function(){
-  					var id_activar_rs = this.id;
-  	 				var tipo = "activar_rs";
-  	 				var estado =parseInt(this.name);
-  	 				//alert(id_activar_rs+"-"+tipo+"-"+estado);
+            if(this.value == "analytics"){
+                var id_activar_rs = this.id;
+                var tipo = "activar_rs2";
+                var estado =parseInt(this.name);
+                $.ajax({
+                  type: "POST",
+                  url: "./rrss/procesar_activar_rs.php",
+                  data: "id_activar_rs="+id_activar_rs+"&estado="+estado+"&tipo="+tipo,
+                  success: function(data){
+                    window.location.reload();
+                  }
+                });
 
-						$.ajax({
-							type: "POST",
-							url: "./rrss/procesar_activar_rs.php",
-							data: "id_activar_rs="+id_activar_rs+"&estado="+estado+"&tipo="+tipo,
-							success: function(data){
-								//alert(data);
-								window.location.reload();
-							}
-						});
+            }else{
+                var id_activar_rs = this.id;
+                var tipo = "activar_rs";
+                var estado =parseInt(this.name);
+                $.ajax({
+                  type: "POST",
+                  url: "./rrss/procesar_activar_rs.php",
+                  data: "id_activar_rs="+id_activar_rs+"&estado="+estado+"&tipo="+tipo,
+                  success: function(data){
+                    window.location.reload();
+                  }
+                });
+            }
 
 					});
 				});
@@ -327,18 +339,24 @@
       $suma += $suma_googleplus;
     }
 /****************************************************************************************************
-            GOOGLEPLUS  GET REACH SUM
+            ANALYTICS  GET REACH SUM
 ****************************************************************************************************/
     $query8="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='analytics'";
     $result8=mysqli_query($mysqli,$query8)or die (mysqli_error());
     $row8= mysqli_fetch_array($result8, MYSQLI_BOTH);
     $num_row8=mysqli_num_rows($result8);
 
+    
+    $query9="SELECT DISTINCT * FROM Analytics WHERE persona_id=".$_SESSION['id']." ORDER BY PVMBL DESC";
+    $result9=mysqli_query($mysqli,$query9)or die (mysqli_error());
+    $row9= mysqli_fetch_array($result9, MYSQLI_BOTH);
+    $num_row9=mysqli_num_rows($result9);
+
     //$googleplusKey ="AIzaSyDBMZsybp7GcJdmqdhgGDn-jRkGo9jyD-c";
     $_SESSION['analytics']="";
-    if($num_row8>0){
+    if($num_row9>0){
       do{
-        if ($row8[5] == 0){
+        if ($row9[3] == 0){
           $estado= 0;
           $estado_descripcion="activar";
         }else{
@@ -346,20 +364,97 @@
           $estado_descripcion="desactivar";
         }
 
+        if ($row9[3] == 1){
+          $suma_analytics+=$row9[7]+$row9[14]+$row9[21];
+        }
+
+        $reach_page = $row9[7]+$row9[14]+$row9[21];
+
         $_SESSION['analytics'] .= "
           <div class='red-info'>
-          <h3>".$row8[8]."</h3>
-          <ul>
-          <!--li>Followers<br><span>".(int)$googleplusSubscriber."</span></li-->
-          </ul>
-          <!--button class='estado_rs' name='".$estado."' id='".$row8[8]."'>".$estado_descripcion."</button-->
-          <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
-          <div class='onoffswitch'>
-              <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs onoffswitch-checkbox' id='".$googleplusId."'>
-              <label class='btn".$estado_descripcion." onoffswitch-label' for='".$row8[8]."'></label>
-          </div>
+            <h3>".$row9[6]." reach total ".$reach_page."</h3>
+            <ul>
+              <div class='red-info'>
+                <h5>Desktop</h5>
+                <ul>
+                  <li>Page Views : <span></span>".$row9[7]."</li>
+                </ul>
+                <ul>
+                  <li>Sessions : <span></span>".$row9[8]."</li>
+                </ul>
+                <!--ul>
+                  <li>Session Duration : <span></span>".$row9[9]."</li>
+                </ul-->
+                <!--ul> 
+                  <li>Page Views Per User : <span></span>".$row9[10]."</li>
+                </ul-->
+                <ul>
+                  <li>Unique Page Views : <span></span>".$row9[11]."</li>
+                </ul>
+                <ul>
+                  <li>Average Time On Page : <span></span>".$row9[12]."</li>
+                </ul>
+                <!--ul>
+                  <li>Sessions Per User : <span></span>".$row9[13]."</li>
+                </ul-->
+              </div>
+              <div class='red-info'>
+                <h5>Mobile</h5>
+                <ul>
+                  <li>Page Views : <span></span>".$row9[14]."</li>
+                </ul>
+                <ul>
+                  <li>Sessions : <span></span>".$row9[15]."</li>
+                </ul>
+                <!--ul>
+                  <li>Session Duration : <span></span>".$row9[16]."</li>
+                </ul-->
+                <!--ul> 
+                  <li>Page Views Per User : <span></span>".$row9[17]."</li>
+                </ul-->
+                <ul>
+                  <li>Unique Page Views : <span></span>".$row9[18]."</li>
+                </ul>
+                <ul>
+                  <li>Average Time On Page : <span></span>".$row9[19]."</li>
+                </ul>
+                <!--ul>
+                  <li>Sessions Per User : <span></span>".$row9[20]."</li>
+                </ul-->
+              </div>
+              <div class='red-info'>
+                <h5>Tablet</h5>
+                <ul>
+                  <li>Page Views : <span></span>".$row9[21]."</li>
+                </ul>
+                <ul>
+                  <li>Sessions : <span></span>".$row9[22]."</li>
+                </ul>
+                <!--ul>
+                  <li>Session Duration : <span></span>".$row9[23]."</li>
+                </ul-->
+                <!--ul> 
+                  <li>Page Views Per User : <span></span>".$row9[24]."</li>
+                </ul-->
+                <ul>
+                  <li>Unique Page Views : <span></span>".$row9[25]."</li>
+                </ul>
+                <ul>
+                  <li>Average Time On Page : <span></span>".$row9[26]."</li>
+                </ul>
+                <!--ul>
+                  <li>Sessions Per User : <span></span>".$row9[27]."</li>
+                </ul-->
+              </div>
+
+            </ul>
+            <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
+            <div class='onoffswitch'>
+                <input type='checkbox' name='".$estado."' value='analytics' class='btn".$estado_descripcion." estado_rs onoffswitch-checkbox' id='".$row9[4]."'>
+                <label class='btn".$estado_descripcion." onoffswitch-label' for='".$row9[4]."'></label>
+            </div>
           </div>";
-      }while($row8 = $result8->fetch_array());
+      }while($row9 = $result9->fetch_array());
       $suma += $suma_analytics;
     }
 
