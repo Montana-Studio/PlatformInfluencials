@@ -13,7 +13,7 @@
 		}
 	?>
 
-	<div class="red-title"><i class="fa fa-analytics"></i> <span class="red-name">Analytics</span> <i class="fa"></i></div>
+	<div class="red-title"><i class="fa fa-google"></i> <span class="red-name">Analytics</span> <i class="fa"></i></div>
 	<div class="rs-inscription">
 		<?php
 			if($num_row9 > 0){
