@@ -7,7 +7,7 @@
 	}
 
 	function muestra_header(){
-		echo 	'<!DOCTYPE html>
+		echo '<!DOCTYPE html>
 		<html lang="es">
 		<head>
 			<meta charset="UTF-8">
@@ -30,7 +30,7 @@
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 			<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-			<script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+			<script type="text/javascript" src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 		';
 	}
 
@@ -39,7 +39,11 @@
 
 		echo "
 		<script>
-			$(document).ready(function(){
+			jQuery(document).ready(function(){
+				$('title').append('Dashboard - ".$_SESSION['nombre']."');
+				$('html').css({'background-color':'#fff','background-image':'none'});
+				$('body').addClass('dashboard-ipe');
+
 				var correo,nombre,correo,tel1,tel2,empresa;
 				var rsid = $('#RsId').val();
 				if (rsid != ''){
@@ -67,13 +71,6 @@
 			die();
 		}
 		echo "<script id='facebook-sdk' src='js/facebook-login.js'></script>
-			<script>
-				jQuery(document).ready(function(){
-					$('title').append('Dashboard - ".$_SESSION['nombre']."');
-					$('html').css({'background-color':'#fff','background-image':'none'});
-					$('body').addClass('dashboard-ipe');
-				})
-			</script>
 
 		</head>
 		<body>";

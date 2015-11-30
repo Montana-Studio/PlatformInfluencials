@@ -129,13 +129,14 @@ nav{
 			padding:{top:5px;}
 			li{
 				@include span-columns(8);
-				font-size: 15px;
+				font:{size: 15px !important;}
 				color:#fff;
 				border:none;
 				h1{
 					margin:0;
 					font:{size:14px;weight:normal}
 					text:{transform:capitalize;}
+					@include textAligns(center);
 				}
 				a{
 					width: 100%;
@@ -147,6 +148,7 @@ nav{
 				}
 				&:last-child{
 					@include span-columns(2);
+					color:#fff;
 				}
 			}
 		}
@@ -457,23 +459,10 @@ nav{
 					z-index: 1;
 				}
 				&.selects{
+					position:relative;
+					overflow:hidden;
 					select{
-						@include span-columns(12);
-						@include appearance(none);
-						font:{weight:bold;}
-						height:40px;
-						border: none;
-						border:{bottom:1px solid $color_grey}
-						margin:{bottom:5px;}
-				    box-shadow: none;
-				    background:{color: transparent;image: none;}
-						font:{size:12px;}
-						color:$color_font2;
-						position: relative;
-						z-index:2;
-						&:focus{
-							outline: none;
-						}
+						@extend .style-select;
 					}
 				}
 			}
@@ -521,6 +510,9 @@ nav{
 						right:inherit;
 						@include span-columns(1);
 						font:{size:em(22);}
+						&.fa-google{
+							color:#f05721;
+						}
 						&.fa-instagram{
 							color:#517fa4;
 						}
