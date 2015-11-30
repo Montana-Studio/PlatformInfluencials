@@ -80,55 +80,55 @@
 		</div>';
 	}
 
-		if ($num_row2 > 0){
-		$campanas_activas .= '<div class="creadas">';
+		/*if ($num_row4 > 0){
+		$campanas_historial .= '<div class="creadas">';
 		do{
-			$campanas_activas .= '
+			$campanas_historial .= '
 			<div class="recientes">
 						<div class="cont-campana">
-							<div class="bg-campana" style="background-image:url('.$row2[3].');">
-								<h3>'.$row2[1].'<span>by '.$row2[4].'</span></h3>
+							<div class="bg-campana" style="background-image:url('.$row4[3].');">
+								<h3>'.$row4[1].'<span>by '.$row4[4].'</span></h3>
 								<div class="edit-campana" style="display:none;float:left;clear:both;"></div>
 							</div>
 							<div class="ver-mas"><span><i class="fa fa-angle-down"></i><i class="fa fa-plus"></i></span></div>
 
 							<div class="content">
 								<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
-								<form class="campanaForm" id="'.$row2[0].'">
+								<form class="campanaForm" id="'.$row4[0].'">
 
-									<div class="inputs-campana nombre nombre-campana" id="'.$row2[0].'">
-										<input placeholder="'.$row2[1].'" disabled />
+									<div class="inputs-campana nombre nombre-campana" id="'.$row4[0].'">
+										<input placeholder="'.$row4[1].'" disabled />
 									</div>
 
-									<div class="inputs-campana marca marca-campana" id="'.$row2[0].'">
-										<input  placeholder="by '.$row2[4].'" disabled />
+									<div class="inputs-campana marca marca-campana" id="'.$row4[0].'">
+										<input  placeholder="by '.$row4[4].'" disabled />
 									</div>
 
-									<span class="campa-ico"><i class="fa fa-calendar"> Inicio'.$row2[7].'- Término '.$row2[8].'</i></span>
-									<div class="inputs-campana descripcion descripcion-campana" id="'.$row2[0].'">
-										<textarea placeholder="descripcion" disabled>'.$row2[2].'</textarea>
+									<span class="campa-ico"><i class="fa fa-calendar"> Inicio'.$row4[7].'- Término '.$row4[8].'</i></span>
+									<div class="inputs-campana descripcion descripcion-campana" id="'.$row4[0].'">
+										<textarea placeholder="descripcion" disabled>'.$row4[2].'</textarea>
 									</div>
 
 									<div id="ingresar_urls">
 									<h3>Ingresa tus URLs marcadas</h3>';
 									do{
-									$campanas_activas .='
+									$campanas_historial .='
 										<h3>'.$row3[0].'</h3>
 										<input></input>';
 									}while($row3 = mysqli_fetch_row($result3));
-									$campanas_activas .= '
+									$campanas_historial .= '
 									<button class="btns" type="submit" id="enviar_url">Enviar URLs</button>
 									</div>
 								</form>
 								<div class="img-compana-deskt hide">
-										<img src="'.$row2[3].'"/>
+										<img src="'.$row4[3].'"/>
 								</div>
 							</div>
 						</div>
 					</div>
 			';
-		}while($row2 = mysqli_fetch_row($result2));
-		$campanas_activas .= '
+		}while($row4 = mysqli_fetch_row($result4));
+		$campanas_historial .= '
 		</div>';
 	}else{
 		$campanas_historial = '
@@ -137,5 +137,5 @@
 						No registra campañas asociadas
 						</div>
 		</div>';
-	}
+	}*/
 ?>

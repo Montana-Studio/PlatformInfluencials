@@ -5,7 +5,7 @@
 			echo '
 					<div id="campanas-postulables">
 						<select>a
-							<option selected="selected" disabled>'.$_GET["campana"].'</option>
+							<option selected="selected" id="'.$_GET["id"].'" disabled>'.$_GET["campana"].'</option>
 						</select>
 					</div>';
 
@@ -80,16 +80,15 @@
 					var correo_agencia = "'.$_SESSION["correo"].'";
 					var influenciador = this.name;
 					var campana = $("#campanas-postulables option:selected").val();
+					var campana_id = $("#campanas-postulables option:selected").attr("id");
 					if(campana =="Seleccione campaña") campana = "Sin especificar";
-					
-					console.log(campana);
 					for(var i=0; i<array_id_influenciadores_seleccionados.length; i++){
 						var influenciador_id=array_id_influenciadores_seleccionados[i];
 						var influenciador= array_nombre_influenciadores_seleccionados[i];
 						$.ajax({
 							type: "POST",
 							url: "contactar.php",
-							data: "agencia="+agencia+"&correo_agencia="+correo_agencia+"&influenciador="+influenciador+"&influenciador_id="+influenciador_id+"&campana="+campana,
+							data: "agencia="+agencia+"&correo_agencia="+correo_agencia+"&influenciador="+influenciador+"&influenciador_id="+influenciador_id+"&campana="+campana+"&id_campana="+campana_id,
 							success: function(data){
 								$("#campanas-postulables").hide();
 								$("#campanas-postulables").show();
