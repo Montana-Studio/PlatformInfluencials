@@ -152,8 +152,9 @@
 
 					$(".ir_a_cotizar_influenciador").click(function(){
 						var campana_seleccionada=this.id;
+						var campana_seleccionada_id=this.name;
 						//console.log(campana_seleccionada);
-						window.location.replace("influenciador-publico.php?campana="+campana_seleccionada);
+						window.location.replace("influenciador-publico.php?campana="+campana_seleccionada+"&id="+campana_seleccionada_id);
 						//location.href("influenciador-publico.php?"+campana_seleccionada);
 
 					});
@@ -208,7 +209,7 @@
 									</div>
 
 									<div>
-										<a class="ir_a_cotizar_influenciador" id="'.$row[1].'">cotizar influenciadores</a>
+										<a class="ir_a_cotizar_influenciador" name="'.$row[0].'" id="'.$row[1].'">cotizar influenciadores</a>
 									</div>
 
 									<!--button class="guardar-campana" type="submit" id="guardar-campana-'.$row[0].'">Guardar Cambios en '.$row[1].'</button-->
@@ -276,7 +277,7 @@
 							</div>
 
 							<div>
-								<a class="ir_a_cotizar_influenciador" id="'.$row2[1].'">cotizar influenciadores</a>
+								<a class="ir_a_cotizar_influenciador" name="'.$row[0].'" id="'.$row2[1].'">cotizar influenciadores</a>
 							</div>
 
 							<div>

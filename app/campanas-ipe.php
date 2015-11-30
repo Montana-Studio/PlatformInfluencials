@@ -40,12 +40,14 @@
 			<div id="tabscontent">
 				<div id="fragment-1" class="tabpage">
 				<?php
-					include("procesar_mostrar_campanas_en_ipe.php");
+					require("procesar_mostrar_campanas_en_ipe.php");
 					echo $campanas_activas;
 				?>
 				</div>
 				<div id="fragment-2" class="tabpage">
-				
+				<?php
+					//echo $campanas_historial;
+				?>
 				</div>
 			</div>
 		</div>
