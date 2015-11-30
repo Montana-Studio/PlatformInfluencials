@@ -10,16 +10,16 @@
 		$row2= mysqli_fetch_array($result2, MYSQLI_BOTH);
 		$num_row2=mysqli_num_rows($result2);
 
-		$query3="SELECT DISTINCT descripcion_rrss FROM rrss WHERE persona_id= '".$_SESSION['id']."'";
+		/*$query3="SELECT DISTINCT descripcion_rrss FROM rrss WHERE persona_id= '".$_SESSION['id']."'";
 		$result3=mysqli_query($mysqli,$query3)or die (mysqli_error());
 		$row3= mysqli_fetch_array($result3, MYSQLI_BOTH);
 		$num_row3=mysqli_num_rows($result3);
 
 		$query4="SELECT DISTINCT * FROM campana WHERE id= (SELECT DISTINCT id_campana FROM solicitudes WHERE id_influenciador='".$_SESSION['id']."') AND idEstado='0'";
 		$result4=mysqli_query($mysqli,$query4)or die (mysqli_error());
-		$ro4= mysqli_fetch_array($result4, MYSQLI_BOTH);
+		$row4= mysqli_fetch_array($result4, MYSQLI_BOTH);
 		$num_row4=mysqli_num_rows($result4);
-
+*/
 
 	if ($num_row2 > 0){
 		$campanas_activas .= '<div class="creadas">';
@@ -79,8 +79,9 @@
 						</div>
 		</div>';
 	}
+	/*
 
-		/*if ($num_row4 > 0){
+		if ($num_row4 > 0){
 		$campanas_historial .= '<div class="creadas">';
 		do{
 			$campanas_historial .= '
@@ -137,5 +138,6 @@
 						No registra campañas asociadas
 						</div>
 		</div>';
-	}*/
+	}
+	*/
 ?>
