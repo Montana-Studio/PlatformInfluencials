@@ -113,4 +113,6 @@ jQuery(document).ready(function($){
 		heightStyle: 'content',
 		collapsible: true
 	});
+
+	
 });

@@ -353,7 +353,25 @@
     $num_row9=mysqli_num_rows($result9);
 
     //$googleplusKey ="AIzaSyDBMZsybp7GcJdmqdhgGDn-jRkGo9jyD-c";
-    $_SESSION['analytics']="";
+    //$json_query= json_encode($row9);
+    $r07= json_encode($row9[7]);
+    $r21= json_encode($row9[21]);
+    $r14= json_encode($row9[14]);
+    $r15= json_encode($row9[15]);
+    $r08= json_encode($row9[8]);
+    $r09= json_encode($row9[9]);
+    $r10= json_encode($row9[10]);
+    $r11= json_encode($row9[11]);
+    $r17= json_encode($row9[17]);
+    $r18= json_encode($row9[18]);
+    $r16= json_encode($row9[16]);
+    $r22= json_encode($row9[22]);
+    $r23= json_encode($row9[23]);
+    $r24= json_encode($row9[24]);
+    $datas = '[["Dispositivo","PagesViews"],["Desktop" ,'.substr($r07, 1, -1).'],["Tablet" ,'.substr($r21, 1, -1).'],["Mobile",'.substr($r14, 1, -1).']]';
+    //echo $json_query;
+
+    $_SESSION["analytics"]="";
     if($num_row9>0){
       do{
         if ($row9[3] == 0){
@@ -373,54 +391,160 @@
         $_SESSION['analytics'] .= "
           <div class='red-info'>
             <h3>".$row9[6]." reach total ".$reach_page."</h3>
+            <script>
+              google.load('visualization', '1', {packages:['corechart']});
+              google.setOnLoadCallback(drawChart);
+              function drawChart(){
+
+                var data = google.visualization.arrayToDataTable([
+                  ['Devices', 'PageView'],
+                  ['Desktop',".substr($r07, 1, -1)."],
+                  ['Tablet',      ".substr($r21, 1, -1)."],
+                  ['Mobile',  ".substr($r14, 1, -1)."],
+                ]);
+
+                var data2 = google.visualization.arrayToDataTable([
+                   ['Metrics', 'Desktop', 'Tablet', 'Mobile'],
+                   ['Page Views',  ".substr($r07, 1,-1).",".substr($r21, 1,-1).",".substr($r14, 1,-1)."],
+                   ['Sessions',  ".substr($r09, 1,-1).", ".substr($r22, 1,-1).",".substr($r15, 1,-1)."],
+                   ['Session Duration',  ".substr($r10, 1,-1).",".substr($r23, 1,-1).", ".substr($r16, 1,-1)."],
+                   ['Page Views Per User',  ".substr($r11, 1,-1).",".substr($r24, 1,-1).",".substr($r17, 1,-1)."],
+                   ['Unique Page Views',  ".substr($r12, 1,-1).",".substr($r25, 1,-1).",".substr($r18, 1,-1)."]
+                ]);
+                
+
+                var options = {
+                  title:'false',
+                  pieHole:0.6,
+                  colors: ['#009dce', '#67b8de', '#91c9e8'],
+                  tooltip: {trigger: 'none'},
+                  legend: {position:'bottom',alignment:'left'},
+                  charArea:{width:'100%',height:'100%'},
+                  titlePosition: 'none'
+                };
+                var options2 = {
+                  title : 'Monthly Coffee Production by Country',
+                  vAxis: {title: 'Cups'},
+                  hAxis: {title: 'Month'},
+                  seriesType: 'bars',
+                  series: {5: {type: 'line'}}
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                var chart2 = new google.visualization.ComboChart(document.getElementById('piecharts'));
+
+                chart.draw(data, options);
+                chart2.draw(data2, options2);
+              }
+              $(document).ready(function(){
+                var ctx = $('#myChart').get(0).getContext('2d');
+                var myLineChart = new Chart(ctx).Line(data, options);
+                var data = {
+                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                    datasets: [
+                        {
+                            label: 'My First dataset',
+                            fillColor: 'rgba(220,220,220,0.2)',
+                            strokeColor: 'rgba(220,220,220,1)',
+                            pointColor: 'rgba(220,220,220,1)',
+                            pointStrokeColor: '#fff',
+                            pointHighlightFill: '#fff',
+                            pointHighlightStroke: 'rgba(220,220,220,1)',
+                            data: [65, 59, 80, 81, 56, 55, 40]
+                        },
+                        {
+                            label: 'My Second dataset',
+                            fillColor: 'rgba(151,187,205,0.2)',
+                            strokeColor: 'rgba(151,187,205,1)',
+                            pointColor: 'rgba(151,187,205,1)',
+                            pointStrokeColor: '#fff',
+                            pointHighlightFill: '#fff',
+                            pointHighlightStroke: 'rgba(151,187,205,1)',
+                            data: [28, 48, 40, 19, 86, 27, 90]
+                        }
+                    ]
+                };
+                var options = {
+
+                    ///Boolean - Whether grid lines are shown across the chart
+                    scaleShowGridLines : true,
+
+                    //String - Colour of the grid lines
+                    scaleGridLineColor : 'rgba(0,0,0,.05)',
+
+                    //Number - Width of the grid lines
+                    scaleGridLineWidth : 1,
+
+                    //Boolean - Whether to show horizontal lines (except X axis)
+                    scaleShowHorizontalLines: true,
+
+                    //Boolean - Whether to show vertical lines (except Y axis)
+                    scaleShowVerticalLines: true,
+
+                    //Boolean - Whether the line is curved between points
+                    bezierCurve : true,
+
+                    //Number - Tension of the bezier curve between points
+                    bezierCurveTension : 0.4,
+
+                    //Boolean - Whether to show a dot for each point
+                    pointDot : true,
+
+                    //Number - Radius of each point dot in pixels
+                    pointDotRadius : 4,
+
+                    //Number - Pixel width of point dot stroke
+                    pointDotStrokeWidth : 1,
+
+                    //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
+                    pointHitDetectionRadius : 20,
+
+                    //Boolean - Whether to show a stroke for datasets
+                    datasetStroke : true,
+
+                    //Number - Pixel width of dataset stroke
+                    datasetStrokeWidth : 2,
+
+                    //Boolean - Whether to fill the dataset with a colour
+                    datasetFill : true,
+
+                    //String - A legend template
+                    //legendTemplate : '<ul class=\'<%=name.toLowerCase()%>-legend\'><% for (var i=0; i<datasets.length; i++){%><li><span style=\'background-color:<%=datasets[i].strokeColor%>\'></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>'
+
+                };
+              });
+            </script>
+
+            <div id='piechart' style='width:100%;min-height:300px;margin:0 auto;'></div>
+            <div id='piecharts' style='width:100%;min-height:300px;margin:0 auto;'></div>
+
             <ul>
               <div class='red-info'>
                 <h5>Desktop</h5>
+
+                <canvas id='myChart' width='400' height='400'></canvas>
+                
                 <ul>
                   <li>Page Views : <span></span>".$row9[7]."</li>
-                </ul>
-                <ul>
                   <li>Sessions : <span></span>".$row9[8]."</li>
-                </ul>
-                <!--ul>
                   <li>Session Duration : <span></span>".$row9[9]."</li>
-                </ul-->
-                <!--ul> 
                   <li>Page Views Per User : <span></span>".$row9[10]."</li>
-                </ul-->
-                <ul>
                   <li>Unique Page Views : <span></span>".$row9[11]."</li>
-                </ul>
-                <ul>
                   <li>Average Time On Page : <span></span>".$row9[12]."</li>
-                </ul>
-                <!--ul>
                   <li>Sessions Per User : <span></span>".$row9[13]."</li>
-                </ul-->
+                </ul>
               </div>
               <div class='red-info'>
                 <h5>Mobile</h5>
                 <ul>
                   <li>Page Views : <span></span>".$row9[14]."</li>
-                </ul>
-                <ul>
                   <li>Sessions : <span></span>".$row9[15]."</li>
-                </ul>
-                <!--ul>
                   <li>Session Duration : <span></span>".$row9[16]."</li>
-                </ul-->
-                <!--ul> 
                   <li>Page Views Per User : <span></span>".$row9[17]."</li>
-                </ul-->
-                <ul>
                   <li>Unique Page Views : <span></span>".$row9[18]."</li>
-                </ul>
-                <ul>
                   <li>Average Time On Page : <span></span>".$row9[19]."</li>
-                </ul>
-                <!--ul>
                   <li>Sessions Per User : <span></span>".$row9[20]."</li>
-                </ul-->
+                </ul>
               </div>
               <div class='red-info'>
                 <h5>Tablet</h5>

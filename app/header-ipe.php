@@ -56,6 +56,8 @@
 			});
 		</script>
 		<script src='https://apis.google.com/js/client.js?onload=googleApiClientReady'></script>
+		<script src='https://www.google.com/jsapi'></script>
+		<script src='http://www.chartjs.org/assets/Chart.min.js'></script>
 		";
 		require('conexion.php');
 		require('rrss/twitter/inc/twitteroauth.php');
@@ -71,7 +73,7 @@
 			die();
 		}
 		echo "<script id='facebook-sdk' src='js/facebook-login.js'></script>
-
+		
 		</head>
 		<body>";
 	}
