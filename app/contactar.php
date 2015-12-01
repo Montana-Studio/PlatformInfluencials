@@ -8,6 +8,7 @@ $influenciador_id = $_POST['influenciador_id'];
 $campana = $_POST['campana'];
 $id_campana = $_POST['id_campana'];
 $id_agencia = $_SESSION['id'];
+//$campana_seleccionada_id
  
 //echo $agencia.$correo_agencia.$influenciador.$influenciador_id;
 

@@ -80,7 +80,7 @@
 					var correo_agencia = "'.$_SESSION["correo"].'";
 					var influenciador = this.name;
 					var campana = $("#campanas-postulables option:selected").val();
-					var campana_id = $("#campanas-postulables option:selected").attr("id");
+					var id_campana = $("#campanas-postulables option:selected").attr("id");
 					if(campana =="Seleccione campaña") campana = "Sin especificar";
 					for(var i=0; i<array_id_influenciadores_seleccionados.length; i++){
 						var influenciador_id=array_id_influenciadores_seleccionados[i];
@@ -88,7 +88,7 @@
 						$.ajax({
 							type: "POST",
 							url: "contactar.php",
-							data: "agencia="+agencia+"&correo_agencia="+correo_agencia+"&influenciador="+influenciador+"&influenciador_id="+influenciador_id+"&campana="+campana+"&id_campana="+campana_id,
+							data: "agencia="+agencia+"&correo_agencia="+correo_agencia+"&influenciador="+influenciador+"&influenciador_id="+influenciador_id+"&campana="+campana+"&id_campana="+id_campana,
 							success: function(data){
 								$("#campanas-postulables").hide();
 								$("#campanas-postulables").show();

@@ -10,6 +10,11 @@
 		$row2= mysqli_fetch_array($result2, MYSQLI_BOTH);
 		$num_row2=mysqli_num_rows($result2);
 
+		$query_rrss="SELECT DISTINCT * FROM rrss WHERE persona_id='".$_SESSION['id']."' ";
+		$results_rrss=mysqli_query($mysqli,$query_rrss)or die (mysqli_error());
+		$row_rrss= mysqli_fetch_array($results_rrss, MYSQLI_BOTH);
+		$num_rows_rrss=mysqli_num_rows($results_rrss);
+
 
 if($num_row2>0){
 	
@@ -48,11 +53,11 @@ if($num_row2>0){
 
 							<div id="ingresar_urls">
 							<h3>Ingresa tus URLs marcadas</h3>';
-							/*do{
+							do{
 							$campanas_activas .='
-								<h3>'.$row3[0].'</h3>
+								<h3>'.$row_rrss[2].'</h3>
 								<input></input>';
-							}while($row3 = mysqli_fetch_row($result3));*/
+							}while($row_rrss = mysqli_fetch_row($results_rrss));
 							$campanas_activas .= '
 							<button class="btns" type="submit" id="enviar_url">Enviar URLs</button>
 							</div>
