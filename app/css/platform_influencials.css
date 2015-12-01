@@ -1213,10 +1213,16 @@ nav {
           font-size: 0.75em;
           text-transform: uppercase;
           color: #656b79; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info h4 {
+          clear: both;
+          margin-top: 20px;
+          text-transform: uppercase;
+          color: #656b79; }
         #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info ul {
           margin: 0;
           padding: 0;
-          list-style: none; }
+          list-style: none;
+          clear: both; }
           #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info ul li {
             float: left;
             display: block;

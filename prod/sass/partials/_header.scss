@@ -580,10 +580,17 @@ nav{
 							text:{transform:uppercase;}
 							color:$color_grey2;
 						}
+						h4{
+							clear:both;
+							margin:{top:20px;}
+							text:{transform:uppercase;}
+							color:$color_grey2;
+						}
 						ul{
 							margin:0;
 							@include pad(0);
 							list:{style:none;}
+							clear:both;
 							li{
 								@include span-columns(2);
 								color:$color_grey;

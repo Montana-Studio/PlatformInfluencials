@@ -376,6 +376,7 @@
         $r22= json_encode($row9[22]);
         $r23= json_encode($row9[23]);
         $r24= json_encode($row9[24]);
+        $r25= json_encode($row9[25]);
         $dias= intval(substr($r09, 1, -1)/86400)."d";
         if($dias == '0d') $dias ='';
          $horas=intval((substr($r09, 1, -1)%86400)/3600);
@@ -411,52 +412,78 @@
                     ['Metrics', 'Valor'],
                     ['Page Views', ".substr($r07, 1, -1)."],
                     ['Sessions', ".substr($r08, 1, -1)."],
-                    ['Unique Page Views', ".substr($r11, 1, -1)."],
-                    ['Average Time On Page', ".substr($r12, 1, -1)."]
+                    ['Unique Page Views', ".substr($r11, 1, -1)."]
+                  ]);
+
+                  var dataMobile = google.visualization.arrayToDataTable([
+                    ['Metrics', 'Valor'],
+                    ['Page Views', ".substr($r14, 1, -1)."],
+                    ['Sessions', ".substr($r15, 1, -1)."],
+                    ['Unique Page Views', ".substr($r18, 1, -1)."]
+                  ]);
+                  
+                  var dataTablet = google.visualization.arrayToDataTable([
+                    ['Metrics', 'Valor'],
+                    ['Page Views', ".substr($r21, 1, -1)."],
+                    ['Sessions', ".substr($r22, 1, -1)."],
+                    ['Unique Page Views', ".substr($r25, 1, -1)."]
                   ]);
 
                   var options = {
                     title: 'My Daily Activities',
                     pieHole: 0.6,
                     tooltip:{trigger:'none'},
+                    pieSliceText: 'value',
+                    pieSliceTextStyle:{color:'#000',position:'left',fontSize:16},
+                    chartArea:{left:0,right:0,top:10,width:'100%',height:'75%'},
+                    vAxis: {maxValue: 20},
                     colors: ['#3399cc', '#67b8de', '#91c9e8', '#b4dced'],
+                    legend:{position: 'right', textStyle: {fontSize: 12}},
+                    pieSliceBorderColor:'none',
+                    fontName:'Montserrat'
                   };
 
                   var chart = new google.visualization.PieChart(document.getElementById('chartContainer".$variable."'));
+                  var chartMobile = new google.visualization.PieChart(document.getElementById('chartContainerMobile".$variable."'));
+                  var chartTablet = new google.visualization.PieChart(document.getElementById('chartContainerTablet".$variable."'));
 
                   chart.draw(data, options);
+                  chartMobile.draw(dataMobile, options);
+                  chartTablet.draw(dataTablet, options);
                 }
               </script>
               <h4>Desktop</h4>
-              <div id='chartContainer".$variable."' style='height: 300px; width: 100%;'></div>
+              <div id='chartContainer".$variable."' style='width:100%;margin:0 auto;'></div>
               <ul>
-                <li>Page Views <br> <span>".$row9[7]."</span></li>
-                <li>Sessions <br> <span>".$row9[8]."</span></li>
-                <li>Session Duration <br> <span>".$dias." ".$horas.":".$minutos.":".$segundos."</span></li>
-                <li>Page Views Per User <br> <span>".$row9[10]."</span></li>
-                <li>Unique Page Views <br> <span>".$row9[11]."</span></li>
-                <li>Average Time On Page <br> <span>".$row9[12]."</span></li>
-                <li>Sessions Per User <br> <span>".$row9[13]."</span></li>
+                <!--li>Page Views <br> <span>".$row9[7]."</span></li-->
+                <!--li>Sessions <br> <span>".$row9[8]."</span></li-->
+                <!--li>Duracion Sesion <br> <span>".$dias." ".$horas.":".$minutos.":".$segundos."</span></li-->
+                <li>PageView x Usuario <br> <span>".$row9[10]."</span></li>
+                <!--li>Unique Page Views <br> <span>".$row9[11]."</span></li-->
+                <li>Tiempo en pagina <br> <span>".$row9[12]."</span></li>
+                <li>Sesiones x Usuario <br> <span>".$row9[13]."</span></li>
               </ul>
-              <br>
-              <h5>Mobile</h5>
+
+              <h4>Mobile</h4>
+              <div id='chartContainerMobile".$variable."' style='width:100%;margin:0 auto;'></div>
               <ul>
-                <li>Page Views <br> <span>".$row9[14]."</span></li>
-                <li>Sessions <br> <span>".$row9[15]."</span></li>
-                <li>Session Duration <br> <span>".$row9[16]."</span></li>
+                <!--li>Page Views <br> <span>".$row9[14]."</span></li-->
+                <!--li>Sessions <br> <span>".$row9[15]."</span></li-->
+                <!--li>Session Duration <br> <span>".$row9[16]."</span></li-->
                 <li>Page Views Per User <br> <span>".$row9[17]."</span></li>
-                <li>Unique Page Views <br> <span>".$row9[18]."</span></li>
+                <!--li>Unique Page Views <br> <span>".$row9[18]."</span></li-->
                 <li>Average Time On Page <br> <span>".$row9[19]."</span></li>
                 <li>Sessions Per User <br> <span>".$row9[20]."</span></li>
               </ul>
               <br>
-              <h5>Tablet</h5>
+              <h4>Tablet</h4>
+              <div id='chartContainerTablet".$variable."' style='width:100%;margin:0 auto;'></div>
               <ul>
-                <li>Page Views <br> <span>".$row9[21]."</span></li>
-                <li>Sessions <br> <span>".$row9[22]."</span></li>
-                <li>Session Duration <br> <span>".$row9[23]."</span></li>
+                <!--li>Page Views <br> <span>".$row9[21]."</span></li-->
+                <!--li>Sessions <br> <span>".$row9[22]."</span></li-->
+                <!--li>Session Duration <br> <span>".$row9[23]."</span></li-->
                 <li>Page Views Per User <br> <span>".$row9[24]."</span></li>
-                <li>Unique Page Views <br> <span>".$row9[25]."</span></li>
+                <!--li>Unique Page Views <br> <span>".$row9[25]."</span></li-->
                 <li>Average Time On Page <br> <span>".$row9[26]."</span></li>
                 <li>Sessions Per User <br> <span>".$row9[27]."</span></li>
               </ul>
