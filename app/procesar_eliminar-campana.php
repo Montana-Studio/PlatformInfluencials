@@ -50,7 +50,7 @@ if($_POST['tipo'] == "activar"){
 	}
 	else{
 		$idEstado = 1;
-		$actualiza= $mysqli->query("UPDATE campana SET idEstado='$idEstado' , fecha_inicio= '$hoyFormatted' WHERE id='$idActualizar'");
+		$actualiza= $mysqli->query("UPDATE campana SET idEstado='$idEstado' , fecha_inicio= '$hoyFormatted' , fecha_inicio_server=date(now()) WHERE id='$idActualizar'");
 	} 
 	
 	
