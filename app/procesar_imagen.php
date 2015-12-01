@@ -153,7 +153,7 @@ if ($tipo == 'avatar-ipe'){
   	if(valida_extension() == "ok"){
   		if ($a==1){ // Create directory to save the file in case of Social Login and first change on avatar image
   			//$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,imagenes,marca,idpersona) VALUES ('$nombre','$descripcion','uploads/agencias/registered/$rsid/$campana/1.jpg','$marca','$id')");
-  			$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,marca,idpersona, fecha_termino) VALUES ('$nombre','$descripcion','$marca','$id', '$fecha_termino')");
+  			$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,marca,idpersona, fecha_termino, fecha_termino_server) VALUES ('$nombre','$descripcion','$marca','$id', '$fecha_termino')");
   			$inicio_imagenes ='uploads/agencias/registered/'.$rsid.'/';
   			$fin_imagenes = '/1.jpg';
   			$results4 = $mysqli->query("SELECT id FROM campana  WHERE nombre = '$nombre' AND descripcion = '$descripcion' AND marca = '$marca' AND idpersona = '$id'");

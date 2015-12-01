@@ -34,21 +34,32 @@
 		</div>
 		<div id="tab-examp">
 			<ul id="tabs">
-				<li><a href="#fragment-1"><span>Activas</span></a></li>
-				<li><a href="#fragment-2"><span>Historial</span></a></li>
+				<li><a href="#fragment-1"><span>Actuales</span></a></li>
+				<li><a href="#fragment-2"><span>Finalizadas</span></a></li>
 			</ul>
 			<div id="tabscontent">
 				<div id="fragment-1" class="tabpage">
-				<?php
-					require("procesar_mostrar_campanas_en_ipe.php");
-					echo $campanas_activas;
-				?>
+			
+						<h2>Iniciadas</h2>
+						<?php
+							require("procesar_mostrar_campanas_en_ipe.php");
+							echo $campanas_activas;
+						?>
+						<h2>Por Iniciar</h2>
+						<?php
+							echo $campanas_inactivas;
+						?>
+			
+						
 				</div>
 				<div id="fragment-2" class="tabpage">
-				<?php
-					//echo $campanas_historial;
-				?>
-				</div>
+					
+					<h2>Finalizadas</h2>
+						<?php
+						//	require("procesar_mostrar_campanas_historial_en_ipe.php");
+						//	echo $campanas_historial;
+						?>
+				
 			</div>
 		</div>
 
