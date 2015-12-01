@@ -153,7 +153,8 @@
 					$(".ir_a_cotizar_influenciador").click(function(){
 						var campana_seleccionada=this.id;
 						var campana_seleccionada_id=this.name;
-						//console.log(campana_seleccionada);
+						alert(campana_seleccionada_id);
+
 						window.location.replace("influenciador-publico.php?campana="+campana_seleccionada+"&id="+campana_seleccionada_id);
 						//location.href("influenciador-publico.php?"+campana_seleccionada);
 
@@ -189,7 +190,7 @@
 											<i class="tool-ico fa fa-remove"></i><span class="tool-txt"> desactivar</span>
 										</li>
 										<li class="cotizar-campana" style="border-left:none;">
-											<i class="tool-ico fa fa fa-users"></i><a class="tool-txt ir_a_cotizar_influenciador" id="'.$row[1].'">cotizar</a>
+											<i class="tool-ico fa fa fa-users"></i><a class="tool-txt ir_a_cotizar_influenciador" name="'.$row[0].'" id="'.$row[1].'">cotizar</a>
 										</li>
 									</ul>
 									<div class="inputs-campana nombre nombre-campana" id="'.$row[0].'">
@@ -253,7 +254,7 @@
 						<form class="campanaForm" id="'.$row2[0].'">
 
 							<ul class="tools-campana">
-								<li class="cotizar-campana"><i class="tool-ico fa fa-users"></i><a class="tool-txt ir_a_cotizar_influenciador" id="'.$row2[1].'">cotizar</a></li>
+								<li class="cotizar-campana"><i class="tool-ico fa fa-users"></i><a class="tool-txt ir_a_cotizar_influenciador" name="'.$row2[0].'" id="'.$row2[1].'">cotizar</a></li>
 								<li class="edit-campanas"><i class="tool-ico fa fa-pencil"></i><span class="tool-txt"> editar</span></li>
 								<li class="activar-campana" id="'.$row2[0].'" name="0"><i class="tool-ico fa fa-check"></i><span class="tool-txt"> activar</span></li>
 								<li class="btneliminar" id="'.$row2[0].'"><i class="tool-ico fa fa-trash-o"></i><span class="tool-txt"> eliminar</span></li>
