@@ -57,7 +57,7 @@
 					<h2>Finalizadas</h2>
 						<?php
 						//	require("procesar_mostrar_campanas_historial_en_ipe.php");
-						//	echo $campanas_historial;
+							echo $campanas_historial;
 						?>
 				
 			</div>

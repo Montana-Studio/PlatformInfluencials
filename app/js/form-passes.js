@@ -2,6 +2,7 @@ $(document).ready(function(){
 
 	//INICIO SCRIPTS
 	var info;
+	var val = [];
 	if (window.location == 'http://local.mediatrends/_InfluencialsPlatform/htdocs/app/agencia.php'){
 		$("#tipoCliente").attr("value", "2");
 		$('.form_agencias').show();
@@ -62,7 +63,7 @@ $(document).ready(function(){
 	$('#ingresar').click(function(){
 		correo=$('#correo').val();
 		password=$('#password').val();
-		console.log(correo+password);
+		//console.log(correo+password);
 		//console.log(username);
 		$.ajax({
 			type: "POST",
@@ -103,7 +104,7 @@ $(document).ready(function(){
 		info.append('nutel1',$('.telefono1nuevo').val());
 		info.append('nutel2',$('.telefono2nuevo').val());
 		info.append('tipo','agencia');
-		console.log($('#contraseñanuevo').val());
+		//console.log($('#contraseñanuevo').val());
 		tipo=$('#perfil option').val();
 		var e = document.getElementById("perfil");
 		var perfil = e.options[e.selectedIndex].value;
@@ -379,6 +380,11 @@ $(document).ready(function(){
 		info.append('descripcion',$('#descripcion-nueva-campana').val());
 		info.append('fecha_termino',$('.fecha_termino').val())
 		info.append('tipo','campana');
+        $(':checkbox:checked').each(function(i){
+          val[i] = $(this).val();
+         // console.log(val[i]);
+        });
+		info.append('selected_rrss',val);
 		$.ajax({
 				type: "POST",
 				url: "./procesar_imagen.php",
@@ -389,7 +395,7 @@ $(document).ready(function(){
 				processData:false,
 
 				success: function(data){
-					//alert(data);
+					alert(data);
 					switch (data){
 						case "nueva":$(".alertElim").fadeIn("normal",function(){
 									$("#boxElim .hrefCamp h2").text("Campaña creada con exito");
