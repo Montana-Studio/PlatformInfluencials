@@ -12,23 +12,6 @@
 			echo '<div class="total_reach"><span><h2>Reach actual</h2><small>Alcance total de tus redes sociales</small></span><div class="total-number">'.(int)$suma.'</div></div>';
 		}
 	?>
-
-	<div class="red-title"><i class="fa fa-google"></i> <span class="red-name">Analytics</span> <i class="fa"></i></div>
-	<div class="rs-inscription">
-
-		<?php
-			if($num_row9 > 0){
-				echo '<div class="reach-total">
-					analytics reach 
-					<span>'.(int)$suma_analytics.'</span>
-				</div>';
-				echo $_SESSION['analytics'];
-
-			}
-		?>
-		<div id="analytics-inscription" onclick="authorize()" class="btns">Conectar Analytics</div>
-	</div>
-
 	
 	<div class="red-title"><i class="fa fa-facebook"></i> <span class="red-name">Facebook</span> <i class="fa"></i></div>
 	<div class="rs-inscription">
@@ -63,6 +46,22 @@
 			}
 		?>
 		<a id="twitter-inscription" href="./rrss/twitter/process.php" value="<?php echo $num_row3;?>" class="btns">Conectar Twitter</a>
+	</div>
+
+	<div class="red-title"><i class="fa fa-google"></i> <span class="red-name">Analytics</span> <i class="fa"></i></div>
+	<div class="rs-inscription">
+
+		<?php
+			if($num_row9 > 0){
+				echo '<div class="reach-total">
+					analytics reach 
+					<span>'.(int)$suma_analytics.'</span>
+				</div>';
+				echo $_SESSION['analytics'];
+
+			}
+		?>
+		<div id="analytics-inscription" onclick="authorize()" class="btns">Conectar Analytics</div>
 	</div>
 
 	<div class="red-title"><i class="fa fa-youtube-play"></i> <span class="red-name">Youtube</span> <i class="fa"></i></div>

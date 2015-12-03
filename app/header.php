@@ -152,7 +152,7 @@
 					jQuery(document).ready(function(){
 						$('title').append('Power Influencer - ".$_SESSION['nombre']."');
 						$('html').css({'background-color':'#fff','background-image':'none'});
-						$('body').addClass('dashboard-agencia');
+						$('body').addClass('influenciador-publico');
 					})
 				</script>";
 		}

@@ -361,23 +361,25 @@
       $variable=1;
       do{
         $r07= json_encode($row9[7]);
-        $r21= json_encode($row9[21]);
-        $r12= json_encode($row9[12]);
-        $r13= json_encode($row9[13]);
-        $r14= json_encode($row9[14]);
-        $r15= json_encode($row9[15]);
         $r08= json_encode($row9[8]);
         $r09= json_encode($row9[9]);
         $r10= json_encode($row9[10]);
         $r11= json_encode($row9[11]);
+        $r12= json_encode($row9[12]);
+        $r13= json_encode($row9[13]);
+        $r14= json_encode($row9[14]);
+        $r15= json_encode($row9[15]);
+        $r16= json_encode($row9[16]);
         $r17= json_encode($row9[17]);
         $r18= json_encode($row9[18]);
-        $r16= json_encode($row9[16]);
+        $r21= json_encode($row9[21]);
         $r22= json_encode($row9[22]);
         $r23= json_encode($row9[23]);
         $r24= json_encode($row9[24]);
         $r25= json_encode($row9[25]);
+        
         $dias= intval(substr($r09, 1, -1)/86400)."d";
+
         if($dias == '0d') $dias ='';
          $horas=intval((substr($r09, 1, -1)%86400)/3600);
          $minutos=intval(((substr($r09, 1, -1)%86400)%3600)/60);
@@ -398,9 +400,11 @@
         $reach_page = $row9[7]+$row9[14]+$row9[21];
 
         $_SESSION['analytics'] .= "
-          <div class='red-info'>
-            <h3>".$row9[6]." reach total ".$reach_page."</h3>
-              
+          <div class='red-info secc-analytics'>
+            <div class='tit-analytics'>
+              <h3>".$row9[6]."</h3> <small>reach total</small>
+            </div>
+            <div class='reach-analytics'>".$reach_page."</div>
               <script type='text/javascript'>
                 google.load('visualization', '1', {packages:['corechart']});
 
@@ -410,32 +414,33 @@
 
                   var data = google.visualization.arrayToDataTable([
                     ['Metrics', 'Valor'],
-                    ['Page Views', ".substr($r07, 1, -1)."],
+                    ['PageViews', ".substr($r07, 1, -1)."],
                     ['Sessions', ".substr($r08, 1, -1)."],
-                    ['Unique Page Views', ".substr($r11, 1, -1)."]
+                    ['U. PageViews', ".substr($r11, 1, -1)."]
                   ]);
 
                   var dataMobile = google.visualization.arrayToDataTable([
                     ['Metrics', 'Valor'],
-                    ['Page Views', ".substr($r14, 1, -1)."],
+                    ['PageViews', ".substr($r14, 1, -1)."],
                     ['Sessions', ".substr($r15, 1, -1)."],
-                    ['Unique Page Views', ".substr($r18, 1, -1)."]
+                    ['U. PageViews', ".substr($r18, 1, -1)."]
                   ]);
                   
                   var dataTablet = google.visualization.arrayToDataTable([
                     ['Metrics', 'Valor'],
-                    ['Page Views', ".substr($r21, 1, -1)."],
+                    ['PageViews', ".substr($r21, 1, -1)."],
                     ['Sessions', ".substr($r22, 1, -1)."],
-                    ['Unique Page Views', ".substr($r25, 1, -1)."]
+                    ['U. PageViews', ".substr($r25, 1, -1)."]
                   ]);
 
                   var options = {
                     title: 'My Daily Activities',
                     pieHole: 0.6,
+                    'width':'100%',
                     tooltip:{trigger:'none'},
                     pieSliceText: 'value',
                     pieSliceTextStyle:{color:'#000',position:'left',fontSize:16},
-                    chartArea:{left:0,right:0,top:10,width:'100%',height:'75%'},
+                    chartArea:{left:'-50px',top:10,width:'100%',height:'75%'},
                     vAxis: {maxValue: 20},
                     colors: ['#3399cc', '#67b8de', '#91c9e8', '#b4dced'],
                     legend:{position: 'right', textStyle: {fontSize: 12}},
@@ -452,6 +457,7 @@
                   chartTablet.draw(dataTablet, options);
                 }
               </script>
+
               <h4>Desktop</h4>
               <div id='chartContainer".$variable."' style='width:100%;margin:0 auto;'></div>
               <ul>
@@ -460,7 +466,7 @@
                 <!--li>Duracion Sesion <br> <span>".$dias." ".$horas.":".$minutos.":".$segundos."</span></li-->
                 <li>PageView x Usuario <br> <span>".$row9[10]."</span></li>
                 <!--li>Unique Page Views <br> <span>".$row9[11]."</span></li-->
-                <li>Tiempo en pagina <br> <span>".$row9[12]."</span></li>
+                <li>Tiempo en la pagina <br> <span>".$row9[12]."</span></li>
                 <li>Sesiones x Usuario <br> <span>".$row9[13]."</span></li>
               </ul>
 
@@ -472,7 +478,7 @@
                 <!--li>Session Duration <br> <span>".$row9[16]."</span></li-->
                 <li>Page Views Per User <br> <span>".$row9[17]."</span></li>
                 <!--li>Unique Page Views <br> <span>".$row9[18]."</span></li-->
-                <li>Average Time On Page <br> <span>".$row9[19]."</span></li>
+                <li>Tiempo en la pagina <br> <span>".$row9[19]."</span></li>
                 <li>Sessions Per User <br> <span>".$row9[20]."</span></li>
               </ul>
               <br>
@@ -484,7 +490,7 @@
                 <!--li>Session Duration <br> <span>".$row9[23]."</span></li-->
                 <li>Page Views Per User <br> <span>".$row9[24]."</span></li>
                 <!--li>Unique Page Views <br> <span>".$row9[25]."</span></li-->
-                <li>Average Time On Page <br> <span>".$row9[26]."</span></li>
+                <li>Tiempo en la pagina <br> <span>".$row9[26]."</span></li>
                 <li>Sessions Per User <br> <span>".$row9[27]."</span></li>
               </ul>
 

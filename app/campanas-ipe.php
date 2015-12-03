@@ -30,7 +30,7 @@
 					<li  class="active" ><a href="campanas-ipe.php">Campañas</a></li>
 				</ul>
 			</nav>
-<!--hola-->
+
 		</div>
 		<div id="tab-examp">
 			<ul id="tabs">
@@ -39,34 +39,23 @@
 			</ul>
 			<div id="tabscontent">
 				<div id="fragment-1" class="tabpage">
-			
-						<h2>Iniciadas</h2>
-						<?php
-							require("procesar_mostrar_campanas_en_ipe.php");
-							echo $campanas_activas;
-						?>
-						<h2>Por Iniciar</h2>
-						<?php
-							echo $campanas_inactivas;
-						?>
-			
+
+					<?php
+						require("procesar_mostrar_campanas_en_ipe.php");
+						echo $campanas_activas;
+						echo $campanas_inactivas;
+					?>
 						
 				</div>
 				<div id="fragment-2" class="tabpage">
 					
-					<h2>Finalizadas</h2>
-						<?php
-						//	require("procesar_mostrar_campanas_historial_en_ipe.php");
-							echo $campanas_historial;
-						?>
+					<?php echo $campanas_historial; ?>
 				
 			</div>
 		</div>
 
 	</form>
 
-	<?php
-		include ('footer-ipe.php');
-	?>
+	<?php include ('footer-ipe.php'); ?>
 </body>
 </html>

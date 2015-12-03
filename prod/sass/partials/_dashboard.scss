@@ -114,7 +114,7 @@
 				@include pad(0);
 				li{
 					@include span-columns(3.18 of 12);
-					@include pad(0 15px);
+					@include pad(0 13px);
 					@include omega();
 					@include textAligns(center);
 					height:29px;

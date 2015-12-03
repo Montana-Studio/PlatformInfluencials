@@ -11,15 +11,7 @@
 	}else if(basename($_SERVER['PHP_SELF'])=='formulario-agencia2.php'){
 			echo '';
 	}else if(basename($_SERVER['PHP_SELF'])=='influenciador-publico.php'){
-			echo '
-	<div class="crear-campana cotizar-influenciador-div">
-		<a href="#" target="_top">
-			<span id="cotizar_influenciador">
-				<i class="fa fa-plus"></i>
-				cotizar
-			</span>
-		</a>
-	</div>';
+			echo '';
 	}else if(basename($_SERVER['PHP_SELF'])=='campana.php'){
 		echo '
 			<div class="crear-campana">

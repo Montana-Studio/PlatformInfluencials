@@ -153,10 +153,11 @@ html{
 		}
 		.ui-datepicker{
 			background:{color: #fff}
-			border:1px solid $color_grey;
 			@include borderRadius(3);
 			max-width: em(220);
 			.ui-datepicker-header{
+				border:1px solid $color_grey;
+				border:{bottom:none;}
 				@include fill-parent();
 				@include row(table);
 				position:relative;
@@ -198,6 +199,8 @@ html{
 			}
 			.ui-datepicker-calendar{
 				@include span-columns(12);
+				border:1px solid $color_grey;
+				border:{top:none;}
 				thead{
 					@include span-columns(12);
 					background:{color:$color_grey;}
