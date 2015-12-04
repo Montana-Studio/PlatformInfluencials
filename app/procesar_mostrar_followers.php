@@ -234,7 +234,7 @@
     $row6= mysqli_fetch_array($result6, MYSQLI_BOTH);
     $num_row6=mysqli_num_rows($result6);
     $facebookKey ="693511c0b86cda985e20ba5a19f556c0";
-    $facebookAppId = "979526535448353";
+    $facebookAppId = "973652052702468";
     $_SESSION['facebook']="";
     if($num_row6>0){
       do{

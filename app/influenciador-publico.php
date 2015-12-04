@@ -30,7 +30,7 @@
 				</div>';
 		}
 
-	}
+	}	
 	
 	//mostrar influenciadores
 	if ($num_rows > 0){
@@ -53,12 +53,102 @@
 						<h2 class="nombre">'.$row[5].'</h2>
 						<small class="ubicacion"><i class="fa fa-map-marker"></i> '.$row[16].','.$row[15].'</small>
 						<small class="tipo"><i class="fa fa-user"></i> '.$row[2].'</small>
+						<small class="redes_sociales">';
+
+
+					$query_rrss_ipe="SELECT * FROM rrss WHERE persona_id='".$row[0]."' AND id_estado=1 ORDER BY descripcion_rrss";
+					$result_rrss_ipe= mysqli_query($mysqli,$query_rrss_ipe)or die(mysqli_error());
+					$row_rrss_ipe= mysqli_fetch_array($result_rrss_ipe, MYSQLI_NUM);
+					//$num_rows3= mysqli_num_rows($result_rrss_ipe);
+					$reach=0;
+					do{
+						//echo $row_rrss_ipe[2];
+						if($row_rrss_ipe[2]=='facebook'){
+							$facebookPage=$row_rrss_ipe[3];
+							$facebookKey ="693511c0b86cda985e20ba5a19f556c0";
+							$facebookAppId = "973652052702468";
+							$json_user_url1 ="https://graph.facebook.com/".$facebookPage."?access_token=".$facebookAppId."|".$facebookKey."&fields=likes,talking_about_count,username,website";
+					        $json_user_url = str_replace(" ", "%20", $json_user_url1);
+					        $json_user= file_get_contents($json_user_url);
+					        $links_user_url= json_decode($json_user);
+					        $facebookLikes =$links_user_url->likes;
+					        $reach+=$facebookLikes;
+					        echo '<div class="rrss" name="facebook">Facebook '.$facebookLikes.'</div>';							
+						}
+						if($row_rrss_ipe[2]=='instagram'){
+						  $json_user_url ="https://api.instagram.com/v1/users/".$row_rrss_ipe[3]."?access_token=".$row_rrss_ipe[6];
+					      $json_user= file_get_contents($json_user_url);
+					      $links_user_url= json_decode($json_user);
+					      $followers_instagram = $links_user_url->data->counts->followed_by;
+					      $reach+=$followers_instagram;
+					      echo '<div class="rrss" name="instagram">Instagram'.$followers_instagram.'</div>';
+							
+						}
+						
+						if($row_rrss_ipe[2]=='twitter'){
+							$settings = array(
+							'oauth_access_token' => "3523857136-MwHOy2ZrYGqvvT6fSpkCbFxe5BYqlmQzUs41UdN",
+							'oauth_access_token_secret' => "Verk18Cyb8oTYGdcptHvvZaCOXD5gaNDBtMFdd1tqPL9k",
+							'consumer_key' => "hV95sLlCLjKIQbsVx1uVIxgKQ",
+							'consumer_secret' => "FU3GBmbIldTUzJZJOJqrynhiiecmt2FPHAShlkGi3AH8jY7GrV"
+							);
+							$ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
+							$requestMethod = 'GET';
+							$usuario1 = $row_rrss_ipe[3];
+					        $getfield1 = '?id='.$usuario1;
+					        $twitter1 = new TwitterAPIExchange($settings);
+					        $follow_count1=$twitter1->setGetfield($getfield1)
+					        ->buildOauth($ta_url, $requestMethod)
+					        ->performRequest();
+							$reach+=$follow_count1;	
+							echo '<div class="rrss" name="twitter">Twitter '.$follow_count1.'</div>';
+						}
+
+						if($row_rrss_ipe[2]=='youtube'){
+							$googleplusKey ="AIzaSyDBMZsybp7GcJdmqdhgGDn-jRkGo9jyD-c";
+							$json_user_url ="https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=".$row_rrss_ipe[3]."&key=".$googleplusKey;
+					        $json_user= file_get_contents($json_user_url);
+					        $links_user_url= json_decode($json_user);
+					        $youtubeSubscribers = $links_user_url->items[0]->statistics->subscriberCount;
+							$reach+=$youtubeSubscribers;
+							echo '<div class="rrss" name="youtube">Youtube '.$youtubeSubscribers.'</div>';
+						}
+
+						if($row_rrss_ipe[2]=='googleplus'){
+							$googleplusKey ="AIzaSyDBMZsybp7GcJdmqdhgGDn-jRkGo9jyD-c";
+							$googleplusId = $row_rrss_ipe[3];
+        					$json_user_url ="https://www.googleapis.com/plus/v1/people/".$googleplusId."?key=".$googleplusKey;
+        					$json_user= file_get_contents($json_user_url);
+					        $links_user_url= json_decode($json_user);
+					        $googleplusSubscriber =$links_user_url->circledByCount;
+							$reach+=$googleplusSubscriber;
+							echo '<div class="rrss" name="googleplus">Google Plus '.$googleplusSubscriber.'</div>';
+						}
+						
+						if($row_rrss_ipe[2]=='analytics'){
+							$analyticsPageViews=0;
+							$query_analytics_page_views="SELECT PVDSK+PVMBL+PVTBLT FROM Analytics WHERE persona_id='".$row[0]."' AND id_estado=1";
+							$result_analytics_page_views= mysqli_query($mysqli,$query_analytics_page_views)or die(mysqli_error());
+							$rows_analytics_page_views= mysqli_fetch_array($result_analytics_page_views, MYSQLI_NUM);
+							do{
+								$reach+=$rows_analytics_page_views[0];
+								$analyticsPageViews+=$rows_analytics_page_views[0];
+							}while($rows_analytics_page_views = mysqli_fetch_array($result_analytics_page_views	));
+							echo '<div class="rrss" name="analytics">Google Analytics '.$analyticsPageViews.'</div>';
+						}
+
+
+					}while($row_rrss_ipe = mysqli_fetch_array($result_rrss_ipe));
+
+						echo "<div class='rrss_reach'>Reach ". $reach."</div>";
+					echo'</small>
 					</div>
 					
-					<span></span>
 					<div class="checkbox-cotizar">
 						<input id="cotizar-'.$row[0].'" class="btndesactivar onoffswitch-checkbox" name="'.$row[5].'"  value="'.$row[0].'" type="checkbox"/>
 						<label for="cotizar-'.$row[0].'" class="btndesactivar onoffswitch-label"></label>
+						<span class="ver_perfil_influenciador" name="'.$row[0].'">+</span>
+						<span class="volver_ver_perfil_influenciador" name="'.$row[0].'">-</span>
 					</div>
 				</form>';
 		}while($row = mysqli_fetch_row($result));
@@ -69,12 +159,10 @@
 		echo '</div><button id="cotizar_influenciador">cotizar</button>
 		<script>
 			$(document).ready(function(){
-				/*$("#opc_cot").click(function(){
-					$("#campanas-postulables").show();
-					$("#opc_cot").hide();
-					$("#campanas-postulables").show();
-				})*/
 
+					$(".rrss").hide();
+					$(".volver_ver_perfil_influenciador").hide();
+					
 				$("#cotizar_influenciador").click(function(){
 					var influenciadores_cotizados="";
 					var influenciadores_cotizados_nombre ="";
@@ -170,6 +258,27 @@
 							});
 						});
 					}
+				});
+
+				$(".ver_perfil_influenciador").click(function(){
+					
+					var id_form=$(this).attr("name");
+					$("#"+id_form+" .info-influ small .rrss").show();
+					var a = $("#"+id_form+" .info-influ small .rrss_reach").text();
+					$("#"+id_form+" .info-influ .redes_sociales").prepend("<div>"+a+"</div>");
+					$("#"+id_form+" .info-influ small .rrss_reach").hide();
+					$("#"+id_form+" .checkbox-cotizar .ver_perfil_influenciador").hide();
+					$("#"+id_form+" .checkbox-cotizar .volver_ver_perfil_influenciador").show();
+				});
+
+				$(".volver_ver_perfil_influenciador").click(function(){
+					
+					var id_form=$(this).attr("name");
+					$("#"+id_form+" .info-influ small .rrss").hide();
+					$("#"+id_form+" .info-influ .redes_sociales div:first-child").remove();
+					$("#"+id_form+" .info-influ small .rrss_reach").show();
+					$("#"+id_form+" .checkbox-cotizar .ver_perfil_influenciador").show();
+					$("#"+id_form+" .checkbox-cotizar .volver_ver_perfil_influenciador").hide();
 				});
 			});
 		</script>';

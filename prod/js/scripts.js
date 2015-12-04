@@ -108,11 +108,11 @@ jQuery(document).ready(function($){
 	$('#tab-examp').tabs({show:'fade',hide:'fade'});
 
 	//ACCODION
-	$('#redesociales').accordion({
+	/*$('#redesociales').accordion({
 		header: '.red-title',
 		heightStyle: 'content',
 		collapsible: true
-	});
+	});*/
 
 	
 });
