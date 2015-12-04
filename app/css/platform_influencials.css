@@ -7,26 +7,32 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
+@font-face {
+  font-family: 'powerinfluencer';
+  src: url("fonts/powerinfluencer.eot?sxf2ob");
+  src: url("fonts/powerinfluencer.eot?sxf2ob#iefix") format("embedded-opentype"), url("fonts/powerinfluencer.ttf?sxf2ob") format("truetype"), url("fonts/powerinfluencer.woff?sxf2ob") format("woff"), url("fonts/powerinfluencer.svg?sxf2ob#powerinfluencer") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 a {
   text-decoration: none; }
 
-.hide, .alertElim, .alertElim #boxElim, .alertElim #boxAlert, #imagenform, #imagenform #inicio .tabpage div i, #imagenform-ipe .header-ipe .input-file, main.form_agencias #antiguo, main.form_agencias #nuevo, main.form_agencias #antiguo h2, main.form_agencias #nuevo h2, main.form_agencias #antiguo a, main.form_agencias #nuevo a, main.form_agencias #antiguo .form_ingreso, main.form_agencias #nuevo .form_ingreso, main.form_agencias #nuevo .registerForm, main.form_agencias #nuevo .registerForm #selectImage input[type="file"], main.form_agencias #nuevo .registerForm #selectImage #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="file"], #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .registerForm #selectImage textarea[type="file"], main.form_agencias #nuevo .registerForm #selectImage .creadas .recientes .content .inputs-campana textarea[type="file"], .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm #selectImage textarea[type="file"], .creadas .recientes .content .campa-ico i.fecha-edit, .creadas .recientes .content .inputs-campana i, .crear-campanas .crear-campana {
+.hide, .alertElim, .alertElim #boxElim, .alertElim #boxAlert, main.form_agencias #antiguo, main.form_agencias #nuevo, main.form_agencias #antiguo h2, main.form_agencias #nuevo h2, main.form_agencias #antiguo a, main.form_agencias #nuevo a, main.form_agencias #antiguo .form_ingreso, main.form_agencias #nuevo .form_ingreso, main.form_agencias #nuevo .registerForm, main.form_agencias #nuevo .registerForm #selectImage input[type="file"], main.form_agencias #nuevo .registerForm #selectImage .creadas .recientes .content .inputs-campana textarea[type="file"], .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm #selectImage textarea[type="file"], main.form_agencias #nuevo .registerForm #selectImage #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="file"], #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .registerForm #selectImage textarea[type="file"], .creadas .recientes .content .campa-ico i.fecha-edit, .creadas .recientes .content .inputs-campana i, #imagenform, #imagenform #inicio .tabpage div i, #imagenform-ipe .header-ipe .input-file, .crear-campanas .crear-campana {
   display: none; }
 
 .show {
   display: block; }
 
-.center-div, .crear-campana, .alertElim #boxElim .hrefCamp, .alertElim #boxAlert .hrefCamp, html body .contAllPI .ayuda_pi, main.form_agencias #antiguo, main.form_agencias #nuevo {
+.center-div, .crear-campana, .alertElim #boxElim .hrefCamp, .alertElim #boxAlert .hrefCamp, html body .contAllPI .ayuda_pi, main.form_agencias #antiguo, main.form_agencias #nuevo, #imagenform-ipe #tabscontent .tabpage #redesociales .no-rrss .gph-alert svg.poly-gon {
   margin: 0 auto; }
 
-.center-absolute, .crear-campana, html body .contAllPI .ayuda_pi, main.form_agencias #antiguo, main.form_agencias #nuevo {
+.center-absolute, .crear-campana, html body .contAllPI .ayuda_pi, main.form_agencias #antiguo, main.form_agencias #nuevo, #imagenform-ipe #tabscontent .tabpage #redesociales .no-rrss .gph-alert svg.poly-gon {
   left: 0;
   right: 0; }
 
 .count-jfilestyle {
   display: none !important; }
 
-.inputs, html body.formularios-registro .cont_formRegistro .cont-inputs div input, html body.formularios-registro .cont_formRegistro .cont-inputs #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage html body.formularios-registro .cont_formRegistro .cont-inputs div#descripcion textarea, html body.formularios-registro .cont_formRegistro .cont-inputs div .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana html body.formularios-registro .cont_formRegistro .cont-inputs div textarea, main.form_agencias #antiguo .form_ingreso input, main.form_agencias #nuevo .form_ingreso input, main.form_agencias #nuevo .registerForm input, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #antiguo .form_ingreso textarea, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .form_ingreso textarea, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .registerForm textarea, main.form_agencias #antiguo .form_ingreso .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #antiguo .form_ingreso textarea, main.form_agencias #nuevo .form_ingreso .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .form_ingreso textarea, main.form_agencias #nuevo .registerForm .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm textarea, #campanaForm-nueva-campana input, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea, #campanaForm-nueva-campana textarea {
+.inputs, html body.formularios-registro .cont_formRegistro .cont-inputs div input, html body.formularios-registro .cont_formRegistro .cont-inputs div .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana html body.formularios-registro .cont_formRegistro .cont-inputs div textarea, html body.formularios-registro .cont_formRegistro .cont-inputs #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage html body.formularios-registro .cont_formRegistro .cont-inputs div#descripcion textarea, main.form_agencias #antiguo .form_ingreso input, main.form_agencias #nuevo .form_ingreso input, main.form_agencias #nuevo .registerForm input, main.form_agencias #antiguo .form_ingreso .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #antiguo .form_ingreso textarea, main.form_agencias #nuevo .form_ingreso .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .form_ingreso textarea, main.form_agencias #nuevo .registerForm .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm textarea, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #antiguo .form_ingreso textarea, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .form_ingreso textarea, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .registerForm textarea, #campanaForm-nueva-campana input, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea, #campanaForm-nueva-campana textarea {
   font-family: "Open Sans", sans-serif;
   height: 40px;
   margin-bottom: 5px;
@@ -36,7 +42,7 @@ a {
   color: #107977;
   outline: none; }
 
-.btns, #imagenform #inicio #guardarFacturacion, #imagenform #inicio .cancel-data, html body.formularios-registro .cont_formRegistro .cont-inputs #guardar, main.ingreso_eleccion #tipo .btns_accesos, main.form_agencias #inicio .btns_accesos, main.form_agencias #antiguo .form_ingreso #ingresar, main.form_agencias #nuevo .form_ingreso #ingresar, main.form_agencias #nuevo .registerForm #ingresar, main.form_agencias #antiguo .form_ingreso .fb_btn, main.form_agencias #nuevo .form_ingreso .fb_btn, main.form_agencias #nuevo .registerForm .fb_btn, main.form_agencias #antiguo .form_ingreso .lk_btn, main.form_agencias #nuevo .form_ingreso .lk_btn, main.form_agencias #nuevo .registerForm .lk_btn, main.form_agencias #nuevo .registerForm #registrarse, .creadas .recientes .content .jfilestyle, .creadas .recientes .content .guardar-campana, .creadas .volver, .creadas .volver-campana, .no-campana .hrefCamp .btn_crearcamp, #campanaForm-nueva-campana .jfilestyle, #campanaForm-nueva-campana .guardar, .influenciador-publico #opc_cot, .influenciador-publico #cotizar_influenciador {
+.btns, html body.formularios-registro .cont_formRegistro .cont-inputs #guardar, main.ingreso_eleccion #tipo .btns_accesos, main.form_agencias #inicio .btns_accesos, main.form_agencias #antiguo .form_ingreso #ingresar, main.form_agencias #nuevo .form_ingreso #ingresar, main.form_agencias #nuevo .registerForm #ingresar, main.form_agencias #antiguo .form_ingreso .fb_btn, main.form_agencias #nuevo .form_ingreso .fb_btn, main.form_agencias #nuevo .registerForm .fb_btn, main.form_agencias #antiguo .form_ingreso .lk_btn, main.form_agencias #nuevo .form_ingreso .lk_btn, main.form_agencias #nuevo .registerForm .lk_btn, main.form_agencias #nuevo .registerForm #registrarse, .creadas .recientes .content .jfilestyle, .creadas .recientes .content .guardar-campana, .creadas .volver, .creadas .volver-campana, .no-campana .hrefCamp .btn_crearcamp, #imagenform #inicio #guardarFacturacion, #imagenform #inicio .cancel-data, #campanaForm-nueva-campana .jfilestyle, #campanaForm-nueva-campana .guardar, .influenciador-publico #opc_cot, .influenciador-publico #cotizar_influenciador {
   cursor: pointer;
   float: left;
   display: block;
@@ -56,7 +62,7 @@ a {
   font-size: 13px;
   padding: 10px 0;
   margin-bottom: 10px; }
-  .btns:last-child, #imagenform #inicio #guardarFacturacion:last-child, #imagenform #inicio .cancel-data:last-child, html body.formularios-registro .cont_formRegistro .cont-inputs #guardar:last-child, main.ingreso_eleccion #tipo .btns_accesos:last-child, main.form_agencias #inicio .btns_accesos:last-child, main.form_agencias #antiguo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .registerForm #ingresar:last-child, main.form_agencias #antiguo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .registerForm .fb_btn:last-child, main.form_agencias #antiguo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .registerForm .lk_btn:last-child, main.form_agencias #nuevo .registerForm #registrarse:last-child, .creadas .recientes .content .jfilestyle:last-child, .creadas .recientes .content .guardar-campana:last-child, .creadas .volver:last-child, .creadas .volver-campana:last-child, .no-campana .hrefCamp .btn_crearcamp:last-child, #campanaForm-nueva-campana .jfilestyle:last-child, #campanaForm-nueva-campana .guardar:last-child, .influenciador-publico #opc_cot:last-child, .influenciador-publico #cotizar_influenciador:last-child {
+  .btns:last-child, html body.formularios-registro .cont_formRegistro .cont-inputs #guardar:last-child, main.ingreso_eleccion #tipo .btns_accesos:last-child, main.form_agencias #inicio .btns_accesos:last-child, main.form_agencias #antiguo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .registerForm #ingresar:last-child, main.form_agencias #antiguo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .registerForm .fb_btn:last-child, main.form_agencias #antiguo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .registerForm .lk_btn:last-child, main.form_agencias #nuevo .registerForm #registrarse:last-child, .creadas .recientes .content .jfilestyle:last-child, .creadas .recientes .content .guardar-campana:last-child, .creadas .volver:last-child, .creadas .volver-campana:last-child, .no-campana .hrefCamp .btn_crearcamp:last-child, #imagenform #inicio #guardarFacturacion:last-child, #imagenform #inicio .cancel-data:last-child, #campanaForm-nueva-campana .jfilestyle:last-child, #campanaForm-nueva-campana .guardar:last-child, .influenciador-publico #opc_cot:last-child, .influenciador-publico #cotizar_influenciador:last-child {
     margin-right: 0; }
 
 .btn_close {
@@ -195,7 +201,7 @@ a {
     .alertElim #boxAlert #clearAlert:last-child {
       margin-right: 0; }
 
-.style-select, #imagenform-ipe #tabscontent .tabpage div.selects select, main.form_agencias #nuevo .registerForm .selects select, .influenciador-publico #campanas-postulables select {
+.style-select, main.form_agencias #nuevo .registerForm .selects select, #imagenform-ipe #tabscontent .tabpage div.selects select, .influenciador-publico #campanas-postulables select {
   float: left;
   display: block;
   margin-right: 2.35765%;
@@ -225,9 +231,9 @@ a {
   color: #18bb9b;
   position: relative;
   z-index: 2; }
-  .style-select:last-child, #imagenform-ipe #tabscontent .tabpage div.selects select:last-child, main.form_agencias #nuevo .registerForm .selects select:last-child, .influenciador-publico #campanas-postulables select:last-child {
+  .style-select:last-child, main.form_agencias #nuevo .registerForm .selects select:last-child, #imagenform-ipe #tabscontent .tabpage div.selects select:last-child, .influenciador-publico #campanas-postulables select:last-child {
     margin-right: 0; }
-  .style-select:focus, #imagenform-ipe #tabscontent .tabpage div.selects select:focus, main.form_agencias #nuevo .registerForm .selects select:focus, .influenciador-publico #campanas-postulables select:focus {
+  .style-select:focus, main.form_agencias #nuevo .registerForm .selects select:focus, #imagenform-ipe #tabscontent .tabpage div.selects select:focus, .influenciador-publico #campanas-postulables select:focus {
     outline: none; }
 
 .switchess, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar {
@@ -241,26 +247,26 @@ a {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
-  .switchess input[type="checkbox"], #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch input[type="checkbox"], .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar input[type="checkbox"], .switchess #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"], #imagenform-ipe #tabscontent .tabpage div#descripcion .switchess textarea[type="checkbox"], #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch div#descripcion textarea[type="checkbox"], #imagenform-ipe #tabscontent .tabpage div#descripcion #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"], .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"], #imagenform-ipe #tabscontent .tabpage div#descripcion .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"], .switchess .creadas .recientes .content .inputs-campana textarea[type="checkbox"], .creadas .recientes .content .inputs-campana .switchess textarea[type="checkbox"], #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .creadas .recientes .content .inputs-campana textarea[type="checkbox"], .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"], .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar .creadas .recientes .content .inputs-campana textarea[type="checkbox"], .creadas .recientes .content .inputs-campana .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"] {
+  .switchess input[type="checkbox"], #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch input[type="checkbox"], .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar input[type="checkbox"], .switchess .creadas .recientes .content .inputs-campana textarea[type="checkbox"], .creadas .recientes .content .inputs-campana .switchess textarea[type="checkbox"], #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .creadas .recientes .content .inputs-campana textarea[type="checkbox"], .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"], .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar .creadas .recientes .content .inputs-campana textarea[type="checkbox"], .creadas .recientes .content .inputs-campana .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"], .switchess #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"], #imagenform-ipe #tabscontent .tabpage div#descripcion .switchess textarea[type="checkbox"], #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch div#descripcion textarea[type="checkbox"], #imagenform-ipe #tabscontent .tabpage div#descripcion #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"], .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"], #imagenform-ipe #tabscontent .tabpage div#descripcion .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"] {
     display: none; }
-    .switchess input[type="checkbox"]:checked + label.btndesactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch input[type="checkbox"]:checked + label.btndesactivar, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar input[type="checkbox"]:checked + label.btndesactivar, .switchess #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btndesactivar, #imagenform-ipe #tabscontent .tabpage div#descripcion .switchess textarea[type="checkbox"]:checked + label.btndesactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch div#descripcion textarea[type="checkbox"]:checked + label.btndesactivar, #imagenform-ipe #tabscontent .tabpage div#descripcion #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btndesactivar, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btndesactivar, #imagenform-ipe #tabscontent .tabpage div#descripcion .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btndesactivar, .switchess .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btndesactivar, .creadas .recientes .content .inputs-campana .switchess textarea[type="checkbox"]:checked + label.btndesactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btndesactivar, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btndesactivar, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btndesactivar, .creadas .recientes .content .inputs-campana .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btndesactivar {
+    .switchess input[type="checkbox"]:checked + label.btndesactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch input[type="checkbox"]:checked + label.btndesactivar, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar input[type="checkbox"]:checked + label.btndesactivar, .switchess .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btndesactivar, .creadas .recientes .content .inputs-campana .switchess textarea[type="checkbox"]:checked + label.btndesactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btndesactivar, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btndesactivar, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btndesactivar, .creadas .recientes .content .inputs-campana .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btndesactivar, .switchess #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btndesactivar, #imagenform-ipe #tabscontent .tabpage div#descripcion .switchess textarea[type="checkbox"]:checked + label.btndesactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch div#descripcion textarea[type="checkbox"]:checked + label.btndesactivar, #imagenform-ipe #tabscontent .tabpage div#descripcion #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btndesactivar, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btndesactivar, #imagenform-ipe #tabscontent .tabpage div#descripcion .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btndesactivar {
       -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
       -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
       transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
       background-color: #c7c7c7; }
-      .switchess input[type="checkbox"]:checked + label.btndesactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch input[type="checkbox"]:checked + label.btndesactivar::before, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar input[type="checkbox"]:checked + label.btndesactivar::before, .switchess #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btndesactivar::before, #imagenform-ipe #tabscontent .tabpage div#descripcion .switchess textarea[type="checkbox"]:checked + label.btndesactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch div#descripcion textarea[type="checkbox"]:checked + label.btndesactivar::before, #imagenform-ipe #tabscontent .tabpage div#descripcion #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btndesactivar::before, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btndesactivar::before, #imagenform-ipe #tabscontent .tabpage div#descripcion .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btndesactivar::before, .switchess .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btndesactivar::before, .creadas .recientes .content .inputs-campana .switchess textarea[type="checkbox"]:checked + label.btndesactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btndesactivar::before, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btndesactivar::before, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btndesactivar::before, .creadas .recientes .content .inputs-campana .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btndesactivar::before {
+      .switchess input[type="checkbox"]:checked + label.btndesactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch input[type="checkbox"]:checked + label.btndesactivar::before, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar input[type="checkbox"]:checked + label.btndesactivar::before, .switchess .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btndesactivar::before, .creadas .recientes .content .inputs-campana .switchess textarea[type="checkbox"]:checked + label.btndesactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btndesactivar::before, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btndesactivar::before, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btndesactivar::before, .creadas .recientes .content .inputs-campana .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btndesactivar::before, .switchess #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btndesactivar::before, #imagenform-ipe #tabscontent .tabpage div#descripcion .switchess textarea[type="checkbox"]:checked + label.btndesactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch div#descripcion textarea[type="checkbox"]:checked + label.btndesactivar::before, #imagenform-ipe #tabscontent .tabpage div#descripcion #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btndesactivar::before, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btndesactivar::before, #imagenform-ipe #tabscontent .tabpage div#descripcion .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btndesactivar::before {
         -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
         -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
         transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
         border-color: #c7c7c7;
         right: 1.875em;
         background-color: #fff; }
-    .switchess input[type="checkbox"]:checked + label.btnactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch input[type="checkbox"]:checked + label.btnactivar, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar input[type="checkbox"]:checked + label.btnactivar, .switchess #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btnactivar, #imagenform-ipe #tabscontent .tabpage div#descripcion .switchess textarea[type="checkbox"]:checked + label.btnactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch div#descripcion textarea[type="checkbox"]:checked + label.btnactivar, #imagenform-ipe #tabscontent .tabpage div#descripcion #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btnactivar, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btnactivar, #imagenform-ipe #tabscontent .tabpage div#descripcion .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btnactivar, .switchess .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btnactivar, .creadas .recientes .content .inputs-campana .switchess textarea[type="checkbox"]:checked + label.btnactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btnactivar, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btnactivar, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btnactivar, .creadas .recientes .content .inputs-campana .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btnactivar {
+    .switchess input[type="checkbox"]:checked + label.btnactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch input[type="checkbox"]:checked + label.btnactivar, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar input[type="checkbox"]:checked + label.btnactivar, .switchess .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btnactivar, .creadas .recientes .content .inputs-campana .switchess textarea[type="checkbox"]:checked + label.btnactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btnactivar, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btnactivar, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btnactivar, .creadas .recientes .content .inputs-campana .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btnactivar, .switchess #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btnactivar, #imagenform-ipe #tabscontent .tabpage div#descripcion .switchess textarea[type="checkbox"]:checked + label.btnactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch div#descripcion textarea[type="checkbox"]:checked + label.btnactivar, #imagenform-ipe #tabscontent .tabpage div#descripcion #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btnactivar, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btnactivar, #imagenform-ipe #tabscontent .tabpage div#descripcion .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btnactivar {
       -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
       -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
       transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
       background-color: #18bb9b; }
-      .switchess input[type="checkbox"]:checked + label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch input[type="checkbox"]:checked + label.btnactivar::before, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar input[type="checkbox"]:checked + label.btnactivar::before, .switchess #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage div#descripcion .switchess textarea[type="checkbox"]:checked + label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch div#descripcion textarea[type="checkbox"]:checked + label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage div#descripcion #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btnactivar::before, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage div#descripcion .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btnactivar::before, .switchess .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btnactivar::before, .creadas .recientes .content .inputs-campana .switchess textarea[type="checkbox"]:checked + label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btnactivar::before, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btnactivar::before, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btnactivar::before, .creadas .recientes .content .inputs-campana .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btnactivar::before {
+      .switchess input[type="checkbox"]:checked + label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch input[type="checkbox"]:checked + label.btnactivar::before, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar input[type="checkbox"]:checked + label.btnactivar::before, .switchess .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btnactivar::before, .creadas .recientes .content .inputs-campana .switchess textarea[type="checkbox"]:checked + label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btnactivar::before, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btnactivar::before, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btnactivar::before, .creadas .recientes .content .inputs-campana .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btnactivar::before, .switchess #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage div#descripcion .switchess textarea[type="checkbox"]:checked + label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch div#descripcion textarea[type="checkbox"]:checked + label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage div#descripcion #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btnactivar::before, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage div#descripcion .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btnactivar::before {
         -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
         -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
         transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
@@ -733,808 +739,6 @@ nav {
         nav.nav-ipe ul li:last-child:last-child {
           margin-right: 0; }
 
-#imagenform {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 65.88078%;
-  position: absolute;
-  z-index: 8;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-top-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border-top-right-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  background-color: #FFF;
-  opacity: 0;
-  height: auto;
-  right: 0;
-  top: -100%;
-  -webkit-box-shadow: 0px 0px 10px 0px #ccc;
-  -moz-box-shadow: 0px 0px 10px 0px #ccc;
-  box-shadow: 0px 0px 10px 0px #ccc;
-  padding: 20px; }
-  #imagenform:last-child {
-    margin-right: 0; }
-  #imagenform .fle-top {
-    margin-top: -25px;
-    margin-right: -10px;
-    float: right;
-    width: 10px;
-    height: 10px;
-    background-color: #FFF;
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg); }
-  #imagenform .misdatos {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 100%;
-    margin-right: 0; }
-    #imagenform .misdatos:last-child {
-      margin-right: 0; }
-    #imagenform .misdatos .imagen {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 31.76157%;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      border-bottom-left-radius: 5px;
-      border-top-left-radius: 5px;
-      border-bottom-right-radius: 5px;
-      border-top-right-radius: 5px;
-      border-bottom-left-radius: 5px;
-      border-bottom-right-radius: 5px;
-      min-height: 80px;
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      position: relative;
-      overflow: hidden; }
-      #imagenform .misdatos .imagen:last-child {
-        margin-right: 0; }
-      #imagenform .misdatos .imagen .selectFile {
-        width: 0;
-        height: 0;
-        background-color: rgba(255, 255, 255, 0.5);
-        color: #18bb9b;
-        text-align: center;
-        display: table;
-        font-size: 17px;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        overflow: hidden;
-        cursor: pointer; }
-        #imagenform .misdatos .imagen .selectFile i {
-          display: table-cell;
-          vertical-align: middle;
-          opacity: 0; }
-    #imagenform .misdatos .datos {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 48.82117%;
-      margin-left: 4.2649%; }
-      #imagenform .misdatos .datos:last-child {
-        margin-right: 0; }
-      #imagenform .misdatos .datos h2 {
-        padding: 0;
-        margin: 0;
-        font-size: 18px;
-        color: #18bb9b; }
-        @media screen and (max-width: 20em) {
-          #imagenform .misdatos .datos h2 {
-            font-size: 15px; } }
-      #imagenform .misdatos .datos h3 {
-        font-size: 12px;
-        font-style: italic;
-        padding: 0;
-        margin: 0;
-        color: #18bb9b; }
-      #imagenform .misdatos .datos .editar {
-        border-top-left-radius: 3px;
-        border-top-right-radius: 3px;
-        border-bottom-left-radius: 3px;
-        border-top-left-radius: 3px;
-        border-bottom-right-radius: 3px;
-        border-top-right-radius: 3px;
-        border-bottom-left-radius: 3px;
-        border-bottom-right-radius: 3px;
-        text-transform: uppercase;
-        text-align: center;
-        border: 1px solid #18bb9b;
-        font-size: 10px;
-        color: #18bb9b;
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 100%;
-        height: 25px;
-        margin-top: 8px;
-        display: table;
-        cursor: pointer; }
-        #imagenform .misdatos .datos .editar:last-child {
-          margin-right: 0; }
-        #imagenform .misdatos .datos .editar span {
-          display: table-cell;
-          vertical-align: middle; }
-    #imagenform .misdatos .alert-uploadready {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 100%;
-      color: #18bb9b;
-      font-size: 12px;
-      text-align: center;
-      padding-top: 10px; }
-      #imagenform .misdatos .alert-uploadready:last-child {
-        margin-right: 0; }
-      #imagenform .misdatos .alert-uploadready i {
-        font-size: 14px;
-        margin-right: 5px; }
-  #imagenform #inicio {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 100%; }
-    #imagenform #inicio:last-child {
-      margin-right: 0; }
-    #imagenform #inicio #tabs {
-      width: 100%;
-      display: block;
-      list-style: none;
-      padding: 0; }
-      #imagenform #inicio #tabs::after {
-        clear: both;
-        content: "";
-        display: table; }
-      #imagenform #inicio #tabs li {
-        padding: 0 0 8px;
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 49.9727%;
-        display: block;
-        margin-right: 0;
-        border-bottom: 1px solid #c7c7c7;
-        text-align: center;
-        font-size: 12px;
-        color: #c7c7c7;
-        cursor: pointer; }
-        #imagenform #inicio #tabs li:last-child {
-          margin-right: 0; }
-        #imagenform #inicio #tabs li::after {
-          clear: both;
-          content: "";
-          display: table; }
-        #imagenform #inicio #tabs li.tabActiveHeader {
-          color: #18bb9b;
-          border-bottom: 1px solid #18bb9b; }
-    #imagenform #inicio .tabpage {
-      width: 100%;
-      display: block; }
-      #imagenform #inicio .tabpage::after {
-        clear: both;
-        content: "";
-        display: table; }
-      #imagenform #inicio .tabpage div {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 100%;
-        display: block;
-        overflow: hidden;
-        position: relative; }
-        #imagenform #inicio .tabpage div:last-child {
-          margin-right: 0; }
-        #imagenform #inicio .tabpage div::after {
-          clear: both;
-          content: "";
-          display: table; }
-        #imagenform #inicio .tabpage div small {
-          color: #c7c7c7;
-          clear: both;
-          font-size: 9px;
-          text-transform: uppercase; }
-        #imagenform #inicio .tabpage div input, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent #imagenform #inicio .tabpage div#descripcion textarea, #imagenform #inicio .tabpage div .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana #imagenform #inicio .tabpage div textarea {
-          font-family: "Open Sans", sans-serif;
-          float: left;
-          display: block;
-          margin-right: 2.35765%;
-          width: 100%;
-          height: 20px;
-          margin-bottom: 5px;
-          border: none;
-          border-bottom: 1px solid #c7c7c7;
-          font-size: 12px;
-          color: #c7c7c7;
-          outline: none; }
-          #imagenform #inicio .tabpage div input:last-child, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:last-child, #imagenform-ipe #tabscontent #imagenform #inicio .tabpage div#descripcion textarea:last-child, #imagenform #inicio .tabpage div .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana #imagenform #inicio .tabpage div textarea:last-child {
-            margin-right: 0; }
-          #imagenform #inicio .tabpage div input[disabled], #imagenform #inicio #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[disabled], #imagenform-ipe #tabscontent #imagenform #inicio .tabpage div#descripcion textarea[disabled], #imagenform #inicio .tabpage div .creadas .recientes .content .inputs-campana textarea[disabled], .creadas .recientes .content .inputs-campana #imagenform #inicio .tabpage div textarea[disabled] {
-            background-color: #fff; }
-        #imagenform #inicio .tabpage div#tel1, #imagenform #inicio .tabpage div#tel2 {
-          float: left;
-          display: block;
-          margin-right: 2.35765%;
-          width: 48.82117%; }
-          #imagenform #inicio .tabpage div#tel1:last-child, #imagenform #inicio .tabpage div#tel2:last-child {
-            margin-right: 0; }
-        #imagenform #inicio .tabpage div i {
-          position: absolute;
-          top: 22px;
-          right: 10px;
-          color: #18bb9b;
-          opacity: 0; }
-    #imagenform #inicio #guardarFacturacion, #imagenform #inicio .cancel-data {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 100%;
-      margin-left: 0%;
-      background-color: #18bb9b;
-      padding: 10px 0;
-      font-size: 11px;
-      margin-top: 10px; }
-      #imagenform #inicio #guardarFacturacion:last-child, #imagenform #inicio .cancel-data:last-child {
-        margin-right: 0; }
-    #imagenform #inicio .cancel-data {
-      text-align: center;
-      background-color: #FFF;
-      border-color: #18bb9b;
-      color: #18bb9b;
-      margin-bottom: -5px; }
-    #imagenform #inicio .logout {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 100%;
-      text-align: center;
-      color: #c7c7c7;
-      text-transform: uppercase;
-      font-size: 11px;
-      padding: 10px 0 0; }
-      #imagenform #inicio .logout:last-child {
-        margin-right: 0; }
-  @media screen and (min-width: 20em) and (max-width: 40em) {
-    #imagenform {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 82.94039%; }
-      #imagenform:last-child {
-        margin-right: 0; } }
-  @media screen and (min-width: 30em) and (max-width: 64em) {
-    #imagenform {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 48.82117%; }
-      #imagenform:last-child {
-        margin-right: 0; } }
-  @media screen and (min-width: 64em) and (max-width: 90em) {
-    #imagenform {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 31.76157%;
-      margin-right: 1% !important; }
-      #imagenform:last-child {
-        margin-right: 0; } }
-  @media screen and (min-width: 90em) {
-    #imagenform {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 31.76157%;
-      margin-right: 1% !important; }
-      #imagenform:last-child {
-        margin-right: 0; } }
-
-#imagenform-ipe #tabs {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 100%;
-  width: 100%;
-  display: block;
-  list-style: none;
-  padding: 0;
-  background-color: #fff;
-  margin: 0 0 0.3125em; }
-  #imagenform-ipe #tabs:last-child {
-    margin-right: 0; }
-  #imagenform-ipe #tabs::after {
-    clear: both;
-    content: "";
-    display: table; }
-  #imagenform-ipe #tabs li {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 49.9727%;
-    display: block;
-    margin-right: 0;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 12px; }
-    #imagenform-ipe #tabs li:last-child {
-      margin-right: 0; }
-    #imagenform-ipe #tabs li::after {
-      clear: both;
-      content: "";
-      display: table; }
-    #imagenform-ipe #tabs li a {
-      display: block;
-      width: 100%;
-      height: 100%;
-      padding: 10px 0 8px;
-      outline: none;
-      color: #c7c7c7; }
-    #imagenform-ipe #tabs li[aria-selected="true"] {
-      color: #18bb9b;
-      border-bottom: 2px solid #18bb9b; }
-      #imagenform-ipe #tabs li[aria-selected="true"] a {
-        color: #18bb9b; }
-    #imagenform-ipe #tabs li:first-child {
-      border-right: 1px solid #c7c7c7; }
-#imagenform-ipe #tabscontent {
-  padding: 0.625em 0.3125em; }
-  #imagenform-ipe #tabscontent::before {
-    content: "";
-    clear: both;
-    display: block; }
-  #imagenform-ipe #tabscontent .tabpage {
-    width: 100%;
-    width: 100%;
-    display: block; }
-    #imagenform-ipe #tabscontent .tabpage::after {
-      clear: both;
-      content: "";
-      display: table; }
-    #imagenform-ipe #tabscontent .tabpage:first-child {
-      padding: 0.625em;
-      border-top-left-radius: 0.625em;
-      border-top-right-radius: 0.625em;
-      border-bottom-left-radius: 0.625em;
-      border-top-left-radius: 0.625em;
-      border-bottom-right-radius: 0.625em;
-      border-top-right-radius: 0.625em;
-      border-bottom-left-radius: 0.625em;
-      border-bottom-right-radius: 0.625em;
-      background-color: #fff; }
-    #imagenform-ipe #tabscontent .tabpage div {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 100%;
-      display: block;
-      overflow: hidden;
-      position: relative; }
-      #imagenform-ipe #tabscontent .tabpage div:last-child {
-        margin-right: 0; }
-      #imagenform-ipe #tabscontent .tabpage div::after {
-        clear: both;
-        content: "";
-        display: table; }
-      #imagenform-ipe #tabscontent .tabpage div small {
-        color: #c7c7c7;
-        clear: both;
-        font-size: 9px;
-        text-transform: uppercase; }
-      #imagenform-ipe #tabscontent .tabpage div input, #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div textarea {
-        font-family: "Open Sans", sans-serif;
-        font-weight: bold;
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 100%;
-        height: 40px;
-        margin-bottom: 0.3125em;
-        border: none;
-        border-bottom: 1px solid #c7c7c7;
-        font-size: 0.75em;
-        color: #18bb9b;
-        outline: none; }
-        #imagenform-ipe #tabscontent .tabpage div input:last-child, #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:last-child, #imagenform-ipe #tabscontent .tabpage div .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div textarea:last-child {
-          margin-right: 0; }
-        #imagenform-ipe #tabscontent .tabpage div input[disabled], #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[disabled], #imagenform-ipe #tabscontent .tabpage div .creadas .recientes .content .inputs-campana textarea[disabled], .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div textarea[disabled] {
-          background-color: #fff;
-          color: #c7c7c7; }
-      #imagenform-ipe #tabscontent .tabpage div#descripcion textarea {
-        color: #c7c7c7;
-        min-height: 3.125em;
-        padding-top: 0.3125em;
-        font-size: 0.625em; }
-      #imagenform-ipe #tabscontent .tabpage div#descripcion i {
-        top: 0; }
-      #imagenform-ipe #tabscontent .tabpage div i {
-        position: absolute;
-        top: 30px;
-        right: 10px;
-        color: #18bb9b;
-        z-index: 1; }
-      #imagenform-ipe #tabscontent .tabpage div.selects {
-        position: relative;
-        overflow: hidden; }
-    #imagenform-ipe #tabscontent .tabpage #guardarFacturacion, #imagenform-ipe #tabscontent .tabpage #imagenform #inicio .cancel-data, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage .cancel-data {
-      width: 100%;
-      margin-top: 5px;
-      background-color: #18bb9b; }
-    #imagenform-ipe #tabscontent .tabpage #redesociales .total_reach {
-      display: block;
-      border-top-left-radius: 0.625em;
-      border-top-right-radius: 0.625em;
-      border-bottom-left-radius: 0.625em;
-      border-top-left-radius: 0.625em;
-      border-bottom-right-radius: 0.625em;
-      border-top-right-radius: 0.625em;
-      border-bottom-left-radius: 0.625em;
-      border-bottom-right-radius: 0.625em;
-      padding: 0.625em;
-      background-color: #fff;
-      width: 100%; }
-      #imagenform-ipe #tabscontent .tabpage #redesociales .total_reach::after {
-        clear: both;
-        content: "";
-        display: table; }
-      #imagenform-ipe #tabscontent .tabpage #redesociales .total_reach span {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 65.88078%; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .total_reach span:last-child {
-          margin-right: 0; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .total_reach span h2 {
-          margin: 0;
-          font-size: 0.875em;
-          color: #656b79; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .total_reach span small {
-          text-transform: none; }
-      #imagenform-ipe #tabscontent .tabpage #redesociales .total_reach .total-number {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 31.76157%;
-        text-align: right;
-        padding: 0.375em 0 0;
-        color: #18bb9b;
-        font-size: 1.25em;
-        font-weight: bold; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .total_reach .total-number:last-child {
-          margin-right: 0; }
-    #imagenform-ipe #tabscontent .tabpage #redesociales .red-title {
-      padding: 0.625em;
-      display: block;
-      margin-top: 0.3125em;
-      background-color: #fff;
-      width: 100%;
-      outline: none; }
-      #imagenform-ipe #tabscontent .tabpage #redesociales .red-title::after {
-        clear: both;
-        content: "";
-        display: table; }
-      #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i {
-        position: relative;
-        top: inherit;
-        right: inherit;
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 6.17215%;
-        font-size: 1.375em; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i:last-child {
-          margin-right: 0; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i.fa-google {
-          color: #f05721; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i.fa-instagram {
-          color: #517fa4; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i.fa-facebook {
-          color: #3b5998; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i.fa-twitter {
-          color: #55acee; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i.fa-youtube-play, #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i.fa-google-plus {
-          color: #ee0f0f; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i:last-child {
-          color: #656b79;
-          font-size: 0.75em;
-          padding: 0.375em 0 0; }
-          #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i:last-child::before {
-            font-family: FontAwesome;
-            content: "\f078"; }
-      #imagenform-ipe #tabscontent .tabpage #redesociales .red-title[aria-expanded="true"] {
-        border-top-left-radius: 0.625em;
-        border-top-right-radius: 0.625em;
-        padding: 0.625em 0.625em 0; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .red-title[aria-expanded="true"] i:last-child::before {
-          font-family: FontAwesome;
-          content: "\f077"; }
-      #imagenform-ipe #tabscontent .tabpage #redesociales .red-title[aria-expanded="false"] {
-        border-top-left-radius: 0.625em;
-        border-top-right-radius: 0.625em;
-        border-bottom-left-radius: 0.625em;
-        border-top-left-radius: 0.625em;
-        border-bottom-right-radius: 0.625em;
-        border-top-right-radius: 0.625em;
-        border-bottom-left-radius: 0.625em;
-        border-bottom-right-radius: 0.625em; }
-      #imagenform-ipe #tabscontent .tabpage #redesociales .red-title .red-name {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 82.94039%;
-        font-size: 0.875em;
-        color: #656b79;
-        padding: 0.1875em 0 0; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .red-title .red-name:last-child {
-          margin-right: 0; }
-    #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription {
-      display: block;
-      border-bottom-left-radius: 0.625em;
-      border-bottom-right-radius: 0.625em;
-      padding: 0.625em 0.625em 0.625em;
-      background-color: #fff;
-      width: 100%; }
-      #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription::after {
-        clear: both;
-        content: "";
-        display: table; }
-      #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .reach-total {
-        font-size: 0.875em;
-        text-transform: capitalize;
-        color: #656b79;
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 100%;
-        text-align: center;
-        padding: 0 0 0.625em;
-        border-bottom: 1px solid #c7c7c7; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .reach-total:last-child {
-          margin-right: 0; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .reach-total span {
-          color: #18bb9b;
-          font-size: 1.25em; }
-      #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info {
-        padding: 0 0 0.625em; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info h3 {
-          font-size: 0.75em;
-          text-transform: uppercase;
-          color: #656b79; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info h4 {
-          clear: both;
-          margin-top: 20px;
-          text-transform: uppercase;
-          color: #656b79; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info ul {
-          margin: 0;
-          padding: 0;
-          list-style: none;
-          clear: both; }
-          #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info ul li {
-            float: left;
-            display: block;
-            margin-right: 2.35765%;
-            width: 14.70196%;
-            color: #c7c7c7;
-            font-size: 0.75em;
-            font-weight: normal;
-            height: 50px; }
-            #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info ul li:last-child {
-              margin-right: 0; }
-            #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info ul li span {
-              font-size: 1.375em;
-              text-transform: capitalize;
-              color: #18bb9b; }
-            #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info ul li img {
-              border-top-left-radius: 100%;
-              border-top-right-radius: 100%;
-              border-bottom-left-radius: 100%;
-              border-top-left-radius: 100%;
-              border-bottom-right-radius: 100%;
-              border-top-right-radius: 100%;
-              border-bottom-left-radius: 100%;
-              border-bottom-right-radius: 100%;
-              width: 50px;
-              height: 50px; }
-            #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info ul li:last-child {
-              float: left;
-              display: block;
-              margin-right: 2.35765%;
-              width: 31.76157%;
-              border-left: 1px solid #c7c7c7;
-              padding: 0 0 0 0.625em; }
-              #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info ul li:last-child:last-child {
-                margin-right: 0; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .txt-activar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .txt-desactivar {
-          height: 20px;
-          width: 55px;
-          text-transform: uppercase;
-          text-align: center;
-          float: right;
-          font-size: 9px;
-          color: #656b79;
-          margin-right: 10px; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .txt-desactivar {
-          color: #c7c7c7; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info.secc-analytics .tit-analytics {
-          float: left;
-          display: block;
-          margin-right: 2.35765%;
-          width: 100%;
-          display: table;
-          width: 100%;
-          table-layout: fixed;
-          width: 100%;
-          padding: 0.625em 0 0 0; }
-          #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info.secc-analytics .tit-analytics:last-child {
-            margin-right: 0; }
-          #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info.secc-analytics .tit-analytics h3 {
-            font-size: 0.875em;
-            display: table-cell;
-            width: 75%;
-            vertical-align: middle; }
-          #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info.secc-analytics .tit-analytics small {
-            display: table-cell;
-            width: 25%;
-            vertical-align: middle;
-            text-align: right; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info.secc-analytics .reach-analytics {
-          float: left;
-          display: block;
-          margin-right: 2.35765%;
-          width: 100%;
-          text-align: right;
-          font-size: 1.4375em;
-          color: #18bb9b; }
-          #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info.secc-analytics .reach-analytics:last-child {
-            margin-right: 0; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info.secc-analytics li {
-          float: left;
-          display: block;
-          margin-right: 2.35765%;
-          width: 23.23176%;
-          margin-bottom: 20px; }
-          #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info.secc-analytics li:last-child {
-            margin-right: 0; }
-      #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #imagenform #inicio #guardarFacturacion, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #guardarFacturacion, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #imagenform #inicio .cancel-data, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .cancel-data, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription html body.formularios-registro .cont_formRegistro .cont-inputs #guardar, html body.formularios-registro .cont_formRegistro .cont-inputs #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #guardar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.ingreso_eleccion #tipo .btns_accesos, main.ingreso_eleccion #tipo #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns_accesos, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #inicio .btns_accesos, main.form_agencias #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns_accesos, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso #ingresar, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso #ingresar, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm #ingresar, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso .fb_btn, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso .fb_btn, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm .fb_btn, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso .lk_btn, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso .lk_btn, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm .lk_btn, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm #registrarse, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #registrarse, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .recientes .content .jfilestyle, .creadas .recientes .content #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .jfilestyle, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .recientes .content .guardar-campana, .creadas .recientes .content #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .guardar-campana, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .volver, .creadas #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .volver, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .volver-campana, .creadas #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .volver-campana, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .no-campana .hrefCamp .btn_crearcamp, .no-campana .hrefCamp #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btn_crearcamp, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #campanaForm-nueva-campana .jfilestyle, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .jfilestyle, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #campanaForm-nueva-campana .guardar, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .guardar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .influenciador-publico #opc_cot, .influenciador-publico #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #opc_cot, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .influenciador-publico #cotizar_influenciador, .influenciador-publico #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #cotizar_influenciador {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 100%;
-        text-align: center;
-        display: block;
-        background-color: #18bb9b;
-        margin-bottom: 0; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #imagenform #inicio #guardarFacturacion:last-child, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #guardarFacturacion:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #imagenform #inicio .cancel-data:last-child, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .cancel-data:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription html body.formularios-registro .cont_formRegistro .cont-inputs #guardar:last-child, html body.formularios-registro .cont_formRegistro .cont-inputs #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #guardar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.ingreso_eleccion #tipo .btns_accesos:last-child, main.ingreso_eleccion #tipo #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns_accesos:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #inicio .btns_accesos:last-child, main.form_agencias #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns_accesos:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso #ingresar:last-child, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm #ingresar:last-child, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso .fb_btn:last-child, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm .fb_btn:last-child, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso .lk_btn:last-child, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm .lk_btn:last-child, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm #registrarse:last-child, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #registrarse:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .recientes .content .jfilestyle:last-child, .creadas .recientes .content #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .jfilestyle:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .recientes .content .guardar-campana:last-child, .creadas .recientes .content #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .guardar-campana:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .volver:last-child, .creadas #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .volver:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .volver-campana:last-child, .creadas #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .volver-campana:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .no-campana .hrefCamp .btn_crearcamp:last-child, .no-campana .hrefCamp #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btn_crearcamp:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #campanaForm-nueva-campana .jfilestyle:last-child, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .jfilestyle:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #campanaForm-nueva-campana .guardar:last-child, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .guardar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .influenciador-publico #opc_cot:last-child, .influenciador-publico #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #opc_cot:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .influenciador-publico #cotizar_influenciador:last-child, .influenciador-publico #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #cotizar_influenciador:last-child {
-          margin-right: 0; }
-#imagenform-ipe .header-ipe {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: #153773;
-  position: relative;
-  overflow: hidden;
-  height: 325px;
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 100%;
-  text-align: center;
-  color: #fff; }
-  #imagenform-ipe .header-ipe:last-child {
-    margin-right: 0; }
-  #imagenform-ipe .header-ipe .change-img {
-    opacity: .8;
-    color: #fff;
-    margin: -43px auto 20px;
-    width: 100px;
-    height: 30px;
-    display: block;
-    position: relative;
-    z-index: 3;
-    font-size: 1.875em;
-    text-align: right; }
-    #imagenform-ipe .header-ipe .change-img:hover i {
-      color: #153773; }
-  #imagenform-ipe .header-ipe .mask-imguser {
-    width: 7.9375em;
-    height: 7.875em;
-    margin: 20px auto 0;
-    display: block;
-    position: relative;
-    z-index: 2;
-    -webkit-filter: drop-shadow(3px 3px 3px black);
-    filter: drop-shadow(3px 3px 3px black); }
-  #imagenform-ipe .header-ipe h2 {
-    font-size: 0.9375em;
-    font-weight: bold;
-    position: relative;
-    z-index: 2; }
-  #imagenform-ipe .header-ipe input, #imagenform-ipe .header-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion .header-ipe textarea, #imagenform-ipe .header-ipe .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana #imagenform-ipe .header-ipe textarea {
-    position: relative;
-    z-index: 2; }
-  #imagenform-ipe .header-ipe div {
-    position: relative;
-    z-index: 2; }
-    #imagenform-ipe .header-ipe div.geo {
-      font-size: 0.875em;
-      font-weight: normal; }
-  #imagenform-ipe .header-ipe p {
-    position: relative;
-    z-index: 2; }
-    #imagenform-ipe .header-ipe p.bio {
-      font-size: 0.8125em;
-      font-weight: bold;
-      max-width: 350px;
-      margin-left: auto;
-      margin-right: auto; }
-  #imagenform-ipe .header-ipe .nav-ipe2 {
-    position: relative;
-    z-index: 2;
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 65.88078%;
-    margin-left: 17.05961%;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border: 1px solid #fff;
-    background-color: transparent; }
-    #imagenform-ipe .header-ipe .nav-ipe2:last-child {
-      margin-right: 0; }
-    #imagenform-ipe .header-ipe .nav-ipe2 ul {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 100%;
-      width: 100%; }
-      #imagenform-ipe .header-ipe .nav-ipe2 ul:last-child {
-        margin-right: 0; }
-      #imagenform-ipe .header-ipe .nav-ipe2 ul li {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 49.93005%;
-        display: block;
-        margin-right: 0;
-        border: none;
-        text-transform: capitalize; }
-        #imagenform-ipe .header-ipe .nav-ipe2 ul li:last-child {
-          margin-right: 0; }
-        #imagenform-ipe .header-ipe .nav-ipe2 ul li::after {
-          clear: both;
-          content: "";
-          display: table; }
-        #imagenform-ipe .header-ipe .nav-ipe2 ul li.active {
-          background-color: #fff;
-          color: #18bb9b; }
-          #imagenform-ipe .header-ipe .nav-ipe2 ul li.active a {
-            color: #18bb9b; }
-  #imagenform-ipe .header-ipe:after {
-    content: '';
-    background-image: linear-gradient(to bottom, transparent, #153773);
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    z-index: 1; }
-
 html {
   width: 100%;
   margin: 0;
@@ -1673,12 +877,12 @@ html {
             right: 0;
             bottom: 10px;
             color: #18bb9b; }
-          html body.formularios-registro .cont_formRegistro .cont-inputs div input, html body.formularios-registro .cont_formRegistro .cont-inputs #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage html body.formularios-registro .cont_formRegistro .cont-inputs div#descripcion textarea, html body.formularios-registro .cont_formRegistro .cont-inputs div .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana html body.formularios-registro .cont_formRegistro .cont-inputs div textarea {
+          html body.formularios-registro .cont_formRegistro .cont-inputs div input, html body.formularios-registro .cont_formRegistro .cont-inputs div .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana html body.formularios-registro .cont_formRegistro .cont-inputs div textarea, html body.formularios-registro .cont_formRegistro .cont-inputs #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage html body.formularios-registro .cont_formRegistro .cont-inputs div#descripcion textarea {
             float: left;
             display: block;
             margin-right: 2.35765%;
             width: 100%; }
-            html body.formularios-registro .cont_formRegistro .cont-inputs div input:last-child, html body.formularios-registro .cont_formRegistro .cont-inputs #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:last-child, #imagenform-ipe #tabscontent .tabpage html body.formularios-registro .cont_formRegistro .cont-inputs div#descripcion textarea:last-child, html body.formularios-registro .cont_formRegistro .cont-inputs div .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana html body.formularios-registro .cont_formRegistro .cont-inputs div textarea:last-child {
+            html body.formularios-registro .cont_formRegistro .cont-inputs div input:last-child, html body.formularios-registro .cont_formRegistro .cont-inputs div .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana html body.formularios-registro .cont_formRegistro .cont-inputs div textarea:last-child, html body.formularios-registro .cont_formRegistro .cont-inputs #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:last-child, #imagenform-ipe #tabscontent .tabpage html body.formularios-registro .cont_formRegistro .cont-inputs div#descripcion textarea:last-child {
               margin-right: 0; }
     @media screen and (min-width: 64em) and (max-width: 90em) {
       html body {
@@ -2001,12 +1205,12 @@ main {
             display: table; }
           main.form_agencias #antiguo .form_ingreso p:last-child, main.form_agencias #nuevo .form_ingreso p:last-child, main.form_agencias #nuevo .registerForm p:last-child {
             margin-right: 0; }
-        main.form_agencias #antiguo .form_ingreso input, main.form_agencias #nuevo .form_ingreso input, main.form_agencias #nuevo .registerForm input, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #antiguo .form_ingreso textarea, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .form_ingreso textarea, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .registerForm textarea, main.form_agencias #antiguo .form_ingreso .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #antiguo .form_ingreso textarea, main.form_agencias #nuevo .form_ingreso .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .form_ingreso textarea, main.form_agencias #nuevo .registerForm .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm textarea {
+        main.form_agencias #antiguo .form_ingreso input, main.form_agencias #nuevo .form_ingreso input, main.form_agencias #nuevo .registerForm input, main.form_agencias #antiguo .form_ingreso .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #antiguo .form_ingreso textarea, main.form_agencias #nuevo .form_ingreso .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .form_ingreso textarea, main.form_agencias #nuevo .registerForm .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm textarea, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #antiguo .form_ingreso textarea, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .form_ingreso textarea, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .registerForm textarea {
           float: left;
           display: block;
           margin-right: 2.35765%;
           width: 100%; }
-          main.form_agencias #antiguo .form_ingreso input:last-child, main.form_agencias #nuevo .form_ingreso input:last-child, main.form_agencias #nuevo .registerForm input:last-child, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:last-child, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #antiguo .form_ingreso textarea:last-child, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:last-child, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .form_ingreso textarea:last-child, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:last-child, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .registerForm textarea:last-child, main.form_agencias #antiguo .form_ingreso .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana main.form_agencias #antiguo .form_ingreso textarea:last-child, main.form_agencias #nuevo .form_ingreso .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .form_ingreso textarea:last-child, main.form_agencias #nuevo .registerForm .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm textarea:last-child {
+          main.form_agencias #antiguo .form_ingreso input:last-child, main.form_agencias #nuevo .form_ingreso input:last-child, main.form_agencias #nuevo .registerForm input:last-child, main.form_agencias #antiguo .form_ingreso .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana main.form_agencias #antiguo .form_ingreso textarea:last-child, main.form_agencias #nuevo .form_ingreso .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .form_ingreso textarea:last-child, main.form_agencias #nuevo .registerForm .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm textarea:last-child, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:last-child, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #antiguo .form_ingreso textarea:last-child, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:last-child, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .form_ingreso textarea:last-child, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:last-child, #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .registerForm textarea:last-child {
             margin-right: 0; }
         main.form_agencias #antiguo .form_ingreso #ingresar, main.form_agencias #nuevo .form_ingreso #ingresar, main.form_agencias #nuevo .registerForm #ingresar {
           float: left;
@@ -2159,9 +1363,9 @@ main {
           max-width: 35% !important;
           top: 26%; } }
 
-.dashboard-agencia, .dashboard-ipe, .crear-campanas, .campanas, .influenciador-publico {
+.dashboard-agencia, .dashboard-ipe, .campanas-ipe, .crear-campanas, .campanas, .influenciador-publico {
   background-image: none; }
-  .dashboard-agencia .sub-titulo, .dashboard-ipe .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo, .influenciador-publico .sub-titulo {
+  .dashboard-agencia .sub-titulo, .dashboard-ipe .sub-titulo, .campanas-ipe .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo, .influenciador-publico .sub-titulo {
     margin: 0;
     font-size: 14px;
     font-style: italic;
@@ -2170,26 +1374,37 @@ main {
     padding: 10px;
     clear: both; }
     @media screen and (min-width: 64em) and (max-width: 90em) {
-      .dashboard-agencia .sub-titulo, .dashboard-ipe .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo, .influenciador-publico .sub-titulo {
+      .dashboard-agencia .sub-titulo, .dashboard-ipe .sub-titulo, .campanas-ipe .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo, .influenciador-publico .sub-titulo {
         max-width: 68em;
         margin-left: auto;
         margin-right: auto;
         color: #656b79;
         font-size: 18px;
         font-weight: normal; }
-        .dashboard-agencia .sub-titulo::after, .dashboard-ipe .sub-titulo::after, .crear-campanas .sub-titulo::after, .campanas .sub-titulo::after, .influenciador-publico .sub-titulo::after {
+        .dashboard-agencia .sub-titulo::after, .dashboard-ipe .sub-titulo::after, .campanas-ipe .sub-titulo::after, .crear-campanas .sub-titulo::after, .campanas .sub-titulo::after, .influenciador-publico .sub-titulo::after {
           clear: both;
           content: "";
           display: table; } }
     @media screen and (min-width: 90em) {
-      .dashboard-agencia .sub-titulo, .dashboard-ipe .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo, .influenciador-publico .sub-titulo {
+      .dashboard-agencia .sub-titulo, .dashboard-ipe .sub-titulo, .campanas-ipe .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo, .influenciador-publico .sub-titulo {
         color: #656b79;
         font-size: 18px;
         font-weight: normal; } }
 
-.dashboard-ipe {
+.dashboard-ipe, .campanas-ipe {
   background-color: #c7c7c7;
   font-family: "Montserrat", sans-serif; }
+  .dashboard-ipe #imagenform-ipe #tabscontent .tabpage:first-child, .campanas-ipe #imagenform-ipe #tabscontent .tabpage:first-child {
+    padding: 0.625em;
+    border-top-left-radius: 0.625em;
+    border-top-right-radius: 0.625em;
+    border-bottom-left-radius: 0.625em;
+    border-top-left-radius: 0.625em;
+    border-bottom-right-radius: 0.625em;
+    border-top-right-radius: 0.625em;
+    border-bottom-left-radius: 0.625em;
+    border-bottom-right-radius: 0.625em;
+    background-color: #fff; }
 
 .creadas .recientes {
   display: block;
@@ -2382,7 +1597,7 @@ main {
           right: 1px;
           top: 7px;
           font-size: 12px; }
-      .creadas .recientes .content .campa-ico input, .creadas .recientes .content .campa-ico #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .campa-ico textarea, .creadas .recientes .content .campa-ico .inputs-campana textarea, .creadas .recientes .content .inputs-campana .campa-ico textarea {
+      .creadas .recientes .content .campa-ico input, .creadas .recientes .content .campa-ico .inputs-campana textarea, .creadas .recientes .content .inputs-campana .campa-ico textarea, .creadas .recientes .content .campa-ico #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .campa-ico textarea {
         border: none;
         outline: none;
         color: #18bb9b;
@@ -2455,22 +1670,22 @@ main {
         right: 1px;
         top: 7px;
         font-size: 12px; }
-      .creadas .recientes .content .inputs-campana input, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana textarea {
+      .creadas .recientes .content .inputs-campana input, .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana textarea {
         width: 100%;
         border: none; }
-        .creadas .recientes .content .inputs-campana input::-webkit-input-placeholder, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea::-webkit-input-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana textarea::-webkit-input-placeholder, .creadas .recientes .content .inputs-campana textarea::-webkit-input-placeholder {
+        .creadas .recientes .content .inputs-campana input::-webkit-input-placeholder, .creadas .recientes .content .inputs-campana textarea::-webkit-input-placeholder, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea::-webkit-input-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana textarea::-webkit-input-placeholder {
           color: #484d58;
           font-size: 10px; }
-        .creadas .recientes .content .inputs-campana input::-moz-placeholder, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea::-moz-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana textarea::-moz-placeholder, .creadas .recientes .content .inputs-campana textarea::-moz-placeholder {
+        .creadas .recientes .content .inputs-campana input::-moz-placeholder, .creadas .recientes .content .inputs-campana textarea::-moz-placeholder, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea::-moz-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana textarea::-moz-placeholder {
           color: #484d58;
           font-size: 10px; }
-        .creadas .recientes .content .inputs-campana input:-moz-placeholder, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:-moz-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana textarea:-moz-placeholder, .creadas .recientes .content .inputs-campana textarea:-moz-placeholder {
+        .creadas .recientes .content .inputs-campana input:-moz-placeholder, .creadas .recientes .content .inputs-campana textarea:-moz-placeholder, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:-moz-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana textarea:-moz-placeholder {
           color: #484d58;
           font-size: 10px; }
-        .creadas .recientes .content .inputs-campana input:-ms-input-placeholder, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:-ms-input-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana textarea:-ms-input-placeholder, .creadas .recientes .content .inputs-campana textarea:-ms-input-placeholder {
+        .creadas .recientes .content .inputs-campana input:-ms-input-placeholder, .creadas .recientes .content .inputs-campana textarea:-ms-input-placeholder, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:-ms-input-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana textarea:-ms-input-placeholder {
           color: #484d58;
           font-size: 10px; }
-        .creadas .recientes .content .inputs-campana input[disabled], .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[disabled], #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana textarea[disabled], .creadas .recientes .content .inputs-campana textarea[disabled] {
+        .creadas .recientes .content .inputs-campana input[disabled], .creadas .recientes .content .inputs-campana textarea[disabled], .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[disabled], #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana textarea[disabled] {
           background-color: #fff; }
       .creadas .recientes .content .inputs-campana textarea {
         color: #c7c7c7;
@@ -2479,18 +1694,18 @@ main {
         min-height: 100px; }
       .creadas .recientes .content .inputs-campana.descripcion i {
         top: 0; }
-      .creadas .recientes .content .inputs-campana.nombre input, .creadas .recientes .content .inputs-campana.nombre #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana.nombre textarea, .creadas .recientes .content .inputs-campana.nombre textarea {
+      .creadas .recientes .content .inputs-campana.nombre input, .creadas .recientes .content .inputs-campana.nombre textarea, .creadas .recientes .content .inputs-campana.nombre #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana.nombre textarea {
         line-height: 12px; }
-        .creadas .recientes .content .inputs-campana.nombre input::-webkit-input-placeholder, .creadas .recientes .content .inputs-campana.nombre #imagenform-ipe #tabscontent .tabpage div#descripcion textarea::-webkit-input-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana.nombre textarea::-webkit-input-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea::-webkit-input-placeholder {
+        .creadas .recientes .content .inputs-campana.nombre input::-webkit-input-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea::-webkit-input-placeholder, .creadas .recientes .content .inputs-campana.nombre #imagenform-ipe #tabscontent .tabpage div#descripcion textarea::-webkit-input-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana.nombre textarea::-webkit-input-placeholder {
           font-size: 15px;
           font-weight: bold; }
-        .creadas .recientes .content .inputs-campana.nombre input::-moz-placeholder, .creadas .recientes .content .inputs-campana.nombre #imagenform-ipe #tabscontent .tabpage div#descripcion textarea::-moz-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana.nombre textarea::-moz-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea::-moz-placeholder {
+        .creadas .recientes .content .inputs-campana.nombre input::-moz-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea::-moz-placeholder, .creadas .recientes .content .inputs-campana.nombre #imagenform-ipe #tabscontent .tabpage div#descripcion textarea::-moz-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana.nombre textarea::-moz-placeholder {
           font-size: 15px;
           font-weight: bold; }
-        .creadas .recientes .content .inputs-campana.nombre input:-moz-placeholder, .creadas .recientes .content .inputs-campana.nombre #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:-moz-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana.nombre textarea:-moz-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea:-moz-placeholder {
+        .creadas .recientes .content .inputs-campana.nombre input:-moz-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea:-moz-placeholder, .creadas .recientes .content .inputs-campana.nombre #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:-moz-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana.nombre textarea:-moz-placeholder {
           font-size: 15px;
           font-weight: bold; }
-        .creadas .recientes .content .inputs-campana.nombre input:-ms-input-placeholder, .creadas .recientes .content .inputs-campana.nombre #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:-ms-input-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana.nombre textarea:-ms-input-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea:-ms-input-placeholder {
+        .creadas .recientes .content .inputs-campana.nombre input:-ms-input-placeholder, .creadas .recientes .content .inputs-campana.nombre textarea:-ms-input-placeholder, .creadas .recientes .content .inputs-campana.nombre #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:-ms-input-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion .creadas .recientes .content .inputs-campana.nombre textarea:-ms-input-placeholder {
           font-size: 15px;
           font-weight: bold; }
     .creadas .recientes .content .btn_close {
@@ -2712,6 +1927,849 @@ main {
         .no-campana .hrefCamp .btn_crearcamp:last-child {
           margin-right: 0; } }
 
+#imagenform {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  position: absolute;
+  z-index: 8;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #FFF;
+  opacity: 0;
+  height: auto;
+  right: 0;
+  top: -100%;
+  -webkit-box-shadow: 0px 0px 10px 0px #ccc;
+  -moz-box-shadow: 0px 0px 10px 0px #ccc;
+  box-shadow: 0px 0px 10px 0px #ccc;
+  padding: 20px; }
+  #imagenform:last-child {
+    margin-right: 0; }
+  #imagenform .fle-top {
+    margin-top: -25px;
+    margin-right: -10px;
+    float: right;
+    width: 10px;
+    height: 10px;
+    background-color: #FFF;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg); }
+  #imagenform .misdatos {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    margin-right: 0; }
+    #imagenform .misdatos:last-child {
+      margin-right: 0; }
+    #imagenform .misdatos .imagen {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-top-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      min-height: 80px;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: relative;
+      overflow: hidden; }
+      #imagenform .misdatos .imagen:last-child {
+        margin-right: 0; }
+      #imagenform .misdatos .imagen .selectFile {
+        width: 0;
+        height: 0;
+        background-color: rgba(255, 255, 255, 0.5);
+        color: #18bb9b;
+        text-align: center;
+        display: table;
+        font-size: 17px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        cursor: pointer; }
+        #imagenform .misdatos .imagen .selectFile i {
+          display: table-cell;
+          vertical-align: middle;
+          opacity: 0; }
+    #imagenform .misdatos .datos {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%;
+      margin-left: 4.2649%; }
+      #imagenform .misdatos .datos:last-child {
+        margin-right: 0; }
+      #imagenform .misdatos .datos h2 {
+        padding: 0;
+        margin: 0;
+        font-size: 18px;
+        color: #18bb9b; }
+        @media screen and (max-width: 20em) {
+          #imagenform .misdatos .datos h2 {
+            font-size: 15px; } }
+      #imagenform .misdatos .datos h3 {
+        font-size: 12px;
+        font-style: italic;
+        padding: 0;
+        margin: 0;
+        color: #18bb9b; }
+      #imagenform .misdatos .datos .editar {
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+        border-top-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        border-top-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        text-transform: uppercase;
+        text-align: center;
+        border: 1px solid #18bb9b;
+        font-size: 10px;
+        color: #18bb9b;
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%;
+        height: 25px;
+        margin-top: 8px;
+        display: table;
+        cursor: pointer; }
+        #imagenform .misdatos .datos .editar:last-child {
+          margin-right: 0; }
+        #imagenform .misdatos .datos .editar span {
+          display: table-cell;
+          vertical-align: middle; }
+    #imagenform .misdatos .alert-uploadready {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%;
+      color: #18bb9b;
+      font-size: 12px;
+      text-align: center;
+      padding-top: 10px; }
+      #imagenform .misdatos .alert-uploadready:last-child {
+        margin-right: 0; }
+      #imagenform .misdatos .alert-uploadready i {
+        font-size: 14px;
+        margin-right: 5px; }
+  #imagenform #inicio {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%; }
+    #imagenform #inicio:last-child {
+      margin-right: 0; }
+    #imagenform #inicio #tabs {
+      width: 100%;
+      display: block;
+      list-style: none;
+      padding: 0; }
+      #imagenform #inicio #tabs::after {
+        clear: both;
+        content: "";
+        display: table; }
+      #imagenform #inicio #tabs li {
+        padding: 0 0 8px;
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 49.9727%;
+        display: block;
+        margin-right: 0;
+        border-bottom: 1px solid #c7c7c7;
+        text-align: center;
+        font-size: 12px;
+        color: #c7c7c7;
+        cursor: pointer; }
+        #imagenform #inicio #tabs li:last-child {
+          margin-right: 0; }
+        #imagenform #inicio #tabs li::after {
+          clear: both;
+          content: "";
+          display: table; }
+        #imagenform #inicio #tabs li.tabActiveHeader {
+          color: #18bb9b;
+          border-bottom: 1px solid #18bb9b; }
+    #imagenform #inicio .tabpage {
+      width: 100%;
+      display: block; }
+      #imagenform #inicio .tabpage::after {
+        clear: both;
+        content: "";
+        display: table; }
+      #imagenform #inicio .tabpage div {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%;
+        display: block;
+        overflow: hidden;
+        position: relative; }
+        #imagenform #inicio .tabpage div:last-child {
+          margin-right: 0; }
+        #imagenform #inicio .tabpage div::after {
+          clear: both;
+          content: "";
+          display: table; }
+        #imagenform #inicio .tabpage div small {
+          color: #c7c7c7;
+          clear: both;
+          font-size: 9px;
+          text-transform: uppercase; }
+        #imagenform #inicio .tabpage div input, #imagenform #inicio .tabpage div .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana #imagenform #inicio .tabpage div textarea, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent #imagenform #inicio .tabpage div#descripcion textarea {
+          font-family: "Open Sans", sans-serif;
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 100%;
+          height: 20px;
+          margin-bottom: 5px;
+          border: none;
+          border-bottom: 1px solid #c7c7c7;
+          font-size: 12px;
+          color: #c7c7c7;
+          outline: none; }
+          #imagenform #inicio .tabpage div input:last-child, #imagenform #inicio .tabpage div .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana #imagenform #inicio .tabpage div textarea:last-child, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:last-child, #imagenform-ipe #tabscontent #imagenform #inicio .tabpage div#descripcion textarea:last-child {
+            margin-right: 0; }
+          #imagenform #inicio .tabpage div input[disabled], #imagenform #inicio .tabpage div .creadas .recientes .content .inputs-campana textarea[disabled], .creadas .recientes .content .inputs-campana #imagenform #inicio .tabpage div textarea[disabled], #imagenform #inicio #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[disabled], #imagenform-ipe #tabscontent #imagenform #inicio .tabpage div#descripcion textarea[disabled] {
+            background-color: #fff; }
+        #imagenform #inicio .tabpage div#tel1, #imagenform #inicio .tabpage div#tel2 {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 48.82117%; }
+          #imagenform #inicio .tabpage div#tel1:last-child, #imagenform #inicio .tabpage div#tel2:last-child {
+            margin-right: 0; }
+        #imagenform #inicio .tabpage div i {
+          position: absolute;
+          top: 22px;
+          right: 10px;
+          color: #18bb9b;
+          opacity: 0; }
+    #imagenform #inicio #guardarFacturacion, #imagenform #inicio .cancel-data {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%;
+      margin-left: 0%;
+      background-color: #18bb9b;
+      padding: 10px 0;
+      font-size: 11px;
+      margin-top: 10px; }
+      #imagenform #inicio #guardarFacturacion:last-child, #imagenform #inicio .cancel-data:last-child {
+        margin-right: 0; }
+    #imagenform #inicio .cancel-data {
+      text-align: center;
+      background-color: #FFF;
+      border-color: #18bb9b;
+      color: #18bb9b;
+      margin-bottom: -5px; }
+    #imagenform #inicio .logout {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%;
+      text-align: center;
+      color: #c7c7c7;
+      text-transform: uppercase;
+      font-size: 11px;
+      padding: 10px 0 0; }
+      #imagenform #inicio .logout:last-child {
+        margin-right: 0; }
+  @media screen and (min-width: 20em) and (max-width: 40em) {
+    #imagenform {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 82.94039%; }
+      #imagenform:last-child {
+        margin-right: 0; } }
+  @media screen and (min-width: 30em) and (max-width: 64em) {
+    #imagenform {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 48.82117%; }
+      #imagenform:last-child {
+        margin-right: 0; } }
+  @media screen and (min-width: 64em) and (max-width: 90em) {
+    #imagenform {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      margin-right: 1% !important; }
+      #imagenform:last-child {
+        margin-right: 0; } }
+  @media screen and (min-width: 90em) {
+    #imagenform {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      margin-right: 1% !important; }
+      #imagenform:last-child {
+        margin-right: 0; } }
+
+#imagenform-ipe #tabs {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  width: 100%;
+  display: block;
+  list-style: none;
+  padding: 0;
+  background-color: #fff;
+  margin: 0 0 0.3125em; }
+  #imagenform-ipe #tabs:last-child {
+    margin-right: 0; }
+  #imagenform-ipe #tabs::after {
+    clear: both;
+    content: "";
+    display: table; }
+  #imagenform-ipe #tabs li {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 49.9727%;
+    display: block;
+    margin-right: 0;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px; }
+    #imagenform-ipe #tabs li:last-child {
+      margin-right: 0; }
+    #imagenform-ipe #tabs li::after {
+      clear: both;
+      content: "";
+      display: table; }
+    #imagenform-ipe #tabs li a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 10px 0 8px;
+      outline: none;
+      color: #c7c7c7; }
+    #imagenform-ipe #tabs li[aria-selected="true"] {
+      color: #18bb9b;
+      border-bottom: 2px solid #18bb9b; }
+      #imagenform-ipe #tabs li[aria-selected="true"] a {
+        color: #18bb9b; }
+    #imagenform-ipe #tabs li:first-child {
+      border-right: 1px solid #c7c7c7; }
+#imagenform-ipe #tabscontent {
+  padding: 0.625em 0.3125em; }
+  #imagenform-ipe #tabscontent::before {
+    content: "";
+    clear: both;
+    display: block; }
+  #imagenform-ipe #tabscontent .tabpage {
+    width: 100%;
+    width: 100%;
+    display: block; }
+    #imagenform-ipe #tabscontent .tabpage::after {
+      clear: both;
+      content: "";
+      display: table; }
+    #imagenform-ipe #tabscontent .tabpage div {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%;
+      display: block;
+      overflow: hidden;
+      position: relative; }
+      #imagenform-ipe #tabscontent .tabpage div:last-child {
+        margin-right: 0; }
+      #imagenform-ipe #tabscontent .tabpage div::after {
+        clear: both;
+        content: "";
+        display: table; }
+      #imagenform-ipe #tabscontent .tabpage div small {
+        color: #c7c7c7;
+        clear: both;
+        font-size: 9px;
+        text-transform: uppercase; }
+      #imagenform-ipe #tabscontent .tabpage div input, #imagenform-ipe #tabscontent .tabpage div .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion textarea {
+        font-family: "Open Sans", sans-serif;
+        font-weight: bold;
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%;
+        height: 40px;
+        margin-bottom: 0.3125em;
+        border: none;
+        border-bottom: 1px solid #c7c7c7;
+        font-size: 0.75em;
+        color: #18bb9b;
+        outline: none; }
+        #imagenform-ipe #tabscontent .tabpage div input:last-child, #imagenform-ipe #tabscontent .tabpage div .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div textarea:last-child, #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:last-child {
+          margin-right: 0; }
+        #imagenform-ipe #tabscontent .tabpage div input[disabled], #imagenform-ipe #tabscontent .tabpage div .creadas .recientes .content .inputs-campana textarea[disabled], .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage div textarea[disabled], #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[disabled] {
+          background-color: #fff;
+          color: #c7c7c7; }
+      #imagenform-ipe #tabscontent .tabpage div#descripcion textarea {
+        color: #c7c7c7;
+        min-height: 3.125em;
+        padding-top: 0.3125em;
+        font-size: 0.625em; }
+      #imagenform-ipe #tabscontent .tabpage div#descripcion i {
+        top: 0; }
+      #imagenform-ipe #tabscontent .tabpage div i {
+        position: absolute;
+        top: 30px;
+        right: 10px;
+        color: #18bb9b;
+        z-index: 1; }
+      #imagenform-ipe #tabscontent .tabpage div.selects {
+        position: relative;
+        overflow: hidden; }
+    #imagenform-ipe #tabscontent .tabpage #guardarFacturacion, #imagenform-ipe #tabscontent .tabpage #imagenform #inicio .cancel-data, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage .cancel-data {
+      width: 100%;
+      margin-top: 5px;
+      background-color: #18bb9b; }
+    #imagenform-ipe #tabscontent .tabpage #redesociales .no-rrss {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%;
+      border-top-left-radius: 0.625em;
+      border-top-right-radius: 0.625em;
+      border-bottom-left-radius: 0.625em;
+      border-top-left-radius: 0.625em;
+      border-bottom-right-radius: 0.625em;
+      border-top-right-radius: 0.625em;
+      border-bottom-left-radius: 0.625em;
+      border-bottom-right-radius: 0.625em;
+      background-color: #fff; }
+      #imagenform-ipe #tabscontent .tabpage #redesociales .no-rrss:last-child {
+        margin-right: 0; }
+      #imagenform-ipe #tabscontent .tabpage #redesociales .no-rrss::after {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 74.41059%;
+        padding: 2.35765%;
+        content: "No registra redes sociales actualmente";
+        color: #c7c7c7;
+        font-size: 0.875em; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .no-rrss::after:last-child {
+          margin-right: 0; }
+      #imagenform-ipe #tabscontent .tabpage #redesociales .no-rrss .gph-alert {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 23.23176%;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        display: table;
+        min-height: 80px; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .no-rrss .gph-alert:last-child {
+          margin-right: 0; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .no-rrss .gph-alert::before {
+          font-family: 'powerinfluencer';
+          display: table-cell;
+          vertical-align: middle;
+          position: relative;
+          z-index: 2;
+          color: #fff; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .no-rrss .gph-alert svg.poly-gon {
+          fill: #18bb9b;
+          position: absolute;
+          z-index: 1;
+          width: 80px;
+          height: 80px; }
+    #imagenform-ipe #tabscontent .tabpage #redesociales .total_reach {
+      display: block;
+      border-top-left-radius: 0.625em;
+      border-top-right-radius: 0.625em;
+      border-bottom-left-radius: 0.625em;
+      border-top-left-radius: 0.625em;
+      border-bottom-right-radius: 0.625em;
+      border-top-right-radius: 0.625em;
+      border-bottom-left-radius: 0.625em;
+      border-bottom-right-radius: 0.625em;
+      padding: 0.625em;
+      background-color: #fff;
+      width: 100%; }
+      #imagenform-ipe #tabscontent .tabpage #redesociales .total_reach::after {
+        clear: both;
+        content: "";
+        display: table; }
+      #imagenform-ipe #tabscontent .tabpage #redesociales .total_reach span {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 65.88078%; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .total_reach span:last-child {
+          margin-right: 0; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .total_reach span h2 {
+          margin: 0;
+          font-size: 0.875em;
+          color: #656b79; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .total_reach span small {
+          text-transform: none; }
+      #imagenform-ipe #tabscontent .tabpage #redesociales .total_reach .total-number {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 31.76157%;
+        text-align: right;
+        padding: 0.375em 0 0;
+        color: #18bb9b;
+        font-size: 1.25em;
+        font-weight: bold; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .total_reach .total-number:last-child {
+          margin-right: 0; }
+    #imagenform-ipe #tabscontent .tabpage #redesociales .red-title {
+      padding: 0.625em;
+      display: block;
+      margin-top: 0.3125em;
+      background-color: #fff;
+      width: 100%;
+      outline: none; }
+      #imagenform-ipe #tabscontent .tabpage #redesociales .red-title::after {
+        clear: both;
+        content: "";
+        display: table; }
+      #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i {
+        position: relative;
+        top: inherit;
+        right: inherit;
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 6.17215%;
+        font-size: 1.375em; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i:last-child {
+          margin-right: 0; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i.fa-google {
+          color: #f05721; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i.fa-instagram {
+          color: #517fa4; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i.fa-facebook {
+          color: #3b5998; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i.fa-twitter {
+          color: #55acee; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i.fa-youtube-play, #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i.fa-google-plus {
+          color: #ee0f0f; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i:last-child {
+          color: #656b79;
+          font-size: 0.75em;
+          padding: 0.375em 0 0; }
+          #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i:last-child::before {
+            font-family: FontAwesome;
+            content: "\f078"; }
+      #imagenform-ipe #tabscontent .tabpage #redesociales .red-title[aria-expanded="true"] {
+        border-top-left-radius: 0.625em;
+        border-top-right-radius: 0.625em;
+        padding: 0.625em 0.625em 0; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .red-title[aria-expanded="true"] i:last-child::before {
+          font-family: FontAwesome;
+          content: "\f077"; }
+      #imagenform-ipe #tabscontent .tabpage #redesociales .red-title[aria-expanded="false"] {
+        border-top-left-radius: 0.625em;
+        border-top-right-radius: 0.625em;
+        border-bottom-left-radius: 0.625em;
+        border-top-left-radius: 0.625em;
+        border-bottom-right-radius: 0.625em;
+        border-top-right-radius: 0.625em;
+        border-bottom-left-radius: 0.625em;
+        border-bottom-right-radius: 0.625em; }
+      #imagenform-ipe #tabscontent .tabpage #redesociales .red-title .red-name {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 82.94039%;
+        font-size: 0.875em;
+        color: #656b79;
+        padding: 0.1875em 0 0; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .red-title .red-name:last-child {
+          margin-right: 0; }
+    #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription {
+      display: block;
+      border-bottom-left-radius: 0.625em;
+      border-bottom-right-radius: 0.625em;
+      padding: 0.625em 0.625em 0.625em;
+      background-color: #fff;
+      width: 100%; }
+      #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription::after {
+        clear: both;
+        content: "";
+        display: table; }
+      #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .reach-total {
+        font-size: 0.875em;
+        text-transform: capitalize;
+        color: #656b79;
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%;
+        text-align: center;
+        padding: 0 0 0.625em;
+        border-bottom: 1px solid #c7c7c7; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .reach-total:last-child {
+          margin-right: 0; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .reach-total span {
+          color: #18bb9b;
+          font-size: 1.25em; }
+      #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info {
+        padding: 0 0 0.625em; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info h3 {
+          font-size: 0.75em;
+          text-transform: uppercase;
+          color: #656b79; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info h4 {
+          clear: both;
+          margin-top: 20px;
+          text-transform: uppercase;
+          color: #656b79; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          clear: both; }
+          #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info ul li {
+            float: left;
+            display: block;
+            margin-right: 2.35765%;
+            width: 14.70196%;
+            color: #c7c7c7;
+            font-size: 0.75em;
+            font-weight: normal;
+            height: 50px; }
+            #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info ul li:last-child {
+              margin-right: 0; }
+            #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info ul li span {
+              font-size: 1.375em;
+              text-transform: capitalize;
+              color: #18bb9b; }
+            #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info ul li img {
+              border-top-left-radius: 100%;
+              border-top-right-radius: 100%;
+              border-bottom-left-radius: 100%;
+              border-top-left-radius: 100%;
+              border-bottom-right-radius: 100%;
+              border-top-right-radius: 100%;
+              border-bottom-left-radius: 100%;
+              border-bottom-right-radius: 100%;
+              width: 50px;
+              height: 50px; }
+            #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info ul li:last-child {
+              float: left;
+              display: block;
+              margin-right: 2.35765%;
+              width: 31.76157%;
+              border-left: 1px solid #c7c7c7;
+              padding: 0 0 0 0.625em; }
+              #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info ul li:last-child:last-child {
+                margin-right: 0; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .txt-activar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .txt-desactivar {
+          height: 20px;
+          width: 55px;
+          text-transform: uppercase;
+          text-align: center;
+          float: right;
+          font-size: 9px;
+          color: #656b79;
+          margin-right: 10px; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .txt-desactivar {
+          color: #c7c7c7; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info.secc-analytics .tit-analytics {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 100%;
+          display: table;
+          width: 100%;
+          table-layout: fixed;
+          width: 100%;
+          padding: 0.625em 0 0 0; }
+          #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info.secc-analytics .tit-analytics:last-child {
+            margin-right: 0; }
+          #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info.secc-analytics .tit-analytics h3 {
+            font-size: 0.875em;
+            display: table-cell;
+            width: 75%;
+            vertical-align: middle; }
+          #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info.secc-analytics .tit-analytics small {
+            display: table-cell;
+            width: 25%;
+            vertical-align: middle;
+            text-align: right; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info.secc-analytics .reach-analytics {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 100%;
+          text-align: right;
+          font-size: 1.4375em;
+          color: #18bb9b; }
+          #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info.secc-analytics .reach-analytics:last-child {
+            margin-right: 0; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info.secc-analytics li {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 23.23176%;
+          margin-bottom: 20px; }
+          #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info.secc-analytics li:last-child {
+            margin-right: 0; }
+      #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription html body.formularios-registro .cont_formRegistro .cont-inputs #guardar, html body.formularios-registro .cont_formRegistro .cont-inputs #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #guardar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.ingreso_eleccion #tipo .btns_accesos, main.ingreso_eleccion #tipo #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns_accesos, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #inicio .btns_accesos, main.form_agencias #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns_accesos, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso #ingresar, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso #ingresar, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm #ingresar, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso .fb_btn, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso .fb_btn, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm .fb_btn, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso .lk_btn, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso .lk_btn, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm .lk_btn, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm #registrarse, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #registrarse, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .recientes .content .jfilestyle, .creadas .recientes .content #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .jfilestyle, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .recientes .content .guardar-campana, .creadas .recientes .content #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .guardar-campana, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .volver, .creadas #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .volver, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .volver-campana, .creadas #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .volver-campana, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .no-campana .hrefCamp .btn_crearcamp, .no-campana .hrefCamp #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btn_crearcamp, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #imagenform #inicio #guardarFacturacion, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #guardarFacturacion, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #imagenform #inicio .cancel-data, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .cancel-data, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #campanaForm-nueva-campana .jfilestyle, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .jfilestyle, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #campanaForm-nueva-campana .guardar, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .guardar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .influenciador-publico #opc_cot, .influenciador-publico #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #opc_cot, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .influenciador-publico #cotizar_influenciador, .influenciador-publico #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #cotizar_influenciador {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%;
+        text-align: center;
+        display: block;
+        background-color: #18bb9b;
+        margin-bottom: 0; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription html body.formularios-registro .cont_formRegistro .cont-inputs #guardar:last-child, html body.formularios-registro .cont_formRegistro .cont-inputs #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #guardar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.ingreso_eleccion #tipo .btns_accesos:last-child, main.ingreso_eleccion #tipo #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns_accesos:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #inicio .btns_accesos:last-child, main.form_agencias #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns_accesos:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso #ingresar:last-child, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm #ingresar:last-child, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso .fb_btn:last-child, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm .fb_btn:last-child, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso .lk_btn:last-child, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm .lk_btn:last-child, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm #registrarse:last-child, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #registrarse:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .recientes .content .jfilestyle:last-child, .creadas .recientes .content #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .jfilestyle:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .recientes .content .guardar-campana:last-child, .creadas .recientes .content #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .guardar-campana:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .volver:last-child, .creadas #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .volver:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .volver-campana:last-child, .creadas #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .volver-campana:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .no-campana .hrefCamp .btn_crearcamp:last-child, .no-campana .hrefCamp #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btn_crearcamp:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #imagenform #inicio #guardarFacturacion:last-child, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #guardarFacturacion:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #imagenform #inicio .cancel-data:last-child, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .cancel-data:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #campanaForm-nueva-campana .jfilestyle:last-child, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .jfilestyle:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #campanaForm-nueva-campana .guardar:last-child, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .guardar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .influenciador-publico #opc_cot:last-child, .influenciador-publico #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #opc_cot:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .influenciador-publico #cotizar_influenciador:last-child, .influenciador-publico #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #cotizar_influenciador:last-child {
+          margin-right: 0; }
+#imagenform-ipe .header-ipe {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #153773;
+  position: relative;
+  overflow: hidden;
+  height: 325px;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  text-align: center;
+  color: #fff; }
+  #imagenform-ipe .header-ipe:last-child {
+    margin-right: 0; }
+  #imagenform-ipe .header-ipe .change-img {
+    opacity: .8;
+    color: #fff;
+    margin: -43px auto 20px;
+    width: 100px;
+    height: 30px;
+    display: block;
+    position: relative;
+    z-index: 3;
+    font-size: 1.875em;
+    text-align: right; }
+    #imagenform-ipe .header-ipe .change-img:hover i {
+      color: #153773; }
+  #imagenform-ipe .header-ipe .mask-imguser {
+    width: 7.9375em;
+    height: 7.875em;
+    margin: 20px auto 0;
+    display: block;
+    position: relative;
+    z-index: 2;
+    -webkit-filter: drop-shadow(3px 3px 3px black);
+    filter: drop-shadow(3px 3px 3px black); }
+  #imagenform-ipe .header-ipe h2 {
+    font-size: 0.9375em;
+    font-weight: bold;
+    position: relative;
+    z-index: 2; }
+  #imagenform-ipe .header-ipe input, #imagenform-ipe .header-ipe .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana #imagenform-ipe .header-ipe textarea, #imagenform-ipe .header-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion .header-ipe textarea {
+    position: relative;
+    z-index: 2; }
+  #imagenform-ipe .header-ipe div {
+    position: relative;
+    z-index: 2; }
+    #imagenform-ipe .header-ipe div.geo {
+      font-size: 0.875em;
+      font-weight: normal; }
+  #imagenform-ipe .header-ipe p {
+    position: relative;
+    z-index: 2; }
+    #imagenform-ipe .header-ipe p.bio {
+      font-size: 0.8125em;
+      font-weight: bold;
+      max-width: 350px;
+      margin-left: auto;
+      margin-right: auto; }
+  #imagenform-ipe .header-ipe .nav-ipe2 {
+    position: relative;
+    z-index: 2;
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%;
+    margin-left: 17.05961%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 1px solid #fff;
+    background-color: transparent; }
+    #imagenform-ipe .header-ipe .nav-ipe2:last-child {
+      margin-right: 0; }
+    #imagenform-ipe .header-ipe .nav-ipe2 ul {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%;
+      width: 100%; }
+      #imagenform-ipe .header-ipe .nav-ipe2 ul:last-child {
+        margin-right: 0; }
+      #imagenform-ipe .header-ipe .nav-ipe2 ul li {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 49.93005%;
+        display: block;
+        margin-right: 0;
+        border: none;
+        text-transform: capitalize; }
+        #imagenform-ipe .header-ipe .nav-ipe2 ul li:last-child {
+          margin-right: 0; }
+        #imagenform-ipe .header-ipe .nav-ipe2 ul li::after {
+          clear: both;
+          content: "";
+          display: table; }
+        #imagenform-ipe .header-ipe .nav-ipe2 ul li.active {
+          background-color: #fff;
+          color: #18bb9b; }
+          #imagenform-ipe .header-ipe .nav-ipe2 ul li.active a {
+            color: #18bb9b; }
+  #imagenform-ipe .header-ipe:after {
+    content: '';
+    background-image: linear-gradient(to bottom, transparent, #153773);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 1; }
+
 @media screen and (min-width: 64em) and (max-width: 90em) {
   .crear-campanas {
     background-color: #eeeef0; } }
@@ -2741,30 +2799,30 @@ main {
   padding: 2.35765%; }
   #campanaForm-nueva-campana:last-child {
     margin-right: 0; }
-  #campanaForm-nueva-campana input, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea {
+  #campanaForm-nueva-campana input, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 100%; }
-    #campanaForm-nueva-campana input:last-child, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:last-child, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea:last-child, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea:last-child {
+    #campanaForm-nueva-campana input:last-child, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea:last-child, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:last-child, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea:last-child {
       margin-right: 0; }
-    #campanaForm-nueva-campana input::-webkit-input-placeholder, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea::-webkit-input-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea::-webkit-input-placeholder, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea::-webkit-input-placeholder, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea::-webkit-input-placeholder {
+    #campanaForm-nueva-campana input::-webkit-input-placeholder, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea::-webkit-input-placeholder, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea::-webkit-input-placeholder, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea::-webkit-input-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea::-webkit-input-placeholder {
       font-size: 12px;
       font-style: italic;
       text-transform: normal; }
-    #campanaForm-nueva-campana input::-moz-placeholder, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea::-moz-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea::-moz-placeholder, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea::-moz-placeholder, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea::-moz-placeholder {
+    #campanaForm-nueva-campana input::-moz-placeholder, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea::-moz-placeholder, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea::-moz-placeholder, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea::-moz-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea::-moz-placeholder {
       font-size: 12px;
       font-style: italic;
       text-transform: normal; }
-    #campanaForm-nueva-campana input:-moz-placeholder, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:-moz-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea:-moz-placeholder, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea:-moz-placeholder, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea:-moz-placeholder {
+    #campanaForm-nueva-campana input:-moz-placeholder, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea:-moz-placeholder, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea:-moz-placeholder, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:-moz-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea:-moz-placeholder {
       font-size: 12px;
       font-style: italic;
       text-transform: normal; }
-    #campanaForm-nueva-campana input:-ms-input-placeholder, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:-ms-input-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea:-ms-input-placeholder, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea:-ms-input-placeholder, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea:-ms-input-placeholder {
+    #campanaForm-nueva-campana input:-ms-input-placeholder, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea:-ms-input-placeholder, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea:-ms-input-placeholder, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:-ms-input-placeholder, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea:-ms-input-placeholder {
       font-size: 12px;
       font-style: italic;
       text-transform: normal; }
-    #campanaForm-nueva-campana input#file2, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea#file2, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea#file2, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea#file2, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea#file2 {
+    #campanaForm-nueva-campana input#file2, #campanaForm-nueva-campana .creadas .recientes .content .inputs-campana textarea#file2, .creadas .recientes .content .inputs-campana #campanaForm-nueva-campana textarea#file2, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage div#descripcion textarea#file2, #imagenform-ipe #tabscontent .tabpage div#descripcion #campanaForm-nueva-campana textarea#file2 {
       display: none !important; }
   #campanaForm-nueva-campana textarea {
     min-height: 100px;
@@ -2882,6 +2940,18 @@ main {
       color: #18bb9b; }
 .campanas .campa-ico {
   padding: 5px 0 !important; }
+
+.campanas-ipe #imagenform-ipe #tabscontent .tabpage:last-child {
+  padding: 0.625em;
+  border-top-left-radius: 0.625em;
+  border-top-right-radius: 0.625em;
+  border-bottom-left-radius: 0.625em;
+  border-top-left-radius: 0.625em;
+  border-bottom-right-radius: 0.625em;
+  border-top-right-radius: 0.625em;
+  border-bottom-left-radius: 0.625em;
+  border-bottom-right-radius: 0.625em;
+  background-color: #fff; }
 
 .influenciador-publico nav ul li {
   border-bottom: 1px solid #c7c7c7; }

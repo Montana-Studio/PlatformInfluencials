@@ -19,3 +19,17 @@
 		@include pad(5px 0 !important);
 	}
 }
+.campanas-ipe{
+	@extend .dashboard-ipe;
+	#imagenform-ipe{
+		#tabscontent{
+			.tabpage{
+				&:last-child{
+					@include pad(em(10));
+					@include borderRadius(em(10));
+					background:{color:#fff;}
+				}
+			}
+		}
+	}
+}

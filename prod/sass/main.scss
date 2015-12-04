@@ -5,7 +5,20 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic&subset=latin,latin-ext');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic&subset=latin,latin-ext');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+@import "partials/_fonts";
 
+@font-face {
+	font-family: 'powerinfluencer';
+	src:url('fonts/powerinfluencer.eot?sxf2ob');
+	src:url('fonts/powerinfluencer.eot?sxf2ob#iefix') format('embedded-opentype'),
+		url('fonts/powerinfluencer.ttf?sxf2ob') format('truetype'),
+		url('fonts/powerinfluencer.woff?sxf2ob') format('woff'),
+		url('fonts/powerinfluencer.svg?sxf2ob#powerinfluencer') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+//PARTIALS
 @import 'partials/variable';
 @import 'partials/classes';
 @import 'partials/animatons';

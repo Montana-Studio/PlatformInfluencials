@@ -77,17 +77,10 @@ if($num_row2>0){
 				$campanas_activas .= '
 				</div>';
 			}else{
-			/*	$campanas_activas = '
-				<div class="recientes">
-								<div class="cont-campana">
-								No tiene campañas pendientes por iniciar
-								</div>
-				</div>';*/
+				
+				$campanas_activas = '<main class="no-campana"><a href="#" class="hrefCamp"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes ser asignado a una.Mejora tu perfil si estas no llegan.</p></a></main>';
+
 			}
-
-
-
-			
 
 			$query4="SELECT DISTINCT * FROM campana WHERE id=".$row2[0]." AND idEstado='1' AND  fecha_inicio_server > now()";
 			$result4=mysqli_query($mysqli,$query4)or die (mysqli_error());
@@ -147,13 +140,7 @@ if($num_row2>0){
 				$campanas_inactivas .= '
 				</div>';
 			}else{
-				/*
-				$campanas_inactivas = '
-				<div class="recientes">
-								<div class="cont-campana">
-								No tiene campañas pendientes por iniciar
-								</div>
-				</div>';*/
+
 			}
 
 			$query5="SELECT DISTINCT * FROM campana WHERE id=".$row2[0]." AND idEstado='0' AND  fecha_termino_server < now()";
@@ -214,14 +201,9 @@ if($num_row2>0){
 				$campanas_historial .= '
 				</div>';
 			}else{
-				/*
-				$campanas_inactivas = '
-				<div class="recientes">
-								<div class="cont-campana">
-								No tiene campañas pendientes por iniciar
-								</div>
-				</div>';*/
-				echo '<main class="no-campana"><a href="#" class="hrefCamp"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes ser asignado a una.Mejora tu perfil si estas no llegan.</p></a></main>';
+				
+				$campanas_historial = '<main class="no-campana"><a href="#" class="hrefCamp"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes ser asignado a una.Mejora tu perfil si estas no llegan.</p></a></main>';
+
 			}
 	}while($row2 = mysqli_fetch_row($result2));
 }else{
@@ -229,8 +211,8 @@ if($num_row2>0){
 	$campanas_activas = '<main class="no-campana"><a href="#" class="hrefCamp"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes ser asignado a una.Mejora tu perfil si estas no llegan.</p></a></main>';
 
 	$campanas_inactivas = '';
+	$campanas_historial = '<main class="no-campana"><a href="#" class="hrefCamp"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes ser asignado a una.Mejora tu perfil si estas no llegan.</p></a></main>';
 
-	//$campanas_historial = '<main class="no-campana"><a href="nueva-campana.php" class="hrefCamp"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes crear una nueva, creala aquí.</p></a></main>'
 
 }
 

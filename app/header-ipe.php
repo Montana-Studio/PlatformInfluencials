@@ -107,7 +107,7 @@
 				jQuery(document).ready(function(){
 					$('title').append('Dashboard - ".$_SESSION['nombre']."');
 					$('html').css({'background-color':'#fff','background-image':'none'});
-					$('body').addClass('dashboard-ipe');
+					$('body').addClass('campanas-ipe');
 				})
 			</script>
 

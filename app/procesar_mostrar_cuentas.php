@@ -7,7 +7,19 @@
 		$num_row=mysqli_num_rows($result);
 
 		if($num_row < 1){
-			echo '<h2>No registra redes sociales actualmente</h2>';
+			echo '<h2 class="no-rrss">
+					<svg style="display:none;">
+						<symbol id="poly-gon" viewBox="0 0 140.341 133.52">
+							<polygon points="134,98.26 70.5,129.76 7,98.26 7,35.26 70.5,3.76 134,35.26"/>
+						</symbol>
+					</svg>
+
+					<div class="gph-alert">
+						<svg class="poly-gon" viewBox="0 0 140.341 133.52">
+							<use xlink:href="#poly-gon"/>
+						</svg>
+					</div>
+				</h2>';
 		}else{
 			echo '<div class="total_reach"><span><h2>Reach actual</h2><small>Alcance total de tus redes sociales</small></span><div class="total-number">'.(int)$suma.'</div></div>';
 		}
