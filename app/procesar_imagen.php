@@ -151,10 +151,30 @@ if ($tipo == 'avatar-ipe'){
   	$row= mysqli_fetch_array($result, MYSQLI_NUM);
   	$campana= (int)$row[0];
   	$campana = $campana +1;
+  	$año_fecha_termino = substr($fecha_termino, 13, 4);
+  	$dia_fecha_termino = substr($fecha_termino,0 , 2);
+  	$string_mes_fecha_termino=preg_replace('/[0-9]+/', '', $fecha_termino);
+  	$string_mes_fecha_termino = trim($string_mes_fecha_termino);
+  	if($string_mes_fecha_termino=="Enero") $string_mes_fecha_termino='01';
+  	if($string_mes_fecha_termino=="Febrero") $string_mes_fecha_termino='02';
+  	if($string_mes_fecha_termino=="Marzo") $string_mes_fecha_termino='03';
+  	if($string_mes_fecha_termino=="Abril") $string_mes_fecha_termino='04';
+  	if($string_mes_fecha_termino=="Mayo") $string_mes_fecha_termino='05';
+  	if($string_mes_fecha_termino=="Junio") $string_mes_fecha_termino='06';
+  	if($string_mes_fecha_termino=="Julio") $string_mes_fecha_termino='07';
+  	if($string_mes_fecha_termino=="Agosto") $string_mes_fecha_termino='08';
+  	if($string_mes_fecha_termino=="Septiembre") $string_mes_fecha_termino='09';
+  	if($string_mes_fecha_termino=="Octubre") $string_mes_fecha_termino='10';
+  	if($string_mes_fecha_termino=="Noviembre") $string_mes_fecha_termino='11';
+  	if($string_mes_fecha_termino=="Diciembre") $string_mes_fecha_termino='12';
+  	$fecha_termino_server = $año_fecha_termino."-".$string_mes_fecha_termino."-".$dia_fecha_termino;
+
+
+
   	if(valida_extension() == "ok"){
   		if ($a==1){ // Create directory to save the file in case of Social Login and first change on avatar image
-  			$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,imagenes,marca,idpersona) VALUES ('$nombre','$descripcion','uploads/agencias/registered/$rsid/$campana/1.jpg','$marca','$id')");
-  			//$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,marca,idpersona, fecha_termino, redes_sociales) VALUES ('$nombre','$descripcion','$marca','$id', '$fecha_termino', '$selected_rrss')");
+  			//$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,imagenes,marca,idpersona) VALUES ('$nombre','$descripcion','uploads/agencias/registered/$rsid/$campana/1.jpg','$marca','$id')");
+  			$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,marca,idpersona, fecha_termino, redes_sociales , fecha_termino_server) VALUES ('$nombre','$descripcion','$marca','$id', '$fecha_termino', '$selected_rrss' , '$fecha_termino_server')");
   			$inicio_imagenes ='uploads/agencias/registered/'.$rsid.'/';
   			$fin_imagenes = '/1.jpg';
   			$results4 = $mysqli->query("SELECT id FROM campana  WHERE nombre = '$nombre' AND descripcion = '$descripcion' AND marca = '$marca' AND idpersona = '$id'");
@@ -170,8 +190,8 @@ if ($tipo == 'avatar-ipe'){
   			//$resultado = $imagenes;
   		}
   		if ($a==2){// Create directory to save the file in case of Form Login and first change on avatar image
-  			$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,imagenes,marca,idpersona) VALUES ('$nombre','$descripcion','uploads/agencias/registered/$correo/$campana/1.jpg','$marca','$id')");
-  			//$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,marca,idpersona,fecha_termino,redes_sociales) VALUES ('$nombre','$descripcion','$marca','$id', '$fecha_termino', '$selected_rrss')");
+  			//$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,imagenes,marca,idpersona) VALUES ('$nombre','$descripcion','uploads/agencias/registered/$correo/$campana/1.jpg','$marca','$id')");
+  			$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,marca,idpersona,fecha_termino,redes_sociales , fecha_termino_server) VALUES ('$nombre','$descripcion','$marca','$id', '$fecha_termino', '$selected_rrss', '$fecha_termino_server')");
   			$inicio_imagenes ='uploads/agencias/registered/'.$correo.'/';
   			$fin_imagenes = '/1.jpg';
   			$results4 = $mysqli->query("SELECT id FROM campana  WHERE nombre = '$nombre' AND descripcion = '$descripcion' AND marca = '$marca' AND idpersona = '$id'");

@@ -268,8 +268,8 @@
 					var a = $("#"+id_form+" .info-influ small .rrss_reach").text();
 					$("#"+id_form+" .info-influ .redes_sociales").prepend("<div>"+a+"</div>");
 					$("#"+id_form+" .info-influ small .rrss_reach").hide();
-					$("#"+id_form+" .checkbox-cotizar .ver_perfil_influenciador").hide();
-					$("#"+id_form+" .checkbox-cotizar .volver_ver_perfil_influenciador").show();
+					$("#"+id_form+" .ver_perfil_influenciador").hide();
+					$("#"+id_form+" .volver_ver_perfil_influenciador").show();
 				});
 
 				$(".volver_ver_perfil_influenciador").click(function(){
@@ -278,8 +278,8 @@
 					$("#"+id_form+" .info-influ small .rrss").hide();
 					$("#"+id_form+" .info-influ .redes_sociales div:first-child").remove();
 					$("#"+id_form+" .info-influ small .rrss_reach").show();
-					$("#"+id_form+" .checkbox-cotizar .ver_perfil_influenciador").show();
-					$("#"+id_form+" .checkbox-cotizar .volver_ver_perfil_influenciador").hide();
+					$("#"+id_form+" .ver_perfil_influenciador").show();
+					$("#"+id_form+" .volver_ver_perfil_influenciador").hide();
 				});
 			});
 		</script>';

@@ -82,7 +82,7 @@ if($num_row2>0){
 
 			}
 
-			$query4="SELECT DISTINCT * FROM campana WHERE id=".$row2[0]." AND idEstado='1' AND  fecha_inicio_server > now()";
+			$query4="SELECT DISTINCT * FROM campana WHERE id=".$row2[0]." AND idEstado='0' AND  fecha_termino_server > now()";
 			$result4=mysqli_query($mysqli,$query4)or die (mysqli_error());
 			$row4= mysqli_fetch_array($result4, MYSQLI_BOTH);
 			$num_row4=mysqli_num_rows($result4);
