@@ -7,12 +7,6 @@ html {
 *, *::after, *::before {
   box-sizing: inherit; }
 
-@font-face {
-  font-family: 'powerinfluencer';
-  src: url("fonts/powerinfluencer.eot?sxf2ob");
-  src: url("fonts/powerinfluencer.eot?sxf2ob#iefix") format("embedded-opentype"), url("fonts/powerinfluencer.ttf?sxf2ob") format("truetype"), url("fonts/powerinfluencer.woff?sxf2ob") format("woff"), url("fonts/powerinfluencer.svg?sxf2ob#powerinfluencer") format("svg");
-  font-weight: normal;
-  font-style: normal; }
 a {
   text-decoration: none; }
 
@@ -1526,7 +1520,7 @@ main {
         display: block;
         margin-right: 2.35765%;
         width: 24.76713%;
-        padding: 0 13px;
+        padding: 0 5px;
         margin-right: 0;
         text-align: center;
         height: 29px;
@@ -1569,6 +1563,7 @@ main {
         .creadas .recientes .content .tools-campana {
           padding: 10px 0 0; } }
     .creadas .recientes .content .campa-ico {
+      display: block;
       float: left;
       display: block;
       margin-right: 2.35765%;
@@ -1579,6 +1574,10 @@ main {
       font-size: 11px;
       overflow: hidden;
       position: relative; }
+      .creadas .recientes .content .campa-ico::after {
+        clear: both;
+        content: "";
+        display: table; }
       .creadas .recientes .content .campa-ico:last-child {
         margin-right: 0; }
       .creadas .recientes .content .campa-ico:first-child {
@@ -1601,12 +1600,12 @@ main {
         border: none;
         outline: none;
         color: #18bb9b;
-        width: 50%; }
+        width: 100%; }
       .creadas .recientes .content .campa-ico.activada {
         float: left;
         display: block;
         margin-right: 2.35765%;
-        width: 23.23176%;
+        width: 100%;
         padding: 5px 0; }
         .creadas .recientes .content .campa-ico.activada:last-child {
           margin-right: 0; }
@@ -1614,7 +1613,7 @@ main {
         float: left;
         display: block;
         margin-right: 2.35765%;
-        width: 57.35098%;
+        width: 100%;
         padding: 5px 0; }
         .creadas .recientes .content .campa-ico.fecha-activada:last-child {
           margin-right: 0; }
@@ -2365,7 +2364,9 @@ main {
       border-top-right-radius: 0.625em;
       border-bottom-left-radius: 0.625em;
       border-bottom-right-radius: 0.625em;
-      background-color: #fff; }
+      background-color: #fff;
+      margin-top: 5px;
+      margin-bottom: 5px; }
       #imagenform-ipe #tabscontent .tabpage #redesociales .no-rrss:last-child {
         margin-right: 0; }
       #imagenform-ipe #tabscontent .tabpage #redesociales .no-rrss::after {
@@ -2373,10 +2374,10 @@ main {
         display: block;
         margin-right: 2.35765%;
         width: 74.41059%;
-        padding: 2.35765%;
+        padding: 0.9375em 0 0;
         content: "No registra redes sociales actualmente";
         color: #c7c7c7;
-        font-size: 0.875em; }
+        font-size: 0.8125em; }
         #imagenform-ipe #tabscontent .tabpage #redesociales .no-rrss::after:last-child {
           margin-right: 0; }
       #imagenform-ipe #tabscontent .tabpage #redesociales .no-rrss .gph-alert {
@@ -2392,7 +2393,6 @@ main {
         #imagenform-ipe #tabscontent .tabpage #redesociales .no-rrss .gph-alert:last-child {
           margin-right: 0; }
         #imagenform-ipe #tabscontent .tabpage #redesociales .no-rrss .gph-alert::before {
-          font-family: 'powerinfluencer';
           display: table-cell;
           vertical-align: middle;
           position: relative;
@@ -2401,9 +2401,10 @@ main {
         #imagenform-ipe #tabscontent .tabpage #redesociales .no-rrss .gph-alert svg.poly-gon {
           fill: #18bb9b;
           position: absolute;
+          top: 5px;
           z-index: 1;
-          width: 80px;
-          height: 80px; }
+          width: 70px;
+          height: 70px; }
     #imagenform-ipe #tabscontent .tabpage #redesociales .total_reach {
       display: block;
       border-top-left-radius: 0.625em;

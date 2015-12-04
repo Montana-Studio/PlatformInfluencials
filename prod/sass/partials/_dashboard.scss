@@ -125,7 +125,7 @@
 				@include pad(0);
 				li{
 					@include span-columns(3.18 of 12);
-					@include pad(0 13px);
+					@include pad(0 5px);
 					@include omega();
 					@include textAligns(center);
 					height:29px;
@@ -169,6 +169,7 @@
 				}
 			}
 			.campa-ico{
+				@include row();
 				@include span-columns(6 of 12);
 				@include omega();
 				@include pad();
@@ -195,14 +196,14 @@
 					border:none;
 					outline:none;
 					color:$color_font2;
-					width:50%;
+					width:100%;
 				}
 				&.activada{
-					@include span-columns(3 of 12);
+					@include span-columns(12 of 12);
 					@include pad(5px 0);
 				}
 				&.fecha-activada{
-					@include span-columns(7 of 12);
+					@include span-columns(12 of 12);
 					@include pad(5px 0);
 					span{
 						color:$color_font2;
@@ -745,12 +746,13 @@
 					@include span-columns(12);
 					@include borderRadius(em(10));
 					background:{color: #fff;}
+					margin:{top:5px;bottom:5px;}
 					&::after{
 						@include span-columns(9);
-						@include pad();
+						@include pad(em(15) 0 0);
 						content:"No registra redes sociales actualmente";
 						color:$color_grey;
-						font:{size:em(14);}
+						font:{size:em(13);}
 					}
 					.gph-alert{
 						@include span-columns(3);
@@ -760,8 +762,6 @@
 						display: table;
 						min-height: 80px;
 						&::before{
-							font:{family:'powerinfluencer';}
-							//content:$pi-bell;
 							display: table-cell;
 							vertical:{align:middle;}
 							position:relative;
@@ -774,9 +774,10 @@
 								position:absolute;
 								@extend .center-absolute;
 								@extend .center-div;
+								top:5px;
 								z-index: 1;
-								width:80px;
-								height:80px;
+								width:70px;
+								height:70px;
 							}
 						}
 					}

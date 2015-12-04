@@ -147,9 +147,10 @@
 					<div class="checkbox-cotizar">
 						<input id="cotizar-'.$row[0].'" class="btndesactivar onoffswitch-checkbox" name="'.$row[5].'"  value="'.$row[0].'" type="checkbox"/>
 						<label for="cotizar-'.$row[0].'" class="btndesactivar onoffswitch-label"></label>
-						<span class="ver_perfil_influenciador" name="'.$row[0].'">+</span>
-						<span class="volver_ver_perfil_influenciador" name="'.$row[0].'">-</span>
 					</div>
+					
+					<span class="ver_perfil_influenciador" name="'.$row[0].'">+</span>
+					<span class="volver_ver_perfil_influenciador" name="'.$row[0].'">-</span>
 				</form>';
 		}while($row = mysqli_fetch_row($result));
 	}
