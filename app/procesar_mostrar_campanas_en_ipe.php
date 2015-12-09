@@ -5,7 +5,7 @@
 		$row= mysqli_fetch_array($result, MYSQLI_BOTH);
 		$num_row=mysqli_num_rows($result);
 
-		$query2="SELECT DISTINCT id_campana FROM solicitudes WHERE id_influenciador='".$_SESSION['id']."' AND estado_solicitud='1'";
+		$query2="SELECT DISTINCT id_campana FROM solicitudes WHERE id_influenciador='".$_SESSION['id']."'";
 		$result2=mysqli_query($mysqli,$query2)or die (mysqli_error());
 		$row2= mysqli_fetch_array($result2, MYSQLI_BOTH);
 		$num_row2=mysqli_num_rows($result2);
@@ -78,7 +78,7 @@ if($num_row2>0){
 				</div>';
 			}else{
 				
-				$campanas_activas = '<main class="no-campana"><a href="#" class="hrefCamp"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes ser asignado a una.Mejora tu perfil si estas no llegan.</p></a></main>';
+				//$campanas_activas = '<main class="no-campana"><a href="#" class="hrefCamp"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes ser asignado a una.Mejora tu perfil si estas no llegan.</p></a></main>';
 
 			}
 
@@ -143,7 +143,7 @@ if($num_row2>0){
 
 			}
 
-			$query5="SELECT DISTINCT * FROM campana WHERE id=".$row2[0]." AND idEstado='0' AND  fecha_termino_server < now()";
+			$query5="SELECT DISTINCT * FROM campana WHERE id=".$row2[0]." AND idEstado='0' AND  fecha_termino_server < date(now())";
 			$result5=mysqli_query($mysqli,$query5)or die (mysqli_error());
 			$row5= mysqli_fetch_array($result5, MYSQLI_BOTH);
 			$num_row5=mysqli_num_rows($result5);
@@ -202,7 +202,7 @@ if($num_row2>0){
 				</div>';
 			}else{
 				
-				$campanas_historial = '<main class="no-campana"><a href="#" class="hrefCamp"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes ser asignado a una.Mejora tu perfil si estas no llegan.</p></a></main>';
+				//$campanas_historial = '<main class="no-campana"><a href="#" class="hrefCamp"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes ser asignado a una.Mejora tu perfil si estas no llegan.</p></a></main>';
 
 			}
 	}while($row2 = mysqli_fetch_row($result2));
