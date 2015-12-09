@@ -891,7 +891,8 @@ html {
           width: 100%;
           overflow: hidden;
           z-index: 0;
-          display: block !important; }
+          display: block !important;
+          opacity: .3; }
           html body .video-container video {
             position: absolute;
             z-index: 0;
