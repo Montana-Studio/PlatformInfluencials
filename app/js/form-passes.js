@@ -713,6 +713,19 @@ $(document).ready(function(){
 		}
 
 	});
+
+
+	$('#enviar_url').click(function(){
+			$('.rrss input').each(function(){
+			var rrss_id = $(this).attr('id');
+			var campana_id = $(this).closest(".ingresar_urls").attr("id");
+			var url = $(this).val();
+			$.ajax{(
+					
+				)};
+
+		})
+	});
 });
 
 //INICIO FUNCTIONS
