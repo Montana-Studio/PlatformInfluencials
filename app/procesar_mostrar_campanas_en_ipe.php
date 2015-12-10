@@ -1,6 +1,6 @@
 
 <?php
-
+		
 		$query="SELECT DISTINCT id_campana FROM solicitudes WHERE id_influenciador='".$_SESSION['id']."'";
 		$result=mysqli_query($mysqli,$query)or die (mysqli_error());
 		$row= mysqli_fetch_array($result, MYSQLI_BOTH);
@@ -69,19 +69,40 @@ if($num_row2>0){
 						        $json_user= file_get_contents($json_user_url);
 						        $links_user_url= json_decode($json_user);
 						        $facebookWebsite =$links_user_url->website;
-						    
-						        $campanas_activas .=  '<div class="rrss" name="facebook" >Facebook ['.$facebookWebsite.']<input id="'.$row4[3].'"/></div>';				
+						        //Muestro URL Ingresada
+						    	$query_url_facebook ="SELECT * FROM campanarrss WHERE descripcion_rrss='facebook' AND rrss_id='".$row4[3]."'";
+						    	$result_url_facebook = mysqli_query($mysqli,$query_url_facebook);
+						    	$row_url_facebook= mysqli_fetch_array($result_url_facebook, MYSQLI_BOTH);
+						    	$num_rows_url_facebook=mysqli_num_rows($result_url_facebook);
+						    	//echo $row_url_facebook[0];
+						    	if($num_rows_url_facebook>0){
+						    		$campanas_activas .= '<div class="rrss" name="facebook" >Facebook ['.$facebookWebsite.']<input id="'.$row4[3].'" value="'.$row_url_facebook['url'].'" disabled/></div>';
+						    	}else{
+						        	$campanas_activas .=  '<div class="rrss" name="facebook" >Facebook ['.$facebookWebsite.']<input id="'.$row4[3].'"/></div>';				
+								}
 							}
 							if($row4[2]=='instagram'){
 							  $json_user_url ="https://api.instagram.com/v1/users/".$row4[3]."?access_token=".$row4[6];
 						      $json_user= file_get_contents($json_user_url);
 						      $links_user_url= json_decode($json_user);
 						      $username_instagram = $links_user_url->data->username;
-						      $campanas_activas .=  '<div class="rrss" name="instagram" ">Instagram ['.$username_instagram.']<input id="'.$row4[3].'"/></div>';
-								
+
+						       //Muestro URL Ingresada
+						    	$query_url_instagram ="SELECT * FROM campanarrss WHERE descripcion_rrss='instagram' AND rrss_id='".$row4[3]."'";
+						    	$result_url_instagram = mysqli_query($mysqli,$query_url_instagram);
+						    	$row_url_instagram= mysqli_fetch_array($result_url_instagram, MYSQLI_BOTH);
+						    	$num_rows_url_instagram=mysqli_num_rows($result_url_instagram);
+						    	//echo $row_url_instagram[0];
+						    	if($num_rows_url_instagram>0){
+						    		$campanas_activas .= '<div class="rrss" name="instagram" ">Instagram ['.$username_instagram.']<input id="'.$row4[3].'" value="'.$row_url_instagram['url'].'" disabled/></div>';
+						    	}else{
+						      		$campanas_activas .=  '<div class="rrss" name="instagram" ">Instagram ['.$username_instagram.']<input id="'.$row4[3].'"/></div>';
+								}
 							}
 							
 							if($row4[2]=='twitter'){
+								include_once("rrss/twitter/inc/twitteroauth.php");
+								include_once('rrss/twitter/inc/TwitterAPIExchange.php');
 								$settings = array(
 								'oauth_access_token' => "3523857136-MwHOy2ZrYGqvvT6fSpkCbFxe5BYqlmQzUs41UdN",
 								'oauth_access_token_secret' => "Verk18Cyb8oTYGdcptHvvZaCOXD5gaNDBtMFdd1tqPL9k",
@@ -97,9 +118,21 @@ if($num_row2>0){
 						        ->buildOauth($ta_url, $requestMethod)
 						        ->performRequest();
 						        $data1 = json_decode($follow_count1, true);
-						        $followers_count1=$data1[0]['user']['followers_count'];
+						        //$followers_count1=$data1[0]['user']['followers_count'];
 						        $username_twitter=$data1[0]['user']['screen_name'];
-								$campanas_activas .=  '<div class="rrss" name="twitter" id="'.$row4[3].'" >Twitter ['.$username_twitter.']<input/></div>';
+						       
+						        //Muestro URL Ingresada
+						    	$query_url_twitter ="SELECT * FROM campanarrss WHERE descripcion_rrss='twitter' AND rrss_id='".$row4[3]."'";
+						    	$result_url_twitter = mysqli_query($mysqli,$query_url_twitter);
+						    	$row_url_twitter= mysqli_fetch_array($result_url_twitter, MYSQLI_BOTH);
+						    	$num_rows_url_twitter=mysqli_num_rows($result_url_twitter);
+						    	if($num_rows_url_twitter>0){
+						    		$campanas_activas .= '<div class="rrss" name="twitter">Twitter ['.$username_twitter.']<input id="'.$row4[3].'" value="'.$row_url_twitter['url'].'"  disabled/></div>';
+						    	}else{
+						      		$campanas_activas .=  '<div class="rrss" name="twitter">Twitter ['.$username_twitter.']<input id="'.$row4[3].'"/></div>';
+								}
+
+
 							}
 
 							if($row4[2]=='youtube'){
@@ -108,7 +141,16 @@ if($num_row2>0){
 						        $json_user= file_get_contents($json_user_url);
 						        $links_user_url= json_decode($json_user);
 						        $youtubeName = $links_user_url->items[0]->snippet->title;
-								$campanas_activas .=  '<div class="rrss" name="youtube" id="'.$row4[3].'">Youtube ['.$youtubeName.']<input/></div>';
+								//Muestro URL Ingresada
+						    	$query_url_youtube ="SELECT * FROM campanarrss WHERE descripcion_rrss='youtube' AND rrss_id='".$row4[3]."'";
+						    	$result_url_youtube = mysqli_query($mysqli,$query_url_youtube);
+						    	$row_url_youtube= mysqli_fetch_array($result_url_youtube, MYSQLI_BOTH);
+						    	$num_rows_url_youtube=mysqli_num_rows($result_url_youtube);
+						    	if($num_rows_url_youtube>0){
+						    		$campanas_activas .= '<div class="rrss" name="youtube">Youtube ['.$youtubeName.']<input id="'.$row4[3].'" value="'.$row_url_youtube['url'].'"  disabled/></div>';
+						    	}else{
+						      		$campanas_activas .=  '<div class="rrss" name="youtube">Youtube ['.$youtubeName.']<input id="'.$row4[3].'"/></div>';
+								}
 							}
 
 							if($row4[2]=='googleplus'){
@@ -118,7 +160,17 @@ if($num_row2>0){
 	        					$json_user= file_get_contents($json_user_url);
 						        $links_user_url= json_decode($json_user);
 						        $googleplusName =$links_user_url->displayName;
-								$campanas_activas .=  '<div class="rrss" name="googleplus" id="'.$row4[3].'">Google Plus ['.$googleplusName.']<input/></div>';
+								//Muestro URL Ingresada
+						    	$query_url_googleplus ="SELECT * FROM campanarrss WHERE descripcion_rrss='googleplus' AND rrss_id='".$row4[3]."'";
+						    	$result_url_googleplus = mysqli_query($mysqli,$query_url_googleplus);
+						    	$row_url_googleplus= mysqli_fetch_array($result_url_googleplus, MYSQLI_BOTH);
+						    	$num_rows_url_googleplus=mysqli_num_rows($result_url_googleplus);
+						    	//echo $row_url_instagram[0];
+						    	if($num_rows_url_googleplus>0){
+						    		$campanas_activas .= '<div class="rrss" name="googleplus">Google Plus ['.$googleplusName.']<input id="'.$row4[3].'" value="'.$row_url_googleplus['url'].'"  disabled/></div>';
+						    	}else{
+						      		$campanas_activas .=  '<div class="rrss" name="googleplus">Google Plus ['.$googleplusName.']<input id="'.$row4[3].'"/></div>';
+								}
 							}
 						}while($row4 = mysqli_fetch_row($result4));
 
@@ -128,7 +180,16 @@ if($num_row2>0){
 					    $num_row9=mysqli_num_rows($result9);
 					    do{
 					    	if($rrss_list[$i]=='analytics' && $num_row9 > 0){
-								$campanas_activas .= '<div class="rrss" name="analytics"  >Google Analytics ['. $row9[6].']<input id="'.$row9[4].'"/></div>';
+								//Muestro URL Ingresada
+						    	$query_url_analytics ="SELECT * FROM campanarrss WHERE descripcion_rrss='analytics' AND rrss_id='".$row9[4]."'";
+						    	$result_url_analytics = mysqli_query($mysqli,$query_url_analytics);
+						    	$row_url_analytics= mysqli_fetch_array($result_url_analytics, MYSQLI_BOTH);
+						    	$num_rows_url_analytics=mysqli_num_rows($result_url_analytics);
+						    	if($num_rows_url_analytics>0){
+						    		$campanas_activas .= '<div class="rrss" name="analytics"  >Google Analytics ['. $row9[6].']<input id="'.$row9[4].'" value="'.$row_url_analytics['url'].'"  disabled/></div>';
+						    	}else{
+						      		$campanas_activas .=  '<div class="rrss" name="analytics"  >Google Analytics ['. $row9[6].']<input id="'.$row9[4].'"/></div>';
+								}
 							}
 					    }while($row9 = mysqli_fetch_array($result9));	
 						$i++;

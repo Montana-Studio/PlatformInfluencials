@@ -736,6 +736,7 @@ $(document).ready(function(){
 				}
 			});
 		})
+			
 	});
 });
 
