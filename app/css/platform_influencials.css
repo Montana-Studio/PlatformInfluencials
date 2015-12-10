@@ -2999,7 +2999,7 @@ main {
     color: #18bb9b;
     z-index: 1; }
   .influenciador-publico #campanas-postulables select {
-    padding: 2.35765%; }
+    padding: 0 0.125em; }
 .influenciador-publico .influenciadores {
   padding: 2.35765%; }
   .influenciador-publico .influenciadores .contactarForm {
