@@ -86,22 +86,24 @@ nav{
 		margin:0;
 		padding:0;
 		list-style:none;
+		@include span-columns(12);
+		@include row();
 		@include fill-parent();
 		li{
-			@include span-columns(5.27 of 12);
-			@include row();
+			@include span-columns(5 of 12);
 			@include omega();
+			@include pad(8px 0 0);
 			@include textAligns(center);
 			font:{size:13px;}
 			text:{transform:uppercase;}
 			border:{bottom:1px solid $color_grey;}
-			padding:{top:8px;}
 			height:34px;
 			a{
 				color:$color_grey;
 			}
-			&:last-child{
-				@include span-columns(2 of 12);
+			&:first-child{
+				@include span-columns(2.5 of 12);
+				@include omega();
 				cursor:pointer;
 				color:$color_grey;
 			}

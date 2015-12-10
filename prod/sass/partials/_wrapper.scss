@@ -93,6 +93,28 @@ html{
 							@extend .inputs;
 						}
 					}
+					.selects{
+						position:relative;
+						overflow:hidden;
+						@include span-columns(12);
+						small{
+							color:$color_grey;
+							@include span-columns(12);
+							@include textAligns(left);
+							font:{size:9px;}
+							text:{transform:uppercase;}
+						}
+						i{
+							position:absolute;
+							top:30px;
+							right:10px;
+							color:$color_font2;
+							z-index: 1;
+						}
+						select{
+							@extend .style-select;
+						}
+					}
 				}
 			}
 		}

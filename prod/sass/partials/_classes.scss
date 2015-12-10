@@ -180,72 +180,99 @@ a{
 	color:$color_font2;
 	position: relative;
 	z-index:2;
+	text:{transform:capitalize;}
 	&:focus{
 		outline: none;
 	}
 }
-.switchess{
-    position: relative; 
-    width:em(55);
+.switcher-norm{
+	position: relative;
     overflow: visible;
+    @include user-select(none);
+	.switch-checkbox{
+    	display: none;
+    	&:checked{
+    		+ .switch-label {
+				background:{color:$color_grey;}
+				@include boxShadow(inset -2px, 4px, 8px, -2px, $color_grey2);
+				&::before{
+					border:{color: $color_grey;}
+					left: 0; 
+				}
+    		}
+    	}
+	}
+	.switch-label{
+		@include pad(0);
+		@include borderRadius(26px);
+	    display: block;
+	    overflow: hidden;
+	    cursor: pointer;
+	    height: 26px;
+	    line:{height: 26px;}
+	    border: 2px solid $color_grey;
+	    background:{color: $color_font2;}
+	    @include transition(background-color .3s $ease-out-quint);
+	    @include boxShadow(inset -2px, 4px, 8px, -2px, $color_font);
+	    &::before{
+	    	@include borderRadius(26px);
+	    	content: "";
+		    display: block;
+		    width: 26px;
+		    margin: 0px;
+		    background:{color: #fff;}
+		    position: absolute;
+		    top: 0;
+		    bottom: 0;
+		    left: 30px;
+		    border: 2px solid $color_font2;
+		    @include transition(all .3s $ease-out-quint 0s);
+		    @include boxShadow(0, 3px, 5px, -2px, rgba(0,0,0,.8));
+	    }
+	}
+}
+.switchess{
+	@extend .switcher-norm;
+    width:em(55);
     float:right;
     clear:right;
     margin:{right:10px;}
-    @include user-select(none);
-    input{
-    	&[type="checkbox"]{
-    		display:none;
-    		&:checked{
-    			+ label{
-    				&.btndesactivar{
-    					@include transition(all .3s $ease-out-quint 0s);
-    					background-color: $color_grey;
-    					&::before{
-    						@include transition(all .3s $ease-out-quint 0s);
-							border-color: $color_grey;
-							right: em(30);
-							background:{color: #fff;}
-						}
-    				}
-    				&.btnactivar{
-    					@include transition(all .3s $ease-out-quint 0s);
-    					background-color: $color_font2;
-    					&::before{
-    						@include transition(all .3s $ease-out-quint 0s);
-							border-color: $color_grey;
-							right: 0;
-							background:{color: #fff;}
-						}
-    				}
-    			}
-    		}
-    	}
+    .switch-checkbox{
+		&:checked{
+			+ label{
+				&.btndesactivar{
+					@include transition(all .3s $ease-out-quint 0s);
+					background-color: $color_grey;
+					&::before{
+						@include transition(all .3s $ease-out-quint 0s);
+						border-color: $color_grey;
+						right: em(30);
+						background:{color: #fff;}
+					}
+				}
+				&.btnactivar{
+					@include transition(all .3s $ease-out-quint 0s);
+					background-color: $color_font2;
+					&::before{
+						@include transition(all .3s $ease-out-quint 0s);
+						border-color: $color_grey;
+						left:em(30);
+						background:{color: #fff;}
+					}
+				}
+			}
+		}
     }
-    label{
-		@include pad(0);
+    .switch-label{
     	@include borderRadius(em(34));
-    	@include transition(background-color .3s $ease-out-quint);
-    	display: block; 
-	    //overflow: hidden; 
-	    cursor: pointer;
 	    height: 24px;
-	    line-height: 24px;
-	    border: 2px solid $color_grey;
+	    line:{height: 24px;}
 	    background:{color: #fff;}
 		&::before{
 	    	@include borderRadius(em(34));
-	    	@include transition(all .3s $ease-out-quint 0s);
-			content: "";
-			display: block; 
 			width:24px;
-			margin: 0px;
-			background:{color: #fff;}
-			position: absolute; 
-			top: 0; 
-			bottom: 0;
 			right: 0;
 			border: 2px solid $color_grey;
-			@include boxShadow(0, 3px, 5px, -2px, rgba(0,0,0,.8));
 		}
 		&.btndesactivar{
 			background:{color: $color_font2;}
@@ -256,7 +283,7 @@ a{
 			&::before{
 				@include transition(all .3s $ease-out-quint 0s);
 				border-color: $color_grey;
-				right: em(30);
+				left: 0;
 				background:{color: #fff;}
 			}
 		}

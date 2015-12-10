@@ -821,22 +821,22 @@
 						@include span-columns(1);
 						font:{size:em(22);}
 						&.fa-google{
-							color:#f05721;
+							color:$col-google;
 						}
 						&.fa-instagram{
-							color:#517fa4;
+							color:$col-instagram;
 						}
 						&.fa-facebook{
-							color:#3b5998;
+							color:$col-facebook;
 						}
 						&.fa-twitter{
-							color:#55acee;
+							color:$col-twitter;
 						}
 						&.fa-youtube-play{
-							color:#ee0f0f;
+							color:$col-youtube;
 						}
 						&.fa-google-plus{
-							@extend .fa-youtube-play;
+							color:$col-google-plus;
 						}
 						&:last-child{
 							color:$color_grey2;
