@@ -716,14 +716,25 @@ $(document).ready(function(){
 
 
 	$('#enviar_url').click(function(){
+		var resultado;
 			$('.rrss input').each(function(){
 			var rrss_id = $(this).attr('id');
 			var campana_id = $(this).closest(".ingresar_urls").attr("id");
 			var url = $(this).val();
-			$.ajax{(
-					
-				)};
-
+			var descripcion_rrss=$(this).closest(".rrss").attr("name");
+			
+			console.log(rrss_id+campana_id+url);
+			$.ajax({
+				type: "POST",
+				url: "./procesar_url.php",
+				data: "rrss_id="+rrss_id+"&campana_id="+campana_id+"&url="+url+"&descripcion_rrss="+descripcion_rrss,
+				success: function(data){
+					switch (data){
+						case 'ingresada': resultado= 'Algunas url(s) ya se encontraban registradas';
+						case 'nueva' : resultado = 'Gracias por registrar la(s) URL(s)';
+					}
+				}
+			});
 		})
 	});
 });
