@@ -22,6 +22,7 @@
 
 			<h2><?php echo $_SESSION['nombre']?></h2>
 			<div class="geo"><i class="fa fa-map-marker"></i> <?php echo $_SESSION['comuna'].','.$_SESSION['region'];?></div>
+
 			<p class="bio"><?php echo $_SESSION['descripcion']; ?></p>
 
 			<nav class="nav-ipe2">
@@ -32,6 +33,7 @@
 			</nav>
 
 		</div>
+	</form>
 		<div id="tab-examp">
 			<ul id="tabs">
 				<li><a href="#fragment-1"><span>Actuales</span></a></li>
@@ -54,7 +56,7 @@
 			</div>
 		</div>
 
-	</form>
+	
 
 	<?php include ('footer-ipe.php'); ?>
 </body>
