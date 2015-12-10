@@ -70,8 +70,8 @@
       <!--button type='checkbox' class='btn".$estado_descripcion." estado_rs cmn-toggle' name='".$estado."' id='".$row3[3]."'>".$estado_descripcion."</button-->
       <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
       <div class='onoffswitch'>
-          <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs onoffswitch-checkbox' id='".$row3[3]."'>
-          <label class='btn".$estado_descripcion." onoffswitch-label' for='".$row3[3]."'></label>
+          <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$row3[3]."'>
+          <label class='btn".$estado_descripcion." switch-label' for='".$row3[3]."'></label>
       </div>
       </div>";
     }while($row3 = $result3->fetch_array());

@@ -195,7 +195,7 @@ a {
     .alertElim #boxAlert #clearAlert:last-child {
       margin-right: 0; }
 
-.style-select, main.form_agencias #nuevo .registerForm .selects select, #imagenform-ipe #tabscontent .tabpage div.selects select, .influenciador-publico #campanas-postulables select {
+.style-select, html body.formularios-registro .cont_formRegistro .cont-inputs .selects select, main.form_agencias #nuevo .registerForm .selects select, #imagenform-ipe #tabscontent .tabpage div.selects select, .influenciador-publico #campanas-postulables select {
   float: left;
   display: block;
   margin-right: 2.35765%;
@@ -224,106 +224,145 @@ a {
   font-size: 12px;
   color: #18bb9b;
   position: relative;
-  z-index: 2; }
-  .style-select:last-child, main.form_agencias #nuevo .registerForm .selects select:last-child, #imagenform-ipe #tabscontent .tabpage div.selects select:last-child, .influenciador-publico #campanas-postulables select:last-child {
+  z-index: 2;
+  text-transform: capitalize; }
+  .style-select:last-child, html body.formularios-registro .cont_formRegistro .cont-inputs .selects select:last-child, main.form_agencias #nuevo .registerForm .selects select:last-child, #imagenform-ipe #tabscontent .tabpage div.selects select:last-child, .influenciador-publico #campanas-postulables select:last-child {
     margin-right: 0; }
-  .style-select:focus, main.form_agencias #nuevo .registerForm .selects select:focus, #imagenform-ipe #tabscontent .tabpage div.selects select:focus, .influenciador-publico #campanas-postulables select:focus {
+  .style-select:focus, html body.formularios-registro .cont_formRegistro .cont-inputs .selects select:focus, main.form_agencias #nuevo .registerForm .selects select:focus, #imagenform-ipe #tabscontent .tabpage div.selects select:focus, .influenciador-publico #campanas-postulables select:focus {
     outline: none; }
 
-.switchess, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar {
+.switcher-norm, .switchess, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch, #campanaForm-nueva-campana .inputs-deskt .redes-select .check-red, .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar {
   position: relative;
-  width: 3.4375em;
   overflow: visible;
-  float: right;
-  clear: right;
-  margin-right: 10px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
-  .switchess input[type="checkbox"], #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch input[type="checkbox"], .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar input[type="checkbox"], .switchess .creadas .recientes .content .inputs-campana textarea[type="checkbox"], .creadas .recientes .content .inputs-campana .switchess textarea[type="checkbox"], #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .creadas .recientes .content .inputs-campana textarea[type="checkbox"], .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"], .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar .creadas .recientes .content .inputs-campana textarea[type="checkbox"], .creadas .recientes .content .inputs-campana .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"], .switchess #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"], #imagenform-ipe #tabscontent .tabpage div#descripcion .switchess textarea[type="checkbox"], #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch div#descripcion textarea[type="checkbox"], #imagenform-ipe #tabscontent .tabpage div#descripcion #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"], .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"], #imagenform-ipe #tabscontent .tabpage div#descripcion .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"] {
+  .switcher-norm .switch-checkbox, .switchess .switch-checkbox, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-checkbox, #campanaForm-nueva-campana .inputs-deskt .redes-select .check-red .switch-checkbox, .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar .switch-checkbox {
     display: none; }
-    .switchess input[type="checkbox"]:checked + label.btndesactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch input[type="checkbox"]:checked + label.btndesactivar, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar input[type="checkbox"]:checked + label.btndesactivar, .switchess .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btndesactivar, .creadas .recientes .content .inputs-campana .switchess textarea[type="checkbox"]:checked + label.btndesactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btndesactivar, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btndesactivar, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btndesactivar, .creadas .recientes .content .inputs-campana .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btndesactivar, .switchess #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btndesactivar, #imagenform-ipe #tabscontent .tabpage div#descripcion .switchess textarea[type="checkbox"]:checked + label.btndesactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch div#descripcion textarea[type="checkbox"]:checked + label.btndesactivar, #imagenform-ipe #tabscontent .tabpage div#descripcion #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btndesactivar, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btndesactivar, #imagenform-ipe #tabscontent .tabpage div#descripcion .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btndesactivar {
-      -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
-      -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
-      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
-      background-color: #c7c7c7; }
-      .switchess input[type="checkbox"]:checked + label.btndesactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch input[type="checkbox"]:checked + label.btndesactivar::before, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar input[type="checkbox"]:checked + label.btndesactivar::before, .switchess .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btndesactivar::before, .creadas .recientes .content .inputs-campana .switchess textarea[type="checkbox"]:checked + label.btndesactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btndesactivar::before, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btndesactivar::before, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btndesactivar::before, .creadas .recientes .content .inputs-campana .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btndesactivar::before, .switchess #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btndesactivar::before, #imagenform-ipe #tabscontent .tabpage div#descripcion .switchess textarea[type="checkbox"]:checked + label.btndesactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch div#descripcion textarea[type="checkbox"]:checked + label.btndesactivar::before, #imagenform-ipe #tabscontent .tabpage div#descripcion #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btndesactivar::before, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btndesactivar::before, #imagenform-ipe #tabscontent .tabpage div#descripcion .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btndesactivar::before {
-        -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
-        -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
-        transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+    .switcher-norm .switch-checkbox:checked + .switch-label, .switchess .switch-checkbox:checked + .switch-label, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-checkbox:checked + .switch-label, #campanaForm-nueva-campana .inputs-deskt .redes-select .check-red .switch-checkbox:checked + .switch-label, .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar .switch-checkbox:checked + .switch-label {
+      background-color: #c7c7c7;
+      -webkit-box-shadow: inset -2px 4px 8px -2px #656b79;
+      -moz-box-shadow: inset -2px 4px 8px -2px #656b79;
+      box-shadow: inset -2px 4px 8px -2px #656b79; }
+      .switcher-norm .switch-checkbox:checked + .switch-label::before, .switchess .switch-checkbox:checked + .switch-label::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-checkbox:checked + .switch-label::before, #campanaForm-nueva-campana .inputs-deskt .redes-select .check-red .switch-checkbox:checked + .switch-label::before, .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar .switch-checkbox:checked + .switch-label::before {
         border-color: #c7c7c7;
-        right: 1.875em;
-        background-color: #fff; }
-    .switchess input[type="checkbox"]:checked + label.btnactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch input[type="checkbox"]:checked + label.btnactivar, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar input[type="checkbox"]:checked + label.btnactivar, .switchess .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btnactivar, .creadas .recientes .content .inputs-campana .switchess textarea[type="checkbox"]:checked + label.btnactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btnactivar, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btnactivar, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btnactivar, .creadas .recientes .content .inputs-campana .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btnactivar, .switchess #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btnactivar, #imagenform-ipe #tabscontent .tabpage div#descripcion .switchess textarea[type="checkbox"]:checked + label.btnactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch div#descripcion textarea[type="checkbox"]:checked + label.btnactivar, #imagenform-ipe #tabscontent .tabpage div#descripcion #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btnactivar, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btnactivar, #imagenform-ipe #tabscontent .tabpage div#descripcion .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btnactivar {
-      -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
-      -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
-      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
-      background-color: #18bb9b; }
-      .switchess input[type="checkbox"]:checked + label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch input[type="checkbox"]:checked + label.btnactivar::before, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar input[type="checkbox"]:checked + label.btnactivar::before, .switchess .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btnactivar::before, .creadas .recientes .content .inputs-campana .switchess textarea[type="checkbox"]:checked + label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btnactivar::before, .creadas .recientes .content .inputs-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btnactivar::before, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar .creadas .recientes .content .inputs-campana textarea[type="checkbox"]:checked + label.btnactivar::before, .creadas .recientes .content .inputs-campana .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btnactivar::before, .switchess #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage div#descripcion .switchess textarea[type="checkbox"]:checked + label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch div#descripcion textarea[type="checkbox"]:checked + label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage div#descripcion #redesociales .rs-inscription .red-info .onoffswitch textarea[type="checkbox"]:checked + label.btnactivar::before, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="checkbox"]:checked + label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage div#descripcion .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar textarea[type="checkbox"]:checked + label.btnactivar::before {
-        -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
-        -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
-        transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
-        border-color: #c7c7c7;
-        right: 0;
-        background-color: #fff; }
-  .switchess label, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch label, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar label {
+        left: 0; }
+  .switcher-norm .switch-label, .switchess .switch-label, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-label, #campanaForm-nueva-campana .inputs-deskt .redes-select .check-red .switch-label, .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar .switch-label {
     padding: 0;
-    border-top-left-radius: 2.125em;
-    border-top-right-radius: 2.125em;
-    border-bottom-left-radius: 2.125em;
-    border-top-left-radius: 2.125em;
-    border-bottom-right-radius: 2.125em;
-    border-top-right-radius: 2.125em;
-    border-bottom-left-radius: 2.125em;
-    border-bottom-right-radius: 2.125em;
+    border-top-left-radius: 26px;
+    border-top-right-radius: 26px;
+    border-bottom-left-radius: 26px;
+    border-top-left-radius: 26px;
+    border-bottom-right-radius: 26px;
+    border-top-right-radius: 26px;
+    border-bottom-left-radius: 26px;
+    border-bottom-right-radius: 26px;
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    height: 26px;
+    line-height: 26px;
+    border: 2px solid #c7c7c7;
+    background-color: #18bb9b;
     -webkit-transition: background-color 0.3s cubic-bezier(0.23, 1, 0.32, 1);
     -moz-transition: background-color 0.3s cubic-bezier(0.23, 1, 0.32, 1);
     transition: background-color 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-    display: block;
-    cursor: pointer;
-    height: 24px;
-    line-height: 24px;
-    border: 2px solid #c7c7c7;
-    background-color: #fff; }
-    .switchess label::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch label::before, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar label::before {
-      border-top-left-radius: 2.125em;
-      border-top-right-radius: 2.125em;
-      border-bottom-left-radius: 2.125em;
-      border-top-left-radius: 2.125em;
-      border-bottom-right-radius: 2.125em;
-      border-top-right-radius: 2.125em;
-      border-bottom-left-radius: 2.125em;
-      border-bottom-right-radius: 2.125em;
-      -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
-      -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
-      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+    -webkit-box-shadow: inset -2px 4px 8px -2px #107977;
+    -moz-box-shadow: inset -2px 4px 8px -2px #107977;
+    box-shadow: inset -2px 4px 8px -2px #107977; }
+    .switcher-norm .switch-label::before, .switchess .switch-label::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-label::before, #campanaForm-nueva-campana .inputs-deskt .redes-select .check-red .switch-label::before, .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar .switch-label::before {
+      border-top-left-radius: 26px;
+      border-top-right-radius: 26px;
+      border-bottom-left-radius: 26px;
+      border-top-left-radius: 26px;
+      border-bottom-right-radius: 26px;
+      border-top-right-radius: 26px;
+      border-bottom-left-radius: 26px;
+      border-bottom-right-radius: 26px;
       content: "";
       display: block;
-      width: 24px;
+      width: 26px;
       margin: 0px;
       background-color: #fff;
       position: absolute;
       top: 0;
       bottom: 0;
-      right: 0;
-      border: 2px solid #c7c7c7;
+      left: 30px;
+      border: 2px solid #18bb9b;
+      -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+      -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
       -webkit-box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.8);
       -moz-box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.8);
       box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.8); }
-    .switchess label.btndesactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch label.btndesactivar, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar label.btndesactivar {
+
+.switchess, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch {
+  width: 3.4375em;
+  float: right;
+  clear: right;
+  margin-right: 10px; }
+  .switchess .switch-checkbox:checked + label.btndesactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-checkbox:checked + label.btndesactivar {
+    -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+    -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+    background-color: #c7c7c7; }
+    .switchess .switch-checkbox:checked + label.btndesactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-checkbox:checked + label.btndesactivar::before {
+      -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+      -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+      border-color: #c7c7c7;
+      right: 1.875em;
+      background-color: #fff; }
+  .switchess .switch-checkbox:checked + label.btnactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-checkbox:checked + label.btnactivar {
+    -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+    -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+    background-color: #18bb9b; }
+    .switchess .switch-checkbox:checked + label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-checkbox:checked + label.btnactivar::before {
+      -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+      -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+      border-color: #c7c7c7;
+      left: 1.875em;
+      background-color: #fff; }
+  .switchess .switch-label, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-label {
+    border-top-left-radius: 2.125em;
+    border-top-right-radius: 2.125em;
+    border-bottom-left-radius: 2.125em;
+    border-top-left-radius: 2.125em;
+    border-bottom-right-radius: 2.125em;
+    border-top-right-radius: 2.125em;
+    border-bottom-left-radius: 2.125em;
+    border-bottom-right-radius: 2.125em;
+    height: 24px;
+    line-height: 24px;
+    background-color: #fff; }
+    .switchess .switch-label::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-label::before {
+      border-top-left-radius: 2.125em;
+      border-top-right-radius: 2.125em;
+      border-bottom-left-radius: 2.125em;
+      border-top-left-radius: 2.125em;
+      border-bottom-right-radius: 2.125em;
+      border-top-right-radius: 2.125em;
+      border-bottom-left-radius: 2.125em;
+      border-bottom-right-radius: 2.125em;
+      width: 24px;
+      right: 0;
+      border: 2px solid #c7c7c7; }
+    .switchess .switch-label.btndesactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-label.btndesactivar {
       background-color: #18bb9b; }
-    .switchess label.btnactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch label.btnactivar, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar label.btnactivar {
+    .switchess .switch-label.btnactivar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-label.btnactivar {
       background-color: #c7c7c7;
       -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
       -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
       transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s; }
-      .switchess label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch label.btnactivar::before, .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar label.btnactivar::before {
+      .switchess .switch-label.btnactivar::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-label.btnactivar::before {
         -webkit-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
         -moz-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
         transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
         border-color: #c7c7c7;
-        right: 1.875em;
+        left: 0;
         background-color: #fff; }
 
 @-webkit-keyframes formCampanas {
@@ -637,36 +676,43 @@ nav {
     margin: 0;
     padding: 0;
     list-style: none;
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    display: block;
     width: 100%; }
+    nav ul:last-child {
+      margin-right: 0; }
+    nav ul::after {
+      clear: both;
+      content: "";
+      display: table; }
     nav ul li {
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 42.59442%;
-      display: block;
+      width: 40.29137%;
       margin-right: 0;
+      padding: 8px 0 0;
       text-align: center;
       font-size: 13px;
       text-transform: uppercase;
       border-bottom: 1px solid #c7c7c7;
-      padding-top: 8px;
       height: 34px; }
       nav ul li:last-child {
         margin-right: 0; }
-      nav ul li::after {
-        clear: both;
-        content: "";
-        display: table; }
       nav ul li a {
         color: #c7c7c7; }
-      nav ul li:last-child {
+      nav ul li:first-child {
         float: left;
         display: block;
         margin-right: 2.35765%;
-        width: 14.70196%;
+        width: 18.96686%;
+        margin-right: 0;
         cursor: pointer;
         color: #c7c7c7; }
-        nav ul li:last-child:last-child {
+        nav ul li:first-child:last-child {
           margin-right: 0; }
       nav ul li#nuevaCampain {
         display: none !important; }
@@ -878,6 +924,32 @@ html {
             width: 100%; }
             html body.formularios-registro .cont_formRegistro .cont-inputs div input:last-child, html body.formularios-registro .cont_formRegistro .cont-inputs div .creadas .recientes .content .inputs-campana textarea:last-child, .creadas .recientes .content .inputs-campana html body.formularios-registro .cont_formRegistro .cont-inputs div textarea:last-child, html body.formularios-registro .cont_formRegistro .cont-inputs #imagenform-ipe #tabscontent .tabpage div#descripcion textarea:last-child, #imagenform-ipe #tabscontent .tabpage html body.formularios-registro .cont_formRegistro .cont-inputs div#descripcion textarea:last-child {
               margin-right: 0; }
+        html body.formularios-registro .cont_formRegistro .cont-inputs .selects {
+          position: relative;
+          overflow: hidden;
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 100%; }
+          html body.formularios-registro .cont_formRegistro .cont-inputs .selects:last-child {
+            margin-right: 0; }
+          html body.formularios-registro .cont_formRegistro .cont-inputs .selects small {
+            color: #c7c7c7;
+            float: left;
+            display: block;
+            margin-right: 2.35765%;
+            width: 100%;
+            text-align: left;
+            font-size: 9px;
+            text-transform: uppercase; }
+            html body.formularios-registro .cont_formRegistro .cont-inputs .selects small:last-child {
+              margin-right: 0; }
+          html body.formularios-registro .cont_formRegistro .cont-inputs .selects i {
+            position: absolute;
+            top: 30px;
+            right: 10px;
+            color: #18bb9b;
+            z-index: 1; }
     @media screen and (min-width: 64em) and (max-width: 90em) {
       html body {
         background-image: none; }
@@ -2478,7 +2550,9 @@ main {
           color: #3b5998; }
         #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i.fa-twitter {
           color: #55acee; }
-        #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i.fa-youtube-play, #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i.fa-google-plus {
+        #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i.fa-youtube-play {
+          color: #ee0f0f; }
+        #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i.fa-google-plus {
           color: #ee0f0f; }
         #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i:last-child {
           color: #656b79;
@@ -2892,6 +2966,56 @@ main {
     text-align: center; }
     #campanaForm-nueva-campana .guardar:last-child {
       margin-right: 0; }
+  #campanaForm-nueva-campana .inputs-deskt .redes-select {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    display: block;
+    width: 100%;
+    padding: 1.25em 0 0; }
+    #campanaForm-nueva-campana .inputs-deskt .redes-select:last-child {
+      margin-right: 0; }
+    #campanaForm-nueva-campana .inputs-deskt .redes-select::after {
+      clear: both;
+      content: "";
+      display: table; }
+    #campanaForm-nueva-campana .inputs-deskt .redes-select .name-red {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      margin-right: 0;
+      margin: 1.5em 0;
+      font-size: 0.75em;
+      color: #c7c7c7;
+      text-transform: capitalize;
+      height: 26px; }
+      #campanaForm-nueva-campana .inputs-deskt .redes-select .name-red:last-child {
+        margin-right: 0; }
+      #campanaForm-nueva-campana .inputs-deskt .redes-select .name-red i {
+        font-size: 1.75em;
+        margin-right: 3px; }
+        #campanaForm-nueva-campana .inputs-deskt .redes-select .name-red i.fa-google {
+          color: #f05721; }
+        #campanaForm-nueva-campana .inputs-deskt .redes-select .name-red i.fa-instagram {
+          color: #517fa4; }
+        #campanaForm-nueva-campana .inputs-deskt .redes-select .name-red i.fa-facebook {
+          color: #3b5998; }
+        #campanaForm-nueva-campana .inputs-deskt .redes-select .name-red i.fa-twitter {
+          color: #55acee; }
+        #campanaForm-nueva-campana .inputs-deskt .redes-select .name-red i.fa-youtube-play {
+          color: #ee0f0f; }
+        #campanaForm-nueva-campana .inputs-deskt .redes-select .name-red i.fa-google-plus {
+          color: #ee0f0f; }
+    #campanaForm-nueva-campana .inputs-deskt .redes-select .check-red {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 14.70196%;
+      margin: 1.25em 0.375em; }
+      #campanaForm-nueva-campana .inputs-deskt .redes-select .check-red:last-child {
+        margin-right: 0; }
   @media screen and (min-width: 64em) and (max-width: 90em) {
     #campanaForm-nueva-campana {
       max-width: 68em;
@@ -2999,7 +3123,7 @@ main {
     color: #18bb9b;
     z-index: 1; }
   .influenciador-publico #campanas-postulables select {
-    padding: 0 0.125em; }
+    padding: 0 0.625em; }
 .influenciador-publico .influenciadores {
   padding: 2.35765%; }
   .influenciador-publico .influenciadores .contactarForm {
@@ -3009,16 +3133,22 @@ main {
     width: 100%;
     border-bottom: 1px solid #656b79;
     padding: 0 0 10px;
+    display: block;
+    width: 100%;
     margin: 0 0 10px; }
     .influenciador-publico .influenciadores .contactarForm:last-child {
       margin-right: 0; }
+    .influenciador-publico .influenciadores .contactarForm::after {
+      clear: both;
+      content: "";
+      display: table; }
     .influenciador-publico .influenciadores .contactarForm:last-child {
       border: none; }
     .influenciador-publico .influenciadores .contactarForm .mask-imguser {
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 31.76157%; }
+      width: 23.23176%; }
       .influenciador-publico .influenciadores .contactarForm .mask-imguser:last-child {
         margin-right: 0; }
     .influenciador-publico .influenciadores .contactarForm .info-influ {
@@ -3031,7 +3161,7 @@ main {
         margin-right: 0; }
       .influenciador-publico .influenciadores .contactarForm .info-influ h2 {
         font-size: 0.9375em;
-        margin: 1.25em 0 0.3125em;
+        margin: 0.3125em 0 0.3125em;
         color: #656b79; }
       .influenciador-publico .influenciadores .contactarForm .info-influ small {
         float: left;
@@ -3046,13 +3176,72 @@ main {
           color: #18bb9b; }
         .influenciador-publico .influenciadores .contactarForm .info-influ small:last-child {
           text-transform: capitalize; }
-    .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar {
+      .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%;
+        display: block;
+        width: 100%; }
+        .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach:last-child {
+          margin-right: 0; }
+        .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach::after {
+          clear: both;
+          content: "";
+          display: table; }
+        .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach span {
+          color: #18bb9b;
+          font-size: 1.4375em;
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 74.41059%;
+          margin-right: 0; }
+          .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach span:last-child {
+            margin-right: 0; }
+          .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach span:first-child {
+            float: left;
+            display: block;
+            margin-right: 2.35765%;
+            width: 23.23176%;
+            padding: 5px 0 0;
+            font-size: 0.75em;
+            line-height: 0.9375em;
+            text-transform: uppercase; }
+            .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach span:first-child:last-child {
+              margin-right: 0; }
+    .influenciador-publico .influenciadores .contactarForm .cotizar-opt {
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 14.70196%;
-      margin-top: 40px; }
-      .influenciador-publico .influenciadores .contactarForm .checkbox-cotizar:last-child {
+      width: 23.23176%;
+      display: block; }
+      .influenciador-publico .influenciadores .contactarForm .cotizar-opt:last-child {
         margin-right: 0; }
+      .influenciador-publico .influenciadores .contactarForm .cotizar-opt::after {
+        clear: both;
+        content: "";
+        display: table; }
+      .influenciador-publico .influenciadores .contactarForm .cotizar-opt .txt-cotiza {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%;
+        height: 20px;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 9px;
+        color: #656b79;
+        margin-top: 0.3125em; }
+        .influenciador-publico .influenciadores .contactarForm .cotizar-opt .txt-cotiza:last-child {
+          margin-right: 0; }
+      .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 65.88078%;
+        margin-left: 17.05961%; }
+        .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar:last-child {
+          margin-right: 0; }
 
 /*# sourceMappingURL=platform_influencials.css.map */

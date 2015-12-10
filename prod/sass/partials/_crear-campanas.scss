@@ -92,6 +92,50 @@
 		background: {color:$color_font2;}
 		@include textAligns(center);
 	}
+	.inputs-deskt{
+		.redes-select{
+			@include span-columns(12);
+			@include row();
+			@include fill-parent();
+			@include pad(em(20) 0 0);
+			.name-red{
+				@include span-columns(4 of 12);
+				@include omega();
+				margin:em(24) 0;
+				font:{size:em(12);}
+				color:$color_grey;
+				text:{transform:capitalize;}
+				height: 26px;
+				i{
+					font:{size:em(28)}
+					margin:{right:3px;}
+					&.fa-google{
+						color:$col-google;
+					}
+					&.fa-instagram{
+						color:$col-instagram;
+					}
+					&.fa-facebook{
+						color:$col-facebook;
+					}
+					&.fa-twitter{
+						color:$col-twitter;
+					}
+					&.fa-youtube-play{
+						color:$col-youtube;
+					}
+					&.fa-google-plus{
+						color:$col-google-plus;
+					}
+				}
+			}
+			.check-red{
+				@include span-columns(2 of 12);
+				margin:em(20) em(6);
+				@extend .switcher-norm;
+			}
+		}
+	}
 	//MEDIA QUERIES
 	@include media($tabletLandTonotebook){
 		@include outer-container;

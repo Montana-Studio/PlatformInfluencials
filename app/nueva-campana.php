@@ -17,27 +17,66 @@
 				<textarea placeholder="Descripción" id="descripcion-nueva-campana" rows="10" cols="40" required></textarea>
 				<i class="fa fa-pencil"></i>				
 			</div>
-			<div>
-				<p>Fecha de término: <input class="fecha_termino" type="text" id="datepicker"></p>
+			<div class="cont-input">
+				<input class="fecha_termino" type="text" id="datepicker" placeholder="Fecha de termino">
+				<i class="fa fa-pencil"></i>
 			</div>
-			<div>
-				<div>
-					<label for="facebook">facebook<input class="checkbox_rrss"  value="facebook" id="facebook" type="checkbox"/></label>
+
+			<div class="redes-select">
+			
+				<div class="name-red">
+					<i class="fa fa-facebook"></i>
+					facebook
 				</div>
-				<div>
-					<label for="twitter">twitter</label><input class="checkbox_rrss"  value="twitter" id="twitter" type="checkbox"/>
+
+				<div class="check-red">
+					<input class="switch-checkbox checkbox_rrss"  value="facebook" id="facebook" type="checkbox" checked/>
+					<label for="facebook" class="switch-label"></label>
 				</div>
-				<div>
-					<label for="instagram">instagram</label><input class="checkbox_rrss"  value="instagram" id="instagram" type="checkbox"/>
+
+				<div class="name-red">
+					<i class="fa fa-twitter"></i>
+					twitter
 				</div>
-				<div>
-					<label for="youtube">youtube</label><input class="checkbox_rrss" value="youtube" id="youtube" type="checkbox"/>
+				<div class="check-red">
+					<input class="switch-checkbox checkbox_rrss"  value="twitter" id="twitter" type="checkbox" checked/>
+					<label for="twitter" class="switch-label"></label>
 				</div>
-				<div>
-					<label for="analytics">analytics</label><input  class="checkbox_rrss" value="analytics" id="analytics" type="checkbox"/>
+
+				<div class="name-red">
+					<i class="fa fa-instagram"></i>
+					instagram
 				</div>
-				<div>
-					<label for="googleplus">googleplus</label><input class="checkbox_rrss"  value="googleplus" id="googleplus" type="checkbox"/>
+				<div class="check-red">
+					<input class="switch-checkbox checkbox_rrss"  value="instagram" id="instagram" type="checkbox" checked/>
+					<label for="instagram" class="switch-label"></label>
+				</div>
+
+				<div class="name-red">
+					<i class="fa fa-youtube-play"></i>
+					youtube
+				</div>
+				<div class="check-red">
+					<input class="switch-checkbox checkbox_rrss" value="youtube" id="youtube" type="checkbox" checked/>
+					<label for="youtube" class="switch-label"></label>
+				</div>
+
+				<div class="name-red">
+					<i class="fa fa-google"></i>
+					analytics
+				</div>
+				<div class="check-red">
+					<input  class="switch-checkbox checkbox_rrss" value="analytics" id="analytics" type="checkbox" checked/>
+					<label for="analytics" class="switch-label"></label>
+				</div>
+
+				<div class="name-red">
+					<i class="fa fa-google-plus"></i>
+					google plus
+				</div>
+				<div class="check-red">
+					<input class="switch-checkbox checkbox_rrss"  value="googleplus" id="googleplus" type="checkbox" checked/>
+					<label for="googleplus" class="switch-label"></label>
 				</div>
 			</div>
 		</div>
