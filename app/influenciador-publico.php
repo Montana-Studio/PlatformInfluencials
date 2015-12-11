@@ -59,10 +59,33 @@
 						$row_rrss_ipe= mysqli_fetch_array($result_rrss_ipe, MYSQLI_NUM);
 						//$num_rows3= mysqli_num_rows($result_rrss_ipe);
 						$reach=0;
-							
+
+						echo '
+							<div class="rrss_reach">
+								<span>Reach total</span>
+								<span>'.$reach.'</span>
+							</div>
+						</div>
+
+						<div class="cotizar-opt">
+							<span class="txt-cotiza">cotizar</span>
+							<div class="checkbox-cotizar">
+								<input id="cotizar-'.$row[0].'" class="switch-checkbox" name="'.$row[5].'"  value="'.$row[0].'" type="checkbox" checked/>
+								<label for="cotizar-'.$row[0].'" class="switch-label"></label>
+							</div>
+						</div>
+					
+						<div class="access-ipe">
+
+							<span class="ver_perfil_influenciador" name="'.$row[0].'">ver resumen</span>
+							<span class="volver_ver_perfil_influenciador" name="'.$row[0].'">ocutar resumen</span>
+
+							<span class="perfil_influenciador">ver perfil</span>
+						'?>
+						<?php
 						do{
 							//echo $row_rrss_ipe[2];
-							if($row_rrss_ipe[2]=='facebook'){
+							if($row_rrss_ipe[2]==='facebook'){
 								$facebookPage=$row_rrss_ipe[3];
 								$facebookKey ="693511c0b86cda985e20ba5a19f556c0";
 								$facebookAppId = "973652052702468";
@@ -72,12 +95,8 @@
 						        $links_user_url= json_decode($json_user);
 						        $facebookLikes =$links_user_url->likes;
 						        $reach+=$facebookLikes;
-						        echo '
-						        <script>
-									$(document).ready(function(){
-										$(".rrss span.face-rrss").prepend("<div class="rrss" name="facebook">Facebook <span class="face-rrss">'.$facebookLikes.'</span></div>")
-									});
-						        </script>';
+						        $echoContentFace = '<div class="rrss" name="facebook">Facebook <span>'.$facebookLikes.'</span></div>';
+						        echo $echoContentFace;
 							}
 
 							if($row_rrss_ipe[2]=='instagram'){
@@ -86,12 +105,8 @@
 						      $links_user_url= json_decode($json_user);
 						      $followers_instagram = $links_user_url->data->counts->followed_by;
 						      $reach+=$followers_instagram;
-						      echo '
-								<script>
-									$(document).ready(function(){
-										$(".rrss span.inst-rrss").text("'.$followers_instagram.'")
-									});
-						        </script>';
+							  $echoContentInsta = "<div class='rrss' 'name='instagram'>Instagram <span>".$followers_instagram."</span></div>";
+							  echo $echoContentInsta;
 							}
 							
 							if($row_rrss_ipe[2]=='twitter'){
@@ -110,11 +125,9 @@
 						        ->buildOauth($ta_url, $requestMethod)
 						        ->performRequest();
 								$reach+=$follow_count1;	
-								echo '<script>
-									$(document).ready(function(){
-										$(".rrss span.twit-rrss").text("'.$follow_count1.'")
-									});
-						        </script>';
+
+								$echoContentTweet = "<div class='rrss' 'name='twitter'>Twitter <span>".$follow_count1."</span></div>";
+								echo $echoContentTweet;
 							}
 
 							if($row_rrss_ipe[2]=='youtube'){
@@ -124,11 +137,8 @@
 						        $links_user_url= json_decode($json_user);
 						        $youtubeSubscribers = $links_user_url->items[0]->statistics->subscriberCount;
 								$reach+=$youtubeSubscribers;
-								echo '<script>
-									$(document).ready(function(){
-										$(".rrss span.you-rrss").text("'.$youtubeSubscribers.'")
-									});
-						        </script>';
+								$echoContentYou = "<div class='rrss' name='youtube'>Youtube <span>".$youtubeSubscribers."</span></div>";
+							  	echo $echoContentYou;
 							}
 
 							if($row_rrss_ipe[2]=='googleplus'){
@@ -139,11 +149,8 @@
 						        $links_user_url= json_decode($json_user);
 						        $googleplusSubscriber =$links_user_url->circledByCount;
 								$reach+=$googleplusSubscriber;
-								echo '<script>
-									$(document).ready(function(){
-										$(".rrss span.plus-rrss").text("'.$googleplusSubscriber.'")
-									});
-						        </script>';
+								$echoContentPlus = "<div class='rrss' name='gogoleplus'>Google Plus<span>".$googleplusSubscriber."</span></div>";
+								echo $echoContentPlus;
 							}
 							
 							if($row_rrss_ipe[2]=='analytics'){
@@ -155,43 +162,17 @@
 									$reach+=$rows_analytics_page_views[0];
 									$analyticsPageViews+=$rows_analytics_page_views[0];
 								}while($rows_analytics_page_views = mysqli_fetch_array($result_analytics_page_views	));
-								echo '<script>
-									$(document).ready(function(){
-										$(".rrss span.analy-rrss").text("'.$analyticsPageViews.'")
-									});
-						        </script>';
+							  	
+							  	$echoContentAnaly = "<div class='rrss' 'name='analytics'>Analytics <span>".$analyticsPageViews."</span></div>";
+								echo $echoContentAnaly;
 							}
 
 
 						}while($row_rrss_ipe = mysqli_fetch_array($result_rrss_ipe));
-
 						echo '
-							<div id="rrss_reach-view" class="rrss_reach">
-								<span>Reach total</span>
-								<span>'.$reach.'</span>
-							</div>
+
 						</div>
 
-						<div class="cotizar-opt">
-							<span class="txt-cotiza">cotizar</span>
-							<div class="checkbox-cotizar">
-								<input id="cotizar-'.$row[0].'" class="switch-checkbox" name="'.$row[5].'"  value="'.$row[0].'" type="checkbox" checked/>
-								<label for="cotizar-'.$row[0].'" class="switch-label"></label>
-							</div>
-						</div>
-					
-						<div class="access-ipe">
-							<span class="ver_perfil_influenciador" name="'.$row[0].'">ver resumen</span>
-							<span class="volver_ver_perfil_influenciador" name="'.$row[0].'">ocutar resumen</span>
-
-							<span class="perfil_influenciador" >ver perfil</span>
-
-							<div class="rrss" name="instagram">Instagram <span class="inst-rrss"></span></div>
-							<div class="rrss" name="twitter">Twitter <span class="twit-rrss"></span></div>
-							<div class="rrss" name="youtube">Youtube <span class="you-rrss"></span></div>
-							<div class="rrss" name="googleplus">Google Plus <span class="plus-rrss"></span></div>
-							<div class="rrss" name="analytics">Google Analytics <span class="analy-rrss"></span></div>
-						</div>
 				</form>';
 		}while($row = mysqli_fetch_row($result));
 	}
@@ -201,9 +182,6 @@
 		echo '</div><button id="cotizar_influenciador">cotizar</button>
 		<script>
 			$(document).ready(function(){
-
-				$(".rrss").hide();
-				$(".volver_ver_perfil_influenciador").hide();
 					
 				$("#cotizar_influenciador").click(function(){
 					var influenciadores_cotizados="";
@@ -303,17 +281,19 @@
 				});
 
 				$(".ver_perfil_influenciador").click(function(){
-					
+
 					var id_form=$(this).attr("name");
 
 					$("#"+id_form+" .rrss").show();
-
+	
 					var a = $("#"+id_form+" .info-influ .rrss_reach").text();
 					var b = $("#"+id_form+" .info-influ .rrss_reach span:last-child").text();
+					
+					$("#"+id_form+" .rrss").show();
 
-					$("#"+id_form+" .info-influ ").append("<div><span>Reach total</span><span>"+b+"</span></div>");
-					$("#"+id_form+" .info-influ div:last-child").addClass("rrss_reach");
-					$("#"+id_form+" .info-influ #rrss_reach-view").hide();
+					//$("#"+id_form+" .info-influ ").append("<div><span>Reach total</span><span>"+b+"</span></div>");
+					//$("#"+id_form+" .info-influ div:last-child").addClass("rrss_reach");
+					//$("#"+id_form+" .info-influ .rrss_reach").hide();
 					$("#"+id_form+" .ver_perfil_influenciador").hide();
 					$("#"+id_form+" .volver_ver_perfil_influenciador").show();
 				});
@@ -322,8 +302,8 @@
 					
 					var id_form=$(this).attr("name");
 					$("#"+id_form+" .rrss").hide();
-					$("#"+id_form+" .info-influ div:last-child").remove();
-					$("#"+id_form+" .info-influ .rrss_reach").show();
+					//$("#"+id_form+" .info-influ div:last-child").remove();
+					//$("#"+id_form+" .info-influ .rrss_reach").show();
 					$("#"+id_form+" .ver_perfil_influenciador").show();
 					$("#"+id_form+" .volver_ver_perfil_influenciador").hide();
 				});

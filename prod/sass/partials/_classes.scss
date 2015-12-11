@@ -276,10 +276,12 @@ a{
 		}
 		&.btndesactivar{
 			background:{color: $color_font2;}
+			@include boxShadow(inset -2px, 4px, 8px, -2px, $color_font);
 		}
 		&.btnactivar{
 			background:{color: $color_grey;}
 			@include transition(all .3s $ease-out-quint 0s);
+			@include boxShadow(inset -2px, 4px, 8px, -2px, $color_grey2);
 			&::before{
 				@include transition(all .3s $ease-out-quint 0s);
 				border-color: $color_grey;

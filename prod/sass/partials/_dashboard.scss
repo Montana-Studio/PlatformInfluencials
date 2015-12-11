@@ -970,6 +970,40 @@
 							}
 						}
 					}
+					.twitt-content{
+						@include span-columns(12);
+						@include pad(5px);
+						@include borderRadius(10px);
+						margin:{bottom:10px;}
+						border:1px solid $color_grey;
+						font:{size:em(12);weight:normal;}
+						color:$color_grey2;
+						a{
+							color:$color_font2;
+						}
+						ul{
+							@include span-columns(12 of 12);
+							@include pad(10px 0 0);
+							margin:0;
+							list:{style: none;}
+							li{
+								@include span-columns(1);
+								font:{size:em(12);weight:bold;}
+								color:$color_grey;
+								i{
+									position:relative;
+									color:$color_grey;
+									top: inherit;
+    								right: inherit;
+    								margin:{right:em(5);}
+								}
+								&:last-child{
+									@include span-columns(10);
+									@include textAligns(right);
+								}
+							}
+						}
+					}
 					.btns{
 						@include span-columns(12);
 						@include textAligns(center);

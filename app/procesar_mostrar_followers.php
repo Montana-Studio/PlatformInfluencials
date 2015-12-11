@@ -134,19 +134,18 @@
        
         $_SESSION['twitter'] .="
         <div class='red-info'>
-        <h3>".$username."</h3>
-        <ul>
-        <li><img src='".$avatar."'/></li>
-        <li>Followers<br><span>".(int)$followers_count1."</span></li>
-        </ul>
-        <!--button type='checkbox' class='btn".$estado_descripcion." estado_rs cmn-toggle' name='".$estado."' id='".$row3[3]."'>".$estado_descripcion."</button-->
-        <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
-        <div class='onoffswitch'>
-            <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs onoffswitch-checkbox' id='".$row4[3]."'>
-            <label class='btn".$estado_descripcion." onoffswitch-label' for='".$row4[3]."'></label>
-        </div>
-        </div>
-        últimos tweets";
+          <h3>".$username."</h3>
+          <ul>
+            <li><img src='".$avatar."'/></li>
+            <li>Followers<br><span>".(int)$followers_count1."</span></li>
+          </ul>
+          <!--button type='checkbox' class='btn".$estado_descripcion." estado_rs cmn-toggle' name='".$estado."' id='".$row3[3]."'>".$estado_descripcion."</button-->
+          <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
+          <div class='onoffswitch'>
+              <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$row4[3]."'>
+              <label class='btn".$estado_descripcion." switch-label' for='".$row4[3]."'></label>
+          </div>
+        </div>";
         
         for($i = 0; $i < 3 ; $i++){
           $start_date = new DateTime("now");
@@ -160,18 +159,41 @@
           $interval = $start_date->diff($end_date);
 
           if(intval($interval->m) > 0){
-            $dateDiff = $interval->m."months";
+            $dateDiff = $interval->m." Meses";
           }else if(intval($interval->d)>0){
-            $dateDiff = $interval->d."d";
+            $dateDiff = $interval->d." Días";
           }else if(intval($interval->h)>0){
-            $dateDiff = $interval->h."h";
+            $dateDiff = $interval->h." Horas";
           }
           else if(intval($interval->m)>0){
-            $dateDiff = $interval->i."m";
+            $dateDiff = $interval->i." Minutos";
           }
+
+          $tweet = $data1[$i]['text'];
+
+          //Convert urls to <a> links
+          $tweet = preg_replace("/([\w]+\:\/\/[\w-?&;#~=\.\/\@]+[\w\/])/", "<a target=\"_blank\" href=\"$1\">$1</a>", $tweet);
+          //Convert hashtags to twitter searches in <a> links
+          $tweet = preg_replace("/#([A-Za-z0-9\/\.]*)/", "<a target=\"_blank\" href=\"http://twitter.com/search?q=$1\">#$1</a>", $tweet);
+          //Convert attags to twitter profiles in &lt;a&gt; links
+          $tweet = preg_replace("/@([A-Za-z0-9\/\.]*)/", "<a target=\"_blank\" href=\"http://www.twitter.com/$1\">@$1</a>", $tweet);
+
           $text.="
-          <h3>".$data1[$i]['text']."</h3>
-          <p>Retweet ".$data1[$i]['retweet_count']." - Favourites ".$data1[$i]['favorite_count']." - ".$dateDiff."</p>";
+          <div class='twitt-content'>
+          
+            <div>".$tweet."</div>
+            <ul>
+              <li>
+                <i class='fa fa-retweet'></i> ".$data1[$i]['retweet_count']."
+              </li>
+              <li>
+                <i class='fa fa-heart'></i>".$data1[$i]['favorite_count']."
+              </li>
+              <li>
+                <i class='fa fa-calendar'></i>".$dateDiff."
+              </li>
+            </ul>
+            </div>";
         }
         $_SESSION['twitter'] .= $text;
         $text="";
@@ -216,8 +238,8 @@
         <!--button class='estado_rs' name='".$estado."' id='".$row5[3]."'>".$estado_descripcion."</button-->
         <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
         <div class='onoffswitch'>
-          <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs onoffswitch-checkbox' id='".$row3[3]."'>
-          <label class='btn".$estado_descripcion." onoffswitch-label' for='".$row5[3]."'></label>
+          <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$row3[3]."'>
+          <label class='btn".$estado_descripcion." switch-label' for='".$row5[3]."'></label>
       </div>
         </div>";
       }while($row5 = $result5->fetch_array());
@@ -272,8 +294,8 @@
             <!--button class='estado_rs' name='".$estado."' id='".$facebookPage."'>".$estado_descripcion."</button-->
             <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
             <div class='onoffswitch'>
-                <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs onoffswitch-checkbox' id='".$facebookPage."'>
-                <label class='btn".$estado_descripcion." onoffswitch-label' for='".$facebookPage."'></label>
+                <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$facebookPage."'>
+                <label class='btn".$estado_descripcion." switch-label' for='".$facebookPage."'></label>
             </div>
             </div>";
         }
@@ -328,9 +350,9 @@
           <!--button class='estado_rs' name='".$estado."' id='".$googleplusId."'>".$estado_descripcion."</button-->
           <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
           <div class='onoffswitch'>
-              <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs onoffswitch-checkbox' id='".$googleplusId."'>
+              <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$googleplusId."'>
               <img src='".$picture."'/>
-              <label class='btn".$estado_descripcion." onoffswitch-label' for='".$googleplusId."'></label>
+              <label class='btn".$estado_descripcion." switch-label' for='".$googleplusId."'></label>
           </div>
           </div>";
         }
@@ -496,8 +518,8 @@
 
             <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
             <div class='onoffswitch'>
-                <input type='checkbox' name='".$estado."' value='analytics' class='btn".$estado_descripcion." estado_rs onoffswitch-checkbox' id='".$row9[4]."'>
-                <label class='btn".$estado_descripcion." onoffswitch-label' for='".$row9[4]."'></label>
+                <input type='checkbox' name='".$estado."' value='analytics' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$row9[4]."'>
+                <label class='btn".$estado_descripcion." switch-label' for='".$row9[4]."'></label>
             </div>
           </div>";
           $variable++;
