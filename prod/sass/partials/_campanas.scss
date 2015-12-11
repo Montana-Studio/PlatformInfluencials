@@ -5,7 +5,7 @@
 			li{
 				a{color:$color_grey;}
 				border:{bottom:1px solid $color_grey;}
-				&:first-child{
+				&:nth-child(2){
 					a{
 						color:$color_font2;
 					}

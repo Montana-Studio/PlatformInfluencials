@@ -93,11 +93,5 @@
 	</form>
 
 	<?php include 'footer.php'; ?>
-
-	<script>
-		jQuery(document).ready(function(){
-			$('body').addClass('crear-campanas');
-		});
-	</script>
 </body>
 </html>
