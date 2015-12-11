@@ -212,6 +212,11 @@
 									<div class="inputs-campana descripcion descripcion-campana" id="'.$row[0].'">
 										<textarea placeholder="descripcion" disabled>'.$row[2].'</textarea>
 									</div>
+									<div id="redes_sociales_campana_"'.$row[0].'">';
+									//echo $row[0];
+										include('procesar_mostrar_reach_campana.php');
+
+							echo	'</div>
 
 									<!--button class="guardar-campana" type="submit" id="guardar-campana-'.$row[0].'">Guardar Cambios en '.$row[1].'</button-->
 

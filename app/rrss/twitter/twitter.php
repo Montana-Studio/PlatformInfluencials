@@ -6,7 +6,8 @@ include_once('inc/TwitterAPIExchange.php');
     Ask if the persona_id exist on table rrss twitter data
     ****************************************************************/
 
-    $mysqli = mysqli_connect("localhost","adnativo_user","}O%X;&KD[1_*","adnativo_ipe") or die("Error " . mysqli_error($link)); 
+   // $mysqli = mysqli_connect("localhost","adnativo_user","}O%X;&KD[1_*","adnativo_ipe") or die("Error " . mysqli_error($link)); 
+    $mysqli = mysqli_connect("localhost","root","root","adnativo_pi") or die("Error " . mysqli_error($link)); 
     $mysqli->set_charset('utf8');
     $query2="SELECT rrss_id FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter'";
     $result2=mysqli_query($mysqli,$query2)or die (mysqli_error());
