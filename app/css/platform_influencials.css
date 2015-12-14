@@ -10,7 +10,7 @@ html {
 a {
   text-decoration: none; }
 
-.hide, .alertElim, .alertElim #boxElim, .alertElim #boxAlert, main.form_agencias #antiguo, main.form_agencias #nuevo, main.form_agencias #antiguo h2, main.form_agencias #nuevo h2, main.form_agencias #antiguo a, main.form_agencias #nuevo a, main.form_agencias #antiguo .form_ingreso, main.form_agencias #nuevo .form_ingreso, main.form_agencias #nuevo .registerForm, main.form_agencias #nuevo .registerForm #selectImage input[type="file"], main.form_agencias #nuevo .registerForm #selectImage .creadas .recientes .content .inputs-campana textarea[type="file"], .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm #selectImage textarea[type="file"], main.form_agencias #nuevo .registerForm #selectImage #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="file"], #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .registerForm #selectImage textarea[type="file"], .creadas .recientes .content .campa-ico i.fecha-edit, .creadas .recientes .content .inputs-campana i, #imagenform, #imagenform #inicio .tabpage div i, #imagenform-ipe .header-ipe .input-file, .crear-campanas .crear-campana, .influenciador-publico .influenciadores .contactarForm .access-ipe .rrss {
+.hide, .alertElim, .alertElim #boxElim, .alertElim #boxAlert, main.form_agencias #antiguo, main.form_agencias #nuevo, main.form_agencias #antiguo h2, main.form_agencias #nuevo h2, main.form_agencias #antiguo a, main.form_agencias #nuevo a, main.form_agencias #antiguo .form_ingreso, main.form_agencias #nuevo .form_ingreso, main.form_agencias #nuevo .registerForm, main.form_agencias #nuevo .registerForm #selectImage input[type="file"], main.form_agencias #nuevo .registerForm #selectImage .creadas .recientes .content .inputs-campana textarea[type="file"], .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm #selectImage textarea[type="file"], main.form_agencias #nuevo .registerForm #selectImage #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="file"], #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .registerForm #selectImage textarea[type="file"], .creadas .recientes .content .campa-ico i.fecha-edit, .creadas .recientes .content .inputs-campana i, #imagenform, #imagenform #inicio .tabpage div i, #imagenform-ipe .header-ipe .input-file, .crear-campanas .crear-campana {
   display: none; }
 
 .show {
@@ -3117,17 +3117,19 @@ main {
         #campanaForm-nueva-campana .guardar:last-child {
           margin-right: 0; } }
 
-.campanas nav ul li {
-  border-bottom: 1px solid #c7c7c7; }
-  .campanas nav ul li a {
-    color: #c7c7c7; }
-  .campanas nav ul li:nth-child(2) {
-    border-bottom: 2px #18bb9b inset;
-    margin-right: 0; }
-    .campanas nav ul li:nth-child(2) a {
-      color: #18bb9b; }
-.campanas .campa-ico {
-  padding: 5px 0 !important; }
+.campanas {
+  padding: 0 0 20px; }
+  .campanas nav ul li {
+    border-bottom: 1px solid #c7c7c7; }
+    .campanas nav ul li a {
+      color: #c7c7c7; }
+    .campanas nav ul li:nth-child(2) {
+      border-bottom: 2px #18bb9b inset;
+      margin-right: 0; }
+      .campanas nav ul li:nth-child(2) a {
+        color: #18bb9b; }
+  .campanas .campa-ico {
+    padding: 5px 0 !important; }
 
 .campanas-ipe #imagenform-ipe #tabscontent .tabpage:last-child {
   padding: 0.625em;
@@ -3141,212 +3143,245 @@ main {
   border-bottom-right-radius: 0.625em;
   background-color: #fff; }
 
-.influenciador-publico nav ul li {
-  border-bottom: 1px solid #c7c7c7; }
-  .influenciador-publico nav ul li a {
-    color: #c7c7c7; }
-  .influenciador-publico nav ul li:nth-child(4) {
-    border-bottom: 2px #18bb9b inset;
-    margin-right: 0; }
-    .influenciador-publico nav ul li:nth-child(4) a {
-      color: #18bb9b; }
-.influenciador-publico #cotizar_influenciador {
-  background-color: #18bb9b;
-  margin: 0 auto;
-  float: none; }
-  .influenciador-publico #cotizar_influenciador::before {
-    font-family: 'FontAwesome';
-    content: "\f07a";
-    margin-right: 0.3125em; }
-.influenciador-publico #campanas-postulables {
-  position: relative;
-  overflow: hidden;
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 100%; }
-  .influenciador-publico #campanas-postulables:last-child {
-    margin-right: 0; }
-  .influenciador-publico #campanas-postulables small {
-    color: #c7c7c7;
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 100%;
-    text-align: left;
-    font-size: 9px;
-    text-transform: uppercase; }
-    .influenciador-publico #campanas-postulables small:last-child {
-      margin-right: 0; }
-  .influenciador-publico #campanas-postulables i {
-    position: absolute;
-    top: 50px;
-    right: 10px;
-    color: #18bb9b;
-    z-index: 1; }
-  .influenciador-publico #campanas-postulables select {
-    padding: 0 0.625em; }
-.influenciador-publico .influenciadores {
-  padding: 2.35765%; }
-  .influenciador-publico .influenciadores .contactarForm {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 100%;
-    border-bottom: 1px solid #656b79;
-    padding: 0 0 10px;
-    display: block;
-    width: 100%;
-    margin: 0 0 10px; }
-    .influenciador-publico .influenciadores .contactarForm:last-child {
-      margin-right: 0; }
-    .influenciador-publico .influenciadores .contactarForm::after {
-      clear: both;
-      content: "";
-      display: table; }
-    .influenciador-publico .influenciadores .contactarForm:last-child {
-      border: none; }
-    .influenciador-publico .influenciadores .contactarForm .mask-imguser {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 23.23176%;
-      margin-top: 10px; }
-      .influenciador-publico .influenciadores .contactarForm .mask-imguser:last-child {
-        margin-right: 0; }
-    .influenciador-publico .influenciadores .contactarForm .info-influ {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 48.82117%;
+.influenciador-publico {
+  padding: 0 0 20px; }
+  .influenciador-publico nav ul li {
+    border-bottom: 1px solid #c7c7c7; }
+    .influenciador-publico nav ul li a {
       color: #c7c7c7; }
-      .influenciador-publico .influenciadores .contactarForm .info-influ:last-child {
-        margin-right: 0; }
-      .influenciador-publico .influenciadores .contactarForm .info-influ h2 {
-        font-size: 0.9375em;
-        margin: 0.3125em 0 0.3125em;
-        color: #656b79; }
-      .influenciador-publico .influenciadores .contactarForm .info-influ small {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 100%;
-        clear: right;
-        font-size: 0.6875em; }
-        .influenciador-publico .influenciadores .contactarForm .info-influ small:last-child {
-          margin-right: 0; }
-        .influenciador-publico .influenciadores .contactarForm .info-influ small i {
-          color: #18bb9b; }
-        .influenciador-publico .influenciadores .contactarForm .info-influ small.tipo {
-          text-transform: capitalize; }
-      .influenciador-publico .influenciadores .contactarForm .info-influ .redes_sociales {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 100%;
-        display: block;
-        width: 100%; }
-        .influenciador-publico .influenciadores .contactarForm .info-influ .redes_sociales:last-child {
-          margin-right: 0; }
-        .influenciador-publico .influenciadores .contactarForm .info-influ .redes_sociales::after {
-          clear: both;
-          content: "";
-          display: table; }
-      .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 100%;
-        display: block;
-        width: 100%; }
-        .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach:last-child {
-          margin-right: 0; }
-        .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach::after {
-          clear: both;
-          content: "";
-          display: table; }
-        .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach span {
-          color: #18bb9b;
-          font-size: 1.4375em;
-          float: left;
-          display: block;
-          margin-right: 2.35765%;
-          width: 74.41059%;
-          margin-right: 0; }
-          .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach span:last-child {
-            margin-right: 0; }
-          .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach span:first-child {
-            float: left;
-            display: block;
-            margin-right: 2.35765%;
-            width: 23.23176%;
-            padding: 6px 0 0;
-            font-size: 0.75em;
-            line-height: 0.9375em;
-            text-transform: uppercase; }
-            .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach span:first-child:last-child {
-              margin-right: 0; }
-    .influenciador-publico .influenciadores .contactarForm .cotizar-opt {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 23.23176%;
-      margin-right: 0;
-      display: block; }
-      .influenciador-publico .influenciadores .contactarForm .cotizar-opt:last-child {
-        margin-right: 0; }
-      .influenciador-publico .influenciadores .contactarForm .cotizar-opt::after {
-        clear: both;
-        content: "";
-        display: table; }
-      .influenciador-publico .influenciadores .contactarForm .cotizar-opt .txt-cotiza {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 100%;
-        height: 20px;
-        text-transform: uppercase;
-        text-align: center;
-        font-size: 9px;
-        color: #656b79;
-        margin-top: 0.3125em; }
-        .influenciador-publico .influenciadores .contactarForm .cotizar-opt .txt-cotiza:last-child {
-          margin-right: 0; }
-      .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 65.88078%;
-        margin-left: 17.05961%; }
-        .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar:last-child {
-          margin-right: 0; }
-    .influenciador-publico .influenciadores .contactarForm .access-ipe {
+    .influenciador-publico nav ul li:nth-child(4) {
+      border-bottom: 2px #18bb9b inset;
+      margin-right: 0; }
+      .influenciador-publico nav ul li:nth-child(4) a {
+        color: #18bb9b; }
+  .influenciador-publico #cotizar_influenciador {
+    background-color: #18bb9b;
+    margin: 0 auto;
+    float: none; }
+    .influenciador-publico #cotizar_influenciador::before {
+      font-family: 'FontAwesome';
+      content: "\f07a";
+      margin-right: 0.3125em; }
+  .influenciador-publico #campanas-postulables {
+    position: relative;
+    overflow: hidden;
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%; }
+    .influenciador-publico #campanas-postulables:last-child {
+      margin-right: 0; }
+    .influenciador-publico #campanas-postulables small {
+      color: #c7c7c7;
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 100%;
+      text-align: left;
+      font-size: 9px;
+      text-transform: uppercase; }
+      .influenciador-publico #campanas-postulables small:last-child {
+        margin-right: 0; }
+    .influenciador-publico #campanas-postulables i {
+      position: absolute;
+      top: 50px;
+      right: 10px;
+      color: #18bb9b;
+      z-index: 1; }
+    .influenciador-publico #campanas-postulables select {
+      padding: 0 0.625em; }
+  .influenciador-publico .influenciadores {
+    padding: 2.35765%; }
+    .influenciador-publico .influenciadores .contactarForm {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%;
+      border-bottom: 1px solid #656b79;
+      padding: 0 0 10px;
       display: block;
       width: 100%;
-      padding: 10px 0 0; }
-      .influenciador-publico .influenciadores .contactarForm .access-ipe:last-child {
+      margin: 0 0 10px; }
+      .influenciador-publico .influenciadores .contactarForm:last-child {
         margin-right: 0; }
-      .influenciador-publico .influenciadores .contactarForm .access-ipe::after {
+      .influenciador-publico .influenciadores .contactarForm::after {
         clear: both;
         content: "";
         display: table; }
-      .influenciador-publico .influenciadores .contactarForm .access-ipe .ver_perfil_influenciador, .influenciador-publico .influenciadores .contactarForm .access-ipe .perfil_influenciador, .influenciador-publico .influenciadores .contactarForm .access-ipe .volver_ver_perfil_influenciador {
+      .influenciador-publico .influenciadores .contactarForm:last-child {
+        border: none; }
+      .influenciador-publico .influenciadores .contactarForm .mask-imguser {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 23.23176%;
+        margin-top: 10px; }
+        .influenciador-publico .influenciadores .contactarForm .mask-imguser:last-child {
+          margin-right: 0; }
+      .influenciador-publico .influenciadores .contactarForm .info-influ {
         float: left;
         display: block;
         margin-right: 2.35765%;
         width: 48.82117%;
-        text-align: center;
-        border: 1px solid #18bb9b;
-        color: #18bb9b; }
-        .influenciador-publico .influenciadores .contactarForm .access-ipe .ver_perfil_influenciador:last-child, .influenciador-publico .influenciadores .contactarForm .access-ipe .perfil_influenciador:last-child, .influenciador-publico .influenciadores .contactarForm .access-ipe .volver_ver_perfil_influenciador:last-child {
+        color: #c7c7c7; }
+        .influenciador-publico .influenciadores .contactarForm .info-influ:last-child {
           margin-right: 0; }
-      .influenciador-publico .influenciadores .contactarForm .access-ipe .perfil_influenciador {
-        margin-right: 0; }
-      .influenciador-publico .influenciadores .contactarForm .access-ipe .volver_ver_perfil_influenciador {
-        display: none; }
+        .influenciador-publico .influenciadores .contactarForm .info-influ h2 {
+          font-size: 0.9375em;
+          margin: 0.3125em 0 0.3125em;
+          color: #656b79; }
+        .influenciador-publico .influenciadores .contactarForm .info-influ small {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 100%;
+          clear: right;
+          font-size: 0.6875em; }
+          .influenciador-publico .influenciadores .contactarForm .info-influ small:last-child {
+            margin-right: 0; }
+          .influenciador-publico .influenciadores .contactarForm .info-influ small i {
+            color: #18bb9b; }
+          .influenciador-publico .influenciadores .contactarForm .info-influ small.tipo {
+            text-transform: capitalize; }
+        .influenciador-publico .influenciadores .contactarForm .info-influ .redes_sociales {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 100%;
+          display: block;
+          width: 100%; }
+          .influenciador-publico .influenciadores .contactarForm .info-influ .redes_sociales:last-child {
+            margin-right: 0; }
+          .influenciador-publico .influenciadores .contactarForm .info-influ .redes_sociales::after {
+            clear: both;
+            content: "";
+            display: table; }
+        .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach, .influenciador-publico .influenciadores .contactarForm .info-influ .access-ipe .rrss_reachs, .influenciador-publico .influenciadores .contactarForm .access-ipe .info-influ .rrss_reachs {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 100%;
+          display: block;
+          width: 100%; }
+          .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach:last-child, .influenciador-publico .influenciadores .contactarForm .info-influ .access-ipe .rrss_reachs:last-child, .influenciador-publico .influenciadores .contactarForm .access-ipe .info-influ .rrss_reachs:last-child {
+            margin-right: 0; }
+          .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach::after, .influenciador-publico .influenciadores .contactarForm .info-influ .access-ipe .rrss_reachs::after, .influenciador-publico .influenciadores .contactarForm .access-ipe .info-influ .rrss_reachs::after {
+            clear: both;
+            content: "";
+            display: table; }
+          .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach span, .influenciador-publico .influenciadores .contactarForm .info-influ .access-ipe .rrss_reachs span, .influenciador-publico .influenciadores .contactarForm .access-ipe .info-influ .rrss_reachs span {
+            float: left;
+            display: block;
+            margin-right: 2.35765%;
+            width: 78.67549%;
+            color: #18bb9b;
+            font-size: 1.4375em; }
+            .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach span:last-child, .influenciador-publico .influenciadores .contactarForm .info-influ .access-ipe .rrss_reachs span:last-child, .influenciador-publico .influenciadores .contactarForm .access-ipe .info-influ .rrss_reachs span:last-child {
+              margin-right: 0; }
+            .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach span:first-child, .influenciador-publico .influenciadores .contactarForm .info-influ .access-ipe .rrss_reachs span:first-child, .influenciador-publico .influenciadores .contactarForm .access-ipe .info-influ .rrss_reachs span:first-child {
+              float: left;
+              display: block;
+              margin-right: 2.35765%;
+              width: 18.96686%;
+              padding: 6px 0 0;
+              font-size: 0.75em;
+              line-height: 0.9375em;
+              text-transform: uppercase; }
+              .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach span:first-child:last-child, .influenciador-publico .influenciadores .contactarForm .info-influ .access-ipe .rrss_reachs span:first-child:last-child, .influenciador-publico .influenciadores .contactarForm .access-ipe .info-influ .rrss_reachs span:first-child:last-child {
+                margin-right: 0; }
+      .influenciador-publico .influenciadores .contactarForm .cotizar-opt {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 23.23176%;
+        margin-right: 0;
+        display: block; }
+        .influenciador-publico .influenciadores .contactarForm .cotizar-opt:last-child {
+          margin-right: 0; }
+        .influenciador-publico .influenciadores .contactarForm .cotizar-opt::after {
+          clear: both;
+          content: "";
+          display: table; }
+        .influenciador-publico .influenciadores .contactarForm .cotizar-opt .txt-cotiza {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 100%;
+          height: 20px;
+          text-transform: uppercase;
+          text-align: center;
+          font-size: 9px;
+          color: #656b79;
+          margin-top: 0.3125em; }
+          .influenciador-publico .influenciadores .contactarForm .cotizar-opt .txt-cotiza:last-child {
+            margin-right: 0; }
+        .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 65.88078%;
+          margin-left: 17.05961%; }
+          .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar:last-child {
+            margin-right: 0; }
+      .influenciador-publico .influenciadores .contactarForm .access-ipe {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%;
+        display: block;
+        width: 100%;
+        padding: 10px 0 0; }
+        .influenciador-publico .influenciadores .contactarForm .access-ipe:last-child {
+          margin-right: 0; }
+        .influenciador-publico .influenciadores .contactarForm .access-ipe::after {
+          clear: both;
+          content: "";
+          display: table; }
+        .influenciador-publico .influenciadores .contactarForm .access-ipe .ver_perfil_influenciador, .influenciador-publico .influenciadores .contactarForm .access-ipe .perfil_influenciador, .influenciador-publico .influenciadores .contactarForm .access-ipe .volver_ver_perfil_influenciador {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 48.82117%;
+          text-align: center;
+          border: 1px solid #18bb9b;
+          color: #18bb9b; }
+          .influenciador-publico .influenciadores .contactarForm .access-ipe .ver_perfil_influenciador:last-child, .influenciador-publico .influenciadores .contactarForm .access-ipe .perfil_influenciador:last-child, .influenciador-publico .influenciadores .contactarForm .access-ipe .volver_ver_perfil_influenciador:last-child {
+            margin-right: 0; }
+        .influenciador-publico .influenciadores .contactarForm .access-ipe .perfil_influenciador {
+          margin-right: 0; }
+        .influenciador-publico .influenciadores .contactarForm .access-ipe .volver_ver_perfil_influenciador {
+          display: none; }
+        .influenciador-publico .influenciadores .contactarForm .access-ipe .rrss {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 48.82117%;
+          display: none;
+          padding: 2.35765%;
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+          border-bottom-left-radius: 5px;
+          border-top-left-radius: 5px;
+          border-bottom-right-radius: 5px;
+          border-top-right-radius: 5px;
+          border-bottom-left-radius: 5px;
+          border-bottom-right-radius: 5px;
+          background-color: #fff;
+          border: 1px solid #c7c7c7;
+          color: #c7c7c7; }
+          .influenciador-publico .influenciadores .contactarForm .access-ipe .rrss:last-child {
+            margin-right: 0; }
+          .influenciador-publico .influenciadores .contactarForm .access-ipe .rrss i.fa-google {
+            color: #f05721; }
+          .influenciador-publico .influenciadores .contactarForm .access-ipe .rrss i.fa-instagram {
+            color: #517fa4; }
+          .influenciador-publico .influenciadores .contactarForm .access-ipe .rrss i.fa-facebook {
+            color: #3b5998; }
+          .influenciador-publico .influenciadores .contactarForm .access-ipe .rrss i.fa-twitter {
+            color: #55acee; }
+          .influenciador-publico .influenciadores .contactarForm .access-ipe .rrss i.fa-youtube-play {
+            color: #ee0f0f; }
+          .influenciador-publico .influenciadores .contactarForm .access-ipe .rrss i.fa-google-plus {
+            color: #ee0f0f; }
 
 /*# sourceMappingURL=platform_influencials.css.map */
