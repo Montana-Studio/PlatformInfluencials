@@ -1,6 +1,6 @@
 
 <?php
-		
+		include('rrss/rrss_keys.php');
 		$query="SELECT DISTINCT id_campana FROM solicitudes WHERE id_influenciador='".$_SESSION['id']."'";
 		$result=mysqli_query($mysqli,$query)or die (mysqli_error());
 		$row= mysqli_fetch_array($result, MYSQLI_BOTH);
@@ -22,8 +22,6 @@
 if($num_row2>0){
 	do{	
 		$campanas_activas .= '<div>';
-		//echo $query3;
-		//echo $row3[11]."...";
 		$rrss_list = explode(",",$row3[11]);
 		$cantidad_redes_sociales = count($rrss_list)-1;
 		$i=0;
@@ -62,8 +60,8 @@ if($num_row2>0){
 							if($row4[2]=='facebook'){
 
 								$facebookPage=$row4[3];
-								$facebookKey ="693511c0b86cda985e20ba5a19f556c0";
-								$facebookAppId = "973652052702468";
+								$facebookKey =FACEBOOK_CONSUMER_KEY;
+								$facebookAppId = FACEBOOK_APP_ID;
 								$json_user_url1 ="https://graph.facebook.com/".$facebookPage."?access_token=".$facebookAppId."|".$facebookKey."&fields=likes,talking_about_count,username,website";
 						        $json_user_url = str_replace(" ", "%20", $json_user_url1);
 						        $json_user= file_get_contents($json_user_url);
@@ -104,10 +102,10 @@ if($num_row2>0){
 								include_once("rrss/twitter/inc/twitteroauth.php");
 								include_once('rrss/twitter/inc/TwitterAPIExchange.php');
 								$settings = array(
-								'oauth_access_token' => "3523857136-MwHOy2ZrYGqvvT6fSpkCbFxe5BYqlmQzUs41UdN",
-								'oauth_access_token_secret' => "Verk18Cyb8oTYGdcptHvvZaCOXD5gaNDBtMFdd1tqPL9k",
-								'consumer_key' => "hV95sLlCLjKIQbsVx1uVIxgKQ",
-								'consumer_secret' => "FU3GBmbIldTUzJZJOJqrynhiiecmt2FPHAShlkGi3AH8jY7GrV"
+								'oauth_access_token' => TWITTER_OAUTH_ACCESS_TOKEN,
+								'oauth_access_token_secret' => TWITTER_OAUTH_ACCESS_TOKEN_SECRET,
+								'consumer_key' => TWITTER_CONSUMER_KEY,
+								'consumer_secret' => TWITTER_CONSUMER_SECRET
 								);
 								$ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
 								$requestMethod = 'GET';
@@ -136,8 +134,8 @@ if($num_row2>0){
 							}
 
 							if($row4[2]=='youtube'){
-								$googleplusKey ="AIzaSyDBMZsybp7GcJdmqdhgGDn-jRkGo9jyD-c";
-								$json_user_url ="https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=".$num_row4[3]."&key=".$googleplusKey;
+								$googleplusKey =GOOGLE_CONSUMER_KEY;
+								$json_user_url ="https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=".$row4[3]."&key=".$googleplusKey;
 						        $json_user= file_get_contents($json_user_url);
 						        $links_user_url= json_decode($json_user);
 						        $youtubeName = $links_user_url->items[0]->snippet->title;
@@ -154,7 +152,7 @@ if($num_row2>0){
 							}
 
 							if($row4[2]=='googleplus'){
-								$googleplusKey ="AIzaSyDBMZsybp7GcJdmqdhgGDn-jRkGo9jyD-c";
+								$googleplusKey =GOOGLE_CONSUMER_KEY;
 								$googleplusId = $row4[3];
 	        					$json_user_url ="https://www.googleapis.com/plus/v1/people/".$googleplusId."?key=".$googleplusKey;
 	        					$json_user= file_get_contents($json_user_url);
@@ -193,7 +191,7 @@ if($num_row2>0){
 							}
 					    }while($row9 = mysqli_fetch_array($result9));	
 						$i++;
-					}while($i<count($rrss_list)-1);
+					}while($i<count($rrss_list));
 				
 								$campanas_activas .= '
 								<button type="submit" id="enviar_url">Enviar URLs</button>
@@ -305,7 +303,7 @@ $campanas_activas .= '
 				$campanas_historial .= '
 				</div>';
 			}else{
-				//$campanas_historial = '<main class="no-campana"><a href="#" class="hrefCamp"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes ser asignado a una.Mejora tu perfil si estas no llegan.</p></a></main>';
+
 			}
 	}while($row2 = mysqli_fetch_row($result2));
 }else{

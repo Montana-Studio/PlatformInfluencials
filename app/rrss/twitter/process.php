@@ -1,7 +1,8 @@
 <?php
 session_start();
-include_once("twitter_auth.php");
+//include_once("twitter_auth.php");
 include_once("inc/twitteroauth.php");
+include_once('../rrss_keys.php');
 if (isset($_REQUEST['oauth_token']) && $_SESSION['token']  !== $_REQUEST['oauth_token']) {
 	/****************************************************************
 	if token is old, distroy any session and redirect user to index.php
@@ -15,7 +16,7 @@ if (isset($_REQUEST['oauth_token']) && $_SESSION['token']  !== $_REQUEST['oauth_
 	successful response returns oauth_token, oauth_token_secret, 
 	user_id,and screen_name
 	****************************************************************/
-	$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $_SESSION['token'] , $_SESSION['token_secret']);
+	$connection = new TwitterOAuth(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET, $_SESSION['token'] , $_SESSION['token_secret']);
 	$access_token = $connection->getAccessToken($_REQUEST['oauth_verifier']);
 	if($connection->http_code=='200')
 	{
@@ -39,7 +40,7 @@ if (isset($_REQUEST['oauth_token']) && $_SESSION['token']  !== $_REQUEST['oauth_
 	/****************************************************************
 	fresh authentication
 	****************************************************************/
-	$connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);
+	$connection = new TwitterOAuth(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET);
 	$request_token = $connection->getRequestToken(OAUTH_CALLBACK);
 	/****************************************************************
 	received token info from twitter

@@ -27,7 +27,7 @@
 					</div>';
 		}
 	}	
-	
+	/*
 	//mostrar influenciadores
 	if ($num_rows > 0){
 		echo '<h2 class="sub-titulo">Influenciadores</h2>
@@ -52,6 +52,7 @@
 					';
 					?>
 					<?php
+					include_once('rrss/rrss_keys.php');
 					$query_rrss_ipe="SELECT * FROM rrss WHERE persona_id='".$row[0]."' AND id_estado=1 ORDER BY descripcion_rrss";
 					$result_rrss_ipe= mysqli_query($mysqli,$query_rrss_ipe)or die(mysqli_error());
 					$row_rrss_ipe= mysqli_fetch_array($result_rrss_ipe, MYSQLI_NUM);
@@ -61,8 +62,8 @@
 						//echo $row_rrss_ipe[2];
 						if($row_rrss_ipe[2]==='facebook'){
 							$facebookPage=$row_rrss_ipe[3];
-							$facebookKey ="693511c0b86cda985e20ba5a19f556c0";
-							$facebookAppId = "973652052702468";
+							$facebookKey =FACEBOOK_CONSUMER_KEY;
+							$facebookAppId = FACEBOOK_APP_ID;
 							$json_user_url1 ="https://graph.facebook.com/".$facebookPage."?access_token=".$facebookAppId."|".$facebookKey."&fields=likes,talking_about_count,username,website";
 					        $json_user_url = str_replace(" ", "%20", $json_user_url1);
 					        $json_user= file_get_contents($json_user_url);
@@ -87,10 +88,10 @@
 							require('rrss/twitter/inc/twitteroauth.php');
 							require('rrss/twitter/inc/TwitterAPIExchange.php');
 							$settings = array(
-							'oauth_access_token' => "3523857136-MwHOy2ZrYGqvvT6fSpkCbFxe5BYqlmQzUs41UdN",
-							'oauth_access_token_secret' => "Verk18Cyb8oTYGdcptHvvZaCOXD5gaNDBtMFdd1tqPL9k",
-							'consumer_key' => "hV95sLlCLjKIQbsVx1uVIxgKQ",
-							'consumer_secret' => "FU3GBmbIldTUzJZJOJqrynhiiecmt2FPHAShlkGi3AH8jY7GrV"
+							'oauth_access_token' => TWITTER_OAUTH_ACCESS_TOKEN,
+							'oauth_access_token_secret' => TWITTER_OAUTH_ACCESS_TOKEN_SECRET,
+							'consumer_key' => TWITTER_CONSUMER_KEY,
+							'consumer_secret' => TWITTER_CONSUMER_SECRET
 							);
 							$ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
 							$requestMethod = 'GET';
@@ -109,7 +110,7 @@
 						}
 
 						if($row_rrss_ipe[2]=='youtube'){
-							$googleplusKey ="AIzaSyDBMZsybp7GcJdmqdhgGDn-jRkGo9jyD-c";
+							$googleplusKey =GOOGLE_CONSUMER_KEY;
 							$json_user_url ="https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=".$row_rrss_ipe[3]."&key=".$googleplusKey;
 					        $json_user= file_get_contents($json_user_url);
 					        $links_user_url= json_decode($json_user);
@@ -120,7 +121,7 @@
 						}
 
 						if($row_rrss_ipe[2]=='googleplus'){
-							$googleplusKey ="AIzaSyDBMZsybp7GcJdmqdhgGDn-jRkGo9jyD-c";
+							$googleplusKey =GOOGLE_CONSUMER_KEY;
 							$googleplusId = $row_rrss_ipe[3];
         					$json_user_url ="https://www.googleapis.com/plus/v1/people/".$googleplusId."?key=".$googleplusKey;
         					$json_user= file_get_contents($json_user_url);
@@ -305,7 +306,7 @@
 					$("#"+id_form+" .volver_ver_perfil_influenciador").hide();
 				});
 			});
-		</script>';
+		</script>';*/
 ?>
 
 <?php include 'footer.php'; ?>

@@ -214,7 +214,7 @@
 									</div>
 									<div id="redes_sociales_campana_"'.$row[0].'">';
 									//echo $row[0];
-										include('procesar_mostrar_reach_campana.php');
+										require('procesar_mostrar_reach_campana.php');
 
 							echo	'</div>
 
