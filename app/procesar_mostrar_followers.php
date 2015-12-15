@@ -1,4 +1,6 @@
 <?php
+//include('rrss/rrss_keys.php');
+
     echo '<script>
 	 			$(document).ready(function(){
 
@@ -80,19 +82,19 @@
 /****************************************************************************************************
 									TWITTER BUTTON AND GET REACH SUM
 ****************************************************************************************************/
-		$query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter'";
-		$result4=mysqli_query($mysqli,$query4)or die (mysqli_error());
-		$row4= mysqli_fetch_array($result4, MYSQLI_BOTH);
-		$num_row4=mysqli_num_rows($result4);
-		$settings = array(
-			'oauth_access_token' => "3523857136-MwHOy2ZrYGqvvT6fSpkCbFxe5BYqlmQzUs41UdN",
-			'oauth_access_token_secret' => "Verk18Cyb8oTYGdcptHvvZaCOXD5gaNDBtMFdd1tqPL9k",
-			'consumer_key' => "hV95sLlCLjKIQbsVx1uVIxgKQ",
-			'consumer_secret' => "FU3GBmbIldTUzJZJOJqrynhiiecmt2FPHAShlkGi3AH8jY7GrV"
-		);
-		$ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
-		$requestMethod = 'GET';
-		$_SESSION['twitter']="";
+$query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter'";
+    $result4=mysqli_query($mysqli,$query4)or die (mysqli_error());
+    $row4= mysqli_fetch_array($result4, MYSQLI_BOTH);
+    $num_row4=mysqli_num_rows($result4);
+    $settings = array(
+      'oauth_access_token' => TWITTER_OAUTH_ACCESS_TOKEN,
+      'oauth_access_token_secret' => TWITTER_OAUTH_ACCESS_TOKEN_SECRET,
+      'consumer_key' => TWITTER_CONSUMER_KEY,
+      'consumer_secret' => TWITTER_CONSUMER_SECRET
+    );
+    $ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
+    $requestMethod = 'GET';
+    $_SESSION['twitter']="";
      function month($mnt){
           if($mnt=='Jan') $mnt='01';
           if($mnt=='Feb') $mnt='02';
@@ -109,7 +111,7 @@
           return $mnt;
         }
     if($num_row4>0){
-  		do{
+      do{
         $usuario1 = $row4['rrss_id'];
         $getfield1 = '?id='.$usuario1;
         $twitter1 = new TwitterAPIExchange($settings);
@@ -120,9 +122,10 @@
         $followers_count1=$data1[0]['user']['followers_count'];
         $username=$data1[0]['user']['screen_name'];
         $avatar= $data1[0]['user']['profile_image_url'];
+        
         //echo "Result " . $interval->y . " years, " . $interval->m." months, ".$interval->d." days ".$interval->h."hours".$interval->m." minute";
         if($row4[5] == 1 ){
-          $suma_twitter+=	$followers_count1;
+          $suma_twitter+= $followers_count1;
         }
         if ($row4[5] == 0){
           $estado=0;
@@ -157,7 +160,6 @@
           $formattedPostDate= $years."-".month($months)."-".$day." ".$time;
           $end_date = new DateTime($formattedPostDate);
           $interval = $start_date->diff($end_date);
-
           if(intval($interval->m) > 0){
             $dateDiff = $interval->m." Meses";
           }else if(intval($interval->d)>0){
@@ -168,16 +170,13 @@
           else if(intval($interval->m)>0){
             $dateDiff = $interval->i." Minutos";
           }
-
           $tweet = $data1[$i]['text'];
-
           //Convert urls to <a> links
           $tweet = preg_replace("/([\w]+\:\/\/[\w-?&;#~=\.\/\@]+[\w\/])/", "<a target=\"_blank\" href=\"$1\">$1</a>", $tweet);
           //Convert hashtags to twitter searches in <a> links
           $tweet = preg_replace("/#([A-Za-z0-9\/\.]*)/", "<a target=\"_blank\" href=\"http://twitter.com/search?q=$1\">#$1</a>", $tweet);
           //Convert attags to twitter profiles in &lt;a&gt; links
           $tweet = preg_replace("/@([A-Za-z0-9\/\.]*)/", "<a target=\"_blank\" href=\"http://www.twitter.com/$1\">@$1</a>", $tweet);
-
           $text.="
           <div class='twitt-content'>
           
@@ -201,6 +200,8 @@
         $suma += $suma_twitter;
     }
 
+
+
 /****************************************************************************************************
             YOUTUBE  GET REACH SUM
 ****************************************************************************************************/
@@ -211,7 +212,7 @@
     $_SESSION['youtube']="";
     if($num_row5>0){
       do{
-        $json_user_url ="https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=".$row5[3]."&key=AIzaSyDBMZsybp7GcJdmqdhgGDn-jRkGo9jyD-c";
+        $json_user_url ="https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=".$row5[3]."&key=".GOOGLE_CONSUMER_KEY;
         $json_user= file_get_contents($json_user_url);
         $links_user_url= json_decode($json_user);
         $youtubeSubscribers = $links_user_url->items[0]->statistics->subscriberCount;
@@ -236,11 +237,11 @@
         <li>Suscriptos<br><span>".(int)$youtubeSubscribers."</span></li>
         </ul>
         <!--button class='estado_rs' name='".$estado."' id='".$row5[3]."'>".$estado_descripcion."</button-->
-        <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
-        <div class='onoffswitch'>
-          <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$row3[3]."'>
-          <label class='btn".$estado_descripcion." switch-label' for='".$row5[3]."'></label>
-      </div>
+       <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
+          <div class='onoffswitch'>
+              <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$row5[3]."'>
+              <label class='btn".$estado_descripcion." switch-label' for='".$row5[3]."'></label>
+          </div>
         </div>";
       }while($row5 = $result5->fetch_array());
     }
@@ -255,8 +256,8 @@
     $result6=mysqli_query($mysqli,$query6)or die (mysqli_error());
     $row6= mysqli_fetch_array($result6, MYSQLI_BOTH);
     $num_row6=mysqli_num_rows($result6);
-    $facebookKey ="693511c0b86cda985e20ba5a19f556c0";
-    $facebookAppId = "973652052702468";
+    $facebookKey =FACEBOOK_CONSUMER_KEY;
+    $facebookAppId = FACEBOOK_APP_ID;
     $_SESSION['facebook']="";
     if($num_row6>0){
       do{

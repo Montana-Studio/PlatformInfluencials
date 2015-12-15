@@ -2,6 +2,7 @@
 session_start();
 include_once("inc/twitteroauth.php");
 include_once('inc/TwitterAPIExchange.php');
+include_once('../rrss_keys.php'); //llamada de keys desde nuevo archivo
     /****************************************************************
     Ask if the persona_id exist on table rrss twitter data
     ****************************************************************/
@@ -14,10 +15,10 @@ include_once('inc/TwitterAPIExchange.php');
     $row= mysqli_fetch_array($result2, MYSQLI_NUM);
     $num_rows= mysqli_num_rows($result2);
     $settings = array(
-        'oauth_access_token' => "3523857136-MwHOy2ZrYGqvvT6fSpkCbFxe5BYqlmQzUs41UdN",
-        'oauth_access_token_secret' => "Verk18Cyb8oTYGdcptHvvZaCOXD5gaNDBtMFdd1tqPL9k",
-        'consumer_key' => "hV95sLlCLjKIQbsVx1uVIxgKQ",
-        'consumer_secret' => "FU3GBmbIldTUzJZJOJqrynhiiecmt2FPHAShlkGi3AH8jY7GrV"
+        'oauth_access_token' => TWITTER_OAUTH_ACCESS_TOKEN,
+        'oauth_access_token_secret' => TWITTER_OAUTH_ACCESS_TOKEN_SECRET,
+        'consumer_key' => TWITTER_CONSUMER_KEY,
+        'consumer_secret' => TWITTER_CONSUMER_SECRET
     );
     $ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
     $requestMethod = 'GET';
@@ -41,8 +42,8 @@ include_once('inc/TwitterAPIExchange.php');
     /****************************************************************/
       if((int)$num_row > 2){
         $displaydb = "none";
-        echo '<script>alert("ya cuenta con 3 cuentas registradas");<script>';
-       // header('Location: ../../dashboard-ipe.php');
+        echo '<script>alert("ya cuenta con 3 cuentas registradas");</script>';
+        header('Location: ../../dashboard-ipe.php');
 
 
     /****************************************************************
@@ -55,7 +56,7 @@ include_once('inc/TwitterAPIExchange.php');
         to dashboard page
         /****************************************************************/
           if((int)$num_row2 > 0){
-            echo '<script> alert("La cuenta ya está asociada, intente con una cuenta diferente");<script>';
+            echo '<script> alert("La cuenta ya está asociada, intente con una cuenta diferente");</script>';
              $displaydb = "block";
              header('Location: ../../dashboard-ipe.php');
 
@@ -63,7 +64,7 @@ include_once('inc/TwitterAPIExchange.php');
                  //  header('Location: ../../dashboard-ipe.php');
                 $oauth_token        = $_SESSION['request_vars']['oauth_token'];
                 $oauth_token_secret = $_SESSION['request_vars']['oauth_token_secret'];
-                $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET, $oauth_token, $oauth_token_secret);
+                $connection = new TwitterOAuth(TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET, $oauth_token, $oauth_token_secret);
                 /****************************************************************
                 Get followers
                 ****************************************************************/
@@ -79,7 +80,7 @@ include_once('inc/TwitterAPIExchange.php');
                 $followers_count=(int)$data[0]['user']['followers_count'];
                 $query="INSERT INTO rrss (descripcion_rrss,rrss_id,persona_id) VALUES('twitter',".$usuario.",".$_SESSION['id'].")";
                 $result= mysqli_query($mysqli,$query)or die(mysqli_error());
-                echo '<script> alert("gracias por registrar su cuenta");<script>';
+                echo '<script> alert("gracias por registrar su cuenta");</script>';
                 header('Location: ../../dashboard-ipe.php');
 
 

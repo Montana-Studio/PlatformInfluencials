@@ -1,4 +1,5 @@
 <?php
+include('rrss/rrss_keys.php');
 $query_redes_sociales_campana="SELECT DISTINCT * FROM campana WHERE id=".$row[0]." AND idEstado='1'";
 $result_redes_sociales_campana=mysqli_query($mysqli,$query_redes_sociales_campana)or die (mysqli_error());
 $row_redes_sociales_campana= mysqli_fetch_array($result_redes_sociales_campana, MYSQLI_BOTH);
@@ -7,12 +8,13 @@ for($i=0;$i<count($redes_sociales);$i++){
 	echo '<ul><li>'.$redes_sociales[$i];
 	
 	if($redes_sociales[$i]=='facebook'){
+		
 		echo '<ul>';
 		$query_facebook_asociado_campana= "SELECT DISTINCT * FROM campanarrss WHERE campana_id=".$row[0]." AND descripcion_rrss='facebook'";
 		$result_facebook_asociado_campana=mysqli_query($mysqli,$query_facebook_asociado_campana)or die (mysqli_error());
 		$row_facebook_asociado_campana= mysqli_fetch_array($result_facebook_asociado_campana, MYSQLI_BOTH);
-		$facebookKey ="693511c0b86cda985e20ba5a19f556c0";
-   		$facebookAppId = "973652052702468";
+		$facebookKey =FACEBOOK_CONSUMER_KEY;
+   		$facebookAppId = FACEBOOK_APP_ID;
    		$facebook_likes_total=0;
    		$facebook_comments_total=0;
 
@@ -71,10 +73,11 @@ for($i=0;$i<count($redes_sociales);$i++){
 			echo '</ul>';
 		
 		  
-
 		
 	}
 	if($redes_sociales[$i]=='twitter'){
+		
+
 		$query_twitter_asociado_campana= "SELECT DISTINCT * FROM campanarrss WHERE campana_id=".$row[0]." AND descripcion_rrss='twitter'";
 		$result_twitter_asociado_campana=mysqli_query($mysqli,$query_twitter_asociado_campana)or die (mysqli_error());
 		$row_twitter_asociado_campana= mysqli_fetch_array($result_twitter_asociado_campana, MYSQLI_BOTH);
@@ -86,14 +89,14 @@ for($i=0;$i<count($redes_sociales);$i++){
 		do{
 			include_once("rrss/twitter/inc/twitteroauth.php");
 			include_once('rrss/twitter/inc/TwitterAPIExchange.php');
+			include_once('rrss/twitter/twitter_auth.php');
+			//echo TWITTER_CONSUMER_KEY;
 			$settings = array(
-			'oauth_access_token' => "3523857136-MwHOy2ZrYGqvvT6fSpkCbFxe5BYqlmQzUs41UdN",
-			'oauth_access_token_secret' => "Verk18Cyb8oTYGdcptHvvZaCOXD5gaNDBtMFdd1tqPL9k",
-			'consumer_key' => "hV95sLlCLjKIQbsVx1uVIxgKQ",
-			'consumer_secret' => "FU3GBmbIldTUzJZJOJqrynhiiecmt2FPHAShlkGi3AH8jY7GrV"
+			'oauth_access_token' => TWITTER_OAUTH_ACCESS_TOKEN,
+			'oauth_access_token_secret' => TWITTER_OAUTH_ACCESS_TOKEN_SECRET,
+			'consumer_key' => TWITTER_CONSUMER_KEY,
+			'consumer_secret' => TWITTER_CONSUMER_SECRET
 			);
-			//https://api.twitter.com/1.1/statuses/show/674705236095799300.json
-			//$ta_url = 'https://api.twitter.com/1.1/statuses/show/'.$row_twitter_asociado_campana[2].'.json';
 			$twitter_post_id_array= explode('/', $row_twitter_asociado_campana['url']);
 			$string_post_id= end($twitter_post_id_array);
 			$ta_url = 'https://api.twitter.com/1.1/statuses/show/'.$string_post_id.'.json';
@@ -105,7 +108,6 @@ for($i=0;$i<count($redes_sociales);$i++){
 	        ->buildOauth($ta_url, $requestMethod)
 	        ->performRequest();
 	        $data1 = json_decode($follow_count1, true);
-	        //$followers_count1=$data1[0]['user'];
 	        $twitter_retweet=$data1["retweet_count"];
 	        $twitter_favorite=$data1["favorite_count"];
 	        $twitter_retweet_total+=$twitter_retweet;
@@ -117,8 +119,10 @@ for($i=0;$i<count($redes_sociales);$i++){
 		echo '<li> Likes :'.$twitter_favorite_total.'</li>';
 		echo '<li> Retweets :'.$twitter_retweet_total.'</li>';
 		echo '</ul>';
+		
 	}
 	if($redes_sociales[$i]=='youtube'){
+		
 		$query_youtube_asociado_campana= "SELECT DISTINCT * FROM campanarrss WHERE campana_id=".$row[0]." AND descripcion_rrss='youtube'";
 		$result_youtube_asociado_campana=mysqli_query($mysqli,$query_youtube_asociado_campana)or die (mysqli_error());
 		$row_youtube_asociado_campana= mysqli_fetch_array($result_youtube_asociado_campana, MYSQLI_BOTH);
@@ -127,11 +131,11 @@ for($i=0;$i<count($redes_sociales);$i++){
 		echo '<ul>';
 		$youtube_videos_total=0;
 		do{
-			$query_youtube_asociado_campana= "SELECT DISTINCT * FROM campanarrss WHERE campana_id=".$row[0]." AND descripcion_rrss='youtube'";
+			/*$query_youtube_asociado_campana= "SELECT DISTINCT * FROM campanarrss WHERE campana_id=".$row[0]." AND descripcion_rrss='youtube'";
 			$result_youtube_asociado_campana=mysqli_query($mysqli,$query_youtube_asociado_campana)or die (mysqli_error());
-			$row_youtube_asociado_campana= mysqli_fetch_array($result_youtube_asociado_campana, MYSQLI_BOTH);
+			$row_youtube_asociado_campana= mysqli_fetch_array($result_youtube_asociado_campana, MYSQLI_BOTH);*/
 			$youtube_video_id= explode("?v=",$row_youtube_asociado_campana['url']);
-			$json_user_url ="https://www.googleapis.com/youtube/v3/videos?part=contentDetails,statistics&id=".$youtube_video_id[1]."&key=AIzaSyDBMZsybp7GcJdmqdhgGDn-jRkGo9jyD-c";
+			$json_user_url ="https://www.googleapis.com/youtube/v3/videos?part=contentDetails,statistics&id=".$youtube_video_id[1]."&key=".GOOGLE_CONSUMER_KEY;
 	        $json_user= file_get_contents($json_user_url);
 	        $links_user_url= json_decode($json_user);
 	        $youtube_video_views = $links_user_url->items[0]->statistics->viewCount;
@@ -148,7 +152,37 @@ for($i=0;$i<count($redes_sociales);$i++){
 	}
 	if($redes_sociales[$i]=='googleplus'){
 		
+		$query_googleplus_asociado_campana= "SELECT DISTINCT * FROM campanarrss WHERE campana_id=".$row[0]." AND descripcion_rrss='googleplus'";
+		$result_googleplus_asociado_campana=mysqli_query($mysqli,$query_googleplus_asociado_campana)or die (mysqli_error());
+		$row_googleplus_asociado_campana= mysqli_fetch_array($result_googleplus_asociado_campana, MYSQLI_BOTH);
+		$googleplusKey =GOOGLE_CONSUMER_KEY;
+        $googleplus_plusoners_total=0;
+        $googleplus_resharers_total=0;
+        $googleplus_replies=0;
+        echo '<ul>';
+        do{
+			$googleplus_user_id_array=explode('/',$row_googleplus_asociado_campana['url']);
+	        $googleplus_user_id=$googleplus_user_id_array[3];
+	        $googleplus_post_id=$googleplus_user_id_array[5];
+	        $json_user_url="https://www.googleapis.com/plus/v1/people/".$googleplus_user_id."/activities/public?key=".$googleplusKey;
+	        $json_user= file_get_contents($json_user_url);
+	        $links_user_url= json_decode($json_user);
+        	$googleplus_post_length = count($links_user_url->items);
+	        for($j=0;$j<$googleplus_post_length;$j++){
+	        	if($links_user_url->items[$j]->url == $row_googleplus_asociado_campana['url']){
+	        		$activity_id=$links_user_url->items[$j]->id;
+	        		$googleplus_plusoners_total += $links_user_url->items[$j]->object->plusoners->totalItems;
+	        		$googleplus_resharers_total += $links_user_url->items[$j]->object->resharers->totalItems;
+	        		$googleplus_replies += $links_user_url->items[$j]->object->replies->totalItems;
+				}
+	        }
+		}while($row_googleplus_asociado_campana = mysqli_fetch_array($result_googleplus_asociado_campana));
+		echo "<li>plusoners : ".$googleplus_plusoners_total."</li>";
+		echo "<li>resharers : ".$googleplus_resharers_total."</li>";
+		echo "<li>replies : ".$googleplus_replies."</li>";
+		echo '</ul>';
 	}
+	
 	if($redes_sociales[$i]=='analytics'){
 		
 	}

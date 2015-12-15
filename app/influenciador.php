@@ -62,7 +62,7 @@ if(isset($_SESSION['id'])){
 
 	?>
 	<main class="contAllPI" style="padding-top:30%;">
-		<div style="display:none;" id="tipoCliente" value="2"></div>	
+		<div style="display:none;" id="tipoCliente" value="3"></div>	
 		<div class="logo_pi"><a href="/" target="_top"></a></div>
 		<main class="form_agencias">
 			<div id="inicio">
@@ -86,9 +86,6 @@ if(isset($_SESSION['id'])){
 					<div id="facebook-nuevo" class="fb_btn" value="registrarse con Facebook">
 						<i class="fa fa-facebook"></i>registrarse con Facebook
 					</div>
-					<div id="linkedin-nuevo" class="lk_btn">
-						<i class="fa fa-linkedin"></i>registrarse con Linkedin
-					</div>
 
 					<p>o rellena el formulario</p>
 
@@ -98,21 +95,21 @@ if(isset($_SESSION['id'])){
 						<small>Región</small>
 						<select id="region" required>
 							<option value="" disabled selected>selecciona tu región</option>
-							<option value="Región de Tarapacá">Región de Tarapacá</option>
-							<option value="Región de Antofagasta">Región de Antofagasta</option>
-							<option value="Región de Atacama">Región de Atacama</option>
-							<option value="Región de Coquimbo">Región de Coquimbo</option>
-							<option value="Región de Valparaíso">Región de Valparaíso</option>
-							<option value="Región del Libertador Gral. Bernardo O’Higgins">Región del Libertador Gral. Bernardo O’Higgins</option>
-							<option value="Región del Maule">Región del Maule</option>
-							<option value="Región del Biobío">Región del Biobío</option>
-							<option value="Región de la Araucanía">Región de la Araucanía</option>
-							<option value="Región de Los Lagos">Región de Los Lagos</option>
-							<option value="Región Aisén del Gral. Carlos Ibáñez del Campo">Región Aisén del Gral. Carlos Ibáñez del Campo</option>
-							<option value="Región de Magallanes y de la Antártica Chilena">Región de Magallanes y de la Antártica Chilena</option>
-							<option value="Región Metropolitana de Santiago">Región Metropolitana de Santiago</option>
-							<option value="Región de Los Ríos">Región de Los Ríos</option>
-							<option value="Región de Arica y Parinacota">Región de Arica y Parinacota</option>
+							<option value="Región de Tarapacá">Tarapacá</option>
+							<option value="Región de Antofagasta">Antofagasta</option>
+							<option value="Región de Atacama">Atacama</option>
+							<option value="Región de Coquimbo">Coquimbo</option>
+							<option value="Región de Valparaíso">Valparaíso</option>
+							<option value="Región del Libertador Gral. Bernardo O’Higgins">Libertador Gral. Bernardo O’Higgins</option>
+							<option value="Región del Maule">Maule</option>
+							<option value="Región del Biobío">Biobío</option>
+							<option value="Región de la Araucanía">Araucanía</option>
+							<option value="Región de Los Lagos">Los Lagos</option>
+							<option value="Región Aisén del Gral. Carlos Ibáñez del Campo">Gral. Carlos Ibáñez del Campo</option>
+							<option value="Región de Magallanes y de la Antártica Chilena">Magallanes y de la Antártica Chilena</option>
+							<option value="Región Metropolitana de Santiago">Metropolitana de Santiago</option>
+							<option value="Región de Los Ríos">Los Ríos</option>
+							<option value="Región de Arica y Parinacota">Arica y Parinacota</option>
 						</select>
 						<i class="fa fa-chevron-down"></i>
 					</div>
@@ -211,9 +208,6 @@ if(isset($_SESSION['id'])){
 				<form class="form_ingreso">
 					<div id="facebook-antiguo" class="fb_btn" value="ingresar con Facebook">
 						<i class="fa fa-facebook"></i>ingresar con Facebook
-					</div>
-					<div id="linkedin-antiguo" class="lk_btn">
-						<i class="fa fa-linkedin"></i>ingresar con Linkedin
 					</div>
 					<p>o ingresa con tu correo</p>
 					<!--input placeholder="Nombre" name="username" id="username"/-->
