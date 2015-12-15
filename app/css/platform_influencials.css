@@ -231,24 +231,24 @@ a {
   .style-select:focus, html body.formularios-registro .cont_formRegistro .cont-inputs .selects select:focus, main.form_agencias #nuevo .registerForm .selects select:focus, #imagenform-ipe #tabscontent .tabpage div.selects select:focus, .influenciador-publico #campanas-postulables select:focus {
     outline: none; }
 
-.switcher-norm, .switchess, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch, #campanaForm-nueva-campana .inputs-deskt .redes-select .check-red, .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar {
+.switcher-norm, .switchess, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch, #campanaForm-nueva-campana .redes-select .check-red, .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar {
   position: relative;
   overflow: visible;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
-  .switcher-norm .switch-checkbox, .switchess .switch-checkbox, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-checkbox, #campanaForm-nueva-campana .inputs-deskt .redes-select .check-red .switch-checkbox, .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar .switch-checkbox {
+  .switcher-norm .switch-checkbox, .switchess .switch-checkbox, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-checkbox, #campanaForm-nueva-campana .redes-select .check-red .switch-checkbox, .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar .switch-checkbox {
     display: none; }
-    .switcher-norm .switch-checkbox:checked + .switch-label, .switchess .switch-checkbox:checked + .switch-label, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-checkbox:checked + .switch-label, #campanaForm-nueva-campana .inputs-deskt .redes-select .check-red .switch-checkbox:checked + .switch-label, .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar .switch-checkbox:checked + .switch-label {
+    .switcher-norm .switch-checkbox:checked + .switch-label, .switchess .switch-checkbox:checked + .switch-label, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-checkbox:checked + .switch-label, #campanaForm-nueva-campana .redes-select .check-red .switch-checkbox:checked + .switch-label, .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar .switch-checkbox:checked + .switch-label {
       background-color: #c7c7c7;
       -webkit-box-shadow: inset -2px 4px 8px -2px #656b79;
       -moz-box-shadow: inset -2px 4px 8px -2px #656b79;
       box-shadow: inset -2px 4px 8px -2px #656b79; }
-      .switcher-norm .switch-checkbox:checked + .switch-label::before, .switchess .switch-checkbox:checked + .switch-label::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-checkbox:checked + .switch-label::before, #campanaForm-nueva-campana .inputs-deskt .redes-select .check-red .switch-checkbox:checked + .switch-label::before, .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar .switch-checkbox:checked + .switch-label::before {
+      .switcher-norm .switch-checkbox:checked + .switch-label::before, .switchess .switch-checkbox:checked + .switch-label::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-checkbox:checked + .switch-label::before, #campanaForm-nueva-campana .redes-select .check-red .switch-checkbox:checked + .switch-label::before, .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar .switch-checkbox:checked + .switch-label::before {
         border-color: #c7c7c7;
         left: 0; }
-  .switcher-norm .switch-label, .switchess .switch-label, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-label, #campanaForm-nueva-campana .inputs-deskt .redes-select .check-red .switch-label, .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar .switch-label {
+  .switcher-norm .switch-label, .switchess .switch-label, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-label, #campanaForm-nueva-campana .redes-select .check-red .switch-label, .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar .switch-label {
     padding: 0;
     border-top-left-radius: 26px;
     border-top-right-radius: 26px;
@@ -271,7 +271,7 @@ a {
     -webkit-box-shadow: inset -2px 4px 8px -2px #107977;
     -moz-box-shadow: inset -2px 4px 8px -2px #107977;
     box-shadow: inset -2px 4px 8px -2px #107977; }
-    .switcher-norm .switch-label::before, .switchess .switch-label::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-label::before, #campanaForm-nueva-campana .inputs-deskt .redes-select .check-red .switch-label::before, .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar .switch-label::before {
+    .switcher-norm .switch-label::before, .switchess .switch-label::before, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info .onoffswitch .switch-label::before, #campanaForm-nueva-campana .redes-select .check-red .switch-label::before, .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar .switch-label::before {
       border-top-left-radius: 26px;
       border-top-right-radius: 26px;
       border-bottom-left-radius: 26px;
@@ -3028,7 +3028,7 @@ main {
     text-align: center; }
     #campanaForm-nueva-campana .guardar:last-child {
       margin-right: 0; }
-  #campanaForm-nueva-campana .inputs-deskt .redes-select {
+  #campanaForm-nueva-campana .redes-select {
     float: left;
     display: block;
     margin-right: 2.35765%;
@@ -3036,13 +3036,13 @@ main {
     display: block;
     width: 100%;
     padding: 1.25em 0 0; }
-    #campanaForm-nueva-campana .inputs-deskt .redes-select:last-child {
+    #campanaForm-nueva-campana .redes-select:last-child {
       margin-right: 0; }
-    #campanaForm-nueva-campana .inputs-deskt .redes-select::after {
+    #campanaForm-nueva-campana .redes-select::after {
       clear: both;
       content: "";
       display: table; }
-    #campanaForm-nueva-campana .inputs-deskt .redes-select .name-red {
+    #campanaForm-nueva-campana .redes-select .name-red {
       float: left;
       display: block;
       margin-right: 2.35765%;
@@ -3053,30 +3053,30 @@ main {
       color: #c7c7c7;
       text-transform: capitalize;
       height: 26px; }
-      #campanaForm-nueva-campana .inputs-deskt .redes-select .name-red:last-child {
+      #campanaForm-nueva-campana .redes-select .name-red:last-child {
         margin-right: 0; }
-      #campanaForm-nueva-campana .inputs-deskt .redes-select .name-red i {
+      #campanaForm-nueva-campana .redes-select .name-red i {
         font-size: 1.75em;
         margin-right: 3px; }
-        #campanaForm-nueva-campana .inputs-deskt .redes-select .name-red i.fa-google {
+        #campanaForm-nueva-campana .redes-select .name-red i.fa-google {
           color: #f05721; }
-        #campanaForm-nueva-campana .inputs-deskt .redes-select .name-red i.fa-instagram {
+        #campanaForm-nueva-campana .redes-select .name-red i.fa-instagram {
           color: #517fa4; }
-        #campanaForm-nueva-campana .inputs-deskt .redes-select .name-red i.fa-facebook {
+        #campanaForm-nueva-campana .redes-select .name-red i.fa-facebook {
           color: #3b5998; }
-        #campanaForm-nueva-campana .inputs-deskt .redes-select .name-red i.fa-twitter {
+        #campanaForm-nueva-campana .redes-select .name-red i.fa-twitter {
           color: #55acee; }
-        #campanaForm-nueva-campana .inputs-deskt .redes-select .name-red i.fa-youtube-play {
+        #campanaForm-nueva-campana .redes-select .name-red i.fa-youtube-play {
           color: #ee0f0f; }
-        #campanaForm-nueva-campana .inputs-deskt .redes-select .name-red i.fa-google-plus {
+        #campanaForm-nueva-campana .redes-select .name-red i.fa-google-plus {
           color: #ee0f0f; }
-    #campanaForm-nueva-campana .inputs-deskt .redes-select .check-red {
+    #campanaForm-nueva-campana .redes-select .check-red {
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 14.70196%;
       margin: 1.25em 0.375em; }
-      #campanaForm-nueva-campana .inputs-deskt .redes-select .check-red:last-child {
+      #campanaForm-nueva-campana .redes-select .check-red:last-child {
         margin-right: 0; }
   @media screen and (min-width: 64em) and (max-width: 90em) {
     #campanaForm-nueva-campana {

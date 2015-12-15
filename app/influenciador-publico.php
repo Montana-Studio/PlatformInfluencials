@@ -8,7 +8,14 @@
 					<option selected="selected" id="'.$_GET["id"].'" disabled>'.$_GET["campana"].'</option>
 				</select>
 				<i class="fa fa-chevron-down"></i>
-			</div>';
+			</div>
+					<main class="no-campana">
+						<a href="nueva-campana.php" class="hrefCamp">
+							<i class="fa fa-warning"></i>
+							<h2>Ups, no hay influenciadores</h2>
+							<p>Puedes seguir modificando o crear nuevas campañas y cotizar, pronto agregaremos más influenciadores.</p>
+						</a>
+					</main>';
 
 	}else{
 			//echo $hoyFormatted;
