@@ -84,6 +84,8 @@
 						}
 						
 						if($row_rrss_ipe[2]=='twitter'){
+							require('rrss/twitter/inc/twitteroauth.php');
+							require('rrss/twitter/inc/TwitterAPIExchange.php');
 							$settings = array(
 							'oauth_access_token' => "3523857136-MwHOy2ZrYGqvvT6fSpkCbFxe5BYqlmQzUs41UdN",
 							'oauth_access_token_secret' => "Verk18Cyb8oTYGdcptHvvZaCOXD5gaNDBtMFdd1tqPL9k",
@@ -94,13 +96,15 @@
 							$requestMethod = 'GET';
 							$usuario1 = $row_rrss_ipe[3];
 					        $getfield1 = '?id='.$usuario1;
-					        $twitter1 = new TwitterAPIExchange($settings);
+					       $twitter1 = new TwitterAPIExchange($settings);
 					        $follow_count1=$twitter1->setGetfield($getfield1)
 					        ->buildOauth($ta_url, $requestMethod)
 					        ->performRequest();
-							$reach+=$follow_count1;	
+					        $data1 = json_decode($follow_count1, true);
+					        $followers_count1=$data1[0]['user']['followers_count'];
+							$reach+=$followers_count1;	
+							$echoContentTweet = "<div class='rrss' 'name='twitter'><i class='fa fa-twitter'></i> Twitter <span>".$followers_count1."</span></div>";
 
-							$echoContentTweet = "<div class='rrss' 'name='twitter'><i class='fa fa-twitter'></i> Twitter <span>".$follow_count1."</span></div>";
 
 						}
 
