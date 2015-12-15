@@ -112,6 +112,11 @@ $(document).ready(function(){
 		id= response.id;
 		facebookUser=response.name;;
 		facebookCorreo=response.email;
+		if (window.location.href.indexOf("influenciador.php") > -1) {
+		    alert("es influenciador");
+		}else{
+			alert("es agencia");
+		}
 			$.ajax({  
 		            type: "POST",  
 		            url: "./procesar_facebook.php",  
