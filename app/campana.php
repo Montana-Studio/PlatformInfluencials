@@ -23,8 +23,16 @@
 					var tipo = "eliminar";
 
 					$(".alertElim").fadeIn("normal",function(){
+
 							$("#boxElim .hrefCamp h2").text("Estas a punto de eliminar la campaña");
-							$("#boxElim .hrefCamp i").addClass("fa-trash-o");
+
+							animaTrash();
+
+							setInterval(function(){
+								animaTrash();
+							},2800);
+
+							//$("#boxElim .hrefCamp i").addClass("fa-trash-o");
 							$("#boxElim .hrefCamp p").text("Si eliminas tu campaña, pederas tus datos sin posibilidad de recuperarlos.");
 							$(".siElim").text("eliminar campaña");
 							$(".noElim").text("volver");
@@ -103,7 +111,15 @@
 								switch (data){
 									case "nuevo":$(".alertElim").fadeIn("normal",function(){
 													$("#boxAlert .hrefCamp h2").text("Campaña editada con exito");
-													$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+
+													animaMune();
+													animaMano();
+													setInterval(function(){
+														animaMune();
+														animaMano();
+													},2800);
+
+													//$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
 													$("#boxAlert .hrefCamp p.messageAlert").text("Puedes seguir editando o crear más campañas.");
 
 													$("#boxAlert").show().animate({
