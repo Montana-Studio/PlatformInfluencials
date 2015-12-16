@@ -155,6 +155,21 @@ a {
     @media screen and (min-width: 64em) and (max-width: 90em) {
       .alertElim #boxElim, .alertElim #boxAlert {
         max-width: 35em; } }
+    .alertElim #boxElim #ico-trash, .alertElim #boxAlert #ico-trash, .alertElim #boxElim #ico-handLike, .alertElim #boxAlert #ico-handLike {
+      width: 100px;
+      margin: 30px auto; }
+    .alertElim #boxElim svg, .alertElim #boxAlert svg {
+      overflow: visible; }
+      .alertElim #boxElim svg .coloGreen, .alertElim #boxAlert svg .coloGreen {
+        fill: #18bb9b; }
+      .alertElim #boxElim svg .coloGrey, .alertElim #boxAlert svg .coloGrey {
+        fill: #E4E6E8; }
+      .alertElim #boxElim svg .coloGrey-sombra, .alertElim #boxAlert svg .coloGrey-sombra {
+        fill: #C9CACB; }
+      .alertElim #boxElim svg .coloGreen-sombra, .alertElim #boxAlert svg .coloGreen-sombra {
+        fill: #107977; }
+      .alertElim #boxElim svg .coloBlue-lines, .alertElim #boxAlert svg .coloBlue-lines {
+        fill: #134a78; }
     .alertElim #boxElim .hrefCamp, .alertElim #boxAlert .hrefCamp {
       float: left;
       display: block;
@@ -1937,7 +1952,8 @@ main {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 100%; }
+    width: 100%;
+    padding: 0 0 50px; }
     .creadas:last-child {
       margin-right: 0; } }
 
@@ -1947,7 +1963,7 @@ main {
   margin-right: 2.35765%;
   width: 82.94039%;
   margin-left: 8.5298%;
-  padding: 40px 20px 0; }
+  padding: 20px 20px 20px; }
   .no-campana .hrefCamp:last-child {
     margin-right: 0; }
   .no-campana .hrefCamp i {

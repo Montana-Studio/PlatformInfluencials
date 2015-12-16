@@ -384,13 +384,14 @@
 	}
 	@include media($mobileTomobileLand){
 		@include span-columns(12);
+		@include pad(0 0 50px)
 	}
 }
 .no-campana{
 	.hrefCamp{
 		@include span-columns(10);
 		@include shift(1);
-		@include pad(40px 20px 0);
+		@include pad(20px 20px 20px);
 		i{
 			@include borderRadius(100%);
 	    width: 150px;
