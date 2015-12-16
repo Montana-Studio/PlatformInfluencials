@@ -1,22 +1,9 @@
 <?php
-	include('procesar_facebook.php');
-	echo "<script>console.log('ingrese a header')</script>";
-	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia.php'){
-		$_SESSION['id']='1';
-		echo "<script>console.log('";
-		/*foreach($_SESSION as $valor)
-		{
-		echo $valor.',';
-		}*/
-		echo "')</script>";
-	}
 	require('conexion.php');
 	if(isset($_SESSION['id'])==false){
-		
 	header('Location:./');
 			die();
 	}
-
 	function muestra_header(){
 		echo 	'<!DOCTYPE html>
 		<html lang="es">
@@ -36,17 +23,14 @@
 			<meta name="application-name" content="Power Influencer"/>
 			<meta name="msapplication-TileColor" content="#FFFFFF" />
 			<meta name="msapplication-TileImage" content="img/mstile-144x144.png" />
-
 			<link rel="stylesheet" href="css/platform_influencials.css">
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
 			<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 			<script type="text/javascript" src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 				
 		</head>
 		<body>';
 		}
-
 	if(basename($_SERVER['PHP_SELF'])=='dashboard-agencia.php'){
 		if(isset($_SESSION['telefono1'])==false){
 			header('Location: logout.php');
@@ -68,7 +52,6 @@
 				</script>";
 		}
 	}
-
 	if(basename($_SERVER['PHP_SELF'])=='nueva-campana.php'){
 			if(isset($_SESSION['telefono1'])==false){
 				header('Location: logout.php');
@@ -78,7 +61,6 @@
 			$query="SELECT id FROM campana ORDER BY id DESC LIMIT 1";
 			$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
-
 			$id = $_SESSION['id'];
 			$query2="SELECT * FROM campana WHERE idpersona='$id'";
 			$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
@@ -93,7 +75,6 @@
 					});
 				</script>";
 	}
-
 	if(basename($_SERVER['PHP_SELF'])=='campana.php'){
 			if(isset($_SESSION['telefono1'])==false){
 				header('Location: logout.php');
@@ -103,12 +84,10 @@
 			$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
 			$num_rows= mysqli_num_rows($result);
-
 			$query2="SELECT * FROM campana WHERE idEstado=0 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
 			$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
 			$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 			$num_rows2= mysqli_num_rows($result2);
-
 			}
 			muestra_header();
 			echo "<script>
@@ -119,7 +98,6 @@
 					});
 				</script>";
 	}
-
 	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia.php'){
 		if(isset($_SESSION['id'])==false){
 				header('Location: logout.php');
@@ -136,7 +114,6 @@
 						</script>";
 			}
 	}
-
 	if(basename($_SERVER['PHP_SELF'])=='influenciador-publico.php'){
 		if(isset($_SESSION['telefono1'])==false){
 			header('Location: logout.php');
@@ -150,7 +127,6 @@
 			$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
 			$num_rows= mysqli_num_rows($result);
-
 			//$id=$_SESSION['id'];
 			$query2="SELECT nombre FROM campana WHERE idpersona=".$id;
 			$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
@@ -170,7 +146,6 @@
 				</script>";
 		}
 	}
-
 	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia2.php'){
 		if(isset($_SESSION['nombre'])==false){
 			header('Location:./');
@@ -202,7 +177,6 @@
 										});
 									}
 								});
-
 								$('#empresa').click(function(){
 									$('#empresa input')	.removeAttr('disabled','disabled').css({'background-image':'none','background-color':'#ccc'}).attr('placeholder','por favor escriba');;
 									envnom=1;
@@ -216,7 +190,6 @@
 											});
 										}
 								});
-
 								$('#correo').click(function(){
 									$('#correo input').removeAttr('disabled','disabled').css({'background-image':'none','background-color':'#ccc'}).attr('placeholder','por favor escriba');
 									envnom=1;
@@ -229,11 +202,9 @@
 										});
 									}
 								});
-
 								$('#telefono1nuevo').click(function(){
 									$('#telefono1nuevo').removeAttr('disabled','disabled').css({'background-image':'none','background-color':'#ccc'}).attr('placeholder','por favor escriba');
 									envnom=1;
-
 									if (envnom == 1){
 										$('#telefono1nuevo').keypress(function(e){
 											if (e.which == 13) {
@@ -244,11 +215,9 @@
 										});
 									}
 								});
-
 								$('#telefono2nuevo').click(function(){
 									$('#tel2 input').removeAttr('disabled','disabled').css({'background-image':'none','background-color':'#ccc'}).attr('placeholder','por favor escriba');
 									envnom=1;
-
 									if(envnom == 1){
 										$('#telefono2nuevo').keypress(function(e){
 											if (e.which == 13) {
@@ -258,7 +227,6 @@
 										});
 									}
 								});
-
 								$('#guardar').click(function(){
 									nombre=$('#nombre input').val();
 									empresa=$('#empresa input').val();
@@ -276,7 +244,6 @@
 									});
 								});
 							});
-
 							function phone1Length(){
 								var tel1 = $('#telefono1nuevo').val();
 								var tel2 = $('#telefono2nuevo').val();
@@ -301,7 +268,6 @@
 					</script>";
 			}
 	}
-
 	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia3.php'){
 		if(isset($_SESSION['id'])==false){
 				header('Location: logout.php');
@@ -314,7 +280,6 @@
 								$('title').append('Power Influencer - Completa tus datos');
 								$('html').css({'background-color':'#fff','background-image':'none'});
 								$('body').addClass('formularios-registro');
-
 								var envnom=0;
 								var nombre;
 								var correo;
@@ -474,7 +439,6 @@
 					<li id="nuevaCampain"><a href="nueva-campana.php"><i class="fa fa-plus"></i> crear campañas</a></li>
 					<li><a href="influenciador-publico.php"><i class="fa fa-user"></i> influencers</a></li>
 				</ul>
-
 			</nav>
 		';
 	}

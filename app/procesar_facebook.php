@@ -10,10 +10,10 @@ echo $_POST['facebookPageName'];
 	$pictureUrl='//graph.facebook.com/'.$faceId.'/picture?width=800';
 	$tipo = (int) $_POST['tipo'];
 	//Rescato datos de persona
-	/*$_SESSION['faceuser']=$username;
+	$_SESSION['faceuser']=$username;
 	$_SESSION['facecorreo']=$correo;
 	$_SESSION['faceUserId']=$faceId;
-	$_SESSION['rsid']=$faceId;*/
+	$_SESSION['rsid']=$faceId;
 
 	$query="SELECT * FROM persona p WHERE p.id_estado=1 AND p.RS_id='$faceId'";
 	$result= mysqli_query($mysqli,$query)or die(mysqli_error());
@@ -60,9 +60,9 @@ echo $_POST['facebookPageName'];
 			$num_row= mysqli_num_rows($result);
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
 			
-	$query3="SELECT * FROM persona p WHERE p.RS_id='$faceId'";
-	$result3= mysqli_query($mysqli,$query3)or die(mysqli_error());
-	$num_row3= mysqli_num_rows($result3);
+			$query3="SELECT * FROM persona p WHERE p.RS_id='$faceId'";
+			$result3= mysqli_query($mysqli,$query3)or die(mysqli_error());
+			$num_row3= mysqli_num_rows($result3);
 			$_SESSION['id']=$row3[0];
 			$_SESSION['nombre']=$row3[5];
 			$_SESSION['correo']=$row3[6];
