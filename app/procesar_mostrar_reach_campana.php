@@ -28,9 +28,11 @@ for($i=0;$i<count($redes_sociales);$i++){
 		        $json_user= file_get_contents($json_user_url);
 		        $links_user_url= json_decode($json_user);
 		        $json_user_url1="https://graph.facebook.com/".end($facebook_post_id)."/comments?access_token=".$facebookAppId."|".$facebookKey."";
+
 		        $json_user_url1 = str_replace(" ", "%20", $json_user_url1);
 		        $json_user1= file_get_contents($json_user_url1);
 		        $links_user_url1= json_decode($json_user1);
+		        echo $json_user_url1;
 				$facebook_likes_total+=count($links_user_url->data);
 				$facebook_comments_total+=count($links_user_url1->data);
 

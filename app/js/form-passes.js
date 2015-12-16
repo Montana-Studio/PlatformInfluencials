@@ -1,8 +1,11 @@
-$(document).ready(function(){
 
+$(document).ready(function(){
+	 
 	//INICIO SCRIPTS
 	var info;
 	var val = [];
+	
+
 	if (window.location == 'http://local.mediatrends/_InfluencialsPlatform/htdocs/app/agencia.php'){
 		$("#tipoCliente").attr("value", "2");
 		$('.form_agencias').show();
@@ -193,6 +196,8 @@ $(document).ready(function(){
 			}
 		});
 	}));
+
+
 		$('.registerFormInfluenciador').on('submit',(function(e){
 		e.preventDefault();
 		info = new FormData(this);

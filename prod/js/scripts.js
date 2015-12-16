@@ -26,7 +26,8 @@ jQuery(document).ready(function($){
 
 	$('#acceder').on('click',function(){
 
-		$('#antiguo #username').attr('autofocus','autofocus');
+
+		$('#antiguo .form_ingreso #correo').attr('autofocus','autofocus');
 
 		$('#antiguo a').hide();
 		$('#antiguo').fadeIn(100).animate({
