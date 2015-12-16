@@ -34,7 +34,7 @@
 					</div>';
 		}
 	}	
-	/*
+	
 	//mostrar influenciadores
 	if ($num_rows > 0){
 		echo '<h2 class="sub-titulo">Influenciadores</h2>
@@ -313,7 +313,7 @@
 					$("#"+id_form+" .volver_ver_perfil_influenciador").hide();
 				});
 			});
-		</script>';*/
+		</script>';
 ?>
 
 <?php include 'footer.php'; ?>
