@@ -194,6 +194,7 @@ if(isset($_SESSION['id'])){
 					
 					<input class= "contraseña" type="password" placeholder="Contraseña" id="contraseñanuevo"  required>
 					<input type="password" onChange="checkPasswordMatch();" placeholder="Repetir Contraseña" id="ver-password" required>
+					<div id="divCheckPasswordMatch" class="pass-no-equals"><i class="fa fa-times"></i> Las contraseñas no coinciden</div>
 					<div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
 					<div id="selectImage">
 						<input type="file" name="file" id="file" required>

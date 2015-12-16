@@ -7,7 +7,7 @@
 				<input  placeholder="nombre" value="<?php echo $_SESSION['nombre'];?>" disabled required>
 			</div>
 			<div id="empresa">
-				<input placeholder="empresa a la que pertenece" disabled required>
+				<input placeholder="empresa a la que pertenece"  required>
 			</div>
 
 		</div>

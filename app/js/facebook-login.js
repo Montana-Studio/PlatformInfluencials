@@ -112,27 +112,25 @@ $(document).ready(function(){
 		id= response.id;
 		facebookUser=response.name;;
 		facebookCorreo=response.email;
-		if (window.location.href.indexOf("influenciador.php") > -1) {
-		    alert("es influenciador");
-		}else{
-			alert("es agencia");
-		}
 			$.ajax({  
 		            type: "POST",  
 		            url: "./procesar_facebook.php",  
 		            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id+"&tipo="+document.getElementById('tipoCliente').getAttribute('value'),  
 					
 		            success: function(data){ 
+		            	console.log(data);
 						switch (data){
 							case "dashboard": window.location.href="dashboard-agencia.php";
 							break;
 							case "false": 	window.location.href="./";
 							break;
-							case "primera": window.location.href="formulario-agencia.php";
+							case "primera": window.location="formulario-agencia.php";
+									
 							break;
 							case "formulario":  window.location.href="formulario-agencia.php";
 							break;
 							case "dashboard-ipe": window.location.href="dashboard-ipe.php";
+
 							break;
 							case "primera-ipe": window.location.href="formulario-agencia3.php";
 							break;

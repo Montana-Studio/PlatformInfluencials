@@ -42,8 +42,10 @@ include_once('../rrss_keys.php'); //llamada de keys desde nuevo archivo
     /****************************************************************/
       if((int)$num_row > 2){
         $displaydb = "none";
-        echo '<script>alert("ya cuenta con 3 cuentas registradas");</script>';
-        header('Location: ../../dashboard-ipe.php');
+        echo '<script>alert("ya cuenta con 3 cuentas registradas");
+                         window.location="../../dashboard-ipe.php";</script>';
+        //flush();
+        //header('Location: ../../dashboard-ipe.php');
 
 
     /****************************************************************
@@ -56,9 +58,11 @@ include_once('../rrss_keys.php'); //llamada de keys desde nuevo archivo
         to dashboard page
         /****************************************************************/
           if((int)$num_row2 > 0){
-            echo '<script> alert("La cuenta ya está asociada, intente con una cuenta diferente");</script>';
+           // echo '<script> alert("La cuenta ya está asociada, intente con una cuenta diferente");</script>';
              $displaydb = "block";
-             header('Location: ../../dashboard-ipe.php');
+             //flush();
+             echo '<script>alert("La cuenta ya está asociada, intente con una cuenta diferente");
+                         window.location="../../dashboard-ipe.php";</script>';
 
             }else{
                  //  header('Location: ../../dashboard-ipe.php');
@@ -80,8 +84,10 @@ include_once('../rrss_keys.php'); //llamada de keys desde nuevo archivo
                 $followers_count=(int)$data[0]['user']['followers_count'];
                 $query="INSERT INTO rrss (descripcion_rrss,rrss_id,persona_id) VALUES('twitter',".$usuario.",".$_SESSION['id'].")";
                 $result= mysqli_query($mysqli,$query)or die(mysqli_error());
-                echo '<script> alert("gracias por registrar su cuenta");</script>';
-                header('Location: ../../dashboard-ipe.php');
+                //echo '<script> alert("gracias por registrar su cuenta");</script>';
+                //flush();
+                echo '<script>alert("gracias por registrar su cuenta");
+                         window.location="../../dashboard-ipe.php";</script>';
 
 
             }

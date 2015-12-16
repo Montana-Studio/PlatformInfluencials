@@ -1,6 +1,8 @@
-<?php 
-session_start();
-
+<?php
+if(!isset($_COOKIE["PHPSESSID"]))
+{
+  session_start();
+}
 setlocale(LC_ALL,"es_ES");
 $hoy= date("Y-m-d H:i:s");
 $hoyFormatted= date("d M Y");

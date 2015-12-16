@@ -1,6 +1,18 @@
 <?php
+	include('procesar_facebook.php');
+	echo "<script>console.log('ingrese a header')</script>";
+	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia.php'){
+		$_SESSION['id']='1';
+		echo "<script>console.log('";
+		/*foreach($_SESSION as $valor)
+		{
+		echo $valor.',';
+		}*/
+		echo "')</script>";
+	}
 	require('conexion.php');
 	if(isset($_SESSION['id'])==false){
+		
 	header('Location:./');
 			die();
 	}
