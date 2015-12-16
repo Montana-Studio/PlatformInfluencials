@@ -8,14 +8,7 @@
 					<option selected="selected" id="'.$_GET["id"].'" disabled>'.$_GET["campana"].'</option>
 				</select>
 				<i class="fa fa-chevron-down"></i>
-			</div>
-					<main class="no-campana">
-						<a href="nueva-campana.php" class="hrefCamp">
-							<i class="fa fa-warning"></i>
-							<h2>Ups, no hay influenciadores</h2>
-							<p>Puedes seguir modificando o crear nuevas campañas y cotizar, pronto agregaremos más influenciadores.</p>
-						</a>
-					</main>';
+			</div>';
 
 	}else{
 			//echo $hoyFormatted;
@@ -180,7 +173,7 @@
 					</div>
 				</form>';
 		}while($row = mysqli_fetch_row($result));
-	}
+	
 ?>
 
 <?php
@@ -314,6 +307,16 @@
 				});
 			});
 		</script>';
+	}else{
+		echo '<main class="no-campana">
+						<a href="nueva-campana.php" class="hrefCamp">
+							<i class="fa fa-warning"></i>
+							<h2>Ups, no hay influenciadores</h2>
+							<p>Puedes seguir modificando o crear nuevas campañas y cotizar, pronto agregaremos más influenciadores.</p>
+						</a>
+					</main>';
+	}
+
 ?>
 
 <?php include 'footer.php'; ?>

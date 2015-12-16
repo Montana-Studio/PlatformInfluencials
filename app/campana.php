@@ -169,7 +169,7 @@
 				$(".ir_a_cotizar_influenciador").click(function(){
 					var campana_seleccionada=this.id;
 					var campana_seleccionada_id=this.name;
-					alert(campana_seleccionada_id);
+					//alert(campana_seleccionada_id);
 
 					window.location.replace("influenciador-publico.php?campana="+campana_seleccionada+"&id="+campana_seleccionada_id);
 					//location.href("influenciador-publico.php?"+campana_seleccionada);
