@@ -9,7 +9,7 @@ if(isset($_SESSION['id'])){
 		header("Location: dashboard-ipe.php");
 		die();
 	}else{
-		echo '<script>$(document).ready(function(){alert("Su tipo de usuario es Agencia")});</script>';
+		//echo '<script>$(document).ready(function(){alert("Su tipo de usuario es Agencia")});</script>';
 		header("Location: dashboard-agencia.php");
 		die();
 	}
@@ -75,7 +75,7 @@ if(isset($_SESSION['id'])){
 					<div class="selects">
 						<small>Selecciona tu perfil</small>
 						<select id="perfil">
-							<option value="" disabled selected>Influenciador - Publisher - Editor</option>
+							<option value="3" disabled selected>Influenciador - Publisher - Editor</option>
 							<option value="3">Influenciador</option>
 							<option value="4">Publisher</option>
 							<option value="5">Editor</option>
