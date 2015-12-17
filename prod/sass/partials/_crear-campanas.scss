@@ -3,11 +3,6 @@
 	@include media($tabletLandTonotebook){
 		background:{color: #eeeef0;}
 	}
-	.sub-titulo{
-		@include media($tabletLandTonotebook){
-			@include outer-container;
-		}
-	}
 	.crear-campana{
 		@extend .hide;
 	}
@@ -133,6 +128,7 @@
 			margin:em(20) em(6);
 			@extend .switcher-norm;
 		}
+
 	}
 	//MEDIA QUERIES
 	@include media($tabletLandTonotebook){
@@ -146,13 +142,34 @@
 			@include pad();
 		}
 		.upload-deskt{
-			@include span-columns(6 of 12);
+			@include span-columns(3 of 12);
 			@include omega();
 			@include pad();
+			padding:{left:0;right:0;}
 		}
 		.guardar{
 			@include span-columns(4 of 12);
 			@include shift(7.8);
+		}
+		.redes-select{
+			@include span-columns(3 of 12);
+			@include pad();
+			padding:{left:0;right:0;}
+			.red-cont{
+				@include span-columns(12);
+				margin:5px 0;
+				@include pad(5px);
+				@include borderRadius(5px);
+				border:1px solid $color_grey;
+				.name-red{
+					@include span-columns(9);
+					margin:0;
+				}
+				.check-red{
+					@include span-columns(3);
+					margin:0;
+				}
+			}
 		}
 	}
 }

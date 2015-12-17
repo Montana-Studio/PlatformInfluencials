@@ -63,7 +63,7 @@
 
 							if(document.documentElement.clientWidth >= 1024){
 								$(".bg-campana, .ver-mas, .sub-titulo").fadeOut();
-								$(".campanas").animate({backgroundColor:"#c7c7c7"},"slow");
+								$(".campanas").animate({backgroundColor:"#eeeef0"},"slow");
 							}else{
 								$(this).find("i").toggleClass("fa-angle-up fa-angle-down");
 								$("html,body").animate({scrollTop : $(this).siblings(".bg-campana").offset().top},1000);

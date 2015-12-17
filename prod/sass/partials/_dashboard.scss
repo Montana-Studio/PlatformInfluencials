@@ -12,6 +12,7 @@
 			@include outer-container;
 			color: $color_grey2;
 			font:{size:18px;weight:normal;}
+			max-width:em(970);
 		}
 		@include media($desktop){
 			//@include outer-container;
