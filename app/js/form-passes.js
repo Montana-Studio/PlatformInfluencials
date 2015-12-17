@@ -5,18 +5,21 @@ $(document).ready(function(){
 	var info;
 	var val = [];
 	
+	
 
-	if (window.location == 'http://local.mediatrends/_InfluencialsPlatform/htdocs/app/agencia.php'){
+	/*if (window.location == 'http://local.mediatrends/_InfluencialsPlatform/htdocs/app/agencia.php'){
 		$("#tipoCliente").attr("value", "2");
 		$('.form_agencias').show();
 		$('#perfil').hide();
 	}
 
 	if (window.location == 'http://local.mediatrends/_InfluencialsPlatform/htdocs/app/influenciador.php'){
-		$("#tipoCliente").attr("value", "2");
+		var e = document.getElementById("perfil");
+		var perfil = e.options[e.selectedIndex].value;
+		$("#tipoCliente").attr("value", perfil);
 		$('.form_agencias').show();
 		$('#perfil').show();
-	}
+	}*/
 
 
 	$('#facebook-name').hide();
@@ -31,7 +34,7 @@ $(document).ready(function(){
 	})
 
 
-	$('#agencia').click(function(){
+	/*$('#agencia').click(function(){
 		$("#tipoCliente").attr("value", "2");
 		$('.form_agencias').show();
 		$(".ingreso_eleccion").hide();
@@ -61,7 +64,7 @@ $(document).ready(function(){
 		$('.ingreso_eleccion').show();
 		$("#volver").hide();
 		$('.form_agencias').hide();
-	})
+	})*/
 
 	$('#ingresar').click(function(){
 		correo=$('#correo').val();

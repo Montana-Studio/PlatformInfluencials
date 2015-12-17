@@ -112,10 +112,13 @@ $(document).ready(function(){
 		id= response.id;
 		facebookUser=response.name;;
 		facebookCorreo=response.email;
+		var e = document.getElementById("perfil");
+		var perfil = e.options[e.selectedIndex].value;
+		console.log(perfil);
 			$.ajax({  
 		            type: "POST",  
 		            url: "./procesar_facebook.php",  
-		            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id+"&tipo="+document.getElementById('tipoCliente').getAttribute('value'),  
+		            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id+"&tipo="+perfil,  
 					
 		            success: function(data){ 
 		            	console.log(data);
@@ -134,7 +137,8 @@ $(document).ready(function(){
 							break;
 							case "primera-ipe": window.location.href="formulario-agencia3.php";
 							break;
-							
+							case "sin_opcion": alert('no se ha seleccionado opción');
+							break;
 						}
 					}
 

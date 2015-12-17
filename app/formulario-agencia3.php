@@ -4,7 +4,7 @@
 			<h2 class="sub-title">formulario de ingreso</h2>
 			<div class="selects">
 				<select id="perfil" required>
-					<option value="" disabled selected>selecciona tu perfil </option>
+					<option value="3" disabled selected>selecciona tu perfil </option>
 					<option value="3">influenciador</option>
 					<option value="4">publisher</option>
 					<option value="5">editor</option>
@@ -12,7 +12,6 @@
 				<i class="fa fa-chevron-down"></i>
 			</div>
 		</div>
-
 		<div id="inicio" class="cont-inputs" disabled>
 			<div id="nombre">
 				<input  placeholder="nombre" value="<?php echo $_SESSION['nombre'];?>" disabled required>
