@@ -155,4 +155,7 @@ nav{
 			}
 		}
 	}
+	@include media($tabletLandTonotebook){
+		float:none;
+	}
 }

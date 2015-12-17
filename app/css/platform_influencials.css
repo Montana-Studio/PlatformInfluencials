@@ -215,6 +215,7 @@ a {
   display: block;
   margin-right: 2.35765%;
   width: 100%;
+  margin-right: 0;
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
@@ -798,6 +799,9 @@ nav {
         color: #fff; }
         nav.nav-ipe ul li:last-child:last-child {
           margin-right: 0; }
+  @media screen and (min-width: 64em) and (max-width: 90em) {
+    nav {
+      float: none; } }
 
 html {
   width: 100%;
@@ -3206,6 +3210,19 @@ main {
       z-index: 1; }
     .influenciador-publico #campanas-postulables select {
       padding: 0 0.625em; }
+    @media screen and (min-width: 64em) and (max-width: 90em) {
+      .influenciador-publico #campanas-postulables {
+        max-width: 68em;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+        background-color: #fff;
+        margin-top: 20px;
+        padding: 10px 0; }
+        .influenciador-publico #campanas-postulables::after {
+          clear: both;
+          content: "";
+          display: table; } }
   .influenciador-publico .influenciadores {
     padding: 2.35765%; }
     .influenciador-publico .influenciadores .contactarForm {
@@ -3234,6 +3251,14 @@ main {
         margin-top: 10px; }
         .influenciador-publico .influenciadores .contactarForm .mask-imguser:last-child {
           margin-right: 0; }
+        @media screen and (min-width: 64em) and (max-width: 90em) {
+          .influenciador-publico .influenciadores .contactarForm .mask-imguser {
+            float: left;
+            display: block;
+            margin-right: 2.35765%;
+            width: 10.43705%; }
+            .influenciador-publico .influenciadores .contactarForm .mask-imguser:last-child {
+              margin-right: 0; } }
       .influenciador-publico .influenciadores .contactarForm .info-influ {
         float: left;
         display: block;
@@ -3289,7 +3314,7 @@ main {
             float: left;
             display: block;
             margin-right: 2.35765%;
-            width: 78.67549%;
+            width: 74.41059%;
             color: #18bb9b;
             font-size: 1.4375em; }
             .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach span:last-child, .influenciador-publico .influenciadores .contactarForm .info-influ .access-ipe .rrss_reachs span:last-child, .influenciador-publico .influenciadores .contactarForm .access-ipe .info-influ .rrss_reachs span:last-child {
@@ -3298,13 +3323,21 @@ main {
               float: left;
               display: block;
               margin-right: 2.35765%;
-              width: 18.96686%;
+              width: 23.23176%;
               padding: 6px 0 0;
               font-size: 0.75em;
               line-height: 0.9375em;
               text-transform: uppercase; }
               .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach span:first-child:last-child, .influenciador-publico .influenciadores .contactarForm .info-influ .access-ipe .rrss_reachs span:first-child:last-child, .influenciador-publico .influenciadores .contactarForm .access-ipe .info-influ .rrss_reachs span:first-child:last-child {
                 margin-right: 0; }
+        @media screen and (min-width: 64em) and (max-width: 90em) {
+          .influenciador-publico .influenciadores .contactarForm .info-influ {
+            float: left;
+            display: block;
+            margin-right: 2.35765%;
+            width: 70.14568%; }
+            .influenciador-publico .influenciadores .contactarForm .info-influ:last-child {
+              margin-right: 0; } }
       .influenciador-publico .influenciadores .contactarForm .cotizar-opt {
         float: left;
         display: block;
@@ -3339,6 +3372,14 @@ main {
           margin-left: 17.05961%; }
           .influenciador-publico .influenciadores .contactarForm .cotizar-opt .checkbox-cotizar:last-child {
             margin-right: 0; }
+        @media screen and (min-width: 64em) and (max-width: 90em) {
+          .influenciador-publico .influenciadores .contactarForm .cotizar-opt {
+            float: left;
+            display: block;
+            margin-right: 2.35765%;
+            width: 8.73109%; }
+            .influenciador-publico .influenciadores .contactarForm .cotizar-opt:last-child {
+              margin-right: 0; } }
       .influenciador-publico .influenciadores .contactarForm .access-ipe {
         float: left;
         display: block;
@@ -3373,6 +3414,7 @@ main {
           margin-right: 2.35765%;
           width: 48.82117%;
           display: none;
+          margin-bottom: 10px;
           padding: 2.35765%;
           border-top-left-radius: 5px;
           border-top-right-radius: 5px;
@@ -3387,6 +3429,8 @@ main {
           color: #c7c7c7; }
           .influenciador-publico .influenciadores .contactarForm .access-ipe .rrss:last-child {
             margin-right: 0; }
+          .influenciador-publico .influenciadores .contactarForm .access-ipe .rrss:nth-child(2n+1) {
+            margin-right: 0; }
           .influenciador-publico .influenciadores .contactarForm .access-ipe .rrss i.fa-google {
             color: #f05721; }
           .influenciador-publico .influenciadores .contactarForm .access-ipe .rrss i.fa-instagram {
@@ -3399,5 +3443,23 @@ main {
             color: #ee0f0f; }
           .influenciador-publico .influenciadores .contactarForm .access-ipe .rrss i.fa-google-plus {
             color: #ee0f0f; }
+      @media screen and (min-width: 64em) and (max-width: 90em) {
+        .influenciador-publico .influenciadores .contactarForm {
+          margin-right: 0; } }
+    @media screen and (min-width: 64em) and (max-width: 90em) {
+      .influenciador-publico .influenciadores {
+        max-width: 68em;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #fff; }
+        .influenciador-publico .influenciadores::after {
+          clear: both;
+          content: "";
+          display: table; } }
+  @media screen and (min-width: 64em) and (max-width: 90em) {
+    .influenciador-publico {
+      background-color: #c7c7c7; }
+      .influenciador-publico .sub-titulo {
+        max-width: 60.625em; } }
 
 /*# sourceMappingURL=platform_influencials.css.map */

@@ -192,6 +192,7 @@ a{
 }
 .style-select{
 	@include span-columns(12);
+	@include omega();
 	@include appearance(none);
 	@include borderRadius(0);
 	font:{weight:bold;}
