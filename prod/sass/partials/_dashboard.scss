@@ -434,7 +434,7 @@
 #imagenform{
 	@include span-columns(8);
 	position:absolute;
-	z-index:8;
+	z-index:10;
 	@include borderRadius(5px);
 	background:{color: #FFF}
 	opacity:0;
@@ -672,6 +672,10 @@
 			&:first-child{
 				border:{right:1px solid $color_grey}
 			}
+		}
+		@include media($tabletLandTonotebook){
+			@include outer-container();
+			float:none;
 		}
 	}
 	#tabscontent{
@@ -1015,6 +1019,9 @@
 					}
 				}
 			}
+			@include media($tabletLandTonotebook){
+				@include outer-container();
+			}
 		}
 	}
 	.header-ipe{
@@ -1115,6 +1122,12 @@
 	    	bottom: 0;
 			top:0;
 			z-index:1;
-	  }
+	  	}
+	}
+  	@include media($tabletLandTonotebook){
+		.header-ipe{
+			@include outer-container();
+			float:none;
+		}
 	}
 }
