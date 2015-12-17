@@ -55,17 +55,13 @@ echo $_POST['facebookPageName'];
 		}*/
 		else{
 			$results = $mysqli->query("INSERT INTO persona (nombre, correo, id_tipo, picture_url,RS_id, fecha_ingreso )VALUES ('$username', '$correo','$tipo', '$pictureUrl','$faceId', '$hoyFormatted')");
-			$query="SELECT * FROM persona p WHERE p.RS_id='$faceId'";
+			$query="SELECT * FROM persona WHERE RS_id='$faceId'";
 			$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 			$num_row= mysqli_num_rows($result);
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
-			
-			$query3="SELECT * FROM persona p WHERE p.RS_id='$faceId'";
-			$result3= mysqli_query($mysqli,$query3)or die(mysqli_error());
-			$num_row3= mysqli_num_rows($result3);
-			$_SESSION['id']=$row3[0];
-			$_SESSION['nombre']=$row3[5];
-			$_SESSION['correo']=$row3[6];
+			$_SESSION['id']=$row[0];
+			$_SESSION['nombre']=$row[5];
+			$_SESSION['correo']=$row[6];
 			foreach($_SESSION as $valor){
 				//echo $valor.',';
 			}
