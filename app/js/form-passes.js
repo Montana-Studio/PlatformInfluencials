@@ -199,7 +199,43 @@ $(document).ready(function(){
 			}
 		});
 	}));
+		
+		$('.cont_formRegistro').on('submit',(function(e){
+			info = new FormData(this);
+			var e = document.getElementById("perfil");
+			var perfil = e.options[e.selectedIndex].value;
+			var f = document.getElementById("region");
+			var region = f.options[f.selectedIndex].value;
+			var g = document.getElementById("comuna");
+			var comuna = g.options[g.selectedIndex].value;
+			info.append('perfil',perfil);
+			info.append('region',region);
+			info.append('comuna',comuna);
+			//console.log(perfil+region+comuna);
+			$.ajax({
+				type: "POST",
+				url: "./procesar_registro_ipe_facebook.php",
+				data: info,
+				enctype: 'multipart/form-data',
+				contentType: false,
+				cache: false,
+				processData:false,
+				success: function(data){
+					//console.log('holi desde form-passes');
+					switch (data){
+						case "actualizado": alert('registro ingresado, nos contactaremos con usted');
+							                window.location.href='logout.php';
+						break;
+						case "false": alert('ingrese todos los datos');
+						break;
+					}
 
+				}
+			})
+			return false;
+
+
+		}));
 
 		$('.registerFormInfluenciador').on('submit',(function(e){
 		e.preventDefault();

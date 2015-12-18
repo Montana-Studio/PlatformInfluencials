@@ -116,6 +116,27 @@
 		<body>";
 	}
 
+		if(basename($_SERVER['PHP_SELF'])=='formulario-agencia3.php'){
+		muestra_header();
+		echo "<script src='https://apis.google.com/js/client.js?onload=googleApiClientReady'></script>";
+
+
+		if(isset($_SESSION['nombre'])==false){
+			header('Location:index.php');
+			die();
+		}
+		echo "<script id='facebook-sdk' src='js/facebook-login.js'></script>
+			<script>
+				jQuery(document).ready(function(){
+					$('title').append('Dashboard - ".$_SESSION['nombre']."');
+					$('html').css({'background-color':'#fff','background-image':'none'});
+					$('body').addClass('campanas-ipe');
+				})
+			</script>
+		</head>
+		<body>";
+	}
+
 
 ?>
 <nav class="nav-ipe">
