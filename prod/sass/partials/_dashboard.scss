@@ -12,6 +12,7 @@
 			@include outer-container;
 			color: $color_grey2;
 			font:{size:18px;weight:normal;}
+			max-width:em(970);
 		}
 		@include media($desktop){
 			//@include outer-container;
@@ -31,6 +32,9 @@
 					@include pad(em(10));
 					@include borderRadius(em(10));
 					background:{color:#fff;}
+					@include media($tabletLandTonotebook){
+						@include pad(em(40));
+					}
 				}
 			}
 		}
@@ -433,7 +437,7 @@
 #imagenform{
 	@include span-columns(8);
 	position:absolute;
-	z-index:8;
+	z-index:10;
 	@include borderRadius(5px);
 	background:{color: #FFF}
 	opacity:0;
@@ -807,6 +811,9 @@
 						color:$color_font2;
 						font:{size:em(20);weight:bold;}
 					}
+					@include media($tabletLandTonotebook){
+						@include pad(em(40));
+					}
 				}
 				.red-title{
 					@include pad(em(10));
@@ -863,6 +870,9 @@
 						font:{size:em(14)}
 						color:$color_grey2;
 						@include pad(em(3) 0 0);
+					}
+					@include media($tabletLandTonotebook){
+						@include pad(em(40));
 					}
 				}
 				.rs-inscription{
@@ -1012,7 +1022,13 @@
 						background:{color:$color_font2;}
 						margin:{bottom:0;}
 					}
+					@include media($tabletLandTonotebook){
+						@include pad(em(40));
+					}
 				}
+			}
+			@include media($tabletLandTonotebook){
+				@include outer-container();
 			}
 		}
 	}
@@ -1114,6 +1130,6 @@
 	    	bottom: 0;
 			top:0;
 			z-index:1;
-	  }
+	  	}
 	}
 }

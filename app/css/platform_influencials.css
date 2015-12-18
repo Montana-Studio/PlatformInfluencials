@@ -1471,7 +1471,8 @@ main {
         margin-right: auto;
         color: #656b79;
         font-size: 18px;
-        font-weight: normal; }
+        font-weight: normal;
+        max-width: 60.625em; }
         .dashboard-agencia .sub-titulo::after, .dashboard-ipe .sub-titulo::after, .campanas-ipe .sub-titulo::after, .crear-campanas .sub-titulo::after, .campanas .sub-titulo::after, .influenciador-publico .sub-titulo::after {
           clear: both;
           content: "";
@@ -1496,6 +1497,9 @@ main {
     border-bottom-left-radius: 0.625em;
     border-bottom-right-radius: 0.625em;
     background-color: #fff; }
+    @media screen and (min-width: 64em) and (max-width: 90em) {
+      .dashboard-ipe #imagenform-ipe #tabscontent .tabpage:first-child, .campanas-ipe #imagenform-ipe #tabscontent .tabpage:first-child {
+        padding: 2.5em; } }
 
 .creadas .recientes {
   display: block;
@@ -2030,7 +2034,7 @@ main {
   margin-right: 2.35765%;
   width: 65.88078%;
   position: absolute;
-  z-index: 8;
+  z-index: 10;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -2545,6 +2549,9 @@ main {
         font-weight: bold; }
         #imagenform-ipe #tabscontent .tabpage #redesociales .total_reach .total-number:last-child {
           margin-right: 0; }
+      @media screen and (min-width: 64em) and (max-width: 90em) {
+        #imagenform-ipe #tabscontent .tabpage #redesociales .total_reach {
+          padding: 2.5em; } }
     #imagenform-ipe #tabscontent .tabpage #redesociales .red-title {
       padding: 0.625em;
       display: block;
@@ -2612,6 +2619,9 @@ main {
         padding: 0.1875em 0 0; }
         #imagenform-ipe #tabscontent .tabpage #redesociales .red-title .red-name:last-child {
           margin-right: 0; }
+      @media screen and (min-width: 64em) and (max-width: 90em) {
+        #imagenform-ipe #tabscontent .tabpage #redesociales .red-title {
+          padding: 2.5em; } }
     #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription {
       display: block;
       border-bottom-left-radius: 0.625em;
@@ -2809,6 +2819,18 @@ main {
         margin-bottom: 0; }
         #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription html body.formularios-registro .cont_formRegistro .cont-inputs #guardar:last-child, html body.formularios-registro .cont_formRegistro .cont-inputs #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #guardar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.ingreso_eleccion #tipo .btns_accesos:last-child, main.ingreso_eleccion #tipo #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns_accesos:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #inicio .btns_accesos:last-child, main.form_agencias #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns_accesos:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso #ingresar:last-child, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm #ingresar:last-child, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso .fb_btn:last-child, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm .fb_btn:last-child, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso .lk_btn:last-child, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm .lk_btn:last-child, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm #registrarse:last-child, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #registrarse:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .recientes .content .jfilestyle:last-child, .creadas .recientes .content #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .jfilestyle:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .recientes .content .guardar-campana:last-child, .creadas .recientes .content #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .guardar-campana:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .volver:last-child, .creadas #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .volver:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .volver-campana:last-child, .creadas #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .volver-campana:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .no-campana .hrefCamp .btn_crearcamp:last-child, .no-campana .hrefCamp #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btn_crearcamp:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #imagenform #inicio #guardarFacturacion:last-child, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #guardarFacturacion:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #imagenform #inicio .cancel-data:last-child, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .cancel-data:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #campanaForm-nueva-campana .jfilestyle:last-child, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .jfilestyle:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #campanaForm-nueva-campana .guardar:last-child, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .guardar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .influenciador-publico #opc_cot:last-child, .influenciador-publico #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #opc_cot:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .influenciador-publico #cotizar_influenciador:last-child, .influenciador-publico #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #cotizar_influenciador:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .influenciador-publico .influenciadores .contactarForm .access-ipe .ver_perfil_influenciador:last-child, .influenciador-publico .influenciadores .contactarForm .access-ipe #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .ver_perfil_influenciador:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .influenciador-publico .influenciadores .contactarForm .access-ipe .perfil_influenciador:last-child, .influenciador-publico .influenciadores .contactarForm .access-ipe #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .perfil_influenciador:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .influenciador-publico .influenciadores .contactarForm .access-ipe .volver_ver_perfil_influenciador:last-child, .influenciador-publico .influenciadores .contactarForm .access-ipe #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .volver_ver_perfil_influenciador:last-child {
           margin-right: 0; }
+      @media screen and (min-width: 64em) and (max-width: 90em) {
+        #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription {
+          padding: 2.5em; } }
+    @media screen and (min-width: 64em) and (max-width: 90em) {
+      #imagenform-ipe #tabscontent .tabpage {
+        max-width: 68em;
+        margin-left: auto;
+        margin-right: auto; }
+        #imagenform-ipe #tabscontent .tabpage::after {
+          clear: both;
+          content: "";
+          display: table; } }
 #imagenform-ipe .header-ipe {
   background-position: center;
   background-size: cover;
@@ -2931,15 +2953,6 @@ main {
 @media screen and (min-width: 64em) and (max-width: 90em) {
   .crear-campanas {
     background-color: #eeeef0; } }
-@media screen and (min-width: 64em) and (max-width: 90em) {
-  .crear-campanas .sub-titulo {
-    max-width: 68em;
-    margin-left: auto;
-    margin-right: auto; }
-    .crear-campanas .sub-titulo::after {
-      clear: both;
-      content: "";
-      display: table; } }
 .crear-campanas nav ul li {
   border-bottom: 1px solid #c7c7c7; }
   .crear-campanas nav ul li a {
@@ -3123,9 +3136,11 @@ main {
         float: left;
         display: block;
         margin-right: 2.35765%;
-        width: 48.82117%;
+        width: 23.23176%;
         margin-right: 0;
-        padding: 2.35765%; }
+        padding: 2.35765%;
+        padding-left: 0;
+        padding-right: 0; }
         #campanaForm-nueva-campana .upload-deskt:last-child {
           margin-right: 0; }
       #campanaForm-nueva-campana .guardar {
@@ -3135,7 +3150,51 @@ main {
         width: 31.76157%;
         margin-left: 66.53247%; }
         #campanaForm-nueva-campana .guardar:last-child {
-          margin-right: 0; } }
+          margin-right: 0; }
+      #campanaForm-nueva-campana .redes-select {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 23.23176%;
+        padding: 2.35765%;
+        padding-left: 0;
+        padding-right: 0; }
+        #campanaForm-nueva-campana .redes-select:last-child {
+          margin-right: 0; }
+        #campanaForm-nueva-campana .redes-select .red-cont {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 100%;
+          margin: 5px 0;
+          padding: 5px;
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+          border-bottom-left-radius: 5px;
+          border-top-left-radius: 5px;
+          border-bottom-right-radius: 5px;
+          border-top-right-radius: 5px;
+          border-bottom-left-radius: 5px;
+          border-bottom-right-radius: 5px;
+          border: 1px solid #c7c7c7; }
+          #campanaForm-nueva-campana .redes-select .red-cont:last-child {
+            margin-right: 0; }
+          #campanaForm-nueva-campana .redes-select .red-cont .name-red {
+            float: left;
+            display: block;
+            margin-right: 2.35765%;
+            width: 74.41059%;
+            margin: 0; }
+            #campanaForm-nueva-campana .redes-select .red-cont .name-red:last-child {
+              margin-right: 0; }
+          #campanaForm-nueva-campana .redes-select .red-cont .check-red {
+            float: left;
+            display: block;
+            margin-right: 2.35765%;
+            width: 23.23176%;
+            margin: 0; }
+            #campanaForm-nueva-campana .redes-select .red-cont .check-red:last-child {
+              margin-right: 0; } }
 
 .campanas {
   padding: 0 0 20px; }
@@ -3182,6 +3241,17 @@ main {
       font-family: 'FontAwesome';
       content: "\f07a";
       margin-right: 0.3125em; }
+    @media screen and (min-width: 64em) and (max-width: 90em) {
+      .influenciador-publico #cotizar_influenciador {
+        max-width: 68em;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 31.25em;
+        margin-top: 20px; }
+        .influenciador-publico #cotizar_influenciador::after {
+          clear: both;
+          content: "";
+          display: table; } }
   .influenciador-publico #campanas-postulables {
     position: relative;
     overflow: hidden;
@@ -3256,7 +3326,7 @@ main {
             float: left;
             display: block;
             margin-right: 2.35765%;
-            width: 10.43705%; }
+            width: 14.70196%; }
             .influenciador-publico .influenciadores .contactarForm .mask-imguser:last-child {
               margin-right: 0; } }
       .influenciador-publico .influenciadores .contactarForm .info-influ {
@@ -3330,12 +3400,21 @@ main {
               text-transform: uppercase; }
               .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach span:first-child:last-child, .influenciador-publico .influenciadores .contactarForm .info-influ .access-ipe .rrss_reachs span:first-child:last-child, .influenciador-publico .influenciadores .contactarForm .access-ipe .info-influ .rrss_reachs span:first-child:last-child {
                 margin-right: 0; }
+              @media screen and (min-width: 64em) and (max-width: 90em) {
+                .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach span:first-child, .influenciador-publico .influenciadores .contactarForm .info-influ .access-ipe .rrss_reachs span:first-child, .influenciador-publico .influenciadores .contactarForm .access-ipe .info-influ .rrss_reachs span:first-child {
+                  float: left;
+                  display: block;
+                  margin-right: 2.35765%;
+                  width: 6.17215%; }
+                  .influenciador-publico .influenciadores .contactarForm .info-influ .rrss_reach span:first-child:last-child, .influenciador-publico .influenciadores .contactarForm .info-influ .access-ipe .rrss_reachs span:first-child:last-child, .influenciador-publico .influenciadores .contactarForm .access-ipe .info-influ .rrss_reachs span:first-child:last-child {
+                    margin-right: 0; } }
         @media screen and (min-width: 64em) and (max-width: 90em) {
           .influenciador-publico .influenciadores .contactarForm .info-influ {
             float: left;
             display: block;
             margin-right: 2.35765%;
-            width: 70.14568%; }
+            width: 65.88078%;
+            margin-top: 20px; }
             .influenciador-publico .influenciadores .contactarForm .info-influ:last-child {
               margin-right: 0; } }
       .influenciador-publico .influenciadores .contactarForm .cotizar-opt {
@@ -3377,9 +3456,15 @@ main {
             float: left;
             display: block;
             margin-right: 2.35765%;
-            width: 8.73109%; }
+            width: 9.58407%;
+            margin-left: 5.11788%;
+            margin-top: 30px; }
             .influenciador-publico .influenciadores .contactarForm .cotizar-opt:last-child {
-              margin-right: 0; } }
+              margin-right: 0; }
+            .influenciador-publico .influenciadores .contactarForm .cotizar-opt:nth-child(3n) {
+              margin-right: 0; }
+            .influenciador-publico .influenciadores .contactarForm .cotizar-opt:nth-child(3n+1) {
+              clear: left; } }
       .influenciador-publico .influenciadores .contactarForm .access-ipe {
         float: left;
         display: block;
@@ -3443,9 +3528,6 @@ main {
             color: #ee0f0f; }
           .influenciador-publico .influenciadores .contactarForm .access-ipe .rrss i.fa-google-plus {
             color: #ee0f0f; }
-      @media screen and (min-width: 64em) and (max-width: 90em) {
-        .influenciador-publico .influenciadores .contactarForm {
-          margin-right: 0; } }
     @media screen and (min-width: 64em) and (max-width: 90em) {
       .influenciador-publico .influenciadores {
         max-width: 68em;
@@ -3458,8 +3540,6 @@ main {
           display: table; } }
   @media screen and (min-width: 64em) and (max-width: 90em) {
     .influenciador-publico {
-      background-color: #c7c7c7; }
-      .influenciador-publico .sub-titulo {
-        max-width: 60.625em; } }
+      background-color: #eeeef0; } }
 
 /*# sourceMappingURL=platform_influencials.css.map */
