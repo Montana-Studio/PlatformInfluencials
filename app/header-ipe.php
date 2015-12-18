@@ -27,10 +27,10 @@
 			<meta name="msapplication-TileImage" content="img/mstile-144x144.png" />
 
 			<link rel="stylesheet" href="css/platform_influencials.css">
-			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+			<link rel="stylesheet" href="css/font-awesome.min.css">
 
-			<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-			<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+			<script type="text/javascript" src="js/jquery.min.js"></script>
+			<script async type="text/javascript" src="js/jquery-ui.min.js"></script>
 		';
 	}
 
@@ -56,7 +56,7 @@
 			});
 		</script>
 		<script src='https://apis.google.com/js/client.js?onload=googleApiClientReady'></script>
-		<script src='https://www.google.com/jsapi'></script>
+		<script async src='https://www.google.com/jsapi'></script>
 		";
 		require('conexion.php');
 		require('rrss/twitter/inc/twitteroauth.php');

@@ -74,7 +74,7 @@
 						<i class="fa fa-chevron-down"></i>
 					</div>
 					
-					<script async>
+					<script async type="text/javascript">
 						$(document).ready(function(){
 							$('#resultado').hide();
 							$('#formulario_codigo').hide();

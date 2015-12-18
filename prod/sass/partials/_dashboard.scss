@@ -33,7 +33,7 @@
 					@include borderRadius(em(10));
 					background:{color:#fff;}
 					@include media($tabletLandTonotebook){
-						@include pad(em(40));
+						@include border-top-radius(0);
 					}
 				}
 			}
@@ -676,6 +676,15 @@
 				border:{right:1px solid $color_grey}
 			}
 		}
+		@include media($tabletLandTonotebook){
+			margin:{bottom:0;top:em(10);}
+			@include pad(em(10) em(5) 0);
+			@include border-top-radius(em(10));
+			li{
+				@include span-columns(3);
+				@include omega();
+			}
+		}
 	}
 	#tabscontent{
 		@include pad(em(10) em(5));
@@ -740,13 +749,23 @@
 						@extend .style-select;
 					}
 				}
+				@include media($tabletLandTonotebook){
+					@include outer-container();
+					float:none;
+				}
 			}
 			#guardarFacturacion{
 				width:100%;
 				margin:{top:5px;}
 				background:{color: $color_font2;}
+				@include media($tabletLandTonotebook){
+					@include span-columns(3);
+					@include shift(7.5);
+				}
 			}
 			#redesociales{
+				@include span-columns(12);
+				@include row();
 				.no-rrss{
 					@include span-columns(12);
 					@include borderRadius(em(10));
@@ -812,7 +831,6 @@
 						font:{size:em(20);weight:bold;}
 					}
 					@include media($tabletLandTonotebook){
-						@include pad(em(40));
 					}
 				}
 				.red-title{
@@ -872,7 +890,8 @@
 						@include pad(em(3) 0 0);
 					}
 					@include media($tabletLandTonotebook){
-						@include pad(em(40));
+						border:{left:1px solid $color_grey;right:1px solid $color_grey;top:1px solid $color_grey;}
+						@include border-bottom-radius(0);
 					}
 				}
 				.rs-inscription{
@@ -1023,13 +1042,19 @@
 						margin:{bottom:0;}
 					}
 					@include media($tabletLandTonotebook){
-						@include pad(em(40));
+						border:{left:1px solid $color_grey;right:1px solid $color_grey;bottom:1px solid $color_grey;}
 					}
 				}
+				@include media($tabletLandTonotebook){
+					max-width:100%;
+					background:{color: #fff}
+					float:none;
+					@include border-bottom-radius(em(10));
+				}
 			}
-			@include media($tabletLandTonotebook){
-				@include outer-container();
-			}
+		}
+		@include media($tabletLandTonotebook){
+			@include pad(0);
 		}
 	}
 	.header-ipe{
@@ -1131,5 +1156,10 @@
 			top:0;
 			z-index:1;
 	  	}
+	}
+	@include media($tabletLandTonotebook){
+		#tab-examp{
+			@include pad(em(10));
+		}
 	}
 }
