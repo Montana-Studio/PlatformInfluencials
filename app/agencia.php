@@ -32,11 +32,10 @@ if(isset($_SESSION['id'])){
 	<meta name="msapplication-TileColor" content="#FFFFFF" />
 	<meta name="msapplication-TileImage" content="img/mstile-144x144.png" />
 	<link rel="stylesheet" href="css/platform_influencials.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script type="text/javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
 	<script id="facebook-sdk" src="js/facebook-login.js"></script>
-	<script src="../bower_components/vide/dist/jquery.vide.min.js"></script>
 
 </head>
 
@@ -49,6 +48,8 @@ if(isset($_SESSION['id'])){
 		echo '';
 	else
 		echo '
+
+		<script src="../bower_components/vide/dist/jquery.vide.min.js"></script>
 		<div class="video-container" data-vide-bg="mp4: video/bg_app.mp4, webm: video/bg_app.webmv, ogv: video/bg_app.ogg" data-vide-options="posterType: none,loop: true, muted: true, position: 0% 0%"></div>';
 
 	?>
@@ -94,7 +95,7 @@ if(isset($_SESSION['id'])){
 						<button id="registrarse"  type="submit">Registrarse</button>
 					</div>
 				</form>
-				<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
+				<div class="btn_close"><span><i class="pi pi-close"></i></span></div>
 			</div>
 			<div id="antiguo">
 					<h2>Ingresa con tus datos</h2>
@@ -111,7 +112,7 @@ if(isset($_SESSION['id'])){
 						<input type="password" placeholder="Contraseña" id="password" />
 						<div id="ingresar">ingresar</div>
 						<div id="alertRegistrado"></div>
-						<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
+						<div class="btn_close"><span><i class="pi pi-close"></i></span></div>
 					</form>
 					<button id="volver">volver</button>
 			</div>
@@ -135,7 +136,6 @@ if(isset($_SESSION['id'])){
 	<script type="text/javascript" async src="js/platform_influencials.min.js"></script>
 	<script type="text/javascript" src="js/form-passes.js"></script>
 	<script type="text/javascript" src="js/form-data.js"></script>
-	<script src="../bower_components/vide/dist/jquery.vide.min.js"></script>
 
 </body>
 </html>

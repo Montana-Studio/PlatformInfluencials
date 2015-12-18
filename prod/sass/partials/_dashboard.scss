@@ -806,7 +806,10 @@
 						}
 					}
 					@include media($tabletLandTonotebook){
-						@include outer-container();
+						.gph-alert{
+							@include span-columns(2);
+							@include shift(1);
+						}
 					}
 				}
 				.total_reach{
@@ -871,7 +874,9 @@
 							color:$color_grey2;
 							font:{size:em(12);}
 							@include pad(em(6) 0 0);
-							&::before{font:{family: FontAwesome;}content: "\f078";}
+						}
+						@include media($tabletLandTonotebook){
+							@include span-columns(.5);
 						}
 					}
 					&[aria-expanded="true"]{
@@ -879,7 +884,7 @@
 						@include pad(em(10) em(10) 0);
 						i{
 							&:last-child{
-								&::before{font:{family: FontAwesome;}content: "\f077";}
+								@extend .pi-arrow-top;
 							}
 						}
 					}
@@ -891,6 +896,9 @@
 						font:{size:em(14)}
 						color:$color_grey2;
 						@include pad(em(3) 0 0);
+						@include media($tabletLandTonotebook){
+							@include span-columns(11);
+						}
 					}
 					@include media($tabletLandTonotebook){
 						border:{left:1px solid $color_grey;right:1px solid $color_grey;top:1px solid $color_grey;}
@@ -917,6 +925,10 @@
 						span{
 							color:$color_font2;
 							font:{size:em(20);}
+						}
+						@include media($tabletLandTonotebook){
+							@include outer-container(em(600));
+							float:none;
 						}
 					}
 					.red-info{
@@ -1046,15 +1058,23 @@
 						display:block;
 						background:{color:$color_font2;}
 						margin:{bottom:0;}
+						@include media($tabletLandTonotebook){
+							@include outer-container();
+							max-width:em(330);
+							float:none;
+							margin:{right:auto !important;}
+						}
 					}
 					@include media($tabletLandTonotebook){
 						border:{left:1px solid $color_grey;right:1px solid $color_grey;bottom:1px solid $color_grey;}
+						margin:{right:auto !important;}
 					}
 				}
 				@include media($tabletLandTonotebook){
 					max-width:100%;
 					background:{color: #fff}
 					float:none;
+					padding:{bottom:em(20);}
 					@include border-bottom-radius(em(10));
 				}
 			}
@@ -1150,6 +1170,9 @@
 						}
 					}
 				}
+			}
+			@include media($tabletLandTonotebook){
+				display: none;
 			}
 		}
 		&:after {

@@ -27,7 +27,7 @@
 
 			<nav class="nav-ipe2">
 				<ul>
-					<li class="active">Perfil</li>
+					<li class="active"> Escritorio</li>
 					<li><a href="campanas-ipe.php">Campañas</a></li>
 				</ul>
 			</nav>
@@ -44,7 +44,7 @@
 					<div id="nombre">
 						<small>Nombre</small>
 						<input value="<?php echo $_SESSION['nombre']?>">
-						<i class="fa fa-pencil"></i>
+						<i class="pi pi-pencil"></i>
 					</div>
 					<div id="correo">
 						<small>Correo</small>
@@ -71,7 +71,7 @@
 							<option value="Región de Los Ríos">Región de Los Ríos</option>
 							<option value="Región de Arica y Parinacota">Región de Arica y Parinacota</option>
 						</select>
-						<i class="fa fa-chevron-down"></i>
+						<i class="pi pi-arrow-bottom"></i>
 					</div>
 					
 					<script async type="text/javascript">
@@ -149,13 +149,13 @@
 						<select id="comuna" >
 							<option value="<?php echo $_SESSION['comuna']?>" disabled selected><?php echo $_SESSION['comuna']?></option>
 						</select>
-						<i class="fa fa-chevron-down"></i>
+						<i class="pi pi-arrow-bottom"></i>
 					</div>
 
 					<div id="descripcion">
 						<small>Biografia</small>
 						<textarea placeholder="... descríbete en menos de 500 palabras"><?php echo $_SESSION['descripcion'] ?></textarea>
-						<i class="fa fa-pencil"></i>
+						<i class="pi pi-pencil"></i>
 					</div>
 
 					<button id="guardarFacturacion" class="btns" type="submit">Guardar</button>

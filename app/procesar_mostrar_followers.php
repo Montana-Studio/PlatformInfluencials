@@ -1,7 +1,7 @@
 <?php
 //include('rrss/rrss_keys.php');
 
-    echo '<script>
+    echo '<script async>
 	 			$(document).ready(function(){
 
 					$(".estado_rs").click(function(){
@@ -14,7 +14,7 @@
                   url: "./rrss/procesar_activar_rs.php",
                   data: "id_activar_rs="+id_activar_rs+"&estado="+estado+"&tipo="+tipo,
                   success: function(data){
-                    window.location.reload();
+                    window.location.reload("dashboard-ipe.php#fragment-2");
                   }
                 });
 

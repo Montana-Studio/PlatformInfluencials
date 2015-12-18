@@ -200,44 +200,44 @@ $(document).ready(function(){
 		});
 	}));
 		
-		$('.cont_formRegistro').on('submit',(function(e){
-			info = new FormData(this);
-			var e = document.getElementById("perfil");
-			var perfil = e.options[e.selectedIndex].value;
-			var f = document.getElementById("region");
-			var region = f.options[f.selectedIndex].value;
-			var g = document.getElementById("comuna");
-			var comuna = g.options[g.selectedIndex].value;
-			info.append('perfil',perfil);
-			info.append('region',region);
-			info.append('comuna',comuna);
-			//console.log(perfil+region+comuna);
-			$.ajax({
-				type: "POST",
-				url: "./procesar_registro_ipe_facebook.php",
-				data: info,
-				enctype: 'multipart/form-data',
-				contentType: false,
-				cache: false,
-				processData:false,
-				success: function(data){
-					//console.log('holi desde form-passes');
-					switch (data){
-						case "actualizado": alert('registro ingresado, nos contactaremos con usted');
-							                window.location.href='logout.php';
-						break;
-						case "false": alert('ingrese todos los datos');
-						break;
-					}
-
+	$('.cont_formRegistro').on('submit',(function(e){
+		info = new FormData(this);
+		var e = document.getElementById("perfil");
+		var perfil = e.options[e.selectedIndex].value;
+		var f = document.getElementById("region");
+		var region = f.options[f.selectedIndex].value;
+		var g = document.getElementById("comuna");
+		var comuna = g.options[g.selectedIndex].value;
+		info.append('perfil',perfil);
+		info.append('region',region);
+		info.append('comuna',comuna);
+		//console.log(perfil+region+comuna);
+		$.ajax({
+			type: "POST",
+			url: "./procesar_registro_ipe_facebook.php",
+			data: info,
+			enctype: 'multipart/form-data',
+			contentType: false,
+			cache: false,
+			processData:false,
+			success: function(data){
+				//console.log('holi desde form-passes');
+				switch (data){
+					case "actualizado": alert('registro ingresado, nos contactaremos con usted');
+						                window.location.href='logout.php';
+					break;
+					case "false": alert('ingrese todos los datos');
+					break;
 				}
-			})
-			return false;
+
+			}
+		})
+		return false;
 
 
-		}));
+	}));
 
-		$('.registerFormInfluenciador').on('submit',(function(e){
+	$('.registerFormInfluenciador').on('submit',(function(e){
 		e.preventDefault();
 		info = new FormData(this);
 		info.append('nuuser',$('.usernamenuevo').val());
@@ -584,7 +584,7 @@ $(document).ready(function(){
 		return false;
 	}));
 	
-		$('#imagenform-ipe').on('submit',(function (e){
+	$('#imagenform-ipe').on('submit',(function (e){
 		e.preventDefault;
 		info = new FormData(this);
 		info.append('correo',$('#correo input').val());
@@ -614,8 +614,14 @@ $(document).ready(function(){
 					console.log(info);
 					switch (info){
 						case "nuevo":$(".alertElim").fadeIn("normal",function(){
+								animaMune();
+								animaMano();
+								setInterval(function(){
+									animaMune();
+									animaMano();
+								},2800);
 								$("#boxAlert .hrefCamp h2").text("imagen cambiada");
-								$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+								//$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
 								$("#boxAlert .hrefCamp p.messageAlert").text("Imagen cambiada con exito.");
 
 								$("#boxAlert").show().animate({
@@ -659,13 +665,21 @@ $(document).ready(function(){
 						//console.log('actualiza');
 						$(".alertElim").fadeIn("normal",function(){
 								$("#boxAlert .hrefCamp h2").text("datos actualizados");
-								$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+								
+								//$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
 								$("#boxAlert .hrefCamp p.messageAlert").text("Tus datos se han actualizado, la pagina se actualizara para reflejar los cambios.");
 
 								$("#boxAlert").show().animate({
 									top:"20%",
 									opacity:1
-								},{duration:1500,easing:"easeOutBounce"});
+								},{duration:1500,easing:"easeOutBounce",complete:function(){
+									animaMune();
+									animaMano();
+									setInterval(function(){
+										animaMune();
+										animaMano();
+									},2000);
+								}});
 
 								$("#clearAlert").on("click",function(){
 									$("#boxAlert").animate({
