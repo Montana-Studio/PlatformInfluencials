@@ -32,6 +32,9 @@
 					@include pad(em(10));
 					@include borderRadius(em(10));
 					background:{color:#fff;}
+					@include media($tabletLandTonotebook){
+						@include pad(em(40));
+					}
 				}
 			}
 		}
@@ -673,10 +676,6 @@
 				border:{right:1px solid $color_grey}
 			}
 		}
-		@include media($tabletLandTonotebook){
-			@include outer-container();
-			float:none;
-		}
 	}
 	#tabscontent{
 		@include pad(em(10) em(5));
@@ -812,6 +811,9 @@
 						color:$color_font2;
 						font:{size:em(20);weight:bold;}
 					}
+					@include media($tabletLandTonotebook){
+						@include pad(em(40));
+					}
 				}
 				.red-title{
 					@include pad(em(10));
@@ -868,6 +870,9 @@
 						font:{size:em(14)}
 						color:$color_grey2;
 						@include pad(em(3) 0 0);
+					}
+					@include media($tabletLandTonotebook){
+						@include pad(em(40));
 					}
 				}
 				.rs-inscription{
@@ -1017,6 +1022,9 @@
 						background:{color:$color_font2;}
 						margin:{bottom:0;}
 					}
+					@include media($tabletLandTonotebook){
+						@include pad(em(40));
+					}
 				}
 			}
 			@include media($tabletLandTonotebook){
@@ -1123,11 +1131,5 @@
 			top:0;
 			z-index:1;
 	  	}
-	}
-  	@include media($tabletLandTonotebook){
-		.header-ipe{
-			@include outer-container();
-			float:none;
-		}
 	}
 }
