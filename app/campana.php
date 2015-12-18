@@ -1,5 +1,4 @@
 <?php include 'header.php'; ?>
-
 <?php
 	echo '<script>
 			$(document).ready(function(){
@@ -17,44 +16,33 @@
 								}
 							});
 				});
-
 				$(".btneliminar").click(function (){
 					var idEliminar = this.id;
 					var tipo = "eliminar";
-
 					$(".alertElim").fadeIn("normal",function(){
-
 							$("#boxElim .hrefCamp h2").text("Estas a punto de eliminar la campaña");
-
 							animaTrash();
-
 							setInterval(function(){
 								animaTrash();
 							},2800);
-
 							//$("#boxElim .hrefCamp i").addClass("fa-trash-o");
 							$("#boxElim .hrefCamp p").text("Si eliminas tu campaña, pederas tus datos sin posibilidad de recuperarlos.");
 							$(".siElim").text("eliminar campaña");
 							$(".noElim").text("volver");
-
 							$("#boxElim").show().animate({
 								top:"20%",
 								opacity:1
 							},{duration:1500,easing:"easeOutBounce"});
-
 							$(".siElim").on("click",function(){
-
 								$.ajax({
 									type: "POST",
 									url: "procesar_eliminar-campana.php",
 									data: "idEliminar="+idEliminar+"&tipo="+tipo,
-
 									success: function(data){
 										window.location.reload();
 									}
 								});
 							});
-
 							$(".noElim").on("click",function(){
 								$("#boxElim").animate({
 									top:"-100px",
@@ -65,17 +53,12 @@
 								}});
 							});
 					});
-
 					return false;
-
 				});
-
 				var foto;
 				$(".file").click(function (){
 					foto = "1";
 				});
-
-
 				var idAgencia = '.$_SESSION["id"].';
 				var correo ="'.$_SESSION["correo"].'";
 				var rsid ="'.$_SESSION["rsid"].'";
@@ -106,27 +89,22 @@
 							contentType: false,
 							cache: false,
 							processData:false,
-
 						success: function(data){
 								switch (data){
 									case "nuevo":$(".alertElim").fadeIn("normal",function(){
 													$("#boxAlert .hrefCamp h2").text("Campaña editada con exito");
-
 													animaMune();
 													animaMano();
 													setInterval(function(){
 														animaMune();
 														animaMano();
 													},2800);
-
 													//$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
 													$("#boxAlert .hrefCamp p.messageAlert").text("Puedes seguir editando o crear más campañas.");
-
 													$("#boxAlert").show().animate({
 														top:"20%",
 														opacity:1
 													},{duration:1500,easing:"easeOutBounce"});
-
 													$("#clearAlert").on("click",function(){
 														$("#boxAlert").animate({
 															top:"-100px",
@@ -142,12 +120,10 @@
 													$("#boxAlert .hrefCamp h2").text("algo anda mal");
 													$("#boxAlert .hrefCamp i").addClass("fa-warning");
 													$("#boxAlert .hrefCamp p.messageAlert").text("Formato no corresponde o el peso supera los 200kb");
-
 													$("#boxAlert").show().animate({
 														top:"20%",
 														opacity:1
 													},{duration:1500,easing:"easeOutBounce"});
-
 													$("#clearAlert").on("click",function(){
 														$("#boxAlert").animate({
 															top:"-100px",
@@ -161,43 +137,28 @@
 									break;
 								}
 						}
-
 					});
-
 				}));
-
 				$(".ir_a_cotizar_influenciador").click(function(){
 					var campana_seleccionada=this.id;
 					var campana_seleccionada_id=this.name;
 					//alert(campana_seleccionada_id);
-
 					window.location.replace("influenciador-publico.php?campana="+campana_seleccionada+"&id="+campana_seleccionada_id);
 					//location.href("influenciador-publico.php?"+campana_seleccionada);
-
 				});
-
-
 			});
 		</script>';
 	if ($num_rows > 0){
 		echo '<h2 class="sub-titulo">campañas activas</h2><div class="creadas">';
-
 	do{
 		echo '
 		<div class="recientes">
-
 					<div class="cont-campana">
-
 							<div class="bg-campana" style="background-image:url('.$row[3].');">
-
 								<h3>'.$row[1].'<span>by '.$row[4].'</span></h3>
-
 								<div class="edit-campana" style="display:none;float:left;clear:both;"></div>
-
 							</div>
-
 							<div class="ver-mas"><span><i class="fa fa-angle-down"></i><i class="fa fa-plus"></i></span></div>
-
 							<div class="content">
 								<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
 								<form class="campanaForm" id="'.$row[0].'">
@@ -212,13 +173,10 @@
 									<div class="inputs-campana nombre nombre-campana" id="'.$row[0].'">
 										<input placeholder="'.$row[1].'" disabled />
 									</div>
-
 									<div class="inputs-campana marca marca-campana" id="'.$row[0].'">
 										<input  placeholder="by '.$row[4].'" disabled />
 									</div>
-
 									<span class="campa-ico activada"><i class="fa fa-cog"></i>Activada</span>
-
 									
 									<span class="campa-ico fecha-activada">
 										<i class="fa fa-calendar"> Inicio </i><span>'.$row[7].'</span> al <span>'.$row[8].'</span>
@@ -231,20 +189,14 @@
 									<div id="redes_sociales_campana_"'.$row[0].'">';
 									//echo $row[0];
 										require('procesar_mostrar_reach_campana.php');
-
 							echo	'</div>
-
 									<!--button class="guardar-campana" type="submit" id="guardar-campana-'.$row[0].'">Guardar Cambios en '.$row[1].'</button-->
-
 								</form>
-
 								<div class="img-compana-deskt hide">
 									<img src="'.$row[3].'"/>
 								</div>
 							</div>
-
 					</div>
-
 				</div>
 		';
 	}while($row = mysqli_fetch_row($result));
@@ -252,55 +204,42 @@
 	}
 	if ($num_rows2 > 0){
 		echo '<h2 class="sub-titulo">campañas inactivas</h2><div class="creadas">';
-
 	do{
 		echo '
 			<div class="recientes">
 				<div class="cont-campana">
-
 					<div class="bg-campana" style="background-image:url('.$row2[3].');">
-
 						<h3>'.$row2[1].'<span>by '.$row2[4].'</span></h3>
-
 					</div>
-
 					<div class="ver-mas">
 						<span>
 							<i class="fa"></i>
 						</span>
 					</div>
-
 					<div class="content">
 						<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
 						<form class="campanaForm" id="'.$row2[0].'">
-
 							<ul class="tools-campana">
 								<li class="cotizar-campana"><i class="tool-ico fa fa-users"></i><a class="tool-txt ir_a_cotizar_influenciador" name="'.$row2[0].'" id="'.$row2[1].'">cotizar</a></li>
 								<li class="edit-campanas"><i class="tool-ico fa fa-pencil"></i><span class="tool-txt"> editar</span></li>
 								<li class="activar-campana" id="'.$row2[0].'" name="0"><i class="tool-ico fa fa-check"></i><span class="tool-txt"> activar</span></li>
 								<li class="btneliminar" id="'.$row2[0].'"><i class="tool-ico fa fa-trash-o"></i><span class="tool-txt"> eliminar</span></li>
 							</ul>
-
 							<div class="inputs-campana nombre" id="nombre-campana-'.$row2[0].'">
 								<input placeholder="'.$row2[1].'" class="nombre-input" disabled></input>
 								<i class="fa fa-pencil"></i>
 							</div>
-
 							<div class="inputs-campana marca" id="marca-campana-'.$row2[0].'">
 								 <input placeholder="by '.$row2[4].'" disabled></input>
 								 <i class="fa fa-pencil"></i>
 							</div>
-
 							<span class="campa-ico"><i class="fa fa-cog"></i>Desactivada</span>
-
 							<span class="campa-ico">
 								<i class="fa fa-calendar"></i>
 								Fecha de término 
 								<input class="fecha_termino" type="text" id="datepicker" value="'.$row2[8].'">
 								<i class="fecha-edit fa fa-pencil"></i>
 							</span>
-
-
 							<div class="inputs-campana descripcion" id="descripcion-campana-'.$row2[0].'">
 								<textarea placeholder="descripcion" disabled>'.$row2[2].'</textarea>
 								<i class="fa fa-pencil"></i>
@@ -312,28 +251,20 @@
 								});
 							</script>
 							<input type="file" name="file" class="jfilestyle upload-img-campana file" data-input="false" id="file'.$row2[0].'" data-buttonText="subir archivo"/>
-
 							<button class="guardar-campana" type="submit" id="guardar-campana-'.$row2[0].'">Guardar Campaña</button>
-
 						</form>
-
 						<div class="img-compana-deskt hide">
 							<img src="'.$row2[3].'"/>
 						</div>
-
 					</div>
-
 				</div>
 			</div>
-
-
 		';
 	}while($row2 = mysqli_fetch_row($result2));
 	echo '</div>';
 	}
 ?>
 </div>
-
 <?php
 	if($num_rows == 0 && $num_rows2 == 0){
 		echo '<main class="no-campana"><a href="nueva-campana.php" class="hrefCamp"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes crear una nueva, creala aquí.</p><div class="btn_crearcamp">crear campaña</div></a></main>';
@@ -349,8 +280,6 @@
 			<button>Enviar</button>
 		</div>
 	</div>
-
 	<?php include 'footer.php'; ?>
-
 </body>
 </html>

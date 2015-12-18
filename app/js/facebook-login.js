@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 
-	var app_id = '973652052702468';
+	var app_id = '979526535448353';
 	var scopes= 'email,user_friends,manage_pages';
 	var name;
 	var email;

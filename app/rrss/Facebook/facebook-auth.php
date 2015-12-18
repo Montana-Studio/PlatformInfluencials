@@ -132,7 +132,7 @@
 			        	var facebook_page_id = response.data[i].id;
 			        	   $.ajax({
 					            type: "POST",
-					            url: "./rrss/Facebook/procesar_facebook.php",
+					            url: "./rrss/facebook/procesar_facebook.php",
 					            data: "facebook_page_id="+facebook_page_id,
 					            success: function(data){
 									if(data == 'exito'){

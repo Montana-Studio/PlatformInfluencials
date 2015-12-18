@@ -18,7 +18,6 @@ for($i=0;$i<count($redes_sociales);$i++){
    		$facebook_likes_total=0;
    		$facebook_comments_total=0;
    		$num_row_facebook_asociado_campana= mysqli_num_rows($result_facebook_asociado_campana);
-
 		if($num_row_facebook_asociado_campana>0){
 			echo '<ul>';
 	   		do{
@@ -28,22 +27,18 @@ for($i=0;$i<count($redes_sociales);$i++){
 		        $json_user= file_get_contents($json_user_url);
 		        $links_user_url= json_decode($json_user);
 		        $json_user_url1="https://graph.facebook.com/".end($facebook_post_id)."/comments?access_token=".$facebookAppId."|".$facebookKey."";
-
 		        $json_user_url1 = str_replace(" ", "%20", $json_user_url1);
 		        $json_user1= file_get_contents($json_user_url1);
 		        $links_user_url1= json_decode($json_user1);
 		        echo $json_user_url1;
 				$facebook_likes_total+=count($links_user_url->data);
 				$facebook_comments_total+=count($links_user_url1->data);
-
 	   		}while($row_facebook_asociado_campana = mysqli_fetch_array($result_facebook_asociado_campana));
 	   		echo '<li> Likes :'.$facebook_likes_total.'</li>';
 			echo '<li> Comments :'.$facebook_comments_total.'</li>';
 			echo '</ul>';
 		}
    		
-
-
 	}
 	if($redes_sociales[$i]=='instagram'){
 		
@@ -51,7 +46,6 @@ for($i=0;$i<count($redes_sociales);$i++){
 		$result_instagram_asociado_campana=mysqli_query($mysqli,$query_instagram_asociado_campana)or die (mysqli_error());
 		$row_instagram_asociado_campana= mysqli_fetch_array($result_instagram_asociado_campana, MYSQLI_BOTH);
 		$num_row_instagram_asociado_campana= mysqli_num_rows($result_instagram_asociado_campana);
-
 		if($num_row_instagram_asociado_campana>0){
 			echo '<ul>';
 			$instagram_likes_total=0;
@@ -63,7 +57,6 @@ for($i=0;$i<count($redes_sociales);$i++){
 				$media_id = $apiObj['media_id']; 
 				$instagram_id = $row_instagram_asociado_campana['rrss_id'];
 				$query_instagram_rrss= "SELECT DISTINCT * FROM rrss WHERE rrss_id=".$instagram_id;
-
 				$result_instagram_rrss=mysqli_query($mysqli,$query_instagram_rrss)or die (mysqli_error());
 				$row_instagram_rrss= mysqli_fetch_array($result_instagram_rrss, MYSQLI_BOTH); 
 				$access_token = $row_instagram_rrss['access_token'];
@@ -74,24 +67,18 @@ for($i=0;$i<count($redes_sociales);$i++){
 				$instagram_comments_total+=$instagram_post_comments;
 				$instagram_likes_total+=$instagram_post_likes;
 			}while($row_instagram_asociado_campana = mysqli_fetch_array($result_instagram_asociado_campana));
-
 			echo '<li> Likes :'.$instagram_likes_total.'</li>';
 			echo '<li> Comments :'.$instagram_comments_total.'</li>';
 			echo '</ul>';
 		}
 		
-		
-		  
-		
 	}
 	if($redes_sociales[$i]=='twitter'){
 		
-
 		$query_twitter_asociado_campana= "SELECT DISTINCT * FROM campanarrss WHERE campana_id=".$row[0]." AND descripcion_rrss='twitter'";
 		$result_twitter_asociado_campana=mysqli_query($mysqli,$query_twitter_asociado_campana)or die (mysqli_error());
 		$row_twitter_asociado_campana= mysqli_fetch_array($result_twitter_asociado_campana, MYSQLI_BOTH);
 		$num_row_twitter_asociado_campana= mysqli_num_rows($result_twitter_asociado_campana);
-
 		if($num_row_twitter_asociado_campana>0){
 			echo '<ul>';
 			$twitter_retweet_total=0;
@@ -122,7 +109,6 @@ for($i=0;$i<count($redes_sociales);$i++){
 		        $twitter_favorite=$data1["favorite_count"];
 		        $twitter_retweet_total+=$twitter_retweet;
 		        $twitter_favorite_total+=$twitter_favorite;
-
 				
 				
 			}while($row_twitter_asociado_campana = mysqli_fetch_array($result_twitter_asociado_campana));
@@ -138,7 +124,6 @@ for($i=0;$i<count($redes_sociales);$i++){
 		$result_youtube_asociado_campana=mysqli_query($mysqli,$query_youtube_asociado_campana)or die (mysqli_error());
 		$row_youtube_asociado_campana= mysqli_fetch_array($result_youtube_asociado_campana, MYSQLI_BOTH);
 		$num_row_youtube_asociado_campana= mysqli_num_rows($result_youtube_asociado_campana);
-
 		if($num_row_youtube_asociado_campana>0){
 			echo '<ul>';
 			$youtube_videos_total=0;
@@ -173,7 +158,6 @@ for($i=0;$i<count($redes_sociales);$i++){
         $googleplus_resharers_total=0;
         $googleplus_replies=0;
         $num_row_googleplus_asociado_campana= mysqli_num_rows($result_googleplus_asociado_campana);
-
 		if($num_row_googleplus_asociado_campana>0){
 	        echo '<ul>';
 	        do{
@@ -204,6 +188,5 @@ for($i=0;$i<count($redes_sociales);$i++){
 		
 	}
 	echo '</ul>';
-
 }
 ?>
