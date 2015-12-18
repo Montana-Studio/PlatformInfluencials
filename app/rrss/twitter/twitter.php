@@ -86,8 +86,8 @@ include_once('../rrss_keys.php'); //llamada de keys desde nuevo archivo
                 $result= mysqli_query($mysqli,$query)or die(mysqli_error());
                 //echo '<script> alert("gracias por registrar su cuenta");</script>';
                 //flush();
-                echo '<script>alert("gracias por registrar su cuenta");
-                         window.location="../../dashboard-ipe.php";</script>';
+                /*echo '<script>alert("gracias por registrar su cuenta");
+                         window.location="../../dashboard-ipe.php";</script>';*/
 
 
             }

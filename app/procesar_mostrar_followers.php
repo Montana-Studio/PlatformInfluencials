@@ -67,7 +67,7 @@
       <h3>".$username."</h3>
       <ul>
       <li><img src='".$avatar."'/></li>
-      <li>Followers<br><span>".(int)$followers_instagram."</span></li>
+      <li>Followers<br><span>".formato_numeros_reachs($followers_instagram)."</span></li>
       </ul>
       <!--button type='checkbox' class='btn".$estado_descripcion." estado_rs cmn-toggle' name='".$estado."' id='".$row3[3]."'>".$estado_descripcion."</button-->
       <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
@@ -140,7 +140,7 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
           <h3>".$username."</h3>
           <ul>
             <li><img src='".$avatar."'/></li>
-            <li>Followers<br><span>".(int)$followers_count1."</span></li>
+            <li>Followers<br><span>".formato_numeros_reachs($followers_count1)."</span></li>
           </ul>
           <!--button type='checkbox' class='btn".$estado_descripcion." estado_rs cmn-toggle' name='".$estado."' id='".$row3[3]."'>".$estado_descripcion."</button-->
           <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
@@ -234,7 +234,7 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
         <h3>".$youtubeName."</h3>
         <ul>
         <li><img src='".$youtubeImgUrl."'/></li>
-        <li>Suscriptos<br><span>".(int)$youtubeSubscribers."</span></li>
+        <li>Suscriptos<br><span>".formato_numeros_reachs($youtubeSubscribers)."</span></li>
         </ul>
         <!--button class='estado_rs' name='".$estado."' id='".$row5[3]."'>".$estado_descripcion."</button-->
        <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
@@ -288,8 +288,8 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
             <h3>".$facebookUsername."</h3>
             <ul>
             <li><img src='".$facebookImgUrl."'/></li>
-            <li>Likes <br/><span>".(int)$facebookLikes."</span></li>
-            <li>Gente hablando <br/><span>".$facebookTalkingAbout."</span></li>
+            <li>Likes <br/><span>".formato_numeros_reachs($facebookLikes)."</span></li>
+            <li>Gente hablando <br/><span>".formato_numeros_reachs($facebookTalkingAbout)."</span></li>
             <!--li><a href=".$facebookWebsite.">ver sitio</a></li-->
             </ul>
             <!--button class='estado_rs' name='".$estado."' id='".$facebookPage."'>".$estado_descripcion."</button-->
@@ -346,7 +346,7 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
           <div class='red-info'>
           <h3>".$googleplusName."</h3>
           <ul>
-          <li>Followers<br><span>".(int)$googleplusSubscriber."</span></li>
+          <li>Followers<br><span>".formato_numeros_reachs($googleplusSubscriber)."</span></li>
           </ul>
           <!--button class='estado_rs' name='".$estado."' id='".$googleplusId."'>".$estado_descripcion."</button-->
           <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
@@ -427,7 +427,7 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
             <div class='tit-analytics'>
               <h3>".$row9[6]."</h3> <small>reach total</small>
             </div>
-            <div class='reach-analytics'>".$reach_page."</div>
+            <div class='reach-analytics'>".formato_numeros_reachs($reach_page)."</div>
               <script type='text/javascript'>
                 google.load('visualization', '1', {packages:['corechart']});
 

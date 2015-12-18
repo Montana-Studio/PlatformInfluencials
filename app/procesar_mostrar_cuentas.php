@@ -21,7 +21,7 @@
 					</div>
 				</h2>';
 		}else{
-			echo '<div class="total_reach"><span><h2>Reach actual</h2><small>Alcance total de tus redes sociales</small></span><div class="total-number">'.(int)$suma.'</div></div>';
+			echo '<div class="total_reach"><span><h2>Reach actual</h2><small>Alcance total de tus redes sociales</small></span><div class="total-number">'.formato_numeros_reachs($suma).'</div></div>';
 		}
 	?>
 	
@@ -30,7 +30,7 @@
 		
 		<?php
 			if($num_row6 > 0){
-				echo '<div class="reach-total">facebook reach <span>'.(int)$suma_facebook.'</span></div>';
+				echo '<div class="reach-total">facebook reach <span>'.formato_numeros_reachs($suma_facebook).'</span></div>';
 				echo $_SESSION['facebook'];
 			}
 		?>
@@ -41,7 +41,7 @@
 	<div class="rs-inscription">
 		<?php
 			if($num_row3 > 0){
-				echo '<div class="reach-total">instagram reach <span>'.(int)$suma_instagram.'</span></div>';
+				echo '<div class="reach-total">instagram reach <span>'.formato_numeros_reachs($suma_instagram).'</span></div>';
 				echo $_SESSION['instagram'];
 	  		}
 		?>
@@ -53,7 +53,7 @@
 		
 		<?php
 			if($num_row4 > 0){
-				echo '<div class="reach-total">twitter reach <span>'.(int)$suma_twitter.'</span></div>';
+				echo '<div class="reach-total">twitter reach <span>'.formato_numeros_reachs($suma_twitter).'</span></div>';
 				echo $_SESSION['twitter'];
 			}
 		?>
@@ -67,7 +67,7 @@
 			if($num_row9 > 0){
 				echo '<div class="reach-total">
 					analytics reach 
-					<span>'.(int)$suma_analytics.'</span>
+					<span>'.formato_numeros_reachs($suma_analytics).'</span>
 				</div>';
 				echo $_SESSION['analytics'];
 
@@ -81,7 +81,7 @@
 		
 		<?php
 			if($num_row5 > 0){
-				echo '<div class="reach-total">youtube reach <span>'.(int)$suma_youtube.'</span></div>';
+				echo '<div class="reach-total">youtube reach <span>'.formato_numeros_reachs($suma_youtube).'</span></div>';
 				echo $_SESSION['youtube'];
 			}
 		?>
@@ -93,7 +93,7 @@
 		
 		<?php
 			if($num_row7 > 0){
-				echo '<div class="reach-total">google plus reach <span>'.(int)$suma_googleplus.'</span></div>';
+				echo '<div class="reach-total">google plus reach <span>'.formato_numeros_reachs($suma_googleplus).'</span></div>';
 				echo $_SESSION['googleplus'];
 			}
 		?>
