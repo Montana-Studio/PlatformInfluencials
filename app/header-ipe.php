@@ -23,6 +23,7 @@
 			<link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
 			<link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16" />
 			<meta name="application-name" content="Power Influencer"/>
+			<base href="http://local.mediatrends/_InfluencialsPlatform/htdocs/app/dashboard-ipe.php">
 			<meta name="msapplication-TileColor" content="#FFFFFF" />
 			<meta name="msapplication-TileImage" content="img/mstile-144x144.png" />
 
@@ -35,6 +36,9 @@
 	}
 
 	if(basename($_SERVER['PHP_SELF'])=='dashboard-ipe.php'){
+		require('rrss/twitter/inc/twitteroauth.php');
+		require('rrss/twitter/inc/TwitterAPIExchange.php');
+		require('rrss/rrss_keys.php');
 		muestra_header();
 
 		echo "
@@ -58,15 +62,7 @@
 		<script src='https://apis.google.com/js/client.js?onload=googleApiClientReady'></script>
 		<script async src='https://www.google.com/jsapi'></script>
 		";
-		require('conexion.php');
-		require('rrss/twitter/inc/twitteroauth.php');
-		require('rrss/twitter/inc/TwitterAPIExchange.php');
-		require('rrss/instagram/instagram.php');
-		require('rrss/Facebook/facebook-auth.php');
-		require('rrss/googleplus/auth.php');
-		require('rrss/youtube/auth.php');
-		require('rrss/analytics/procesar_analytics.php');
-		require('rrss/rrss_keys.php');
+		
 
 		if(isset($_SESSION['nombre'])==false){
 			header('Location:index.php');

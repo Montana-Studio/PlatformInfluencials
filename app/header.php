@@ -115,6 +115,9 @@
 			}
 	}
 	if(basename($_SERVER['PHP_SELF'])=='influenciador-publico.php'){
+		require('rrss/twitter/inc/twitteroauth.php');
+		require('rrss/twitter/inc/TwitterAPIExchange.php');
+		require('rrss/rrss_keys.php');
 		if(isset($_SESSION['telefono1'])==false){
 			header('Location: logout.php');
 			die();

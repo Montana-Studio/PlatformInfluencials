@@ -30,6 +30,7 @@
 	
 	//mostrar influenciadores
 	if ($num_rows > 0){
+		
 		echo '<h2 class="sub-titulo">Influenciadores</h2>
 				<div class="influenciadores">';
 		do{
@@ -56,7 +57,7 @@
 					$query_rrss_ipe="SELECT * FROM rrss WHERE persona_id='".$row[0]."' AND id_estado=1 ORDER BY descripcion_rrss";
 					$result_rrss_ipe= mysqli_query($mysqli,$query_rrss_ipe)or die(mysqli_error());
 					$row_rrss_ipe= mysqli_fetch_array($result_rrss_ipe, MYSQLI_NUM);
-					//$num_rows3= mysqli_num_rows($result_rrss_ipe);
+					// $num_rows3= mysqli_num_rows($result_rrss_ipe);
 					$reach=0;
 					do{
 						//echo $row_rrss_ipe[2];
@@ -70,7 +71,7 @@
 					        $links_user_url= json_decode($json_user);
 					        $facebookLikes =$links_user_url->likes;
 					        $reach+=$facebookLikes;
-					        $echoContentFace = '<div class="rrss" name="facebook"><i class="fa fa-facebook"></i> Facebook <span>'.$facebookLikes.'</span></div>';
+					        $echoContentFace = '<div class="rrss" name="facebook"><i class="fa fa-facebook"></i> Facebook <span>'.formato_numeros_reachs($facebookLikes).'</span></div>';
 
 						}
 
@@ -80,33 +81,32 @@
 					      $links_user_url= json_decode($json_user);
 					      $followers_instagram = $links_user_url->data->counts->followed_by;
 					      $reach+=$followers_instagram;
-						  $echoContentInsta = "<div class='rrss' 'name='instagram'><i class='fa fa-instagram'></i> Instagram <span>".$followers_instagram."</span></div>";
+					      //$echoContentInsta = "<div class='rrss' 'name='instagram'><i class='fa fa-instagram'></i> Instagram <span>".$followers_instagram."</span></div>";
+						  $echoContentInsta = "<div class='rrss' 'name='instagram'><i class='fa fa-instagram'></i> Instagram <span>".formato_numeros_reachs($followers_instagram)."</span></div>";
 
 						}
 						
 						if($row_rrss_ipe[2]=='twitter'){
-							require('rrss/twitter/inc/twitteroauth.php');
-							require('rrss/twitter/inc/TwitterAPIExchange.php');
-							$settings = array(
-							'oauth_access_token' => TWITTER_OAUTH_ACCESS_TOKEN,
-							'oauth_access_token_secret' => TWITTER_OAUTH_ACCESS_TOKEN_SECRET,
-							'consumer_key' => TWITTER_CONSUMER_KEY,
-							'consumer_secret' => TWITTER_CONSUMER_SECRET
-							);
-							$ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
-							$requestMethod = 'GET';
-							$usuario1 = $row_rrss_ipe[3];
-					        $getfield1 = '?id='.$usuario1;
-					       $twitter1 = new TwitterAPIExchange($settings);
-					        $follow_count1=$twitter1->setGetfield($getfield1)
-					        ->buildOauth($ta_url, $requestMethod)
-					        ->performRequest();
-					        $data1 = json_decode($follow_count1, true);
-					        $followers_count1=$data1[0]['user']['followers_count'];
-							$reach+=$followers_count1;	
-							$echoContentTweet = "<div class='rrss' 'name='twitter'><i class='fa fa-twitter'></i> Twitter <span>".$followers_count1."</span></div>";
-
-
+						    $settings = array(
+						      'oauth_access_token' => TWITTER_OAUTH_ACCESS_TOKEN,
+						      'oauth_access_token_secret' => TWITTER_OAUTH_ACCESS_TOKEN_SECRET,
+						      'consumer_key' => TWITTER_CONSUMER_KEY,
+						      'consumer_secret' => TWITTER_CONSUMER_SECRET
+						    );
+						    $ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
+						    $requestMethod = 'GET';
+						        $usuario1 = $row_rrss_ipe[3];
+						        $getfield1 = '?id='.$usuario1;
+						        $twitter1 = new TwitterAPIExchange($settings);
+						        $follow_count1=$twitter1->setGetfield($getfield1)
+						        ->buildOauth($ta_url, $requestMethod)
+						        ->performRequest();
+						        $data1 = json_decode($follow_count1, true);
+						        $followers_count1=$data1[0]['user']['followers_count'];
+						        $username=$data1[0]['user']['screen_name'];
+						        $avatar= $data1[0]['user']['profile_image_url'];
+						        $reach+=$followers_count1;	
+								$echoContentTweet = "<div class='rrss' 'name='twitter'><i class='fa fa-twitter'></i> Twitter <span>".formato_numeros_reachs($followers_count1)."</span></div>";
 						}
 
 						if($row_rrss_ipe[2]=='youtube'){
@@ -116,7 +116,7 @@
 					        $links_user_url= json_decode($json_user);
 					        $youtubeSubscribers = $links_user_url->items[0]->statistics->subscriberCount;
 							$reach+=$youtubeSubscribers;
-							$echoContentYou = "<div class='rrss' name='youtube'>Youtube <span>".$youtubeSubscribers."</span></div>";
+							$echoContentYou = "<div class='rrss' name='youtube'>Youtube <span>".formato_numeros_reachs($youtubeSubscribers)."</span></div>";
 
 						}
 
@@ -128,7 +128,7 @@
 					        $links_user_url= json_decode($json_user);
 					        $googleplusSubscriber =$links_user_url->circledByCount;
 							$reach+=$googleplusSubscriber;
-							$echoContentPlus = "<div class='rrss' name='gogoleplus'><i class='fa fa-googleplus'></i> Google Plus<span>".$googleplusSubscriber."</span></div>";
+							$echoContentPlus = "<div class='rrss' name='gogoleplus'><i class='fa fa-googleplus'></i> Google Plus<span>".formato_numeros_reachs($googleplusSubscriber)."</span></div>";
 						}
 						
 						if($row_rrss_ipe[2]=='analytics'){
@@ -140,7 +140,7 @@
 								$reach+=$rows_analytics_page_views[0];
 								$analyticsPageViews+=$rows_analytics_page_views[0];
 							}while($rows_analytics_page_views = mysqli_fetch_array($result_analytics_page_views	));
-						  	$echoContentAnaly = '<div class="rrss" name="analytics"><i class="fa fa-google"></i>Analytics <span>'.$analyticsPageViews.'</span></div>';
+						  	$echoContentAnaly = '<div class="rrss" name="analytics"><i class="fa fa-google"></i>Analytics <span>'.formato_numeros_reachs($analyticsPageViews).'</span></div>';
 						}
 
 
@@ -148,7 +148,7 @@
 					echo '
 						<div class="rrss_reach">
 							<span>Reach<br/>total</span>
-							<span>'.$reach.'</span>
+							<span>'.formato_numeros_reachs($reach).'</span>
 						</div>
 					</div>
 

@@ -78,11 +78,13 @@
 					$_SESSION['id']=$row[0];
 					$_SESSION['nombre']=$row[5];
 					$_SESSION['correo']=$row[6];
-					$_SESSION['telefono1']=$row[7];
-					$_SESSION['telefono2']=$row[8];
-					$_SESSION['empresa']=$row[13];
+					//$_SESSION['telefono1']=$row[7];
+					//$_SESSION['telefono2']=$row[8];
+					//$_SESSION['empresa']=$row[13];
 					$_SESSION['pictureUrl']=$row[12];
-					$_SESSION['rsid']=$row[10];
+					//$_SESSION['rsid']=$row[10];
+					$_SESSION['comuna']=$row[16];
+					$_SESSION['region']=$row[15];
 					echo 'dashboard-ipe';
 				}
 				else if($num_row2>0){

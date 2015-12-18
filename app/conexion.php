@@ -43,6 +43,23 @@ if($month == 'Dec'){
 	$month='Diciembre';
 }
 $hoyFormatted=$day." ".$month." ".$year;
+
+
+function formato_numeros_reachs($num){
+			if($num/1000000000>1){
+				$n= number_format((float)$num/1000000000,2,'.','');
+				$resultado = $n."B";
+			}else if ($num/1000000>1){
+				$n= number_format((float)$num/1000000,2,'.','');
+				$resultado = $n."M";
+			}else if($num/1000>1){
+				$n= number_format((float)$num/1000,2,'.','');
+				$resultado = $n."K";
+			}else{
+				$resultado=$num;
+			}
+			return $resultado;
+		}
 //if(substr($hoyFormatted,3,2))
 /*
 if(basename($_SERVER['PHP_SELF'])=='formulario-agencia.php'){
