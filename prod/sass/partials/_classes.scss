@@ -40,16 +40,20 @@ a{
 	margin:{bottom:10px}
 }
 .btn_close{
-	color:$color_grey;
-	font:{size:21px;}
 	position: absolute;
-	top:0;
+	top:5px;
 	right:5px;
 	display:table;
 	cursor:pointer;
 	span{
 		display: table-cell;
 		vertical-align:middle;
+		i{
+			&::before{
+				min-width: em(21);
+				width: em(21);
+			}
+		}
 	}
 }
 .crear-campana{
@@ -139,7 +143,8 @@ a{
 			margin: 30px auto;
 		}
 		#ico-handLike{
-			@extend #ico-trash;
+			width:160px;
+			margin: 0 auto;
 		}
 		svg{
 			overflow: visible;

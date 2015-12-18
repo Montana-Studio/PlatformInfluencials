@@ -25,7 +25,7 @@
 		}
 	?>
 	
-	<div class="red-title"><i class="fa fa-facebook"></i> <span class="red-name">Facebook</span> <i class="fa"></i></div>
+	<div class="red-title"><i class="pi pi-facebook"></i> <span class="red-name">Facebook</span> <i class="pi pi-arrow-bottom"></i></div>
 	<div class="rs-inscription">
 		
 		<?php
@@ -37,7 +37,7 @@
 		<div id="facebook-inscription" onclick="checkAuthFacebookPages()" class="btns">Conectar Facebook</div>
 	</div>
 
-	<div class="red-title"><i class="fa fa-instagram"></i> <span class="red-name">Instagram</span> <i class="fa"></i></div>
+	<div class="red-title"><i class="pi pi-instagram"></i> <span class="red-name">Instagram</span> <i class="pi pi-arrow-bottom"></i></div>
 	<div class="rs-inscription">
 		<?php
 			if($num_row3 > 0){
@@ -48,7 +48,7 @@
 		<div id="instagram-inscription" onclick="login()" class="btns">Conectar Instagram</div>
 	</div>
 	
-	<div class="red-title"><i class="fa fa-twitter"></i> <span class="red-name">Twitter</span> <i class="fa"></i></div>
+	<div class="red-title"><i class="pi pi-twitter"></i> <span class="red-name">Twitter</span> <i class="pi pi-arrow-bottom"></i></div>
 	<div class="rs-inscription">
 		
 		<?php
@@ -60,7 +60,7 @@
 		<a id="twitter-inscription" href="./rrss/twitter/process.php" value="<?php echo $num_row3;?>" class="btns">Conectar Twitter</a>
 	</div>
 
-	<div class="red-title"><i class="fa fa-google"></i> <span class="red-name">Analytics</span> <i class="fa"></i></div>
+	<div class="red-title"><i class="pi pi-analytics"></i> <span class="red-name">Analytics</span> <i class="pi pi-arrow-bottom"></i></div>
 	<div class="rs-inscription">
 
 		<?php
@@ -76,7 +76,7 @@
 		<div id="analytics-inscription" onclick="authorize()" class="btns">Conectar Analytics</div>
 	</div>
 
-	<div class="red-title"><i class="fa fa-youtube-play"></i> <span class="red-name">Youtube</span> <i class="fa"></i></div>
+	<div class="red-title"><i class="pi pi-youtube"></i> <span class="red-name">Youtube</span> <i class="pi pi-arrow-bottom"></i></div>
 	<div class="rs-inscription">
 		
 		<?php
@@ -88,7 +88,7 @@
 		<div id="youtube-inscription" onclick="googleApiClientReady()" class="btns">Conectar Youtube</div>
 	</div>
 
-	<div class="red-title"><i class="fa fa-google-plus"></i> <span class="red-name">Google Plus</span> <i class="fa"></i></div>
+	<div class="red-title"><i class="pi pi-googleplus"></i> <span class="red-name">Google Plus</span> <i class="pi pi-arrow-bottom"></i></div>
 	<div class="rs-inscription">
 		
 		<?php

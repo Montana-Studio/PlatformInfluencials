@@ -23,7 +23,6 @@
 			<link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
 			<link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16" />
 			<meta name="application-name" content="Power Influencer"/>
-			<base href="http://local.mediatrends/_InfluencialsPlatform/htdocs/app/dashboard-ipe.php">
 			<meta name="msapplication-TileColor" content="#FFFFFF" />
 			<meta name="msapplication-TileImage" content="img/mstile-144x144.png" />
 
@@ -112,7 +111,7 @@
 		<body>";
 	}
 
-		if(basename($_SERVER['PHP_SELF'])=='formulario-agencia3.php'){
+	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia3.php'){
 		muestra_header();
 		echo "<script src='https://apis.google.com/js/client.js?onload=googleApiClientReady'></script>";
 
@@ -133,14 +132,18 @@
 		<body>";
 	}
 
-
-
-
 ?>
 <nav class="nav-ipe">
 	<ul>
-		<li><i onClick="backHistory()" class="fa fa-chevron-left"></i></li>
+		<li><i onClick="backHistory()" class="pi pi-arrow-left"></i></li>
 		<li><h1><?php echo $_SESSION['descripcion_tipo']?></h1></li>
-		<li><a href="logout.php" class="fa fa-close"></a></li>
+		<li><a href="logout.php" class="pi pi-close"></a></li>
+	</ul>
+</nav>
+<nav class="header-ipe">
+	<ul>
+		<li><i onClick="backHistory()" class="pi pi-arrow-left"></i></li>
+		<li><a href="dashboard-ipe.php"><i class="pi pi-pencil"></i> Escritorio</a></li>
+		<li><a href="campanas-ipe.php"><i class="pi pi-bullhorn"></i> campañas</a></li>
 	</ul>
 </nav>

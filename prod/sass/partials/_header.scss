@@ -157,5 +157,11 @@ nav{
 	}
 	@include media($tabletLandTonotebook){
 		float:none;
+	}	
+	&.header-ipe{
+		@extend .hide;
+		@include media($tabletLandTonotebook){
+			display: block;
+		}
 	}
 }
