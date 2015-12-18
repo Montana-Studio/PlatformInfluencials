@@ -23,10 +23,12 @@
 			<meta name="application-name" content="Power Influencer"/>
 			<meta name="msapplication-TileColor" content="#FFFFFF" />
 			<meta name="msapplication-TileImage" content="img/mstile-144x144.png" />
+			
 			<link rel="stylesheet" href="css/platform_influencials.css">
-			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-			<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-			<script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+			<link rel="stylesheet" href="css/font-awesome.min.css">
+
+			<script type="text/javascript" src="js/jquery.min.js"></script>
+			<script type="text/javascript" src="js/jquery-ui.min.js"></script>
 				
 		</head>
 		<body>';
