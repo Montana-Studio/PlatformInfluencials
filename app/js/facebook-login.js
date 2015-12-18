@@ -114,7 +114,7 @@ $(document).ready(function(){
 		facebookCorreo=response.email;
 		var e = document.getElementById("perfil");
 		var perfil = e.options[e.selectedIndex].value;
-		console.log(perfil);
+		//console.log(perfil);
 			$.ajax({  
 		            type: "POST",  
 		            url: "./procesar_facebook.php",  
@@ -133,11 +133,12 @@ $(document).ready(function(){
 							case "formulario":  window.location.href="formulario-agencia.php";
 							break;
 							case "dashboard-ipe": window.location.href="dashboard-ipe.php";
-
 							break;
 							case "primera-ipe": window.location.href="formulario-agencia3.php";
 							break;
 							case "sin_opcion": alert('no se ha seleccionado opción');
+							break;
+							case "existe": alert('ya se encuentra registrado, lo contactaremos');
 							break;
 						}
 					}
