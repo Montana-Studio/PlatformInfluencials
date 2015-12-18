@@ -2554,6 +2554,15 @@ main {
             z-index: 1;
             width: 70px;
             height: 70px; }
+        @media screen and (min-width: 64em) and (max-width: 90em) {
+          #imagenform-ipe #tabscontent .tabpage #redesociales .no-rrss {
+            max-width: 68em;
+            margin-left: auto;
+            margin-right: auto; }
+            #imagenform-ipe #tabscontent .tabpage #redesociales .no-rrss::after {
+              clear: both;
+              content: "";
+              display: table; } }
       #imagenform-ipe #tabscontent .tabpage #redesociales .total_reach {
         display: block;
         border-top-left-radius: 0.625em;
@@ -2669,7 +2678,9 @@ main {
             border-right: 1px solid #c7c7c7;
             border-top: 1px solid #c7c7c7;
             border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0; } }
+            border-bottom-right-radius: 0; }
+            #imagenform-ipe #tabscontent .tabpage #redesociales .red-title[aria-expanded="false"] {
+              border-bottom: 1px solid #c7c7c7; } }
       #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription {
         display: block;
         border-bottom-left-radius: 0.625em;

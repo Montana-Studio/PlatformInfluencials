@@ -805,6 +805,9 @@
 							}
 						}
 					}
+					@include media($tabletLandTonotebook){
+						@include outer-container();
+					}
 				}
 				.total_reach{
 					@include row();
@@ -892,6 +895,9 @@
 					@include media($tabletLandTonotebook){
 						border:{left:1px solid $color_grey;right:1px solid $color_grey;top:1px solid $color_grey;}
 						@include border-bottom-radius(0);
+						&[aria-expanded="false"]{
+							border:{bottom:1px solid $color_grey;}
+						}
 					}
 				}
 				.rs-inscription{
