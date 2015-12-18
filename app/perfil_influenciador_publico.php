@@ -1,4 +1,4 @@
 <?php
-include('header-ipe.php');
-include('footer-ipe.php');
+include('header.php');
+include('footer.php');
 ?>

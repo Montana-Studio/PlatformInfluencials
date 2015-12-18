@@ -271,6 +271,22 @@
 					</script>";
 			}
 	}
+	if(basename($_SERVER['PHP_SELF'])=='perfil_influenciador_publico.php'){
+		if(isset($_SESSION['telefono1'])==false){
+			header('Location: logout.php');
+			die();
+		}
+		else{
+			$id=$_SESSION['id'];
+			$query="SELECT * FROM campana  WHERE idEstado=1 AND idpersona=".$id." ORDER BY id DESC LIMIT 3";
+			$result= mysqli_query($mysqli,$query)or die(mysqli_error());
+			$row= mysqli_fetch_array($result, MYSQLI_NUM);
+				//}
+			muestra_header();
+		
+		}
+	}
+
 	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia3.php'){
 		if(isset($_SESSION['id'])==false){
 				header('Location: logout.php');
