@@ -1,0 +1,230 @@
+.influenciador-publico{
+	@extend .dashboard-agencia;
+	@include pad(0 0 20px);
+	nav{
+		ul{
+			li{
+				a{color:$color_grey;}
+				border:{bottom:1px solid $color_grey;}
+				&:nth-child(4){
+					a{
+						color:$color_font2;
+					}
+					border:{bottom:2px $color_font2 inset;}
+					margin:{right:0;}
+				}
+			}
+		}
+	}
+	#opc_cot{
+		@extend .btns;
+	}
+	#cotizar_influenciador{
+		@extend .btns;
+		background:{color: $color_font2;}
+		margin:0 auto;
+		float: none;
+		&::before{
+			font:{family:'FontAwesome';}
+			content:"\f07a";
+			margin:{right:em(5);}
+		}
+		@include media($tabletLandTonotebook){
+			@include outer-container();
+			max-width:em(500);
+			margin:{top:20px;}
+		}
+	}
+	#campanas-postulables{
+		position:relative;
+		overflow:hidden;
+		@include span-columns(12);
+		small{
+			color:$color_grey;
+			@include span-columns(12);
+			@include textAligns(left);
+			font:{size:9px;}
+			text:{transform:uppercase;}
+		}
+		i{
+			position:absolute;
+			top:50px;
+			right:10px;
+			color:$color_font2;
+			z-index: 1;
+		}
+		select{
+			@extend .style-select;
+			@include pad(0 em(10));
+		}
+		@include media($tabletLandTonotebook){
+			@include outer-container();
+			float:none;
+			background:{color: #fff;}
+			margin:{top:20px}
+			@include pad(10px 0);
+		}
+	}
+	.influenciadores{
+		@include pad();
+		.contactarForm{
+			@include span-columns(12);
+			border:{bottom:1px solid $color_grey2;}
+			@include pad(0 0 10px);
+			@include row();
+			@include fill-parent();
+			margin:0 0 10px;
+			&:last-child{
+				border:none;
+			}
+			.mask-imguser{
+				@include span-columns(3 of 12);
+				margin:{top:10px;}
+				@include media($tabletLandTonotebook){
+					@include span-columns(2 of 12);
+				}
+			}
+			.info-influ{
+				@include span-columns(6 of 12);
+				color:$color_grey;
+				h2{
+					font:{size:em(15);}
+					margin:em(5) 0 em(5);
+					color:$color_grey2;
+				}
+				small{
+					@include span-columns(12);
+					clear:right;
+					font:{size:em(11);}
+					i{
+						color:$color_font2;
+					}
+
+					&.tipo{
+						text:{transform:capitalize;}
+					}
+				}
+				.redes_sociales{
+					@include span-columns(12);
+					@include row();
+					@include fill-parent();
+				}
+				.rrss_reach{
+					@include span-columns(12);
+					@include row();
+					@include fill-parent();
+					span{
+						@include span-columns(9);
+						color:$color_font2;
+						font:{size:em(23)}
+						&:first-child{
+							@include span-columns(3);
+							@include pad(6px 0 0);
+							font:{size:em(12)}
+							line:{height:em(15)}
+							text:{transform:uppercase;}
+							@include media($tabletLandTonotebook){
+								@include span-columns(1);
+							}
+						}
+					}
+				}
+				@include media($tabletLandTonotebook){
+					@include span-columns(8 of 12);
+					margin:{top:20px;}
+				}
+			}
+			.cotizar-opt{
+				@include span-columns(3 of 12);
+				@include omega();
+				@include row();
+				.txt-cotiza{
+					@include span-columns(12);
+					height:20px;
+					text:{transform:uppercase;}
+					@include textAligns(center);
+					font:{size:9px;}
+					color:$color_grey2;
+					margin:{top:em(5);}
+				}
+				.checkbox-cotizar{
+					@include span-columns(8);
+					@include shift(2);
+					@extend .switcher-norm;
+				}
+				@include media($tabletLandTonotebook){
+					@include span-columns(1.4 of 12);
+					@include shift(.6);
+					margin:{top:30px;}
+					@include omega(3n);
+				}
+			}
+			.access-ipe{
+				@include span-columns(12 of 12);
+				@include row();
+				@include fill-parent();
+				@include pad(10px 0 0);
+				.ver_perfil_influenciador{
+					@include span-columns(6 of 12);
+					@include textAligns(center);
+					border:1px solid $color_font2;
+					@extend .btns;
+					color:$color_font2;
+				}
+				.perfil_influenciador{
+					@include omega();
+					@extend .ver_perfil_influenciador;
+				}
+				.volver_ver_perfil_influenciador{
+					@extend .ver_perfil_influenciador;
+					display: none;
+				}
+				.rrss_reachs{
+					@extend .rrss_reach;
+				}
+				.rrss{
+					@include span-columns(6 of 12);
+					display: none;
+					margin: {bottom:10px}
+					@include pad();
+					@include borderRadius(5px);
+					background:{color:#fff;}
+					border:1px solid $color_grey;
+					color:$color_grey;
+					&:nth-child(2n+1){
+						margin:{right:0;}
+					}
+					i{
+						&.fa-google{
+							color:$col-google;
+						}
+						&.fa-instagram{
+							color:$col-instagram;
+						}
+						&.fa-facebook{
+							color:$col-facebook;
+						}
+						&.fa-twitter{
+							color:$col-twitter;
+						}
+						&.fa-youtube-play{
+							color:$col-youtube;
+						}
+						&.fa-google-plus{
+							color:$col-google-plus;
+						}
+					}
+				}
+			}
+			@include media($tabletLandTonotebook){
+			}
+		}
+		@include media($tabletLandTonotebook){
+			@include outer-container();
+			background:{color: #fff;}
+		}
+	}
+	@include media($tabletLandTonotebook){
+		background:{color:#eeeef0;}
+	}
+}
