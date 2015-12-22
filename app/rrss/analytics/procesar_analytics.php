@@ -1,6 +1,6 @@
 <script>
 
-      var CLIENT_ID = '1045210216843-rplujhgcennvu03bhggu891cbuojf3bn.apps.googleusercontent.com';
+      var CLIENT_ID = '1025436094979-pl26ineap35ds15olqsqjoisi2ql4inb.apps.googleusercontent.com';
       var SCOPES = ['https://www.googleapis.com/auth/analytics.readonly'];
 
 /*

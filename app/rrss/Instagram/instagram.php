@@ -11,7 +11,7 @@
 				popupTop = (window.screen.height - popupHeight) / 2;
 
 			//the url needs to point to instagram_auth.php
-			var popup = window.open('rrss/instagram/instagram_auth.php', '', 'width='+popupWidth+',height='+popupHeight+',left='+popupLeft+',top='+popupTop+'');
+			var popup = window.open('rrss/Instagram/instagram_auth.php', '', 'width='+popupWidth+',height='+popupHeight+',left='+popupLeft+',top='+popupTop+'');
 
 			popup.onload = function() {
 				//open authorize url in pop-up
@@ -45,7 +45,7 @@
 			//alert(instagramId);
 			$.ajax({
             type: "POST",
-            url: "rrss/instagram/procesar_instagram.php",
+            url: "rrss/Instagram/procesar_instagram.php",
             data: "instagramId="+instagramId+"&accessToken="+accessToken,
 
             success: function(data){
@@ -62,9 +62,9 @@
 
 		function login() {
 			authenticateInstagram(
-			    '4c1a45981cee4ec5b742e05ebb8b00b8', //instagram client ID
+			    'd9e010f47eef4f21a289bd5d46a60e25', //instagram client ID
 			   // 'http://desarrollo.adnativo.com/pi/app/rrss/instagram/instagram_auth.php', //instagram redirect URI
-			    'http://local.mediatrends/_InfluencialsPlatform/htdocs/app/rrss/instagram/instagram_auth.php', //instagram redirect URI
+			    'http://desarrollo.adnativo.com/pi/app/rrss/Instagram/instagram_auth.php', //instagram redirect URI
 			    login_callback  //optional - a callback function
 			);
 			return false;
