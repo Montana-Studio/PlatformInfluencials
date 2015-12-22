@@ -38,6 +38,7 @@
 		require('rrss/twitter/inc/twitteroauth.php');
 		require('rrss/twitter/inc/TwitterAPIExchange.php');
 		require('rrss/rrss_keys.php');
+		require('rrss/googleplus/auth.php');
 		muestra_header();
 
 		echo "
