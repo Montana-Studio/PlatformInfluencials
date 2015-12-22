@@ -11,10 +11,14 @@
 		$row2= mysqli_fetch_array($result2, MYSQLI_BOTH);
 		$num_row2=mysqli_num_rows($result2);
 
-		$query3="SELECT DISTINCT * FROM campana WHERE id=".$row2[0]." AND idEstado='1' AND  fecha_inicio_server <= date(now())";
+		if($num_row2>0){
+			$query3="SELECT DISTINCT * FROM campana WHERE id=".$row2[0]." AND idEstado='1' AND  fecha_inicio_server <= date(now())";
 			$result3=mysqli_query($mysqli,$query3)or die (mysqli_error());
 			$row3= mysqli_fetch_array($result3, MYSQLI_BOTH);
 			$num_row3=mysqli_num_rows($result3);
+
+		}
+		
 
 
 
