@@ -1,0 +1,6 @@
+[21-Dec-2015 13:54:37 UTC] PHP Warning:  mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: YES) in /home/adnativo/public_html/desarrollo/pi/app/rrss/twitter/twitter.php on line 11
+[21-Dec-2015 13:54:37 UTC] PHP Warning:  mysqli_error() expects parameter 1 to be mysqli, null given in /home/adnativo/public_html/desarrollo/pi/app/rrss/twitter/twitter.php on line 11
+[21-Dec-2015 13:58:20 UTC] PHP Warning:  include(conexion.php): failed to open stream: No such file or directory in /home/adnativo/public_html/desarrollo/pi/app/rrss/twitter/twitter.php on line 5
+[21-Dec-2015 13:58:20 UTC] PHP Warning:  include(): Failed opening 'conexion.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/adnativo/public_html/desarrollo/pi/app/rrss/twitter/twitter.php on line 5
+[21-Dec-2015 13:58:20 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/adnativo/public_html/desarrollo/pi/app/rrss/twitter/twitter.php on line 14
+[21-Dec-2015 13:58:20 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/adnativo/public_html/desarrollo/pi/app/rrss/twitter/twitter.php on line 14

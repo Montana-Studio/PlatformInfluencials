@@ -7,9 +7,9 @@ include_once('../rrss_keys.php'); //llamada de keys desde nuevo archivo
     Ask if the persona_id exist on table rrss twitter data
     ****************************************************************/
 
-   // $mysqli = mysqli_connect("localhost","adnativo_user","}O%X;&KD[1_*","adnativo_ipe") or die("Error " . mysqli_error($link)); 
-    $mysqli = mysqli_connect("localhost","root","root","adnativo_pi") or die("Error " . mysqli_error($link)); 
-    $mysqli->set_charset('utf8');
+     $mysqli = mysqli_connect("localhost","adnativo_user","}O%X;&KD[1_*","adnativo_ipe") or die("Error " . mysqli_error($link)); 
+    //$mysqli = mysqli_connect("localhost","root","root","adnativo_pi") or die("Error " . mysqli_error($link)); 
+    //$mysqli->set_charset('utf8');
     $query2="SELECT rrss_id FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter'";
     $result2=mysqli_query($mysqli,$query2)or die (mysqli_error());
     $row= mysqli_fetch_array($result2, MYSQLI_NUM);
@@ -84,6 +84,8 @@ include_once('../rrss_keys.php'); //llamada de keys desde nuevo archivo
                 $followers_count=(int)$data[0]['user']['followers_count'];
                 $query="INSERT INTO rrss (descripcion_rrss,rrss_id,persona_id) VALUES('twitter',".$usuario.",".$_SESSION['id'].")";
                 $result= mysqli_query($mysqli,$query)or die(mysqli_error());
+                header("Location: http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-2");
+                die();
                 //echo '<script> alert("gracias por registrar su cuenta");</script>';
                 //flush();
                 /*echo '<script>alert("gracias por registrar su cuenta");
