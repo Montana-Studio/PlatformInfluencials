@@ -11,19 +11,13 @@
 		$row2= mysqli_fetch_array($result2, MYSQLI_BOTH);
 		$num_row2=mysqli_num_rows($result2);
 
-		if($num_row2>0){
-			$query3="SELECT DISTINCT * FROM campana WHERE id=".$row2[0]." AND idEstado='1' AND  fecha_inicio_server <= date(now())";
-			$result3=mysqli_query($mysqli,$query3)or die (mysqli_error());
-			$row3= mysqli_fetch_array($result3, MYSQLI_BOTH);
-			$num_row3=mysqli_num_rows($result3);
-
-		}
-		
-
-
-
+			
 
 if($num_row2>0){
+	$query3="SELECT DISTINCT * FROM campana WHERE id=".$row2[0]." AND idEstado='1' AND  fecha_inicio_server <= date(now())";
+	$result3=mysqli_query($mysqli,$query3)or die (mysqli_error());
+	$row3= mysqli_fetch_array($result3, MYSQLI_BOTH);
+	$num_row3=mysqli_num_rows($result3);
 	do{	
 		$campanas_activas .= '<div>';
 		$rrss_list = explode(",",$row3[11]);
@@ -313,7 +307,6 @@ $campanas_activas .= '
 }else{
 
 	$campanas_activas = '<main class="no-campana"><a href="#" class="hrefCamp"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes ser asignado a una.Mejora tu perfil si estas no llegan.</p></a></main>';
-
 	$campanas_inactivas = '';
 	$campanas_historial = '<main class="no-campana"><a href="#" class="hrefCamp"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes ser asignado a una.Mejora tu perfil si estas no llegan.</p></a></main>';
 
