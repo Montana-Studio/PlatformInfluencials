@@ -755,12 +755,11 @@
 				}
 			}
 			#guardarFacturacion{
-				width:100%;
+				@include span-columns(6);
 				margin:{top:5px;}
 				background:{color: $color_font2;}
 				@include media($tabletLandTonotebook){
 					@include span-columns(3);
-					@include shift(7.5);
 				}
 			}
 			#redesociales{
@@ -1080,6 +1079,23 @@
 					@include border-bottom-radius(em(10));
 				}
 			}
+            .input-file{
+                @extend .hide;
+            }  
+            .change-img{
+                @extend .btns;
+                @include span-columns(6);
+                color:$color_font2;
+                z-index: 3;
+                font:{size: em(12);}
+                @include textAligns(center);
+				margin:{top:5px;}
+                border:1px solid $color_font2;
+                @include media($tabletLandTonotebook){
+                  @include span-columns(3);
+                  @include shift(5.5);
+                }
+            }
 		}
 		@include media($tabletLandTonotebook){
 			@include pad(0);
@@ -1093,26 +1109,6 @@
 		@include span-columns(12);
 		@include textAligns(center);
 		color:#fff;
-		.input-file{
-			@extend .hide;
-		}
-		.change-img{
-			opacity:.8;
-			color:#fff;
-			margin: -43px auto 20px;
-			width: 100px;
-			height: 30px;
-			display: block;
-			position: relative;
-			z-index: 3;
-			font:{size: em(30);}
-			@include textAligns(right);
-			&:hover{
-				i{
-					color:#153773;
-				}
-			}
-		}
 		.mask-imguser{
 			width: em(127);
 	    	height: em(126);
@@ -1186,6 +1182,33 @@
 	    	bottom: 0;
 			top:0;
 			z-index:1;
+	  	}
+	  	@include media($tabletLandTonotebook){
+          padding:{top:160px;}
+			.mask-imguser{
+				@include span-columns(1.5);
+				@include shift(.5);
+			}
+			h2{
+				@include span-columns(2);
+                float:none;
+                @include textAligns(left);
+                margin:{top:60px;bottom:0;}
+                font:{size:em(20)}
+			}
+			div{
+				&.geo{
+					@include span-columns(2.5);
+                    @include textAligns(left);
+                    font:{size:em(14)}
+				}
+			}
+			p{
+				&.bio{
+					@include span-columns(4);
+                    @include textAligns(right);
+				}
+			}
 	  	}
 	}
 	@include media($tabletLandTonotebook){

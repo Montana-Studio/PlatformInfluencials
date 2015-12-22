@@ -16,13 +16,16 @@
 				</g>
 			</svg>
 
-			<input type="file" name="file" id="file" class="input-file">
-			<label for="file" class="change-img"><i class="fa fa-camera"></i></label>
+			<!--input type="file" name="file" id="file" class="input-file">
+			<label for="file" class="change-img"><i class="fa fa-camera"></i></label-->
 
 			<input id="RsId" value="<?php echo $_SESSION['rsid']; ?>" type="hidden">
 
 			<h2><?php echo $_SESSION['nombre']?></h2>
-			<div class="geo"><i class="fa fa-map-marker"></i> <?php echo $_SESSION['comuna'].','.$_SESSION['region'];?></div>
+			<div class="geo">
+				<i class="pi pi-marker"></i>
+				<?php echo $_SESSION['comuna'].','.$_SESSION['region'];?>
+			</div>
 			<p class="bio"><?php echo $_SESSION['descripcion']; ?></p>
 
 			<nav class="nav-ipe2">
@@ -46,6 +49,7 @@
 						<input value="<?php echo $_SESSION['nombre']?>">
 						<i class="pi pi-pencil"></i>
 					</div>
+					
 					<div id="correo">
 						<small>Correo</small>
 						<input value="<?php echo $_SESSION['correo']?>" disabled>
@@ -158,6 +162,9 @@
 						<i class="pi pi-pencil"></i>
 					</div>
 
+					<input type="file" name="file" id="file" class="input-file">
+					<label for="file" class="change-img">Subir imagen</label>
+					
 					<button id="guardarFacturacion" class="btns" type="submit">Guardar</button>
 
 				</div>
