@@ -41,7 +41,7 @@
 		include('rrss/googleplus/auth.php');
 		include('rrss/analytics/procesar_analytics.php');
 		include('rrss/facebook/facebook-auth.php');
-		include('rrss/instagram/instagram.php');
+		include('rrss/Instagram/instagram.php');
 		muestra_header();
 
 		echo "
@@ -136,6 +136,9 @@
 		<body>";
 	}
 
+	
+	
+
 ?>
 <nav class="nav-ipe">
 	<ul>
@@ -143,10 +146,6 @@
 		<li><h1><?php echo $_SESSION['descripcion_tipo']?></h1></li>
 		<li><a href="logout.php" class="pi pi-close"></a></li>
 	</ul>
-	
-	<div class="logo"></div>
-	<div class="fecha"></div>
-	<div class="tools"></div>
 </nav>
 <nav class="header-ipe">
 	<ul>
