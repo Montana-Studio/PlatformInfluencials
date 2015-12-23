@@ -21,15 +21,31 @@
 	}
 }
 .campanas-ipe{
-	@extend .dashboard-ipe;
+    background: {image:none;}
+    .sub-titulo{
+		margin:0;
+		font:{size:14px;style:italic;}
+		text:{transform:uppercase;}
+		color:$color_grey;
+		@include pad(10px);
+		clear:both;
+		@include media($tabletLandTonotebook){
+			@include outer-container;
+			color: $color_grey2;
+			font:{size:18px;weight:normal;}
+			max-width:em(970);
+		}
+		@include media($desktop){
+			//@include outer-container;
+			color: $color_grey2;
+			font:{size:18px;weight:normal;}
+		}
+	}
 	#imagenform-ipe{
 		#tabscontent{
+            @include pad(0);
 			.tabpage{
-				&:last-child{
-					@include pad(em(10));
-					@include borderRadius(em(10));
-					background:{color:#fff;}
-				}
+                @include pad(0);
 			}
 		}
 	}
