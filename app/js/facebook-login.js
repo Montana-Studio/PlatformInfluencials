@@ -114,14 +114,12 @@ $(document).ready(function(){
 		facebookCorreo=response.email;
 		var e = document.getElementById("perfil");
 		var perfil = e.options[e.selectedIndex].value;
-		//console.log(perfil);
 			$.ajax({  
 		            type: "POST",  
 		            url: "./procesar_facebook.php",  
 		            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id+"&tipo="+perfil,  
 					
 		            success: function(data){ 
-		            	console.log(data);
 						switch (data){
 							case "dashboard": window.location.href="dashboard-agencia.php";
 							break;
@@ -158,7 +156,6 @@ $(document).ready(function(){
 			        	data = data + response.data[i].id + "-";
 			        	
 			        }
-			        	console.log(data);
 			        $.ajax({  
 		            type: "POST",  
 		            url: "./procesar_mostrar_followers.php",  
