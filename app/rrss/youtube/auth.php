@@ -1,81 +1,63 @@
-<script async type="text/javascript">
+<script  async type="text/javascript">
 
-
-var OAUTH2_CLIENT_ID = '1045210216843-rplujhgcennvu03bhggu891cbuojf3bn.apps.googleusercontent.com';
-var OAUTH2_SCOPES_YOUTUBE = ['https://www.googleapis.com/auth/youtube'];
-
+var OAUTH2_CLIENT_ID = '1025436094979-pl26ineap35ds15olqsqjoisi2ql4inb.apps.googleusercontent.com';
+var OAUTH2_SCOPES = ['https://www.googleapis.com/auth/plus.me'];
 
 // Upon loading, the Google APIs JS client automatically invokes this callback.
-googleApiClientReady = function() {
+googleApiClientReadyGooglePlus = function() {
   gapi.auth.init(function() {
-    window.setTimeout(checkAuthYoutube, 1);
+    window.setTimeout(checkAuthGooglePlus, 1);
   });
 }
 
-function checkAuthYoutube() {
-    gapi.auth.authorize({
+
+function checkAuthGooglePlus() {
+   gapi.auth.authorize({
       client_id: OAUTH2_CLIENT_ID,
-      scope: OAUTH2_SCOPES_YOUTUBE,
+      scope: OAUTH2_SCOPES,
       immediate: false
-    }, handleAuthResultYoutube);
+    }, handleAuthResult);
 }
 
 
-function handleAuthResultYoutube(authResult) {
+function handleAuthResult(authResult) {
   if (authResult && !authResult.error) {
-    loadAPIClientInterfacesYoutube();
-  } else {
-      gapi.auth.authorize({
-        client_id: OAUTH2_CLIENT_ID,
-        scope: OAUTH2_SCOPES_YOUTUBE,
-        immediate: false
-        }, handleAuthResultYoutube);
+    loadAPIClientInterfaces();
 
+  } else {
+    gapi.auth.authorize({
+      client_id: OAUTH2_CLIENT_ID,
+      scope: OAUTH2_SCOPES,
+      immediate: false
+    }, handleAuthResult);
   }
 }
 
+  function loadAPIClientInterfaces() {
+    gapi.client.load('plus','v1', function(){
+       var request = gapi.client.plus.people.get({
+         'userId': 'me'
+       });
 
-function loadAPIClientInterfacesYoutube() {
-  gapi.client.load('youtube', 'v3', function() {
-    gapi.client.load('youtubeAnalytics', 'v1', function() {
-      getUserChannel();
-    });
-  });
-}
-
-function getUserChannel() {
-  var channelId;
-
-  var request = gapi.client.youtube.channels.list({
-    mine: true,
-    part: 'snippet, statistics'
-  });
-
-  request.execute(function(response) {
-    if ('error' in response) {
-      displayMessage(response.error.message);
-    } else {
-      channelId = response.items[0].id;
-      //alert(channelId);
+       request.execute(function(resp) {
+        var id = resp.id;
         $.ajax({
-          type: "POST",
-          url: "rrss/youtube/procesar_youtube.php",
-          data: "youtubeId="+channelId,
-          success: function(data){
-            if(data == 'exito'){
+            type: "POST",
+            url: "rrss/googleplus/procesar_googleplus.php",
+            data: "googlePlusId="+id, //"&youtubeName="+channelName+"&youtubeSubscribers="+channelSubscribers+"&youtubeImgUrl="+channelImg,
+            success: function(data){
+                if(data == 'exito'){
                   alert("gracias por registrar su cuenta");
                   window.location.reload();
                 }
                 else if(data == 'existe') alert('La cuenta ya está asociada, intente con una cuenta diferente')
                 else if(data == 'otro') alert('La cuenta está asociada a otro usuario');
                 //else window.reload();
+
             }
         });
+      })
 
-    }
-  });
-}
-
-
-
-  </script>
+    })
+  }
+</script>

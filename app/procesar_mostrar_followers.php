@@ -2,9 +2,9 @@
 //include('rrss/rrss_keys.php');
 
     echo '<script async>
-	 			$(document).ready(function(){
+        $(document).ready(function(){
 
-					$(".estado_rs").click(function(){
+          $(".estado_rs").click(function(){
             if(this.value == "analytics"){
                 var id_activar_rs = this.id;
                 var tipo = "activar_rs2";
@@ -32,19 +32,19 @@
                 });
             }
 
-					});
-				});
-			</script>';
+          });
+        });
+      </script>';
 /****************************************************************************************************
-								GET INSTAGRAM REACH
+                GET INSTAGRAM REACH
 ****************************************************************************************************/
   $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='instagram'";
   $result3=mysqli_query($mysqli,$query3)or die (mysqli_error());
   $row3= mysqli_fetch_array($result3, MYSQLI_BOTH);
   $num_row3= mysqli_num_rows($result3);
   $_SESSION['instagram']="";
-	if($num_row3>0){
-		do{
+  if($num_row3>0){
+    do{
       $json_user_url ="https://api.instagram.com/v1/users/".$row3[3]."?access_token=".$row3[6];
       $json_user= file_get_contents($json_user_url);
       $links_user_url= json_decode($json_user);
@@ -60,7 +60,7 @@
       }else{
         $estado= 1;
         $estado_descripcion="desactivar";
-		    }
+        }
      //$_SESSION['instagram'] .=$username." ".(int)$followers_instagram." <button class='estado_rs' name='".$estado."' id='".$row3[3]."'>".$estado_descripcion."</button><br/></h3><img src='".$avatar."'/>";
      $_SESSION['instagram'] .=
       "<div class='red-info'>
@@ -78,9 +78,9 @@
       </div>";
     }while($row3 = $result3->fetch_array());
       $suma += $suma_instagram;
-	}
+  }
 /****************************************************************************************************
-									TWITTER BUTTON AND GET REACH SUM
+                  TWITTER BUTTON AND GET REACH SUM
 ****************************************************************************************************/
 $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter'";
     $result4=mysqli_query($mysqli,$query4)or die (mysqli_error());
@@ -245,12 +245,12 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
         </div>";
       }while($row5 = $result5->fetch_array());
     }
-		$suma += $suma_youtube;
-		$results1 = $mysqli->query("SELECT rrss_id FROM rrss WHERE rrss_id='$youtubeId' AND descripcion_rrss='youtube'");
-		$num_row1=mysqli_num_rows($results1);
+    $suma += $suma_youtube;
+    $results1 = $mysqli->query("SELECT rrss_id FROM rrss WHERE rrss_id='$youtubeId' AND descripcion_rrss='youtube'");
+    $num_row1=mysqli_num_rows($results1);
 
 /****************************************************************************************************
-								FACEBOOK GET REACH SUM
+                FACEBOOK GET REACH SUM
 ****************************************************************************************************/
     $query6="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='facebook'";
     $result6=mysqli_query($mysqli,$query6)or die (mysqli_error());
@@ -264,12 +264,15 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
         $facebookPage = $row6[3];
         $json_user_url1 ="https://graph.facebook.com/".$facebookPage."?access_token=".$facebookAppId."|".$facebookKey."&fields=likes,talking_about_count,username,website";
         $json_user_url = str_replace(" ", "%20", $json_user_url1);
-        $json_user= file_get_contents($json_user_url);
+        $json_user= @file_get_contents($json_user_url);
         $links_user_url= json_decode($json_user);
-        $facebookLikes =$links_user_url->likes;
+
+        if ($json_user) {
+         $facebookLikes =$links_user_url->likes;
         $facebookTalkingAbout =$links_user_url->talking_about_count;
         $facebookUsername =$links_user_url->username;
         $facebookWebsite =$links_user_url->website;
+
         $facebookImgUrl = "https://graph.facebook.com/".$facebookUsername."/picture?type=large";
 
         if ($row6[5] == 1){
@@ -289,7 +292,7 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
             <ul>
             <li><img src='".$facebookImgUrl."'/></li>
             <li>Likes <br/><span>".formato_numeros_reachs($facebookLikes)."</span></li>
-            <li>Gente hablando <br/><span>".formato_numeros_reachs($facebookTalkingAbout)."</span></li>
+            <li>Gente hablando <br/><span>".formato_numeros_reachs(intval($facebookTalkingAbout))."</span></li>
             <!--li><a href=".$facebookWebsite.">ver sitio</a></li-->
             </ul>
             <!--button class='estado_rs' name='".$estado."' id='".$facebookPage."'>".$estado_descripcion."</button-->
@@ -300,13 +303,18 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
             </div>
             </div>";
         }
-
+        } else {
+          // fail
+        }
+        /*
+        
+*/
       }while($row6 = $result6->fetch_array());
         $suma += $suma_facebook;
     }
 
 /****************************************************************************************************
-						GOOGLEPLUS  GET REACH SUM
+            GOOGLEPLUS  GET REACH SUM
 ****************************************************************************************************/
     $query7="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='googleplus'";
     $result7=mysqli_query($mysqli,$query7)or die (mysqli_error());
