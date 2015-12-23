@@ -1,5 +1,5 @@
 <?php include 'header-ipe.php'; ?>
-	<form id='imagenform-ipe'>
+	<!--form id='imagenform-ipe'>
 
 		<div class="header-ipe" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);">
 
@@ -33,7 +33,7 @@
 			</nav>
 
 		</div>
-	</form>
+	</form-->
 		<div id="tab-examp">
 			<ul id="tabs">
 				<li><a href="#fragment-1"><span>Actuales</span></a></li>
