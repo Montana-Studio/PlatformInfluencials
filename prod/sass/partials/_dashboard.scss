@@ -1119,7 +1119,8 @@
         .alt-perfil{
             @extend .hide;
         }
-		.mask-imguser{
+        .alt-data{@extend .hide;}
+        .mask-imguser{
 			width: em(127);
 	    	height: em(126);
 	    	margin: 20px auto 0;
@@ -1204,6 +1205,7 @@
                 @include textAligns(left);
                 @include pad(40px 0 0);
                 margin:{top:140px;}
+                @include omega();
                 h2{
                     display:block;
                     font:{size:em(22)}
@@ -1212,6 +1214,31 @@
                 .geo{
                     font:{size:em(18)}
                     display:block;
+                }
+            }
+            .alt-data{
+                @include span-columns(4.7);
+                margin:{top:140px;}
+                padding:{right:20px;}
+                border: {right:1px solid rgba(255,255,255,.3)}
+                p{
+                    @include span-columns(12);
+                    margin:0;
+                    @include textAligns(right);
+                    &.total-numbers{
+                        font:{size:em(68)}
+                        span{
+                            font:{size:em(22);weight:normal}
+                            text:{transform:uppercase;}
+                        }
+                    }
+                    &.bio{
+                        @include direction-context(right-to-left){
+                            @include span-columns(10);
+                            display: block;
+                            max-width:inherit;
+                        }
+                    }
                 }
             }
 			h2{
@@ -1224,9 +1251,7 @@
 			}
 			p{
 				&.bio{
-					@include span-columns(4);
-					@include shift(1);
-                    @include textAligns(right);
+					display: none;
 				}
 			}
 	  	}

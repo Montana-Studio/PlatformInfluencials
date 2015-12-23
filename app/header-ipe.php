@@ -31,6 +31,14 @@
 
 			<script type="text/javascript" src="js/jquery.min.js"></script>
 			<script async type="text/javascript" src="js/jquery-ui.min.js"></script>
+            
+            <script>
+                $(document).ready(function(){
+                    $(window).load(function(){
+                        $("#imagenform-ipe").fadeIn();
+                    });
+                });
+            </script>
 		';
 	}
 
@@ -50,6 +58,7 @@
 				$('title').append('Dashboard - ".$_SESSION['nombre']."');
 				$('html').css({'background-color':'#fff','background-image':'none'});
 				$('body').addClass('dashboard-ipe');
+                
 
 				var correo,nombre,correo,tel1,tel2,empresa;
 				var rsid = $('#RsId').val();
