@@ -35,6 +35,9 @@
           });
         });
       </script>';
+
+    require('rrss/rrss_keys.php');
+    
 /****************************************************************************************************
                 GET INSTAGRAM REACH
 ****************************************************************************************************/
@@ -45,6 +48,7 @@
   $_SESSION['instagram']="";
   if($num_row3>0){
     do{
+      include_once('rrss/Instagram/instagram.php');
       $json_user_url ="https://api.instagram.com/v1/users/".$row3[3]."?access_token=".$row3[6];
       $json_user= file_get_contents($json_user_url);
       $links_user_url= json_decode($json_user);
@@ -112,6 +116,8 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
         }
     if($num_row4>0){
       do{
+        include_once('rrss/twitter/inc/twitteroauth.php');
+        include_once('rrss/twitter/inc/TwitterAPIExchange.php');
         $usuario1 = $row4['rrss_id'];
         $getfield1 = '?id='.$usuario1;
         $twitter1 = new TwitterAPIExchange($settings);
@@ -212,6 +218,7 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
     $_SESSION['youtube']="";
     if($num_row5>0){
       do{
+        include_once('rrss/youtube/auth.php');
         $json_user_url ="https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=".$row5[3]."&key=".GOOGLE_CONSUMER_KEY;
         $json_user= file_get_contents($json_user_url);
         $links_user_url= json_decode($json_user);
@@ -261,6 +268,8 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
     $_SESSION['facebook']="";
     if($num_row6>0){
       do{
+
+        include_once('rrss/facebook/facebook-auth.php');
         $facebookPage = $row6[3];
         $json_user_url1 ="https://graph.facebook.com/".$facebookPage."?access_token=".$facebookAppId."|".$facebookKey."&fields=likes,talking_about_count,username,website";
         $json_user_url = str_replace(" ", "%20", $json_user_url1);
@@ -321,10 +330,11 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
     $row7= mysqli_fetch_array($result7, MYSQLI_BOTH);
     $num_row7=mysqli_num_rows($result7);
 
-    $googleplusKey ="AIzaSyDBMZsybp7GcJdmqdhgGDn-jRkGo9jyD-c";
+    $googleplusKey =GOOGLE_CONSUMER_KEY;
     $_SESSION['googleplus']="";
     if($num_row7>0){
       do{
+        include_once('rrss/googleplus/auth.php');
         $googleplusId = $row7[3];
         $json_user_url ="https://www.googleapis.com/plus/v1/people/".$googleplusId."?key=".$googleplusKey;
         $json_user_picture="https://www.googleapis.com/plus/v1/people/".$googleplusId."?fields=image&key=".$googleplusKey;
@@ -391,6 +401,7 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
     if($num_row9>0){
       $variable=1;
       do{
+        include('rrss/analytics/procesar_analytics.php');
         $r07= json_encode($row9[7]);
         $r08= json_encode($row9[8]);
         $r09= json_encode($row9[9]);

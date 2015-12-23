@@ -38,7 +38,10 @@
 		require('rrss/twitter/inc/twitteroauth.php');
 		require('rrss/twitter/inc/TwitterAPIExchange.php');
 		require('rrss/rrss_keys.php');
-		require('rrss/googleplus/auth.php');
+		include('rrss/googleplus/auth.php');
+		include('rrss/analytics/procesar_analytics.php');
+		include('rrss/facebook/facebook-auth.php');
+		include('rrss/instagram/instagram.php');
 		muestra_header();
 
 		echo "

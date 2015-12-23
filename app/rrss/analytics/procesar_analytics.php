@@ -115,8 +115,6 @@
         var uniquePageviews_tablet = obj.rows[2][5];
         var avgTimeOnPage_tablet = parseInt(obj.rows[2][6]) + " segundos";
         var sessionsPerUser_tablet  = obj.rows[2][7];
-
-        console.log(pageviews_desktop+sessions_desktop+sessionDuration_desktop+pageviewsPerSession_desktop);
        $.ajax({  
             type: "POST",  
             url: "./rrss/analytics/procesar_listado_analytics.php",
