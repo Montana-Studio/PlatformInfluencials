@@ -143,6 +143,10 @@
 		<li><h1><?php echo $_SESSION['descripcion_tipo']?></h1></li>
 		<li><a href="logout.php" class="pi pi-close"></a></li>
 	</ul>
+	
+	<div class="logo"></div>
+	<div class="fecha"></div>
+	<div class="tools"></div>
 </nav>
 <nav class="header-ipe">
 	<ul>
