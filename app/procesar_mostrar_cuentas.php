@@ -85,7 +85,7 @@
 				echo $_SESSION['youtube'];
 			}
 		?>
-		<div id="youtube-inscription" onclick="googleApiClientReady()" class="btns">Conectar Youtube</div>
+		<div id="youtube-inscription" onclick="googleApiClientYoutubeReady()" class="btns">Conectar Youtube</div>
 	</div>
 
 	<div class="red-title"><i class="pi pi-googleplus"></i> <span class="red-name">Google Plus</span> <i class="pi pi-arrow-bottom"></i></div>
