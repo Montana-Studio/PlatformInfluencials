@@ -66,6 +66,10 @@ if ((int)$row[0] > 0){ ?>
 							<div class="img-compana-deskt hide">
 								<img src="'.$row[3].'"/>
 							</div>
+							<div id="redes_sociales_campana_"'.$row[0].'">';
+									//echo $row[0];
+										require('procesar_mostrar_reach_campana.php');
+					echo	'</div>
 						</div>
 
 					</div>

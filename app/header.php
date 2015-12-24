@@ -29,6 +29,7 @@
 
 			<script type="text/javascript" src="js/jquery.min.js"></script>
 			<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+			<script async src="https://www.google.com/jsapi"></script>
 				
 		</head>
 		<body>';
@@ -279,14 +280,37 @@
 			die();
 		}
 		else{
-			$id=$_SESSION['id'];
-			$query="SELECT * FROM campana  WHERE idEstado=1 AND idpersona=".$id." ORDER BY id DESC LIMIT 3";
-			$result= mysqli_query($mysqli,$query)or die(mysqli_error());
+			$id=$_GET['id'];
+			$query="SELECT * FROM persona  WHERE id_estado=1 AND id_tipo>2 AND id=".$id ;
+			$result= mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
-				//}
 			muestra_header();
 		
 		}
+	}
+
+	if(basename($_SERVER['PHP_SELF'])=='influenciador-publico.php'){
+		muestra_header();
+		//echo "<script src='https://apis.google.com/js/client.js?onload=googleApiClientReady'></script>";
+
+
+		if(isset($_SESSION['nombre'])==false){
+			header('Location:index.php');
+			die();
+		}
+		echo '
+			<script>
+				jQuery(document).ready(function(){
+					$(".perfil_influenciador").click(function(){
+						var id_influenciador=this.id;
+						window.location.replace("perfil_influenciador_publico.php?id="+id_influenciador);
+						//console.log(id_influenciador);
+						//console.log("holi");
+					});
+				});
+			</script>
+		</head>
+		<body>';
 	}
 
 	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia3.php'){

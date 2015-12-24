@@ -1,10 +1,5 @@
 <?php include 'header.php'; ?>
-<script>
-	$(".perfil_influenciador").click(function(){
-					var id_influenciador=this.name;
-					window.location.replace("perfil_influenciador_publico.php?id="+id_influenciador;
-				});
-</script>
+
 <?php
 	if($_GET['campana']){
 		echo '<div id="campanas-postulables">
@@ -168,14 +163,16 @@
 						<span class="ver_perfil_influenciador" name="'.$row[0].'">ver resumen</span>
 						<span class="volver_ver_perfil_influenciador" name="'.$row[0].'">ocutar resumen</span>
 
-						<span class="perfil_influenciador" name="'.$row[0].'>ver perfil</span>
+						<div class="ver-perfil"><span id="'.$row[0].'" class="perfil_influenciador">ver perfil</span>
+
 						'.$echoContentFace.'
 						'.$echoContentInsta.'
 						'.$echoContentTweet.'
 						'.$echoContentAnaly.'
 						'.$echoContentYou.'
-						'.$echoContentPlus.'
+						'.$echoContentPlus.'</div>
 					</div>
+
 				</form>';
 		}while($row = mysqli_fetch_row($result));
 	
