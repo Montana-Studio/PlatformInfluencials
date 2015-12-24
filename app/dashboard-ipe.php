@@ -1,6 +1,6 @@
 <?php include 'header-ipe.php'; ?>
 
-	<form id='imagenform-ipe'>
+	<form id='imagenform-ipe' style="display:none;">
 
 		<div class="header-ipe" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);">
 
@@ -26,12 +26,18 @@
 			
 			<div class="alt-perfil">
              
-              <h2><?php echo $_SESSION['nombre']?></h2>
-              <div class="geo">
-                  <i class="pi pi-marker"></i>
-                  <?php echo $_SESSION['comuna'].','.$_SESSION['region'];?>
-              </div>
+                <h2><?php echo $_SESSION['nombre']?></h2>
+                 <div class="geo">
+                    <i class="pi pi-marker"></i>
+                    <?php echo $_SESSION['comuna'].','.$_SESSION['region'];?>
+                </div>
 			  
+			</div>
+			<div class="alt-data">
+			    <p class="total-numbers">
+			        <span>Reach Total</span>
+			    </p>
+                <p class="bio"><?php echo $_SESSION['descripcion']; ?></p>
 			</div>
 			
 			<p class="bio"><?php echo $_SESSION['descripcion']; ?></p>

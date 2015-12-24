@@ -25,6 +25,12 @@
 		}
 	?>
 	
+	<script type="text/javascript">
+        $(window).load(function(){
+            $('.total-numbers').prepend('<?php echo formato_numeros_reachs($suma);?><br/>');
+        });
+    </script>
+	
 	<div class="red-title"><i class="pi pi-facebook"></i> <span class="red-name">Facebook</span> <i class="pi pi-arrow-bottom"></i></div>
 	<div class="rs-inscription">
 		

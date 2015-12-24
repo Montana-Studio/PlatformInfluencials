@@ -147,6 +147,7 @@ a{
 			margin: 0 auto;
 		}
 		svg{
+            max-height:200px;
 			overflow: visible;
 			.coloGreen{
 				fill:$color_font2;

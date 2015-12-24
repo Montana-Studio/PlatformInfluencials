@@ -85,7 +85,7 @@ html {
 a {
   text-decoration: none; }
 
-.hide, .alertElim, .alertElim #boxElim, .alertElim #boxAlert, nav.header-ipe, main.form_agencias #antiguo, main.form_agencias #nuevo, main.form_agencias #antiguo h2, main.form_agencias #nuevo h2, main.form_agencias #antiguo a, main.form_agencias #nuevo a, main.form_agencias #antiguo .form_ingreso, main.form_agencias #nuevo .form_ingreso, main.form_agencias #nuevo .registerForm, main.form_agencias #nuevo .registerForm #selectImage input[type="file"], main.form_agencias #nuevo .registerForm #selectImage .creadas .recientes .content .inputs-campana textarea[type="file"], .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm #selectImage textarea[type="file"], main.form_agencias #nuevo .registerForm #selectImage #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="file"], #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .registerForm #selectImage textarea[type="file"], .creadas .recientes .content .campa-ico i.fecha-edit, .creadas .recientes .content .inputs-campana i, #imagenform, #imagenform #inicio .tabpage div i, #imagenform-ipe #tabscontent .tabpage .input-file, #imagenform-ipe .header-ipe .alt-perfil, .crear-campanas .crear-campana {
+.hide, .alertElim, .alertElim #boxElim, .alertElim #boxAlert, nav.header-ipe, main.form_agencias #antiguo, main.form_agencias #nuevo, main.form_agencias #antiguo h2, main.form_agencias #nuevo h2, main.form_agencias #antiguo a, main.form_agencias #nuevo a, main.form_agencias #antiguo .form_ingreso, main.form_agencias #nuevo .form_ingreso, main.form_agencias #nuevo .registerForm, main.form_agencias #nuevo .registerForm #selectImage input[type="file"], main.form_agencias #nuevo .registerForm #selectImage .creadas .recientes .content .inputs-campana textarea[type="file"], .creadas .recientes .content .inputs-campana main.form_agencias #nuevo .registerForm #selectImage textarea[type="file"], main.form_agencias #nuevo .registerForm #selectImage #imagenform-ipe #tabscontent .tabpage div#descripcion textarea[type="file"], #imagenform-ipe #tabscontent .tabpage div#descripcion main.form_agencias #nuevo .registerForm #selectImage textarea[type="file"], .creadas .recientes .content .campa-ico i.fecha-edit, .creadas .recientes .content .inputs-campana i, #imagenform, #imagenform #inicio .tabpage div i, #imagenform-ipe #tabscontent .tabpage .input-file, #imagenform-ipe .header-ipe .alt-perfil, #imagenform-ipe .header-ipe .alt-data, .crear-campanas .crear-campana {
   display: none; }
 
 .show {
@@ -238,6 +238,7 @@ a {
       width: 160px;
       margin: 0 auto; }
     .alertElim #boxElim svg, .alertElim #boxAlert svg {
+      max-height: 200px;
       overflow: visible; }
       .alertElim #boxElim svg .coloGreen, .alertElim #boxAlert svg .coloGreen {
         fill: #18bb9b; }
@@ -1539,9 +1540,9 @@ main {
           max-width: 35% !important;
           top: 26%; } }
 
-.dashboard-agencia, .dashboard-ipe, .campanas-ipe, .crear-campanas, .campanas, .influenciador-publico {
+.dashboard-agencia, .dashboard-ipe, .crear-campanas, .campanas, .influenciador-publico {
   background-image: none; }
-  .dashboard-agencia .sub-titulo, .dashboard-ipe .sub-titulo, .campanas-ipe .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo, .influenciador-publico .sub-titulo {
+  .dashboard-agencia .sub-titulo, .dashboard-ipe .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo, .influenciador-publico .sub-titulo {
     margin: 0;
     font-size: 14px;
     font-style: italic;
@@ -1550,7 +1551,7 @@ main {
     padding: 10px;
     clear: both; }
     @media screen and (min-width: 64em) and (max-width: 90em) {
-      .dashboard-agencia .sub-titulo, .dashboard-ipe .sub-titulo, .campanas-ipe .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo, .influenciador-publico .sub-titulo {
+      .dashboard-agencia .sub-titulo, .dashboard-ipe .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo, .influenciador-publico .sub-titulo {
         max-width: 68em;
         margin-left: auto;
         margin-right: auto;
@@ -1558,34 +1559,36 @@ main {
         font-size: 18px;
         font-weight: normal;
         max-width: 60.625em; }
-        .dashboard-agencia .sub-titulo::after, .dashboard-ipe .sub-titulo::after, .campanas-ipe .sub-titulo::after, .crear-campanas .sub-titulo::after, .campanas .sub-titulo::after, .influenciador-publico .sub-titulo::after {
+        .dashboard-agencia .sub-titulo::after, .dashboard-ipe .sub-titulo::after, .crear-campanas .sub-titulo::after, .campanas .sub-titulo::after, .influenciador-publico .sub-titulo::after {
           clear: both;
           content: "";
           display: table; } }
     @media screen and (min-width: 90em) {
-      .dashboard-agencia .sub-titulo, .dashboard-ipe .sub-titulo, .campanas-ipe .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo, .influenciador-publico .sub-titulo {
+      .dashboard-agencia .sub-titulo, .dashboard-ipe .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo, .influenciador-publico .sub-titulo {
         color: #656b79;
         font-size: 18px;
         font-weight: normal; } }
 
-.dashboard-ipe, .campanas-ipe {
+.dashboard-ipe {
   background-color: #c7c7c7;
   font-family: "Montserrat", sans-serif; }
-  .dashboard-ipe #imagenform-ipe #tabscontent .tabpage:first-child, .campanas-ipe #imagenform-ipe #tabscontent .tabpage:first-child {
-    padding: 0.625em;
-    border-top-left-radius: 0.625em;
-    border-top-right-radius: 0.625em;
-    border-bottom-left-radius: 0.625em;
-    border-top-left-radius: 0.625em;
-    border-bottom-right-radius: 0.625em;
-    border-top-right-radius: 0.625em;
-    border-bottom-left-radius: 0.625em;
-    border-bottom-right-radius: 0.625em;
-    background-color: #fff; }
-    @media screen and (min-width: 64em) and (max-width: 90em) {
-      .dashboard-ipe #imagenform-ipe #tabscontent .tabpage:first-child, .campanas-ipe #imagenform-ipe #tabscontent .tabpage:first-child {
-        border-top-left-radius: 0;
-        border-top-right-radius: 0; } }
+  .dashboard-ipe #imagenform-ipe {
+    margin: 0; }
+    .dashboard-ipe #imagenform-ipe #tabscontent .tabpage:first-child {
+      padding: 0.625em;
+      border-top-left-radius: 0.625em;
+      border-top-right-radius: 0.625em;
+      border-bottom-left-radius: 0.625em;
+      border-top-left-radius: 0.625em;
+      border-bottom-right-radius: 0.625em;
+      border-top-right-radius: 0.625em;
+      border-bottom-left-radius: 0.625em;
+      border-bottom-right-radius: 0.625em;
+      background-color: #fff; }
+      @media screen and (min-width: 64em) and (max-width: 90em) {
+        .dashboard-ipe #imagenform-ipe #tabscontent .tabpage:first-child {
+          border-top-left-radius: 0;
+          border-top-right-radius: 0; } }
 
 .creadas .recientes {
   display: block;
@@ -2420,58 +2423,50 @@ main {
       #imagenform:last-child {
         margin-right: 0; } }
 
-#imagenform-ipe #tabs {
+#tabs {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 100%;
   width: 100%;
-  display: block;
   list-style: none;
   padding: 0;
   background-color: #fff;
   margin: 0 0 0.3125em; }
-  #imagenform-ipe #tabs:last-child {
+  #tabs:last-child {
     margin-right: 0; }
-  #imagenform-ipe #tabs::after {
-    clear: both;
-    content: "";
-    display: table; }
-  #imagenform-ipe #tabs li {
+  #tabs li {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 48.82117%;
+    width: 49.93005%;
     text-align: center;
     text-transform: uppercase;
-    font-size: 0.75em; }
-    #imagenform-ipe #tabs li:last-child {
+    font-size: 0.75em;
+    margin-right: 0; }
+    #tabs li:last-child {
       margin-right: 0; }
-    #imagenform-ipe #tabs li:nth-child(2n) {
-      margin-right: 0; }
-    #imagenform-ipe #tabs li:nth-child(2n+1) {
-      clear: left; }
-    #imagenform-ipe #tabs li a {
+    #tabs li a {
       display: block;
       width: 100%;
       padding: 10px 0 8px;
       outline: none;
       color: #c7c7c7; }
-    #imagenform-ipe #tabs li[aria-selected="true"] {
+    #tabs li[aria-selected="true"] {
       color: #18bb9b;
       border-bottom: 2px solid #18bb9b; }
-      #imagenform-ipe #tabs li[aria-selected="true"] a {
+      #tabs li[aria-selected="true"] a {
         color: #18bb9b; }
-    #imagenform-ipe #tabs li:first-child {
+    #tabs li:first-child {
       border-right: 1px solid #c7c7c7; }
   @media screen and (min-width: 64em) and (max-width: 90em) {
-    #imagenform-ipe #tabs {
+    #tabs {
       margin-bottom: 0;
       margin-top: 0.625em;
       padding: 0.625em 0.3125em 0;
       border-top-left-radius: 0.625em;
       border-top-right-radius: 0.625em; }
-      #imagenform-ipe #tabs li {
+      #tabs li {
         float: left;
         display: block;
         margin-right: 2.35765%;
@@ -2479,10 +2474,11 @@ main {
         margin-right: 0;
         text-align: left;
         padding-left: 10px; }
-        #imagenform-ipe #tabs li:last-child {
+        #tabs li:last-child {
           margin-right: 0; }
-        #imagenform-ipe #tabs li:first-child {
+        #tabs li:first-child {
           margin-left: 11.08875%; } }
+
 #imagenform-ipe #tabscontent {
   padding: 0.625em 0.3125em; }
   #imagenform-ipe #tabscontent::before {
@@ -2764,7 +2760,8 @@ main {
           width: 82.94039%;
           font-size: 0.875em;
           color: #656b79;
-          padding: 0.1875em 0 0; }
+          padding: 0.1875em 0 0;
+          padding-top: 0.5em; }
           #imagenform-ipe #tabscontent .tabpage #redesociales .red-title .red-name:last-child {
             margin-right: 0; }
           @media screen and (min-width: 64em) and (max-width: 90em) {
@@ -2772,8 +2769,7 @@ main {
               float: left;
               display: block;
               margin-right: 2.35765%;
-              width: 91.4702%;
-              padding-top: 0.5em; }
+              width: 91.4702%; }
               #imagenform-ipe #tabscontent .tabpage #redesociales .red-title .red-name:last-child {
                 margin-right: 0; } }
         @media screen and (min-width: 64em) and (max-width: 90em) {
@@ -3169,7 +3165,8 @@ main {
       width: 40.29137%;
       text-align: left;
       padding: 40px 0 0;
-      margin-top: 140px; }
+      margin-top: 140px;
+      margin-right: 0; }
       #imagenform-ipe .header-ipe .alt-perfil:last-child {
         margin-right: 0; }
       #imagenform-ipe .header-ipe .alt-perfil h2 {
@@ -3179,19 +3176,46 @@ main {
       #imagenform-ipe .header-ipe .alt-perfil .geo {
         font-size: 1.125em;
         display: block; }
+    #imagenform-ipe .header-ipe .alt-data {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 37.73243%;
+      margin-top: 110px;
+      padding-right: 20px;
+      border-right: 1px solid rgba(255, 255, 255, 0.3); }
+      #imagenform-ipe .header-ipe .alt-data:last-child {
+        margin-right: 0; }
+      #imagenform-ipe .header-ipe .alt-data p {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%;
+        margin: 0;
+        text-align: right; }
+        #imagenform-ipe .header-ipe .alt-data p:last-child {
+          margin-right: 0; }
+        #imagenform-ipe .header-ipe .alt-data p.total-numbers {
+          font-size: 4.25em; }
+          #imagenform-ipe .header-ipe .alt-data p.total-numbers span {
+            font-size: 22px;
+            font-weight: normal;
+            text-transform: uppercase; }
+        #imagenform-ipe .header-ipe .alt-data p.bio {
+          float: right;
+          display: block;
+          margin-left: 2.35765%;
+          width: 82.94039%;
+          display: block;
+          max-width: inherit; }
+          #imagenform-ipe .header-ipe .alt-data p.bio:last-child {
+            margin-left: 0; }
     #imagenform-ipe .header-ipe h2 {
       display: none; }
     #imagenform-ipe .header-ipe div.geo {
       display: none; }
     #imagenform-ipe .header-ipe p.bio {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 31.76157%;
-      margin-left: 8.5298%;
-      text-align: right; }
-      #imagenform-ipe .header-ipe p.bio:last-child {
-        margin-right: 0; } }
+      display: none; } }
 @media screen and (min-width: 64em) and (max-width: 90em) {
   #imagenform-ipe #tab-examp {
     padding: 0.625em; } }
@@ -3456,17 +3480,38 @@ main {
   .campanas .campa-ico {
     padding: 5px 0 !important; }
 
-.campanas-ipe #imagenform-ipe #tabscontent .tabpage:last-child {
-  padding: 0.625em;
-  border-top-left-radius: 0.625em;
-  border-top-right-radius: 0.625em;
-  border-bottom-left-radius: 0.625em;
-  border-top-left-radius: 0.625em;
-  border-bottom-right-radius: 0.625em;
-  border-top-right-radius: 0.625em;
-  border-bottom-left-radius: 0.625em;
-  border-bottom-right-radius: 0.625em;
-  background-color: #fff; }
+.campanas-ipe {
+  background-image: none; }
+  .campanas-ipe .sub-titulo {
+    margin: 0;
+    font-size: 14px;
+    font-style: italic;
+    text-transform: uppercase;
+    color: #c7c7c7;
+    padding: 10px;
+    clear: both; }
+    @media screen and (min-width: 64em) and (max-width: 90em) {
+      .campanas-ipe .sub-titulo {
+        max-width: 68em;
+        margin-left: auto;
+        margin-right: auto;
+        color: #656b79;
+        font-size: 18px;
+        font-weight: normal;
+        max-width: 60.625em; }
+        .campanas-ipe .sub-titulo::after {
+          clear: both;
+          content: "";
+          display: table; } }
+    @media screen and (min-width: 90em) {
+      .campanas-ipe .sub-titulo {
+        color: #656b79;
+        font-size: 18px;
+        font-weight: normal; } }
+  .campanas-ipe #imagenform-ipe #tabscontent {
+    padding: 0; }
+    .campanas-ipe #imagenform-ipe #tabscontent .tabpage {
+      padding: 0; }
 
 .influenciador-publico {
   padding: 0 0 20px; }
