@@ -1,17 +1,18 @@
+
 <?php
 include('header.php');
 require('rrss/rrss_keys.php');
 
 /****************************************************************************************************
-								GET INSTAGRAM REACH
+                GET INSTAGRAM REACH
 ****************************************************************************************************/
-  $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$row[0]." AND descripcion_rrss='instagram' AND id_estado=1";
-  $result3=mysqli_query($mysqli,$query3)or die (mysqli_error($mysqli));
+  $query3='SELECT DISTINCT * FROM rrss WHERE persona_id="'.$row[0].'" AND descripcion_rrss="instagram" AND id_estado=1';
+  $result3=mysqli_query($mysqli,$query3)or die (mysqli_erroxr($mysqli));
   $row3= mysqli_fetch_array($result3, MYSQLI_BOTH);
   $num_row3= mysqli_num_rows($result3);
   $_SESSION['instagram']="";
-	if($num_row3>0){
-		do{
+  if($num_row3>0){
+    do{
       include_once('rrss/Instagram/instagram.php');
       $json_user_url ="https://api.instagram.com/v1/users/".$row3[3]."?access_token=".$row3[6];
       $json_user= file_get_contents($json_user_url);
@@ -24,19 +25,19 @@ require('rrss/rrss_keys.php');
       }
      $_SESSION['instagram'] .=
       "<div class='red-info'>
-	      <h3>".$username."</h3>
-	      <ul>
-		      <li><img src='".$avatar."'/></li>
-		      <li>Followers<br><span>".formato_numeros_reachs($followers_instagram)."</span></li>
-	      </ul>
+        <h3>".$username."</h3>
+        <ul>
+          <li><img src='".$avatar."'/></li>
+          <li>Followers<br><span>".formato_numeros_reachs($followers_instagram)."</span></li>
+        </ul>
       </div>";
     }while($row3 = $result3->fetch_array());
       $suma += $suma_instagram;
-	}
+  }
 /****************************************************************************************************
-									TWITTER BUTTON AND GET REACH SUM
+                  TWITTER BUTTON AND GET REACH SUM
 ****************************************************************************************************/
-$query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$row[0]." AND descripcion_rrss='twitter' AND id_estado='1'";
+$query4='SELECT DISTINCT * FROM rrss WHERE persona_id="'.$row[0].'" AND descripcion_rrss="twitter" AND id_estado=1';
     $result4=mysqli_query($mysqli,$query4)or die (mysqli_error($mysqli));
     $row4= mysqli_fetch_array($result4, MYSQLI_BOTH);
     $num_row4=mysqli_num_rows($result4);
@@ -83,7 +84,7 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$row[0]." AND descripcio
 /****************************************************************************************************
             YOUTUBE  GET REACH SUM
 ****************************************************************************************************/
-    $query5="SELECT DISTINCT * FROM rrss WHERE persona_id=".$row[0]." AND descripcion_rrss='youtube' AND id_estado='1'";
+    $query5='SELECT DISTINCT * FROM rrss WHERE persona_id="'.$row[0].'" AND descripcion_rrss="youtube" AND id_estado=1';
     $result5=mysqli_query($mysqli,$query5)or die (mysqli_error($mysqli));
     $row5= mysqli_fetch_array($result5, MYSQLI_BOTH);
     $num_row5=mysqli_num_rows($result5);
@@ -104,22 +105,22 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$row[0]." AND descripcio
   
         $_SESSION['youtube'] .="
         <div class='red-info'>
-	        <h3>".$youtubeName."</h3>
-	        <ul>
-		        <li><img src='".$youtubeImgUrl."'/></li>
-		        <li>Suscriptos<br><span>".formato_numeros_reachs($youtubeSubscribers)."</span></li>
-	        </ul>
+          <h3>".$youtubeName."</h3>
+          <ul>
+            <li><img src='".$youtubeImgUrl."'/></li>
+            <li>Suscriptos<br><span>".formato_numeros_reachs($youtubeSubscribers)."</span></li>
+          </ul>
         </div>";
       }while($row5 = $result5->fetch_array());
     }
-		$suma += $suma_youtube;
-		$results1 = $mysqli->query("SELECT rrss_id FROM rrss WHERE rrss_id='$youtubeId' AND descripcion_rrss='youtube'");
-		$num_row1=mysqli_num_rows($results1);
+    $suma += $suma_youtube;
+    $results1 = $mysqli->query("SELECT rrss_id FROM rrss WHERE rrss_id='$youtubeId' AND descripcion_rrss='youtube'");
+    $num_row1=mysqli_num_rows($results1);
 
 /****************************************************************************************************
-								FACEBOOK GET REACH SUM
+                FACEBOOK GET REACH SUM
 ****************************************************************************************************/
-    $query6="SELECT DISTINCT * FROM rrss WHERE persona_id=".$row[0]." AND descripcion_rrss='facebook' AND id_estado='1'";
+    $query6='SELECT DISTINCT * FROM rrss WHERE persona_id="'.$row[0].'" AND descripcion_rrss="facebook" AND id_estado=1';
     $result6=mysqli_query($mysqli,$query6)or die (mysqli_error($mysqli));
     $row6= mysqli_fetch_array($result6, MYSQLI_BOTH);
     $num_row6=mysqli_num_rows($result6);
@@ -151,9 +152,9 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$row[0]." AND descripcio
             <div class='red-info'>
             <h3>".$facebookUsername."</h3>
             <ul>
-	            <li><img src='".$facebookImgUrl."'/></li>
-	            <li>Likes <br/><span>".formato_numeros_reachs($facebookLikes)."</span></li>
-	            <li>Gente hablando <br/><span>".formato_numeros_reachs(intval($facebookTalkingAbout))."</span></li>
+              <li><img src='".$facebookImgUrl."'/></li>
+              <li>Likes <br/><span>".formato_numeros_reachs($facebookLikes)."</span></li>
+              <li>Gente hablando <br/><span>".formato_numeros_reachs(intval($facebookTalkingAbout))."</span></li>
             </ul>
             </div>";
         }
@@ -165,9 +166,9 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$row[0]." AND descripcio
     }
 
 /****************************************************************************************************
-						GOOGLEPLUS  GET REACH SUM
+            GOOGLEPLUS  GET REACH SUM
 ****************************************************************************************************/
-    $query7="SELECT DISTINCT * FROM rrss WHERE persona_id=".$row[0]." AND descripcion_rrss='googleplus' AND id_estado='1'";
+    $query7='SELECT DISTINCT * FROM rrss WHERE persona_id="'.$row[0].'" AND descripcion_rrss="googleplus" AND id_estado=1';
     $result7=mysqli_query($mysqli,$query7)or die (mysqli_error($mysqli));
     $row7= mysqli_fetch_array($result7, MYSQLI_BOTH);
     $num_row7=mysqli_num_rows($result7);
@@ -197,10 +198,10 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$row[0]." AND descripcio
         if((int)$googleplusSubscriber>0){
           $_SESSION['googleplus'] .="
           <div class='red-info'>
-	          <h3>".$googleplusName."</h3>
-	          <ul>
-	          	<li>Followers<br><span>".formato_numeros_reachs($googleplusSubscriber)."</span></li>
-	          </ul>
+            <h3>".$googleplusName."</h3>
+            <ul>
+              <li>Followers<br><span>".formato_numeros_reachs($googleplusSubscriber)."</span></li>
+            </ul>
           </div>";
         }
 
@@ -210,13 +211,13 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$row[0]." AND descripcio
 /****************************************************************************************************
             ANALYTICS  GET REACH SUM
 ****************************************************************************************************/
-    $query8="SELECT DISTINCT * FROM rrss WHERE persona_id=".$row[0]." AND descripcion_rrss='analytics' AND id_estado='1'";
+    $query8='SELECT DISTINCT * FROM rrss WHERE persona_id="'.$row[0].'" AND descripcion_rrss="analytics" AND id_estado=1';
     $result8=mysqli_query($mysqli,$query8)or die (mysqli_error($mysqli));
     $row8= mysqli_fetch_array($result8, MYSQLI_BOTH);
     $num_row8=mysqli_num_rows($result8);
 
     
-    $query9="SELECT DISTINCT * FROM Analytics WHERE persona_id=".$row[0]." AND id_estado='1' ORDER BY PVMBL DESC ";
+    $query9='SELECT DISTINCT * FROM Analytics WHERE persona_id=".$row[0]." AND id_estado=1 ORDER BY PVMBL DESC';
     $result9=mysqli_query($mysqli,$query9)or die (mysqli_error($mysqli));
     $row9= mysqli_fetch_array($result9, MYSQLI_BOTH);
     $num_row9=mysqli_num_rows($result9);
@@ -348,70 +349,70 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$row[0]." AND descripcio
     $variable--;
 
 ?>
-		
+    
 <?php
 if($row){
-	echo "<h2>Perfil de ".$row[5]."</h2>";
+  echo "<h2>Perfil de ".$row[5]."</h2>";
   echo "<img src='".$row[12]."' width='100' heigth='100' />";
 
-	if($num_row6 > 0){
-		echo '<div class="red-title"><i class="pi pi-facebook"></i> <span class="red-name">Facebook</span> <i class="pi pi-arrow-bottom"></i></div>
-			  <div class="rs-inscription">';
-		echo '<div class="reach-total">facebook reach <span>'.formato_numeros_reachs($suma_facebook).'</span></div>';
-		echo $_SESSION['facebook'];
-		echo '</div>';
-	}	
+  if($num_row6 > 0){
+    echo '<div class="red-title"><i class="pi pi-facebook"></i> <span class="red-name">Facebook</span> <i class="pi pi-arrow-bottom"></i></div>
+        <div class="rs-inscription">';
+    echo '<div class="reach-total">facebook reach <span>'.formato_numeros_reachs($suma_facebook).'</span></div>';
+    echo $_SESSION['facebook'];
+    echo '</div>';
+  } 
 
-	if($num_row3 > 0){
-		echo '<div class="red-title"><i class="pi pi-instagram"></i> <span class="red-name">Instagram</span> <i class="pi pi-arrow-bottom"></i></div>
-			  <div class="rs-inscription">';
-		echo '<div class="reach-total">instagram reach <span>'.formato_numeros_reachs($suma_instagram).'</span></div>';
-		echo $_SESSION['instagram'];
-		echo '</div>';
-		}
+  if($num_row3 > 0){
+    echo '<div class="red-title"><i class="pi pi-instagram"></i> <span class="red-name">Instagram</span> <i class="pi pi-arrow-bottom"></i></div>
+        <div class="rs-inscription">';
+    echo '<div class="reach-total">instagram reach <span>'.formato_numeros_reachs($suma_instagram).'</span></div>';
+    echo $_SESSION['instagram'];
+    echo '</div>';
+    }
 
-	if($num_row4 > 0){
-		echo '<div class="red-title"><i class="pi pi-twitter"></i> <span class="red-name">Twitter</span> <i class="pi pi-arrow-bottom"></i></div>
-		      <div class="rs-inscription">';
-		echo '<div class="reach-total">twitter reach <span>'.formato_numeros_reachs($suma_twitter).'</span></div>';
-		echo $_SESSION['twitter'];
-		echo '</div>';
-	}
+  if($num_row4 > 0){
+    echo '<div class="red-title"><i class="pi pi-twitter"></i> <span class="red-name">Twitter</span> <i class="pi pi-arrow-bottom"></i></div>
+          <div class="rs-inscription">';
+    echo '<div class="reach-total">twitter reach <span>'.formato_numeros_reachs($suma_twitter).'</span></div>';
+    echo $_SESSION['twitter'];
+    echo '</div>';
+  }
 
-	if($num_row9 > 0){
-		echo '<div class="red-title"><i class="pi pi-analytics"></i> <span class="red-name">Analytics</span> <i class="pi pi-arrow-bottom"></i></div>
-			  <div class="rs-inscription">';
-		echo '<div class="reach-total">
-			analytics reach 
-			<span>'.formato_numeros_reachs($suma_analytics).'</span>
-		</div>';
-		echo $_SESSION['analytics'];
-		echo '</div>';
-	}
+  if($num_row9 > 0){
+    echo '<div class="red-title"><i class="pi pi-analytics"></i> <span class="red-name">Analytics</span> <i class="pi pi-arrow-bottom"></i></div>
+        <div class="rs-inscription">';
+    echo '<div class="reach-total">
+      analytics reach 
+      <span>'.formato_numeros_reachs($suma_analytics).'</span>
+    </div>';
+    echo $_SESSION['analytics'];
+    echo '</div>';
+  }
 
-	if($num_row5 > 0){
-		echo '<div class="red-title"><i class="pi pi-youtube"></i> <span class="red-name">Youtube</span> <i class="pi pi-arrow-bottom"></i></div>
-		      <div class="rs-inscription">';
-		echo '<div class="reach-total">youtube reach <span>'.formato_numeros_reachs($suma_youtube).'</span></div>';
-		echo $_SESSION['youtube'];
-		echo '</div>';
-	}
+  if($num_row5 > 0){
+    echo '<div class="red-title"><i class="pi pi-youtube"></i> <span class="red-name">Youtube</span> <i class="pi pi-arrow-bottom"></i></div>
+          <div class="rs-inscription">';
+    echo '<div class="reach-total">youtube reach <span>'.formato_numeros_reachs($suma_youtube).'</span></div>';
+    echo $_SESSION['youtube'];
+    echo '</div>';
+  }
 
-	if($num_row7 > 0){
-		echo '<div class="red-title"><i class="pi pi-googleplus"></i> <span class="red-name">Google Plus</span> <i class="pi pi-arrow-bottom"></i></div>
-			  <div class="rs-inscription">';
-		echo '<div class="reach-total">google plus reach <span>'.formato_numeros_reachs($suma_googleplus).'</span></div>';
-		echo $_SESSION['googleplus'];
-		echo '</div>';
-	}
+  if($num_row7 > 0){
+    echo '<div class="red-title"><i class="pi pi-googleplus"></i> <span class="red-name">Google Plus</span> <i class="pi pi-arrow-bottom"></i></div>
+        <div class="rs-inscription">';
+    echo '<div class="reach-total">google plus reach <span>'.formato_numeros_reachs($suma_googleplus).'</span></div>';
+    echo $_SESSION['googleplus'];
+    echo '</div>';
+  }
 }else{
-	echo '<h2>Perfil no registrado</h2>';
+  echo '<h2>Perfil no registrado</h2>';
 }
 
 
 
 ?>
-	
+  
 <?php
 include('footer.php');
 ?>
