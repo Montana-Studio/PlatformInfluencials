@@ -33,6 +33,7 @@ if ($resultado != "vacio"){
 
 	//Rescato datos de persona
 	$_SESSION['id']=$row2[0];
+	$_SESSION['id_tipo']= $row2[1];
 	$_SESSION['nombre']=$row2[5];
 	$_SESSION['correo']=$row2[6];
 	$_SESSION['telefono1']=$row2[7];

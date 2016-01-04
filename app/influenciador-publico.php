@@ -1,6 +1,10 @@
 <?php include 'header.php'; ?>
-
-<?php
+<?php 
+	$query_campana='SELECT DISTINCT * FROM campana WHERE id="'.$_GET['id'].'" AND nombre="'.$_GET["campana"].'"';
+	$result_campana=mysqli_query($mysqli,$query_campana)or die (mysqli_erroxr($mysqli));
+	$row_campana= mysqli_fetch_array($result_campana, MYSQLI_BOTH);
+	$num_row_campana= mysqli_num_rows($result_campana);
+if($row_campana){
 	if($_GET['campana']){
 		echo '<div id="campanas-postulables">
 			<h2 class="sub-titulo">Selecciona una campaña</h2>
@@ -30,7 +34,7 @@
 	
 	//mostrar influenciadores
 	if ($num_rows > 0){
-		
+		echo  $_GET['campana'].$_GET['id'];
 		echo '<h2 class="sub-titulo">Influenciadores</h2>
 				<div class="influenciadores">';
 		do{
@@ -175,10 +179,7 @@
 
 				</form>';
 		}while($row = mysqli_fetch_row($result));
-	
-?>
 
-<?php
 		echo '</div><button id="cotizar_influenciador">cotizar</button>
 		<script>
 			$(document).ready(function(){
@@ -318,6 +319,9 @@
 						</a>
 					</main>';
 	}
+}
+
+
 
 ?>
 
