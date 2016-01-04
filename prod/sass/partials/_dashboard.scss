@@ -671,10 +671,38 @@
             }
         }
         &:first-child{
-            border:{right:1px solid $color_grey}
+            border:{right:1px solid $color_grey} 
         }
     }
-    @include media($tabletLandTonotebook){
+    @include media($tabletLand){
+        margin:{bottom:0;top:em(10);}
+        @include pad(em(10) em(5) 0);
+        @include border-top-radius(em(10));
+        li{
+            @include span-columns(2);
+            @include omega();
+            @include textAligns(left);
+            padding:{left:10px;}
+            &:first-child{
+                @include shift(0);
+            }
+        }
+    }
+    @include media($notebookLand){
+        margin:{bottom:0;top:em(10);}
+        @include pad(em(10) em(5) 0);
+        @include border-top-radius(em(10));
+        li{
+            @include span-columns(2);
+            @include omega();
+            @include textAligns(left);
+            padding:{left:10px;}
+            &:first-child{
+                @include shift(.9);
+            }
+        }
+    }
+    @include media($notebookTodesktop){
         margin:{bottom:0;top:em(10);}
         @include pad(em(10) em(5) 0);
         @include border-top-radius(em(10));
@@ -1212,8 +1240,12 @@
                     margin:{bottom:0;}
                 }
                 .geo{
-                    font:{size:em(18)}
+                    font:{size:em(14)}
                     display:block;
+                }
+                .perfil{
+                    font:{size:em(14)}
+                    text:{transform:capitalize;}
                 }
             }
             .alt-data{

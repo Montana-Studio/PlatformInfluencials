@@ -18,7 +18,7 @@
 
 			<input id="RsId" value="<?php echo $_SESSION['rsid']; ?>" type="hidden">
 
-			<h2><?php echo $_SESSION['nombre']?></h2>
+			<h2><?php echo $_SESSION['nombre'];?></h2>
 			<div class="geo">
 				<i class="pi pi-marker"></i>
 				<?php echo $_SESSION['comuna'].','.$_SESSION['region'];?>
@@ -30,7 +30,11 @@
                  <div class="geo">
                     <i class="pi pi-marker"></i>
                     <?php echo $_SESSION['comuna'].','.$_SESSION['region'];?>
-                </div>
+                 </div>
+                 <div class="perfil">
+                     <i class="pi pi-user"></i>
+                     <?php echo $_SESSION['descripcion_tipo'];?>
+                 </div>
 			  
 			</div>
 			<div class="alt-data">

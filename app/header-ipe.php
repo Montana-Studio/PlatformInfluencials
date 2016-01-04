@@ -180,10 +180,15 @@
 
 ?>
 <nav class="nav-ipe">
-	<ul>
+	<ul class="nav-mobile">
 		<li><i onClick="backHistory()" class="pi pi-arrow-left"></i></li>
 		<li><h1><?php echo $_SESSION['descripcion_tipo']?></h1></li>
 		<li><a href="logout.php" class="pi pi-close"></a></li>
+	</ul>
+	<ul class="nav-deskt">
+	    <li></li>
+	    <li></li>
+	    <li></li>
 	</ul>
 </nav>
 <nav class="header-ipe">

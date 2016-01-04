@@ -35,6 +35,9 @@
 .pi-marker{
 	&::before{content:url("../img/pi-marker.svg");}
 }
+.pi-user{
+	&::before{content:url("../img/pi-user.svg");}
+}
 
 //RRSS
 .pi-facebook{
