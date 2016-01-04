@@ -499,7 +499,7 @@
 		<div class="imagen" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);">
 
 			<input type="file" name="file" id="file" class="hide"/>
-			<label class="selectFile" for="file"><i class="fa fa-pencil"></i></label>
+			<label class="selectFile" for="file"><i class="pi pi-pencil"></i></label>
 
 		</div>
 
@@ -532,7 +532,7 @@
 					<div id="nombre">
 						<small>nombre</small>
 						<input value="<?php echo $_SESSION['nombre']; ?>" disabled>
-						<i class="fa fa-pencil"></i>
+						<i class="pi pi-pencil"></i>
 					</div>
 					<div id="correo">
 						<small>correo</small>
@@ -546,17 +546,17 @@
 					<div id="empresa">
 						<small>empresa</small>
 						<input value="<?php echo $_SESSION['empresa']; ?>" disabled>
-						<i class="fa fa-pencil"></i>
+						<i class="pi pi-pencil"></i>
 					</div>
 					<div id="tel1">
 						<small>tel. empresa</small>
 						<input type="text"  onkeypress="return valida(event)" maxlength="11" value="<?php echo $_SESSION['telefono1']; ?>" disabled>
-						<i class="fa fa-pencil"></i>
+						<i class="pi pi-pencil"></i>
 					</div>
 					<div id="tel2">
 						<small>tel. personal</small>
 						<input type="text"  onkeypress="return valida(event)" maxlength="11" value="<?php echo $_SESSION['telefono2']; ?>" disabled>
-						<i class="fa fa-pencil"></i>
+						<i class="pi pi-pencil"></i>
 					</div>
 
 				</div>
@@ -569,8 +569,8 @@
 
 		<button id="guardarFacturacion" type="submit">Guardar cambios</button>
 
-		<a href="logout.php" class="logout"><i class="fa fa-times-circle-o"></i> cerrar sesion</a>
+		<a href="logout.php" class="logout"><i class="pi pi-close"></i> cerrar sesion</a>
 	</div>
 
-	<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
+	<div class="btn_close"><span><i class="pi pi-close"></i></span></div>
 </form>

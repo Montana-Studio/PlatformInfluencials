@@ -4,7 +4,7 @@
 		</div>
 		<p class="info_form">por favor ingresar los siguientes datos para continuar</p>
 
-		<form id="formulario_agencias_rs" class="">
+		<form id="formulario_agencias_rs" class="contFroms">
 
 			<div class="cont-inputs" id="inicio">
 

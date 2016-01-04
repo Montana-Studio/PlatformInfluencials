@@ -160,7 +160,7 @@ nav{
             }
             &.nav-deskt{
                 @extend .hide;
-                @include media($tabletLandTonotebook and $notebookTodesktop){
+                @include media($notebookTodesktop){
                     display: block;
                     padding:{top:3px;}
                     li{
