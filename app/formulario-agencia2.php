@@ -1,5 +1,5 @@
 <?php include 'header.php';?>
-	<form class="cont_formRegistro">
+	<form class="contFroms">
 
 		<div id="inicio" class="cont-inputs" disabled>
 			<h2 class="sub-title">formulario de ingreso</h2>

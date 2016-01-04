@@ -62,7 +62,7 @@ html{
 				color:$color_grey;
 				border:{bottom:1px solid $color_grey;}
 			}
-			.cont_formRegistro{
+			.contFroms{
 				@include span-columns(12);
 				@include pad();
 				.sub-title{

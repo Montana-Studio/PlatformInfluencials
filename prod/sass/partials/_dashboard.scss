@@ -555,6 +555,9 @@
 					color:$color_font2;
 					border:{bottom:1px solid $color_font2;}
 				}
+                &:first-child{
+                    @include shift(0);
+                }
 			}
 		}
 		.tabpage{
@@ -594,7 +597,7 @@
 				i{
 					@extend .hide;
 					position:absolute;
-					top:22px;
+					top:11px;
 					right:10px;
 					color:$color_font2;
 					opacity: 0;

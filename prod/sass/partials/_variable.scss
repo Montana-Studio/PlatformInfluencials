@@ -57,5 +57,6 @@ $desktop:(min-width em(1440));
 $mobileTomobileLand: (min-width em(320) max-width em(640));
 $mobileLandTotablet: (min-width em(480) max-width em(1024));
 $tabletLandTonotebook: (min-width em(1024) max-width em(1440));
-$notebookTodesktop: (min-width em(1280) min-width em(1440));
+$notebookTodesktop: (min-width em(1024));
+
 
