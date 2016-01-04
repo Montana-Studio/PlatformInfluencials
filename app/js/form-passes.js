@@ -69,13 +69,15 @@ $(document).ready(function(){
 	$('#ingresar').click(function(){
 		correo=$('#correo').val();
 		password=$('#password').val();
-
+		//console.log(correo+password);
+		//console.log(username);
 		$.ajax({
 			type: "POST",
 			url: "./procesar_login.php",
 			data: "correo="+correo+"&pwd="+password,
 
 			success: function(html){
+				console.log(html);
 					switch (html){
 					case "admin": window.location.href= "./dashboard-admin.php";
 					break;
@@ -108,6 +110,7 @@ $(document).ready(function(){
 		info.append('nutel1',$('.telefono1nuevo').val());
 		info.append('nutel2',$('.telefono2nuevo').val());
 		info.append('tipo','agencia');
+		//console.log($('#contraseñanuevo').val());
 		tipo=$('#perfil option').val();
 		var e = document.getElementById("perfil");
 		var perfil = e.options[e.selectedIndex].value;
@@ -208,6 +211,7 @@ $(document).ready(function(){
 		info.append('perfil',perfil);
 		info.append('region',region);
 		info.append('comuna',comuna);
+		//console.log(perfil+region+comuna);
 		$.ajax({
 			type: "POST",
 			url: "./procesar_registro_ipe_facebook.php",
@@ -217,6 +221,7 @@ $(document).ready(function(){
 			cache: false,
 			processData:false,
 			success: function(data){
+				//console.log('holi desde form-passes');
 				switch (data){
 					case "actualizado": alert('registro ingresado, nos contactaremos con usted');
 						                window.location.href='logout.php';
@@ -237,6 +242,7 @@ $(document).ready(function(){
 		info = new FormData(this);
 		info.append('nuuser',$('.usernamenuevo').val());
 		info.append('nupass',$('.contraseña').val());
+		//console.log($('.contraseña').val());
 		info.append('nucorreo',$('.correonuevo').val());
 		info.append('tipo','influenciador');
 		tipo=$('#perfil option').val();
@@ -246,6 +252,7 @@ $(document).ready(function(){
 		var region = f.options[f.selectedIndex].value;
 		var g = document.getElementById("comuna");
 		var comuna = g.options[g.selectedIndex].value;
+		//console.log(perfil+region+comuna+$('.usernamenuevo').val()+$('#contraseñanuevo').val()+$('.correonuevo').val());
 		info.append('ipe',perfil);
 		info.append('region',region);
 		info.append('comuna',comuna);
@@ -259,6 +266,8 @@ $(document).ready(function(){
 			cache: false,
 			processData:false,
 			success: function(data){
+
+				console.log(data);
 				switch (data){
 					case "nuevo":
 									$(".alertElim").fadeIn("normal",function(){
@@ -355,6 +364,7 @@ $(document).ready(function(){
 		script.text ='\n api_key:	7718vpksg6gvwg\nauthorize:	false\nonLoad: onLinkedInLoad\n';
 		head.appendChild(script);
 		//$("#tipoCliente").attr("value", "2");
+		//console.log('api load linked');
 	});
 
 
@@ -378,6 +388,7 @@ $(document).ready(function(){
 		script.text ='\n api_key:	7718vpksg6gvwg\nauthorize:	false\nonLoad: onLinkedInLoad\n';
 		head.appendChild(script);
 		//$("#tipoCliente").attr("value", "3");
+		//console.log('api load linked');
 	});
 
 	$("#ver-password").keyup(checkPasswordMatch);
@@ -415,6 +426,7 @@ $(document).ready(function(){
 		info.append('tipo','campana');
         $(':checkbox:checked').each(function(i){
           val[i] = $(this).val();
+         // console.log(val[i]);
         });
 		info.append('selected_rrss',val);
 		$.ajax({
@@ -427,6 +439,7 @@ $(document).ready(function(){
 				processData:false,
 
 				success: function(data){
+					alert(data);
 					switch (data){
 						case "nueva":$(".alertElim").fadeIn("normal",function(){
 									$("#boxElim .hrefCamp h2").text("Campaña creada con exito");
@@ -565,6 +578,7 @@ $(document).ready(function(){
 					}
 				}
 			});
+			//console.log('');
 		};
 
 		return false;
@@ -581,6 +595,7 @@ $(document).ready(function(){
 		var g = document.getElementById("comuna");
 		var comuna = g.options[g.selectedIndex].value;
 		info.append('descripcion',$('#descripcion textarea').val());
+		console.log($('#descripcion textarea').val());
 		info.append('comuna',comuna);
 		info.append('region',region);
 		info.append('tipo','avatar-ipe');
@@ -596,6 +611,7 @@ $(document).ready(function(){
 				processData:false,
 
 				success: function(info){
+					console.log(info);
 					switch (info){
 						case "nuevo":$(".alertElim").fadeIn("normal",function(){
 								animaMune();
@@ -631,6 +647,7 @@ $(document).ready(function(){
 			});
 		}
 		else{
+			//console.log(region+comuna+$('#correo input').val()+$('#nombre input').val());
 			$.ajax({
 
 					type: "POST",
@@ -645,6 +662,7 @@ $(document).ready(function(){
 					console.log(info);
 					switch (info){
 						case "actualiza":
+						//console.log('actualiza');
 						$(".alertElim").fadeIn("normal",function(){
 								$("#boxAlert .hrefCamp h2").text("datos actualizados");
 								
@@ -679,7 +697,9 @@ $(document).ready(function(){
 					}
 				}
 			});
+			//console.log('');
 		};
+
 		return false;
 	}));
 
@@ -761,6 +781,7 @@ $(document).ready(function(){
 			var url = $(this).val();
 			var descripcion_rrss=$(this).closest(".rrss").attr("name");
 			
+			console.log(rrss_id+campana_id+url);
 			$.ajax({
 				type: "POST",
 				url: "./procesar_url.php",

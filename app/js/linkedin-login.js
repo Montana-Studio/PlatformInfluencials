@@ -25,7 +25,9 @@ $(document).ready(function(){
 	$('#linkedin-nuevo').on('click',(function (){
 		var nombre = data['formattedName'];
 		var pictureUrl = data['pictureUrl'];
-		var email = data['emailAddress'];	
+		var email = data['emailAddress'];
+		console.log(nombre, pictureUrl, email);
+	
 		$.ajax({  
             type: "POST",  
             url: "./procesar_linkedin.php",  

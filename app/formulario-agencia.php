@@ -1,8 +1,10 @@
 <?php include 'header.php'; ?>
-
+		<div id="tipo"> 
+			<p><?php echo $_SESSION['id_tipo'];?></p>
+		</div>
 		<p class="info_form">por favor ingresar los siguientes datos para continuar</p>
 
-		<form id="formulario_agencias_rs" class="cont_formRegistro">
+		<form id="formulario_agencias_rs" class="">
 
 			<div class="cont-inputs" id="inicio">
 

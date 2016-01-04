@@ -43,6 +43,7 @@
 				$_SESSION['empresa']=$row[13];
 				$_SESSION['pictureUrl']=$row[12];
 				$_SESSION['rsid']=$row[10];
+				$_SESSION['id_tipo']=$row[1];
 				$_SESSION['descripcion']= $row[14];
 				echo 'dashboard';
 			}
@@ -50,6 +51,7 @@
 				$_SESSION['id']=$row2[0];
 				$_SESSION['nombre']=$row2[5];
 				$_SESSION['correo']=$row2[6];
+				$_SESSION['id_tipo']=$row[1];
 				echo 'formulario';
 			}
 			else{
@@ -61,6 +63,7 @@
 				$_SESSION['id']=$row[0];
 				$_SESSION['nombre']=$row[5];
 				$_SESSION['correo']=$row[6];
+				$_SESSION['id_tipo']=$row[1];
 				echo 'primera';
 			}
 
@@ -78,6 +81,7 @@
 					$_SESSION['id']=$row[0];
 					$_SESSION['nombre']=$row[5];
 					$_SESSION['correo']=$row[6];
+					$_SESSION['id_tipo']=$row[1];
 					//$_SESSION['telefono1']=$row[7];
 					//$_SESSION['telefono2']=$row[8];
 					//$_SESSION['empresa']=$row[13];
@@ -91,6 +95,7 @@
 					$_SESSION['id']=$row2[0];
 					$_SESSION['nombre']=$row2[5];
 					$_SESSION['correo']=$row2[6];
+					$_SESSION['id_tipo']=$row[1];
 					echo 'primera-ipe';
 				}
 				else{
@@ -102,6 +107,7 @@
 					$_SESSION['id']=$row[0];
 					$_SESSION['nombre']=$row[5];
 					$_SESSION['correo']=$row[6];
+					$_SESSION['id_tipo']=$row[1];
 					echo 'primera-ipe';
 				}
 
