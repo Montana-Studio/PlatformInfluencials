@@ -15,16 +15,16 @@
 	$_SESSION['id']=$rsid;
 	$_SESSION['conn']= $connections;
 
-	$query="SELECT * FROM persona p WHERE p.RS_id='$rsid' AND p.id_estado=1";
+	$query='SELECT * FROM persona WHERE RS_id="'.$rsid.'" AND id_estado=1';
 	$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 	$num_row= mysqli_num_rows($result);
 	$row= mysqli_fetch_array($result, MYSQLI_NUM);
 
-	$query2="SELECT * FROM persona p WHERE p.RS_id='$rsid' AND p.id_estado=0 AND telefono1=0";
+	$query2='SELECT * FROM persona WHERE RS_id="'.$rsid.'" AND id_estado=0 AND telefono1=0';
 	$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
 	$num_row2= mysqli_num_rows($result2);
 
-	$query3="SELECT * FROM persona p WHERE p.RS_id='$rsid'";
+	$query3='SELECT * FROM persona WHERE RS_id="'.$rsid;
 	$result3= mysqli_query($mysqli,$query3)or die(mysqli_error());
 	$num_row3= mysqli_num_rows($result3);
 
@@ -49,7 +49,7 @@
 		{
 		echo 'false';
 		}else{
-		$results = $mysqli->query("INSERT INTO persona (nombre, correo, id_tipo, picture_url, RS_id, oauth_id, fecha_ingreso )VALUES ('$nombre', '$correo','$tipo', '$pictureUrl', '$rsid' , '$conn' , '$hoyFormatted')");
+		$results = $mysqli->query('INSERT INTO persona (nombre, correo, id_tipo, picture_url, RS_id, oauth_id, fecha_ingreso )VALUES ("'.$nombre.'", "'.$correo.'","'.$tipo.'", "'.$pictureUrl.'", "'.$rsid.'" , "'.$conn.'" , "'.$hoyFormatted.'")');
 		echo 'primera';
 		}
 
@@ -73,7 +73,7 @@
 		{
 		echo 'false';
 		}else{
-		$results = $mysqli->query("INSERT INTO persona (nombre, correo, id_tipo, picture_url, RS_id, oauth_id )VALUES ('$nombre', '$correo','$tipo', '$pictureUrl', '$rsid' , '$conn', '$hoyFormatted')");
+		$results = $mysqli->query('INSERT INTO persona (nombre, correo, id_tipo, picture_url, RS_id, oauth_id )VALUES ("'.$nombre.'", "'.$correo.'","'.$tipo.'", "'.$pictureUrl.'", "'.$rsid.'" , "'.$conn.'", "'.$hoyFormatted.'")');
 		echo 'primera-ipe';
 		}
 	}
