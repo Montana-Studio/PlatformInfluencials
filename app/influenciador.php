@@ -59,7 +59,7 @@ if(isset($_SESSION['id'])){
 	else
 		echo '
 
-		<script src="../bower_components/vide/dist/jquery.vide.min.js"></script>
+		<script src="js/dist/jquery.vide.min.js"></script>
 		<div class="video-container" data-vide-bg="mp4: video/bg_app.mp4, webm: video/bg_app.webmv, ogv: video/bg_app.ogg" data-vide-options="posterType: none,loop: true, muted: true, position: 0% 0%"></div>';
 
 	?>
