@@ -5,7 +5,7 @@ $result_redes_sociales_campana=mysqli_query($mysqli,$query_redes_sociales_campan
 $row_redes_sociales_campana= mysqli_fetch_array($result_redes_sociales_campana, MYSQLI_BOTH);
 $redes_sociales=explode(',',$row_redes_sociales_campana['redes_sociales']);
 for($i=0;$i<count($redes_sociales);$i++){
-	echo '<ul>'.$redes_sociales[$i];
+	echo '<ul class="redes-metrics"><span class="tit-red red-'.$redes_sociales[$i].'">'.$redes_sociales[$i].'</span>';
 	
 	if($redes_sociales[$i]=='facebook'){
 		

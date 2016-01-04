@@ -57,25 +57,36 @@
 						$(".ver-mas").find("i").addClass("fa-angle-down");
 					}
 
-					$(".ver-mas").on("click",function(event){
 
-							$(this).siblings(".content").slideToggle();
+                    if(document.documentElement.clientWidth >= 1024){
+                        $(".ver-mas").on("click",function(event){
+                            $(".bg-campana, .ver-mas, .sub-titulo").fadeOut();
+                            $(".campanas").animate({backgroundColor:"#eeeef0"},{duration:1000, 
+                                complete:function(){
 
-							if(document.documentElement.clientWidth >= 1024){
-								$(".bg-campana, .ver-mas, .sub-titulo").fadeOut();
-								$(".campanas").animate({backgroundColor:"#eeeef0"},"slow");
-							}else{
-								$(this).find("i").toggleClass("fa-angle-up fa-angle-down");
-								$("html,body").animate({scrollTop : $(this).siblings(".bg-campana").offset().top},1000);
-							}
+                                    $(".cont-campana").css("width","100%");
+                                }
+                            });
 
-					});
+                            $(this).siblings(".content").delay(1005).slideToggle();
+                            $(this).siblings(".reach-campana, .reach-campana .sub-titulo").delay(1010).fadeIn();
+                        });
+                    }else{
+                        $(".ver-mas").on("click",function(event){
+                            $(this).find("i").toggleClass("fa-angle-up fa-angle-down");
+                            $("html,body").animate({scrollTop : $(this).siblings(".bg-campana").offset().top},1000);
+                        });
+                    }
+                            
 					$(".content .btn_close").on("click",function(){
 							$(this).closest(".content").fadeOut();
-
+                            $(".reach-campana, .reach-campana .sub-titulo").delay(100).fadeOut();
 							if(document.documentElement.clientWidth >= 1024){
-								$(".bg-campana, .ver-mas, .sub-titulo").fadeIn();
-								$(".campanas").animate({backgroundColor:"#fff"},"slow");
+								$(".campanas").animate({backgroundColor:"#fff"},{duration:1000,complete:function(){
+                                
+                                    $(".cont-campana").removeAttr("style","");
+								    $(".bg-campana, .ver-mas, .sub-titulo").delay(800).fadeIn();
+                                }});
 								$(".ver-mas").find("i").addClass("fa-plus");
 							}
 					});

@@ -48,7 +48,9 @@
 		overflow:hidden;
 		position:relative;
 		display: block;
-		.bg-campana{
+        .cont-campana{
+            @include span-columns(4);
+	    	.bg-campana{
 			@include span-columns(12 of 12);
 			@include pad(148px 5px 0);
 			position: relative;
@@ -79,7 +81,7 @@
 				padding:{top:256px;}
 			}
 		}
-		.ver-mas{
+	    	.ver-mas{
 			@include span-columns(12);
 			color:$color_font2;
 			@include pad(8px 0 0);
@@ -121,7 +123,53 @@
 				}
 			}
 		}
-		.content{
+            .reach-campana{
+                display: none;
+                @include media($tabletLandTonotebook){
+                    width:100%;
+                    margin:60px auto 0 !important;
+                    position: relative;
+                    z-index: 9;
+                    .redes-metrics{
+                        margin:0 0 20px 0;
+                        padding: 0;
+                        @include span-columns(4);
+                        background: {color:#fff;}
+                        @include border-right-radius(3px);
+                        @include omega(4n);
+                        .tit-red{
+                            @include border-left-radius(3px);
+                            @include pad(11px);
+                            color:#fff;
+                            text:{transform:uppercase;}
+                            font:{size:em(11);}
+                            float:left;
+                            &.red-twitter{
+                                background: {color:$col-twitter;}
+                            }
+                            &.red-facebook{
+                                background: {color:$col-facebook;}
+                            }
+                            &.red-instagram{
+                                background: {color:$col-instagram;}
+                            }
+                            &.red-youtube{
+                                background: {color:$col-youtube;}
+                            }
+                            &.red-analytics{
+                                background: {color:$col-google;}
+                            }
+                            &.red-googleplus{
+                                background: {color:$col-google-plus;}
+                            }
+                        }
+                        ul{
+                            position: absolute;
+                        }
+                    }
+                }
+            }
+	    	.content{
 			@include span-columns(12 of 12);
 			@include pad(0 15px);
 			.tools-campana{
@@ -164,6 +212,7 @@
 					.tool-ico{
 						display: table-cell;
 						vertical-align:middle;
+                        margin:{top:6px;}
 					}
 				}
 				@include media($tabletLandTonotebook){
@@ -175,7 +224,7 @@
 			}
 			.campa-ico{
 				@include row();
-				@include span-columns(6 of 12);
+				@include span-columns(12 of 12);
 				@include omega();
 				@include pad();
 				color:$color_grey;
@@ -191,7 +240,7 @@
 					&.fecha-edit{
 						position:absolute;
 						color:$color_font2;
-						right:1px;
+						right:0;
 						top:7px;
 						@extend .hide;
 						font:{size:12px;}
@@ -204,11 +253,9 @@
 					width:100%;
 				}
 				&.activada{
-					@include span-columns(12 of 12);
 					@include pad(5px 0);
 				}
 				&.fecha-activada{
-					@include span-columns(12 of 12);
 					@include pad(5px 0);
 					span{
 						color:$color_font2;
@@ -288,16 +335,15 @@
 			}
 			//MEDIA QUERIES
 			@include media($tabletLandTonotebook){
-			   	width:80%;
+			   	width:100%;
 			   	margin:0 auto !important;
-			    position: absolute;
+			    position: relative;
 			    background:{color: #fff;}
 			    z-index: 9;
-			    top:20%;
-			    left:0;
-			    right:0;
+			    top:50px;
 			    overflow: hidden;
 			    padding:{bottom:10px;}
+                float:none;
 				.img-compana-deskt{
 					@include span-columns(6 of 12);
 					display: block;
@@ -353,10 +399,11 @@
 			    	@include span-columns(6);
 			    }
 			}
-		}
+		} 
+        }
 		//MEDIA QUERIES
 		@include media($tabletLandTonotebook){
-			@include span-columns(4);
+			@include span-columns(12);
 			@include omega(3n);
 			margin:{bottom:20px;}
 			position:static;
