@@ -715,6 +715,7 @@ $(document).ready(function(){
 				info.append('correo',$('#correo input').val());
 				info.append('tel1',$('#telefono1nuevo').val());
 				info.append('tel2',$('#telefono2nuevo').val());
+				console.log('holi');
 
 			$.ajax({
 				type: "POST",
