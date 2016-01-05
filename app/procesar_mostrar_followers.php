@@ -365,13 +365,13 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
           <div class='red-info'>
           <h3>".$googleplusName."</h3>
           <ul>
+          <li><img src='".$picture."'/></li>
           <li>Followers<br><span>".formato_numeros_reachs($googleplusSubscriber)."</span></li>
           </ul>
           <!--button class='estado_rs' name='".$estado."' id='".$googleplusId."'>".$estado_descripcion."</button-->
           <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
           <div class='onoffswitch'>
               <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$googleplusId."'>
-              <img src='".$picture."'/>
               <label class='btn".$estado_descripcion." switch-label' for='".$googleplusId."'></label>
           </div>
           </div>";

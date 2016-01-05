@@ -1040,16 +1040,13 @@
 						text:{transform:capitalize;}
 						color:$color_grey2;
 						@include span-columns(12);
+                        max-width: 100%;
 						@include textAligns(center);
 						@include pad(0 0 em(10));
 						border:{bottom:1px solid $color_grey;}
 						span{
 							color:$color_font2;
 							font:{size:em(20);}
-						}
-						@include media($tabletLandTonotebook){
-							@include outer-container(em(600));
-							float:none;
 						}
 					}
 					.red-info{
@@ -1300,7 +1297,7 @@
 		}
 		&:after {
 		    content: '';
-			background-image: linear-gradient(to bottom,rgba(0,0,0,0),#153773);
+			background-image:linear-gradient(transparent 10%, rgba(21, 55, 115, 0.75) 75%);
 			position: absolute;
 	    	left: 0;
 	    	right: 0;

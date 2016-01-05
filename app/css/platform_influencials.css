@@ -76,6 +76,9 @@ html {
 .pi-send::before {
   content: url("../img/pi-send.svg"); }
 
+.pi-singin::before {
+  content: url("../img/pi-sign-out.svg"); }
+
 .pi-facebook::before {
   content: url("../img/pi-facebook.svg"); }
 
@@ -709,6 +712,7 @@ header {
     margin-right: 2.35765%;
     width: 6.17215%;
     text-align: center;
+    margin-right: 3px !important;
     font-size: 16px !important;
     color: #fff;
     display: table !important;
@@ -736,16 +740,16 @@ header {
       vertical-align: middle;
       margin-top: 10px; }
   header .ayuda_pi {
-    margin-left: 55.44373%; }
+    margin-left: 57.14969%; }
     @media screen and (min-width: 64em) {
       header .ayuda_pi {
-        margin-left: 51.17883%; } }
+        margin-left: 68.23843%; } }
     @media screen and (min-width: 64em) and (max-width: 90em) {
       header .ayuda_pi {
-        margin-left: 66.53247%; } }
+        margin-left: 70.79738%; } }
     @media screen and (min-width: 90em) {
       header .ayuda_pi {
-        margin-left: 66.53247%; } }
+        margin-left: 70.79738%; } }
   header .menu {
     float: left;
     display: block;
@@ -842,6 +846,8 @@ nav {
         margin-right: 0; }
       nav ul li a {
         color: #c7c7c7; }
+        nav ul li a i {
+          margin-right: 10px; }
       nav ul li:first-child {
         float: left;
         display: block;
@@ -861,7 +867,6 @@ nav {
           margin-right: 2.35765%;
           width: 31.24978%;
           margin-right: 0;
-          text-align: left;
           padding-left: 10px; }
           nav ul li:last-child {
             margin-right: 0; }
@@ -870,8 +875,7 @@ nav {
             display: block;
             margin-right: 2.35765%;
             width: 6.17215%;
-            margin-right: 0;
-            text-align: center; }
+            margin-right: 0; }
             nav ul li:first-child:last-child {
               margin-right: 0; }
           nav ul li#nuevaCampain {
@@ -3001,6 +3005,7 @@ main {
           display: block;
           margin-right: 2.35765%;
           width: 100%;
+          max-width: 100%;
           text-align: center;
           padding: 0 0 0.625em;
           border-bottom: 1px solid #c7c7c7; }
@@ -3009,16 +3014,6 @@ main {
           #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .reach-total span {
             color: #18bb9b;
             font-size: 1.25em; }
-          @media screen and (min-width: 64em) and (max-width: 90em) {
-            #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .reach-total {
-              max-width: 37.5em;
-              margin-left: auto;
-              margin-right: auto;
-              float: none; }
-              #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .reach-total::after {
-                clear: both;
-                content: "";
-                display: table; } }
         #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info {
           padding: 0 0 0.625em; }
           #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .red-info h3 {
@@ -3342,7 +3337,7 @@ main {
         display: none; } }
   #imagenform-ipe .header-ipe:after {
     content: '';
-    background-image: linear-gradient(to bottom, transparent, #153773);
+    background-image: linear-gradient(transparent 10%, rgba(21, 55, 115, 0.75) 75%);
     position: absolute;
     left: 0;
     right: 0;
@@ -3795,7 +3790,7 @@ main {
       display: block;
       margin-right: 2.35765%;
       width: 100%;
-      border-bottom: 1px solid #656b79;
+      border-bottom: 1px solid #c7c7c7;
       padding: 0 0 10px;
       display: block;
       width: 100%;

@@ -21,11 +21,11 @@
 .pi-arrow-bottom{
 	&::before{content:url("../img/pi-arrow-bottom.svg");}
 }
-
-//Graphs
 .pi-close{
 	&::before{content:url("../img/pi-close.svg");}
 }
+
+//Graphs
 .pi-bullhorn{
 	&::before{content:url("../img/pi-bullhorn.svg");}
 }
@@ -71,6 +71,10 @@
 .pi-send{
 	&::before{content:url("../img/pi-send.svg");}
 }
+.pi-singin{
+	&::before{content:url("../img/pi-sign-out.svg");}
+}
+
 
 //RRSS
 .pi-facebook{
