@@ -246,7 +246,7 @@
 					.tool-ico{
 						display: table-cell;
 						vertical-align:middle;
-                        margin:{top:6px;}
+                        margin:{top:6px;left:11px;right:-13px;}
 					}
 				}
 				@include media($tabletLandTonotebook){
@@ -329,7 +329,7 @@
 					position:absolute;
 					color:$color_font2;
 					right:1px;
-					top:7px;
+					top:2px;
 					@extend .hide;
 					font:{size:12px;}
 				}

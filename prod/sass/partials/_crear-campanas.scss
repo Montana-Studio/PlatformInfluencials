@@ -124,7 +124,7 @@
 			}
 		}
 		.check-red{
-			@include span-columns(2 of 12);
+			@include span-columns(1.8 of 12);
 			margin:em(20) em(6);
 			@extend .switcher-norm;
 		}
@@ -166,8 +166,9 @@
 					margin:0;
 				}
 				.check-red{
-					@include span-columns(3);
-					margin:0;
+					@include span-columns(2.5);
+					@include shift(1);
+                    margin:0 {top:1%};
 				}
 			}
 		}
