@@ -467,8 +467,8 @@
 <header>
 
 	<div class="logo"><a href="./dashboard-agencia.php" target="_top"></a></div>
-	<a href="#" class="ayuda_pi"><i class="fa fa-life-ring"></i></a>
-	<a href="#" class="notes" ><i class="fa fa-bell-o"></i></a>
+	<a href="#" class="ayuda_pi"><i class="pi pi-help"></i></a>
+	<a href="#" class="notes" ><i class="pi pi-bell"></i></a>
 	<div class="menu" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);"></div>
 </header>
 
@@ -481,10 +481,10 @@
 		echo '
 			<nav>
 				<ul>
-					<li><i onClick="backHistory()" class="fa fa-chevron-left"></i></li>
-					<li><a href="campana.php"><i class="fa fa-suitcase"></i> campañas</a></li>
-					<li id="nuevaCampain"><a href="nueva-campana.php"><i class="fa fa-plus"></i> crear campañas</a></li>
-					<li><a href="influenciador-publico.php"><i class="fa fa-user"></i> influencers</a></li>
+					<li><i onClick="backHistory()" class="pi pi-arrow-left"></i></li>
+					<li><a href="campana.php"><i class="pi pi-suitcase"></i> campañas</a></li>
+					<li id="nuevaCampain"><a href="nueva-campana.php"><i class="pi pi-plus"></i> crear campañas</a></li>
+					<li><a href="influenciador-publico.php"><i class="pi pi-user"></i> influencers</a></li>
 				</ul>
 			</nav>
 		';

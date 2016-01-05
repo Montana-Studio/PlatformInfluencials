@@ -5,22 +5,25 @@
 	<form id="campanaForm-nueva-campana">
 
 		<div class="inputs-deskt">
-
+            
+            <h2 class="sub-titulo">Información basica</h2>
+            <p>Dinos en que consistes la campañas, indicando su nombre, marca, descripción y su fecha de terminó.</p>
+            
 			<div class="cont-input nombre">
 				<input placeholder="Nombre de la Campaña" id="nombre-nueva-campana" required="required">
-				<i class="fa fa-pencil"></i>
+				<i class="pi pi-pencil"></i>
 			</div>
 			<div class="cont-input marca">
 				<input placeholder="Marca" id="marca-nueva-campana" required>
-				<i class="fa fa-pencil"></i>
+				<i class="pi pi-pencil"></i>
 			</div>
 			<div class="cont-input descripcion">
 				<textarea placeholder="Descripción" id="descripcion-nueva-campana" rows="10" cols="40" required></textarea>
-				<i class="fa fa-pencil"></i>				
+				<i class="pi pi-pencil"></i>				
 			</div>
 			<div class="cont-input">
 				<input class="fecha_termino" type="text" id="datepicker" placeholder="Fecha de termino">
-				<i class="fa fa-pencil"></i>
+				<i class="pi pi-pencil"></i>
 			</div>
 			
 		</div>
@@ -31,7 +34,7 @@
 			
 			<div class="red-cont">
 				<div class="name-red">
-					<i class="fa fa-facebook"></i>
+					<i class="pi pi-facebook"></i>
 					facebook
 				</div>
 				<div class="check-red">
@@ -42,7 +45,7 @@
 
 			<div class="red-cont">
 				<div class="name-red">
-					<i class="fa fa-twitter"></i>
+					<i class="pi pi-twitter"></i>
 					twitter
 				</div>
 				<div class="check-red">
@@ -52,7 +55,7 @@
 			</div>
 			<div class="red-cont">
 				<div class="name-red">
-					<i class="fa fa-instagram"></i>
+					<i class="pi pi-instagram"></i>
 					instagram
 				</div>
 				<div class="check-red">
@@ -62,7 +65,7 @@
 			</div>
 			<div class="red-cont">
 				<div class="name-red">
-					<i class="fa fa-youtube-play"></i>
+					<i class="pi pi-youtube"></i>
 					youtube
 				</div>
 				<div class="check-red">
@@ -72,7 +75,7 @@
 			</div>
 			<div class="red-cont">
 				<div class="name-red">
-					<i class="fa fa-google"></i>
+					<i class="pi pi-analytics"></i>
 					analytics
 				</div>
 				<div class="check-red">
@@ -82,7 +85,7 @@
 			</div>
 			<div class="red-cont">
 				<div class="name-red">
-					<i class="fa fa-google-plus"></i>
+					<i class="pi pi-googleplus"></i>
 					google plus
 				</div>
 				<div class="check-red">

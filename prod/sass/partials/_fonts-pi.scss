@@ -38,6 +38,39 @@
 .pi-user{
 	&::before{content:url("../img/pi-user.svg");}
 }
+.pi-help{
+	&::before{content:url("../img/pi-help.svg");}
+}
+.pi-plus{
+	&::before{content:url("../img/pi-plus.svg");}
+}
+.pi-suitcase{
+	&::before{content:url("../img/pi-suitcase.svg");}
+}
+.pi-bell{
+	&::before{content:url("../img/pi-bell.svg");}
+}
+.pi-paperclip{
+	&::before{content:url("../img/pi-paperclip.svg");}
+}
+.pi-calendar{
+	&::before{content:url("../img/pi-calendar.svg");}
+}
+.pi-tool{
+	&::before{content:url("../img/pi-tool.svg");}
+}
+.pi-check{
+	&::before{content:url("../img/pi-check.svg");}
+}
+.pi-trash{
+	&::before{content:url("../img/pi-trash.svg");}
+}
+.pi-recived{
+	&::before{content:url("../img/pi-recived.svg");}
+}
+.pi-send{
+	&::before{content:url("../img/pi-send.svg");}
+}
 
 //RRSS
 .pi-facebook{

@@ -158,14 +158,14 @@
 							</div>
 							<div class="ver-mas"><span><i class="fa fa-angle-down"></i><i class="fa fa-plus"></i></span></div>
 							<div class="content">
-								<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
+								<div class="btn_close"><span><i class="pi pi-close"></i></span></div>
 								<form class="campanaForm" id="'.$row[0].'">
 									<ul class="tools-campana">
 										<li class="activar-campana" type="1" id="'.$row[0].'" >
-											<i class="tool-ico fa fa-remove"></i><span class="tool-txt"> desactivar</span>
+											<i class="tool-ico pi pi-recived"></i><span class="tool-txt"> desactivar</span>
 										</li>
 										<li class="cotizar-campana" style="border-left:none;">
-											<i class="tool-ico fa fa fa-users"></i><a class="tool-txt ir_a_cotizar_influenciador" name="'.$row[0].'" id="'.$row[1].'">cotizar</a>
+											<i class="tool-ico pi pi-user"></i><a class="tool-txt ir_a_cotizar_influenciador" name="'.$row[0].'" id="'.$row[1].'">cotizar</a>
 										</li>
 									</ul>
 									<div class="inputs-campana nombre nombre-campana" id="'.$row[0].'">
@@ -174,26 +174,35 @@
 									<div class="inputs-campana marca marca-campana" id="'.$row[0].'">
 										<input  placeholder="by '.$row[4].'" disabled />
 									</div>
-									<span class="campa-ico activada"><i class="fa fa-cog"></i>Activada</span>
+									<span class="campa-ico activada"><i class="pi pi-tool"></i>Activada</span>
 									
 									<span class="campa-ico fecha-activada">
-										<i class="fa fa-calendar"> Inicio </i><span>'.$row[7].'</span> al <span>'.$row[8].'</span>
+										<i class="pi pi-calendar"></i> Inicio <span>'.$row[7].'</span> al <span>'.$row[8].'</span>
 									</span>
 															
 									
 									<div class="inputs-campana descripcion descripcion-campana" id="'.$row[0].'">
 										<textarea placeholder="descripcion" disabled>'.$row[2].'</textarea>
 									</div>
-									<div id="redes_sociales_campana_"'.$row[0].'">';
-									//echo $row[0];
-										require('procesar_mostrar_reach_campana.php');
-							echo	'</div>
 									<!--button class="guardar-campana" type="submit" id="guardar-campana-'.$row[0].'">Guardar Cambios en '.$row[1].'</button-->
 								</form>
 								<div class="img-compana-deskt hide">
 									<img src="'.$row[3].'"/>
 								</div>
 							</div>
+                            <script>
+                                $(document).ready(function(){
+                                    $(".ver-mas-metrics").on("click",function(event){
+                                        console.log("holi");
+                                        $(this).siblings(".redes-metrics .data ul li").slideDown();
+                                    });
+                                });
+                            </script>
+                            <div id="redes_sociales_campana_'.$row[0].'" class="reach-campana">
+                                <h2 class="sub-titulo">Metricas de la campaña</h2>';
+                                require('procesar_mostrar_reach_campana.php');
+                                
+        echo '              </div>
 					</div>
 				</div>
 		';
@@ -215,32 +224,32 @@
 						</span>
 					</div>
 					<div class="content">
-						<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
+						<div class="btn_close"><span><i class="pi pi-close"></i></span></div>
 						<form class="campanaForm" id="'.$row2[0].'">
 							<ul class="tools-campana">
-								<li class="cotizar-campana"><i class="tool-ico fa fa-users"></i><a class="tool-txt ir_a_cotizar_influenciador" name="'.$row2[0].'" id="'.$row2[1].'">cotizar</a></li>
-								<li class="edit-campanas"><i class="tool-ico fa fa-pencil"></i><span class="tool-txt"> editar</span></li>
-								<li class="activar-campana" id="'.$row2[0].'" name="0"><i class="tool-ico fa fa-check"></i><span class="tool-txt"> activar</span></li>
-								<li class="btneliminar" id="'.$row2[0].'"><i class="tool-ico fa fa-trash-o"></i><span class="tool-txt"> eliminar</span></li>
+								<li class="cotizar-campana"><i class="tool-ico pi pi-user"></i><a class="tool-txt ir_a_cotizar_influenciador" name="'.$row2[0].'" id="'.$row2[1].'">cotizar</a></li>
+								<li class="edit-campanas"><i class="tool-ico pi pi-pencil"></i><span class="tool-txt"> editar</span></li>
+								<li class="activar-campana" id="'.$row2[0].'" name="0"><i class="tool-ico pi pi-send"></i><span class="tool-txt"> activar</span></li>
+								<li class="btneliminar" id="'.$row2[0].'"><i class="tool-ico pi pi-trash"></i><span class="tool-txt"> eliminar</span></li>
 							</ul>
 							<div class="inputs-campana nombre" id="nombre-campana-'.$row2[0].'">
 								<input placeholder="'.$row2[1].'" class="nombre-input" disabled></input>
-								<i class="fa fa-pencil"></i>
+								<i class="pi pi-pencil"></i>
 							</div>
 							<div class="inputs-campana marca" id="marca-campana-'.$row2[0].'">
 								 <input placeholder="by '.$row2[4].'" disabled></input>
-								 <i class="fa fa-pencil"></i>
+								 <i class="pi pi-pencil"></i>
 							</div>
-							<span class="campa-ico"><i class="fa fa-cog"></i>Desactivada</span>
+							<span class="campa-ico"><i class="pi pi-tool"></i>Desactivada</span>
 							<span class="campa-ico">
-								<i class="fa fa-calendar"></i>
-								Fecha de término 
+								<i class="pi pi-calendar"></i>
+								Fecha término 
 								<input class="fecha_termino" type="text" id="datepicker" value="'.$row2[8].'">
-								<i class="fecha-edit fa fa-pencil"></i>
+								<i class="fecha-edit pi pi-pencil"></i>
 							</span>
 							<div class="inputs-campana descripcion" id="descripcion-campana-'.$row2[0].'">
 								<textarea placeholder="descripcion" disabled>'.$row2[2].'</textarea>
-								<i class="fa fa-pencil"></i>
+								<i class="pi pi-pencil"></i>
 							</div>
 										
 							<script>
@@ -265,7 +274,7 @@
 </div>
 <?php
 	if($num_rows == 0 && $num_rows2 == 0){
-		echo '<main class="no-campana"><a href="nueva-campana.php" class="hrefCamp"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes crear una nueva, creala aquí.</p><div class="btn_crearcamp">crear campaña</div></a></main>';
+		echo '<main class="no-campana"><a href="nueva-campana.php" class="hrefCamp"><i class="pi pi-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes crear una nueva, creala aquí.</p><div class="btn_crearcamp">crear campaña</div></a></main>';
 	}
 ?>
 	<div id="contacto" class="hide">
