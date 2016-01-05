@@ -1669,7 +1669,7 @@ main {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 31.76157%; }
+    width: 100%; }
     .creadas .recientes .cont-campana:last-child {
       margin-right: 0; }
     .creadas .recientes .cont-campana .bg-campana {
@@ -1786,13 +1786,20 @@ main {
             .creadas .recientes .cont-campana .reach-campana .redes-metrics:nth-child(4n+1) {
               clear: left; }
             .creadas .recientes .cont-campana .reach-campana .redes-metrics .tit-red {
+              float: left;
+              display: block;
+              margin-right: 2.35765%;
+              width: 31.76157%;
               border-bottom-left-radius: 3px;
               border-top-left-radius: 3px;
-              padding: 11px;
+              padding: 22px;
+              text-align: center;
               color: #fff;
               text-transform: uppercase;
               font-size: 0.6875em;
-              float: left; }
+              height: 56px; }
+              .creadas .recientes .cont-campana .reach-campana .redes-metrics .tit-red:last-child {
+                margin-right: 0; }
               .creadas .recientes .cont-campana .reach-campana .redes-metrics .tit-red.red-twitter {
                 background-color: #55acee; }
               .creadas .recientes .cont-campana .reach-campana .redes-metrics .tit-red.red-facebook {
@@ -1805,8 +1812,49 @@ main {
                 background-color: #f05721; }
               .creadas .recientes .cont-campana .reach-campana .redes-metrics .tit-red.red-googleplus {
                 background-color: #ee0f0f; }
-            .creadas .recientes .cont-campana .reach-campana .redes-metrics ul {
-              position: absolute; } }
+            .creadas .recientes .cont-campana .reach-campana .redes-metrics .data {
+              float: left;
+              display: block;
+              margin-right: 2.35765%;
+              width: 48.82117%;
+              min-height: 56px; }
+              .creadas .recientes .cont-campana .reach-campana .redes-metrics .data:last-child {
+                margin-right: 0; }
+              .creadas .recientes .cont-campana .reach-campana .redes-metrics .data ul {
+                background: #fff;
+                margin: 0;
+                  margin-top: 5px;
+                padding: 0;
+                list-style: none;
+                position: absolute; }
+                .creadas .recientes .cont-campana .reach-campana .redes-metrics .data ul li {
+                  display: none; }
+                  .creadas .recientes .cont-campana .reach-campana .redes-metrics .data ul li span {
+                    float: left;
+                    display: block;
+                    margin-right: 2.35765%;
+                    width: 100%;
+                    font-size: 0.6875em;
+                    color: #c7c7c7; }
+                    .creadas .recientes .cont-campana .reach-campana .redes-metrics .data ul li span:last-child {
+                      margin-right: 0; }
+                    .creadas .recientes .cont-campana .reach-campana .redes-metrics .data ul li span:last-child {
+                      font-size: 1.375em;
+                      color: #18bb9b; }
+                  .creadas .recientes .cont-campana .reach-campana .redes-metrics .data ul li:first-child {
+                    display: block; }
+            .creadas .recientes .cont-campana .reach-campana .redes-metrics .ver-mas-metrics {
+              float: left;
+              display: block;
+              margin-right: 2.35765%;
+              width: 14.70196%;
+              display: table;
+              min-height: 56px;
+              text-align: center; }
+              .creadas .recientes .cont-campana .reach-campana .redes-metrics .ver-mas-metrics:last-child {
+                margin-right: 0; }
+              .creadas .recientes .cont-campana .reach-campana .redes-metrics .ver-mas-metrics i {
+                display: table-cell !important; } }
     .creadas .recientes .cont-campana .content {
       float: left;
       display: block;
@@ -2050,16 +2098,15 @@ main {
               margin-right: 0; } }
       @media screen and (min-width: 90em) {
         .creadas .recientes .cont-campana .content {
-          width: 80%;
+          width: 100%;
           margin: 0 auto !important;
-          position: absolute;
+          position: relative;
           background-color: #fff;
           z-index: 9;
-          top: 20%;
-          left: 0;
-          right: 0;
+          top: 50px;
           overflow: hidden;
-          padding-bottom: 10px; }
+          padding-bottom: 10px;
+          float: none; }
           .creadas .recientes .cont-campana .content .img-compana-deskt {
             float: left;
             display: block;
@@ -2091,12 +2138,20 @@ main {
             width: 48.82117%; }
             .creadas .recientes .cont-campana .content form:last-child {
               margin-right: 0; } }
+    @media screen and (min-width: 64em) and (max-width: 90em) {
+      .creadas .recientes .cont-campana {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%; }
+        .creadas .recientes .cont-campana:last-child {
+          margin-right: 0; } }
   @media screen and (min-width: 64em) and (max-width: 90em) {
     .creadas .recientes {
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 100%;
+      width: 31.76157%;
       margin-bottom: 20px;
       position: static;
       overflow: visible; }

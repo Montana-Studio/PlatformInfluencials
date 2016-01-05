@@ -190,10 +190,18 @@
 									<img src="'.$row[3].'"/>
 								</div>
 							</div>
-                            
+                            <script>
+                                $(document).ready(function(){
+                                    $(".ver-mas-metrics").on("click",function(event){
+                                        console.log("holi");
+                                        $(this).siblings(".redes-metrics .data ul li").slideDown();
+                                    });
+                                });
+                            </script>
                             <div id="redes_sociales_campana_'.$row[0].'" class="reach-campana">
                                 <h2 class="sub-titulo">Metricas de la campaña</h2>';
                                 require('procesar_mostrar_reach_campana.php');
+                                
         echo '              </div>
 					</div>
 				</div>

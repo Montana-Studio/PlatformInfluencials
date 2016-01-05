@@ -80,7 +80,7 @@ for($i=0;$i<count($redes_sociales);$i++){
 		$row_twitter_asociado_campana= mysqli_fetch_array($result_twitter_asociado_campana, MYSQLI_BOTH);
 		$num_row_twitter_asociado_campana= mysqli_num_rows($result_twitter_asociado_campana);
 		if($num_row_twitter_asociado_campana>0){
-			echo '<ul>';
+			echo '<div class="data"><ul>';
 			$twitter_retweet_total=0;
 			$twitter_favorite_total=0;
 			do{
@@ -112,9 +112,9 @@ for($i=0;$i<count($redes_sociales);$i++){
 				
 				
 			}while($row_twitter_asociado_campana = mysqli_fetch_array($result_twitter_asociado_campana));
-			echo '<li> Likes :'.$twitter_favorite_total.'</li>';
-			echo '<li> Retweets :'.$twitter_retweet_total.'</li>';
-			echo '</ul>';
+			echo '<li><span>Likes</span><span>'.$twitter_favorite_total.'</span></li>';
+			echo '<li><span>Retweets</span><span>'.$twitter_retweet_total.'</span></li>';
+			echo '</ul></div>';
 		}
 		
 	}
@@ -187,6 +187,6 @@ for($i=0;$i<count($redes_sociales);$i++){
 	if($redes_sociales[$i]=='analytics'){
 		
 	}
-	echo '</ul>';
+	echo '<span class="ver-mas-metrics"><i class="pi pi-arrow-bottom"></i></span></ul>';
 }
 ?>

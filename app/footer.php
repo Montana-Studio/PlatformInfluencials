@@ -64,7 +64,7 @@
                             $(".campanas").animate({backgroundColor:"#eeeef0"},{duration:1000, 
                                 complete:function(){
 
-                                    $(".cont-campana").css("width","100%");
+                                    $(".recientes, .cont-campana").css("width","100%");
                                 }
                             });
 
@@ -73,6 +73,7 @@
                         });
                     }else{
                         $(".ver-mas").on("click",function(event){
+                            $(this).siblings(".content").slideToggle();
                             $(this).find("i").toggleClass("fa-angle-up fa-angle-down");
                             $("html,body").animate({scrollTop : $(this).siblings(".bg-campana").offset().top},1000);
                         });
@@ -84,7 +85,7 @@
 							if(document.documentElement.clientWidth >= 1024){
 								$(".campanas").animate({backgroundColor:"#fff"},{duration:1000,complete:function(){
                                 
-                                    $(".cont-campana").removeAttr("style","");
+                                    $(".recientes, .cont-campana").removeAttr("style","");
 								    $(".bg-campana, .ver-mas, .sub-titulo").delay(800).fadeIn();
                                 }});
 								$(".ver-mas").find("i").addClass("fa-plus");
