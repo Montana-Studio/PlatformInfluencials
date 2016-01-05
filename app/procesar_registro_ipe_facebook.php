@@ -14,7 +14,7 @@ if(strlen($perfil)>0&&strlen($perfil)>0&&strlen($perfil)>0){
 	}else if($perfil==5){
 	$descripcion_tipo='editor';
 	}
-	$results2 = $mysqli->query("UPDATE persona SET id_tipo='$perfil', descripcion_tipo='$descripcion_tipo', region='$region', comuna='$comuna', estado_formulario='1' WHERE id='$id'");
+	$results2 = $mysqli->query("UPDATE persona SET id_tipo='$perfil', descripcion_tipo='$descripcion_tipo', region='$region', comuna='$comuna' WHERE id='$id'");
 	$resultado = 'actualizado';
 }else{
 	$resultado = 'false';

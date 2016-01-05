@@ -1,7 +1,4 @@
 <?php include 'header.php'; ?>
-		<div id="tipo"> 
-			<p><?php echo $_SESSION['id_tipo'];?></p>
-		</div>
 		<p class="info_form">por favor ingresar los siguientes datos para continuar</p>
 
 		<form id="formulario_agencias_rs" class="contFroms">
@@ -15,7 +12,7 @@
 					<i class="fa fa-pencil"></i>
 				</div>
 				<div id="empresa">
-					<input placeholder="Empresa a la que pertenece" required>
+					<input placeholder="<?php if($_SESSION['empresa']){ echo $_SESSION['empresa'];}else{echo 'Empresa a la que pertenece';}?>" required>
 					<i class="fa fa-pencil"></i>
 				</div>
 
@@ -30,11 +27,11 @@
 					<i class="fa fa-pencil"></i>
 				</div>
 				<div id="tel1">
-					<input id="telefono1nuevo" placeholder="telefono 1" onkeypress="return valida(event)" type="text" maxlength="11" required>
+					<input id="telefono1nuevo" placeholder="<?php if($_SESSION['telefono1']){ echo $_SESSION['telefono1'];}else{echo 'telefono1';}?>" value="<?php if($_SESSION['telefono1']){ echo $_SESSION['telefono1'];} ?>" onkeypress="return valida(event)" type="text" maxlength="11" required>
 					<i class="fa fa-pencil"></i>
 				</div>
 				<div id="tel2">
-					<input id="telefono2nuevo" placeholder="telefono 2" onkeypress="return valida(event)" type="text" maxlength="11" required>
+					<input id="telefono2nuevo" placeholder="<?php if($_SESSION['telefono2']){ echo $_SESSION['telefono2'];}else{echo 'telefono2';}?>" value="<?php if($_SESSION['telefono2']){ echo $_SESSION['telefono2'];} ?>" onkeypress="return valida(event)" type="text" maxlength="11" required>
 					<i class="fa fa-pencil"></i>
 				</div>
 				<button id="guardar" type="submit">guardar</button>
