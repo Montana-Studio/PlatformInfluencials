@@ -4,7 +4,7 @@
 	$result_campana=mysqli_query($mysqli,$query_campana)or die (mysqli_erroxr($mysqli));
 	$row_campana= mysqli_fetch_array($result_campana, MYSQLI_BOTH);
 	$num_row_campana= mysqli_num_rows($result_campana);
-if($row_campana){
+//if($row_campana){	
 	if($_GET['campana']){
 		echo '<div id="campanas-postulables">
 			<h2 class="sub-titulo">Selecciona una campaña</h2>
@@ -34,7 +34,7 @@ if($row_campana){
 	
 	//mostrar influenciadores
 	if ($num_rows > 0){
-		echo  $_GET['campana'].$_GET['id'];
+		//echo  $_GET['campana'].$_GET['id'];
 		echo '<h2 class="sub-titulo">Influenciadores</h2>
 				<div class="influenciadores">';
 		do{
@@ -58,11 +58,17 @@ if($row_campana){
 					?>
 					<?php
 					include_once('rrss/rrss_keys.php');
-					$query_rrss_ipe="SELECT * FROM rrss WHERE persona_id='".$row[0]."' AND id_estado=1 ORDER BY descripcion_rrss";
+					$query_rrss_ipe='SELECT * FROM rrss WHERE persona_id="'.$row[0].'" AND id_estado=1 ORDER BY descripcion_rrss';
 					$result_rrss_ipe= mysqli_query($mysqli,$query_rrss_ipe)or die(mysqli_error());
 					$row_rrss_ipe= mysqli_fetch_array($result_rrss_ipe, MYSQLI_NUM);
 					// $num_rows3= mysqli_num_rows($result_rrss_ipe);
 					$reach=0;
+					$echoContentFace=0;
+					$echoContentInsta=0;
+					$echoContentTweet=0;
+					$echoContentAnaly=0;
+					$echoContentYou=0;
+					$echoContentPlus=0;
 					do{
 						//echo $row_rrss_ipe[2];
 						if($row_rrss_ipe[2]==='facebook'){
@@ -167,17 +173,18 @@ if($row_campana){
 						<span class="ver_perfil_influenciador" name="'.$row[0].'">ver resumen</span>
 						<span class="volver_ver_perfil_influenciador" name="'.$row[0].'">ocutar resumen</span>
 
-						<div class="ver-perfil"><span id="'.$row[0].'" class="perfil_influenciador">ver perfil</span>
-
-						'.$echoContentFace.'
-						'.$echoContentInsta.'
-						'.$echoContentTweet.'
-						'.$echoContentAnaly.'
-						'.$echoContentYou.'
-						'.$echoContentPlus.'</div>
+						<div class="ver-perfil"><span id="'.$row[0].'" class="perfil_influenciador">ver perfil</span>';
+						if(strlen($echoContentFace)>1) echo $echoContentFace;
+						if(strlen($echoContentInsta)>1) echo $echoContentInsta;
+						if(strlen($echoContentTweet)>1) echo $echoContentTweet;
+						if(strlen($echoContentAnaly)>1) echo $echoContentAnaly;
+						if(strlen($echoContentYou)>1) echo $echoContentYou;
+						if(strlen($echoContentPlus)>1) echo $echoContentPlus;						
+				echo	'</div>
 					</div>
-
 				</form>';
+
+
 		}while($row = mysqli_fetch_row($result));
 
 		echo '</div><button id="cotizar_influenciador">cotizar</button>
@@ -319,7 +326,7 @@ if($row_campana){
 						</a>
 					</main>';
 	}
-}
+//}
 
 
 

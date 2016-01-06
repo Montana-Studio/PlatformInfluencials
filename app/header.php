@@ -128,22 +128,15 @@
 			die();
 		}
 		else{
-			//$id=$_SESSION['id'];
-			//$query="SELECT * FROM campana  WHERE idEstado=1 AND idpersona=".$id." ORDER BY id DESC LIMIT 3";
 			$id=$_SESSION['id'];
-			$query="SELECT * FROM persona WHERE id_estado=1 AND id_tipo>2 ORDER BY fecha_ingreso ASC";
+			$query='SELECT * FROM persona WHERE id_estado=1 AND id_tipo>2 ORDER BY fecha_ingreso ASC';
 			$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
 			$num_rows= mysqli_num_rows($result);
-			//$id=$_SESSION['id'];
-			$query2="SELECT nombre FROM campana WHERE idpersona=".$id;
+			$query2='SELECT nombre FROM campana WHERE idpersona="'.$id.'"';
 			$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
 			$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 			$num_rows2= mysqli_num_rows($result2);
-		
-			//$result= mysqli_query($mysqli,$query)or die(mysqli_error());
-			//$row= mysqli_fetch_array($result, MYSQLI_NUM);
-				//}
 			muestra_header();
 			echo "<script>
 					jQuery(document).ready(function(){
@@ -283,7 +276,7 @@
 		}
 		else{
 			$id=$_GET['id'];
-			$query="SELECT * FROM persona  WHERE id_estado=1 AND id_tipo>2 AND id=".$id ;
+			$query='SELECT * FROM persona  WHERE id_estado=1 AND id_tipo>2 AND id="'.$id.'"';
 			$result= mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
 			muestra_header();

@@ -7,11 +7,14 @@ function onSuccess(data) {
 		var pictureUrl = data['pictureUrl'];
 		var email = data['emailAddress'];
 		var conn = data['numConnections'];
+
 		$.ajax({  
 			type: "POST",  
 			url: "procesar_linkedin.php",  
 			data: "id="+id+"&nombre="+nombre+"&pictureUrl="+pictureUrl+"&email="+email+"&conn="+conn+"&tipo="+document.getElementById('tipoCliente').getAttribute('value'), 
 			success: function(html){ 
+				console.log(html);
+				
 				switch (html){
 				case "dashboard": window.location.href="dashboard-agencia.php";
 				break;
@@ -19,17 +22,11 @@ function onSuccess(data) {
 								document.getElementById('alertRegistrado').innerHTML = "Estimado(a) "+nombre+" ya se encuentra registrado nos contactaremos con usted a la brevedad";
 				break;
 				case "primera": document.getElementById('alertRegistrado').innerHTML = "Por favor ingrese sus datos en el formulario";	    
-								window.location.href="formulario-agencia2.php";			
-				break;
-				case "primera-ipe": document.getElementById('alertRegistrado').innerHTML = "Por favor ingrese sus datos en el formulario";	    
 								window.location.href="formulario-agencia3.php";			
-				break;
-				case "dashboard-ipe": window.location.href="dashboard-ipe.php";
 				break;
 				}
 			}
 		});
-		
 }
 function onError(error) {
 	console.log(error);

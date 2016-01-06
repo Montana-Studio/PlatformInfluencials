@@ -11,8 +11,8 @@
 					<input  value="<?php echo $_SESSION['nombre'];?>" required>
 					<i class="fa fa-pencil"></i>
 				</div>
-				<div id="empresa">
-					<input placeholder="<?php if($_SESSION['empresa']){ echo $_SESSION['empresa'];}else{echo 'Empresa a la que pertenece';}?>" required>
+				<div >
+					<input id="empresanueva" placeholder="<?php if($_SESSION['empresa']){ echo $_SESSION['empresa'];}else{echo 'Empresa a la que pertenece';}?>" required>
 					<i class="fa fa-pencil"></i>
 				</div>
 

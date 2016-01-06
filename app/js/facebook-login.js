@@ -113,11 +113,13 @@ $(document).ready(function(){
 		facebookUser=response.name;;
 		facebookCorreo=response.email;
 		var e = document.getElementById("perfil");
+		var empresa = $('#empresa input').val();
+
 		var perfil = e.options[e.selectedIndex].value;
 			$.ajax({  
 		            type: "POST",  
 		            url: "./procesar_facebook.php",  
-		            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id+"&tipo="+perfil,  
+		            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id+"&tipo="+perfil+"&empresa="+empresa,  
 					
 		            success: function(data){ 
 						switch (data){

@@ -5,7 +5,7 @@ $region= $_POST['region'];
 $comuna= $_POST['comuna'];
 $id=$_SESSION['id'];
 
-if(strlen($perfil)>0&&strlen($perfil)>0&&strlen($perfil)>0){
+//if(strlen($perfil)>0&&strlen($region)>0&&strlen($comuna)>0){
 	
 	if($perfil==3){
 	$descripcion_tipo='influenciador';
@@ -14,11 +14,13 @@ if(strlen($perfil)>0&&strlen($perfil)>0&&strlen($perfil)>0){
 	}else if($perfil==5){
 	$descripcion_tipo='editor';
 	}
-	$results2 = $mysqli->query("UPDATE persona SET id_tipo='$perfil', descripcion_tipo='$descripcion_tipo', region='$region', comuna='$comuna' WHERE id='$id'");
+	$results2 = $mysqli->query("UPDATE persona SET id_tipo='$perfil', descripcion_tipo='$descripcion_tipo', region='$region', comuna='$comuna', estado_formulario='1' WHERE id='$id'");
+	echo "UPDATE persona SET id_tipo='$perfil', descripcion_tipo='$descripcion_tipo', region='$region', comuna='$comuna', estado_formulario='1' WHERE id='$id'";
+	/*
 	$resultado = 'actualizado';
-}else{
-	$resultado = 'false';
-}
+//}else{
+//	$resultado = 'false';
+//}
 
-echo $resultado;
+echo $resultado;*/
  ?>

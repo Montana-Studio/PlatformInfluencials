@@ -211,7 +211,7 @@ $(document).ready(function(){
 		info.append('perfil',perfil);
 		info.append('region',region);
 		info.append('comuna',comuna);
-		//console.log(perfil+region+comuna);
+		console.log(perfil+region+comuna);
 		$.ajax({
 			type: "POST",
 			url: "./procesar_registro_ipe_facebook.php",
@@ -221,7 +221,7 @@ $(document).ready(function(){
 			cache: false,
 			processData:false,
 			success: function(data){
-				//console.log('holi desde form-passes');
+				console.log(data);
 				switch (data){
 					case "actualizado": alert('registro ingresado, nos contactaremos con usted');
 						                window.location.href='logout.php';
@@ -705,17 +705,14 @@ $(document).ready(function(){
 
 	//FORMULARIO DE AGENCIAS
 	$('#formulario_agencias_rs').on('submit',function(e){
-
 		e.preventDefault();
-
-		if($("#telefono1nuevo").val().length > 7 && $("#telefono2nuevo").val().length > 7 ){
+		if($("#telefono1nuevo").val().length > 7 && $("#telefono2nuevo").val().length > 7){
 				info = new FormData(this);
 				info.append('nombre',$('#nombre input').val());
-				info.append('empresa',$('#empresa input').val());
+				info.append('empresa',$('#empresanueva').val());
 				info.append('correo',$('#correo input').val());
 				info.append('tel1',$('#telefono1nuevo').val());
 				info.append('tel2',$('#telefono2nuevo').val());
-				console.log('holi');
 
 			$.ajax({
 				type: "POST",
@@ -772,6 +769,8 @@ $(document).ready(function(){
 		}
 
 	});
+
+
 
 
 	$('#enviar_url').click(function(){
