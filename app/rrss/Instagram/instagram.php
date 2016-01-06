@@ -7,7 +7,7 @@
 				popupLeft = (window.screen.width - popupWidth) / 2,
 				popupTop = (window.screen.height - popupHeight) / 2;
 			//the url needs to point to instagram_auth.php
-			var popup = window.open('rrss/instagram/instagram_auth.php', '', 'width='+popupWidth+',height='+popupHeight+',left='+popupLeft+',top='+popupTop+'');
+			var popup = window.open('rrss/Instagram/instagram_auth.php', '', 'width='+popupWidth+',height='+popupHeight+',left='+popupLeft+',top='+popupTop+'');
 			popup.onload = function() {
 				//open authorize url in pop-up
 				if(window.location.hash.length == 0) {
@@ -37,11 +37,13 @@
 			//alert(instagramId);
 			$.ajax({
             type: "POST",
-            url: "rrss/instagram/procesar_instagram.php",
+            url: "rrss/Instagram/procesar_instagram.php",
             data: "instagramId="+instagramId+"&accessToken="+accessToken,
             success: function(data){
             	 if(data == 'exito'){
                   alert("gracias por registrar su cuenta");
+                  //window.location.reload();
+                  window.location.href='http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-2';
                   window.location.reload();
                 }
                 else if(data == 'existe') alert('La cuenta ya está asociada, intente con una cuenta diferente')

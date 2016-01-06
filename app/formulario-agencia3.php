@@ -1,5 +1,5 @@
 <?php include 'header-ipe.php';?>
-	<form class="contFroms">
+	<form class="cont_formRegistro">
 		<div class="cont-inputs">
 			<h2 class="sub-title">formulario de ingreso</h2>
 			<div class="selects">

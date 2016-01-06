@@ -113,13 +113,15 @@ $(document).ready(function(){
 		facebookUser=response.name;;
 		facebookCorreo=response.email;
 		var e = document.getElementById("perfil");
+		var empresa = $('#empresa input').val();
 		var perfil = e.options[e.selectedIndex].value;
 			$.ajax({  
 		            type: "POST",  
 		            url: "./procesar_facebook.php",  
-		            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id+"&tipo="+perfil,  
+		            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id+"&tipo="+perfil+"&empresa="+empresa,  
 					
 		            success: function(data){ 
+		            	console.log(data);
 						switch (data){
 							case "dashboard": window.location.href="dashboard-agencia.php";
 							break;
@@ -132,11 +134,15 @@ $(document).ready(function(){
 							break;
 							case "dashboard-ipe": window.location.href="dashboard-ipe.php";
 							break;
-							case "primera-ipe": window.location.href="formulario-agencia3.php";
+							case "formulario-ipe": window.location.href="formulario-agencia3.php";
 							break;
 							case "sin_opcion": alert('no se ha seleccionado opción');
 							break;
-							case "existe": alert('ya se encuentra registrado, lo contactaremos');
+							case "existe-agencia": alert('ya se encuentra registrado como agencia, lo contactaremos');
+										   window.location.href='logout.php';
+							break;
+							case "existe-influenciador": alert('ya se encuentra registrado como influenciador, lo contactaremos');
+										   window.location.href='logout.php';
 							break;
 						}
 					}

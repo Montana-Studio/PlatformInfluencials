@@ -2,7 +2,7 @@
 require('conexion.php');
 
 if(isset($_SESSION['id'])){
-	$query="SELECT * FROM persona WHERE id_estado = 1 AND id= ".$_SESSION['id'];
+	$query='SELECT * FROM persona WHERE id_estado=1 AND id= "'.$_SESSION['id'].'"';
 	$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 	$row= mysqli_fetch_array($result, MYSQLI_NUM);
 	if ($row[1] == 2){

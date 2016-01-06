@@ -64,7 +64,8 @@ function getUserChannel() {
           success: function(data){
             if(data == 'exito'){
                   alert("gracias por registrar su cuenta");
-                  window.location.reload();
+                  //window.location.reload();
+                  window.location.href='http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-2';
                 }
                 else if(data == 'existe') alert('La cuenta ya está asociada, intente con una cuenta diferente')
                 else if(data == 'otro') alert('La cuenta está asociada a otro usuario');

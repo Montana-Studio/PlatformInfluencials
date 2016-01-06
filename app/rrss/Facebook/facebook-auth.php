@@ -136,8 +136,14 @@
 					            data: "facebook_page_id="+facebook_page_id,
 					            success: function(data){
 									if(data == 'exito'){
-					                  alert("gracias por registrar su cuenta");
-					                  window.location.reload();
+					                  //alert("gracias por registrar su cuenta");
+					                  //window.location.reload();
+					                  
+					                  if(i==(response.data.length-1)){
+					                  	alert("gracias por registrar su cuenta");
+					                  	window.location.href='http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-2';
+					                  	window.location.reload();
+					                  }
 					                }
 					                else if(data == 'existe') alert('La cuenta ya está asociada, intente con una cuenta diferente')
 					                else if(data == 'otro') alert('La cuenta está asociada a otro usuario');
