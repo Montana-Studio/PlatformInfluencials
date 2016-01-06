@@ -35,7 +35,7 @@
 				
 		</head>
 		<body>';
-		}
+    }
 	if(basename($_SERVER['PHP_SELF'])=='dashboard-agencia.php'){
 		if(isset($_SESSION['telefono1'])==false){
 			header('Location: logout.php');
@@ -274,7 +274,7 @@
 								return patron.test(tecla_final);
 							};
 					</script>";
-			}
+        }
 	}
 	if(basename($_SERVER['PHP_SELF'])=='perfil_influenciador_publico.php'){
 		if(isset($_SESSION['telefono1'])==false){
@@ -290,7 +290,6 @@
 		
 		}
 	}
-
 	if(basename($_SERVER['PHP_SELF'])=='influenciador-publico.php'){
 		muestra_header();
 		//echo "<script src='https://apis.google.com/js/client.js?onload=googleApiClientReady'></script>";
@@ -314,7 +313,6 @@
 		</head>
 		<body>';
 	}
-
 	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia3.php'){
 		if(isset($_SESSION['id'])==false){
 				header('Location: logout.php');
@@ -478,16 +476,14 @@
 	}else if(basename($_SERVER['PHP_SELF'])=='formulario-agencia2.php'){
 		echo '';
 	}else{
-		echo '
-			<nav>
+		echo '<nav>
 				<ul>
 					<li><i onClick="backHistory()" class="pi pi-arrow-left"></i></li>
 					<li><a href="campana.php"><i class="pi pi-suitcase"></i> campañas</a></li>
 					<li id="nuevaCampain"><a href="nueva-campana.php"><i class="pi pi-plus"></i> crear campañas</a></li>
 					<li><a href="influenciador-publico.php"><i class="pi pi-user"></i> influencers</a></li>
 				</ul>
-			</nav>
-		';
+			</nav>';
 	}
 ?>
 <form id="imagenform">
@@ -569,7 +565,7 @@
 
 		<button id="guardarFacturacion" type="submit">Guardar cambios</button>
 
-		<a href="logout.php" class="logout"><i class="pi pi-close"></i> cerrar sesion</a>
+		<a href="logout.php" class="logout"><i class="pi pi-singin"></i> cerrar sesion</a>
 	</div>
 
 	<div class="btn_close"><span><i class="pi pi-close"></i></span></div>

@@ -27,6 +27,7 @@ header{
 	.notes{
 		@include span-columns(1 of 12);
 		@include textAligns(center);
+        margin:{right: 3px !important;}
 		font:{size:16px !important;}
 	    color: #fff;
 	    @include media($tabletLandTonotebook){
@@ -45,15 +46,15 @@ header{
 	}
 	.ayuda_pi{
 		@extend .notes;
-		@include shift(6.5);
+		@include shift(6.7);
 		@include media($notebookTodesktop){
-			@include shift(6);
+			@include shift(8);
 		}
 		@include media($tabletLandTonotebook){
-			@include shift(7.8);
+			@include shift(8.3);
 		}
 		@include media($desktop){
-			@include shift(7.8);
+			@include shift(8.3);
 		}
 	}
 	.menu{
@@ -101,6 +102,9 @@ nav{
 			height:34px;
 			a{
 				color:$color_grey;
+                i{
+                    margin:{right:10px;}
+                }
 			}
 			&:first-child{
 				@include span-columns(2.5 of 12);
@@ -114,12 +118,10 @@ nav{
 			@include media($tabletLandTonotebook){
 				@include span-columns(3.94 of 12);
 				@include omega();
-				@include textAligns(left);
 				padding:{left:10px}
 				&:first-child{
 					@include span-columns(1 of 12);
 					@include omega();
-					@include textAligns(center);
 				}
 				&#nuevaCampain{display: block !important;}
 			}
