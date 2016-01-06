@@ -527,7 +527,7 @@
 	opacity:0;
 	height:auto;
 	right:0;
-	top:-100%;
+	top:-150%;
 	@include boxShadow(0px, 0px, 10px, 0px, #ccc);
 	@include pad(20px);
 	@extend .hide;

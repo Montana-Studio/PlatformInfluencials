@@ -30,7 +30,7 @@
 			<link rel="stylesheet" href="css/font-awesome.min.css">
 
 			<script type="text/javascript" src="js/jquery.min.js"></script>
-			<script async type="text/javascript" src="js/jquery-ui.min.js"></script>
+			<script type="text/javascript" src="js/jquery-ui.min.js"></script>
             
             <script>
                 $(document).ready(function(){
@@ -72,7 +72,7 @@
 			});
 		</script>
 		<script src='https://apis.google.com/js/client.js?onload=googleApiClientReady'></script>
-		<script async src='https://www.google.com/jsapi'></script>
+		<script src='https://www.google.com/jsapi'></script>
 		";
 		
 
