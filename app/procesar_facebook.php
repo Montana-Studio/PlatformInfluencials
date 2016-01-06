@@ -64,7 +64,7 @@
 				echo 'formulario';
 			}
 			else if ($num_row3>0) {
-				echo 'existe';
+				echo 'existe-agencia';
 			}
 			else{
 				$results = $mysqli->query('INSERT INTO persona (nombre, correo, id_tipo, descripcion_tipo, picture_url,RS_id,fecha_ingreso, estado_formulario )VALUES ("'.$username.'", "'.$correo.'","'.$tipo.'","'.$agencia.'", "'.$pictureUrl.'","'.$faceId.'", "'.$hoyFormatted.'", "0")');
@@ -78,55 +78,58 @@
 				$_SESSION['id_tipo']=$row[1];
 				echo 'primera';
 			}
-
-
 		}
 		if ($tipo == '3'){
-			
-			$consulta_estado_formulario_ipe = $mysqli->query("SELECT * FROM persona WHERE id='".$row2[0]."' AND estado_formulario='0'");
-			$num_consulta_estado_formulario_ipe= mysqli_num_rows($consulta_estado_formulario_ipe);
-			if($num_consulta_estado_formulario_ipe>0){
-				echo 'existe';
-			}else{
-				if($num_row>0){
+			if($num_row>0){
 				// en caso que ingrese con facebook y este registrado
-					$_SESSION['id']=$row[0];
-					$_SESSION['nombre']=$row[5];
-					$_SESSION['correo']=$row[6];
-					$_SESSION['id_tipo']=$row[1];
-					//$_SESSION['telefono1']=$row[7];
-					//$_SESSION['telefono2']=$row[8];
-					//$_SESSION['empresa']=$row[13];
-					$_SESSION['pictureUrl']=$row[12];
-					//$_SESSION['rsid']=$row[10];
-					$_SESSION['comuna']=$row[16];
-					$_SESSION['region']=$row[15];
-					echo 'dashboard-ipe';
-				}
-				else if($num_row2>0){
-					$_SESSION['id']=$row2[0];
-					$_SESSION['nombre']=$row2[5];
-					$_SESSION['correo']=$row2[6];
-					$_SESSION['id_tipo']=$row[1];
-					echo 'primera-ipe';
-				}
-				else{
-					$results = $mysqli->query("INSERT INTO persona (nombre, correo, id_tipo, picture_url,RS_id, fecha_ingreso)VALUES ('$username', '$correo','$tipo', '$pictureUrl','$faceId', '$hoyFormatted')");
-					$query="SELECT * FROM persona WHERE RS_id='$faceId'";
-					$result= mysqli_query($mysqli,$query)or die(mysqli_error());
-					$num_row= mysqli_num_rows($result);
-					$row= mysqli_fetch_array($result, MYSQLI_NUM);
-					$_SESSION['id']=$row[0];
-					$_SESSION['nombre']=$row[5];
-					$_SESSION['correo']=$row[6];
-					$_SESSION['id_tipo']=$row[1];
-					echo 'primera-ipe';
-				}
-
+				$_SESSION['id']=$row[0];
+				$_SESSION['nombre']=$row[5];
+				$_SESSION['correo']=$row[6];
+				$_SESSION['id_tipo']=$row[1];
+				$_SESSION['pictureUrl']=$row[12];
+				$_SESSION['comuna']=$row[16];
+				$_SESSION['region']=$row[15];
+				echo 'dashboard-ipe';
 			}
-			//echo $tipo;
-		
+			else if($num_row2>0){
+				$_SESSION['id']=$row2[0];
+				$_SESSION['nombre']=$row2[5];
+				$_SESSION['correo']=$row2[6];
+				$_SESSION['id_tipo']=$row[1];
+				echo 'formulario-ipe';
+			}
+			else if ($num_row3>0) {
+				echo 'existe-influenciador';
+			}
+			else{
+				$results = $mysqli->query('INSERT INTO persona (nombre, correo, id_tipo, descripcion_tipo, picture_url,RS_id,fecha_ingreso, estado_formulario )VALUES ("'.$username.'", "'.$correo.'","'.$tipo.'","'.$agencia.'", "'.$pictureUrl.'","'.$faceId.'", "'.$hoyFormatted.'", "0")');
+				$query='SELECT * FROM persona WHERE RS_id="'.$faceId.'"';
+				$result= mysqli_query($mysqli,$query)or die(mysqli_error());
+				$num_row= mysqli_num_rows($result);
+				$row= mysqli_fetch_array($result, MYSQLI_NUM);
+				$_SESSION['id']=$row[0];
+				$_SESSION['nombre']=$row[5];
+				$_SESSION['correo']=$row[6];
+				$_SESSION['id_tipo']=$row[1];
+				echo 'primera';
+			}
 		}
+		unset($query);
+		unset($result);
+		unset($num_row);
+		unset($row);
+		unset($query2);
+		unset($result2);
+		unset($num_row2);
+		unset($row2);
+		unset($query3);
+		unset($result3);
+		unset($num_row3);
+		unset($row3);
+		unset($username);
+		unset($correo);
+		unset($faceId);
+		unset($pictureUrl);
 	}
 		
 	
