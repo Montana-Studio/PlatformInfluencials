@@ -13,37 +13,26 @@ if ((int)$row[0] > 0){ ?>
 
 					$(".recientes .content").hide();
 
-					 if(document.documentElement.clientWidth >= 1024){
-                        $(".ver-mas").on("click",function(event){
-                            $(".bg-campana, .ver-mas, .sub-titulo").fadeOut();
-                            $(".dashboard-agencia").animate({backgroundColor:"#eeeef0"},{duration:1000, 
-                                complete:function(){
+					$(".ver-mas").on("click",function(event){
 
-                                    $(".recientes, .cont-campana").css("width","100%");
-                                }
-                            });
+							$(this).siblings(".content").slideToggle();
+							if(document.documentElement.clientWidth > 1024){
+								$(".bg-campana, .ver-mas, .sub-titulo").fadeOut();
+								$(".dashboard-agencia").animate({backgroundColor:"#c7c7c7"},"slow");
+							}
+							if(document.documentElement.clientWidth < 1024){
+								$(this).find("i").toggleClass("fa-angle-up fa-angle-down");
+							}
+							$("html,body").animate({scrollTop : $(this).siblings(".bg-campana").offset().top},1000);
 
-                            $(this).siblings(".content").delay(1005).slideToggle();
-                            $(this).siblings(".reach-campana, .reach-campana .sub-titulo").delay(1010).fadeIn();
-                        });
-                    }else{
-                        $(".ver-mas").on("click",function(event){
-                            $(this).siblings(".content").slideToggle();
-                            $(this).find("i").toggleClass("fa-angle-up fa-angle-down");
-                            $("html,body").animate({scrollTop : $(this).siblings(".bg-campana").offset().top},1000);
-                        });
-                    }
+					});
 
-					$(".content .btn_close").on("click",function(){
+					$(".btn_close").on("click",function(){
 							$(this).closest(".content").fadeOut();
-                            $(".reach-campana, .reach-campana .sub-titulo").delay(100).fadeOut();
-							if(document.documentElement.clientWidth >= 1024){
-								$(".dashboard-agencia").animate({backgroundColor:"#fff"},{duration:1000,complete:function(){
-                                
-                                    $(".recientes, .cont-campana").removeAttr("style","");
-								    $(".bg-campana, .ver-mas, .sub-titulo").delay(800).fadeIn();
-                                }});
-								$(".ver-mas").find("i").addClass("fa-plus");
+
+							if(document.documentElement.clientWidth > 1024){
+								$(".bg-campana, .ver-mas, .sub-titulo").fadeIn();
+								$(".dashboard-agencia").animate({backgroundColor:"#fff"},"slow");
 							}
 					});
 
@@ -64,13 +53,12 @@ if ((int)$row[0] > 0){ ?>
 
 						<div class="content">
 
-							<div class="btn_close"><span><i class="pi pi-close"></i></span></div>
+							<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
 
 							<div class="campana-data">
-                            
-								<span class="campa-ico activada"><i class="pi pi-tool"></i>Publicada</span>
+								<span class="campa-ico activada"><i class="fa fa-cog"></i>Publicada</span>
 								<span class="campa-ico fecha-activada">
-									<i class="pi pi-calendar"> Inicio </i><span>'.$row[7].'</span> al <span>'.$row[8].'</span>
+									<i class="fa fa-calendar"> Inicio </i><span>'.$row[7].'</span> al <span>'.$row[8].'</span>
 								</span>
 								<p id="campana'.$row[0].'">'.$row[2].'</p>
 							</div>
@@ -78,13 +66,12 @@ if ((int)$row[0] > 0){ ?>
 							<div class="img-compana-deskt hide">
 								<img src="'.$row[3].'"/>
 							</div>
-                            
+							<div id="redes_sociales_campana_"'.$row[0].'">';
+									//echo $row[0];
+										require('procesar_mostrar_reach_campana.php');
+					echo	'</div>
 						</div>
-                        <div id="redes_sociales_campana_'.$row[0].'" class="reach-campana">
-                            <h2 class="sub-titulo">Metricas de la campaña</h2>';
-                            require('procesar_mostrar_reach_campana.php');
 
-    echo '              </div>
 					</div>
 
 				 </div>
