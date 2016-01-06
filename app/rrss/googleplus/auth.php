@@ -1,6 +1,6 @@
 <script  async type="text/javascript">
 
-var OAUTH2_CLIENT_ID = '1045210216843-rplujhgcennvu03bhggu891cbuojf3bn.apps.googleusercontent.com';
+var OAUTH2_CLIENT_ID = '1025436094979-pl26ineap35ds15olqsqjoisi2ql4inb.apps.googleusercontent.com';
 var OAUTH2_SCOPES = ['https://www.googleapis.com/auth/plus.me'];
 
 // Upon loading, the Google APIs JS client automatically invokes this callback.
@@ -48,7 +48,8 @@ function handleAuthResult(authResult) {
             success: function(data){
                 if(data == 'exito'){
                   alert("gracias por registrar su cuenta");
-                  window.location.reload();
+                  //window.location.reload();
+                  window.location.href='http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-2';
                 }
                 else if(data == 'existe') alert('La cuenta ya está asociada, intente con una cuenta diferente')
                 else if(data == 'otro') alert('La cuenta está asociada a otro usuario');
