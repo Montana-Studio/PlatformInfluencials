@@ -27,7 +27,12 @@
 	
 	<script type="text/javascript">
         $(window).load(function(){
-            $('.total-numbers').prepend('<?php echo formato_numeros_reachs($suma);?><br/>');
+        	var total = '<?php echo $suma;?>';
+        	if (total == '0'){
+        		$('.total-numbers').prepend(total+'<br/>');
+        	}else{
+        		$('.total-numbers').prepend('<?php echo formato_numeros_reachs($suma);?><br/>');
+        	}
         });
     </script>
 	
