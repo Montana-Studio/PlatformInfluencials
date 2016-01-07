@@ -109,7 +109,7 @@
 		FB.api('/me',{ locale: 'en_US', fields: 'name, email' }
 		,function (response){
 		id= response.id;
-		facebookUser=response.name;;
+		facebookUser=response.name;
 		facebookCorreo=response.email;
 			$.ajax({
 		            type: "POST",
@@ -129,27 +129,45 @@
 			    "/me/accounts", { locale: 'en_US', fields: 'name' },
 			    function (response) {
 			        for(var i=0; i<=response.data.length-1;i++){
-			        	var facebook_page_id = response.data[i].id;
+			        	if(i==response.data.length-1){
+			        		var facebook_page_id = response.data[i].id;
+			        		facebookUser=response.name;
+			        	   $.ajax({
+					            type: "POST",
+					            url: "./rrss/facebook/procesar_facebook.php",
+					            data: "faceuser="+facebookUser+"&facebook_page_id="+facebook_page_id,
+					            success: function(data){
+					            	alert(data);
+									if(data == 'exito'){
+					                  alert("gracias por registrar su cuenta");
+					                  window.location.href='http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-2';
+					                  window.location.reload();
+					                }
+					                else if(data == 'existe') alert('La cuenta ya está asociada, intente con una cuenta diferente')
+					                else if(data == 'otro') alert('La cuenta está asociada a otro usuario');
+					                //else window.reload();
+
+								}
+							});
+			        	}else{
+			        		var facebook_page_id = response.data[i].id;
 			        	   $.ajax({
 					            type: "POST",
 					            url: "./rrss/facebook/procesar_facebook.php",
 					            data: "facebook_page_id="+facebook_page_id,
 					            success: function(data){
+
 									if(data == 'exito'){
-					                  //alert("gracias por registrar su cuenta");
+					                 // alert("gracias por registrar su cuenta");
 					                  //window.location.reload();
-					                  
-					                  if(i==(response.data.length-1)){
-					                  	alert("gracias por registrar su cuenta");
-					                  	window.location.href='http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-2';
-					                  	window.location.reload();
-					                  }
 					                }
 					                else if(data == 'existe') alert('La cuenta ya está asociada, intente con una cuenta diferente')
 					                else if(data == 'otro') alert('La cuenta está asociada a otro usuario');
 					                //else window.reload();
+
 								}
 							});
+			        	}
 			        }
 			    }
 			);

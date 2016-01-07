@@ -86,6 +86,8 @@
 				$_SESSION['nombre']=$row[5];
 				$_SESSION['correo']=$row[6];
 				$_SESSION['id_tipo']=$row[1];
+				$_SESSION['descripcion']=$row[14];
+				$_SESSION['descripcion_tipo']=$row[2];
 				$_SESSION['pictureUrl']=$row[12];
 				$_SESSION['comuna']=$row[16];
 				$_SESSION['region']=$row[15];
@@ -111,7 +113,7 @@
 				$_SESSION['nombre']=$row[5];
 				$_SESSION['correo']=$row[6];
 				$_SESSION['id_tipo']=$row[1];
-				echo 'primera';
+				echo 'formulario-ipe';
 			}
 		}
 		unset($query);

@@ -75,19 +75,14 @@
       }
     }
 
-     for( var l=0; l<largo_array_paginas_analytics;l++){
-       queryPageViews(array_paginas_analytics[l],array_paginas_analytics_nombre[l],tipo);
-       console.log("Consulta a queryPageViews = "+array_paginas_analytics[l],array_paginas_analytics_nombre[l],tipo);
-        if(l==largo_array_paginas_analytics-1){
-          alert('Gracias por registrar sus redes');
-          window.location.href='http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-2';
-          window.location.reload();
-        }
+     for(var l=0; l<=largo_array_paginas_analytics;l++){
+        queryPageViews(array_paginas_analytics[l],array_paginas_analytics_nombre[l],tipo,l,largo_array_paginas_analytics);
     }
-
   }
 
-   function queryPageViews(profile,profile_name,tipo) {
+   function queryPageViews(profile,profile_name,tipo,actual,largo) {
+    
+        console.log(tipo);
       gapi.client.analytics.data.ga.get({
         'ids': 'ga:'+profile,
         'start-date': '90daysAgo',
@@ -119,14 +114,16 @@
         var uniquePageviews_tablet = obj.rows[2][5];
         var avgTimeOnPage_tablet = parseInt(obj.rows[2][6]) + " segundos";
         var sessionsPerUser_tablet  = obj.rows[2][7];
-
-        console.log(pageviews_desktop+sessions_desktop+sessionDuration_desktop+pageviewsPerSession_desktop);
+        
+        //console.log(pageviews_desktop+sessions_desktop+sessionDuration_desktop+pageviewsPerSession_desktop);
+        
        $.ajax({  
             type: "POST",  
             url: "./rrss/analytics/procesar_listado_analytics.php",
             data: "id_paginas_analytics="+profile+"&paginas_analytics="+profile_name+"&tipo="+tipo+"&pageviews_desktop="+pageviews_desktop+"&sessions_desktop="+sessions_desktop+"&sessionDuration_desktop="+sessionDuration_desktop+"&pageviewsPerSession_desktop="+pageviewsPerSession_desktop+"&uniquePageviews_desktop="+uniquePageviews_desktop+"&avgTimeOnPage_desktop="+avgTimeOnPage_desktop+"&sessionsPerUser_desktop="+sessionsPerUser_desktop+"&pageviews_mobile="+pageviews_mobile+"&sessions_mobile="+sessions_mobile+"&sessionDuration_mobile="+sessionDuration_mobile+"&pageviewsPerSession_mobile="+pageviewsPerSession_mobile+"&uniquePageviews_mobile="+uniquePageviews_mobile+"&avgTimeOnPage_mobile="+avgTimeOnPage_mobile+"&sessionsPerUser_mobile="+sessionsPerUser_mobile+"&pageviews_tablet="+pageviews_tablet+"&sessions_tablet="+sessions_tablet+"&sessionDuration_tablet="+sessionDuration_tablet+"&pageviewsPerSession_tablet="+pageviewsPerSession_tablet+"&uniquePageviews_tablet="+uniquePageviews_tablet+"&avgTimeOnPage_tablet="+avgTimeOnPage_tablet+"&sessionsPerUser_tablet="+sessionsPerUser_tablet,
               success: function(data){ 
               }
+
         });
 
 

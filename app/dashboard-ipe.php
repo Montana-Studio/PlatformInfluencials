@@ -176,7 +176,7 @@
 
 					<div id="descripcion">
 						<small>Biografia</small>
-						<textarea placeholder="... descríbete en menos de 500 palabras"><?php echo $_SESSION['descripcion'] ?></textarea>
+						<textarea placeholder="... descríbete en 140 caracteres"><?php echo substr($_SESSION['descripcion'],0,140) ?></textarea>
 						<i class="pi pi-pencil"></i>
 					</div>
 

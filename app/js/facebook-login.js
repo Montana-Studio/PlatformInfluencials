@@ -127,8 +127,7 @@ $(document).ready(function(){
 							break;
 							case "false": 	window.location.href="./";
 							break;
-							case "primera": window.location="formulario-agencia.php";
-									
+							case "primera": window.location="formulario-agencia.php";	
 							break;
 							case "formulario":  window.location.href="formulario-agencia.php";
 							break;
