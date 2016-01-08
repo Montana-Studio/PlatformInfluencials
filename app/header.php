@@ -283,7 +283,7 @@
 		
 		}
 	}
-	if(basename($_SERVER['PHP_SELF'])=='influenciador-publico.php'){
+	/*if(basename($_SERVER['PHP_SELF'])=='influenciador-publico.php'){
 		muestra_header();
 		//echo "<script src='https://apis.google.com/js/client.js?onload=googleApiClientReady'></script>";
 
@@ -305,7 +305,7 @@
 			</script>
 		</head>
 		<body>';
-	}
+	}*/
 	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia3.php'){
 		if(isset($_SESSION['id'])==false){
 				header('Location: logout.php');
