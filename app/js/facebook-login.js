@@ -121,7 +121,6 @@ $(document).ready(function(){
 		            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id+"&tipo="+perfil+"&empresa="+empresa,  
 					
 		            success: function(data){ 
-		            	console.log(data);
 						switch (data){
 							case "dashboard": window.location.href="dashboard-agencia.php";
 							break;

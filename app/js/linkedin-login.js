@@ -1,4 +1,4 @@
-$(document).ready(function(){
+/*$(document).ready(function(){
 
 // Setup an event listener to make an API call once auth is complete
     //function onLinkedInLoad() {
@@ -26,7 +26,6 @@ $(document).ready(function(){
 		var nombre = data['formattedName'];
 		var pictureUrl = data['pictureUrl'];
 		var email = data['emailAddress'];
-		console.log(nombre, pictureUrl, email);
 	
 		$.ajax({  
             type: "POST",  
@@ -34,18 +33,20 @@ $(document).ready(function(){
             data: "nombre="+nombre+"&pictureUrl="+pictureUrl+"&email="+email, 
 			
 			
-            success: function(html){ 
-				switch (html){
-				case "dashboard": window.location.href="./dashboard-agencia.php";
-				break;
-				case "false": alert("Estimado(a) "+nombre+" ya se encuentra registrado nos contactaremos con usted a la brevedad");
-							  //window.location.href="registro.php";	
-				break;
-				case "primera":     
-									window.location.href="./formulario-agencia2.php";
-								//alert("Por favor ingrese sus datos en el formulario");					
-				break;
-				}
+            success: function(data){ 
+				switch (data){
+							case "dashboard": window.location.href="dashboard-agencia.php";
+							break;
+							case "false": 	window.location.href="./";
+							break;
+							case "primera": window.location="formulario-agencia.php";	
+							break;
+							case "formulario":  window.location.href="formulario-agencia.php";
+							break;
+							case "existe-agencia": alert('ya se encuentra registrado como agencia, lo contactaremos');
+										   window.location.href='logout.php';
+							break;
+						}
 				}
 		});
 		
@@ -53,3 +54,4 @@ $(document).ready(function(){
 		}
 	
 });
+*/

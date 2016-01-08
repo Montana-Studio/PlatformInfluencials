@@ -2,29 +2,27 @@ function getProfileData() {
 	IN.API.Raw("/people/~:(id,email-address,formatted-name,num-connections,picture-url,positions:(company:(name)))").result(onSuccess).error(onError);
 }
 function onSuccess(data) {
-		var id= data ['id'];
+		var id= data['id'];
 		var nombre = data['formattedName'];
 		var pictureUrl = data['pictureUrl'];
 		var email = data['emailAddress'];
 		var conn = data['numConnections'];
-
 		$.ajax({  
 			type: "POST",  
 			url: "procesar_linkedin.php",  
 			data: "id="+id+"&nombre="+nombre+"&pictureUrl="+pictureUrl+"&email="+email+"&conn="+conn+"&tipo="+document.getElementById('tipoCliente').getAttribute('value'), 
-			success: function(html){ 
-				console.log(html);
-				
-				switch (html){
-				case "dashboard": window.location.href="dashboard-agencia.php";
-				break;
-				case "false": 	$('#alertRegistrado').slideDown();
-								document.getElementById('alertRegistrado').innerHTML = "Estimado(a) "+nombre+" ya se encuentra registrado nos contactaremos con usted a la brevedad";
-				break;
-				case "primera": document.getElementById('alertRegistrado').innerHTML = "Por favor ingrese sus datos en el formulario";	    
-								window.location.href="formulario-agencia3.php";			
-				break;
-				}
+			success: function(data){ 
+					switch (data){
+							case "dashboard": window.location.href="dashboard-agencia.php";
+							break;
+							case "false": 	window.location.href="./";
+							break;
+							case "formulario":  window.location.href="formulario-agencia.php";
+							break;
+							case "existe-agencia": alert('ya se encuentra registrado como agencia, lo contactaremos');
+										   window.location.href='logout.php';
+							break;
+						}
 			}
 		});
 }

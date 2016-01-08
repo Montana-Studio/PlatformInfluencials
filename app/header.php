@@ -3,9 +3,9 @@
 	if(isset($_SESSION['id'])==false){
 	header('Location:./');
 			die();
-	}else if($_SESSION['id_tipo']!=2){
+	}/*else if($_SESSION['id_tipo']!=2){
 	header('Location:./dashboard-ipe.php');
-	}
+	}*/
 	function muestra_header(){
 		echo 	'<!DOCTYPE html>
 		<html lang="es">
