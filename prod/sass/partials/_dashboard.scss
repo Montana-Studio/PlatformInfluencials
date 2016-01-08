@@ -729,7 +729,7 @@
 		margin-right:1% !important;
 	}
 	@include media($desktop){
-		@include span-columns(4);
+		@include span-columns(3);
 		margin-right:1% !important;
 	}
 }

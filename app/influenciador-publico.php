@@ -11,7 +11,7 @@
 				<select>
 					<option selected="selected" id="'.$_GET["id"].'" disabled>'.$_GET["campana"].'</option>
 				</select>
-				<i class="fa fa-chevron-down"></i>
+				<i class="pi pi-arrow-bottom"></i>
 			</div>';
 
 	}else{
@@ -27,7 +27,7 @@
 				echo '<option>'.$row2[0].'</option>';
 			}while($row2 = mysqli_fetch_row($result2));
 				echo '</select>
-					<i class="fa fa-chevron-down"></i>
+					<i class="pi pi-arrow-bottom"></i>
 					</div>';
 		}
 	}	
@@ -52,8 +52,8 @@
 					</svg>
 					<div class="info-influ">
 						<h2 class="nombre">'.$row[5].'</h2>
-						<small class="ubicacion"><i class="fa fa-map-marker"></i> '.$row[16].','.substr($row[15],7).'</small>
-						<small class="tipo"><i class="fa fa-user"></i> '.$row[2].'</small>
+						<small class="ubicacion"><i class="pi pi-marker"></i> '.$row[16].','.substr($row[15],7).'</small>
+						<small class="tipo"><i class="pi pi-user"></i> '.$row[2].'</small>
 					';
 					?>
 					<?php
@@ -81,7 +81,7 @@
 					        $links_user_url= json_decode($json_user);
 					        $facebookLikes =$links_user_url->likes;
 					        $reach+=$facebookLikes;
-					        $echoContentFace = '<div class="rrss" name="facebook"><i class="fa fa-facebook"></i> Facebook <span>'.formato_numeros_reachs($facebookLikes).'</span></div>';
+					        $echoContentFace = '<div class="rrss" name="facebook"><i class="pi pi-facebook-alt"></i> Facebook <span>'.formato_numeros_reachs($facebookLikes).'</span></div>';
 
 						}
 
@@ -91,8 +91,8 @@
 					      $links_user_url= json_decode($json_user);
 					      $followers_instagram = $links_user_url->data->counts->followed_by;
 					      $reach+=$followers_instagram;
-					      //$echoContentInsta = "<div class='rrss' 'name='instagram'><i class='fa fa-instagram'></i> Instagram <span>".$followers_instagram."</span></div>";
-						  $echoContentInsta = "<div class='rrss' 'name='instagram'><i class='fa fa-instagram'></i> Instagram <span>".formato_numeros_reachs($followers_instagram)."</span></div>";
+					      //$echoContentInsta = "<div class='rrss' 'name='instagram'><i class='pi -pi-instagram-alt'></i> Instagram <span>".$followers_instagram."</span></div>";
+						  $echoContentInsta = "<div class='rrss' 'name='instagram'><i class='pi -pi-instagram-alt'></i> Instagram <span>".formato_numeros_reachs($followers_instagram)."</span></div>";
 
 						}
 						
@@ -116,7 +116,7 @@
 						        $username=$data1[0]['user']['screen_name'];
 						        $avatar= $data1[0]['user']['profile_image_url'];
 						        $reach+=$followers_count1;	
-								$echoContentTweet = "<div class='rrss' 'name='twitter'><i class='fa fa-twitter'></i> Twitter <span>".formato_numeros_reachs($followers_count1)."</span></div>";
+								$echoContentTweet = "<div class='rrss' 'name='twitter'><i class='pi pi-twitter-alt'></i> Twitter <span>".formato_numeros_reachs($followers_count1)."</span></div>";
 						}
 
 						if($row_rrss_ipe[2]=='youtube'){
@@ -138,7 +138,7 @@
 					        $links_user_url= json_decode($json_user);
 					        $googleplusSubscriber =$links_user_url->circledByCount;
 							$reach+=$googleplusSubscriber;
-							$echoContentPlus = "<div class='rrss' name='gogoleplus'><i class='fa fa-googleplus'></i> Google Plus<span>".formato_numeros_reachs($googleplusSubscriber)."</span></div>";
+							$echoContentPlus = "<div class='rrss' name='gogoleplus'><i class='pi pi-googleplus-alt'></i> Google Plus<span>".formato_numeros_reachs($googleplusSubscriber)."</span></div>";
 						}
 						
 						if($row_rrss_ipe[2]=='analytics'){
@@ -150,7 +150,7 @@
 								$reach+=$rows_analytics_page_views[0];
 								$analyticsPageViews+=$rows_analytics_page_views[0];
 							}while($rows_analytics_page_views = mysqli_fetch_array($result_analytics_page_views	));
-						  	$echoContentAnaly = '<div class="rrss" name="analytics"><i class="fa fa-google"></i>Analytics <span>'.formato_numeros_reachs($analyticsPageViews).'</span></div>';
+						  	$echoContentAnaly = '<div class="rrss" name="analytics"><i class="pi pi-analytics-alt"></i>Analytics <span>'.formato_numeros_reachs($analyticsPageViews).'</span></div>';
 						}
 
 

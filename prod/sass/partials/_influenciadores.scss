@@ -29,7 +29,7 @@
 			content:"\f07a";
 			margin:{right:em(5);}
 		}
-		@include media($tabletLandTonotebook){
+		@include media($notebookTodesktop){
 			@include outer-container();
 			max-width:em(500);
 			margin:{top:20px;}
@@ -57,7 +57,7 @@
 			@extend .style-select;
 			@include pad(0 em(10));
 		}
-		@include media($tabletLandTonotebook){
+		@include media($notebookTodesktop){
 			@include outer-container();
 			float:none;
 			background:{color: #fff;}
@@ -80,7 +80,7 @@
 			.mask-imguser{
 				@include span-columns(3 of 12);
 				margin:{top:10px;}
-				@include media($tabletLandTonotebook){
+				@include media($notebookTodesktop){
 					@include span-columns(2 of 12);
 				}
 			}
@@ -123,13 +123,13 @@
 							font:{size:em(12)}
 							line:{height:em(15)}
 							text:{transform:uppercase;}
-							@include media($tabletLandTonotebook){
+							@include media($notebookTodesktop){
 								@include span-columns(1);
 							}
 						}
 					}
 				}
-				@include media($tabletLandTonotebook){
+				@include media($notebookTodesktop){
 					@include span-columns(8 of 12);
 					margin:{top:20px;}
 				}
@@ -152,7 +152,7 @@
 					@include shift(2);
 					@extend .switcher-norm;
 				}
-				@include media($tabletLandTonotebook){
+				@include media($notebookTodesktop){
 					@include span-columns(1.4 of 12);
 					@include shift(.6);
 					margin:{top:30px;}
@@ -216,15 +216,15 @@
 					}
 				}
 			}
-			@include media($tabletLandTonotebook){
+			@include media($notebookTodesktop){
 			}
 		}
-		@include media($tabletLandTonotebook){
+		@include media($notebookTodesktop){
 			@include outer-container();
 			background:{color: #fff;}
 		}
 	}
-	@include media($tabletLandTonotebook){
+	@include media($notebookTodesktop){
 		background:{color:#eeeef0;}
 	}
 }

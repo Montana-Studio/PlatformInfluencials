@@ -75,7 +75,7 @@
 			echo "<script>
 					jQuery(document).ready(function(){
 						$('title').append('Power Influencer - Crear Campaña');
-						$('html').css({'background-color':'#fff','background-image':'none'});
+						$('html').css({'background-color':'#fff','background-image':'none','height':'100%'});
 						$('body').addClass('crear-campanas');
 					});
 				</script>";

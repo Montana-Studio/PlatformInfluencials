@@ -1,6 +1,6 @@
 .crear-campanas{
 	@extend .dashboard-agencia;
-	@include media($tabletLandTonotebook){
+	@include media($notebookTodesktop){
 		background:{color: #eeeef0;}
 	}
 	.crear-campana{
@@ -131,7 +131,7 @@
 
 	}
 	//MEDIA QUERIES
-	@include media($tabletLandTonotebook){
+	@include media($notebookTodesktop){
 		@include outer-container;
 		@include pad(0);
 		float:none;
