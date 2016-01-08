@@ -176,20 +176,17 @@
 		<body>";
 	}
 
-	
-	
-
 ?>
 <nav class="nav-ipe">
 	<ul class="nav-mobile">
 		<li><i onClick="backHistory()" class="pi pi-arrow-left"></i></li>
 		<li><h1><?php echo $_SESSION['descripcion_tipo']?></h1></li>
-		<li><a href="logout.php" class="pi pi-close"></a></li>
+		<li><a href="logout.php" class="pi pi-singout"></a></li>
 	</ul>
 	<ul class="nav-deskt">
 	    <li></li>
-	    <li></li>
-	    <li></li>
+	    <li><a href="logout.php" target="_self"><i class="pi pi-singout"></i> Cerrar sesión</a></li>
+	    <li><i class="pi pi-help"></i> <i class="pi pi-bell"></i></li>
 	</ul>
 </nav>
 <nav class="header-ipe">

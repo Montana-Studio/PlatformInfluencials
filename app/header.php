@@ -558,7 +558,7 @@
 
 		<button id="guardarFacturacion" type="submit">Guardar cambios</button>
 
-		<a href="logout.php" class="logout"><i class="pi pi-singin"></i> cerrar sesion</a>
+		<a href="logout.php" class="logout"><i class="pi pi-singout"></i> cerrar sesion</a>
 	</div>
 
 	<div class="btn_close"><span><i class="pi pi-close"></i></span></div>

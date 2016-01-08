@@ -76,7 +76,7 @@ html {
 .pi-send::before {
   content: url("../img/pi-send.svg"); }
 
-.pi-singin::before {
+.pi-singout::before {
   content: url("../img/pi-sign-out.svg"); }
 
 .pi-facebook::before {
@@ -931,14 +931,17 @@ nav {
         display: block;
         padding-top: 3px; }
         nav.nav-ipe ul.nav-deskt li {
-          float: left;
-          display: block;
-          margin-right: 2.35765%;
-          width: 6.17215%;
           float: right;
-          margin-right: 0; }
+          display: block;
+          margin-left: 2.35765%;
+          width: 6.17215%;
+          margin-right: 0;
+          color: #fff;
+          font-size: 0.6875em; }
           nav.nav-ipe ul.nav-deskt li:last-child {
-            margin-right: 0; }
+            margin-left: 0; }
+          nav.nav-ipe ul.nav-deskt li i::before {
+            width: 25px; }
           nav.nav-ipe ul.nav-deskt li:first-child {
             float: left;
             display: block;
@@ -954,7 +957,29 @@ nav {
               background-repeat: no-repeat;
               display: block;
               width: 100%;
-              height: 100%; } }
+              height: 100%; }
+          nav.nav-ipe ul.nav-deskt li:nth-child(2) {
+            padding-top: 4px;
+            margin-right: 2.35765% !important;
+            margin-left: 0 !important;
+            float: right;
+            display: block;
+            margin-left: 2.35765%;
+            width: 13.84898%; }
+            nav.nav-ipe ul.nav-deskt li:nth-child(2):last-child {
+              margin-left: 0; }
+            nav.nav-ipe ul.nav-deskt li:nth-child(2) a {
+              color: #fff; }
+          nav.nav-ipe ul.nav-deskt li:last-child {
+            padding-top: 4px; } }
+    @media screen and (min-width: 80em) {
+      nav.nav-ipe ul.nav-deskt li:nth-child(2) {
+        float: right;
+        display: block;
+        margin-left: 2.35765%;
+        width: 12.14302%; }
+        nav.nav-ipe ul.nav-deskt li:nth-child(2):last-child {
+          margin-left: 0; } }
   @media screen and (min-width: 64em) {
     nav {
       float: none; } }
@@ -1623,7 +1648,7 @@ main {
     color: #c7c7c7;
     padding: 10px;
     clear: both; }
-    @media screen and (min-width: 64em) and (max-width: 90em) {
+    @media screen and (min-width: 64em) {
       .dashboard-agencia .sub-titulo, .dashboard-ipe .sub-titulo, .crear-campanas .sub-titulo, .campanas .sub-titulo, .influenciador-publico .sub-titulo {
         max-width: 68em;
         margin-left: auto;
@@ -1715,7 +1740,7 @@ main {
       .creadas .recientes .cont-campana .bg-campana p {
         margin: 0;
         padding: 0; }
-      @media screen and (min-width: 64em) and (max-width: 90em) {
+      @media screen and (min-width: 64em) {
         .creadas .recientes .cont-campana .bg-campana {
           padding-top: 256px; } }
       @media screen and (min-width: 90em) {
@@ -1757,13 +1782,13 @@ main {
           .creadas .recientes .cont-campana .ver-mas span i.fa-plus {
             display: none;
             font-size: 10px; }
-            @media screen and (min-width: 64em) and (max-width: 90em) {
+            @media screen and (min-width: 64em) {
               .creadas .recientes .cont-campana .ver-mas span i.fa-plus {
                 display: table-cell; } }
             @media screen and (min-width: 90em) {
               .creadas .recientes .cont-campana .ver-mas span i.fa-plus {
                 display: table-cell; } }
-          @media screen and (min-width: 64em) and (max-width: 90em) {
+          @media screen and (min-width: 64em) {
             .creadas .recientes .cont-campana .ver-mas span i.fa-angle-down {
               display: none; } }
           @media screen and (min-width: 90em) {
@@ -1771,7 +1796,7 @@ main {
               display: none; } }
     .creadas .recientes .cont-campana .reach-campana {
       display: none; }
-      @media screen and (min-width: 64em) and (max-width: 90em) {
+      @media screen and (min-width: 64em) {
         .creadas .recientes .cont-campana .reach-campana {
           width: 100%;
           margin: 60px auto 0 !important;
@@ -1923,7 +1948,7 @@ main {
             margin-top: 6px;
             margin-left: 11px;
             margin-right: -13px; }
-        @media screen and (min-width: 64em) and (max-width: 90em) {
+        @media screen and (min-width: 64em) {
           .creadas .recientes .cont-campana .content .tools-campana {
             padding: 10px 0 0; } }
         @media screen and (min-width: 90em) {
@@ -2064,7 +2089,7 @@ main {
             font-weight: bold; }
       .creadas .recientes .cont-campana .content .btn_close {
         visibility: hidden; }
-      @media screen and (min-width: 64em) and (max-width: 90em) {
+      @media screen and (min-width: 64em) {
         .creadas .recientes .cont-campana .content {
           width: 100%;
           margin: 0 auto !important;
@@ -2148,7 +2173,7 @@ main {
             width: 48.82117%; }
             .creadas .recientes .cont-campana .content form:last-child {
               margin-right: 0; } }
-    @media screen and (min-width: 64em) and (max-width: 90em) {
+    @media screen and (min-width: 64em) {
       .creadas .recientes .cont-campana {
         float: left;
         display: block;
@@ -2156,7 +2181,7 @@ main {
         width: 100%; }
         .creadas .recientes .cont-campana:last-child {
           margin-right: 0; } }
-  @media screen and (min-width: 64em) and (max-width: 90em) {
+  @media screen and (min-width: 64em) {
     .creadas .recientes {
       float: left;
       display: block;
@@ -2197,7 +2222,7 @@ main {
   color: #fff; }
   .creadas .volver:last-child, .creadas .volver-campana:last-child {
     margin-right: 0; }
-@media screen and (min-width: 64em) and (max-width: 90em) {
+@media screen and (min-width: 64em) {
   .creadas {
     max-width: 68em;
     margin-left: auto;
@@ -2249,6 +2274,9 @@ main {
     padding: 39px;
     font-size: 75px;
     color: #fff; }
+    .no-campana .hrefCamp i::before {
+      min-width: 100%;
+      width: 100%; }
   .no-campana .hrefCamp h2 {
     font-size: 14px;
     color: #18bb9b;
@@ -2446,7 +2474,8 @@ main {
       width: 100%;
       display: block;
       list-style: none;
-      padding: 0; }
+      padding: 0;
+      margin-top: 10px; }
       #imagenform #inicio #tabs::after {
         clear: both;
         content: "";
@@ -2577,7 +2606,7 @@ main {
       width: 48.82117%; }
       #imagenform:last-child {
         margin-right: 0; } }
-  @media screen and (min-width: 64em) and (max-width: 90em) {
+  @media screen and (min-width: 64em) {
     #imagenform {
       float: left;
       display: block;
@@ -2635,7 +2664,7 @@ main {
   @media screen and (min-width: 64em) {
     #tabs {
       margin-bottom: 0;
-      padding: 0.625em 0.3125em 0;
+      padding: 0.625em 0 0;
       border-top-left-radius: 0.625em;
       border-top-right-radius: 0.625em; }
       #tabs li {
@@ -2730,7 +2759,7 @@ main {
         font-size: 0.625em; }
       #imagenform-ipe #tabscontent .tabpage div#descripcion i {
         top: 20px; }
-      @media screen and (min-width: 64em) and (max-width: 90em) {
+      @media screen and (min-width: 64em) {
         #imagenform-ipe #tabscontent .tabpage div#descripcion textarea {
           min-height: 100px; } }
       #imagenform-ipe #tabscontent .tabpage div i {
@@ -2742,7 +2771,7 @@ main {
       #imagenform-ipe #tabscontent .tabpage div.selects {
         position: relative;
         overflow: hidden; }
-      @media screen and (min-width: 64em) and (max-width: 90em) {
+      @media screen and (min-width: 64em) {
         #imagenform-ipe #tabscontent .tabpage div {
           max-width: 68em;
           margin-left: auto;
@@ -2770,6 +2799,12 @@ main {
           margin-right: 0; }
           #imagenform-ipe #tabscontent .tabpage #guardarFacturacion:last-child, #imagenform-ipe #tabscontent .tabpage #imagenform #inicio .cancel-data:last-child, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage .cancel-data:last-child {
             margin-left: 0; } }
+      @media screen and (min-width: 80em) {
+        #imagenform-ipe #tabscontent .tabpage #guardarFacturacion, #imagenform-ipe #tabscontent .tabpage #imagenform #inicio .cancel-data, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage .cancel-data {
+          margin-right: 5.97086%; } }
+      @media screen and (min-width: 90em) {
+        #imagenform-ipe #tabscontent .tabpage #guardarFacturacion, #imagenform-ipe #tabscontent .tabpage #imagenform #inicio .cancel-data, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage .cancel-data {
+          margin-right: 0; } }
     #imagenform-ipe #tabscontent .tabpage #redesociales {
       float: left;
       display: block;
@@ -2836,7 +2871,7 @@ main {
             z-index: 1;
             width: 70px;
             height: 70px; }
-        @media screen and (min-width: 64em) and (max-width: 90em) {
+        @media screen and (min-width: 64em) {
           #imagenform-ipe #tabscontent .tabpage #redesociales .no-rrss .gph-alert {
             float: left;
             display: block;
@@ -2887,6 +2922,9 @@ main {
           font-weight: bold; }
           #imagenform-ipe #tabscontent .tabpage #redesociales .total_reach .total-number:last-child {
             margin-right: 0; }
+        @media screen and (min-width: 64em) {
+          #imagenform-ipe #tabscontent .tabpage #redesociales .total_reach {
+            display: none; } }
       #imagenform-ipe #tabscontent .tabpage #redesociales .red-title {
         padding: 0.625em;
         display: block;
@@ -2925,7 +2963,7 @@ main {
             color: #656b79;
             font-size: 0.75em;
             padding: 0.375em 0 0; }
-          @media screen and (min-width: 64em) and (max-width: 90em) {
+          @media screen and (min-width: 64em) {
             #imagenform-ipe #tabscontent .tabpage #redesociales .red-title i {
               float: left;
               display: block;
@@ -2957,7 +2995,7 @@ main {
           padding-top: 0.5em; }
           #imagenform-ipe #tabscontent .tabpage #redesociales .red-title .red-name:last-child {
             margin-right: 0; }
-          @media screen and (min-width: 64em) and (max-width: 90em) {
+          @media screen and (min-width: 64em) {
             #imagenform-ipe #tabscontent .tabpage #redesociales .red-title .red-name {
               float: left;
               display: block;
@@ -2965,15 +3003,32 @@ main {
               width: 91.4702%; }
               #imagenform-ipe #tabscontent .tabpage #redesociales .red-title .red-name:last-child {
                 margin-right: 0; } }
-        @media screen and (min-width: 64em) and (max-width: 90em) {
+        @media screen and (min-width: 64em) {
           #imagenform-ipe #tabscontent .tabpage #redesociales .red-title {
             border-left: 1px solid #c7c7c7;
             border-right: 1px solid #c7c7c7;
             border-top: 1px solid #c7c7c7;
             border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0; }
+            border-bottom-right-radius: 0;
+            max-width: 68em;
+            margin-left: auto;
+            margin-right: auto;
+            float: none; }
+            #imagenform-ipe #tabscontent .tabpage #redesociales .red-title::after {
+              clear: both;
+              content: "";
+              display: table; }
             #imagenform-ipe #tabscontent .tabpage #redesociales .red-title[aria-expanded="false"] {
               border-bottom: 1px solid #c7c7c7; } }
+        @media screen and (min-width: 90em) {
+          #imagenform-ipe #tabscontent .tabpage #redesociales .red-title {
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto; }
+            #imagenform-ipe #tabscontent .tabpage #redesociales .red-title::after {
+              clear: both;
+              content: "";
+              display: table; } }
       #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription {
         display: block;
         border-bottom-left-radius: 0.625em;
@@ -3172,7 +3227,7 @@ main {
           margin-bottom: 0; }
           #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription html body.formularios-registro .contFroms .cont-inputs #guardar:last-child, html body.formularios-registro .contFroms .cont-inputs #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #guardar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.ingreso_eleccion #tipo .btns_accesos:last-child, main.ingreso_eleccion #tipo #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns_accesos:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #inicio .btns_accesos:last-child, main.form_agencias #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns_accesos:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso #ingresar:last-child, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso #ingresar:last-child, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm #ingresar:last-child, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso .fb_btn:last-child, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso .fb_btn:last-child, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm .fb_btn:last-child, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso .lk_btn:last-child, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso .lk_btn:last-child, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm .lk_btn:last-child, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm #registrarse:last-child, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #registrarse:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .recientes .cont-campana .content .jfilestyle:last-child, .creadas .recientes .cont-campana .content #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .jfilestyle:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .recientes .cont-campana .content .guardar-campana:last-child, .creadas .recientes .cont-campana .content #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .guardar-campana:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .volver:last-child, .creadas #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .volver:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .volver-campana:last-child, .creadas #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .volver-campana:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .no-campana .hrefCamp .btn_crearcamp:last-child, .no-campana .hrefCamp #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btn_crearcamp:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #imagenform #inicio #guardarFacturacion:last-child, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #guardarFacturacion:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #imagenform #inicio .cancel-data:last-child, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .cancel-data:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .change-img:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #campanaForm-nueva-campana .jfilestyle:last-child, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .jfilestyle:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #campanaForm-nueva-campana .guardar:last-child, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .guardar:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .influenciador-publico #opc_cot:last-child, .influenciador-publico #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #opc_cot:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .influenciador-publico #cotizar_influenciador:last-child, .influenciador-publico #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #cotizar_influenciador:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .influenciador-publico .influenciadores .contactarForm .access-ipe .ver_perfil_influenciador:last-child, .influenciador-publico .influenciadores .contactarForm .access-ipe #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .ver_perfil_influenciador:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .influenciador-publico .influenciadores .contactarForm .access-ipe .perfil_influenciador:last-child, .influenciador-publico .influenciadores .contactarForm .access-ipe #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .perfil_influenciador:last-child, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .influenciador-publico .influenciadores .contactarForm .access-ipe .volver_ver_perfil_influenciador:last-child, .influenciador-publico .influenciadores .contactarForm .access-ipe #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .volver_ver_perfil_influenciador:last-child {
             margin-right: 0; }
-          @media screen and (min-width: 64em) and (max-width: 90em) {
+          @media screen and (min-width: 64em) {
             #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription html body.formularios-registro .contFroms .cont-inputs #guardar, html body.formularios-registro .contFroms .cont-inputs #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #guardar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.ingreso_eleccion #tipo .btns_accesos, main.ingreso_eleccion #tipo #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns_accesos, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #inicio .btns_accesos, main.form_agencias #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btns_accesos, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso #ingresar, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso #ingresar, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm #ingresar, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #ingresar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso .fb_btn, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso .fb_btn, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm .fb_btn, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .fb_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #antiguo .form_ingreso .lk_btn, main.form_agencias #antiguo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .form_ingreso .lk_btn, main.form_agencias #nuevo .form_ingreso #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm .lk_btn, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .lk_btn, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription main.form_agencias #nuevo .registerForm #registrarse, main.form_agencias #nuevo .registerForm #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #registrarse, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .recientes .cont-campana .content .jfilestyle, .creadas .recientes .cont-campana .content #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .jfilestyle, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .recientes .cont-campana .content .guardar-campana, .creadas .recientes .cont-campana .content #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .guardar-campana, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .volver, .creadas #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .volver, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .creadas .volver-campana, .creadas #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .volver-campana, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .no-campana .hrefCamp .btn_crearcamp, .no-campana .hrefCamp #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .btn_crearcamp, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #imagenform #inicio #guardarFacturacion, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #guardarFacturacion, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #imagenform #inicio .cancel-data, #imagenform #inicio #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .cancel-data, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .change-img, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #campanaForm-nueva-campana .jfilestyle, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .jfilestyle, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #campanaForm-nueva-campana .guardar, #campanaForm-nueva-campana #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .guardar, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .influenciador-publico #opc_cot, .influenciador-publico #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #opc_cot, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .influenciador-publico #cotizar_influenciador, .influenciador-publico #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription #cotizar_influenciador, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .influenciador-publico .influenciadores .contactarForm .access-ipe .ver_perfil_influenciador, .influenciador-publico .influenciadores .contactarForm .access-ipe #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .ver_perfil_influenciador, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .influenciador-publico .influenciadores .contactarForm .access-ipe .perfil_influenciador, .influenciador-publico .influenciadores .contactarForm .access-ipe #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .perfil_influenciador, #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .influenciador-publico .influenciadores .contactarForm .access-ipe .volver_ver_perfil_influenciador, .influenciador-publico .influenciadores .contactarForm .access-ipe #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription .volver_ver_perfil_influenciador {
               max-width: 68em;
               margin-left: auto;
@@ -3185,13 +3240,30 @@ main {
                 clear: both;
                 content: "";
                 display: table; } }
-        @media screen and (min-width: 64em) and (max-width: 90em) {
+        @media screen and (min-width: 64em) {
           #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription {
             border-left: 1px solid #c7c7c7;
             border-right: 1px solid #c7c7c7;
             border-bottom: 1px solid #c7c7c7;
-            margin-right: auto !important; } }
-      @media screen and (min-width: 64em) and (max-width: 90em) {
+            margin-right: auto !important;
+            max-width: 68em;
+            margin-left: auto;
+            margin-right: auto;
+            float: none; }
+            #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription::after {
+              clear: both;
+              content: "";
+              display: table; } }
+        @media screen and (min-width: 90em) {
+          #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription {
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto; }
+            #imagenform-ipe #tabscontent .tabpage #redesociales .rs-inscription::after {
+              clear: both;
+              content: "";
+              display: table; } }
+      @media screen and (min-width: 64em) {
         #imagenform-ipe #tabscontent .tabpage #redesociales {
           max-width: 100%;
           background-color: #fff;

@@ -38,21 +38,21 @@
                                     </span>
                                 </div>
                                 <div class="content">
-                                    <div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
+                                    <div class="btn_close"><span><i class="pi pi-close"></i></span></div>
 
                                     <form class="campanaForm" id="'.$row3[0].'">
 
-                                        <div class="inputs-campana nombre nombre-campana" id="'.$row3[0].'">
+                                        <!--div class="inputs-campana nombre nombre-campana" id="'.$row3[0].'">
                                             <input placeholder="'.$row3[1].'" disabled />
                                         </div>
 
                                         <div class="inputs-campana marca marca-campana" id="'.$row3[0].'">
                                             <input  placeholder="by '.$row3[4].'" disabled />
-                                        </div>
-                                        <span class="campa-ico activada"><i class="fa fa-cog"></i>Activada</span>
+                                        </div-->
+                                        <span class="campa-ico activada"><i class="pi pi-tool"></i>Activada</span>
 
                                         <span class="campa-ico fecha-activada">
-                                            <i class="fa fa-calendar"> Inicio </i><span>'.$row3[7].'</span> al <span>'.$row3[8].'</span>
+                                            <i class="pi pi-calendar"> Inicio </i><span>'.$row3[7].'</span> al <span>'.$row3[8].'</span>
                                         </span>
 
                                         <div class="inputs-campana descripcion descripcion-campana" id="'.$row3[0].'">
@@ -299,7 +299,7 @@
                                         <input  placeholder="by '.$row6[4].'" disabled />
                                     </div>
 
-                                    <span class="campa-ico"><i class="fa fa-calendar"> Inicio'.$row6[7].'- Término '.$row6[8].'</i></span>
+                                    <span class="campa-ico"><i class="pi pi-calendar"> Inicio'.$row6[7].'- Término '.$row6[8].'</i></span>
                                     <div id="'.$row6[0].'">
                                         <textarea placeholder="descripcion" disabled>'.$row6[2].'</textarea>
                                     </div>
@@ -343,7 +343,7 @@
                                         <input  placeholder="by '.$row5[4].'" disabled />
                                     </div>
 
-                                    <span><i class="fa fa-calendar"> Inicio'.$row5[7].'- Término '.$row5[8].'</i></span>
+                                    <span><i class="pi pi-calendar"> Inicio'.$row5[7].'- Término '.$row5[8].'</i></span>
                                     <div id="'.$row5[0].'">
                                         <textarea placeholder="descripcion" disabled>'.$row5[2].'</textarea>
                                     </div>
@@ -372,8 +372,8 @@
         }while($row2 = mysqli_fetch_row($result2));
 
     }else{
-        $campanas_activas = '<main class="no-campana"><a href="#" class="hrefCamp"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes ser asignado a una.Mejora tu perfil si estas no llegan.</p></a></main>';
+        $campanas_activas = '<main class="no-campana"><a href="#" class="hrefCamp"><i class="pi pi-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes ser asignado a una.Mejora tu perfil si estas no llegan.</p></a></main>';
         $campanas_inactivas = '';
-        $campanas_historial = '<main class="no-campana"><a href="#" class="hrefCamp"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes ser asignado a una.Mejora tu perfil si estas no llegan.</p></a></main>';
+        $campanas_historial = '<main class="no-campana"><a href="#" class="hrefCamp"><i class="pi pi-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes ser asignado a una.Mejora tu perfil si estas no llegan.</p></a></main>';
     }
 ?>
