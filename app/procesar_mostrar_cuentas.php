@@ -46,9 +46,6 @@
 			}
 		?>
 		<div id="facebook-inscription" onclick="checkAuthFacebookPages()" class="btns">Conectar Facebook</div>
-		<?php if(strlen($_SESSION['facebook'])>0){
-		 	echo "<div id='facebook-unsubscribe' class='btns'>Desvincular Facebook</div>";
-		 	}?>
 	</div>
 
 	<div class="red-title"><i class="pi pi-instagram"></i> <span class="red-name">Instagram</span> <i class="pi pi-arrow-bottom"></i></div>
@@ -60,10 +57,6 @@
 	  		}
 		?>
 		<div id="instagram-inscription" onclick="login()" class="btns">Conectar Instagram</div>
-		 <?php if(strlen($_SESSION['instagram'])>0){
-		 	echo "<div id='instagram-unsubscribe' class='btns'>Desvincular Instagram</div>";
-		 	}?>
-
 	</div>
 	
 	<div class="red-title"><i class="pi pi-twitter"></i> <span class="red-name">Twitter</span> <i class="pi pi-arrow-bottom"></i></div>
@@ -76,9 +69,6 @@
 			}
 		?>
 		<a id="twitter-inscription" href="./rrss/twitter/process.php" value="<?php echo $num_row3;?>" class="btns">Conectar Twitter</a>
-		<?php if(strlen($_SESSION['twitter'])>0){
-		 	echo "<div id='twitter-unsubscribe' class='btns'>Desvincular Twitter</div>";
-		 	}?>
 	</div>
 
 	<div class="red-title"><i class="pi pi-analytics"></i> <span class="red-name">Analytics</span> <i class="pi pi-arrow-bottom"></i></div>
@@ -95,9 +85,6 @@
 			}
 		?>
 		<div id="analytics-inscription" onclick="authorize()" class="btns">Conectar Analytics</div>
-		<?php if(strlen($_SESSION['analytics'])>0){
-		 	echo "<div id='analytics-unsubscribe' class='btns'>Desvincular Analytics</div>";
-		 	}?>
 	</div>
 
 	<div class="red-title"><i class="pi pi-youtube"></i> <span class="red-name">Youtube</span> <i class="pi pi-arrow-bottom"></i></div>
@@ -110,9 +97,6 @@
 			}
 		?>
 		<div id="youtube-inscription" onclick="googleApiClientYoutubeReady()" class="btns">Conectar Youtube</div>
-		<?php if(strlen($_SESSION['youtube'])>0){
-		 	echo "<div id='youtube-unsubscribe' class='btns'>Desvincular Youtube</div>";
-		 	}?>
 	</div>
 
 	<div class="red-title"><i class="pi pi-googleplus"></i> <span class="red-name">Google Plus</span> <i class="pi pi-arrow-bottom"></i></div>
@@ -125,9 +109,6 @@
 			}
 		?>
 		<div id="googleplus-inscription" onclick="googleApiClientReadyGooglePlus()" class="btns">Conectar Google+</div>
-		<?php if(strlen($_SESSION['googleplus'])>0){
-		 	echo "<div id='googleplus-unsubscribe' class='btns'>Desvincular Google+</div>";
-		 	}?>
 	</div>
 
 </div>
