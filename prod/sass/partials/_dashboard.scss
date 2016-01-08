@@ -33,7 +33,7 @@
 					@include pad(em(10));
 					@include borderRadius(em(10));
 					background:{color:#fff;}
-					@include media($tabletLandTonotebook){
+					@include media($notebookTodesktop){
 						@include border-top-radius(0);
 					}
 				}
@@ -760,8 +760,8 @@
             border:{right:1px solid $color_grey} 
         }
     }
-    @include media($tabletLand){
-        margin:{bottom:0;top:em(10);}
+    @include media($notebookTodesktop){
+        margin:{bottom:0;}
         @include pad(em(10) em(5) 0);
         @include border-top-radius(em(10));
         li{
@@ -769,36 +769,36 @@
             @include omega();
             @include textAligns(left);
             padding:{left:10px;}
+        }
+    }
+    @include media($tabletLand){
+        li{
             &:first-child{
                 @include shift(0);
             }
         }
     }
-    @include media($notebookLand){
-        margin:{bottom:0;top:em(10);}
-        @include pad(em(10) em(5) 0);
-        @include border-top-radius(em(10));
+    @include media($notebook){
         li{
-            @include span-columns(2);
-            @include omega();
-            @include textAligns(left);
-            padding:{left:10px;}
             &:first-child{
-                @include shift(.9);
+                @include shift(.7);
             }
         }
     }
-    @include media($notebookTodesktop){
-        margin:{bottom:0;top:em(10);}
-        @include pad(em(10) em(5) 0);
-        @include border-top-radius(em(10));
-        li{
-            @include span-columns(2);
-            @include omega();
-            @include textAligns(left);
-            padding:{left:10px;}
+    @include media($notebookLand){
+         li{
             &:first-child{
-                @include shift(1.3);
+                @include shift(1);
+            }
+        }
+    }
+    @include media($desktop){
+        @include outer-container();
+        clear:both;
+        float:none;
+        li{
+            &:first-child{
+                @include shift(0);
             }
         }
     }
@@ -879,8 +879,11 @@
 				@include span-columns(6);
 				margin:{top:5px;}
 				background:{color: $color_font2;}
-				@include media($tabletLandTonotebook){
-					@include span-columns(3);
+				@include media($notebookTodesktop){
+                    @include direction-context(right-to-left){
+                        @include span-columns(3);
+                        margin:{right:0;}
+                    }
 				}
 			}
 			#redesociales{
@@ -1209,15 +1212,20 @@
                 @include textAligns(center);
 				margin:{top:5px;}
                 border:1px solid $color_font2;
-                @include media($tabletLandTonotebook){
-                  @include span-columns(3);
-                  @include shift(4.7);
+                @include media($notebookTodesktop){
+                    @include direction-context(right-to-left){
+                      @include span-columns(3);
+                    }
+                  //@include shift(4.7);
                 }
             }
 		}
-		@include media($tabletLandTonotebook){
+		@include media($notebookTodesktop){
 			@include pad(0);
 		}
+        @include media($desktop){
+            @include outer-container();
+        }
 	}
 	.header-ipe{
 		background:{position: center;size:cover;repeat:no-repeat;color:#153773;}
@@ -1291,7 +1299,7 @@
 					}
 				}
 			}
-			@include media($tabletLandTonotebook){
+			@include media($notebookTodesktop){
 				display: none;
 			}
 		}
@@ -1305,7 +1313,8 @@
 			top:0;
 			z-index:1;
 	  	}
-	  	@include media($tabletLandTonotebook){
+	  	@include media($notebookTodesktop){
+            margin:{bottom:em(10);}
 			.mask-imguser{
 		      @include span-columns(1.5);
 		      @include shift(.5);
@@ -1370,8 +1379,11 @@
 				}
 			}
 	  	}
+        @include media(min-width 1820px){
+            @include pad(0 17%);
+        }
 	}
-	@include media($tabletLandTonotebook){
+	@include media($notebookTodesktop){
 		#tab-examp{
 			@include pad(em(10));
 		}

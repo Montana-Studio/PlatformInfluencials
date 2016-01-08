@@ -115,7 +115,7 @@ nav{
 			&#nuevaCampain{
 				display: none !important;
 			}
-			@include media($tabletLandTonotebook){
+			@include media($notebookTodesktop){
 				@include span-columns(3.94 of 12);
 				@include omega();
 				padding:{left:10px}
@@ -157,7 +157,7 @@ nav{
                         color:#fff;
                     }
                 }
-                @include media($tabletLandTonotebook){
+                @include media($notebookTodesktop){
                     display:none;
                 }
             }
@@ -186,12 +186,12 @@ nav{
             }
         }
 	}
-	@include media($tabletLandTonotebook){
+	@include media($notebookTodesktop){
 		float:none;
 	}	
 	&.header-ipe{
 		@extend .hide;
-		@include media($tabletLandTonotebook){
+		@include media($notebookTodesktop){
 			display: block;
 		}
 	}

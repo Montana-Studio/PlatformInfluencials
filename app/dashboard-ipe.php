@@ -179,11 +179,12 @@
 						<textarea placeholder="... descríbete en 140 caracteres"><?php echo substr($_SESSION['descripcion'],0,140) ?></textarea>
 						<i class="pi pi-pencil"></i>
 					</div>
-
+                    
+					<button id="guardarFacturacion" class="btns" type="submit">Guardar</button>
+					
 					<input type="file" name="file" id="file" class="input-file">
 					<label for="file" class="change-img">Subir imagen</label>
 					
-					<button id="guardarFacturacion" class="btns" type="submit">Guardar</button>
 
 				</div>
 				<div id="fragment-2" class="tabpage">

@@ -374,6 +374,10 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
               <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$googleplusId."'>
               <label class='btn".$estado_descripcion." switch-label' for='".$googleplusId."'></label>
           </div>
+          <div class='onoffswitch'>
+              <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$googleplusId."'>
+              <label class='btn".$estado_descripcion." switch-label' for='".$googleplusId."'></label>
+          </div>
           </div>";
         }
 
