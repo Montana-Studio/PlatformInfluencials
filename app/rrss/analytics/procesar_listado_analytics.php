@@ -49,9 +49,9 @@ $UPVTBLT=$_POST['uniquePageviews_tablet'];
 $AVGTPTBLT=$_POST['avgTimeOnPage_tablet'];
 $SSPUTBLT=$_POST['sessionsPerUser_tablet'];
 
-$results= $mysqli->query('INSERT INTO rrss (descripcion_rrss,analytics_page,persona_id,id_estado, analytics_page_name) VALUES ("analytics","'.$id_paginas_analytics.'", "'.$id.'" , "0" , "'.$paginas_analytics.'" )');
+$results= $mysqli->query('INSERT INTO rrss (descripcion_rrss,analytics_page,persona_id,id_estado, analytics_page_name, cuenta) VALUES ("analytics","'.$id_paginas_analytics.'", "'.$id.'" , "0" , "'.$paginas_analytics.'", "1" )');
 $results2 = $mysqli->query('INSERT INTO Analytics (descripcion_rrss,id_estado,PN,persona_id, profile_id ,PVDSK,SSDSK,SSDDSK,PVPSSDSK,UPVDSK,AVGTPDSK,SSPUDSK,PVMBL,SSMBL,SSDMBL,PVPSSMBL,UPVMBL,AVGTPMBL,SSPUMBL,PVTBLT,SSTBLT,SSDTBLT,PVPSSTBLT,UPVTBLT,AVGTPTBLT,SSPUTBLT) VALUES ("analytics","0", "'.$paginas_analytics.'","'.$id.'", "'.$id_paginas_analytics.'" ,"'.$PVDSK.'","'.$SSDSK.'","'.$SSDDSK.'","'.$PVPSSDSK.'","'.$UPVDSK.'","'.$AVGTPDSK.'","'.$SSPUDSK.'","'.$PVMBL.'","'.$SSMBL.'","'.$SSDMBL.'","'.$PVPSSMBL.'","'.$UPVMBL.'","'.$AVGTPMBL.'","'.$SSPUMBL.'","'.$PVTBLT.'","'.$SSTBLT.'","'.$SSDTBLT.'","'.$PVPSSTBLT.'","'.$UPVTBLT.'","'.$AVGTPTBLT.'","'.$SSPUTBLT.'")');
-echo 'muestra';
+echo 'exito';
 
 }if($_POST['tipo']== 'salida'){
 echo 'salida';
@@ -76,10 +76,12 @@ $sspu=$_POST['sspu'];
 if($_POST['tipo']=='inscripcion'){
   $results= $mysqli->query('SELECT profile_id FROM Analytics WHERE profile_id="'.$profile.'"');
   $num_rows= mysqli_num_rows($results);
-  echo 'inscripcion';
+  //echo 'inscripcion';
   if($num_rows<1){
    $results2 = $mysqli->query('INSERT INTO Analytics (account_id,webProperty_id,profile_id,PN,PV,SS,SSD,PVPSS,UPV,ATP,SSPU) VALUES ("'.$account.'","'.$webProperty.'","'.$profile.'","'.$pn.'","'.$pv.'","'.$ss.'","'.$ssd.'","'.$pvps.'","'.$upv.'","'.$atp.'","'.$sspu.'")');
-
+   echo 'exito';
+  }else{
+    echo 'existe';
   }
 }
 

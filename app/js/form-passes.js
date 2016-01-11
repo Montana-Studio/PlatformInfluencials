@@ -4,23 +4,6 @@ $(document).ready(function(){
 	//INICIO SCRIPTS
 	var info;
 	var val = [];
-	
-	
-
-	/*if (window.location == 'http://local.mediatrends/_InfluencialsPlatform/htdocs/app/agencia.php'){
-		$("#tipoCliente").attr("value", "2");
-		$('.form_agencias').show();
-		$('#perfil').hide();
-	}
-
-	if (window.location == 'http://local.mediatrends/_InfluencialsPlatform/htdocs/app/influenciador.php'){
-		var e = document.getElementById("perfil");
-		var perfil = e.options[e.selectedIndex].value;
-		$("#tipoCliente").attr("value", perfil);
-		$('.form_agencias').show();
-		$('#perfil').show();
-	}*/
-
 
 	$('#facebook-name').hide();
 	$('#volver').hide();
@@ -33,52 +16,16 @@ $(document).ready(function(){
 		$('#perfil').hide();
 	})
 
-
-	/*$('#agencia').click(function(){
-		$("#tipoCliente").attr("value", "2");
-		$('.form_agencias').show();
-		$(".ingreso_eleccion").hide();
-		$(".volverTipo").show();
-		$('#perfil').hide();
-	})
-
-	$('#ipebtn').click(function(){
-		$("#tipoCliente").attr("value", "2");
-		$('.form_agencias').show();
-		$(".ingreso_eleccion").hide();
-		$(".volverTipo").show();
-		$("#perfil").show();
-	})
-
-
-	$('.volverTipo').click(function(){
-		$('.form_agencias').hide();
-		$('.ingreso_eleccion').show();
-		$(".volverTipo").hide();
-		$('#ipe').hide();
-	})
-
-	$('#volver').click(function(){
-		$('#registrar').show();
-		$('#acceder').show();
-		$('.ingreso_eleccion').show();
-		$("#volver").hide();
-		$('.form_agencias').hide();
-	})*/
-
 	$('#ingresar').click(function(){
 		correo=$('#correo').val();
 		password=$('#password').val();
-		//console.log(correo+password);
-		//console.log(username);
 		$.ajax({
 			type: "POST",
 			url: "./procesar_login.php",
 			data: "correo="+correo+"&pwd="+password,
 
-			success: function(html){
-				console.log(html);
-					switch (html){
+			success: function(data){
+					switch (data){
 					case "admin": window.location.href= "./dashboard-admin.php";
 					break;
 					case "agencia": window.location.href = "./dashboard-agencia.php";
@@ -110,7 +57,6 @@ $(document).ready(function(){
 		info.append('nutel1',$('.telefono1nuevo').val());
 		info.append('nutel2',$('.telefono2nuevo').val());
 		info.append('tipo','agencia');
-		//console.log($('#contraseñanuevo').val());
 		tipo=$('#perfil option').val();
 		var e = document.getElementById("perfil");
 		var perfil = e.options[e.selectedIndex].value;
@@ -125,77 +71,7 @@ $(document).ready(function(){
 			cache: false,
 			processData:false,
 			success: function(data){
-				//alert(data);
-				switch (data){
-					case "nuevo":
-									$(".alertElim").fadeIn("normal",function(){
-											$("#boxAlert .hrefCamp h2").text("Gracias por registrarte en Power-Influencers");
-											$("#boxAlert .hrefCamp i").append("<img src='img/logo_pi-06.svg' width='100%' height='100%'/>");
-											$("#boxAlert .hrefCamp p.messageAlert").text("Tu cuenta sera activada proximamente, pronto nos contactaremos contigo.");
-
-											$("#boxAlert").show().animate({
-												top:"20%",
-												opacity:1
-											},{duration:1500,easing:"easeOutBounce"});
-
-											$("#clearAlert").on("click",function(){
-												$("#boxAlert").animate({
-													top:"-100px",
-													opacity:0
-												},{duration:500,easing:"easeInOutQuint",complete:function(){
-													$(".alertElim").fadeOut("fast");
-													window.location.href = "logout.php";
-													window.location.reload();
-												}});
-											});
-									});
-					break;
-					case "false":$(".alertElim").fadeIn("normal",function(){
-													$("#boxAlert .hrefCamp h2").text("algo anda mal");
-													$("#boxAlert .hrefCamp i").addClass("fa-warning");
-													$("#boxAlert .hrefCamp p.messageAlert").text("El correo "+$('.correonuevo').val()+" ya existe en la base de datos, intente con otro.");
-
-													$("#boxAlert").show().animate({
-														top:"20%",
-														opacity:1
-													},{duration:1500,easing:"easeOutBounce"});
-
-													$("#clearAlert").on("click",function(){
-														$("#boxAlert").animate({
-															top:"-100px",
-															opacity:0
-														},{duration:500,easing:"easeInOutQuint",complete:function(){
-															$(".alertElim").fadeOut("fast");
-															$(this).hide();
-															$("#boxAlert .hrefCamp i").removeClass("fa-warning");
-															$('.correonuevo').val('');
-															$('.correonuevo').focus();
-														}});
-													});
-											});
-					break;
-					case "invalido":$(".alertElim").fadeIn("normal",function(){
-														$("#boxAlert .hrefCamp h2").text("algo anda mal");
-														$("#boxAlert .hrefCamp i").addClass("fa-warning");
-														$("#boxAlert .hrefCamp p.messageAlert").text("Problema con el tamaño o formato de la imagen.");
-
-														$("#boxAlert").show().animate({
-															top:"20%",
-															opacity:1
-														},{duration:1500,easing:"easeOutBounce"});
-
-														$("#clearAlert").on("click",function(){
-															$("#boxAlert").animate({
-																top:"-100px",
-																opacity:0
-															},{duration:500,easing:"easeInOutQuint",complete:function(){
-																$(".alertElim").fadeOut("fast");
-																$("#boxAlert .hrefCamp i").removeClass("fa-warning");
-																$(this).hide();
-															}});
-														});
-												});
-				}
+				inscripcion_influenciador(data);
 			}
 		});
 	}));
@@ -211,7 +87,6 @@ $(document).ready(function(){
 		info.append('perfil',perfil);
 		info.append('region',region);
 		info.append('comuna',comuna);
-		console.log(perfil+region+comuna);
 		$.ajax({
 			type: "POST",
 			url: "./procesar_registro_ipe_facebook.php",
@@ -221,15 +96,7 @@ $(document).ready(function(){
 			cache: false,
 			processData:false,
 			success: function(data){
-				console.log(data);
-				switch (data){
-					case "actualizado": alert('registro ingresado, nos contactaremos con usted');
-						                window.location.href='logout.php';
-					break;
-					case "false": alert('ingrese todos los datos');
-					break;
-				}
-
+			 	termina_formulario(data);
 			}
 		})
 		return false;
@@ -242,7 +109,6 @@ $(document).ready(function(){
 		info = new FormData(this);
 		info.append('nuuser',$('.usernamenuevo').val());
 		info.append('nupass',$('.contraseña').val());
-		//console.log($('.contraseña').val());
 		info.append('nucorreo',$('.correonuevo').val());
 		info.append('tipo','influenciador');
 		tipo=$('#perfil option').val();
@@ -252,7 +118,6 @@ $(document).ready(function(){
 		var region = f.options[f.selectedIndex].value;
 		var g = document.getElementById("comuna");
 		var comuna = g.options[g.selectedIndex].value;
-		//console.log(perfil+region+comuna+$('.usernamenuevo').val()+$('#contraseñanuevo').val()+$('.correonuevo').val());
 		info.append('ipe',perfil);
 		info.append('region',region);
 		info.append('comuna',comuna);
@@ -266,81 +131,12 @@ $(document).ready(function(){
 			cache: false,
 			processData:false,
 			success: function(data){
-
-				console.log(data);
-				switch (data){
-					case "nuevo":
-									$(".alertElim").fadeIn("normal",function(){
-											$("#boxAlert .hrefCamp h2").text("Gracias por registrarte en Power-Influencers");
-											$("#boxAlert .hrefCamp i").append("<img src='img/logo_pi-06.svg' width='100%' height='100%'/>");
-											$("#boxAlert .hrefCamp p.messageAlert").text("Tu cuenta sera activada proximamente, pronto nos contactaremos contigo.");
-
-											$("#boxAlert").show().animate({
-												top:"20%",
-												opacity:1
-											},{duration:1500,easing:"easeOutBounce"});
-
-											$("#clearAlert").on("click",function(){
-												$("#boxAlert").animate({
-													top:"-100px",
-													opacity:0
-												},{duration:500,easing:"easeInOutQuint",complete:function(){
-													$(".alertElim").fadeOut("fast");
-													window.location.href = "logout.php";
-													window.location.reload();
-												}});
-											});
-									});
-					break;
-					case "false":$(".alertElim").fadeIn("normal",function(){
-													$("#boxAlert .hrefCamp h2").text("algo anda mal");
-													$("#boxAlert .hrefCamp i").addClass("fa-warning");
-													$("#boxAlert .hrefCamp p.messageAlert").text("El correo "+$('.correonuevo').val()+" ya existe en la base de datos, intente con otro.");
-
-													$("#boxAlert").show().animate({
-														top:"20%",
-														opacity:1
-													},{duration:1500,easing:"easeOutBounce"});
-
-													$("#clearAlert").on("click",function(){
-														$("#boxAlert").animate({
-															top:"-100px",
-															opacity:0
-														},{duration:500,easing:"easeInOutQuint",complete:function(){
-															$(".alertElim").fadeOut("fast");
-															$(this).hide();
-															$("#boxAlert .hrefCamp i").removeClass("fa-warning");
-															$('.correonuevo').val('');
-															$('.correonuevo').focus();
-														}});
-													});
-											});
-					break;
-					case "invalido":$(".alertElim").fadeIn("normal",function(){
-														$("#boxAlert .hrefCamp h2").text("algo anda mal");
-														$("#boxAlert .hrefCamp i").addClass("fa-warning");
-														$("#boxAlert .hrefCamp p.messageAlert").text("Problema con el tamaño o formato de la imagen.");
-
-														$("#boxAlert").show().animate({
-															top:"20%",
-															opacity:1
-														},{duration:1500,easing:"easeOutBounce"});
-
-														$("#clearAlert").on("click",function(){
-															$("#boxAlert").animate({
-																top:"-100px",
-																opacity:0
-															},{duration:500,easing:"easeInOutQuint",complete:function(){
-																$(".alertElim").fadeOut("fast");
-																$("#boxAlert .hrefCamp i").removeClass("fa-warning");
-																$(this).hide();
-															}});
-														});
-												});
-				}
+				inscripcion_influenciador(data);
 			}
 		});
 	}));
+	
+
 
 	$('#linkedin-nuevo').click(function(){
 
@@ -363,8 +159,6 @@ $(document).ready(function(){
 		script.src = '//platform.linkedin.com/in.js';
 		script.text ='\n api_key:	7718vpksg6gvwg\nauthorize:	false\nonLoad: onLinkedInLoad\n';
 		head.appendChild(script);
-		//$("#tipoCliente").attr("value", "2");
-		//console.log('api load linked');
 	});
 
 
@@ -376,7 +170,6 @@ $(document).ready(function(){
 		script.src = '//platform.linkedin.com/in.js';
 		script.text ='\n api_key:	7718vpksg6gvwg\nauthorize:	false\nonLoad: onLinkedInLoad\n';
 		head.appendChild(script);
-		//$("#tipoCliente").attr("value", "3");
 	});
 
 	$('#linkedin-antiguo-Ipe').click(function(){
@@ -387,8 +180,6 @@ $(document).ready(function(){
 		script.src = '//platform.linkedin.com/in.js';
 		script.text ='\n api_key:	7718vpksg6gvwg\nauthorize:	false\nonLoad: onLinkedInLoad\n';
 		head.appendChild(script);
-		//$("#tipoCliente").attr("value", "3");
-		//console.log('api load linked');
 	});
 
 	$("#ver-password").keyup(checkPasswordMatch);
@@ -404,11 +195,7 @@ $(document).ready(function(){
 	//variables globales
 	var correo,nombre,correo,tel1,tel2,empresa;
 	var rsid = $('#RsId').val();
-	/*if (rsid != ''){
-		$('#correo input').removeAttr('disabled');
-	}*/
 	var foto=0;
-		//$('#file').click(function(){
 	$('#file').click(function(){
 		foto=1;
 		$("input:file").change(function (){
@@ -426,7 +213,6 @@ $(document).ready(function(){
 		info.append('tipo','campana');
         $(':checkbox:checked').each(function(i){
           val[i] = $(this).val();
-         // console.log(val[i]);
         });
 		info.append('selected_rrss',val);
 		$.ajax({
@@ -439,7 +225,6 @@ $(document).ready(function(){
 				processData:false,
 
 				success: function(data){
-					alert(data);
 					switch (data){
 						case "nueva":$(".alertElim").fadeIn("normal",function(){
 									$("#boxElim .hrefCamp h2").text("Campaña creada con exito");
@@ -486,9 +271,7 @@ $(document).ready(function(){
 					}
 				}
 			});
-
 		return false;
-
 	}));
 
 	$('#imagenform').on('submit',(function (e){
@@ -551,7 +334,6 @@ $(document).ready(function(){
 					contentType: false,
 					cache: false,
 					processData:false,
-
 				success: function(info){
 					switch (info){
 						case "actualiza":$(".alertElim").fadeIn("normal",function(){
@@ -578,9 +360,7 @@ $(document).ready(function(){
 					}
 				}
 			});
-			//console.log('');
 		};
-
 		return false;
 	}));
 	
@@ -595,7 +375,6 @@ $(document).ready(function(){
 		var g = document.getElementById("comuna");
 		var comuna = g.options[g.selectedIndex].value;
 		info.append('descripcion',$('#descripcion textarea').val());
-		console.log($('#descripcion textarea').val());
 		info.append('comuna',comuna);
 		info.append('region',region);
 		info.append('tipo','avatar-ipe');
@@ -611,7 +390,6 @@ $(document).ready(function(){
 				processData:false,
 
 				success: function(info){
-					console.log(info);
 					switch (info){
 						case "nuevo":$(".alertElim").fadeIn("normal",function(){
 								animaMune();
@@ -647,9 +425,7 @@ $(document).ready(function(){
 			});
 		}
 		else{
-			//console.log(region+comuna+$('#correo input').val()+$('#nombre input').val());
 			$.ajax({
-
 					type: "POST",
 					url: "./procesar-dashboard-ipe.php",
 					data: info,
@@ -659,10 +435,8 @@ $(document).ready(function(){
 					processData:false,
 
 				success: function(info){
-					console.log(info);
 					switch (info){
 						case "actualiza":
-						//console.log('actualiza');
 						$(".alertElim").fadeIn("normal",function(){
 								$("#boxAlert .hrefCamp h2").text("datos actualizados");
 								
@@ -697,9 +471,7 @@ $(document).ready(function(){
 					}
 				}
 			});
-			//console.log('');
 		};
-
 		return false;
 	}));
 
@@ -723,49 +495,11 @@ $(document).ready(function(){
 				cache: false,
 				processData:false,
 				success: function(data){
-					$(".alertElim").fadeIn("normal",function(){
-							$("#boxAlert .hrefCamp h2").text("registro completado");
-							$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
-							$("#boxAlert .hrefCamp p.messageAlert").text("Registro de datos completo, nos contactaremos con usted.");
-
-							$("#boxAlert").show().animate({
-								top:"20%",
-								opacity:1
-							},{duration:1500,easing:"easeOutBounce"});
-
-							$("#clearAlert").on("click",function(){
-								$("#boxAlert").animate({
-									top:"-100px",
-									opacity:0
-								},{duration:500,easing:"easeInOutQuint",complete:function(){
-									$(".alertElim").fadeOut("fast");
-									window.location.href = "logout.php";
-								}});
-							});
-					});
+					formulario_agencia_completo();
 				}
 			});
 		}else{
-			$(".alertElim").fadeIn("normal",function(){
-					$("#boxAlert .hrefCamp h2").text("algo anda mal");
-					$("#boxAlert .hrefCamp i").addClass("fa-warning");
-					$("#boxAlert .hrefCamp p.messageAlert").text("Debes ingresar al menos 8 digitos como número telefonico.");
-					
-					$("#boxAlert").show().animate({
-						top:"20%",
-						opacity:1
-					},{duration:1500,easing:"easeOutBounce"});
-
-					$("#clearAlert").on("click",function(){
-						$("#boxAlert").animate({
-							top:"-100px",
-							opacity:0
-						},{duration:500,easing:"easeInOutQuint",complete:function(){
-							$(".alertElim").fadeOut("fast");
-							$(this).hide();
-						}});
-					});
-			});
+			error_numero_telefonico();
 		}
 
 	});
@@ -780,8 +514,6 @@ $(document).ready(function(){
 			var campana_id = $(this).closest(".ingresar_urls").attr("id");
 			var url = $(this).val();
 			var descripcion_rrss=$(this).closest(".rrss").attr("name");
-			
-			console.log(rrss_id+campana_id+url);
 			$.ajax({
 				type: "POST",
 				url: "./procesar_url.php",
@@ -840,13 +572,138 @@ return datepicker.regional.es;
 
 $(function() {
 	var tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
-	//var dateToday = new Date();
-	//dateToday++;
 	$( "#datepicker" ).datepicker({dateFormat: "dd MM yy", firstDay:1, minDate: tomorrow,dayNamesMin:["dom","lun","mar","mie","jue","vie","sab"]});
 });
 
+/*********************************************************************************************************
+****************************************Mensajes según formularios****************************************
+/*********************************************************************************************************/
+function error_numero_telefonico(){
+$(".alertElim").fadeIn("normal",function(){
+					$("#boxAlert .hrefCamp h2").text("algo anda mal");
+					$("#boxAlert .hrefCamp i").addClass("fa-warning");
+					$("#boxAlert .hrefCamp p.messageAlert").text("Debes ingresar al menos 8 digitos como número telefonico.");
+					
+					$("#boxAlert").show().animate({
+						top:"20%",
+						opacity:1
+					},{duration:1500,easing:"easeOutBounce"});
 
+					$("#clearAlert").on("click",function(){
+						$("#boxAlert").animate({
+							top:"-100px",
+							opacity:0
+						},{duration:500,easing:"easeInOutQuint",complete:function(){
+							$(".alertElim").fadeOut("fast");
+							$(this).hide();
+						}});
+					});
+			});
+}
+function formulario_agencia_completo(){
+$(".alertElim").fadeIn("normal",function(){
+							$("#boxAlert .hrefCamp h2").text("registro completado");
+							$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+							$("#boxAlert .hrefCamp p.messageAlert").text("Registro de datos completo, nos contactaremos con usted.");
 
+							$("#boxAlert").show().animate({
+								top:"20%",
+								opacity:1
+							},{duration:1500,easing:"easeOutBounce"});
+
+							$("#clearAlert").on("click",function(){
+								$("#boxAlert").animate({
+									top:"-100px",
+									opacity:0
+								},{duration:500,easing:"easeInOutQuint",complete:function(){
+									$(".alertElim").fadeOut("fast");
+									window.location.href = "logout.php";
+								}});
+							});
+					});
+}
+function inscripcion_influenciador(data){
+	switch (data){
+				case "nuevo":
+								$(".alertElim").fadeIn("normal",function(){
+										$("#boxAlert .hrefCamp h2").text("Gracias por registrarte en Power-Influencers");
+										$("#boxAlert .hrefCamp i").append("<img src='img/logo_pi-06.svg' width='100%' height='100%'/>");
+										$("#boxAlert .hrefCamp p.messageAlert").text("Tu cuenta sera activada proximamente, pronto nos contactaremos contigo.");
+
+										$("#boxAlert").show().animate({
+											top:"20%",
+											opacity:1
+										},{duration:1500,easing:"easeOutBounce"});
+
+										$("#clearAlert").on("click",function(){
+											$("#boxAlert").animate({
+												top:"-100px",
+												opacity:0
+											},{duration:500,easing:"easeInOutQuint",complete:function(){
+												$(".alertElim").fadeOut("fast");
+												window.location.href = "logout.php";
+												window.location.reload();
+											}});
+										});
+								});
+				break;
+				case "false":$(".alertElim").fadeIn("normal",function(){
+												$("#boxAlert .hrefCamp h2").text("algo anda mal");
+												$("#boxAlert .hrefCamp i").addClass("fa-warning");
+												$("#boxAlert .hrefCamp p.messageAlert").text("El correo "+$('.correonuevo').val()+" ya existe en la base de datos, intente con otro.");
+
+												$("#boxAlert").show().animate({
+													top:"20%",
+													opacity:1
+												},{duration:1500,easing:"easeOutBounce"});
+
+												$("#clearAlert").on("click",function(){
+													$("#boxAlert").animate({
+														top:"-100px",
+														opacity:0
+													},{duration:500,easing:"easeInOutQuint",complete:function(){
+														$(".alertElim").fadeOut("fast");
+														$(this).hide();
+														$("#boxAlert .hrefCamp i").removeClass("fa-warning");
+														$('.correonuevo').val('');
+														$('.correonuevo').focus();
+													}});
+												});
+										});
+				break;
+				case "invalido":$(".alertElim").fadeIn("normal",function(){
+													$("#boxAlert .hrefCamp h2").text("algo anda mal");
+													$("#boxAlert .hrefCamp i").addClass("fa-warning");
+													$("#boxAlert .hrefCamp p.messageAlert").text("Problema con el tamaño o formato de la imagen.");
+
+													$("#boxAlert").show().animate({
+														top:"20%",
+														opacity:1
+													},{duration:1500,easing:"easeOutBounce"});
+
+													$("#clearAlert").on("click",function(){
+														$("#boxAlert").animate({
+															top:"-100px",
+															opacity:0
+														},{duration:500,easing:"easeInOutQuint",complete:function(){
+															$(".alertElim").fadeOut("fast");
+															$("#boxAlert .hrefCamp i").removeClass("fa-warning");
+															$(this).hide();
+														}});
+													});
+											});
+			}
+}
+function termina_formulario(data){
+	switch (data){
+				case "actualizado": alert('registro ingresado, nos contactaremos con usted');
+					                window.location.href='logout.php';
+				break;
+				case "false": alert('ingrese todos los datos');
+				break;
+			}
+
+}
 function valida(e){
 	tecla = (document.all) ? e.keyCode : e.which;
 	if (tecla==8){

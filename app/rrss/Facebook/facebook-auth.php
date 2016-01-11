@@ -137,7 +137,7 @@
 					            url: "./rrss/facebook/procesar_facebook.php",
 					            data: "faceuser="+facebookUser+"&facebook_page_id="+facebook_page_id,
 					            success: function(data){
-									<?php inscripcion(); ?>
+									<?php inscripcion_facebook(); ?>
 								}
 							});
 			        	}else{
@@ -147,7 +147,7 @@
 					            url: "./rrss/facebook/procesar_facebook.php",
 					            data: "facebook_page_id="+facebook_page_id,
 					            success: function(data){
-					            	<?php inscripcion();?>
+					            	<?php inscripcion_facebook();?>
 								}
 							});
 			        	}

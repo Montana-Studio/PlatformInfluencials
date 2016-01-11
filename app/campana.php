@@ -193,7 +193,6 @@
                             <script>
                                 $(document).ready(function(){
                                     $(".ver-mas-metrics").on("click",function(event){
-                                        console.log("holi");
                                         $(this).siblings(".redes-metrics .data ul li").slideDown();
                                     });
                                 });

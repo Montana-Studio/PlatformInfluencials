@@ -62,10 +62,9 @@ include_once('../rrss_keys.php');
            // echo '<script> alert("La cuenta ya está asociada, intente con una cuenta diferente");</script>';
              $displaydb = "block";
              //flush();
-             echo '<script type="text/javascript" src="js/jquery.min.js"></script>
+             echo '<script type="text/javascript" src="http://desarrollo.adnativo.com/pi/app/js/jquery.min.js"></script>
                     <script> 
                             $(document).ready(function(){
-                                var data="otro";
                                 $(".alertElim").fadeIn("normal",function(){
                                     $("#boxElim .hrefCamp h2").text("La cuenta ya existe");
                                     $("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
@@ -120,10 +119,9 @@ include_once('../rrss_keys.php');
                 $followers_count=(int)$data[0]['user']['followers_count'];
                 $query='INSERT INTO rrss (descripcion_rrss,rrss_id,persona_id,cuenta) VALUES("twitter","'.$usuario.'","'.$_SESSION['id'].'", "1")';
                 $result= mysqli_query($mysqli,$query)or die(mysqli_error());
-                echo '<script type="text/javascript" src="js/jquery.min.js"></script>
+                echo '<script type="text/javascript" src="http://desarrollo.adnativo.com/pi/app/js/jquery.min.js"></script>
                     <script>
                             $(document).ready(function(){
-                            var data="exito";
                                 $(".alertElim").fadeIn("normal",function(){
                                     $("#boxElim .hrefCamp h2").text("Red Social agregada");
                                     $("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
@@ -151,6 +149,7 @@ include_once('../rrss_keys.php');
                                         }});
                                     });
                                 });
+                            })
                 </script>';
             }
 
