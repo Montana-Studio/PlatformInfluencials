@@ -42,6 +42,105 @@
 		';
 	}
 
+	function inscripcion(){
+		echo ' if(data == "exito"){
+				$(".alertElim").fadeIn("normal",function(){
+					$("#boxElim .hrefCamp h2").text("Red Social agregada");
+					$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
+					$("#boxElim .hrefCamp p").text("Las páginas asociadas a esta cuenta han sido agregadas");
+					$(".siElim").text("Ir a perfil");
+					$(".noElim").text("Continuar en Redes Sociales");
+
+					$("#boxElim").show().animate({
+						top:"20%",
+						opacity:1
+					},{duration:1500,easing:"easeOutBounce"});
+
+					$(".siElim").on("click",function(){
+
+						window.location.href = "http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-1";
+						window.location.reload();
+					});
+
+					$(".noElim").on("click",function(){
+						$("#boxElim").animate({
+							top:"-100px",
+							opacity:0
+						},{duration:500,easing:"easeInOutQuint",complete:function(){
+							$(".alertElim").fadeOut("fast");
+							$(this).hide();
+							window.location.href = "http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-2";
+							window.location.reload();
+						}});
+					});
+				});
+            }else if(data == "existe"){
+        	$(".alertElim").fadeIn("normal",function(){
+				$("#boxElim .hrefCamp h2").text("La cuenta ya existe");
+				$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
+				$("#boxElim .hrefCamp p").text("Este perfil ya se encuentra asociado a una cuenta");
+				$(".siElim").text("Ir a perfil");
+				$(".noElim").text("Continuar en Redes Sociales");
+
+				$("#boxElim").show().animate({
+					top:"20%",
+					opacity:1
+				},{duration:1500,easing:"easeOutBounce"});
+
+				$(".siElim").on("click",function(){
+
+					window.location.href = "http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-1";
+					window.location.reload();
+				});
+
+				$(".noElim").on("click",function(){
+					$("#boxElim").animate({
+						top:"-100px",
+						opacity:0
+					},{duration:500,easing:"easeInOutQuint",complete:function(){
+						$(".alertElim").fadeOut("fast");
+						$(this).hide();
+						window.location.href = "http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-2";
+						window.location.reload();
+					}});
+				});
+			});
+        }else if(data == "otro"){
+        	$(".alertElim").fadeIn("normal",function(){
+				$("#boxElim .hrefCamp h2").text("La cuenta ya existe");
+				$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
+				$("#boxElim .hrefCamp p").text("Este perfil ya se encuentra asociado a una cuenta");
+				$(".siElim").text("Ir a perfil");
+				$(".noElim").text("Continuar en Redes Sociales");
+
+				$("#boxElim").show().animate({
+					top:"20%",
+					opacity:1
+				},{duration:1500,easing:"easeOutBounce"});
+
+				$(".siElim").on("click",function(){
+
+					window.location.href = "http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-1";
+					window.location.reload();
+				});
+
+				$(".noElim").on("click",function(){
+					$("#boxElim").animate({
+						top:"-100px",
+						opacity:0
+					},{duration:500,easing:"easeInOutQuint",complete:function(){
+						$(".alertElim").fadeOut("fast");
+						$(this).hide();
+						window.location.href = "http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-2";
+						window.location.reload();
+					}});
+					
+				});
+			});
+        } ';
+
+	}
+
 	if(basename($_SERVER['PHP_SELF'])=='dashboard-ipe.php'){
 		require('rrss/twitter/inc/twitteroauth.php');
 		require('rrss/twitter/inc/TwitterAPIExchange.php');

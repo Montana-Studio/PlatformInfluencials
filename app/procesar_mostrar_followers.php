@@ -34,6 +34,20 @@
             }
 
           });
+        $(".elimina").click(function(){
+           id_rrss = $(this).attr("name");
+           tipo="desactivar";
+           $.ajax({
+                  type: "POST",
+                  url: "./rrss/procesar_activar_rs.php",
+                  data: "id_rrss="+id_rrss+"&tipo="+tipo,
+                  success: function(data){
+                    alert("cuenta desvinculada");
+                    window.location.reload();
+                  }
+                });
+        });
+          
         });
       </script>';
 
@@ -42,7 +56,7 @@
 /****************************************************************************************************
                 GET INSTAGRAM REACH
 ****************************************************************************************************/
-  $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='instagram'";
+  $query3="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='instagram' AND cuenta='1'";
   $result3=mysqli_query($mysqli,$query3)or die (mysqli_error());
   $row3= mysqli_fetch_array($result3, MYSQLI_BOTH);
   $num_row3= mysqli_num_rows($result3);
@@ -80,6 +94,9 @@
           <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$row3[3]."'>
           <label class='btn".$estado_descripcion." switch-label' for='".$row3[3]."'></label>
       </div>
+      <div class='onoffswitch'>
+          <p name='".$row3[0]."' class='elimina'>elimina</p>
+      </div>
       </div>";
     }while($row3 = $result3->fetch_array());
       $suma += $suma_instagram;
@@ -87,7 +104,7 @@
 /****************************************************************************************************
                   TWITTER BUTTON AND GET REACH SUM
 ****************************************************************************************************/
-$query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter'";
+$query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter' AND cuenta='1'";
     $result4=mysqli_query($mysqli,$query4)or die (mysqli_error());
     $row4= mysqli_fetch_array($result4, MYSQLI_BOTH);
     $num_row4=mysqli_num_rows($result4);
@@ -155,6 +172,9 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
               <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$row4[3]."'>
               <label class='btn".$estado_descripcion." switch-label' for='".$row4[3]."'></label>
           </div>
+          <div class='onoffswitch'>
+            <p name='".$row4[0]."' class='elimina'>elimina</p>
+          </div>
         </div>";
         
         for($i = 0; $i < 3 ; $i++){
@@ -212,7 +232,7 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 /****************************************************************************************************
             YOUTUBE  GET REACH SUM
 ****************************************************************************************************/
-    $query5="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='youtube'";
+    $query5="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='youtube' AND cuenta='1'";
     $result5=mysqli_query($mysqli,$query5)or die (mysqli_error());
     $row5= mysqli_fetch_array($result5, MYSQLI_BOTH);
     $num_row5=mysqli_num_rows($result5);
@@ -250,6 +270,9 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
               <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$row5[3]."'>
               <label class='btn".$estado_descripcion." switch-label' for='".$row5[3]."'></label>
           </div>
+          <div class='onoffswitch'>
+            <p name='".$row5[0]."' class='elimina'>elimina</p>
+          </div>
         </div>";
       }while($row5 = $result5->fetch_array());
     }
@@ -260,7 +283,7 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 /****************************************************************************************************
                 FACEBOOK GET REACH SUM
 ****************************************************************************************************/
-    $query6="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='facebook'";
+    $query6="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='facebook' AND cuenta='1'";
     $result6=mysqli_query($mysqli,$query6)or die (mysqli_error());
     $row6= mysqli_fetch_array($result6, MYSQLI_BOTH);
     $num_row6=mysqli_num_rows($result6);
@@ -311,6 +334,10 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
                 <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$facebookPage."'>
                 <label class='btn".$estado_descripcion." switch-label' for='".$facebookPage."'></label>
             </div>
+            <div class='onoffswitch'>
+              <p name='".$row6[0]."' class='elimina'>elimina</p>
+ 
+            </div>
             </div>";
         }
         } else {
@@ -326,7 +353,7 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 /****************************************************************************************************
             GOOGLEPLUS  GET REACH SUM
 ****************************************************************************************************/
-    $query7="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='googleplus'";
+    $query7="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='googleplus' AND cuenta='1'";
     $result7=mysqli_query($mysqli,$query7)or die (mysqli_error());
     $row7= mysqli_fetch_array($result7, MYSQLI_BOTH);
     $num_row7=mysqli_num_rows($result7);
@@ -378,6 +405,9 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
               <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$googleplusId."'>
               <label class='btn".$estado_descripcion." switch-label' for='".$googleplusId."'></label>
           </div>
+          <div class='onoffswitch'>
+            <p name='".$row7[0]."' class='elimina'>elimina</p>
+          </div>
           </div>";
         }
 
@@ -387,7 +417,7 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 /****************************************************************************************************
             ANALYTICS  GET REACH SUM
 ****************************************************************************************************/
-    $query8="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='analytics'";
+    $query8="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='analytics' AND cuenta='1'";
     $result8=mysqli_query($mysqli,$query8)or die (mysqli_error());
     $row8= mysqli_fetch_array($result8, MYSQLI_BOTH);
     $num_row8=mysqli_num_rows($result8);
@@ -543,8 +573,8 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 
             <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
             <div class='onoffswitch'>
-                <input type='checkbox' name='".$estado."' value='analytics' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$row9[4]."'>
-                <label class='btn".$estado_descripcion." switch-label' for='".$row9[4]."'></label>
+              <p name='".$row9[0]."' class='elimina'>elimina</p>
+ 
             </div>
           </div>";
           $variable++;

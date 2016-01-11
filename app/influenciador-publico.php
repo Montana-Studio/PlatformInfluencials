@@ -165,7 +165,7 @@
 					<div class="cotizar-opt">
 						<span class="txt-cotiza">cotizar</span>
 						<div class="checkbox-cotizar">
-							<input id="cotizar-'.$row[0].'" class="switch-checkbox" name="'.$row[5].'"  value="'.$row[0].'" type="checkbox" checked/>
+							<input id="cotizar-'.$row[0].'" class="switch-checkbox" name="'.$row[5].'"  value="'.$row[0].'" type="checkbox" />
 							<label for="cotizar-'.$row[0].'" class="switch-label"></label>
 						</div>
 					</div>
@@ -221,7 +221,7 @@
 								//$("#opc_cot").show();
 								$(".boton_cotizar").show();
 								//$("#campanas-postulables").hide();
-								$("input:checkbox").removeAttr("checked");
+							$("input:checkbox").removeAttr("checked");
 
 								
 							}
