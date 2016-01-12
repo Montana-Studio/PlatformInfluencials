@@ -32,6 +32,7 @@
 			}
 		};
 		function login_callback() {
+
 			var instagramId = accessToken.split(".").shift();
 			var followers_instagram;
 			//alert(instagramId);
@@ -45,6 +46,7 @@
 			});
 		}
 		function login() {
+			window.location.hash='';
 			authenticateInstagram(
 			    'd9e010f47eef4f21a289bd5d46a60e25', //instagram client ID
 			    'http://desarrollo.adnativo.com/pi/app/rrss/Instagram/instagram_auth.php', //instagram redirect URI

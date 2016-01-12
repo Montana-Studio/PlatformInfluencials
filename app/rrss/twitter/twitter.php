@@ -2,7 +2,7 @@
 session_start();
 include_once("inc/twitteroauth.php");
 include_once('inc/TwitterAPIExchange.php');
-include_once('../rrss_keys.php'); 
+include_once('../rrss_keys.php'); //llamada de keys desde nuevo archivo
     /****************************************************************
     Ask if the persona_id exist on table rrss twitter data
     ****************************************************************/
@@ -40,9 +40,10 @@ include_once('../rrss_keys.php');
     /****************************************************************
     If the user has 3 registered accounts
     /****************************************************************/
-      /*if((int)$num_row > 2){
+      if((int)$num_row > 2){
         $displaydb = "none";
-        echo '<script> dataalert("ya cuenta con 3 cuentas registradas");
+        echo '<script>
+                alert("ya cuenta con 3 cuentas registradas");
                          window.location="../../dashboard-ipe.php";</script>';
         //flush();
         //header('Location: ../../dashboard-ipe.php');
@@ -52,8 +53,7 @@ include_once('../rrss_keys.php');
     Success, redirected back from process.php with varified status.
     retrive variables
     ****************************************************************/
-    /*
-      }else*/ if(isset($_SESSION['status']) && $_SESSION['status']=='verified'){
+      }else if(isset($_SESSION['status']) && $_SESSION['status']=='verified'){
         /****************************************************************
         If the Twitter id already exist then it is going to redirect
         to dashboard page
@@ -61,45 +61,13 @@ include_once('../rrss_keys.php');
           if((int)$num_row2 > 0){
            // echo '<script> alert("La cuenta ya está asociada, intente con una cuenta diferente");</script>';
              $displaydb = "block";
+             $_SESSION['data']='existe';
              //flush();
-             echo '<script type="text/javascript" src="http://desarrollo.adnativo.com/pi/app/js/jquery.min.js"></script>
-                    <script> 
-                            $(document).ready(function(){
-                                $(".alertElim").fadeIn("normal",function(){
-                                    $("#boxElim .hrefCamp h2").text("La cuenta ya existe");
-                                    $("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
-                                    $("#boxElim .hrefCamp p").text("Este perfil ya se encuentra asociado a una cuenta");
-                                    $(".siElim").text("Ir a perfil");
-                                    $(".noElim").text("Continuar en Redes Sociales");
-
-                                    $("#boxElim").show().animate({
-                                        top:"20%",
-                                        opacity:1
-                                    },{duration:1500,easing:"easeOutBounce"});
-
-                                    $(".siElim").on("click",function(){
-
-                                        window.location.href = "http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-1";
-                                        window.location.reload();
-                                    });
-
-                                    $(".noElim").on("click",function(){
-                                        $("#boxElim").animate({
-                                            top:"-100px",
-                                            opacity:0
-                                        },{duration:500,easing:"easeInOutQuint",complete:function(){
-                                            $(".alertElim").fadeOut("fast");
-                                            $(this).hide();
-                                            window.location.href = "http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-2";
-                                            window.location.reload();
-                                        }});
-                                        
-                                    });
-                                });
-                            }) 
-                </script>';
+             echo '
+                <script>window.location="../../dashboard-ipe.php#fragment-2";</script>';
 
             }else{
+                $_SESSION['data']='exito';
                  //  header('Location: ../../dashboard-ipe.php');
                 $oauth_token        = $_SESSION['request_vars']['oauth_token'];
                 $oauth_token_secret = $_SESSION['request_vars']['oauth_token_secret'];
@@ -117,40 +85,18 @@ include_once('../rrss_keys.php');
                 ->performRequest();
                 $data = json_decode($follow_count, true);
                 $followers_count=(int)$data[0]['user']['followers_count'];
-                $query='INSERT INTO rrss (descripcion_rrss,rrss_id,persona_id,cuenta) VALUES("twitter","'.$usuario.'","'.$_SESSION['id'].'", "1")';
+                $query="INSERT INTO rrss (descripcion_rrss,rrss_id,persona_id,cuenta) VALUES('twitter',".$usuario.",".$_SESSION['id'].",'1')";
                 $result= mysqli_query($mysqli,$query)or die(mysqli_error());
-                echo '<script type="text/javascript" src="http://desarrollo.adnativo.com/pi/app/js/jquery.min.js"></script>
-                    <script>
-                            $(document).ready(function(){
-                                $(".alertElim").fadeIn("normal",function(){
-                                    $("#boxElim .hrefCamp h2").text("Red Social agregada");
-                                    $("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
-                                    $("#boxElim .hrefCamp p").text("Las páginas asociadas a esta cuenta han sido agregadas");
-                                    $(".siElim").text("Ir a perfil");
-                                    $(".noElim").text("Continuar en Redes Sociales");
+                
+                echo '
+                <script>window.location="../../dashboard-ipe.php#fragment-2";</script>';
+                die();
+                //echo '<script> alert("gracias por registrar su cuenta");</script>';
+                //flush();
+                /*echo '<script>alert("gracias por registrar su cuenta");
+                         window.location="../../dashboard-ipe.php";</script>';*/
 
-                                    $("#boxElim").show().animate({
-                                        top:"20%",
-                                        opacity:1
-                                    },{duration:1500,easing:"easeOutBounce"});
 
-                                    $(".siElim").on("click",function(){
-
-                                        window.location.href = "http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-1";
-                                    });
-
-                                    $(".noElim").on("click",function(){
-                                        $("#boxElim").animate({
-                                            top:"-100px",
-                                            opacity:0
-                                        },{duration:500,easing:"easeInOutQuint",complete:function(){
-                                            $(".alertElim").fadeOut("fast");
-                                            $(this).hide();
-                                        }});
-                                    });
-                                });
-                            })
-                </script>';
             }
 
         }

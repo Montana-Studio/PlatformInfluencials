@@ -69,6 +69,14 @@
 			}
 		?>
 		<a id="twitter-inscription" href="./rrss/twitter/process.php" value="<?php echo $num_row3;?>" class="btns">Conectar Twitter</a>
+		<script id="mensaje">$(document).ready(function() {
+		   var referrer =  document.referrer;
+		   
+		   if(referrer=='http://desarrollo.adnativo.com/pi/app/rrss/twitter/twitter.php'){
+		   		<?php 	inscripcion_twitter();?>
+		   }
+		});
+		 </script>
 	</div>
 
 	<div class="red-title"><i class="pi pi-analytics"></i> <span class="red-name">Analytics</span> <i class="pi pi-arrow-bottom"></i></div>
