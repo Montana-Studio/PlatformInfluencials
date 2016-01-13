@@ -1,10 +1,20 @@
-220---------- Welcome to Pure-FTPd [privsep] [TLS] ----------
-220-You are user number 4 of 4 allowed.
-220-Local time is now 13:08. Server port: 21.
-220-This is a private system - No anonymous login
-220-IPv6 connections are also welcome on this server.
-220 You will be disconnected after 15 minutes of inactivity.
-})
+
+$(document).ready(function(){
+	 
+	//INICIO SCRIPTS
+	var info;
+	var val = [];
+
+	$('#facebook-name').hide();
+	$('#volver').hide();
+
+	$('#agencia1').click(function(){
+		$("#tipoCliente").attr("value", "2");
+		$('.form_agencias').show();
+		$(".ingreso_eleccion").hide();
+		$(".volverTipo").show();
+		$('#perfil').hide();
+	})
 
 	$('#ingresar').click(function(){
 		correo=$('#correo').val();
