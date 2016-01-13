@@ -4,3 +4,7 @@
 [21-Dec-2015 13:58:20 UTC] PHP Warning:  include(): Failed opening 'conexion.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/adnativo/public_html/desarrollo/pi/app/rrss/twitter/twitter.php on line 5
 [21-Dec-2015 13:58:20 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/adnativo/public_html/desarrollo/pi/app/rrss/twitter/twitter.php on line 14
 [21-Dec-2015 13:58:20 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/adnativo/public_html/desarrollo/pi/app/rrss/twitter/twitter.php on line 14
+[23-Dec-2015 16:04:46 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/adnativo/public_html/desarrollo/pi/app/rrss/twitter/twitter.php on line 14
+[08-Jan-2016 19:04:48 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/adnativo/public_html/desarrollo/pi/app/rrss/twitter/twitter.php on line 86
+[08-Jan-2016 19:06:34 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/adnativo/public_html/desarrollo/pi/app/rrss/twitter/twitter.php on line 86
+[11-Jan-2016 14:34:45 UTC] PHP Fatal error:  Call to undefined function inscripcion() in /home/adnativo/public_html/desarrollo/pi/app/rrss/twitter/twitter.php on line 66

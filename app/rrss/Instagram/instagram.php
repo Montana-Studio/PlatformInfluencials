@@ -32,6 +32,7 @@
 			}
 		};
 		function login_callback() {
+
 			var instagramId = accessToken.split(".").shift();
 			var followers_instagram;
 			//alert(instagramId);
@@ -40,22 +41,14 @@
             url: "rrss/Instagram/procesar_instagram.php",
             data: "instagramId="+instagramId+"&accessToken="+accessToken,
             success: function(data){
-            	 if(data == 'exito'){
-                  alert("gracias por registrar su cuenta");
-                  //window.location.reload();
-                  window.location.href='http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-2';
-                  window.location.reload();
-                }
-                else if(data == 'existe') alert('La cuenta ya está asociada, intente con una cuenta diferente')
-                else if(data == 'otro') alert('La cuenta está asociada a otro usuario');
-                //else window.reload();
+            	<?php inscripcion_instagram();?>
 			}
 			});
 		}
 		function login() {
+			window.location.hash='';
 			authenticateInstagram(
 			    'd9e010f47eef4f21a289bd5d46a60e25', //instagram client ID
-			   // 'http://desarrollo.adnativo.com/pi/app/rrss/instagram/instagram_auth.php', //instagram redirect URI
 			    'http://desarrollo.adnativo.com/pi/app/rrss/Instagram/instagram_auth.php', //instagram redirect URI
 			    login_callback  //optional - a callback function
 			);

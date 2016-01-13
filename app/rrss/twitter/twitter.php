@@ -42,7 +42,8 @@ include_once('../rrss_keys.php'); //llamada de keys desde nuevo archivo
     /****************************************************************/
       if((int)$num_row > 2){
         $displaydb = "none";
-        echo '<script>alert("ya cuenta con 3 cuentas registradas");
+        echo '<script>
+                alert("ya cuenta con 3 cuentas registradas");
                          window.location="../../dashboard-ipe.php";</script>';
         //flush();
         //header('Location: ../../dashboard-ipe.php');
@@ -60,11 +61,13 @@ include_once('../rrss_keys.php'); //llamada de keys desde nuevo archivo
           if((int)$num_row2 > 0){
            // echo '<script> alert("La cuenta ya está asociada, intente con una cuenta diferente");</script>';
              $displaydb = "block";
+             $_SESSION['data']='existe';
              //flush();
-             echo '<script>alert("La cuenta ya está asociada, intente con una cuenta diferente");
-                         window.location="../../dashboard-ipe.php";</script>';
+             echo '
+                <script>window.location="../../dashboard-ipe.php#fragment-2";</script>';
 
             }else{
+                $_SESSION['data']='exito';
                  //  header('Location: ../../dashboard-ipe.php');
                 $oauth_token        = $_SESSION['request_vars']['oauth_token'];
                 $oauth_token_secret = $_SESSION['request_vars']['oauth_token_secret'];
@@ -82,9 +85,11 @@ include_once('../rrss_keys.php'); //llamada de keys desde nuevo archivo
                 ->performRequest();
                 $data = json_decode($follow_count, true);
                 $followers_count=(int)$data[0]['user']['followers_count'];
-                $query="INSERT INTO rrss (descripcion_rrss,rrss_id,persona_id) VALUES('twitter',".$usuario.",".$_SESSION['id'].")";
+                $query="INSERT INTO rrss (descripcion_rrss,rrss_id,persona_id,cuenta) VALUES('twitter',".$usuario.",".$_SESSION['id'].",'1')";
                 $result= mysqli_query($mysqli,$query)or die(mysqli_error());
-                header("Location: http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-2");
+                
+                echo '
+                <script>window.location="../../dashboard-ipe.php#fragment-2";</script>';
                 die();
                 //echo '<script> alert("gracias por registrar su cuenta");</script>';
                 //flush();
