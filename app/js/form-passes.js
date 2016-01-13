@@ -1,20 +1,10 @@
-
-$(document).ready(function(){
-	 
-	//INICIO SCRIPTS
-	var info;
-	var val = [];
-
-	$('#facebook-name').hide();
-	$('#volver').hide();
-
-	$('#agencia1').click(function(){
-		$("#tipoCliente").attr("value", "2");
-		$('.form_agencias').show();
-		$(".ingreso_eleccion").hide();
-		$(".volverTipo").show();
-		$('#perfil').hide();
-	})
+220---------- Welcome to Pure-FTPd [privsep] [TLS] ----------
+220-You are user number 4 of 4 allowed.
+220-Local time is now 13:08. Server port: 21.
+220-This is a private system - No anonymous login
+220-IPv6 connections are also welcome on this server.
+220 You will be disconnected after 15 minutes of inactivity.
+})
 
 	$('#ingresar').click(function(){
 		correo=$('#correo').val();
@@ -508,24 +498,25 @@ $(document).ready(function(){
 
 
 	$('#enviar_url').click(function(){
-		var resultado;
+		if(descripcion_rrss='googleplus'){
+			var resultado;
 			$('.rrss input').each(function(){
 			var rrss_id = $(this).attr('id');
 			var campana_id = $(this).closest(".ingresar_urls").attr("id");
 			var url = $(this).val();
 			var descripcion_rrss=$(this).closest(".rrss").attr("name");
-			$.ajax({
-				type: "POST",
-				url: "./procesar_url.php",
-				data: "rrss_id="+rrss_id+"&campana_id="+campana_id+"&url="+url+"&descripcion_rrss="+descripcion_rrss,
-				success: function(data){
-					switch (data){
-						case 'ingresada': resultado= 'Algunas url(s) ya se encontraban registradas';
-						case 'nueva' : resultado = 'Gracias por registrar la(s) URL(s)';
-					}
+			//console.log(rrss_id+"-"+campana_id+"-"+url+"-"+descripcion_rrss);
+			
+				if(url.indexOf(rrss_id)>0){
+					enviar_url_verificada(rrss_id,campana_id,url,descripcion_rrss);
+
+				}else{
+					alert('la url no corresponde');
 				}
-			});
-		})
+			})
+		}
+			
+		
 			
 	});
 });
@@ -578,6 +569,19 @@ $(function() {
 /*********************************************************************************************************
 ****************************************Mensajes según formularios****************************************
 /*********************************************************************************************************/
+function enviar_url_verificada(rrss_id,campana_id,url,descripcion_rrss){
+$.ajax({
+				type: "POST",
+				url: "./procesar_url.php",
+				data: "rrss_id="+rrss_id+"&campana_id="+campana_id+"&url="+url+"&descripcion_rrss="+descripcion_rrss,
+				success: function(data){
+					switch (data){
+						case 'ingresada': resultado= 'Alguna(s) url(s) ya se encontraban registrada(s)';
+						case 'nueva' : resultado = 'Gracias por registrar la(s) URL(s)';
+					}
+				}
+			});	
+}
 function error_numero_telefonico(){
 $(".alertElim").fadeIn("normal",function(){
 					$("#boxAlert .hrefCamp h2").text("algo anda mal");
