@@ -402,10 +402,6 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
               <label class='btn".$estado_descripcion." switch-label' for='".$googleplusId."'></label>
           </div>
           <div class='onoffswitch'>
-              <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$googleplusId."'>
-              <label class='btn".$estado_descripcion." switch-label' for='".$googleplusId."'></label>
-          </div>
-          <div class='onoffswitch'>
             <p name='".$row7[0]."' class='elimina'>elimina</p>
           </div>
           </div>";
@@ -573,8 +569,11 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
 
             <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
             <div class='onoffswitch'>
+                <input type='checkbox' name='".$estado."' value='analytics' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$row9[4]."'>
+                <label class='btn".$estado_descripcion." switch-label' for='".$row9[4]."'></label>
+            </div>
+            <div class='onoffswitch'>
               <p name='".$row9[0]."' class='elimina'>elimina</p>
- 
             </div>
           </div>";
           $variable++;

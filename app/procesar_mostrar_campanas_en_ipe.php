@@ -210,8 +210,10 @@
                                                     $result_url_googleplus = mysqli_query($mysqli,$query_url_googleplus);
                                                     $row_url_googleplus= mysqli_fetch_array($result_url_googleplus, MYSQLI_BOTH);
                                                     $num_rows_url_googleplus=mysqli_num_rows($result_url_googleplus);
+                                                    $campanas_activas.=$num_rows_url_googleplus;
                                                     //echo $row_url_instagram[0];
                                                     if($num_rows_url_googleplus>0){
+                                                        $campanas_activas.="https://www.googleapis.com/plus/v1/people/".$googleplusId."?key=".$googleplusKey;
                                                         $campanas_activas .= '
                                                         <div class="rrss" name="googleplus">
                                                             <i class="pi pi-googleplus"></i>
@@ -227,24 +229,27 @@
                                                         </div>';
                                                     }
                                                 }
+
+
                                             }while($row4 = mysqli_fetch_row($result4));
 
-                                            $query9="SELECT DISTINCT * FROM Analytics WHERE persona_id=".$_SESSION['id']." AND id_estado='1' ORDER BY PVMBL DESC";
+                                            $query9="SELECT DISTINCT * FROM Analytics WHERE persona_id='".$_SESSION['id']."' AND id_estado='1' ORDER BY PVMBL DESC";
                                             $result9=mysqli_query($mysqli,$query9)or die (mysqli_error());
                                             $row9= mysqli_fetch_array($result9, MYSQLI_BOTH);
                                             $num_row9=mysqli_num_rows($result9);
                                             do{
-                                                if($rrss_list[$i]=='analytics' && $num_row9 > 0){
+                                                if($rrss_list[$i]=='analytics' && $num_row9>0){
                                                     //Muestro URL Ingresada
                                                     $query_url_analytics ="SELECT * FROM campanarrss WHERE descripcion_rrss='analytics' AND rrss_id='".$row9[4]."'";
                                                     $result_url_analytics = mysqli_query($mysqli,$query_url_analytics);
                                                     $row_url_analytics= mysqli_fetch_array($result_url_analytics, MYSQLI_BOTH);
                                                     $num_rows_url_analytics=mysqli_num_rows($result_url_analytics);
                                                     if($num_rows_url_analytics>0){
+
                                                         $campanas_activas .= '
                                                         <div class="rrss" name="analytics" >
                                                             <i class="pi pi-analytics"></i>
-                                                            <span>['. $row9[6].']</span>
+                                                            <span>['.$row9[6].']</span>
                                                             <input id="'.$row9[4].'" value="'.$row_url_analytics['url'].'"  disabled/>
                                                         </div>';
                                                     }else{

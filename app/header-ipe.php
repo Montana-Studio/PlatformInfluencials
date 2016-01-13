@@ -371,10 +371,10 @@
 		";
 		
 
-		if(isset($_SESSION['nombre'])==false ||isset($_SESSION['region'])==false ||isset($_SESSION['comuna'])==false){
+		/*if(isset($_SESSION['nombre'])==false ||isset($_SESSION['region'])==false ||isset($_SESSION['comuna'])==false){
 			header('Location:index.php');
 			die();
-		}
+		}*/
 
 		echo "<script id='facebook-sdk' src='js/facebook-login.js'></script>
 			
