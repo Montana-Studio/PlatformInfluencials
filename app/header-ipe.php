@@ -259,7 +259,7 @@
             inscripcion_error();
 
 	}
-	 function inscripcion_youtube(){
+    function inscripcion_youtube(){
 		echo ' if(data == "exito"){
 				$(".alertElim").fadeIn("normal",function(){
 					$("#boxElim .hrefCamp h2").text("Red Social agregada");
@@ -404,27 +404,39 @@
                     $('.ver-mas').find('i').addClass('fa-angle-down');
                 }
 
-                $('.ver-mas').on('click',function(event){
 
+                if(document.documentElement.clientWidth >= 1024){
+                    $('.ver-mas').on('click',function(event){
+                        $('.bg-campana, .ver-mas, .sub-titulo').fadeOut();
+                        $('.campanas-ipe').animate({backgroundColor:'#eeeef0'},{duration:1000, 
+                            complete:function(){
+
+                                $('.recientes, .cont-campana').css('width','100%');
+                            }
+                        });
+
+                        $(this).siblings('.content').delay(1005).slideToggle();
+                        $(this).siblings('.reach-campana, .reach-campana .sub-titulo').delay(1010).fadeIn();
+                    });
+                }else{
+                    $('.ver-mas').on('click',function(event){
                         $(this).siblings('.content').slideToggle();
+                        $(this).find('i').toggleClass('fa-angle-up fa-angle-down');
+                        $('html,body').animate({scrollTop : $(this).siblings('.bg-campana').offset().top},1000);
+                    });
+                }
 
-                        if(document.documentElement.clientWidth >= 1024){
-                            $('.bg-campana, .ver-mas, .sub-titulo').fadeOut();
-                            $('.campanas').animate({backgroundColor:'#eeeef0'},'slow');
-                        }else{
-                            $(this).find('i').toggleClass('fa-angle-up fa-angle-down');
-                            $('html,body').animate({scrollTop : $(this).siblings('.bg-campana').offset().top},1000);
-                        }
-
-                });
                 $('.content .btn_close').on('click',function(){
-                        $(this).closest('.content').fadeOut();
+                    $(this).closest('.content').fadeOut();
+                    $('.reach-campana, .reach-campana .sub-titulo').delay(100).fadeOut();
+                    if(document.documentElement.clientWidth >= 1024){
+                        $('.campanas-ipe').animate({backgroundColor:'#fff'},{duration:1000,complete:function(){
 
-                        if(document.documentElement.clientWidth >= 1024){
-                            $('.bg-campana, .ver-mas, .sub-titulo').fadeIn();
-                            $('.campanas').animate({backgroundColor:'#fff'},'slow');
-                            $('.ver-mas').find('i').addClass('fa-plus');
-                        }
+                            $('.recientes, .cont-campana').removeAttr('style','');
+                            $('.bg-campana, .ver-mas, .sub-titulo').delay(800).fadeIn();
+                        }});
+                        $('.ver-mas').find('i').addClass('fa-plus');
+                    }
                 });
 			});
 		</script>
@@ -440,7 +452,7 @@
 			<script>
 				jQuery(document).ready(function(){
 					$('title').append('Dashboard - ".$_SESSION['nombre']."');
-					$('html').css({'background-color':'#fff','background-image':'none'});
+					$('html').css({'background-color':'#fff','background-image':'none','height':'100%'});
 					$('body').addClass('campanas-ipe');
 				})
 			</script>

@@ -99,7 +99,7 @@
 			echo "<script>
 					jQuery(document).ready(function(){
 						$('title').append('Power Influencer - Campañas');
-						$('html').css({'background-color':'#fff','background-image':'none'});
+						$('html').css({'background-color':'#fff','background-image':'none','height':'100%'});
 						$('body').addClass('campanas');
 					});
 				</script>";
@@ -145,7 +145,7 @@
 			echo "<script>
 					jQuery(document).ready(function(){
 						$('title').append('Power Influencer - ".$_SESSION['nombre']."');
-						$('html').css({'background-color':'#fff','background-image':'none'});
+						$('html').css({'background-color':'#fff','background-image':'none','height':'100%'});
 						$('body').addClass('influenciador-publico');
 					})
 				</script>";

@@ -25,13 +25,7 @@ main{
 				}
 			}
 		}
-		@include media($tabletLandTonotebook){
-			margin:{top:10px;}
-		}
 		@include media($notebookTodesktop){
-			margin:{top:10px;}
-		}
-		@include media($desktop){
 			margin:{top:10px;}
 		}
 	}
@@ -231,13 +225,6 @@ main{
 			}
 		}
 		//MediaQueries
-		@include media($tabletLandTonotebook){
-			margin:{top:10px;}
-			#antiguo{
-				max-width:35% !important;
-				top:26%;
-			}
-		}
 		@include media($notebookTodesktop){
 			margin:{top:10px;}
 			#antiguo{
@@ -247,13 +234,6 @@ main{
                     top:45%;
                     max-height:300px;
                 }
-			}
-		}
-		@include media($desktop){
-			margin:{top:10px;}
-			#antiguo{
-				max-width:35% !important;
-				top:26%;
 			}
 		}
 	}

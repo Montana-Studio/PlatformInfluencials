@@ -1435,3 +1435,29 @@
 		}
 	}
 }
+@include media($notebookTodesktop){
+    #imagenform-ipe2{
+        #tab-examp{
+            #tabs{
+                margin: {top:20px;}
+                @include outer-container(96%);
+                background: transparent;
+                float:none;
+            }
+            #tabscontent{
+                .tabpage{
+                    .creadas{
+                        .recientes{
+                            .cont-campana{
+                                .content{
+                                    top:20px;
+                                    padding:{top:20px;}
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }   
+}
