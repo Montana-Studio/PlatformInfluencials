@@ -938,12 +938,9 @@
 						display: table;
 						min-height: 80px;
 						&::before{
-							display: table-cell;
-							vertical:{align:middle;}
 							position:relative;
 							z-index: 2;
-							color:#fff;
-                            content:"";
+                            margin-top:21%;
 						}
 						svg{
 							&.poly-gon{
@@ -959,14 +956,15 @@
 						}
 					}
 					@include media($notebookTodesktop){
-						.no-rrss{
-                            &::after{
-                                @include pad(em(30) 0 0);
-                            }
-                            .gph-alert{
-                                @include span-columns(2);
-                                @include shift(1);
-                            }
+                        max-width: 70%;
+                        float: none;
+                        margin: 0 auto;
+                        height: 30px;
+                        &::after{
+                            @include pad(em(26) 0 0);
+                        }
+                        .gph-alert{
+                            @include span-columns(1.5);
                         }
 					}
 				}

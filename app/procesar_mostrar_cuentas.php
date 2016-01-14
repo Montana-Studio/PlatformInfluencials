@@ -14,7 +14,7 @@
 						</symbol>
 					</svg>
 
-					<div class="gph-alert">
+					<div class="gph-alert pi pi-warning">
 						<svg class="poly-gon" viewBox="0 0 140.341 133.52">
 							<use xlink:href="#poly-gon"/>
 						</svg>

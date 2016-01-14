@@ -133,6 +133,7 @@ module.exports = function(grunt) {
             }]
           }
         },
+        
         parallel:{
           grunt: {
             options: {
@@ -170,7 +171,7 @@ module.exports = function(grunt) {
     require('time-grunt')(grunt);
 
     grunt.registerTask('dev', ['parallel','watch']);
-    grunt.registerTask('uploads', ['sass:dist','uglify','watch:devFiles']);
+    grunt.registerTask('uploads', ['uglify','sass:dist']);
     grunt.registerTask('default', ['sass:dist','uglify','imagemin']);
 
 };
