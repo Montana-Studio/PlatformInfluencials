@@ -205,7 +205,7 @@ if(isset($_SESSION['id'])){
 				</form>
 				<div class="btn_close"><span><i class="pi pi-close"></i></span></div>
 			</div>
-			<div id="antiguo">
+			<div id="antiguo" class="form-ipe">
 				<h2>Ingresa con tus datos</h2>
 				<form class="form_ingreso">
 					<div id="facebook-antiguo" class="fb_btn" value="ingresar con Facebook">

@@ -243,8 +243,8 @@ input{
 	    display: block;
 	    overflow: hidden;
 	    cursor: pointer;
-	    height: 21px;
-	    line:{height: 21px;}
+	    height: 24px;
+	    line:{height: 24px;}
 	    border: 2px solid $color_grey;
 	    background:{color: $color_font2;}
 	    @include transition(background-color .3s $ease-out-quint);
@@ -253,7 +253,7 @@ input{
 	    	@include borderRadius(26px);
 	    	content: "";
 		    display: block;
-		    width: 21px;
+		    width: 24px;
 		    margin: 0px;
 		    background:{color: #fff;}
 		    position: absolute;

@@ -70,7 +70,7 @@ if ((int)$row[0] > 0){ ?>
                             
 								<span class="campa-ico activada"><i class="pi pi-tool"></i>Publicada</span>
 								<span class="campa-ico fecha-activada">
-									<i class="pi pi-calendar"> Inicio </i><span>'.$row[7].'</span> al <span>'.$row[8].'</span>
+									<i class="pi pi-calendar"></i>Inicio <span>'.$row[7].'</span> al <span>'.$row[8].'</span>
 								</span>
 								<p id="campana'.$row[0].'">'.$row[2].'</p>
 							</div>
