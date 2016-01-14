@@ -20,6 +20,22 @@
 			font:{size:18px;weight:normal;}
 		}
 	}
+    .creadas{
+        .recientes{
+            .cont-campana{
+                .content{
+                    .campa-ico{
+                        &:first-child{
+                          @include span-columns(3);  
+                        }
+                        &:last-child{
+                            @include span-columns(7);
+                        }
+                    }   
+                }
+            }
+        }
+    }
 }
 .dashboard-ipe{
 	@extend .dashboard-agencia;
@@ -51,78 +67,78 @@
         .cont-campana{
             @include span-columns(12);
 	    	.bg-campana{
-			@include span-columns(12 of 12);
-			@include pad(148px 5px 0);
-			position: relative;
-			overflow: hidden;
-			min-height: 182px;
-			background:{position: center;size: cover;}
-			@include boxShadow(inset, 0, -60px, 54px, -18px $blk-alfa);
-			h3{
-				@include span-columns(11 of 12);
-				color:#fff;
-				font:{size:16px;}
-				margin:0;
-				@include pad(0 0 5px);
-				span{
-					display: block;
-					font:{size:11px;weight:normal;style:italic;}
-				}
-			}
-			p{
-				margin:0;
-				@include pad(0);
-			}
-			//MEDIA QUERIES
-			@include media($notebookTodesktop){
-				padding:{top:256px;}
-			}
-			@include media($desktop){
-				padding:{top:256px;}
-			}
-		}
+                @include span-columns(12 of 12);
+                @include pad(148px 5px 0);
+                position: relative;
+                overflow: hidden;
+                min-height: 182px;
+                background:{position: center;size: cover;}
+                @include boxShadow(inset, 0, -60px, 54px, -18px $blk-alfa);
+                h3{
+                    @include span-columns(11 of 12);
+                    color:#fff;
+                    font:{size:16px;}
+                    margin:0;
+                    @include pad(0 0 5px);
+                    span{
+                        display: block;
+                        font:{size:11px;weight:normal;style:italic;}
+                    }
+                }
+                p{
+                    margin:0;
+                    @include pad(0);
+                }
+                //MEDIA QUERIES
+                @include media($notebookTodesktop){
+                    padding:{top:256px;}
+                }
+                @include media($desktop){
+                    padding:{top:256px;}
+                }
+            }
 	    	.ver-mas{
-			@include span-columns(12);
-			color:$color_font2;
-			@include pad(8px 0 0);
-			cursor: pointer;
-			margin:{top:-40px;}
-			position:relative;
-			span{
-				width:20px;
-				height:20px;
-				@include borderRadius(50%);
-				border:2px solid $color_font2;
-				display: table;
-				@include textAligns(center);
-				float:right;
-				margin:{right:5px;}
-				i{
-					display: table-cell;
-					vertical:{align:middle;}
-					font:{weight:bold;}
-					font:{size:14px;}
-					&.fa-plus{
-						display: none;
-						font:{size:10px}
-						@include media($notebookTodesktop){
-							display:table-cell;
-						}
-						@include media($desktop){
-							display:table-cell;
-						}
-					}
-					&.fa-angle-down{
-						@include media($notebookTodesktop){
-							display: none;
-						}
-						@include media($desktop){
-							display: none;
-						}
-					}
-				}
-			}
-		}
+                @include span-columns(12);
+                color:$color_font2;
+                @include pad(8px 0 0);
+                cursor: pointer;
+                margin:{top:-40px;}
+                position:relative;
+                span{
+                    width:20px;
+                    height:20px;
+                    @include borderRadius(50%);
+                    border:2px solid $color_font2;
+                    display: table;
+                    @include textAligns(center);
+                    float:right;
+                    margin:{right:5px;}
+                    i{
+                        display: table-cell;
+                        vertical:{align:middle;}
+                        font:{weight:bold;}
+                        font:{size:14px;}
+                        &.fa-plus{
+                            display: none;
+                            font:{size:10px}
+                            @include media($notebookTodesktop){
+                                display:table-cell;
+                            }
+                            @include media($desktop){
+                                display:table-cell;
+                            }
+                        }
+                        &.fa-angle-down{
+                            @include media($notebookTodesktop){
+                                display: none;
+                            }
+                            @include media($desktop){
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
             .reach-campana{
                 display: none;
                 @include media($notebookTodesktop){
@@ -207,163 +223,163 @@
 			    @include span-columns(12 of 12);
 			    @include pad(0 15px);
 			    .tools-campana{
-				@include fill-parent();
-				@include row();
-				@include pad(0);
-				li{
-					@include span-columns(3.18 of 12);
-					@include pad(0 5px);
-					@include omega();
-					@include textAligns(center);
-					height:29px;
-					color:$color_font2;
-					font:{size:11px;}
-					display: table;
-					border:{bottom:1px solid $color_font2;top:1px solid $color_font2;}
-					cursor: pointer;
-					&:first-child{
-						@include border-left-radius(5px);
-						border:{left:1px solid $color_font2;right:1px solid $color_font2;}
-					}
-					&:nth-child(2){
-						border:{right:1px solid $color_font2;}
-					}
-					&:last-child{
-						@include border-right-radius(5px);
-						border:{right:1px solid $color_font2;left:1px solid $color_font2;}
-					}
-					&:hover{
-						background: {color:$color_font2;}
-						color:#fff;
-					}
-					.tool-txt{
-						float: none;
-						display: table-cell;
-						vertical:{align:middle;}
-						text:{transform:uppercase;}
-						height: 11px;
-					}
-					.tool-ico{
-						display: table-cell;
-						vertical-align:middle;
-                        margin:{top:6px;left:11px;right:-13px;}
-					}
-				}
-				@include media($notebookTodesktop){
-					@include pad(10px 0 0);
-				}
-				@include media($desktop){
-					@include pad(10px 0 0);
-				}
-			}
-			    .campa-ico{
-				@include row();
-				@include span-columns(12 of 12);
-				@include omega();
-				@include pad();
-				color:$color_grey;
-				font:{size:11px;}
-				overflow: hidden;
-				position:relative;
-				&:first-child{
-					@include span-columns(4 of 12);
-					text:{transform:uppercase;}
-				}
-				i{
-					margin:{right:3px;}
-					&.fecha-edit{
-						position:absolute;
-						color:$color_font2;
-						right:0;
-						top:7px;
-						@extend .hide;
-						font:{size:12px;}
-					}
-				}
-				input{
-					border:none;
-					outline:none;
-					color:$color_font2;
-					width:100%;
-				}
-				&.activada{
-					@include pad(5px 0);
-				}
-				&.fecha-activada{
-					@include pad(5px 0);
-					span{
-						color:$color_font2;
-					}
-				}
-			}
+                    @include fill-parent();
+                    @include row();
+                    @include pad(0);
+                    li{
+                        @include span-columns(3.18 of 12);
+                        @include pad(0 5px);
+                        @include omega();
+                        @include textAligns(center);
+                        height:29px;
+                        color:$color_font2;
+                        font:{size:11px;}
+                        display: table;
+                        border:{bottom:1px solid $color_font2;top:1px solid $color_font2;}
+                        cursor: pointer;
+                        &:first-child{
+                            @include border-left-radius(5px);
+                            border:{left:1px solid $color_font2;right:1px solid $color_font2;}
+                        }
+                        &:nth-child(2){
+                            border:{right:1px solid $color_font2;}
+                        }
+                        &:last-child{
+                            @include border-right-radius(5px);
+                            border:{right:1px solid $color_font2;left:1px solid $color_font2;}
+                        }
+                        &:hover{
+                            background: {color:$color_font2;}
+                            color:#fff;
+                        }
+                        .tool-txt{
+                            float: none;
+                            display: table-cell;
+                            vertical:{align:middle;}
+                            text:{transform:uppercase;}
+                            height: 11px;
+                        }
+                        .tool-ico{
+                            display: table-cell;
+                            vertical-align:middle;
+                            margin:{top:6px;left:11px;right:-13px;}
+                        }
+                    }
+                    @include media($notebookTodesktop){
+                        @include pad(10px 0 0);
+                    }
+                    @include media($desktop){
+                        @include pad(10px 0 0);
+                    }
+			    }
+                .campa-ico{
+                    @include pad();
+                    color:$color_grey;
+                    font:{size:11px;}
+                    overflow: hidden;
+                    position:relative;
+                    &:first-child{
+                        @include span-columns(4.5);
+                        text:{transform:uppercase;}
+                    }
+                    &:last-child{
+                        @include span-columns(6);
+                    }
+                    i{
+                        margin:{right:3px;}
+                        &.fecha-edit{
+                            position:absolute;
+                            color:$color_font2;
+                            right:0;
+                            top:7px;
+                            @extend .hide;
+                            font:{size:12px;}
+                        }
+                    }
+                    input{
+                        border:none;
+                        outline:none;
+                        color:$color_font2;
+                        //width:100%;
+                    }
+                    &.activada{
+                        @include pad(5px 0);
+                    }
+                    &.fecha-activada{
+                        @include pad(5px 0);
+                        span{
+                            color:$color_font2;
+                        }
+                    }
+                }
 		    	p{
-				@include span-columns(12 of 12);
-				@include pad();
-				color:$color_grey;
-				font:{size:12px;style:italic;}
-				margin:{top:0}
-			}
+                    @include span-columns(12 of 12);
+                    @include pad();
+                    color:$color_grey;
+                    font:{size:12px;style:italic;}
+                    margin:{top:0}
+                }
 			    .jfilestyle{
-				@include span-columns(12 of 12);
-				@extend .btns;
-				border:{color:$color_font2;}
-				color:$color_font2;
-				@include textAligns(center);
-				span{
-					display:block;
-					width:100%;
-					height: 100%;
-				}
-			}
+                    @include span-columns(12 of 12);
+                    @extend .btns;
+                    border:{color:$color_font2;}
+                    color:$color_font2;
+                    @include textAligns(center);
+                    span{
+                        display:block;
+                        width:100%;
+                        height: 100%;
+                    }
+                }
 			    .guardar-campana{
-				@include span-columns(12 of 12);
-				@extend .btns;
-				color:#fff;
-				background: {color:$color_font2;}
-			}
+                    @include span-columns(12 of 12);
+                    @extend .btns;
+                    color:#fff;
+                    background: {color:$color_font2;}
+                }
 			    .inputs-campana{
-				@include span-columns(12);
-				overflow: hidden;
-				position:relative;
-				i{
-					position:absolute;
-					color:$color_font2;
-					right:1px;
-					top:2px;
-					@extend .hide;
-					font:{size:12px;}
-				}
-				input{
-					width:100%;
-					border:none;
-					@include placeholder{
-					    color: #484d58;
-					    font:{size:10px;}
-					}
-					&[disabled]{
-						background: {color:#fff;}
-					}
-				}
-				textarea{
-					@extend input;
-				    color: $color_grey;
-				    font:{size:10px;style:italic;}
-				    min-height:100px;
-				}
-				&.descripcion{
-					i{
-						top:0;
-					}
-				}
-				&.nombre{
-					input{
-						line:{height:12px;}
-						@include placeholder{
-							font:{size:15px;weight:bold;}
-						}
-					}
-				}
-			}
+                    @include span-columns(12);
+                    overflow: hidden;
+                    position:relative;
+                    i{
+                        position:absolute;
+                        color:$color_font2;
+                        right:1px;
+                        top:2px;
+                        @extend .hide;
+                        font:{size:12px;}
+                    }
+                    input{
+                        width:100%;
+                        border:none;
+                        @include placeholder{
+                            color: #484d58;
+                            font:{size:10px;}
+                        }
+                        &[disabled]{
+                            background: {color:#fff;}
+                        }
+                    }
+                    textarea{
+                        @extend input;
+                        color: $color_grey;
+                        font:{size:10px;style:italic;}
+                        min-height:100px;
+                    }
+                    &.descripcion{
+                        i{
+                            top:0;
+                        }
+                    }
+                    &.nombre{
+                        input{
+                            line:{height:12px;}
+                            @include placeholder{
+                                font:{size:15px;weight:bold;}
+                            }
+                        }
+                    }
+                }
 			    .btn_close{
 				visibility:hidden;
 			}
@@ -742,6 +758,7 @@
     margin:0 0 em(5);
     li{
         @include span-columns(6.13);
+        @include pad(em(10) 0 0);
         @include textAligns(center);
         text:{transform:uppercase}
         font:{size:em(12);}
@@ -767,7 +784,7 @@
     }
     @include media($notebookTodesktop){
         margin:{bottom:0;}
-        @include pad(em(10) 0 0);
+        //@include pad(em(10) 0 0);
         @include border-top-radius(em(10));
         li{
             @include span-columns(2);
@@ -882,6 +899,7 @@
 			}
 			#guardarFacturacion{
 				@include span-columns(6);
+                float:right;
 				margin:{top:5px;}
 				background:{color: $color_font2;}
 				@include media($notebookTodesktop){
@@ -925,6 +943,7 @@
 							position:relative;
 							z-index: 2;
 							color:#fff;
+                            content:"";
 						}
 						svg{
 							&.poly-gon{
@@ -940,10 +959,15 @@
 						}
 					}
 					@include media($notebookTodesktop){
-						.gph-alert{
-							@include span-columns(2);
-							@include shift(1);
-						}
+						.no-rrss{
+                            &::after{
+                                @include pad(em(30) 0 0);
+                            }
+                            .gph-alert{
+                                @include span-columns(2);
+                                @include shift(1);
+                            }
+                        }
 					}
 				}
 				.total_reach{
@@ -1227,7 +1251,9 @@
             }  
             .change-img{
                 @extend .btns;
-                @include span-columns(6);
+                @include direction-context(left-to-right){
+                    @include span-columns(6);
+                }
                 color:$color_font2;
                 z-index: 3;
                 font:{size: em(12);}

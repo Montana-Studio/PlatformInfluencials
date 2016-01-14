@@ -6,8 +6,8 @@
 	$num_row_campana= mysqli_num_rows($result_campana);
 //if($row_campana){	
 	if($_GET['campana']){
-		echo '<div id="campanas-postulables">
-			<h2 class="sub-titulo">Selecciona una campaña</h2>
+		echo '<h2 class="sub-titulo">Selecciona una campaña</h2>
+            <div id="campanas-postulables">
 				<select>
 					<option selected="selected" id="'.$_GET["id"].'" disabled>'.$_GET["campana"].'</option>
 				</select>
@@ -19,8 +19,8 @@
 		echo '<!--button id="opc_cot">Campañas para cotizar</button-->';
 			//mostrar campañas
 		if ($num_rows2 > 0){
-			echo '<div id="campanas-postulables">
-					<h2 class="sub-titulo">Selecciona una campaña para cotizar</h2>
+			echo '<h2 class="sub-titulo">Selecciona una campaña para cotizar</h2>
+                    <div id="campanas-postulables">
 					<select>
 					<option selected="selected" disabled>Seleccione campaña</option>';
 			do{

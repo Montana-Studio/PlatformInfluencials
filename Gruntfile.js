@@ -143,7 +143,7 @@ module.exports = function(grunt) {
         },
 
         watch: {
-          configFiles:{
+          devFiles:{
             files:['<%= dist %>/<%= scss %>','<%= dist %>/<%= js %>','<%= www %>/**/*.php'],
             options:{
               livereload: true,
@@ -170,7 +170,7 @@ module.exports = function(grunt) {
     require('time-grunt')(grunt);
 
     grunt.registerTask('dev', ['parallel','watch']);
-    grunt.registerTask('uploads', ['sass:deve','uglify']);
+    grunt.registerTask('uploads', ['sass:dist','uglify','watch:devFiles']);
     grunt.registerTask('default', ['sass:dist','uglify','imagemin']);
 
 };

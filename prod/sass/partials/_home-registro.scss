@@ -149,7 +149,7 @@ main{
 				top:2%;
 			}
 			@include media($tablet){
-				top:23%;
+				top:26%;
 				max-width:50%;
 				@include shift(3);
 			}
@@ -243,6 +243,10 @@ main{
 			#antiguo{
 				max-width:35% !important;
 				top:26%;
+                &.form-ipe{
+                    top:45%;
+                    max-height:300px;
+                }
 			}
 		}
 		@include media($desktop){
