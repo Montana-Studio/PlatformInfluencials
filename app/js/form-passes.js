@@ -505,29 +505,37 @@ $(document).ready(function(){
 	});
 
 
-
-
-	$('#enviar_url').click(function(){
-		if(descripcion_rrss='googleplus'){
-			var resultado;
-			$('.rrss input').each(function(){
+	$('.enviar_url').click(function(){
+		var resultado;
+		$('.rrss input').each(function(){
 			var rrss_id = $(this).attr('id');
 			var campana_id = $(this).closest(".ingresar_urls").attr("id");
 			var url = $(this).val();
-			var descripcion_rrss=$(this).closest(".rrss").attr("name");
-			//console.log(rrss_id+"-"+campana_id+"-"+url+"-"+descripcion_rrss);
-			
-				if(url.indexOf(rrss_id)>0){
-					enviar_url_verificada(rrss_id,campana_id,url,descripcion_rrss);
-
-				}else{
-					alert('la url no corresponde');
+			var descripcion_rrss = $(this).attr("name");
+				if(descripcion_rrss=='googleplus'&&url.length>0){
+					if(url.indexOf(rrss_id)>0){
+						enviar_url_verificada(rrss_id,campana_id,url,descripcion_rrss);
+					}else{
+						url_error(descripcion_rrss);
+						$(this).val("");
+					}
 				}
-			})
-		}
-			
-		
-			
+				if(descripcion_rrss=='twitter'||descripcion_rrss=='youtube'||descripcion_rrss=='instagram'&&url.length>0){
+					$.ajax({
+						type: "POST",
+						url: "./procesar_url.php",
+						data: "rrss_id="+rrss_id+"&campana_id="+campana_id+"&url="+url+"&descripcion_rrss="+descripcion_rrss,
+						success: function(data){
+							switch (data){
+								case 'exito':  	url_ok();
+								break;
+								case 'false' :  url_error(descripcion_rrss);			
+								break;
+							}
+						}
+					});	
+				}
+		})
 	});
 });
 
@@ -579,18 +587,112 @@ $(function() {
 /*********************************************************************************************************
 ****************************************Mensajes según formularios****************************************
 /*********************************************************************************************************/
+function url_ok(){
+	$(".alertElim").fadeIn("normal",function(){
+		animaMune();
+		animaMano();
+		setInterval(function(){
+			animaMune();
+			animaMano();
+		},2800);
+		$("#boxAlert .hrefCamp h2").text("URL agregada");
+		$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+		$("#boxAlert .hrefCamp p.messageAlert").text("URL agregada con éxito.");
+
+		$("#boxAlert").show().animate({
+			top:"20%",
+			opacity:1
+		},{duration:1500,easing:"easeOutBounce"});
+
+		$("#clearAlert").on("click",function(){
+			$("#boxAlert").animate({
+				top:"-100px",
+				opacity:0
+			},{duration:500,easing:"easeInOutQuint",complete:function(){
+				$(".alertElim").fadeOut("fast");
+				window.location.reload();
+			}});
+		});
+	});
+}
+function url_error(descripcion_rrss){
+	$(".alertElim").fadeIn("normal",function(){
+		$("#boxElim .hrefCamp h2").text("URL no aceptada");
+		$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
+		$("#boxElim .hrefCamp p").text("La URL no corresponde al perfil registrado en Power Influencer("+descripcion_rrss+")");
+		$(".siElim").text("Ir a Escritorio");
+		$(".noElim").text("Continuar en campañas");
+
+		$("#boxElim").show().animate({
+			top:"20%",
+			opacity:1
+		},{duration:1500,easing:"easeOutBounce"});
+
+		$(".siElim").on("click",function(){
+			//window.location.assign("http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php");
+			//window.location.reload();
+		});
+
+		$(".noElim").on("click",function(){
+			$("#boxElim").animate({
+				top:"-100px",
+				opacity:0
+			},{duration:500,easing:"easeInOutQuint",complete:function(){
+				$(".alertElim").fadeOut("fast");
+				$(this).hide();
+				//window.location.href = "http://desarrollo.adnativo.com/pi/app/campanas-ipe.php";
+				
+			}});
+		});
+	});
+}
+
+function url_existe(){
+	$(".alertElim").fadeIn("normal",function(){
+		$("#boxElim .hrefCamp h2").text("URL ya ingresada");
+		$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
+		$("#boxElim .hrefCamp p").text("La URL ya fue registrada en Power Influencer");
+		$(".siElim").text("Ir a Escritorio");
+		$(".noElim").text("Continuar en campañas");
+
+		$("#boxElim").show().animate({
+			top:"20%",
+			opacity:1
+		},{duration:1500,easing:"easeOutBounce"});
+
+		$(".siElim").on("click",function(){
+			//window.location.assign("http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php");
+			//window.location.reload();
+		});
+
+		$(".noElim").on("click",function(){
+			$("#boxElim").animate({
+				top:"-100px",
+				opacity:0
+			},{duration:500,easing:"easeInOutQuint",complete:function(){
+				$(".alertElim").fadeOut("fast");
+				$(this).hide();
+				//window.location.href = "http://desarrollo.adnativo.com/pi/app/campanas-ipe.php";
+				
+			}});
+		});
+	});
+}
+
 function enviar_url_verificada(rrss_id,campana_id,url,descripcion_rrss){
-$.ajax({
-				type: "POST",
-				url: "./procesar_url.php",
-				data: "rrss_id="+rrss_id+"&campana_id="+campana_id+"&url="+url+"&descripcion_rrss="+descripcion_rrss,
-				success: function(data){
-					switch (data){
-						case 'ingresada': resultado= 'Alguna(s) url(s) ya se encontraban registrada(s)';
-						case 'nueva' : resultado = 'Gracias por registrar la(s) URL(s)';
-					}
-				}
-			});	
+	$.ajax({
+		type: "POST",
+		url: "./procesar_url.php",
+		data: "rrss_id="+rrss_id+"&campana_id="+campana_id+"&url="+url+"&descripcion_rrss="+descripcion_rrss,
+		success: function(data){
+			switch (data){
+				case 'ingresada': alert('Alguna(s) url(s) ya se encontraban registrada(s)');
+								  //window.locaion.reload();
+				break;
+				case 'nueva' : url_ok();
+			}
+		}
+	});	
 }
 function error_numero_telefonico(){
 $(".alertElim").fadeIn("normal",function(){
