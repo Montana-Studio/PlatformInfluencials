@@ -26,7 +26,6 @@
 
             if ($num_row3 > 0 && $cantidad_redes_sociales>0){
                 do{
-                    echo $_SESSION['id'];
                     $campanas_activas .= '<h2 class="sub-titulo">Iniciadas</h2>
                     <div class="creadas">
                         <div class="recientes">
@@ -99,7 +98,8 @@
                                                         <div class="rrss" name="facebook" >
                                                             <i class="pi pi-facebook"></i>
                                                             <span>['.$facebookWebsite.']</span>
-                                                            <input id="'.$row4[3].'" name="facebook"/>
+                                                            <input id="'.$row4[3].'" name="facebook" class="social"/>
+                                                            <button class="enviar_url" class="btns">Enviar URL</button>
                                                         </div>';				
                                                     }
                                                 }
@@ -128,6 +128,7 @@
                                                             <i class="pi pi-instagram"></i>
                                                             <span>['.$username_instagram.']</span>
                                                             <input id="'.$row4[3].'" name="instagram" />
+                                                            <button class="enviar_url" class="btns">Enviar URL</button>
                                                         </div>';
                                                     }
                                                 }
@@ -170,6 +171,7 @@
                                                             <i class="pi pi-twitter"></i>
                                                             <span>['.$username_twitter.']</span>
                                                             <input id="'.$row4[3].'" name="twitter"/>
+                                                            <button class="enviar_url" class="btns">Enviar URL</button>
                                                         </div>';
                                                     }
 
@@ -199,6 +201,7 @@
                                                             <i class="pi pi-youtube"></i>
                                                             <span>['.$youtubeName.']</span>
                                                             <input id="'.$row4[3].'" name="youtube" />
+                                                            <button class="enviar_url" class="btns">Enviar URL</button>
                                                         </div>';
                                                     }
                                                 }
@@ -228,6 +231,7 @@
                                                             <i class="pi pi-googleplus"></i>
                                                             <span>['.$googleplusName.']</span>
                                                             <input id="'.$row4[3].'" name="googleplus" enabled/>
+                                                            <button class="enviar_url" class="btns">Enviar URL</button>
                                                         </div>';
                                                     }
                                                 }
@@ -259,7 +263,8 @@
                                                         <div class="rrss" name="analytics">
                                                             <i class="pi pi-analytics"></i>
                                                             <span>['. $row9[6].']</span>
-                                                            <input id="'.$row9[4].'"/>
+                                                            <input id="'.$row9[4].'" name="analytics" enabled/>
+                                                            <button class="enviar_url" class="btns">Enviar URL</button>
                                                         </div>';
                                                     }
                                                 }
@@ -268,7 +273,7 @@
                                         }while($i<count($rrss_list));
 
                                         $campanas_activas .= '
-                                            <button class="enviar_url" class="btns">Enviar URLs</button>
+                                            <!--button class="enviar_url" class="btns">Enviar URLs</button-->
                                         </div>
                                     </form-->
                                 </div>

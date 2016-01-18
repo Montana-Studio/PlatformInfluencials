@@ -137,6 +137,7 @@
 			$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
 			$num_rows= mysqli_num_rows($result);
+			//$query2='SELECT nombre FROM campana WHERE idpersona="'.$id.'" AND idEstado=1'; //Para cotizar solo en caso de estar activa la campaña
 			$query2='SELECT nombre FROM campana WHERE idpersona="'.$id.'"';
 			$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
 			$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
@@ -147,6 +148,10 @@
 						$('title').append('Power Influencer - ".$_SESSION['nombre']."');
 						$('html').css({'background-color':'#fff','background-image':'none','height':'100%'});
 						$('body').addClass('influenciador-publico');
+						$('.perfil_influenciador').click(function(){
+						var id_influenciador=this.id;
+						window.location.replace('perfil_influenciador_publico.php?id='+id_influenciador);
+					});
 					})
 				</script>";
 		}
@@ -286,6 +291,7 @@
 			$query='SELECT * FROM persona  WHERE id_estado=1 AND id_tipo>2 AND id="'.$id.'"';
 			$result= mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
+			$num_rows= mysqli_num_rows($result);
 			muestra_header();
 		
 		}

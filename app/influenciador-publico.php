@@ -63,6 +63,12 @@
 					$row_rrss_ipe= mysqli_fetch_array($result_rrss_ipe, MYSQLI_NUM);
 					// $num_rows3= mysqli_num_rows($result_rrss_ipe);
 					$reach=0;
+					$reach_facebook=0;
+					$reach_instagram=0;
+					$reach_twitter=0;
+					$reach_youtube=0;
+					$reach_googleplus=0;
+					$reach_analytics=0;
 					$echoContentFace=0;
 					$echoContentInsta=0;
 					$echoContentTweet=0;
@@ -80,8 +86,9 @@
 					        $json_user= file_get_contents($json_user_url);
 					        $links_user_url= json_decode($json_user);
 					        $facebookLikes =$links_user_url->likes;
+					        $reach_facebook += $facebookLikes;
 					        $reach+=$facebookLikes;
-					        $echoContentFace = '<div class="rrss" name="facebook"><i class="pi pi-facebook-alt"></i> Facebook <span>'.formato_numeros_reachs($facebookLikes).'</span></div>';
+					        $echoContentFace = '<div class="rrss" name="facebook"><i class="pi pi-facebook-alt"></i> Facebook <span>'.formato_numeros_reachs($reach_facebook).'</span></div>';
 
 						}
 
@@ -91,8 +98,9 @@
 					      $links_user_url= json_decode($json_user);
 					      $followers_instagram = $links_user_url->data->counts->followed_by;
 					      $reach+=$followers_instagram;
+					      $reach_instagram+=$followers_instagram;
 					      //$echoContentInsta = "<div class='rrss' 'name='instagram'><i class='pi -pi-instagram-alt'></i> Instagram <span>".$followers_instagram."</span></div>";
-						  $echoContentInsta = "<div class='rrss' 'name='instagram'><i class='pi -pi-instagram-alt'></i> Instagram <span>".formato_numeros_reachs($followers_instagram)."</span></div>";
+						  $echoContentInsta = "<div class='rrss' 'name='instagram'><i class='pi -pi-instagram-alt'></i> Instagram <span>".formato_numeros_reachs($reach_instagram)."</span></div>";
 
 						}
 						
@@ -116,7 +124,8 @@
 						        $username=$data1[0]['user']['screen_name'];
 						        $avatar= $data1[0]['user']['profile_image_url'];
 						        $reach+=$followers_count1;	
-								$echoContentTweet = "<div class='rrss' 'name='twitter'><i class='pi pi-twitter-alt'></i> Twitter <span>".formato_numeros_reachs($followers_count1)."</span></div>";
+						        $reach_twitter+=$followers_count1;
+								$echoContentTweet = "<div class='rrss' 'name='twitter'><i class='pi pi-twitter-alt'></i> Twitter <span>".formato_numeros_reachs($reach_twitter)."</span></div>";
 						}
 
 						if($row_rrss_ipe[2]=='youtube'){
@@ -126,7 +135,8 @@
 					        $links_user_url= json_decode($json_user);
 					        $youtubeSubscribers = $links_user_url->items[0]->statistics->subscriberCount;
 							$reach+=$youtubeSubscribers;
-							$echoContentYou = "<div class='rrss' name='youtube'>Youtube <span>".formato_numeros_reachs($youtubeSubscribers)."</span></div>";
+							$reach_youtube+=$youtubeSubscribers;
+							$echoContentYou = "<div class='rrss' name='youtube'>Youtube <span>".formato_numeros_reachs($reach_youtube)."</span></div>";
 
 						}
 
@@ -138,7 +148,8 @@
 					        $links_user_url= json_decode($json_user);
 					        $googleplusSubscriber =$links_user_url->circledByCount;
 							$reach+=$googleplusSubscriber;
-							$echoContentPlus = "<div class='rrss' name='gogoleplus'><i class='pi pi-googleplus-alt'></i> Google Plus<span>".formato_numeros_reachs($googleplusSubscriber)."</span></div>";
+							$reach_googleplus+=$googleplusSubscriber;
+							$echoContentPlus = "<div class='rrss' name='gogoleplus'><i class='pi pi-googleplus-alt'></i> Google Plus<span>".formato_numeros_reachs($reach_googleplus)."</span></div>";
 						}
 						
 						if($row_rrss_ipe[2]=='analytics'){
@@ -148,9 +159,9 @@
 							$rows_analytics_page_views= mysqli_fetch_array($result_analytics_page_views, MYSQLI_NUM);
 							do{
 								$reach+=$rows_analytics_page_views[0];
-								$analyticsPageViews+=$rows_analytics_page_views[0];
+								$reach_analytics+=$rows_analytics_page_views[0];
 							}while($rows_analytics_page_views = mysqli_fetch_array($result_analytics_page_views	));
-						  	$echoContentAnaly = '<div class="rrss" name="analytics"><i class="pi pi-analytics-alt"></i>Analytics <span>'.formato_numeros_reachs($analyticsPageViews).'</span></div>';
+						  	$echoContentAnaly = '<div class="rrss" name="analytics"><i class="pi pi-analytics-alt"></i>Analytics <span>'.formato_numeros_reachs($reach_analytics).'</span></div>';
 						}
 
 
