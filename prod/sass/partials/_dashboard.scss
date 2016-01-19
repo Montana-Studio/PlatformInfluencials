@@ -1,5 +1,5 @@
 .dashboard-agencia{
-	background: {image:none;}
+	background: {image:none;} 
 	//padding:{bottom:40px;}
 	.sub-titulo{
 		margin:0;
@@ -13,11 +13,6 @@
 			color: $color_grey2;
 			font:{size:18px;weight:normal;}
 			max-width:em(970);
-		}
-		@include media($desktop){
-			//@include outer-container;
-			color: $color_grey2;
-			font:{size:18px;weight:normal;}
 		}
 	}
     .creadas{
@@ -93,9 +88,6 @@
                 @include media($notebookTodesktop){
                     padding:{top:256px;}
                 }
-                @include media($desktop){
-                    padding:{top:256px;}
-                }
             }
 	    	.ver-mas{
                 @include span-columns(12);
@@ -124,15 +116,9 @@
                             @include media($notebookTodesktop){
                                 display:table-cell;
                             }
-                            @include media($desktop){
-                                display:table-cell;
-                            }
                         }
                         &.fa-angle-down{
                             @include media($notebookTodesktop){
-                                display: none;
-                            }
-                            @include media($desktop){
                                 display: none;
                             }
                         }
@@ -268,9 +254,6 @@
                     @include media($notebookTodesktop){
                         @include pad(10px 0 0);
                     }
-                    @include media($desktop){
-                        @include pad(10px 0 0);
-                    }
 			    }
                 .campa-ico{
                     @include pad();
@@ -381,42 +364,10 @@
                     }
                 }
 			    .btn_close{
-				visibility:hidden;
-			}
+                    visibility:hidden;
+                }
 			    //MEDIA QUERIES
 		    	@include media($notebookTodesktop){
-                    width:100%;
-                    margin:0 auto !important;
-                    position: relative;
-                    background:{color: #fff;}
-                    z-index: 9;
-                    top:50px;
-                    overflow: hidden;
-                    padding:{bottom:10px;}
-                    float:none;
-                    .img-compana-deskt{
-                        @include span-columns(6 of 12);
-                        display: block;
-                        img{
-                            width:100%;
-                            height:auto;
-                        }
-                    }
-                    .campana-data{
-                        padding-top:20px;
-                        @include span-columns(6);
-                    }
-                    .btn_close{
-                        position:relative;
-                        float:right;
-                        right:0;
-                        visibility: visible;
-                    }
-                    form{
-                        @include span-columns(6);
-                    }
-                }
-		    	@include media($desktop){
                     width:100%;
                     margin:0 auto !important;
                     position: relative;
@@ -461,13 +412,6 @@
 			position:static;
 			overflow:visible;
 		}
-		@include media($desktop){
-			@include span-columns(4);
-			@include omega(3n);
-			margin:{bottom:20px;}
-			position:static;
-			overflow:visible;
-		}
 	}
 	.volver{
 		@extend .btns;
@@ -481,9 +425,6 @@
 		@extend .volver;
 	}
 	@include media($notebookTodesktop){
-		@include outer-container;
-	}
-	@include media($desktop){
 		@include outer-container;
 	}
 	@include media($mobileTomobileLand){
@@ -746,7 +687,6 @@
 	}
 	@include media($desktop){
 		@include span-columns(3);
-		margin-right:1% !important;
 	}
 }
 #tabs{
@@ -910,9 +850,6 @@
 				}
                 @include media($notebook){
                     margin:{right:5.97086%;}
-                }
-                @include media($desktop){
-                    margin:{right:0;}
                 }
 			}
 			#redesociales{

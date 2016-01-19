@@ -48,7 +48,7 @@
 		}
 		i{
 			position:absolute;
-			top:15%;
+			//top:15%;
 			right:10px;
 			color:$color_font2;
 			z-index: 1;
@@ -63,7 +63,7 @@
 			background:{color: #fff;}
 			@include pad(10px 0 0);
             i{
-                top:20%;
+                //top:20%;
             }
 		}
 	}

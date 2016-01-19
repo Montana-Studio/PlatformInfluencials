@@ -15,10 +15,6 @@ header{
 			height:100%;
 			display: block;
 		}
-		@include media($tabletLandTonotebook){
-			@include span-columns(2.5 of 12);
-			background:{position:left;image:url('../img/logo_pi3-04.svg');}
-		}
 		@include media($notebookTodesktop){
 			@include span-columns(2.5 of 12);
 			background:{position:left;image:url('../img/logo_pi3-04.svg');}
@@ -29,15 +25,12 @@ header{
 		@include textAligns(center);
         margin:{right: 3px !important;}
 		font:{size:16px !important;}
-	    color: #fff;
-	    @include media($tabletLandTonotebook){
-			@include span-columns(.5);
-		}
-		@include media($desktop){
-			@include span-columns(.5);
-		}
+	    color: #fff;        
 		display: table !important;
 		height:40px;
+	    @include media($notebookTodesktop){
+			@include span-columns(.5);
+		}
 		i{
 			display: table-cell;
 			vertical:{align: middle;}
@@ -49,12 +42,6 @@ header{
 		@include shift(6.7);
 		@include media($notebookTodesktop){
 			@include shift(8);
-		}
-		@include media($tabletLandTonotebook){
-			@include shift(8.3);
-		}
-		@include media($desktop){
-			@include shift(8.3);
 		}
 	}
 	.menu{
@@ -71,10 +58,7 @@ header{
 			@include span-columns(1);
 			@include shift(.5);
 		}
-		@include media($tabletLandTonotebook){
-			@include span-columns(.65);
-		}
-		@include media($desktop){
+		@include media($notebookTodesktop){
 			@include span-columns(.65);
 			max-width:39px;
 		}

@@ -138,7 +138,11 @@ main{
 					@include pad(10px 0);
 				}
 			}
-			//MediaQueries
+            &.form-ipe{
+                top:45%;
+                max-height:300px;
+            }
+            //MediaQueries
 			@include media($mobileLand){
 				top:2%;
 			}
@@ -230,10 +234,6 @@ main{
 			#antiguo{
 				max-width:35% !important;
 				top:26%;
-                &.form-ipe{
-                    top:45%;
-                    max-height:300px;
-                }
 			}
 		}
 	}
