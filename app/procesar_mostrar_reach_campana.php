@@ -31,12 +31,12 @@ for($i=0;$i<count($redes_sociales);$i++){
 	   			$facebook_post_id=explode("/",$row_facebook_asociado_campana['url']);
 				$json_user_url="https://graph.facebook.com/".$row_facebook_asociado_campana[2]."_".trim(end($facebook_post_id))."?fields=likes,comments,shares";
 		        $json_user_url = str_replace(" ", "%20", $json_user_url);
-		        $json_user= file_get_contents($json_user_url);
+		        $json_user= @file_get_contents($json_user_url);
 		        $links_user_url= json_decode($json_user);
 
 		        $json_user_url1 ="https://graph.facebook.com/".$facebookPage."?access_token=".$facebookAppId."|".$facebookKey."&fields=likes,talking_about_count,username,website";
 		        $json_user_url1 = str_replace(" ", "%20", $json_user_url1);
-		        $json_user1= file_get_contents($json_user_url1);
+		        $json_user1= @file_get_contents($json_user_url1);
 		        $links_user_url1= json_decode($json_user1);
 
 		        $json_user_url2 ="https://graph.facebook.com/296448387178344?access_token=".$facebookAppId."|".$facebookKey."&fields=likes,talking_about_count,username,website";
@@ -50,13 +50,13 @@ for($i=0;$i<count($redes_sociales);$i++){
         }
 
 		        //echo string gettype ($links_user_url->likes);
-		        foreach ($links_user_url->likes->data as $valor){
-		        	$cuenta_likes_facebook++;
-		        }
-		        foreach ($links_user_url->comments->data as $valor){
-		        	$cuenta_comments_facebook++;
-		        }
+        		if($json_user){
+			        foreach ($links_user_url->likes->data as $valor){
+			        	$cuenta_likes_facebook++;
+			        	$cuenta_comments_facebook++;
+			        }
 		        	$cuenta_shares_facebook+=$links_user_url->shares->count;
+		        }
 
 	   		}while($row_facebook_asociado_campana = mysqli_fetch_array($result_facebook_asociado_campana));
 	   		$formatted_reach_facebook = number_format((($cuenta_likes_facebook+$cuenta_comments_facebook+$cuenta_shares_facebook)*100)/$followers_facebook, 2, '.', ',');

@@ -138,7 +138,7 @@
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
 			$num_rows= mysqli_num_rows($result);
 			//$query2='SELECT nombre FROM campana WHERE idpersona="'.$id.'" AND idEstado=1'; //Para cotizar solo en caso de estar activa la campaña
-			$query2='SELECT nombre FROM campana WHERE idpersona="'.$id.'"';
+			$query2='SELECT * FROM campana WHERE idpersona="'.$id.'"';
 			$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
 			$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 			$num_rows2= mysqli_num_rows($result2);
@@ -150,8 +150,8 @@
 						$('body').addClass('influenciador-publico');
 						$('.perfil_influenciador').click(function(){
 						var id_influenciador=this.id;
-						var e = document.getElementById('#campana_seleccionada');
-						var campana_seleccionada = e.options[e.selectedIndex].value;
+						var campana_seleccionada=$('#campana_seleccionada option:selected').attr('value');
+						console.log(campana_seleccionada);
 						window.location.replace('perfil_influenciador_publico.php?id='+id_influenciador+'&campana='+campana_seleccionada);
 					});
 					})
@@ -290,7 +290,7 @@
 		}
 		else{
 			$id=$_GET['id'];
-			$query='SELECT * FROM persona  WHERE id_estado=1 AND id_tipo>2 AND id="'.$id.'"';
+			$query='SELECT * FROM persona  WHERE id_estado="1" AND id_tipo>"2" AND id="'.$id.'"';
 			$result= mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
 			$num_rows= mysqli_num_rows($result);

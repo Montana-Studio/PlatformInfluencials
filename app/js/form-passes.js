@@ -47,6 +47,31 @@ $(document).ready(function(){
 		});
 	});
 
+	$('#contactar-influenciador-perfil').click(function(){
+		var influenciador_id = $(this).attr('name');
+		var influenciador_nombre = $('#1').attr('name');
+		//var correo_agencia = "<?php echo $_SESSION['correo'];?>";
+		var url = window.location.href;
+		var url = url.split("campana=");
+		id_campana = url[1];
+		var tipo="perfil_publico";
+		$.ajax({
+			type: "POST",
+			url: "./contactar.php",
+			data: "influenciador_id="+influenciador_id+"&influenciador_nombre="+influenciador_nombre+"&id_campana="+id_campana+"&tipo="+tipo,
+
+			success: function(data){
+					switch (data){
+						case "exito": cotizacion_personal_ok();
+						break;
+						case "false": cotizacion_personal_error();
+						break;
+					}
+			}
+		});
+
+	});
+
 	$('.registerFormAgencia').on('submit',(function(e){
 		e.preventDefault();
 		info = new FormData(this);
@@ -226,47 +251,9 @@ $(document).ready(function(){
 
 				success: function(data){
 					switch (data){
-						case "nueva":$(".alertElim").fadeIn("normal",function(){
-									$("#boxElim .hrefCamp h2").text("Campaña creada con exito");
-									$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
-									$("#boxElim .hrefCamp p").text("Puedes ver o seguir creando más campañas.");
-									$(".siElim").text("ver campaña");
-									$(".noElim").text("crear otra");
-
-									$("#boxElim").show().animate({
-										top:"20%",
-										opacity:1
-									},{duration:1500,easing:"easeOutBounce"});
-
-									$(".siElim").on("click",function(){
-										window.location.href = "campana.php";
-									});
-
-									$(".noElim").on("click",function(){
-										window.location.reload();
-									});
-							});
+						case "nueva":nueva_campana();
 						break;
-						case "invalido" :$(".alertElim").fadeIn("normal",function(){
-								$("#boxAlert .hrefCamp h2").text("algo anda mal");
-								$("#boxAlert .hrefCamp i").addClass("fa-warning");
-								$("#boxAlert .hrefCamp p.messageAlert").text("Tu imagen puede que supere el tamaño permitido, el formato no corresponde o no hay nada adjunto.");
-
-								$("#boxAlert").show().animate({
-									top:"20%",
-									opacity:1
-								},{duration:1500,easing:"easeOutBounce"});
-
-								$("#clearAlert").on("click",function(){
-									$("#boxAlert").animate({
-										top:"-100px",
-										opacity:0
-									},{duration:500,easing:"easeInOutQuint",complete:function(){
-										$(".alertElim").fadeOut("fast");
-										$(this).hide();
-									}});
-								});
-						});
+						case "invalido" :error_campana();
 						break;
 					}
 				}
@@ -297,28 +284,9 @@ $(document).ready(function(){
 
 				success: function(info){
 					switch (info){
-						case "nuevo":$(".alertElim").fadeIn("normal",function(){
-								$("#boxAlert .hrefCamp h2").text("imagen cambiada");
-								$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
-								$("#boxAlert .hrefCamp p.messageAlert").text("Imagen cambiada con exito.");
-
-								$("#boxAlert").show().animate({
-									top:"20%",
-									opacity:1
-								},{duration:1500,easing:"easeOutBounce"});
-
-								$("#clearAlert").on("click",function(){
-									$("#boxAlert").animate({
-										top:"-100px",
-										opacity:0
-									},{duration:500,easing:"easeInOutQuint",complete:function(){
-										$(".alertElim").fadeOut("fast");
-										window.location.reload();
-									}});
-								});
-						});
+						case "nuevo":imagen_cambiada();
 						break;
-						default: alert('el tamaño o formato no es aceptado');
+						default: error_imagen();
 						break;
 					}
 				}
@@ -336,27 +304,7 @@ $(document).ready(function(){
 					processData:false,
 				success: function(info){
 					switch (info){
-						case "actualiza":$(".alertElim").fadeIn("normal",function(){
-								$("#boxAlert .hrefCamp h2").text("datos actualizados");
-								$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
-								$("#boxAlert .hrefCamp p.messageAlert").text("Tus datos se han actualizado, la pagina se actualizara para reflejar los cambios.");
-
-								$("#boxAlert").show().animate({
-									top:"20%",
-									opacity:1
-								},{duration:1500,easing:"easeOutBounce"});
-
-								$("#clearAlert").on("click",function(){
-									$("#boxAlert").animate({
-										top:"-100px",
-										opacity:0
-									},{duration:500,easing:"easeInOutQuint",complete:function(){
-										$(".alertElim").fadeOut("fast");
-										window.location.reload();
-									}});
-								});
-						});
-						break;
+						case "actualiza": datos_actualizados();
 					}
 				}
 			});
@@ -391,34 +339,9 @@ $(document).ready(function(){
 
 				success: function(info){
 					switch (info){
-						case "nuevo":$(".alertElim").fadeIn("normal",function(){
-								animaMune();
-								animaMano();
-								setInterval(function(){
-									animaMune();
-									animaMano();
-								},2800);
-								$("#boxAlert .hrefCamp h2").text("imagen cambiada");
-								//$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
-								$("#boxAlert .hrefCamp p.messageAlert").text("Imagen cambiada con exito.");
-
-								$("#boxAlert").show().animate({
-									top:"20%",
-									opacity:1
-								},{duration:1500,easing:"easeOutBounce"});
-
-								$("#clearAlert").on("click",function(){
-									$("#boxAlert").animate({
-										top:"-100px",
-										opacity:0
-									},{duration:500,easing:"easeInOutQuint",complete:function(){
-										$(".alertElim").fadeOut("fast");
-										window.location.reload();
-									}});
-								});
-						});
+						case "nuevo":imagen_cambiada();
 						break;
-						default: alert('el tamaño o formato no es aceptado');
+						default: error_imagen();
 						break;
 					}
 				}
@@ -436,35 +359,7 @@ $(document).ready(function(){
 
 				success: function(info){
 					switch (info){
-						case "actualiza":
-						$(".alertElim").fadeIn("normal",function(){
-								$("#boxAlert .hrefCamp h2").text("datos actualizados");
-								
-								//$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
-								$("#boxAlert .hrefCamp p.messageAlert").text("Tus datos se han actualizado, la pagina se actualizara para reflejar los cambios.");
-
-								$("#boxAlert").show().animate({
-									top:"20%",
-									opacity:1
-								},{duration:1500,easing:"easeOutBounce",complete:function(){
-									animaMune();
-									animaMano();
-									setInterval(function(){
-										animaMune();
-										animaMano();
-									},2000);
-								}});
-
-								$("#clearAlert").on("click",function(){
-									$("#boxAlert").animate({
-										top:"-100px",
-										opacity:0
-									},{duration:500,easing:"easeInOutQuint",complete:function(){
-										$(".alertElim").fadeOut("fast");
-										window.location.reload();
-									}});
-								});
-						});
+						case "actualiza":datos_actualizados();
 						break;
 					
 
@@ -582,6 +477,121 @@ $(function() {
 /*********************************************************************************************************
 ****************************************Mensajes según formularios****************************************
 /*********************************************************************************************************/
+function datos_actualizados(){
+	$(".alertElim").fadeIn("normal",function(){
+			$("#boxAlert .hrefCamp h2").text("datos actualizados");
+			$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+			$("#boxAlert .hrefCamp p.messageAlert").text("Tus datos se han actualizado, la pagina se actualizara para reflejar los cambios.");
+
+			$("#boxAlert").show().animate({
+				top:"20%",
+				opacity:1
+			},{duration:1500,easing:"easeOutBounce"});
+
+			$("#clearAlert").on("click",function(){
+				$("#boxAlert").animate({
+					top:"-100px",
+					opacity:0
+				},{duration:500,easing:"easeInOutQuint",complete:function(){
+					$(".alertElim").fadeOut("fast");
+					window.location.reload();
+				}});
+			});
+	});
+}
+
+function imagen_cambiada(){
+	$(".alertElim").fadeIn("normal",function(){
+		$("#boxAlert .hrefCamp h2").text("imagen cambiada");
+		$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+		$("#boxAlert .hrefCamp p.messageAlert").text("Imagen cambiada con exito.");
+
+		$("#boxAlert").show().animate({
+			top:"20%",
+			opacity:1
+		},{duration:1500,easing:"easeOutBounce"});
+
+		$("#clearAlert").on("click",function(){
+			$("#boxAlert").animate({
+				top:"-100px",
+				opacity:0
+			},{duration:500,easing:"easeInOutQuint",complete:function(){
+				$(".alertElim").fadeOut("fast");
+				window.location.reload();
+			}});
+		});
+	});
+}
+
+function error_imagen(){
+	$(".alertElim").fadeIn("normal",function(){
+		$("#boxAlert .hrefCamp h2").text("algo anda mal");
+		$("#boxAlert .hrefCamp i").addClass("fa-warning");
+		$("#boxAlert .hrefCamp p.messageAlert").text("Tu imagen puede que supere el tamaño permitido, el formato no corresponde o no hay nada adjunto.");
+
+		$("#boxAlert").show().animate({
+			top:"20%",
+			opacity:1
+		},{duration:1500,easing:"easeOutBounce"});
+
+		$("#clearAlert").on("click",function(){
+			$("#boxAlert").animate({
+				top:"-100px",
+				opacity:0
+			},{duration:500,easing:"easeInOutQuint",complete:function(){
+				$(".alertElim").fadeOut("fast");
+				$(this).hide();
+			}});
+		});
+	});
+
+}
+
+function error_campana(){
+	$(".alertElim").fadeIn("normal",function(){
+		$("#boxAlert .hrefCamp h2").text("algo anda mal");
+		$("#boxAlert .hrefCamp i").addClass("fa-warning");
+		$("#boxAlert .hrefCamp p.messageAlert").text("Tu imagen puede que supere el tamaño permitido, el formato no corresponde o no hay nada adjunto.");
+
+		$("#boxAlert").show().animate({
+			top:"20%",
+			opacity:1
+		},{duration:1500,easing:"easeOutBounce"});
+
+		$("#clearAlert").on("click",function(){
+			$("#boxAlert").animate({
+				top:"-100px",
+				opacity:0
+			},{duration:500,easing:"easeInOutQuint",complete:function(){
+				$(".alertElim").fadeOut("fast");
+				$(this).hide();
+			}});
+		});
+	});
+
+}
+function nueva_campana(){
+	$(".alertElim").fadeIn("normal",function(){
+		$("#boxElim .hrefCamp h2").text("Campaña creada con exito");
+		$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
+		$("#boxElim .hrefCamp p").text("Puedes ver o seguir creando más campañas.");
+		$(".siElim").text("ver campaña");
+		$(".noElim").text("crear otra");
+
+		$("#boxElim").show().animate({
+			top:"20%",
+			opacity:1
+		},{duration:1500,easing:"easeOutBounce"});
+
+		$(".siElim").on("click",function(){
+			window.location.href = "campana.php";
+		});
+
+		$(".noElim").on("click",function(){
+			window.location.reload();
+		});
+	});
+}
 function url_ok(){
 	$(".alertElim").fadeIn("normal",function(){
 		animaMune();
@@ -610,6 +620,67 @@ function url_ok(){
 		});
 	});
 }
+
+function cotizacion_personal_ok(){
+	$(".alertElim").fadeIn("normal",function(){
+		animaMune();
+		animaMano();
+		setInterval(function(){
+			animaMune();
+			animaMano();
+		},2800);
+		$("#boxAlert .hrefCamp h2").text("Influenciador Cotizado");
+		$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+		$("#boxAlert .hrefCamp p.messageAlert").text("Pronto nos contactaremos para entregarle más información del influenciador");
+
+		$("#boxAlert").show().animate({
+			top:"20%",
+			opacity:1
+		},{duration:1500,easing:"easeOutBounce"});
+
+		$("#clearAlert").on("click",function(){
+			$("#boxAlert").animate({
+				top:"-100px",
+				opacity:0
+			},{duration:500,easing:"easeInOutQuint",complete:function(){
+				$(".alertElim").fadeOut("fast");
+				window.location.reload();
+			}});
+		});
+	});
+}
+
+function cotizacion_personal_error(){
+	$(".alertElim").fadeIn("normal",function(){
+		animaMune();
+		animaMano();
+		setInterval(function(){
+			animaMune();
+			animaMano();
+		},2800);
+		$("#boxAlert .hrefCamp h2").text("Error al cotizar Influenciador");
+		$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+		$("#boxAlert .hrefCamp p.messageAlert").text("Al parecer la campaña y/o influenciador indicada(s) no existe");
+
+		$("#boxAlert").show().animate({
+			top:"20%",
+			opacity:1
+		},{duration:1500,easing:"easeOutBounce"});
+
+		$("#clearAlert").on("click",function(){
+			$("#boxAlert").animate({
+				top:"-100px",
+				opacity:0
+			},{duration:500,easing:"easeInOutQuint",complete:function(){
+				$(".alertElim").fadeOut("fast");
+				window.location.reload();
+			}});
+		});
+	});
+}
+
+
+
 function url_error(descripcion_rrss){
 	$(".alertElim").fadeIn("normal",function(){
 		$("#boxElim .hrefCamp h2").text("URL no aceptada");

@@ -8,7 +8,7 @@
 	if($_GET['campana']){
 		echo '<div id="campanas-postulables">
 			<h2 class="sub-titulo">Selecciona una campaña</h2>
-				<select>
+				<select id="campana_seleccionada">
 					<option selected="selected" id="'.$_GET["id"].'" disabled>'.$_GET["campana"].'</option>
 				</select>
 				<i class="pi pi-arrow-bottom"></i>
@@ -21,10 +21,10 @@
 		if ($num_rows2 > 0){
 			echo '<div id="campanas-postulables">
 					<h2 class="sub-titulo">Selecciona una campaña para cotizar</h2>
-					<select>
-					<option selected="selected" disabled>Seleccione campaña</option>';
+					<select id="campana_seleccionada">
+					<option value="sin_especificar" disabled selected="selected">Seleccione campaña</option>';
 			do{
-				echo '<option>'.$row2[0].'</option>';
+				echo '<option value="'.$row2[0].'">'.$row2[1].'</option>';
 			}while($row2 = mysqli_fetch_row($result2));
 				echo '</select>
 					<i class="pi pi-arrow-bottom"></i>

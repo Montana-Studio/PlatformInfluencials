@@ -12,8 +12,7 @@ require('rrss/rrss_keys.php');
   $_SESSION['instagram']="";
   if($num_row3>0){
     do{
-      echo 'holi';
-      include_once('rrss/Instagram/instagram.php');
+     // include_once('rrss/Instagram/instagram.php');
       $json_user_url ="https://api.instagram.com/v1/users/".$row3[3]."?access_token=".$row3[6];
       $json_user= file_get_contents($json_user_url);
       $links_user_url= json_decode($json_user);
@@ -36,7 +35,7 @@ require('rrss/rrss_keys.php');
   }
 /****************************************************************************************************
                   TWITTER BUTTON AND GET REACH SUM
-****************************************************************************************************
+****************************************************************************************************/
 $query4='SELECT DISTINCT * FROM rrss WHERE persona_id="'.$row[0].'" AND descripcion_rrss="twitter" AND id_estado=1';
     $result4=mysqli_query($mysqli,$query4)or die (mysqli_error($mysqli));
     $row4= mysqli_fetch_array($result4, MYSQLI_BOTH);
@@ -83,7 +82,7 @@ $query4='SELECT DISTINCT * FROM rrss WHERE persona_id="'.$row[0].'" AND descripc
 
 /****************************************************************************************************
             YOUTUBE  GET REACH SUM
-****************************************************************************************************
+****************************************************************************************************/
     $query5='SELECT DISTINCT * FROM rrss WHERE persona_id="'.$row[0].'" AND descripcion_rrss="youtube" AND id_estado=1';
     $result5=mysqli_query($mysqli,$query5)or die (mysqli_error($mysqli));
     $row5= mysqli_fetch_array($result5, MYSQLI_BOTH);
@@ -91,7 +90,7 @@ $query4='SELECT DISTINCT * FROM rrss WHERE persona_id="'.$row[0].'" AND descripc
     $_SESSION['youtube']="";
     if($num_row5>0){
       do{
-        include_once('rrss/youtube/auth.php');
+       // include_once('rrss/youtube/auth.php');
         $json_user_url ="https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=".$row5[3]."&key=".GOOGLE_CONSUMER_KEY;
         $json_user= file_get_contents($json_user_url);
         $links_user_url= json_decode($json_user);
@@ -119,7 +118,7 @@ $query4='SELECT DISTINCT * FROM rrss WHERE persona_id="'.$row[0].'" AND descripc
 
 /****************************************************************************************************
                 FACEBOOK GET REACH SUM
-****************************************************************************************************
+****************************************************************************************************/
     $query6='SELECT DISTINCT * FROM rrss WHERE persona_id="'.$row[0].'" AND descripcion_rrss="facebook" AND id_estado=1';
     $result6=mysqli_query($mysqli,$query6)or die (mysqli_error($mysqli));
     $row6= mysqli_fetch_array($result6, MYSQLI_BOTH);
@@ -130,7 +129,7 @@ $query4='SELECT DISTINCT * FROM rrss WHERE persona_id="'.$row[0].'" AND descripc
     if($num_row6>0){
       do{
 
-        include_once('rrss/facebook/facebook-auth.php');
+       // include_once('rrss/facebook/facebook-auth.php');
         $facebookPage = $row6[3];
         $json_user_url1 ="https://graph.facebook.com/".$facebookPage."?access_token=".$facebookAppId."|".$facebookKey."&fields=likes,talking_about_count,username,website";
         $json_user_url = str_replace(" ", "%20", $json_user_url1);
@@ -167,7 +166,7 @@ $query4='SELECT DISTINCT * FROM rrss WHERE persona_id="'.$row[0].'" AND descripc
 
 /****************************************************************************************************
             GOOGLEPLUS  GET REACH SUM
-****************************************************************************************************
+****************************************************************************************************/
     $query7='SELECT DISTINCT * FROM rrss WHERE persona_id="'.$row[0].'" AND descripcion_rrss="googleplus" AND id_estado=1';
     $result7=mysqli_query($mysqli,$query7)or die (mysqli_error($mysqli));
     $row7= mysqli_fetch_array($result7, MYSQLI_BOTH);
@@ -177,7 +176,7 @@ $query4='SELECT DISTINCT * FROM rrss WHERE persona_id="'.$row[0].'" AND descripc
     $_SESSION['googleplus']="";
     if($num_row7>0){
       do{
-        include_once('rrss/googleplus/auth.php');
+       // include_once('rrss/googleplus/auth.php');
         $googleplusId = $row7[3];
         $json_user_url ="https://www.googleapis.com/plus/v1/people/".$googleplusId."?key=".$googleplusKey;
         $json_user_picture="https://www.googleapis.com/plus/v1/people/".$googleplusId."?fields=image&key=".$googleplusKey;
@@ -352,17 +351,19 @@ $query4='SELECT DISTINCT * FROM rrss WHERE persona_id="'.$row[0].'" AND descripc
     
 <?php
 if($row){
-  echo "<h2>Perfil de ".$row[5]."</h2>";
-  echo "<img src='".$row[12]."' width='100' heigth='100' />";
+  echo '  <h2 id="1" name="'.$row[5].'">Perfil de '.$row[5].'</h2>
+         <img src="'.$row[12].'" width="100" heigth="100" />
+         <button id="contactar-influenciador-perfil" name="'.$row[0].'">cotizar</button>';
+
 
   if($num_row6 > 0){
     echo '<div class="red-title"><i class="pi pi-facebook"></i> <span class="red-name">Facebook</span> <i class="pi pi-arrow-bottom"></i></div>
         <div class="rs-inscription">';
     echo '<div class="reach-total">facebook reach <span>'.formato_numeros_reachs($suma_facebook).'</span></div>';
-    echo $_SESSION['facebook'];
+    echo $_SESSION['instagram'];
     echo '</div>';
   } 
-/*
+
   if($num_row3 > 0){
     echo '<div class="red-title"><i class="pi pi-instagram"></i> <span class="red-name">Instagram</span> <i class="pi pi-arrow-bottom"></i></div>
         <div class="rs-inscription">';
@@ -378,7 +379,7 @@ if($row){
     echo $_SESSION['twitter'];
     echo '</div>';
   }
-
+/*
   if($num_row9 > 0){
     echo '<div class="red-title"><i class="pi pi-analytics"></i> <span class="red-name">Analytics</span> <i class="pi pi-arrow-bottom"></i></div>
         <div class="rs-inscription">';
@@ -389,7 +390,7 @@ if($row){
     echo $_SESSION['analytics'];
     echo '</div>';
   }
-
+*/
   if($num_row5 > 0){
     echo '<div class="red-title"><i class="pi pi-youtube"></i> <span class="red-name">Youtube</span> <i class="pi pi-arrow-bottom"></i></div>
           <div class="rs-inscription">';
@@ -404,7 +405,9 @@ if($row){
     echo '<div class="reach-total">google plus reach <span>'.formato_numeros_reachs($suma_googleplus).'</span></div>';
     echo $_SESSION['googleplus'];
     echo '</div>';
-  }*/
+  }
+
+
 }else{
   echo '<h2>Perfil no registrado</h2>';
 }
