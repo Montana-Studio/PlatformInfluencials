@@ -150,7 +150,9 @@
 						$('body').addClass('influenciador-publico');
 						$('.perfil_influenciador').click(function(){
 						var id_influenciador=this.id;
-						window.location.replace('perfil_influenciador_publico.php?id='+id_influenciador);
+						var e = document.getElementById('#campana_seleccionada');
+						var campana_seleccionada = e.options[e.selectedIndex].value;
+						window.location.replace('perfil_influenciador_publico.php?id='+id_influenciador+'&campana='+campana_seleccionada);
 					});
 					})
 				</script>";
