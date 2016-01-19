@@ -177,7 +177,7 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
           </div>
         </div>";
         
-        for($i = 0; $i < 3 ; $i++){
+        /*for($i = 0; $i < 3 ; $i++){
           $start_date = new DateTime("now");
           $postDate = $data1[$i]['created_at'];
           $years = substr($postDate,26,4);
@@ -220,7 +220,7 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
               </li>
             </ul>
             </div>";
-        }
+        }*/
         $_SESSION['twitter'] .= $text;
         $text="";
       }while($row4 = $result4->fetch_array());
