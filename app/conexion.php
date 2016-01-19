@@ -6,6 +6,7 @@ $hoyFormatted= date("d M Y");
 $day=trim(substr($hoy, 8 , 2));
 $month= trim(substr($hoyFormatted,3,-5));
 $year= trim(substr($hoyFormatted,-4));
+function months(){
 if($month == 'Jan'){
 	$month='Enero';
 }
@@ -42,6 +43,9 @@ if($month == 'Nov'){
 if($month == 'Dec'){
 	$month='Diciembre';
 }
+
+}
+
 $hoyFormatted=$day." ".$month." ".$year;
 
 
@@ -75,6 +79,6 @@ if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 
 }
 $_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 //Conexión a base de datos
-$mysqli = mysqli_connect("localhost","root","root","adnativo_pi") or die("Error " . mysqli_error($link)); 
+$mysqli = mysqli_connect("localhost","adnativo_user","}O%X;&KD[1_*","adnativo_ipe") or die("Error " . mysqli_error($link)); 
 $mysqli->set_charset('utf8_bin');
 ?>
