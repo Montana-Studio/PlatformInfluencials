@@ -72,7 +72,7 @@
 		<script id="mensaje">$(document).ready(function() {
 		   var referrer =  document.referrer;
 		   
-		   if(referrer=='http://desarrollo.adnativo.com/pi/app/rrss/twitter/twitter.php'){
+		   if(referrer=='http://powerinfluencer.com/app/rrss/twitter/twitter.php'){
 		   		<?php 	inscripcion_twitter();?>
 		   }
 		});

@@ -1,6 +1,6 @@
 
 <script async type="text/javascript">
-	var app_id = '979526535448353';
+	var app_id = '932994110103491';
 	var scopes= 'email,user_friends,manage_pages';
 	
 	var name;
@@ -78,7 +78,7 @@
 		checkLoginState(function(response){
 			if(!response){ //no esta conectado callback false
 			if( navigator.userAgent.match('CriOS') ){
-   			 window.open('https://www.facebook.com/dialog/oauth?client_id='+app_id+'&scope='+scopes+'&redirect_uri=http://desarrollo.adnativo.com/pi/app/','', null);
+   			 window.open('https://www.facebook.com/dialog/oauth?client_id='+app_id+'&scope='+scopes+'&redirect_uri=http://powerinfluencer.com/app','', null);
    			 getFacebookPages();
 			}else{
 					FB.login(function (response){

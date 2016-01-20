@@ -7,7 +7,7 @@ include_once('../rrss_keys.php'); //llamada de keys desde nuevo archivo
     Ask if the persona_id exist on table rrss twitter data
     ****************************************************************/
 
-     $mysqli = mysqli_connect("localhost","adnativo_user","}O%X;&KD[1_*","adnativo_ipe") or die("Error " . mysqli_error($link)); 
+     $mysqli = mysqli_connect("localhost","powerinf_user","uho$}~1(1;nn","powerinf_luencers") or die("Error " . mysqli_error($link)); 
     //$mysqli = mysqli_connect("localhost","root","root","adnativo_pi") or die("Error " . mysqli_error($link)); 
     //$mysqli->set_charset('utf8');
     $query2="SELECT rrss_id FROM rrss WHERE persona_id=".$_SESSION['id']." AND descripcion_rrss='twitter'";

@@ -58,7 +58,7 @@
 
 				$(".siElim").on("click",function(){
 
-					window.location.assign("http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-1");
+					window.location.assign("http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-1");
 					window.location.reload();
 					
 				});
@@ -70,7 +70,7 @@
 					},{duration:500,easing:"easeInOutQuint",complete:function(){
 						$(".alertElim").fadeOut("fast");
 						$(this).hide();
-						window.location.href = "http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-2";
+						window.location.href = "http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-2";
 						
 					}});
 				});
@@ -90,7 +90,7 @@
 
 				$(".siElim").on("click",function(){
 
-					window.location.assign("http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-1");
+					window.location.assign("http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-1");
 					window.location.reload();
 					
 				});
@@ -102,7 +102,7 @@
 					},{duration:500,easing:"easeInOutQuint",complete:function(){
 						$(".alertElim").fadeOut("fast");
 						$(this).hide();
-						window.location.href = "http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-2";
+						window.location.href = "http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-2";
 						
 					}});
 					
@@ -126,7 +126,7 @@
 
 					$(".siElim").on("click",function(){
 
-						window.location.assign("http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-1");
+						window.location.assign("http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-1");
 						window.location.reload();
 						
 					});
@@ -138,7 +138,7 @@
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
 							$(this).hide();
-							window.location.href = "http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-2";
+							window.location.href = "http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-2";
 							
 						}});
 					});
@@ -163,7 +163,7 @@
 					},{duration:1500,easing:"easeOutBounce"});
 
 					$(".siElim").on("click",function(){
-						window.location.assign("http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-1");
+						window.location.assign("http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-1");
 						window.location.reload();
 						
 					});
@@ -175,7 +175,7 @@
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
 							$(this).hide();
-							window.location.href = "http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-2";
+							window.location.href = "http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-2";
 							
 						}});
 					});
@@ -201,7 +201,7 @@
 
 					$(".siElim").on("click",function(){
 
-						window.location.assign("http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-1");
+						window.location.assign("http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-1");
 						window.location.reload();
 						
 					});
@@ -213,7 +213,7 @@
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
 							$(this).hide();
-							window.location.href = "http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-2";
+							window.location.href = "http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-2";
 							
 						}});
 					});
@@ -238,7 +238,7 @@
 
 					$(".siElim").on("click",function(){
 
-						window.location.assign("http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-1");
+						window.location.assign("http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-1");
 						window.location.reload();
 						
 					});
@@ -250,7 +250,7 @@
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
 							$(this).hide();
-							window.location.href = "http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-2";
+							window.location.href = "http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-2";
 							
 						}});
 					});
@@ -275,7 +275,7 @@
 
 					$(".siElim").on("click",function(){
 
-						window.location.assign("http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-1");
+						window.location.assign("http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-1");
 						window.location.reload();
 						
 					});
@@ -287,7 +287,7 @@
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
 							$(this).hide();
-							window.location.href = "http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-2";
+							window.location.href = "http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-2";
 							
 						}});
 					});
@@ -312,7 +312,7 @@
 
 					$(".siElim").on("click",function(){
 
-						window.location.assign("http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-1");
+						window.location.assign("http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-1");
 						window.location.reload();
 						
 					});
@@ -324,7 +324,7 @@
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
 							$(this).hide();
-							window.location.href = "http://desarrollo.adnativo.com/pi/app/dashboard-ipe.php#fragment-2";
+							window.location.href = "http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-2";
 							
 						}});
 					});
@@ -343,7 +343,7 @@
 		include('rrss/googleplus/auth.php');
 		include('rrss/analytics/procesar_analytics.php');
 		include('rrss/facebook/facebook-auth.php');
-		include('rrss/Instagram/instagram.php');
+		include('rrss/instagram/instagram.php');
 		include('rrss/youtube/auth.php');
 		muestra_header();
 

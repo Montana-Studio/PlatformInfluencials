@@ -7,7 +7,7 @@
 				popupLeft = (window.screen.width - popupWidth) / 2,
 				popupTop = (window.screen.height - popupHeight) / 2;
 			//the url needs to point to instagram_auth.php
-			var popup = window.open('rrss/Instagram/instagram_auth.php', '', 'width='+popupWidth+',height='+popupHeight+',left='+popupLeft+',top='+popupTop+'');
+			var popup = window.open('rrss/instagram/instagram_auth.php', '', 'width='+popupWidth+',height='+popupHeight+',left='+popupLeft+',top='+popupTop+'');
 			popup.onload = function() {
 				//open authorize url in pop-up
 				if(window.location.hash.length == 0) {
@@ -38,7 +38,7 @@
 			//alert(instagramId);
 			$.ajax({
             type: "POST",
-            url: "rrss/Instagram/procesar_instagram.php",
+            url: "rrss/instagram/procesar_instagram.php",
             data: "instagramId="+instagramId+"&accessToken="+accessToken,
             success: function(data){
             	<?php inscripcion_instagram();?>
@@ -49,7 +49,7 @@
 			window.location.hash='';
 			authenticateInstagram(
 			    'd9e010f47eef4f21a289bd5d46a60e25', //instagram client ID
-			    'http://desarrollo.adnativo.com/pi/app/rrss/Instagram/instagram_auth.php', //instagram redirect URI
+			    'http://www.powerinfluencer.com/app/rrss/instagram/instagram_auth.php', //instagram redirect URI
 			    login_callback  //optional - a callback function
 			);
 			return false;

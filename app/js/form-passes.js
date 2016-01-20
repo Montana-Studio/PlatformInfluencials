@@ -170,7 +170,7 @@ $(document).ready(function(){
 		script.type = 'text/javascript';
 		script.id = 'linkedinId';
 		script.src = '//platform.linkedin.com/in.js';
-		script.text ='\n api_key:	7718vpksg6gvwg\nauthorize:	false\nonLoad: onLinkedInLoad\n';
+		script.text ='\n api_key:	77yaxbujewtbl4\nauthorize:	false\nonLoad: onLinkedInLoad\n';
 		head.appendChild(script);
 		//$("#tipoCliente").attr("value", "2");
 	});
@@ -182,7 +182,7 @@ $(document).ready(function(){
 		script.type = 'text/javascript';
 		script.id = 'linkedinId';
 		script.src = '//platform.linkedin.com/in.js';
-		script.text ='\n api_key:	7718vpksg6gvwg\nauthorize:	false\nonLoad: onLinkedInLoad\n';
+		script.text ='\n api_key:	77yaxbujewtbl4\nauthorize:	false\nonLoad: onLinkedInLoad\n';
 		head.appendChild(script);
 	});
 
