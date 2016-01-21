@@ -13,14 +13,14 @@ function onSuccess(data) {
 			data: "id="+id+"&nombre="+nombre+"&pictureUrl="+pictureUrl+"&email="+email+"&conn="+conn+"&tipo="+document.getElementById('tipoCliente').getAttribute('value'), 
 			success: function(data){ 
 					switch (data){
-							case "dashboard": window.location.href="dashboard-agencia.php";
+							case "dashboard": window.location.href="dashboard-agencia";
 							break;
 							case "false": 	window.location.href="./";
 							break;
-							case "formulario":  window.location.href="formulario-agencia.php";
+							case "formulario":  window.location.href="formulario-agencia";
 							break;
 							case "existe-agencia": alert('ya se encuentra registrado como agencia, lo contactaremos');
-										   window.location.href='logout.php';
+										   window.location.href='logout';
 							break;
 						}
 			}

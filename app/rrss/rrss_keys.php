@@ -8,7 +8,7 @@ define('TWITTER_OAUTH_ACCESS_TOKEN_SECRET', 'I4S13VpbnxArceqaZxSFLUfwvZvhjIi9BND
 define('OAUTH_CALLBACK', 'http://www.powerinfluencer.com/app/rrss/twitter/process.php');
 
 //Instagram Keys
-define('INSTAGRAM_ACCESS_TOKEN', '2209867807.d9e010f.c2fca770177947bfab9261e6a301be18');
+//define('INSTAGRAM_ACCESS_TOKEN', '2209867807.d9e010f.c2fca770177947bfab9261e6a301be18');
 
 //Google Keys (YOUTUBE & GOOGLEPLUS)
 define('GOOGLE_CONSUMER_KEY', 'AIzaSyDefhBSBf7RcNDGwtnSB-54avPDLXeW1EU');

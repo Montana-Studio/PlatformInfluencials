@@ -49,7 +49,7 @@
 			<nav class="nav-ipe2">
 				<ul>
 					<li class="active"> Escritorio</li>
-					<li><a href="campanas-ipe.php">Campañas</a></li>
+					<li><a href="campanas-ipe">Campañas</a></li>
 				</ul>
 			</nav>
 
@@ -188,7 +188,7 @@
 
 				</div>
 				<div id="fragment-2" class="tabpage">
-					<!--?php include_once('procesar_mostrar_cuentas.php');?-->
+					<?php include_once('procesar_mostrar_cuentas.php');?>
 				</div>
 			</div>
 		</div>

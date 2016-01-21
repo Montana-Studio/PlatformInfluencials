@@ -4,7 +4,7 @@
 	header('Location:./');
 			die();
 	}else if($_SESSION['id_tipo']>'2'){
-				header('Location: dashboard-ipe.php');
+				header('Location: dashboard-ipe');
 				die();
 	}
 	function muestra_header(){
@@ -39,7 +39,7 @@
     }
 	if(basename($_SERVER['PHP_SELF'])=='dashboard-agencia.php'){
 		if(isset($_SESSION['telefono1'])==false){
-			header('Location: logout.php');
+			header('Location: logout');
 			die();
 		}
 		else{
@@ -60,7 +60,7 @@
 	}
 	if(basename($_SERVER['PHP_SELF'])=='nueva-campana.php'){
 			if(isset($_SESSION['telefono1'])==false){
-				header('Location: logout.php');
+				header('Location: logout');
 				die();
 			}
 			else{
@@ -83,7 +83,7 @@
 	}
 	if(basename($_SERVER['PHP_SELF'])=='campana.php'){
 			if(isset($_SESSION['telefono1'])==false){
-				header('Location: logout.php');
+				header('Location: logout');
 				die();
 			}else{
 			$query="SELECT * FROM campana WHERE idEstado=1 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
@@ -106,10 +106,10 @@
 	}
 	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia.php'){
 		if(isset($_SESSION['id'])==false){
-				header('Location: logout.php');
+				header('Location: logout');
 				die();
 			}else if($_SESSION['id_tipo']>'2'){
-				header('Location: dashboard-ipe.php');
+				header('Location: dashboard-ipe');
 				die();
 			}
 			else{
@@ -128,7 +128,7 @@
 		require('rrss/twitter/inc/TwitterAPIExchange.php');
 		require('rrss/rrss_keys.php');
 		if(isset($_SESSION['telefono1'])==false){
-			header('Location: logout.php');
+			header('Location: logout');
 			die();
 		}
 		else{
@@ -152,7 +152,7 @@
 						var id_influenciador=this.id;
 						var campana_seleccionada=$('#campana_seleccionada option:selected').attr('value');
 						console.log(campana_seleccionada);
-						window.location.replace('perfil_influenciador_publico.php?id='+id_influenciador+'&campana='+campana_seleccionada);
+						window.location.replace('perfil_influenciador_publico?id='+id_influenciador+'&campana='+campana_seleccionada);
 					});
 					})
 				</script>";
@@ -163,7 +163,7 @@
 			header('Location:./');
 			die();
 		}else if($_SESSION['id_tipo']>'2'){
-				header('Location: dashboard-ipe.php');
+				header('Location: dashboard-ipe');
 				die();
 			}else{
 				muestra_header();
@@ -285,7 +285,7 @@
 	}
 	if(basename($_SERVER['PHP_SELF'])=='perfil_influenciador_publico.php'){
 		if(isset($_SESSION['telefono1'])==false){
-			header('Location: logout.php');
+			header('Location: logout');
 			die();
 		}
 		else{
@@ -323,10 +323,10 @@
 	}*/
 	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia3.php'){
 		if(isset($_SESSION['id'])==false){
-				header('Location: logout.php');
+				header('Location: logout');
 				die();
 			}else if($_SESSION['id_tipo']>'2'){
-				header('Location: dashboard-ipe.php');
+				header('Location: dashboard-ipe');
 				die();
 			}
 			else{
@@ -475,7 +475,7 @@
 
 <header>
 
-	<div class="logo"><a href="./dashboard-agencia.php" target="_top"></a></div>
+	<div class="logo"><a href="./dashboard-agencia" target="_top"></a></div>
 	<a href="#" class="ayuda_pi"><i class="pi pi-help"></i></a>
 	<a href="#" class="notes" ><i class="pi pi-bell"></i></a>
 	<div class="menu" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);"></div>
@@ -490,9 +490,9 @@
 		echo '<nav>
 				<ul>
 					<li><i onClick="backHistory()" class="pi pi-arrow-left"></i></li>
-					<li><a href="campana.php"><i class="pi pi-suitcase"></i> campañas</a></li>
-					<li id="nuevaCampain"><a href="nueva-campana.php"><i class="pi pi-plus"></i> crear campañas</a></li>
-					<li><a href="influenciador-publico.php"><i class="pi pi-user"></i> influencers</a></li>
+					<li><a href="campana"><i class="pi pi-suitcase"></i> campañas</a></li>
+					<li id="nuevaCampain"><a href="nueva-campana"><i class="pi pi-plus"></i> crear campañas</a></li>
+					<li><a href="influenciador-publico"><i class="pi pi-user"></i> influencers</a></li>
 				</ul>
 			</nav>';
 	}
@@ -576,7 +576,7 @@
 
 		<button id="guardarFacturacion" type="submit">Guardar cambios</button>
 
-		<a href="logout.php" class="logout"><i class="pi pi-singout"></i> cerrar sesion</a>
+		<a href="logout" class="logout"><i class="pi pi-singout"></i> cerrar sesion</a>
 	</div>
 
 	<div class="btn_close"><span><i class="pi pi-close"></i></span></div>

@@ -217,7 +217,8 @@
 					var correo_agencia = "'.$_SESSION["correo"].'";
 					var influenciador = this.name;
 					var campana = $("#campanas-postulables option:selected").val();
-					var id_campana = $("#campanas-postulables option:selected").attr("id");
+					var id_campana = $("#campanas-postulables option:selected").attr("value");
+					var tipo ="perfiles";
 					if(campana =="Seleccione campaña") campana = "Sin especificar";
 					for(var i=0; i<array_id_influenciadores_seleccionados.length; i++){
 						var influenciador_id=array_id_influenciadores_seleccionados[i];
@@ -225,7 +226,7 @@
 						$.ajax({
 							type: "POST",
 							url: "contactar.php",
-							data: "agencia="+agencia+"&correo_agencia="+correo_agencia+"&influenciador="+influenciador+"&influenciador_id="+influenciador_id+"&campana="+campana+"&id_campana="+id_campana,
+							data: "agencia="+agencia+"&correo_agencia="+correo_agencia+"&influenciador="+influenciador+"&influenciador_id="+influenciador_id+"&campana="+campana+"&id_campana="+id_campana+"&tipo="+tipo,
 							success: function(data){
 								//$("#campanas-postulables").hide();
 								//$("#campanas-postulables").show();
@@ -243,7 +244,7 @@
 						$(".alertElim").fadeIn("normal",function(){
 							$("#boxElim .hrefCamp h2").text("Influenciador agregado");
 							$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
-							$("#boxElim .hrefCamp p").text("La cotizacion a sido exitosa, puedes seguir creando mas campañas y cotizar Influenciadores.");
+							$("#boxElim .hrefCamp p").text("La cotizacion ha sido exitosa, puedes seguir creando mas campañas y cotizar Influenciadores.");
 							$(".siElim").text("Ir a campañas");
 							$(".noElim").text("Ver Influenciadores");
 
@@ -272,7 +273,7 @@
 						$(".alertElim").fadeIn("normal",function(){
 							$("#boxElim .hrefCamp h2").text("Influenciador agregado");
 							$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
-							$("#boxElim .hrefCamp p").text("La cotizacion a sido exitosa, puedes seguir creando mas campañas y cotizar Influenciadores.");
+							$("#boxElim .hrefCamp p").text("La cotizacion ha sido exitosa, puedes seguir creando mas campañas y cotizar Influenciadores.");
 							$(".siElim").text("Ir a campañas");
 							$(".noElim").text("Ver Influenciadores");
 

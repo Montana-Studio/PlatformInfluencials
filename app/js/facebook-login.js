@@ -122,17 +122,17 @@ $(document).ready(function(){
 					
 		            success: function(data){ 
 						switch (data){
-							case "dashboard": window.location.href="dashboard-agencia.php";
+							case "dashboard": window.location.href="dashboard-agencia";
 							break;
 							case "false": 	window.location.href="./";
 							break;
-							case "primera": window.location="formulario-agencia.php";	
+							case "primera": window.location="formulario-agencia";	
 							break;
-							case "formulario":  window.location.href="formulario-agencia.php";
+							case "formulario":  window.location.href="formulario-agencia";
 							break;
-							case "dashboard-ipe": window.location.href="dashboard-ipe.php";
+							case "dashboard-ipe": window.location.href="dashboard-ipe";
 							break;
-							case "formulario-ipe": window.location.href="formulario-agencia3.php";
+							case "formulario-ipe": window.location.href="formulario-agencia3";
 							break;
 							case "sin_opcion": alert('no se ha seleccionado opción');
 							break;

@@ -58,8 +58,8 @@
 			<!-- ELECCION DE USUARIO -->
 
 			<div id="tipo">
-				<div id="agencia" class="btns_accesos"><a href="agencia.php" style="color:#fff;width:100%;height:100%;display:block;">Enterprise</a></div>
-				<div id="ipebtn" class="btns_accesos"><a href="influenciador.php" style="color:#fff;width:100%;height:100%;display:block;">Influencers</a></div>
+				<div id="agencia" class="btns_accesos"><a href="agencia" style="color:#fff;width:100%;height:100%;display:block;">Enterprise</a></div>
+				<div id="ipebtn" class="btns_accesos"><a href="influenciador" style="color:#fff;width:100%;height:100%;display:block;">Influencers</a></div>
 			</div>
 
 		</main>

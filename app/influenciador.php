@@ -6,11 +6,11 @@ if(isset($_SESSION['id'])){
 	$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 	$row= mysqli_fetch_array($result, MYSQLI_NUM);
 	if ($row[1] > '2'){
-		header("Location: dashboard-ipe.php");
+		header("Location: dashboard-ipe");
 		die();
 	}else{
 		//echo '<script>$(document).ready(function(){alert("Su tipo de usuario es Agencia")});</script>';
-		header("Location: dashboard-agencia.php");
+		header("Location: dashboard-agencia");
 		die();
 	}
 }

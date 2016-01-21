@@ -13,7 +13,7 @@ $query_existe_otro_perfil="SELECT rrss_id FROM rrss WHERE rrss_id=".$instagramId
 $results_existe_otro_prefil = $mysqli->query($query_existe_otro_perfil);
 $num_row_existe_otro_perfil=mysqli_num_rows($results_existe_otro_prefil);
 
-if(intval($num_row1) < 1){
+if(intval($num_row_existe_otro_perfil) > 1){
 	echo 'existe';
 }else{
 	$query="SELECT rrss_id FROM rrss WHERE rrss_id=".$instagramId." AND persona_id=".$_SESSION['id']."  AND descripcion_rrss='instagram'";

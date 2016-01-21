@@ -63,7 +63,7 @@
   $_SESSION['instagram']="";
   if($num_row3>0){
     do{
-      include_once('rrss/Instagram/instagram.php');
+      include_once('rrss/instagram/instagram.php');
       $json_user_url ="https://api.instagram.com/v1/users/".$row3[3]."?access_token=".$row3[6];
       $json_user= file_get_contents($json_user_url);
       $links_user_url= json_decode($json_user);

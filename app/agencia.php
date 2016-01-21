@@ -6,7 +6,7 @@ if(isset($_SESSION['id'])){
 	$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 	$row= mysqli_fetch_array($result, MYSQLI_NUM);
 	if ($row[1] == 2){
-		header("Location: dashboard-agencia.php");
+		header("Location: dashboard-agencia");
 		die();
 	}
 }

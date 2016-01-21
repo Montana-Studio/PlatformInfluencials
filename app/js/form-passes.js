@@ -26,11 +26,11 @@ $(document).ready(function(){
 
 			success: function(data){
 					switch (data){
-					case "admin": window.location.href= "./dashboard-admin.php";
+					case "admin": window.location.href= "./dashboard-admin";
 					break;
-					case "agencia": window.location.href = "./dashboard-agencia.php";
+					case "agencia": window.location.href = "./dashboard-agencia";
 					break;
-					case "ipe": window.location.href = "./dashboard-ipe.php";
+					case "ipe": window.location.href = "./dashboard-ipe";
 					break;
 					case "inactivo": 	$('#alertRegistrado').slideDown();
 										document.getElementById('alertRegistrado').innerHTML ="usuario inactivo";
@@ -584,7 +584,7 @@ function nueva_campana(){
 		},{duration:1500,easing:"easeOutBounce"});
 
 		$(".siElim").on("click",function(){
-			window.location.href = "campana.php";
+			window.location.href = "campana";
 		});
 
 		$(".noElim").on("click",function(){
@@ -816,7 +816,7 @@ $(".alertElim").fadeIn("normal",function(){
 									opacity:0
 								},{duration:500,easing:"easeInOutQuint",complete:function(){
 									$(".alertElim").fadeOut("fast");
-									window.location.href = "logout.php";
+									window.location.href = "logout";
 								}});
 							});
 					});
@@ -840,7 +840,7 @@ function inscripcion_influenciador(data){
 												opacity:0
 											},{duration:500,easing:"easeInOutQuint",complete:function(){
 												$(".alertElim").fadeOut("fast");
-												window.location.href = "logout.php";
+												window.location.href = "logout";
 												window.location.reload();
 											}});
 										});
@@ -896,7 +896,7 @@ function inscripcion_influenciador(data){
 function termina_formulario(data){
 	switch (data){
 				case "actualizado": alert('registro ingresado, nos contactaremos con usted');
-					                window.location.href='logout.php';
+					                window.location.href='logout';
 				break;
 				case "false": alert('ingrese todos los datos');
 				break;
