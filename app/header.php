@@ -33,7 +33,16 @@
 			<script type="text/javascript" src="js/jquery.min.js"></script>
 			<script type="text/javascript" src="js/jquery-ui.min.js"></script>
 			<script async src="https://www.google.com/jsapi"></script>
-				
+            <script>
+              (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,"script","//www.google-analytics.com/analytics.js","ga");
+
+              ga("create", "UA-45276685-8", "auto");
+              ga("send", "pageview");
+
+            </script>
 		</head>
 		<body>';
     }
@@ -149,12 +158,12 @@
 						$('html').css({'background-color':'#fff','background-image':'none','height':'100%'});
 						$('body').addClass('influenciador-publico');
 						$('.perfil_influenciador').click(function(){
-						var id_influenciador=this.id;
-						var campana_seleccionada=$('#campana_seleccionada option:selected').attr('value');
-						console.log(campana_seleccionada);
-						window.location.replace('perfil_influenciador_publico?id='+id_influenciador+'&campana='+campana_seleccionada);
-					});
-					})
+                            var id_influenciador=this.id;
+                            var campana_seleccionada=$('#campana_seleccionada option:selected').attr('value');
+                            console.log(campana_seleccionada);
+                            window.location.replace('perfil_influenciador_publico?id='+id_influenciador+'&campana='+campana_seleccionada);
+                        });
+                    });
 				</script>";
 		}
 	}
@@ -295,6 +304,13 @@
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
 			$num_rows= mysqli_num_rows($result);
 			muestra_header();
+            echo "<script>
+                    jQuery(document).ready(function(){
+						$('title').append('Power Influencer - ".$_SESSION['nombre']."');
+						$('html').css({'background-color':'#fff','background-image':'none','height':'100%'});
+						$('body').addClass('dashboard-ipe perfil-publico');
+                    });
+                </script>";
 		
 		}
 	}
@@ -476,9 +492,10 @@
 <header>
 
 	<div class="logo"><a href="./dashboard-agencia" target="_top"></a></div>
-	<a href="#" class="ayuda_pi"><i class="pi pi-help"></i></a>
-	<a href="#" class="notes" ><i class="pi pi-bell"></i></a>
 	<div class="menu" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);"></div>
+	
+	<a href="#" class="notes" ><i class="pi pi-bell"></i></a>
+	<a href="#" class="ayuda_pi"><i class="pi pi-help"></i></a>
 </header>
 
 <?php

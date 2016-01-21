@@ -38,7 +38,7 @@
 		echo '<h2 class="sub-titulo">Influenciadores</h2>
 				<div class="influenciadores">';
 		do{
-			echo '<form id="'.$row[0].'"class="contactarForm" name="'.$row[5].'">
+			echo '<form id="'.$row[0].'" class="contactarForm" name="'.$row[5].'">
 					<svg viewBox="0 0 140.341 133.52" class="mask-imguser">
 						<defs>
 							<polygon id="SVGID_1_" points="134,98.26 70.5,129.76 7,98.26 7,35.26 70.5,3.76 134,35.26 		"/>

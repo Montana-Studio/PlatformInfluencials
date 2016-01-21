@@ -89,13 +89,15 @@
       <li>Followers<br><span>".formato_numeros_reachs($followers_instagram)."</span></li>
       </ul>
       <!--button type='checkbox' class='btn".$estado_descripcion." estado_rs cmn-toggle' name='".$estado."' id='".$row3[3]."'>".$estado_descripcion."</button-->
+      
+      <span class='txt-desactivar'>eliminar</span>
       <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
+      
+      <span name='".$row3[0]."' class='pi pi-trash elimina'></span>
+      
       <div class='onoffswitch'>
           <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$row3[3]."'>
           <label class='btn".$estado_descripcion." switch-label' for='".$row3[3]."'></label>
-      </div>
-      <div class='onoffswitch'>
-          <p name='".$row3[0]."' class='elimina'>elimina</p>
       </div>
       </div>";
     }while($row3 = $result3->fetch_array());
@@ -167,13 +169,13 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
             <li>Followers<br><span>".formato_numeros_reachs($followers_count1)."</span></li>
           </ul>
           <!--button type='checkbox' class='btn".$estado_descripcion." estado_rs cmn-toggle' name='".$estado."' id='".$row3[3]."'>".$estado_descripcion."</button-->
-          <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
+            <span class='txt-desactivar'>eliminar</span>
+            <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
+      
+            <span name='".$row3[0]."' class='pi pi-trash elimina'></span>
           <div class='onoffswitch'>
               <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$row4[3]."'>
               <label class='btn".$estado_descripcion." switch-label' for='".$row4[3]."'></label>
-          </div>
-          <div class='onoffswitch'>
-            <p name='".$row4[0]."' class='elimina'>elimina</p>
           </div>
         </div>";
         
@@ -265,13 +267,13 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
         <li>Suscriptos<br><span>".formato_numeros_reachs($youtubeSubscribers)."</span></li>
         </ul>
         <!--button class='estado_rs' name='".$estado."' id='".$row5[3]."'>".$estado_descripcion."</button-->
-       <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
+       <span class='txt-desactivar'>eliminar</span>
+      <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
+      
+      <span name='".$row3[0]."' class='pi pi-trash elimina'></span>
           <div class='onoffswitch'>
               <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$row5[3]."'>
               <label class='btn".$estado_descripcion." switch-label' for='".$row5[3]."'></label>
-          </div>
-          <div class='onoffswitch'>
-            <p name='".$row5[0]."' class='elimina'>elimina</p>
           </div>
         </div>";
       }while($row5 = $result5->fetch_array());
@@ -329,14 +331,13 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
             <!--li><a href=".$facebookWebsite.">ver sitio</a></li-->
             </ul>
             <!--button class='estado_rs' name='".$estado."' id='".$facebookPage."'>".$estado_descripcion."</button-->
-            <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
+            <span class='txt-desactivar'>eliminar</span>
+      <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
+      
+      <span name='".$row3[0]."' class='pi pi-trash elimina'></span>
             <div class='onoffswitch'>
                 <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$facebookPage."'>
                 <label class='btn".$estado_descripcion." switch-label' for='".$facebookPage."'></label>
-            </div>
-            <div class='onoffswitch'>
-              <p name='".$row6[0]."' class='elimina'>elimina</p>
- 
             </div>
             </div>";
         }
@@ -396,13 +397,13 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
           <li>Followers<br><span>".formato_numeros_reachs($googleplusSubscriber)."</span></li>
           </ul>
           <!--button class='estado_rs' name='".$estado."' id='".$googleplusId."'>".$estado_descripcion."</button-->
-          <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
+          <span class='txt-desactivar'>eliminar</span>
+      <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
+      
+      <span name='".$row3[0]."' class='pi pi-trash elimina'></span>
           <div class='onoffswitch'>
               <input type='checkbox' name='".$estado."' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$googleplusId."'>
               <label class='btn".$estado_descripcion." switch-label' for='".$googleplusId."'></label>
-          </div>
-          <div class='onoffswitch'>
-            <p name='".$row7[0]."' class='elimina'>elimina</p>
           </div>
           </div>";
         }
@@ -566,14 +567,14 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
                 <li>Tiempo en la pagina <br> <span>".$row9[26]."</span></li>
                 <li>Sessions Per User <br> <span>".$row9[27]."</span></li>
               </ul>
-
-            <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
+              <div style='clear:both''></div>
+            <span class='txt-desactivar'>eliminar</span>
+      <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>
+      
+      <span name='".$row3[0]."' class='pi pi-trash elimina'></span>
             <div class='onoffswitch'>
                 <input type='checkbox' name='".$estado."' value='analytics' class='btn".$estado_descripcion." estado_rs switch-checkbox' id='".$row9[4]."'>
                 <label class='btn".$estado_descripcion." switch-label' for='".$row9[4]."'></label>
-            </div>
-            <div class='onoffswitch'>
-              <p name='".$row9[0]."' class='elimina'>elimina</p>
             </div>
           </div>";
           $variable++;

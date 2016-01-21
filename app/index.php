@@ -25,7 +25,18 @@
 
 	<link rel="stylesheet" href="css/platform_influencials.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,"script","//www.google-analytics.com/analytics.js","ga");
 
+      ga("create", "UA-45276685-8", "auto");
+      ga("send", "pageview");
+
+    </script>
+            
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
 	<script id="facebook-sdk" src="js/facebook-login.js"></script>
@@ -58,7 +69,7 @@
 			<!-- ELECCION DE USUARIO -->
 
 			<div id="tipo">
-				<div id="agencia" class="btns_accesos"><a href="agencia" style="color:#fff;width:100%;height:100%;display:block;">Enterprise</a></div>
+				<div id="agencia" class="btns_accesos"><a href="agencia" style="color:#fff;width:100%;height:100%;display:block;">Agencia</a></div>
 				<div id="ipebtn" class="btns_accesos"><a href="influenciador" style="color:#fff;width:100%;height:100%;display:block;">Influencers</a></div>
 			</div>
 
