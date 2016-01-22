@@ -29,8 +29,10 @@ if ((int)$row[0] > 0){ ?>
                     }else{
                         $(".ver-mas").on("click",function(event){
                             $(this).siblings(".content").slideToggle();
-                            $(this).find("i").toggleClass("fa-angle-up fa-angle-down");
+                            $(this).find("i").toggleClass("pi-arrow-top pi-arrow-bottom");
                             $("html,body").animate({scrollTop : $(this).siblings(".bg-campana").offset().top},1000);
+                            
+                            $(this).siblings(".reach-campana, .reach-campana .sub-titulo").delay(1010).fadeIn();
                         });
                     }
 
@@ -43,7 +45,7 @@ if ((int)$row[0] > 0){ ?>
                                     $(".recientes, .cont-campana").removeAttr("style","");
 								    $(".bg-campana, .ver-mas, .sub-titulo").delay(800).fadeIn();
                                 }});
-								$(".ver-mas").find("i").addClass("fa-plus");
+								$(".ver-mas").find("i").addClass("pi-plus");
 							}
 					});
 
@@ -60,7 +62,12 @@ if ((int)$row[0] > 0){ ?>
 
 						</div>
 
-						<div class="ver-mas"><span><i class="fa fa-angle-down"></i><i class="fa fa-plus"></i></span></div>
+						<div class="ver-mas">
+                            <span>
+                                <i class="pi pi-arrow-bottom"></i>
+                                <i class="pi pi-plus"></i>
+                            </span>
+                        </div>
 
 						<div class="content">
 
@@ -94,7 +101,7 @@ if ((int)$row[0] > 0){ ?>
 			</div>
 <?php
 }else{
-	echo '<main class="no-campana"><a href="nueva-campana.php" class="hrefCamp"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes crear una nueva, creala aquí.</p><div class="btn_crearcamp">crear campaña</div></a></main>';
+	echo '<main class="no-campana"><a href="nueva-campana.php" class="hrefCamp"><i class="pi pi-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes crear una nueva, creala aquí.</p><div class="btn_crearcamp">crear campaña</div></a></main>';
 }
 ?>
 	<div id="contacto" class="hide">

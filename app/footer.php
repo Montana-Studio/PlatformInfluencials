@@ -21,7 +21,7 @@
 			<div class="crear-campana">
 				<a href="nueva-campana.php" target="_top">
 					<span>
-						<i class="fa fa-plus"></i>
+						<i class="pi pi-plus"></i>
 						<div>crear nueva campaña</div>
 					</span>
 				</a>
@@ -54,9 +54,9 @@
 					$(".recientes .content").hide();
 
 					if(document.documentElement.clientWidth >= 1024){
-						$(".ver-mas").find("i").addClass("fa-plus");
+						$(".ver-mas").find("i").addClass("pi-plus");
 					}else{
-						$(".ver-mas").find("i").addClass("fa-angle-down");
+						$(".ver-mas").find("i").addClass("pi-arrow-bottom");
 					}
 
 
@@ -71,13 +71,15 @@
                             });
 
                             $(this).siblings(".content").delay(1005).slideToggle();
-                            $(this).siblings(".reach-campana, .reach-campana .sub-titulo").delay(1010).fadeIn();
+                            $(this).siblings(".reach-campana, .reach-campana .sub-titulo").delay(1010).slideDown();
                         });
                     }else{
                         $(".ver-mas").on("click",function(event){
                             $(this).siblings(".content").slideToggle();
-                            $(this).find("i").toggleClass("fa-angle-up fa-angle-down");
+                            $(this).find("i").toggleClass("pi-arrow-top pi-arrow-bottom");
                             $("html,body").animate({scrollTop : $(this).siblings(".bg-campana").offset().top},1000);
+                            
+                            $(this).siblings(".reach-campana, .reach-campana .sub-titulo").delay(1010).fadeIn();
                         });
                     }
                             
@@ -90,7 +92,7 @@
                                     $(".recientes, .cont-campana").removeAttr("style","");
 								    $(".bg-campana, .ver-mas, .sub-titulo").delay(800).fadeIn();
                                 }});
-								$(".ver-mas").find("i").addClass("fa-plus");
+								$(".ver-mas").find("i").addClass("pi-plus");
 							}
 					});
 
@@ -101,7 +103,7 @@
 		echo '<div class="crear-campana">
 		<a href="nueva-campana.php" target="_top">
 			<span>
-				<i class="fa fa-plus"></i>
+				<i class="pi pi-plus"></i>
 				crear nueva campaña
 			</span>
 		</a>

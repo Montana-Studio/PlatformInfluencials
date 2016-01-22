@@ -7,7 +7,7 @@ $redes_sociales=explode(',',$row_redes_sociales_campana['redes_sociales']);
 $cuenta_likes_facebook=0;
 $cuenta_comments_facebook=0;
 for($i=0;$i<count($redes_sociales);$i++){
-	echo '<ul class="redes-metrics"><span class="tit-red red-'.$redes_sociales[$i].'">'.$redes_sociales[$i].'</span>';
+	echo '<ul class="redes-metrics"><span class="tit-red red-'.$redes_sociales[$i].'" title="'.$redes_sociales[$i].'"></span>';
 	
 	if($redes_sociales[$i]=='facebook'){
 		
@@ -255,6 +255,6 @@ for($i=0;$i<count($redes_sociales);$i++){
 	if($redes_sociales[$i]=='analytics'){
 		
 	}
-	echo '<span class="ver-mas-metrics"><i class="pi pi-arrow-bottom"></i></span></ul>';
+	echo '<!--span class="ver-mas-metrics"><i class="pi pi-arrow-bottom"></i></span--></ul>';
 }
 ?>

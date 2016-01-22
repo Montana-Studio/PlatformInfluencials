@@ -121,8 +121,6 @@
                 span{
                     width:20px;
                     height:20px;
-                    @include borderRadius(50%);
-                    border:2px solid $color_font2;
                     display: table;
                     @include textAligns(center);
                     float:right;
@@ -132,14 +130,14 @@
                         vertical:{align:middle;}
                         font:{weight:bold;}
                         font:{size:14px;}
-                        &.fa-plus{
+                        &.pi-plus{
                             display: none;
                             font:{size:10px}
                             @include media($notebookTodesktop){
                                 display:table-cell;
                             }
                         }
-                        &.fa-angle-down{
+                        &.pi-arrow-bottom{
                             @include media($notebookTodesktop){
                                 display: none;
                             }
@@ -149,79 +147,137 @@
             }
             .reach-campana{
                 display: none;
-                @include media($notebookTodesktop){
-                    width:100%;
-                    margin:60px auto 0 !important;
-                    position: relative;
-                    z-index: 9;
-                    .redes-metrics{
-                        margin:0 0 20px 0;
-                        padding: 0;
+                width:100%;
+                padding:em(5px);
+                margin:60px auto 0 !important;
+                position: relative;
+                z-index: 9;
+                clear: both;
+                .redes-metrics{
+                    margin:0 0 20px 0;
+                    padding: 0;
+                    @include span-columns(6);
+                    @include omega();
+                    background: {color:#fff;}
+                    @include border-right-radius(3px);
+                    .tit-red{
                         @include span-columns(4);
-                        background: {color:#fff;}
-                        @include border-right-radius(3px);
-                        @include omega(4n);
-                        .tit-red{
-                            @include span-columns(4);
-                            @include border-left-radius(3px);
-                            @include pad(22px);
-                            @include textAligns(center);
-                            color:#fff;
-                            text:{transform:uppercase;}
-                            font:{size:em(11);}
-                            height:56px;
-                            &.red-twitter{
-                                background: {color:$col-twitter;}
-                            }
-                            &.red-facebook{
-                                background: {color:$col-facebook;}
-                            }
-                            &.red-instagram{
-                                background: {color:$col-instagram;}
-                            }
-                            &.red-youtube{
-                                background: {color:$col-youtube;}
-                            }
-                            &.red-analytics{
-                                background: {color:$col-google;}
-                            }
-                            &.red-googleplus{
-                                background: {color:$col-google-plus;}
+                        @include border-left-radius(3px);
+                        @include pad(8px);
+                        @include textAligns(center);
+                        color:#fff;
+                        text:{transform:uppercase;}
+                        font:{size:em(11);}
+                        height:56px;
+                        background:{color:#fff;}
+                        &.red-twitter{
+                            &::after{
+                                content:url('../img/pi-twitter-color.svg');
                             }
                         }
-                        .data{   
-                            @include span-columns(6);
-                            min-height: 56px;
-                            ul{
-                                background: #fff;
-                                margin: 0 {top:5px};
-                                padding: 0;
-                                list:{style: none;}
-                                position: absolute;
-                                li{
-                                    display: none;
-                                    span{
-                                        @include span-columns(12);
-                                        font:{size:em(11);}
-                                        color:$color_grey;
-                                        &:last-child{
-                                            font:{size:em(22)}
-                                            color:$color_font2;
-                                        }
+                        &.red-facebook{
+                            &::after{
+                                content:url('../img/pi-facebook-color.svg');
+                            }
+                        }
+                        &.red-instagram{
+                            &::after{
+                                content:url('../img/pi-instagram-color.svg');
+                            }
+                        }
+                        &.red-youtube{
+                            &::after{
+                                content:url('../img/pi-youtube-color.svg');
+                            }
+                        }
+                        &.red-analytics{
+                            &::after{
+                                content:url('../img/pi-analytics-color.svg');
+                            }
+                        }
+                        &.red-googleplus{
+                            &::after{
+                                content:url('../img/pi-googleplus-color.svg');
+                            }
+                        }
+                    }
+                    .data{   
+                        @include span-columns(6);
+                        min-height: 56px;
+                        ul{
+                            background: #fff;
+                            margin: 0 {top:5px};
+                            padding: 0;
+                            list:{style: none;}
+                            position: absolute;
+                            li{
+                                display: none;
+                                span{
+                                    @include span-columns(12);
+                                    font:{size:em(11);}
+                                    color:$color_grey;
+                                    &:last-child{
+                                        font:{size:em(22)}
+                                        color:$color_font2;
                                     }
-                                    &:first-child{
-                                        display: block;
-                                    }
+                                }
+                                &:first-child{
+                                    display: block;
                                 }
                             }
                         }
-                        .ver-mas-metrics{
-                            @include span-columns(2);
-                            display: table;
-                            min-height:56px;
-                            @include textAligns(center);
-                            i{
-                                display: table-cell !important;
+                    }
+                    .ver-mas-metrics{
+                        @include span-columns(2);
+                        display: table;
+                        min-height:56px;
+                        @include textAligns(center);
+                        i{
+                            display: table-cell !important;
+                        }
+                    }
+                }
+                @include media($notebookTodesktop){
+                    .redes-metrics{
+                        @include span-columns(4);
+                        @include omega(4n);
+                        .tit-red{
+                            @include pad(22px);
+                            &.red-twitter{
+                                background: {color:$col-twitter;}
+                                &::after{
+                                    content:"Twitter";
+                                }
+                            }
+                            &.red-facebook{
+                                background: {color:$col-facebook;}
+                                &::after{
+                                    content:"Facebook";
+                                }
+                            }
+                            &.red-instagram{
+                                background: {color:$col-instagram;}
+                                &::after{
+                                    content:"Instagram";
+                                }
+                            }
+                            &.red-youtube{
+                                background: {color:$col-youtube;}
+                                &::after{
+                                    content:"Youtube";
+                                }
+                            }
+                            &.red-analytics{
+                                background: {color:$col-google;}
+                                &::after{
+                                    content:"Analytics";
+                                }
+                            }
+                            &.red-googleplus{
+                                background: {color:$col-google-plus;}
+                                &::after{
+                                    content:"GooglePlus";
+                                }
                             }
                         }
                     }
