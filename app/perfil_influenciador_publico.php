@@ -151,9 +151,9 @@ $query4='SELECT DISTINCT * FROM rrss WHERE persona_id="'.$row[0].'" AND descripc
             <div class='red-info'>
             <h3>".$facebookUsername."</h3>
             <ul>
-              <li><img src='".$facebookImgUrl."'/></li>
-              <li>Likes <br/><span>".formato_numeros_reachs($facebookLikes)."</span></li>
-              <li>Gente hablando <br/><span>".formato_numeros_reachs(intval($facebookTalkingAbout))."</span></li>
+                <li><img src='".$facebookImgUrl."'/></li>
+                <li>Likes <br/><span>".formato_numeros_reachs($facebookLikes)."</span></li>
+                <li>Gente hablando <br/><span>".formato_numeros_reachs(intval($facebookTalkingAbout))."</span></li>
             </ul>
             </div>";
         }
@@ -199,6 +199,7 @@ $query4='SELECT DISTINCT * FROM rrss WHERE persona_id="'.$row[0].'" AND descripc
           <div class='red-info'>
             <h3>".$googleplusName."</h3>
             <ul>
+                <li><img src='".$picture."'/></li>
               <li>Followers<br><span>".formato_numeros_reachs($googleplusSubscriber)."</span></li>
             </ul>
           </div>";
@@ -351,16 +352,80 @@ $query4='SELECT DISTINCT * FROM rrss WHERE persona_id="'.$row[0].'" AND descripc
     
 <?php
 if($row){
-  echo '  <h2 id="1" name="'.$row[5].'">Perfil de '.$row[5].'</h2>
-         <img src="'.$row[12].'" width="100" heigth="100" />
-         <button id="contactar-influenciador-perfil" name="'.$row[0].'">cotizar</button>';
+  echo '
+  <div id="imagenform-ipe">
+  
+      <div class="header-ipe" style="background-image:url('.$row[12].');">
+
+        <svg viewBox="0 0 140.341 133.52" class="mask-imguser">
+            <defs>
+                <polygon id="SVGID_1_" points="134,98.26 70.5,129.76 7,98.26 7,35.26 70.5,3.76 134,35.26 		"/>
+            </defs>
+            <clipPath id="SVGID_2_">
+                <use xlink:href="#SVGID_1_"  overflow="visible"/>
+            </clipPath>
+            <g clip-path="url(#SVGID_2_)">
+                <image overflow="visible" width="1280" height="720" xlink:href="'.$row[12].'" transform="matrix(0.2013 0 0 0.2013 -58.333 -5.7085)"></image>
+            </g>
+        </svg>
+        <h2 id="1" name="'.$row[5].'">'.$row[5].'</h2>
+        
+        <div class="geo">
+				<i class="pi pi-marker"></i>
+				'.$row[16].','.$row[15].'
+			</div>
+			
+			<div class="alt-perfil">
+             
+                <h2>'.$row[5].'</h2>
+                 <div class="geo">
+                    <i class="pi pi-marker"></i>
+                    '.$row[16].','.$row[15].'
+                 </div>
+                 <div class="perfil">
+                     <i class="pi pi-user"></i>
+                     '.$row[3].'
+                 </div>
+			  
+			</div>
+			<div class="alt-data">
+			    <p class="total-numbers">
+			        <span>Reach Total</span>
+			    </p>
+                <p class="bio">'.$row[14].'</p>
+			</div>
+			
+			<p class="bio">'.$row[14].'</p>
+
+			<nav class="nav-ipe2">
+				<ul>
+                    <li class="active" id="contactar-influenciador-perfil" name="'.$row[0].'">cotizar</li>
+				</ul>
+			</nav>
+      </div>
+      <div id="tab-examp">
+        <div id="tabscontent">
+            <div id="fragment-2" class="tabpage">
+      <div id="redesociales">
+      <div class="total_reach"><span><h2>Reach actual</h2><small>Alcance total de tus redes sociales</small></span><div class="total-number">'.formato_numeros_reachs($suma).'</div></div>
+      <script type="text/javascript">
+        $(window).load(function(){
+        	var total = "<?php echo $suma;?>";
+        	if (total == "0"){
+        		$(".total-numbers").prepend(total+"<br/>");
+        	}else{
+        		$(".total-numbers").prepend("'.formato_numeros_reachs($suma).'<br/>");
+        	}
+        });
+    </script>
+      ';
 
 
   if($num_row6 > 0){
     echo '<div class="red-title"><i class="pi pi-facebook"></i> <span class="red-name">Facebook</span> <i class="pi pi-arrow-bottom"></i></div>
         <div class="rs-inscription">';
     echo '<div class="reach-total">facebook reach <span>'.formato_numeros_reachs($suma_facebook).'</span></div>';
-    echo $_SESSION['instagram'];
+    echo $_SESSION['facebook'];
     echo '</div>';
   } 
 
@@ -400,14 +465,14 @@ if($row){
   }
 
   if($num_row7 > 0){
-    echo '<div class="red-title"><i class="pi pi-googleplus"></i> <span class="red-name">Google Plus</span> <i class="pi pi-arrow-bottom"></i></div>
+    echo '<div class="red-title"><i class="pi pi-googleplus"></i> <span class="red-name"> Google Plus</span> <i class="pi pi-arrow-bottom"></i></div>
         <div class="rs-inscription">';
     echo '<div class="reach-total">google plus reach <span>'.formato_numeros_reachs($suma_googleplus).'</span></div>';
     echo $_SESSION['googleplus'];
     echo '</div>';
   }
 
-
+    echo '</div> </div></div> </div></div>';
 }else{
   echo '<h2>Perfil no registrado</h2>';
 }

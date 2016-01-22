@@ -1,6 +1,6 @@
 <?php
 require('conexion.php');
-require('rrss_keys.php');
+require('rrss/rrss_keys.php');
 $rrss_id = $_POST['rrss_id'];
 $campana_id = $_POST['campana_id'];
 $url = $_POST['url'];

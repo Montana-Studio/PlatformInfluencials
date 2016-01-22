@@ -21,7 +21,9 @@ header{
 		}
 	}
 	.notes{
-		@include span-columns(1 of 12);
+        @include direction-context(right-to-left){
+		    @include span-columns(1 of 12);
+        }
 		@include textAligns(center);
         margin:{right: 3px !important;}
 		font:{size:16px !important;}
@@ -29,7 +31,9 @@ header{
 		display: table !important;
 		height:40px;
 	    @include media($notebookTodesktop){
-			@include span-columns(.5);
+            @include direction-context(right-to-left){
+			    @include span-columns(.5);
+            }
 		}
 		i{
 			display: table-cell;
@@ -39,13 +43,11 @@ header{
 	}
 	.ayuda_pi{
 		@extend .notes;
-		@include shift(6.7);
-		@include media($notebookTodesktop){
-			@include shift(8);
-		}
 	}
 	.menu{
-		@include span-columns(1.5 of 12);
+        @include direction-context(right-to-left){
+		    @include span-columns(1.5 of 12);
+        }
 		@include borderRadius(5px);
 		cursor:pointer;
 		background: {position: center;repeat: no-repeat;size:cover;}
@@ -55,11 +57,14 @@ header{
 		position:relative;
 		z-index:9;
 		@include media($tablet){
-			@include span-columns(1);
-			@include shift(.5);
+            @include direction-context(right-to-left){
+			    @include span-columns(1);
+            }
 		}
 		@include media($notebookTodesktop){
-			@include span-columns(.65);
+            @include direction-context(right-to-left){
+			    @include span-columns(.65);
+            }
 			max-width:39px;
 		}
 	}
@@ -86,6 +91,7 @@ nav{
 			height:34px;
 			a{
 				color:$color_grey;
+                font:{family:$fontAll;}
                 i{
                     margin:{right:10px;}
                 }

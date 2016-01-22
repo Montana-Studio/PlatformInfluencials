@@ -73,7 +73,7 @@
 					<label for="youtube" class="switch-label"></label>
 				</div>
 			</div>
-			<div class="red-cont">
+			<!--div class="red-cont">
 				<div class="name-red">
 					<i class="pi pi-analytics"></i>
 					analytics
@@ -82,7 +82,7 @@
 					<input  class="switch-checkbox checkbox_rrss" value="analytics" id="analytics" type="checkbox" checked/>
 					<label for="analytics" class="switch-label"></label>
 				</div>
-			</div>
+			</div-->
 			<div class="red-cont">
 				<div class="name-red">
 					<i class="pi pi-googleplus"></i>

@@ -2,7 +2,7 @@
 require('conexion.php');
 if($_POST['tipo']=='perfil_publico'){
 
-	$agencia = $_SESSION['nombre'];
+	$agencia = $_SESSION['empresa'];
 	$correo_agencia = $_SESSION['correo'];
 	$influenciador = $_POST['influenciador_nombre'];
 	$influenciador_id = $_POST['influenciador_id'];
@@ -23,7 +23,7 @@ if($_POST['tipo']=='perfil_publico'){
 			$id_campana="0";
 			$asunto = "Petición de contacto - Power Influencer";
 			$mensaje = "La agencia : ".$agencia." quiere contactar a : ".$influenciador;
-			mail('elperoy@gmail.com', $asunto , $mensaje, null, '-f'.$correo_agencia.'');
+			mail('mauro@mediatrends.cl', $asunto , $mensaje, null, '-f'.$correo_agencia.'');
 			$results = $mysqli->query("INSERT INTO solicitudes (agencia, correo_agencia, influenciador , correo_influenciador, id_influenciador, id_agencia, fecha_solicitud, id_campana, campana )VALUES ('$agencia', '$correo_agencia','$influenciador', '$correo_influenciador', '$influenciador_id', '$id_agencia', '$hoy' , '$id_campana', '$campana' )");
 			echo 'exito';
 		}else{
@@ -34,7 +34,7 @@ if($_POST['tipo']=='perfil_publico'){
 		    if($num_row_nombre_campana>0){
 				$asunto = "Petición de contacto - Power Influencer";
 				$mensaje = "La agencia : ".$agencia." quiere contactar a : ".$influenciador;
-				mail('elperoy@gmail.com', $asunto , $mensaje, null, '-f'.$correo_agencia.'');
+				mail('mauro@mediatrends.cl', $asunto , $mensaje, null, '-f'.$correo_agencia.'');
 				$results = $mysqli->query("INSERT INTO solicitudes (agencia, correo_agencia, influenciador , correo_influenciador, id_influenciador, id_agencia, fecha_solicitud, id_campana, campana )VALUES ('$agencia', '$correo_agencia','$influenciador', '$correo_influenciador', '$influenciador_id', '$id_agencia', '$hoy' , '$id_campana', '$campana' )");
 				echo 'exito';
 		    }else{
@@ -47,7 +47,7 @@ if($_POST['tipo']=='perfil_publico'){
 
 	
 }else{
-	$agencia = $_POST['agencia'];
+	$agencia = $_SESSION['empresa'];
 	$correo_agencia = $_POST['correo_agencia'];
 	$influenciador = $_POST['influenciador'];
 	$influenciador_id = $_POST['influenciador_id'];
@@ -69,7 +69,7 @@ if($_POST['tipo']=='perfil_publico'){
 			$id_campana="0";
 			$asunto = "Petición de contacto - Power Influencer";
 			$mensaje = "La agencia : ".$agencia." quiere contactar a : ".$influenciador;
-			mail('elperoy@gmail.com', $asunto , $mensaje, null, '-f'.$correo_agencia.'');
+			mail('mauro@mediatrends.cl', $asunto , $mensaje, null, '-f'.$correo_agencia.'');
 			$results = $mysqli->query("INSERT INTO solicitudes (agencia, correo_agencia, influenciador , correo_influenciador, id_influenciador, id_agencia, fecha_solicitud, id_campana, campana )VALUES ('$agencia', '$correo_agencia','$influenciador', '$correo_influenciador', '$influenciador_id', '$id_agencia', '$hoy' , '$id_campana', '$campana' )");
 			echo 'exito';
 		}else{
@@ -80,7 +80,7 @@ if($_POST['tipo']=='perfil_publico'){
 			// Envio a correo powerinfluencer
 			$asunto = "Petición de contacto - Power Influencer";
 			$mensaje = "La agencia : ".$agencia." quiere contactar a : ".$influenciador;
-			mail('elperoy@gmail.com', $asunto , $mensaje, null, '-f'.$correo_agencia.'');
+			mail('mauro@mediatrends.cl', $asunto , $mensaje, null, '-f'.$correo_agencia.'');
 			$results = $mysqli->query("INSERT INTO solicitudes (agencia, correo_agencia, influenciador , correo_influenciador, id_influenciador, id_agencia, fecha_solicitud, id_campana, campana )VALUES ('$agencia', '$correo_agencia','$influenciador', '$correo_influenciador', '$influenciador_id', '$id_agencia', '$hoy' , '$id_campana', '$campana' )");
 		}
 	}else{

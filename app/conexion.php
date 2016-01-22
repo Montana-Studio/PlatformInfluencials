@@ -86,4 +86,12 @@ $mysqli->set_charset('utf8_bin');
 	$mysqli = mysqli_connect("localhost","powerinf_user","uho$}~1(1;nn","powerinf_luencers") or die("Error " . mysqli_error($link)); 
 	$mysqli->set_charset('utf8_bin');
 }
+<<<<<<< HEAD
 ?>
+=======
+$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+//Conexión a base de datos
+$mysqli = mysqli_connect("localhost","root","root","adnativo_pi") or die("Error " . mysqli_error($link)); 
+$mysqli->set_charset('utf8_bin');
+?>
+>>>>>>> 0bdbd51c8d3c37e73a7ee5384b1986924e61e0ae

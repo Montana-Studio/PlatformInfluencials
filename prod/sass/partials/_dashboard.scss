@@ -52,6 +52,28 @@
 		}
 	}
 }
+.perfil-publico{
+    #imagenform-ipe{
+		#tabscontent{
+			.tabpage{
+				&:first-child{
+					background:{color:transparent;}
+				}
+			}
+		}
+        .header-ipe{
+            .nav-ipe2{
+                @include span-columns(4);
+                @include shift(4);
+                ul{
+                    li{
+                        @include span-columns(12);
+                    }
+                }
+            }
+        }
+	}
+}
 .creadas{
 	.recientes{
 		@include row();
@@ -492,6 +514,7 @@
 	@include boxShadow(0px, 0px, 10px, 0px, #ccc);
 	@include pad(20px);
 	@extend .hide;
+    font:{family:$fontAll;}
 	.fle-top{
 		margin:{top:-25px;right:-10px;}
 		float:right;
@@ -1082,8 +1105,16 @@
 							@extend .txt-activar;
 							color:$color_grey;
 						}
+                        .elimina{
+                            float:right;
+                            margin: 0 !important;
+                            padding-right: 26px;
+                            padding-left: 16px;
+                            clear:right;
+                        }
 						.onoffswitch{
 							@extend .switchess;
+                            clear: inherit;
 						}
 						&.secc-analytics{
 							.tit-analytics{
