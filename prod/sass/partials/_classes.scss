@@ -71,6 +71,7 @@ input{
 	cursor:pointer;
 	@extend .center-absolute;
 	@extend .center-div;
+    z-index: 999;
 	a{
 		color:#fff;
 		display:table;
@@ -81,6 +82,10 @@ input{
 			vertical:{align:middle;}
 			i{
 				display: inline-block;
+                &::before{
+                    width: 70%;
+                    margin-top: 4px;
+                }
 			}
 		}
 	}

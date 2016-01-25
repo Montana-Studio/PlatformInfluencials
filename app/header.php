@@ -8,7 +8,7 @@
 				die();
 	}
 	function muestra_header(){
-		echo 	'<!DOCTYPE html>
+		echo '<!DOCTYPE html>
 		<html lang="es">
 		<head>
 			<meta charset="UTF-8">

@@ -100,7 +100,7 @@
 					      $reach+=$followers_instagram;
 					      $reach_instagram+=$followers_instagram;
 					      //$echoContentInsta = "<div class='rrss' 'name='instagram'><i class='pi -pi-instagram-alt'></i> Instagram <span>".$followers_instagram."</span></div>";
-						  $echoContentInsta = "<div class='rrss' 'name='instagram'><i class='pi -pi-instagram-alt'></i> Instagram <span>".formato_numeros_reachs($reach_instagram)."</span></div>";
+						  $echoContentInsta = "<div class='rrss' 'name='instagram'><i class='pi pi-instagram-alt'></i> Instagram <span>".formato_numeros_reachs($reach_instagram)."</span></div>";
 
 						}
 						

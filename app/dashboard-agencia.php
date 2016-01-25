@@ -3,17 +3,7 @@
 if ((int)$row[0] > 0){ ?>
 	<?php
 		echo '
-		<h2 class="sub-titulo">resumen de campañas</h2>
-		<div class="creadas">
-			<script type="text/javascript">
-
-				$(document).ready(function(){
-
-
-
-				});
-
-			</script>';
+		<h2 class="sub-titulo">resumen de campañas</h2>';
 			do{
 				echo '<div class="recientes">
 					<div class="cont-campana" id="imagen'.$row[0].'">
@@ -24,7 +14,12 @@ if ((int)$row[0] > 0){ ?>
 
 						</div>
 
-						<div class="ver-mas"><span><i class="fa fa-angle-down"></i><i class="fa fa-plus"></i></span></div>
+						<div class="ver-mas">
+                            <span>
+                                <i class="pi pi-arrow-bottom"></i>
+                                <i class="pi pi-plus"></i>
+                            </span>
+                        </div>
 
 						<div class="content">
 
@@ -58,7 +53,7 @@ if ((int)$row[0] > 0){ ?>
 			</div>
 <?php
 }else{
-	echo '<main class="no-campana"><a href="nueva-campana.php" class="hrefCamp"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes crear una nueva, creala aquí.</p><div class="btn_crearcamp">crear campaña</div></a></main>';
+	echo '<main class="no-campana"><a href="nueva-campana.php" class="hrefCamp"><i class="pi pi-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes crear una nueva, creala aquí.</p><div class="btn_crearcamp">crear campaña</div></a></main>';
 }
 ?>
 	<div id="contacto" class="hide">

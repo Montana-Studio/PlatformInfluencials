@@ -220,9 +220,12 @@
 							color:$col-google-plus;
 						}
 					}
-				}
-			}
-			@include media($notebookTodesktop){
+				} 
+                @include media($notebookTodesktop){
+                    .rrss{
+                        @include pad(10px);
+                    }
+                }
 			}
 		}
 		@include media($notebookTodesktop){

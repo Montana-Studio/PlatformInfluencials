@@ -1,6 +1,6 @@
 <?php 
 if(basename($_SERVER['PHP_SELF'])=='news.php'){
-$mysqli = mysqli_connect("localhost","powerinf_user","uho$}~1(1;nn","powerinf_luencers") or die("Error " . mysqli_error($link)); 
+$mysqli = mysqli_connect("localhost","root","root","adnativo_pi") or die("Error " . mysqli_error($link)); 
 $mysqli->set_charset('utf8_bin');
 }else{
 	session_start();
@@ -88,12 +88,10 @@ $mysqli->set_charset('utf8_bin');
 	    session_unset();     // unset $_SESSION variable for the run-time 
 	    session_destroy();   // destroy session data in storage
 	}
+	/*
 	$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 	//Conexión a base de datos
-	$mysqli = mysqli_connect("localhost","powerinf_user","uho$}~1(1;nn","powerinf_luencers") or die("Error " . mysqli_error($link)); 
-	$mysqli->set_charset('utf8_bin');
+	$mysqli = mysqli_connect("localhost","root","root","adnativo_pi") or die("Error " . mysqli_error($link)); 
+	$mysqli->set_charset('utf8_bin');*/
 }
-
-
-?>
 

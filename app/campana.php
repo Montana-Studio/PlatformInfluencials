@@ -104,7 +104,7 @@
 								<h3>'.$row[1].'<span>by '.$row[4].'</span></h3>
 								<div class="edit-campana" style="display:none;float:left;clear:both;"></div>
 							</div>
-							<div class="ver-mas"><span><i class="fa fa-angle-down"></i><i class="fa fa-plus"></i></span></div>
+							<div class="ver-mas"><span><i class="pi pi-arrow-bottom"></i><i class="pi pi-plus"></i></span></div>
 							<div class="content">
 								<div class="btn_close"><span><i class="pi pi-close"></i></span></div>
 								<form class="campanaForm" id="'.$row[0].'">
@@ -167,7 +167,7 @@
 					</div>
 					<div class="ver-mas">
 						<span>
-							<i class="fa"></i>
+							<i class="pi"></i>
 						</span>
 					</div>
 					<div class="content">
