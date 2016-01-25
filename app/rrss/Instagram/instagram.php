@@ -41,7 +41,6 @@
             url: "rrss/instagram/procesar_instagram.php",
             data: "instagramId="+instagramId+"&accessToken="+accessToken,
             success: function(data){
-            	console.log("holi"+data);
             	<?php inscripcion_instagram();?>
 			}
 			});

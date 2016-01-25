@@ -117,7 +117,7 @@ $(document).ready(function(){
 		var perfil = e.options[e.selectedIndex].value;
 			$.ajax({  
 		            type: "POST",  
-		            url: "./procesar_facebook.php",  
+		            url: "./controller/procesar_facebook.php",  
 		            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id+"&tipo="+perfil+"&empresa="+empresa,  
 					
 		            success: function(data){ 
@@ -137,10 +137,10 @@ $(document).ready(function(){
 							case "sin_opcion": alert('no se ha seleccionado opción');
 							break;
 							case "existe-agencia": alert('ya se encuentra registrado como agencia, lo contactaremos');
-										   window.location.href='logout.php';
+										   window.location.href='./controller/logout.php';
 							break;
 							case "existe-influenciador": alert('ya se encuentra registrado como influenciador, lo contactaremos');
-										   window.location.href='logout.php';
+										   window.location.href='./controller/logout.php';
 							break;
 						}
 					}
@@ -187,7 +187,7 @@ $(document).ready(function(){
 
 		$.ajax({  
 		            type: "POST",  
-		            url: "./procesar_facebook.php",  
+		            url: "./controller/procesar_facebook.php",  
 		            data: "facebookPageId="+id+"&facebookPageName="+facebookPage+"&tipo=0",  
 					
 		            success: function(data){ 

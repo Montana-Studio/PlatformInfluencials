@@ -4,6 +4,13 @@ $mysqli = mysqli_connect("localhost","powerinf_user","uho$}~1(1;nn","powerinf_lu
 $mysqli->set_charset('utf8_bin');
 }else{
 	session_start();
+/*
+	$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+	//Conexión a base de datos
+	$mysqli = mysqli_connect("localhost","root","root","adnativo_pi") or die("Error " . mysqli_error($link)); 
+	$mysqli->set_charset('utf8_bin');
+
+*/
 	setlocale(LC_ALL,"es_ES");
 	$hoy= date("Y-m-d H:i:s");
 	$hoyFormatted= date("d M Y");
@@ -11,42 +18,42 @@ $mysqli->set_charset('utf8_bin');
 	$month= trim(substr($hoyFormatted,3,-5));
 	$year= trim(substr($hoyFormatted,-4));
 	function months(){
-	if($month == 'Jan'){
-		$month='Enero';
-	}
-	if($month == 'Feb'){
-		$month='Febrero';
-	}
-	if($month == 'Mar'){
-		$month='Marzo';
-	}
-	if($month == 'Apr'){
-		$month='Abril';
-	}
-	if($month == 'May'){
-		$month='Mayo';
-	}
-	if($month == 'Jun'){
-		$month='Junio';
-	}
-	if($month == 'Jul'){
-		$month='Julio';
-	}
-	if($month == 'Aug'){
-		$month='Agosto';
-	}
-	if($month == 'Sep'){
-		$month='Septiembre';
-	}
-	if($month == 'Oct'){
-		$month='Octubre';
-	}
-	if($month == 'Nov'){
-		$month='Noviembre';
-	}
-	if($month == 'Dec'){
-		$month='Diciembre';
-	}
+		if($month == 'Jan'){
+			$month='Enero';
+		}
+		if($month == 'Feb'){
+			$month='Febrero';
+		}
+		if($month == 'Mar'){
+			$month='Marzo';
+		}
+		if($month == 'Apr'){
+			$month='Abril';
+		}
+		if($month == 'May'){
+			$month='Mayo';
+		}
+		if($month == 'Jun'){
+			$month='Junio';
+		}
+		if($month == 'Jul'){
+			$month='Julio';
+		}
+		if($month == 'Aug'){
+			$month='Agosto';
+		}
+		if($month == 'Sep'){
+			$month='Septiembre';
+		}
+		if($month == 'Oct'){
+			$month='Octubre';
+		}
+		if($month == 'Nov'){
+			$month='Noviembre';
+		}
+		if($month == 'Dec'){
+			$month='Diciembre';
+		}
 
 	}
 
@@ -86,12 +93,7 @@ $mysqli->set_charset('utf8_bin');
 	$mysqli = mysqli_connect("localhost","powerinf_user","uho$}~1(1;nn","powerinf_luencers") or die("Error " . mysqli_error($link)); 
 	$mysqli->set_charset('utf8_bin');
 }
-<<<<<<< HEAD
+
+
 ?>
-=======
-$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
-//Conexión a base de datos
-$mysqli = mysqli_connect("localhost","root","root","adnativo_pi") or die("Error " . mysqli_error($link)); 
-$mysqli->set_charset('utf8_bin');
-?>
->>>>>>> 0bdbd51c8d3c37e73a7ee5384b1986924e61e0ae
+

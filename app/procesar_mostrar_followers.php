@@ -1,57 +1,6 @@
 
 <?php
-//include('rrss/rrss_keys.php');
-
-    echo '<script async>
-        $(document).ready(function(){
-
-          $(".estado_rs").click(function(){
-            if(this.value == "analytics"){
-                var id_activar_rs = this.id;
-                var tipo = "activar_rs2";
-                var estado =parseInt(this.name);
-                $.ajax({
-                  type: "POST",
-                  url: "./rrss/procesar_activar_rs.php",
-                  data: "id_activar_rs="+id_activar_rs+"&estado="+estado+"&tipo="+tipo,
-                  success: function(data){
-                    window.location.reload("dashboard-ipe.php#fragment-2");
-                  }
-                });
-
-            }else{
-                var id_activar_rs = this.id;
-                var tipo = "activar_rs";
-                var estado =parseInt(this.name);
-                $.ajax({
-                  type: "POST",
-                  url: "./rrss/procesar_activar_rs.php",
-                  data: "id_activar_rs="+id_activar_rs+"&estado="+estado+"&tipo="+tipo,
-                  success: function(data){
-                    window.location.reload();
-                  }
-                });
-            }
-
-          });
-        $(".elimina").click(function(){
-           id_rrss = $(this).attr("name");
-           tipo="desactivar";
-           $.ajax({
-                  type: "POST",
-                  url: "./rrss/procesar_activar_rs.php",
-                  data: "id_rrss="+id_rrss+"&tipo="+tipo,
-                  success: function(data){
-                    alert("cuenta desvinculada");
-                    window.location.reload();
-                  }
-                });
-        });
-          
-        });
-      </script>';
-
-    require('rrss/rrss_keys.php');
+ require('rrss/rrss_keys.php');
     
 /****************************************************************************************************
                 GET INSTAGRAM REACH

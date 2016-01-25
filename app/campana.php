@@ -2,59 +2,7 @@
 <?php
 	echo '<script>
 			$(document).ready(function(){
-				$(".activar-campana").click(function (){
-						var idActualizar = this.id;
-						var idEstado = this.type;
-						var tipo = "activar";
-						var fecha_termino = $("#"+idActualizar+" .campa-ico .fecha_termino").val();
-							$.ajax({
-								type: "POST",
-								url: "procesar_eliminar-campana.php",
-								data: "idActualizar="+idActualizar+"&idEstado="+idEstado+"&tipo="+tipo+"&fecha_termino="+fecha_termino,
-								success: function(data){
-									window.location.reload();
-								}
-							});
-				});
-				$(".btneliminar").click(function (){
-					var idEliminar = this.id;
-					var tipo = "eliminar";
-					$(".alertElim").fadeIn("normal",function(){
-							$("#boxElim .hrefCamp h2").text("Estas a punto de eliminar la campaña");
-							animaTrash();
-							setInterval(function(){
-								animaTrash();
-							},2800);
-							//$("#boxElim .hrefCamp i").addClass("fa-trash-o");
-							$("#boxElim .hrefCamp p").text("Si eliminas tu campaña, pederas tus datos sin posibilidad de recuperarlos.");
-							$(".siElim").text("eliminar campaña");
-							$(".noElim").text("volver");
-							$("#boxElim").show().animate({
-								top:"20%",
-								opacity:1
-							},{duration:1500,easing:"easeOutBounce"});
-							$(".siElim").on("click",function(){
-								$.ajax({
-									type: "POST",
-									url: "procesar_eliminar-campana.php",
-									data: "idEliminar="+idEliminar+"&tipo="+tipo,
-									success: function(data){
-										window.location.reload();
-									}
-								});
-							});
-							$(".noElim").on("click",function(){
-								$("#boxElim").animate({
-									top:"-100px",
-									opacity:0
-								},{duration:500,easing:"easeInOutQuint",complete:function(){
-									$(".alertElim").fadeOut("fast");
-									$(this).hide();
-								}});
-							});
-					});
-					return false;
-				});
+				
 				var foto;
 				$(".file").click(function (){
 					foto = "1";
@@ -83,7 +31,7 @@
 					info.append("fecha_termino", fecha_termino);
 					$.ajax({
 							type: "POST",
-							url: "procesar_imagen.php",
+							url: "./controller/procesar_imagen.php",
 							data: info,
 							enctype: "multipart/form-data",
 							contentType: false,
@@ -92,47 +40,47 @@
 						success: function(data){
 								switch (data){
 									case "nuevo":$(".alertElim").fadeIn("normal",function(){
-													$("#boxAlert .hrefCamp h2").text("Campaña editada con exito");
+												$("#boxAlert .hrefCamp h2").text("Campaña editada con exito");
+												animaMune();
+												animaMano();
+												setInterval(function(){
 													animaMune();
 													animaMano();
-													setInterval(function(){
-														animaMune();
-														animaMano();
-													},2800);
-													//$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
-													$("#boxAlert .hrefCamp p.messageAlert").text("Puedes seguir editando o crear más campañas.");
-													$("#boxAlert").show().animate({
-														top:"20%",
-														opacity:1
-													},{duration:1500,easing:"easeOutBounce"});
-													$("#clearAlert").on("click",function(){
-														$("#boxAlert").animate({
-															top:"-100px",
-															opacity:0
-														},{duration:500,easing:"easeInOutQuint",complete:function(){
-															$(".alertElim").fadeOut("fast");
-															window.location.reload();
-														}});
-													});
+												},2800);
+												//$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+												$("#boxAlert .hrefCamp p.messageAlert").text("Puedes seguir editando o crear más campañas.");
+												$("#boxAlert").show().animate({
+													top:"20%",
+													opacity:1
+												},{duration:1500,easing:"easeOutBounce"});
+												$("#clearAlert").on("click",function(){
+													$("#boxAlert").animate({
+														top:"-100px",
+														opacity:0
+													},{duration:500,easing:"easeInOutQuint",complete:function(){
+														$(".alertElim").fadeOut("fast");
+														window.location.reload();
+													}});
+												});
 											});
 									break;
 									default: $(".alertElim").fadeIn("normal",function(){
-													$("#boxAlert .hrefCamp h2").text("algo anda mal");
-													$("#boxAlert .hrefCamp i").addClass("fa-warning");
-													$("#boxAlert .hrefCamp p.messageAlert").text("Formato no corresponde o el peso supera los 200kb");
-													$("#boxAlert").show().animate({
-														top:"20%",
-														opacity:1
-													},{duration:1500,easing:"easeOutBounce"});
-													$("#clearAlert").on("click",function(){
-														$("#boxAlert").animate({
-															top:"-100px",
-															opacity:0
-														},{duration:500,easing:"easeInOutQuint",complete:function(){
-															$(".alertElim").fadeOut("fast");
-															$(this).hide();
-														}});
-													});
+												$("#boxAlert .hrefCamp h2").text("algo anda mal");
+												$("#boxAlert .hrefCamp i").addClass("fa-warning");
+												$("#boxAlert .hrefCamp p.messageAlert").text("Formato no corresponde o el peso supera los 200kb");
+												$("#boxAlert").show().animate({
+													top:"20%",
+													opacity:1
+												},{duration:1500,easing:"easeOutBounce"});
+												$("#clearAlert").on("click",function(){
+													$("#boxAlert").animate({
+														top:"-100px",
+														opacity:0
+													},{duration:500,easing:"easeInOutQuint",complete:function(){
+														$(".alertElim").fadeOut("fast");
+														$(this).hide();
+													}});
+												});
 											});
 									break;
 								}

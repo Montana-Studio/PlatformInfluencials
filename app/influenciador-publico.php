@@ -1,10 +1,10 @@
 <?php include 'header.php'; ?>
 <?php 
-	$query_campana='SELECT DISTINCT * FROM campana WHERE id="'.$_GET['id'].'" AND nombre="'.$_GET["campana"].'"';
+/*	$query_campana='SELECT DISTINCT * FROM campana WHERE id="'.$_GET['id'].'" AND nombre="'.$_GET["campana"].'"';
 	$result_campana=mysqli_query($mysqli,$query_campana)or die (mysqli_erroxr($mysqli));
 	$row_campana= mysqli_fetch_array($result_campana, MYSQLI_BOTH);
 	$num_row_campana= mysqli_num_rows($result_campana);
-//if($row_campana){	
+//if($row_campana){	*/
 	if($_GET['campana']){
 		echo '<div id="campanas-postulables">
 			<h2 class="sub-titulo">Selecciona una campaña</h2>
@@ -198,137 +198,7 @@
 
 		}while($row = mysqli_fetch_row($result));
 
-		echo '</div><button id="cotizar_influenciador">cotizar</button>
-		<script>
-			$(document).ready(function(){
-					
-				$("#cotizar_influenciador").click(function(){
-					var influenciadores_cotizados="";
-					var influenciadores_cotizados_nombre ="";
-					$("input:checked").each(function() {
-						influenciadores_cotizados += this.value +",";
-						influenciadores_cotizados_nombre += this.name +",";
-					});
-					var largo_string_influenciadores = influenciadores_cotizados.length - 1;
-					var influenciadores_cotizados = influenciadores_cotizados.substring(0,largo_string_influenciadores);
-					var array_id_influenciadores_seleccionados= influenciadores_cotizados.split(",");
-					var array_nombre_influenciadores_seleccionados = influenciadores_cotizados_nombre.split(",");
-					var agencia = "'.$_SESSION["nombre"].'";
-					var correo_agencia = "'.$_SESSION["correo"].'";
-					var influenciador = this.name;
-					var campana = $("#campanas-postulables option:selected").val();
-					var id_campana = $("#campanas-postulables option:selected").attr("value");
-					var tipo ="perfiles";
-					if(campana =="Seleccione campaña") campana = "Sin especificar";
-					for(var i=0; i<array_id_influenciadores_seleccionados.length; i++){
-						var influenciador_id=array_id_influenciadores_seleccionados[i];
-						var influenciador= array_nombre_influenciadores_seleccionados[i];
-						$.ajax({
-							type: "POST",
-							url: "contactar.php",
-							data: "agencia="+agencia+"&correo_agencia="+correo_agencia+"&influenciador="+influenciador+"&influenciador_id="+influenciador_id+"&campana="+campana+"&id_campana="+id_campana+"&tipo="+tipo,
-							success: function(data){
-								//$("#campanas-postulables").hide();
-								//$("#campanas-postulables").show();
-								//$("#opc_cot").show();
-								$(".boton_cotizar").show();
-								//$("#campanas-postulables").hide();
-							$("input:checkbox").removeAttr("checked");
-
-								
-							}
-						});
-
-					}
-					if(array_id_influenciadores_seleccionados.length == 1 ){
-						$(".alertElim").fadeIn("normal",function(){
-							$("#boxElim .hrefCamp h2").text("Influenciador agregado");
-							$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
-							$("#boxElim .hrefCamp p").text("La cotizacion ha sido exitosa, puedes seguir creando mas campañas y cotizar Influenciadores.");
-							$(".siElim").text("Ir a campañas");
-							$(".noElim").text("Ver Influenciadores");
-
-							$("#boxElim").show().animate({
-								top:"20%",
-								opacity:1
-							},{duration:1500,easing:"easeOutBounce"});
-
-							$(".siElim").on("click",function(){
-
-								window.location.href = "campana.php";
-							});
-
-							$(".noElim").on("click",function(){
-								$("#boxElim").animate({
-									top:"-100px",
-									opacity:0
-								},{duration:500,easing:"easeInOutQuint",complete:function(){
-									$(".alertElim").fadeOut("fast");
-									$(this).hide();
-								}});
-							});
-						});
-					}
-					if(array_id_influenciadores_seleccionados.length > 1 ){
-						$(".alertElim").fadeIn("normal",function(){
-							$("#boxElim .hrefCamp h2").text("Influenciador agregado");
-							$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
-							$("#boxElim .hrefCamp p").text("La cotizacion ha sido exitosa, puedes seguir creando mas campañas y cotizar Influenciadores.");
-							$(".siElim").text("Ir a campañas");
-							$(".noElim").text("Ver Influenciadores");
-
-							$("#boxElim").show().animate({
-								top:"20%",
-								opacity:1
-							},{duration:1500,easing:"easeOutBounce"});
-
-							$(".siElim").on("click",function(){
-
-								window.location.href = "campana.php";
-							});
-
-							$(".noElim").on("click",function(){
-								$("#boxElim").animate({
-									top:"-100px",
-									opacity:0
-								},{duration:500,easing:"easeInOutQuint",complete:function(){
-									$(".alertElim").fadeOut("fast");
-									$(this).hide();
-								}});
-							});
-						});
-					}
-				});
-
-				$(".ver_perfil_influenciador").click(function(){
-
-					var id_form=$(this).attr("name");
-
-					$("#"+id_form+" .rrss").show();
-	
-					var a = $("#"+id_form+" .access-ipe .rrss_reach").text();
-					var b = $("#"+id_form+" .access-ipe .rrss_reach span:last-child").text();
-					
-					//$("#"+id_form+" .rrss").show();
-
-					//$("#"+id_form+" .access-ipe ").prepend("<div><span>Reach total </span> <span>"+b+"</span></div>");
-					//$("#"+id_form+" .access-ipe div:first-child").addClass("rrss_reachs");
-					//$("#"+id_form+" .access-ipe .rrss_reach").hide();
-					$("#"+id_form+" .ver_perfil_influenciador").hide();
-					$("#"+id_form+" .volver_ver_perfil_influenciador").show();
-				});
-
-				$(".volver_ver_perfil_influenciador").click(function(){
-					
-					var id_form=$(this).attr("name");
-					$("#"+id_form+" .rrss").hide();
-					$("#"+id_form+" .access-ipe div:first-child").remove();
-					$("#"+id_form+" .access-ipe .rrss_reach").show();
-					$("#"+id_form+" .ver_perfil_influenciador").show();
-					$("#"+id_form+" .volver_ver_perfil_influenciador").hide();
-				});
-			});
-		</script>';
+		echo '</div><button id="cotizar_influenciador">cotizar</button>';
 	}else{
 		echo '<main class="no-campana">
 						<a href="nueva-campana.php" class="hrefCamp">

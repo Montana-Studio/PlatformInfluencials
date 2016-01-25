@@ -9,7 +9,7 @@ function onSuccess(data) {
 		var conn = data['numConnections'];
 		$.ajax({  
 			type: "POST",  
-			url: "procesar_linkedin.php",  
+			url: "./controller/procesar_linkedin.php",  
 			data: "id="+id+"&nombre="+nombre+"&pictureUrl="+pictureUrl+"&email="+email+"&conn="+conn+"&tipo="+document.getElementById('tipoCliente').getAttribute('value'), 
 			success: function(data){ 
 					switch (data){

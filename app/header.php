@@ -1,5 +1,5 @@
 <?php
-	require('conexion.php');
+	require('controller/conexion.php');
 	if(isset($_SESSION['id'])==false){
 	header('Location:./');
 			die();
@@ -48,7 +48,7 @@
     }
 	if(basename($_SERVER['PHP_SELF'])=='dashboard-agencia.php'){
 		if(isset($_SESSION['telefono1'])==false){
-			header('Location: logout');
+			header('Location: controller/logout.php');
 			die();
 		}
 		else{
@@ -69,7 +69,7 @@
 	}
 	if(basename($_SERVER['PHP_SELF'])=='nueva-campana.php'){
 			if(isset($_SESSION['telefono1'])==false){
-				header('Location: logout');
+				header('Location: controller/logout.php');
 				die();
 			}
 			else{
@@ -92,7 +92,7 @@
 	}
 	if(basename($_SERVER['PHP_SELF'])=='campana.php'){
 			if(isset($_SESSION['telefono1'])==false){
-				header('Location: logout');
+				header('Location: controller/logout.php');
 				die();
 			}else{
 			$query="SELECT * FROM campana WHERE idEstado=1 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
@@ -115,7 +115,7 @@
 	}
 	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia.php'){
 		if(isset($_SESSION['id'])==false){
-				header('Location: logout');
+				header('Location: controller/logout.php');
 				die();
 			}else if($_SESSION['id_tipo']>'2'){
 				header('Location: dashboard-ipe');
@@ -137,7 +137,7 @@
 		require('rrss/twitter/inc/TwitterAPIExchange.php');
 		require('rrss/rrss_keys.php');
 		if(isset($_SESSION['telefono1'])==false){
-			header('Location: logout');
+			header('Location: controller/logout.php');
 			die();
 		}
 		else{
@@ -259,7 +259,7 @@
 									telefono2=$('#telefono2nuevo').val();
 									$.ajax({
 											type: 'POST',
-											url: 'procesar_formulario.php',
+											url: './controller/procesar_formulario.php',
 											data: 'nombre='+nombre+'&empresa='+empresa+'&correo='+correo+'&tel1='+telefono1+'&tel2='+telefono2,
 											success: function(html){
 												alert('Registro de datos completo, nos contactaremos con usted');
@@ -294,7 +294,7 @@
 	}
 	if(basename($_SERVER['PHP_SELF'])=='perfil_influenciador_publico.php'){
 		if(isset($_SESSION['telefono1'])==false){
-			header('Location: logout');
+			header('Location: controller/logout.php');
 			die();
 		}
 		else{
@@ -339,7 +339,7 @@
 	}*/
 	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia3.php'){
 		if(isset($_SESSION['id'])==false){
-				header('Location: logout');
+				header('Location: controller/logout.php');
 				die();
 			}else if($_SESSION['id_tipo']>'2'){
 				header('Location: dashboard-ipe');
@@ -453,7 +453,7 @@
 									var perfil = e.options[e.selectedIndex].value;
 									$.ajax({  
 										type: 'POST',  
-										url: 'procesar_formulario.php',  
+										url: './controller/procesar_formulario.php',  
 										data: 'nombre='+nombre+'&empresa='+empresa+'&correo='+correo+'&tel1='+telefono1+'&tel2='+telefono2+'&tipo='+perfil, 
 										
 										success: function(html){ 

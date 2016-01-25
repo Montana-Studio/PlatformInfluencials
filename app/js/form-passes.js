@@ -3,25 +3,17 @@ $(document).ready(function(){
 	 
 	//INICIO SCRIPTS
 	var info;
-	var val = [];
 
 	$('#facebook-name').hide();
 	$('#volver').hide();
 
-	$('#agencia1').click(function(){
-		$("#tipoCliente").attr("value", "2");
-		$('.form_agencias').show();
-		$(".ingreso_eleccion").hide();
-		$(".volverTipo").show();
-		$('#perfil').hide();
-	})
-
+	//login de ingreso (agencia-ipe)
 	$('#ingresar').click(function(){
 		correo=$('#correo').val();
 		password=$('#password').val();
 		$.ajax({
 			type: "POST",
-			url: "./procesar_login.php",
+			url: ".controller/procesar_login.php",
 			data: "correo="+correo+"&pwd="+password,
 
 			success: function(data){
@@ -47,6 +39,7 @@ $(document).ready(function(){
 		});
 	});
 
+	//perfil influenciador publico
 	$('#contactar-influenciador-perfil').click(function(){
 		var influenciador_id = $(this).attr('name');
 		var influenciador_nombre = $('#1').attr('name');
@@ -57,7 +50,7 @@ $(document).ready(function(){
 		var tipo="perfil_publico";
 		$.ajax({
 			type: "POST",
-			url: "./contactar.php",
+			url: "controller/contactar.php",
 			data: "influenciador_id="+influenciador_id+"&influenciador_nombre="+influenciador_nombre+"&id_campana="+id_campana+"&tipo="+tipo,
 
 			success: function(data){
@@ -69,9 +62,9 @@ $(document).ready(function(){
 					}
 			}
 		});
-
 	});
 
+	//Formulario de registro en agencia.php
 	$('.registerFormAgencia').on('submit',(function(e){
 		e.preventDefault();
 		info = new FormData(this);
@@ -89,7 +82,7 @@ $(document).ready(function(){
 
 		$.ajax({
 			type: "POST",
-			url: "./procesar_imagen.php",
+			url: "./controller/procesar_imagen.php",
 			data: info,
 			enctype: 'multipart/form-data',
 			contentType: false,
@@ -102,6 +95,7 @@ $(document).ready(function(){
 	}));
 		
 	$('.cont_formRegistro').on('submit',(function(e){
+		//formulario de ipe con registro por red social
 		info = new FormData(this);
 		var e = document.getElementById("perfil");
 		var perfil = e.options[e.selectedIndex].value;
@@ -114,7 +108,7 @@ $(document).ready(function(){
 		info.append('comuna',comuna);
 		$.ajax({
 			type: "POST",
-			url: "./procesar_registro_ipe_facebook.php",
+			url: "./controller/procesar_registro_ipe_facebook.php",
 			data: info,
 			enctype: 'multipart/form-data',
 			contentType: false,
@@ -125,10 +119,9 @@ $(document).ready(function(){
 			}
 		})
 		return false;
-
-
 	}));
 
+	//formulario en influenciador.php
 	$('.registerFormInfluenciador').on('submit',(function(e){
 		e.preventDefault();
 		info = new FormData(this);
@@ -149,7 +142,7 @@ $(document).ready(function(){
 
 		$.ajax({
 			type: "POST",
-			url: "./procesar_imagen.php",
+			url: "./controller/procesar_imagen.php",
 			data: info,
 			enctype: 'multipart/form-data',
 			contentType: false,
@@ -162,9 +155,8 @@ $(document).ready(function(){
 	}));
 	
 
-
+	//registro con linkedin en agencia.php
 	$('#linkedin-nuevo').click(function(){
-
 		var head = document.getElementsByTagName('head')[0];
 		var script = document.createElement('script');
 		script.type = 'text/javascript';
@@ -172,11 +164,10 @@ $(document).ready(function(){
 		script.src = '//platform.linkedin.com/in.js';
 		script.text ='\n api_key:	77yaxbujewtbl4\nauthorize:	false\nonLoad: onLinkedInLoad\n';
 		head.appendChild(script);
-		//$("#tipoCliente").attr("value", "2");
 	});
 
+	//ingreso con likedin en agencia.php
 	$('#linkedin-antiguo').click(function(){
-
 		var head = document.getElementsByTagName('head')[0];
 		var script = document.createElement('script');
 		script.type = 'text/javascript';
@@ -186,34 +177,14 @@ $(document).ready(function(){
 		head.appendChild(script);
 	});
 
-
-	$('#linkedin-nuevo-Ipe').click(function(){
-		var head = document.getElementsByTagName('head')[0];
-		var script = document.createElement('script');
-		script.type = 'text/javascript';
-		script.id = 'linkedinId';
-		script.src = '//platform.linkedin.com/in.js';
-		script.text ='\n api_key:	7718vpksg6gvwg\nauthorize:	false\nonLoad: onLinkedInLoad\n';
-		head.appendChild(script);
-	});
-
-	$('#linkedin-antiguo-Ipe').click(function(){
-		var head = document.getElementsByTagName('head')[0];
-		var script = document.createElement('script');
-		script.type = 'text/javascript';
-		script.id = 'linkedinId';
-		script.src = '//platform.linkedin.com/in.js';
-		script.text ='\n api_key:	7718vpksg6gvwg\nauthorize:	false\nonLoad: onLinkedInLoad\n';
-		head.appendChild(script);
-	});
-
+	//verificación de coincidencia de password y de ingreso de números en formulario agencia.php
 	$("#ver-password").keyup(checkPasswordMatch);
 	$("#telefono1nuevo").keyup(phone1Length);
 	$("#telefono2nuevo").keyup(phone2Length);
 
+	//verificaciòn de coincidencia de password en ipe influenciador.php
 	$("#ver-passwordIpe").keyup(checkPasswordMatchIpe);
-	$("#telefono1nuevoIpe").keyup(phone1LengthIpe);
-	$("#telefono2nuevoIpe").keyup(phone2LengthIpe);
+
 
 	//DASHBOARD SCRIPTS
 
@@ -221,6 +192,8 @@ $(document).ready(function(){
 	var correo,nombre,correo,tel1,tel2,empresa;
 	var rsid = $('#RsId').val();
 	var foto=0;
+
+	//verificación de subida de imagen de perfil en formulario en agencia.php
 	$('#file').click(function(){
 		foto=1;
 		$("input:file").change(function (){
@@ -228,8 +201,10 @@ $(document).ready(function(){
      	});
 	});
 
+	//formulario de ingreso de nueva campaña nueva-campana.php
 	$('#campanaForm-nueva-campana').on('submit',(function (e){
 		e.preventDefault;
+		var val = [];
 		info = new FormData(this);
 		info.append('nombre',$('#nombre-nueva-campana').val());
 		info.append('marca',$('#marca-nueva-campana').val());
@@ -242,7 +217,7 @@ $(document).ready(function(){
 		info.append('selected_rrss',val);
 		$.ajax({
 				type: "POST",
-				url: "./procesar_imagen.php",
+				url: "./controller/procesar_imagen.php",
 				data: info,
 				enctype: 'multipart/form-data',
 				contentType: false,
@@ -261,6 +236,7 @@ $(document).ready(function(){
 		return false;
 	}));
 
+	//formulario de cambio de imagen en header.php
 	$('#imagenform').on('submit',(function (e){
 		e.preventDefault;
 		info = new FormData(this);
@@ -275,7 +251,7 @@ $(document).ready(function(){
 		if(foto==1) {
 			$.ajax({
 				type: "POST",
-				url: "./procesar_imagen.php",
+				url: "./controller/procesar_imagen.php",
 				data: info,
 				enctype: 'multipart/form-data',
 				contentType: false,
@@ -296,7 +272,7 @@ $(document).ready(function(){
 			$.ajax({
 
 					type: "POST",
-					url: "./procesar-dashboard-agencia.php",
+					url: "./controller/procesar-dashboard-agencia.php",
 					data: info,
 					enctype: 'multipart/form-data',
 					contentType: false,
@@ -312,6 +288,7 @@ $(document).ready(function(){
 		return false;
 	}));
 	
+	//formulario de cambio de imagen en header-ipe.php
 	$('#imagenform-ipe').on('submit',(function (e){
 		e.preventDefault;
 		info = new FormData(this);
@@ -330,7 +307,7 @@ $(document).ready(function(){
 		if(foto==1) {
 			$.ajax({
 				type: "POST",
-				url: "./procesar_imagen.php",
+				url: "./controller/procesar_imagen.php",
 				data: info,
 				enctype: 'multipart/form-data',
 				contentType: false,
@@ -350,7 +327,7 @@ $(document).ready(function(){
 		else{
 			$.ajax({
 					type: "POST",
-					url: "./procesar-dashboard-ipe.php",
+					url: "./controller/procesar-dashboard-ipe.php",
 					data: info,
 					enctype: 'multipart/form-data',
 					contentType: false,
@@ -370,7 +347,7 @@ $(document).ready(function(){
 		return false;
 	}));
 
-	//FORMULARIO DE AGENCIAS
+	//formulario para agencia con registro por red social formulario-agencia.php
 	$('#formulario_agencias_rs').on('submit',function(e){
 		e.preventDefault();
 		if($("#telefono1nuevo").val().length > 7 && $("#telefono2nuevo").val().length > 7){
@@ -399,7 +376,7 @@ $(document).ready(function(){
 
 	});
 
-
+	//envio de formulario para envio de url a campañas desde ipe procesar_mostrar_campanas_en_ipe.php
 	$('.enviar_url').click(function(){
 			var rrss_id = $(this).prevAll('input').attr('id');
 			var campana_id = $(this).closest(".ingresar_urls").attr('id');
@@ -409,7 +386,7 @@ $(document).ready(function(){
 				if(descripcion_rrss=='googleplus'||descripcion_rrss=='facebook'||descripcion_rrss=='twitter'||descripcion_rrss=='youtube'||descripcion_rrss=='instagram'&&url.length>0){
 					$.ajax({
 						type: "POST",
-						url: "./procesar_url.php",
+						url: "./controller/procesar_url.php",
 						data: "rrss_id="+rrss_id+"&campana_id="+campana_id+"&url="+url+"&descripcion_rrss="+descripcion_rrss,
 						success: function(data){
 							console.log(data);
@@ -427,6 +404,329 @@ $(document).ready(function(){
 				}
 		//})
 	});
+/*
+		$('#enviar_url').click(function(){
+		if(descripcion_rrss='googleplus'){
+			var resultado;
+			$('.rrss input').each(function(){
+			var rrss_id = $(this).attr('id');
+			var campana_id = $(this).closest(".ingresar_urls").attr("id");
+			var url = $(this).val();
+			var descripcion_rrss=$(this).closest(".rrss").attr("name");
+			//console.log(rrss_id+"-"+campana_id+"-"+url+"-"+descripcion_rrss);
+			
+				if(url.indexOf(rrss_id)>0){
+					enviar_url_verificada(rrss_id,campana_id,url,descripcion_rrss);
+
+				}else{
+					alert('la url no corresponde');
+				}
+			})
+		}			
+	});
+*/
+	//boton para activación de campana campana.php
+	$(".activar-campana").click(function (){
+		var idActualizar = this.id;
+		var idEstado = this.type;
+		var tipo = "activar";
+		var fecha_termino = $("#"+idActualizar+" .campa-ico .fecha_termino").val();
+			$.ajax({
+				type: "POST",
+				url: "./controller/procesar_eliminar-campana.php",
+				data: "idActualizar="+idActualizar+"&idEstado="+idEstado+"&tipo="+tipo+"&fecha_termino="+fecha_termino,
+				success: function(data){
+					window.location.reload();
+				}
+			});
+	});
+
+	//boton para eliminación de campana campana.php
+	$(".btneliminar").click(function (){
+		var idEliminar = this.id;
+		var tipo = "eliminar";
+		$(".alertElim").fadeIn("normal",function(){
+			$("#boxElim .hrefCamp h2").text("Estas a punto de eliminar la campaña");
+			animaTrash();
+			setInterval(function(){
+				animaTrash();
+			},2800);
+			//$("#boxElim .hrefCamp i").addClass("fa-trash-o");
+			$("#boxElim .hrefCamp p").text("Si eliminas tu campaña, pederas tus datos sin posibilidad de recuperarlos.");
+			$(".siElim").text("eliminar campaña");
+			$(".noElim").text("volver");
+			$("#boxElim").show().animate({
+				top:"20%",
+				opacity:1
+			},{duration:1500,easing:"easeOutBounce"});
+			$(".siElim").on("click",function(){
+				$.ajax({
+					type: "POST",
+					url: "./controller/procesar_eliminar-campana.php",
+					data: "idEliminar="+idEliminar+"&tipo="+tipo,
+					success: function(data){
+						window.location.reload();
+					}
+				});
+			});
+			$(".noElim").on("click",function(){
+				$("#boxElim").animate({
+					top:"-100px",
+					opacity:0
+				},{duration:500,easing:"easeInOutQuint",complete:function(){
+					$(".alertElim").fadeOut("fast");
+					$(this).hide();
+				}});
+			});
+		});
+		return false;
+	});
+	
+	//activación y desactivación de red social en procesar_mostrar_followers.php
+	$(".estado_rs").click(function(){
+	    if(this.value == "analytics"){
+	        var id_activar_rs = this.id;
+	        var tipo = "activar_rs2";
+	        var estado =parseInt(this.name);
+	        $.ajax({
+	          type: "POST",
+	          url: "./rrss/procesar_activar_rs.php",
+	          data: "id_activar_rs="+id_activar_rs+"&estado="+estado+"&tipo="+tipo,
+	          success: function(data){
+	            window.location.reload("dashboard-ipe.php#fragment-2");
+	          }
+	        });
+
+	    }else{
+	        var id_activar_rs = this.id;
+	        var tipo = "activar_rs";
+	        var estado =parseInt(this.name);
+	        $.ajax({
+	          type: "POST",
+	          url: "./rrss/procesar_activar_rs.php",
+	          data: "id_activar_rs="+id_activar_rs+"&estado="+estado+"&tipo="+tipo,
+	          success: function(data){
+	            window.location.reload();
+	          }
+	        });
+	    }
+
+	 });
+	//eliminar red social en procesar_mostrar_followers.php
+    $(".elimina").click(function(){
+       id_rrss = $(this).attr("name");
+       tipo="desactivar";
+       $.ajax({
+              type: "POST",
+              url: "./rrss/procesar_activar_rs.php",
+              data: "id_rrss="+id_rrss+"&tipo="+tipo,
+              success: function(data){
+                alert("cuenta desvinculada");
+                window.location.reload();
+              }
+            });
+    });
+
+    //controller para dashboard-agencia.php
+	$(".volver, .recientes .content").hide();
+	$(".recientes .content").hide();
+	 if(document.documentElement.clientWidth >= 1024){
+        $(".ver-mas").on("click",function(event){
+            $(".bg-campana, .ver-mas, .sub-titulo").fadeOut();
+            $(".dashboard-agencia").animate({backgroundColor:"#eeeef0"},{duration:1000, 
+                complete:function(){
+
+                    $(".recientes, .cont-campana").css("width","100%");
+                }
+            });
+
+            $(this).siblings(".content").delay(1005).slideToggle();
+            $(this).siblings(".reach-campana, .reach-campana .sub-titulo").delay(1010).fadeIn();
+        });
+    }else{
+        $(".ver-mas").on("click",function(event){
+            $(this).siblings(".content").slideToggle();
+            $(this).find("i").toggleClass("fa-angle-up fa-angle-down");
+            $("html,body").animate({scrollTop : $(this).siblings(".bg-campana").offset().top},1000);
+        });
+    }
+
+	$(".content .btn_close").on("click",function(){
+			$(this).closest(".content").fadeOut();
+            $(".reach-campana, .reach-campana .sub-titulo").delay(100).fadeOut();
+			if(document.documentElement.clientWidth >= 1024){
+				$(".dashboard-agencia").animate({backgroundColor:"#fff"},{duration:1000,complete:function(){
+                
+                    $(".recientes, .cont-campana").removeAttr("style","");
+				    $(".bg-campana, .ver-mas, .sub-titulo").delay(800).fadeIn();
+                }});
+				$(".ver-mas").find("i").addClass("fa-plus");
+			}
+	});
+
+	//boton cotización de influenciador en influenciador-publico.php
+	$("#cotizar_influenciador").click(function(){
+		var influenciadores_cotizados="";
+		var influenciadores_cotizados_nombre ="";
+		$("input:checked").each(function() {
+			influenciadores_cotizados += this.value +",";
+			influenciadores_cotizados_nombre += this.name +",";
+		});
+		var largo_string_influenciadores = influenciadores_cotizados.length - 1;
+		var influenciadores_cotizados = influenciadores_cotizados.substring(0,largo_string_influenciadores);
+		var array_id_influenciadores_seleccionados= influenciadores_cotizados.split(",");
+		var array_nombre_influenciadores_seleccionados = influenciadores_cotizados_nombre.split(",");
+		var agencia = "'.$_SESSION["nombre"].'";
+		var correo_agencia = "'.$_SESSION["correo"].'";
+		var influenciador = this.name;
+		var campana = $("#campanas-postulables option:selected").val();
+		var id_campana = $("#campanas-postulables option:selected").attr("value");
+		var tipo ="perfiles";
+		if(campana =="Seleccione campaña") campana = "Sin especificar";
+		for(var i=0; i<array_id_influenciadores_seleccionados.length; i++){
+			var influenciador_id=array_id_influenciadores_seleccionados[i];
+			var influenciador= array_nombre_influenciadores_seleccionados[i];
+			$.ajax({
+				type: "POST",
+				url: "controller/contactar.php",
+				data: "agencia="+agencia+"&correo_agencia="+correo_agencia+"&influenciador="+influenciador+"&influenciador_id="+influenciador_id+"&campana="+campana+"&id_campana="+id_campana+"&tipo="+tipo,
+				success: function(data){
+					$(".boton_cotizar").show();
+				$("input:checkbox").removeAttr("checked");
+
+					
+				}
+			});
+
+		}
+		if(array_id_influenciadores_seleccionados.length == 1 ){
+			$(".alertElim").fadeIn("normal",function(){
+				$("#boxElim .hrefCamp h2").text("Influenciador agregado");
+				$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
+				$("#boxElim .hrefCamp p").text("La cotizacion ha sido exitosa, puedes seguir creando mas campañas y cotizar Influenciadores.");
+				$(".siElim").text("Ir a campañas");
+				$(".noElim").text("Ver Influenciadores");
+
+				$("#boxElim").show().animate({
+					top:"20%",
+					opacity:1
+				},{duration:1500,easing:"easeOutBounce"});
+
+				$(".siElim").on("click",function(){
+
+					window.location.href = "campana.php";
+				});
+
+				$(".noElim").on("click",function(){
+					$("#boxElim").animate({
+						top:"-100px",
+						opacity:0
+					},{duration:500,easing:"easeInOutQuint",complete:function(){
+						$(".alertElim").fadeOut("fast");
+						$(this).hide();
+					}});
+				});
+			});
+		}
+		if(array_id_influenciadores_seleccionados.length > 1 ){
+			$(".alertElim").fadeIn("normal",function(){
+				$("#boxElim .hrefCamp h2").text("Influenciador agregado");
+				$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
+				$("#boxElim .hrefCamp p").text("La cotizacion ha sido exitosa, puedes seguir creando mas campañas y cotizar Influenciadores.");
+				$(".siElim").text("Ir a campañas");
+				$(".noElim").text("Ver Influenciadores");
+
+				$("#boxElim").show().animate({
+					top:"20%",
+					opacity:1
+				},{duration:1500,easing:"easeOutBounce"});
+
+				$(".siElim").on("click",function(){
+
+					window.location.href = "campana.php";
+				});
+
+				$(".noElim").on("click",function(){
+					$("#boxElim").animate({
+						top:"-100px",
+						opacity:0
+					},{duration:500,easing:"easeInOutQuint",complete:function(){
+						$(".alertElim").fadeOut("fast");
+						$(this).hide();
+					}});
+				});
+			});
+		}
+	});
+
+	//ver resumen de redes sociales influenciador en influenciador-publico.com
+	$(".ver_perfil_influenciador").click(function(){
+		var id_form=$(this).attr("name");
+		$("#"+id_form+" .rrss").show();
+		var a = $("#"+id_form+" .access-ipe .rrss_reach").text();
+		var b = $("#"+id_form+" .access-ipe .rrss_reach span:last-child").text();
+		$("#"+id_form+" .ver_perfil_influenciador").hide();
+		$("#"+id_form+" .volver_ver_perfil_influenciador").show();
+	});
+
+	//volver desde resumen de redes sociales influenciador a la vista general en influenciador-publico.com
+	$(".volver_ver_perfil_influenciador").click(function(){
+		var id_form=$(this).attr("name");
+		$("#"+id_form+" .rrss").hide();
+		$("#"+id_form+" .access-ipe div:first-child").remove();
+		$("#"+id_form+" .access-ipe .rrss_reach").show();
+		$("#"+id_form+" .ver_perfil_influenciador").show();
+		$("#"+id_form+" .volver_ver_perfil_influenciador").hide();
+	});
+
+	/*
+	$('#ingresar').on('click', function(){
+		var usu= $('#usu').val();
+		var pass= $('#pass').val();
+		var url='./controller/procesar_login.php';
+		var total = usu.length*pass.length;
+		if (total>0){
+			$.ajax({
+			type: 'POST',
+			url: url,
+			data: 'usu='+usu+'&pass='+pass,
+
+			
+			 success:function(valor){
+				if(valor == 'usuario'){
+					$('#mensaje').html('La contraseña o usuario ingresados no existe');
+					$('#username-antiguo').focus();
+					return false;
+				}else if (valor == 'password'){
+					$('#mensaje').html('La contraseña o usuario ingresados no existe');
+					$('#contraseña-antiguo').focus();
+					return false;
+				}else if(valor == 'activo'){
+				$('#mensaje').html('Usuario inactivo');
+				$('#username-antiguo').focus();
+
+				}else {
+				//redireccionar según idTipo de usuario
+				$('#mensaje').html('paso por todas las validaciones');
+				}
+			 },
+			 
+			 error: function(xhr, textStatus, error){
+				console.log(xhr.statusText);
+				console.log(textStatus);
+				console.log(error);
+			 }
+			
+
+			});
+			}else{
+			$('#mensaje').html('Complete todos los campos');
+			}
+
+		})*/
+
+
+
 });
 
 //INICIO FUNCTIONS
@@ -962,22 +1262,4 @@ function checkPasswordMatchIpe() {
 		$('#divCheckPasswordMatchIpe').html('');
 		$('#registrarse').removeAttr('disabled');
 	}
-}
-function phone1LengthIpe(){
-	var tel1 = $('#telefono1nuevoIpe').val();
-	var tel2 = $('#telefono2nuevoIpe').val();
-	$('#registrarseIpe').attr('disabled','disabled');
-	if (tel1.length > 7 && tel2.length > 7)
-		$('#registrarseIpe').removeAttr('disabled');
-	else
-		$('#registrarseIpe').attr('disabled','disabled');
-}
-function phone2LengthIpe(){
-	var tel1 = $('#telefono1nuevoIpe').val();
-	var tel2 = $('#telefono2nuevoIpe').val();
-	$('#registrarseIpe').attr('disabled','disabled');
-	if (tel1.length > 7 && tel2.length > 7)
-		$('#registrarseIpe').removeAttr('disabled');
-	else
-		$('#registrarseIpe').attr('disabled','disabled');
 }

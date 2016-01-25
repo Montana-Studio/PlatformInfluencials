@@ -78,7 +78,7 @@
 		checkLoginState(function(response){
 			if(!response){ //no esta conectado callback false
 			if( navigator.userAgent.match('CriOS') ){
-   			 window.open('https://www.facebook.com/dialog/oauth?client_id='+app_id+'&scope='+scopes+'&redirect_uri=http://powerinfluencer.com/app','', null);
+   			 window.open('https://www.facebook.com/dialog/oauth?client_id='+app_id+'&scope='+scopes+'&redirect_uri=http://www.powerinfluencer.com/app/','', null);
    			 getFacebookPages();
 			}else{
 					FB.login(function (response){
@@ -113,7 +113,7 @@
 		facebookCorreo=response.email;
 			$.ajax({
 		            type: "POST",
-		            url: "./procesar_facebook.php",
+		            url: "./controller/procesar_facebook.php",
 		            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id+"&tipo="+document.getElementById('tipoCliente').getAttribute('value'),
 
 		            success: function(data){
@@ -128,9 +128,11 @@
 			FB.api(
 			    "/me/accounts", { locale: 'en_US', fields: 'name' },
 			    function (response) {
+			    	console.log(response);
 			        for(var i=0; i<=response.data.length-1;i++){
 			        	if(i==response.data.length-1){
 			        		var facebook_page_id = response.data[i].id;
+
 			        		facebookUser=response.name;
 			        	   $.ajax({
 					            type: "POST",

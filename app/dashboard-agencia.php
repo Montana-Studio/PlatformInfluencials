@@ -9,43 +9,7 @@ if ((int)$row[0] > 0){ ?>
 
 				$(document).ready(function(){
 
-					$(".volver, .recientes .content").hide();
 
-					$(".recientes .content").hide();
-
-					 if(document.documentElement.clientWidth >= 1024){
-                        $(".ver-mas").on("click",function(event){
-                            $(".bg-campana, .ver-mas, .sub-titulo").fadeOut();
-                            $(".dashboard-agencia").animate({backgroundColor:"#eeeef0"},{duration:1000, 
-                                complete:function(){
-
-                                    $(".recientes, .cont-campana").css("width","100%");
-                                }
-                            });
-
-                            $(this).siblings(".content").delay(1005).slideToggle();
-                            $(this).siblings(".reach-campana, .reach-campana .sub-titulo").delay(1010).fadeIn();
-                        });
-                    }else{
-                        $(".ver-mas").on("click",function(event){
-                            $(this).siblings(".content").slideToggle();
-                            $(this).find("i").toggleClass("fa-angle-up fa-angle-down");
-                            $("html,body").animate({scrollTop : $(this).siblings(".bg-campana").offset().top},1000);
-                        });
-                    }
-
-					$(".content .btn_close").on("click",function(){
-							$(this).closest(".content").fadeOut();
-                            $(".reach-campana, .reach-campana .sub-titulo").delay(100).fadeOut();
-							if(document.documentElement.clientWidth >= 1024){
-								$(".dashboard-agencia").animate({backgroundColor:"#fff"},{duration:1000,complete:function(){
-                                
-                                    $(".recientes, .cont-campana").removeAttr("style","");
-								    $(".bg-campana, .ver-mas, .sub-titulo").delay(800).fadeIn();
-                                }});
-								$(".ver-mas").find("i").addClass("fa-plus");
-							}
-					});
 
 				});
 
