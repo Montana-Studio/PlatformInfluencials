@@ -36,7 +36,7 @@
 
                                 <div class="ver-mas">
                                     <span>
-                                        <i class="fa"></i>
+                                        <i class="pi"></i>
                                     </span>
                                 </div>
                                 <div class="content">
@@ -311,13 +311,15 @@
                                         <input  placeholder="by '.$row6[4].'" disabled />
                                     </div>
 
-                                    <span class="campa-ico"><i class="pi pi-calendar"> Inicio'.$row6[7].'- Término '.$row6[8].'</i></span>
+                                    <span class="campa-ico">
+                                        Inicio <i class="pi pi-calendar">'.$row6[7].'- Término '.$row6[8].'</i>
+                                    </span>
                                     <div id="'.$row6[0].'">
                                         <textarea placeholder="descripcion" disabled>'.$row6[2].'</textarea>
                                     </div>
 
-                                <div>
-                                        <!--img src="'.$row6[3].'"/-->
+                                <div class="img-compana-deskt hide">
+                                    <img src="'.$row6[3].'"/>
                                 </div>
                             </div>
                         </div>
@@ -355,20 +357,24 @@
                                         <input  placeholder="by '.$row5[4].'" disabled />
                                     </div>
 
-                                    <span><i class="pi pi-calendar"> Inicio'.$row5[7].'- Término '.$row5[8].'</i></span>
+                                    <span>Inicio <i class="pi pi-calendar">'.$row5[7].'- Término '.$row5[8].'</i></span>
                                     <div id="'.$row5[0].'">
                                         <textarea placeholder="descripcion" disabled>'.$row5[2].'</textarea>
                                     </div>
-
+                                    
+                                    <div class="img-compana-deskt hide">
+                                        <img src="'.$row5[3].'"/>
+                                    </div>
+                                
                                     <div id="ingresar_urls">
                                     <h3>URLs marcadas</h3>';
-                                    $rrss_list = explode(",",$row5[11]);
-                                    $i=0;
-                                    do{
-                                    $campanas_historial .= $rrss_list[$i].'<!--input/--></br/>';
-                                    $i++;
-                                    }while($i<count($rrss_list)-1);
-                                    $campanas_historial .= '
+                                        $rrss_list = explode(",",$row5[11]);
+                                        $i=0;
+                                        do{
+                                        $campanas_historial .= $rrss_list[$i].'<!--input/--></br/>';
+                                        $i++;
+                                        }while($i<count($rrss_list)-1);
+                                        $campanas_historial .= '
                                     </div>
 
                             </div>
