@@ -15,12 +15,12 @@
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<meta name="theme-color" content="#2c327c">
 			<title></title>
-			<link rel="apple-touch-icon-precomposed" sizes="57x57" href="img/apple-touch-icon-57x57.png" />
-			<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114x114.png" />
-			<link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72x72.png" />
-			<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144x144.png" />
-			<link rel="apple-touch-icon-precomposed" sizes="120x120" href="img/apple-touch-icon-120x120.png" />
-			<link rel="apple-touch-icon-precomposed" sizes="152x152" href="img/apple-touch-icon-152x152.png" />
+			<link rel="apple-touch-icon-precomposed" sizes="57x57" href="./img/apple-touch-icon-57x57.png" />
+			<link rel="apple-touch-icon-precomposed" sizes="114x114" href="./img/apple-touch-icon-114x114.png" />
+			<link rel="apple-touch-icon-precomposed" sizes="72x72" href="./img/apple-touch-icon-72x72.png" />
+			<link rel="apple-touch-icon-precomposed" sizes="144x144" href="./img/apple-touch-icon-144x144.png" />
+			<link rel="apple-touch-icon-precomposed" sizes="120x120" href="./img/apple-touch-icon-120x120.png" />
+			<link rel="apple-touch-icon-precomposed" sizes="152x152" href="./img/apple-touch-icon-152x152.png" />
 			<link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32" />
 			<link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16" />
 			<meta name="application-name" content="Power Influencer"/>
@@ -30,8 +30,8 @@
 			<link rel="stylesheet" href="css/platform_influencials.css">
 			<link rel="stylesheet" href="css/font-awesome.min.css">
 
-			<script type="text/javascript" src="js/jquery.min.js"></script>
-			<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+			<script type="text/javascript" src="./js/jquery.min.js"></script>
+			<script type="text/javascript" src="./js/jquery-ui.min.js"></script>
 			<script async src="https://www.google.com/jsapi"></script>
             <script>
               (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
@@ -45,6 +45,47 @@
             </script>
 		</head>
 		<body>';
+    }
+
+    function muestra_header_influenciador_publico(){
+    	echo '<!DOCTYPE html>
+		<html lang="es">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<meta name="theme-color" content="#2c327c">
+			<title></title>
+			<link rel="apple-touch-icon-precomposed" sizes="57x57" href="./img/apple-touch-icon-57x57.png" />
+			<link rel="apple-touch-icon-precomposed" sizes="114x114" href="./img/apple-touch-icon-114x114.png" />
+			<link rel="apple-touch-icon-precomposed" sizes="72x72" href="./img/apple-touch-icon-72x72.png" />
+			<link rel="apple-touch-icon-precomposed" sizes="144x144" href="./img/apple-touch-icon-144x144.png" />
+			<link rel="apple-touch-icon-precomposed" sizes="120x120" href="./img/apple-touch-icon-120x120.png" />
+			<link rel="apple-touch-icon-precomposed" sizes="152x152" href="./img/apple-touch-icon-152x152.png" />
+			<link rel="icon" type="image/png" href="../../img/favicon-32x32.png" sizes="32x32" />
+			<link rel="icon" type="image/png" href="../../img/favicon-16x16.png" sizes="16x16" />
+			<meta name="application-name" content="Power Influencer"/>
+			<meta name="msapplication-TileColor" content="#FFFFFF" />
+			<meta name="msapplication-TileImage" content="./img/mstile-144x144.png" />
+			
+			<link rel="stylesheet" href="../../css/platform_influencials.css">
+			<link rel="stylesheet" href="../../css/font-awesome.min.css">
+
+			<script type="text/javascript" src="../../js/jquery.min.js"></script>
+			<script type="text/javascript" src="../../js/jquery-ui.min.js"></script>
+			<script async src="https://www.google.com/jsapi"></script>
+            <script>
+              (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,"script","//www.google-analytics.com/analytics.js","ga");
+
+              ga("create", "UA-45276685-8", "auto");
+              ga("send", "pageview");
+
+            </script>
+		</head>
+		<body>';
+
     }
 	if(basename($_SERVER['PHP_SELF'])=='dashboard-agencia.php'){
 		if(isset($_SESSION['telefono1'])==false){
@@ -161,7 +202,7 @@
                             var id_influenciador=this.id;
                             var campana_seleccionada=$('#campana_seleccionada option:selected').attr('id');
                             //console.log(campana_seleccionada);
-                            window.location.replace('perfil_influenciador_publico?campana='+campana_seleccionada+'&id='+id_influenciador);
+                            window.location.replace('perfil/'+campana_seleccionada+'/'+id_influenciador);
                         });
                     });
 				</script>";
@@ -303,7 +344,7 @@
 			$result= mysqli_query($mysqli,$query)or die(mysqli_error($mysqli));
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
 			$num_rows= mysqli_num_rows($result);
-			muestra_header();
+			muestra_header_influenciador_publico();
             echo "<script>
                     jQuery(document).ready(function(){
 						$('title').append('Power Influencer - ".$_SESSION['nombre']."');
@@ -488,7 +529,9 @@
 			}
 	}
 ?>
-
+<?php
+	if(basename($_SERVER['PHP_SELF'])!='perfil_influenciador_publico.php'){
+?>
 <header>
 
 	<div class="logo"><a href="./dashboard-agencia" target="_top"></a></div>
@@ -507,9 +550,9 @@
 		echo '<nav>
 				<ul>
 					<li><i onClick="backHistory()" class="pi pi-arrow-left"></i></li>
-					<li><a href="campana"><i class="pi pi-suitcase"></i> campañas</a></li>
-					<li id="nuevaCampain"><a href="nueva-campana"><i class="pi pi-plus"></i> crear campañas</a></li>
-					<li><a href="influenciador-publico"><i class="pi pi-user"></i> influencers</a></li>
+					<li><a href="campanas"><i class="pi pi-suitcase"></i> campañas</a></li>
+					<li id="nuevaCampain"><a href="crear-campana"><i class="pi pi-plus"></i> crear campañas</a></li>
+					<li><a href="influenciadores"><i class="pi pi-user"></i> influencers</a></li>
 				</ul>
 			</nav>';
 	}
@@ -598,3 +641,112 @@
 
 	<div class="btn_close"><span><i class="pi pi-close"></i></span></div>
 </form>
+<?php 
+
+}else{
+
+?>
+<header>
+
+	<div class="logo"><a href="./dashboard-agencia" target="_top"></a></div>
+	<div class="menu" style="background-image:url(<?php echo "../.".$_SESSION['pictureUrl'];?>);"></div>
+	
+	<a href="#" class="notes" ><i class="pi pi-bell"></i></a>
+	<a href="#" class="ayuda_pi"><i class="pi pi-help"></i></a>
+</header>
+<form id="imagenform">
+
+	<div class="fle-top"></div>
+
+	<div class="misdatos">
+
+		<div class="imagen" style="background-image:url(<?php echo "../.".$_SESSION['pictureUrl'];?>);">
+
+			<input type="file" name="file" id="file" class="hide"/>
+			<label class="selectFile" for="file"><i class="pi pi-pencil"></i></label>
+
+		</div>
+
+		<div class="datos">
+
+			<h2><?php echo $_SESSION['nombre']; ?></h2>
+			<h3><?php echo $_SESSION['empresa']; ?></h3>
+
+			<div class="editar"><span>editar perfil</span></div>
+
+		</div>
+
+		<div class="alert-uploadready" style="display:none;"><i class="fa fa-cloud-upload"></i>Imagen seleccionada con exito!</div>
+
+	</div>
+
+	<div id="inicio">
+
+		<div id="tabContainer">
+
+			<ul id="tabs">
+				<li id="tabHeader_1" class="clickTab">Perfil Personales</li>
+				<li id="tabHeader_2" class="clickTab">Datos Empresa</li>
+			</ul>
+
+			<div id="tabscontent">
+
+				<div class="tabpage tab-hide" id="tabpage_1">
+
+					<div id="nombre">
+						<small>nombre</small>
+						<input value="<?php echo $_SESSION['nombre']; ?>" disabled>
+						<i class="pi pi-pencil"></i>
+					</div>
+					<div id="correo">
+						<small>correo</small>
+						<input value="<?php echo $_SESSION['correo']; ?>" disabled>
+					</div>
+
+				</div>
+
+				<div class="tabpage tab-hide" id="tabpage_2">
+
+					<div id="empresa">
+						<small>empresa</small>
+						<input value="<?php echo $_SESSION['empresa']; ?>" disabled>
+						<i class="pi pi-pencil"></i>
+					</div>
+					<div id="tel1">
+						<small>tel. empresa</small>
+						<input type="text"  onkeypress="return valida(event)" maxlength="11" value="<?php echo $_SESSION['telefono1']; ?>" disabled>
+						<i class="pi pi-pencil"></i>
+					</div>
+					<div id="tel2">
+						<small>tel. personal</small>
+						<input type="text"  onkeypress="return valida(event)" maxlength="11" value="<?php echo $_SESSION['telefono2']; ?>" disabled>
+						<i class="pi pi-pencil"></i>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="cancel-data">Cancelar</div>
+
+		<button id="guardarFacturacion" type="submit">Guardar cambios</button>
+
+		<a href="../../controller/logout.php" class="logout"><i class="pi pi-singout"></i> cerrar sesion</a>
+	</div>
+
+	<div class="btn_close"><span><i class="pi pi-close"></i></span></div>
+</form>
+
+<?php
+echo '<nav>
+				<ul>
+					<li><i onClick="backHistory()" class="pi pi-arrow-left"></i></li>
+					<li><a href="../../campanas"><i class="pi pi-suitcase"></i> campañas</a></li>
+					<li id="nuevaCampain"><a href="../../crear-campana"><i class="pi pi-plus"></i> crear campañas</a></li>
+					<li><a href="../../influenciadores"><i class="pi pi-user"></i> influencers</a></li>
+				</ul>
+			</nav>';
+}
+?>

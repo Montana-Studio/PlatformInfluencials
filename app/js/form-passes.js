@@ -46,15 +46,15 @@ $(document).ready(function(){
 		var influenciador_nombre = $('#1').attr('name');
 		//var correo_agencia = "<?php echo $_SESSION['correo'];?>";
 		var url = window.location.href;
-		var url = url.split("campana=");
+		var url = url.split("/");
 		var id_campana = url[1];
-		id_campana = id_campana.split("&id=");
+		id_campana = id_campana.split("/");
 		id_campana = id_campana[0].toString();
-		id_campana = id_campana.replace(/%20/,' ');
+		id_campana = id_campana.replace(/-/g,' ');
 		var tipo="perfil_publico";
 		$.ajax({
 			type: "POST",
-			url: "controller/contactar.php",
+			url: "../../controller/contactar.php",
 			data: "influenciador_id="+influenciador_id+"&influenciador_nombre="+influenciador_nombre+"&id_campana="+id_campana+"&tipo="+tipo,
 
 			success: function(data){

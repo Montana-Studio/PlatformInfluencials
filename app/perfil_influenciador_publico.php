@@ -355,7 +355,7 @@ if($row){
   echo '
   <div id="imagenform-ipe">
   
-      <div class="header-ipe" style="background-image:url('.$row[12].');">
+      <div class="header-ipe" style="background-image:url(../.'.$row[12].');">
 
         <svg viewBox="0 0 140.341 133.52" class="mask-imguser">
             <defs>
@@ -365,7 +365,7 @@ if($row){
                 <use xlink:href="#SVGID_1_"  overflow="visible"/>
             </clipPath>
             <g clip-path="url(#SVGID_2_)">
-                <image overflow="visible" width="1280" height="720" xlink:href="'.$row[12].'" transform="matrix(0.2013 0 0 0.2013 -58.333 -5.7085)"></image>
+                <image overflow="visible" width="1280" height="720" xlink:href="../.'.$row[12].'" transform="matrix(0.2013 0 0 0.2013 -58.333 -5.7085)"></image>
             </g>
         </svg>
         <h2 id="1" name="'.$row[5].'">'.$row[5].'</h2>

@@ -22,7 +22,7 @@
 			echo '<div id="campanas-postulables">
 					<h2 class="sub-titulo">Selecciona una campaña para cotizar</h2>
 					<select id="campana_seleccionada">
-					<option value="sin_especificar">Cotizar sin campaña</option>';
+					<option value="0">Cotizar sin campaña</option>';
 			do{
 				echo '<option id="'.$row2[0].'" value="'.$row2[1].'">'.$row2[1].'</option>';
 			}while($row2 = mysqli_fetch_row($result2));

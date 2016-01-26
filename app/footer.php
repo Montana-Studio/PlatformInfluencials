@@ -138,15 +138,27 @@
 		</main>
 
 	</div>
+	<?php 
+	if(basename($_SERVER['PHP_SELF'])=='perfil_influenciador_publico.php'){
+		echo '	<script type="text/javascript" src="../../js/platform_influencials.min.js"></script>
+				<script async type="text/javascript" src="../../js/form-passes.js"></script>
+				<script type="text/javascript" src="../../js/tabs.js"></script>
+				<script async type="text/javascript" src="../../js/jquery-filestyle.min.js"></script>
 
-	<script type="text/javascript" src="js/platform_influencials.min.js"></script>
-	<script async type="text/javascript" src="js/form-passes.js"></script>
-	<script type="text/javascript" src="js/tabs.js"></script>
-	<script async type="text/javascript" src="js/jquery-filestyle.min.js"></script>
+				<script type="text/javascript" src="../../js/svg.min.js"></script>
+				<script async type="text/javascript" src="../../js/svg.easing.min.js"></script>
+				<script async>';
+	}else{
+	?>
+	<script type="text/javascript" src="./js/platform_influencials.min.js"></script>
+	<script async type="text/javascript" src="./js/form-passes.js"></script>
+	<script type="text/javascript" src="./js/tabs.js"></script>
+	<script async type="text/javascript" src="./js/jquery-filestyle.min.js"></script>
 
-	<script type="text/javascript" src="js/svg.min.js"></script>
-	<script async type="text/javascript" src="js/svg.easing.min.js"></script>
+	<script type="text/javascript" src="./js/svg.min.js"></script>
+	<script async type="text/javascript" src="./js/svg.easing.min.js"></script>
 	<script async>
+	<?php } ?>
 		//Animate SVG's
 		var icoHandLike = SVG('ico-handLike').size('100%','100%').viewbox(0, 0, 150, 150).addClass('likeHand')
 		var icoTrash = SVG('ico-trash').size('100%','100%').viewbox(50, 10.468, 29.875, 30.032).addClass('trash');

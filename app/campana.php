@@ -90,7 +90,8 @@
 				$(".ir_a_cotizar_influenciador").click(function(){
 					var campana_seleccionada=this.id;
 					var campana_seleccionada_id=this.name;
-					window.location.replace("influenciador-publico.php?campana="+campana_seleccionada+"&id_campana="+campana_seleccionada_id);
+					campana_seleccionada = campana_seleccionada.replace(/ /g,"-");
+					window.location.replace("influenciadores.php?campana="+campana_seleccionada+"&id_campana="+campana_seleccionada_id);
 				});
 			});
 		</script>';
@@ -221,7 +222,7 @@
 </div>
 <?php
 	if($num_rows == 0 && $num_rows2 == 0){
-		echo '<main class="no-campana"><a href="nueva-campana.php" class="hrefCamp"><i class="pi pi-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes crear una nueva, creala aquí.</p><div class="btn_crearcamp">crear campaña</div></a></main>';
+		echo '<main class="no-campana"><a href="crear-campana" class="hrefCamp"><i class="pi pi-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes crear una nueva, creala aquí.</p><div class="btn_crearcamp">crear campaña</div></a></main>';
 	}
 ?>
 	<div id="contacto" class="hide">

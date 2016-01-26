@@ -17,11 +17,11 @@ if($_POST['tipo']=='perfil_publico'){
     $row_nombre_influenciador= mysqli_fetch_array($result_nombre_influenciador, MYSQLI_BOTH);
     $num_row_nombre_influenciador=mysqli_num_rows($result_nombre_influenciador);
     if($num_row_nombre_influenciador>0){
-    	if($id_campana=='sin_especificar'){
-			$campana=$id_campana;
+    	if($id_campana=='0'){
+			$campana='sin_especificar';
 			$id_campana="0";
 			$asunto = "Petición de contacto - Power Influencer";
-			$mensaje = "La agencia : ".$agencia." quiere contactar a : ".$influenciador;
+			$mensaje = "La agencia : ".$agencia." quiere contactar a : ".$influenciador." para la campaña: ".$campana." (".$id_campana.")";
 			mail('mauro@mediatrends.cl', $asunto , $mensaje, null, '-f'.$correo_agencia.'');
 			$results = $mysqli->query("INSERT INTO solicitudes (agencia, correo_agencia, influenciador , correo_influenciador, id_influenciador, id_agencia, fecha_solicitud, id_campana, campana )VALUES ('$agencia', '$correo_agencia','$influenciador', '$correo_influenciador', '$influenciador_id', '$id_agencia', '$hoy' , '$id_campana', '$campana' )");
 			echo 'exito';
@@ -32,7 +32,7 @@ if($_POST['tipo']=='perfil_publico'){
 		    $num_row_nombre_campana=mysqli_num_rows($result_nombre_campana);
 		    if($num_row_nombre_campana>0){
 				$asunto = "Petición de contacto - Power Influencer";
-				$mensaje = "La agencia : ".$agencia." quiere contactar a : ".$influenciador;
+				$mensaje = "La agencia : ".$agencia." quiere contactar a : ".$influenciador." para la campaña: ".$campana." (".$id_campana.")";
 				mail('mauro@mediatrends.cl', $asunto , $mensaje, null, '-f'.$correo_agencia.'');
 				$results = $mysqli->query("INSERT INTO solicitudes (agencia, correo_agencia, influenciador , correo_influenciador, id_influenciador, id_agencia, fecha_solicitud, id_campana, campana )VALUES ('$agencia', '$correo_agencia','$influenciador', '$correo_influenciador', '$influenciador_id', '$id_agencia', '$hoy' , '$id_campana', '$campana' )");
 				echo 'exito';
@@ -67,7 +67,7 @@ if($_POST['tipo']=='perfil_publico'){
 			$campana=$id_campana;
 			$id_campana="0";
 			$asunto = "Petición de contacto - Power Influencer";
-			$mensaje = "La agencia : ".$agencia." quiere contactar a : ".$influenciador;
+			$mensaje = "La agencia : ".$agencia." quiere contactar a : ".$influenciador." para la campaña: ".$campana." (".$id_campana.")";
 			mail('mauro@mediatrends.cl', $asunto , $mensaje, null, '-f'.$correo_agencia.'');
 			$results = $mysqli->query("INSERT INTO solicitudes (agencia, correo_agencia, influenciador , correo_influenciador, id_influenciador, id_agencia, fecha_solicitud, id_campana, campana )VALUES ('$agencia', '$correo_agencia','$influenciador', '$correo_influenciador', '$influenciador_id', '$id_agencia', '$hoy' , '$id_campana', '$campana' )");
 			echo 'exito';
