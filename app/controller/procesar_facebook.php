@@ -1,5 +1,6 @@
 <?php 
- require('conexion.php');
+require('../controller/conexion.php');
+
  $tipo = (int)$_POST['tipo'];
  //$empresa = $_POST['empresa'];
 

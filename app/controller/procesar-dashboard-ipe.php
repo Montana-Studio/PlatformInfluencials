@@ -1,5 +1,6 @@
 <?php
-require('conexion.php');
+require('../controller/conexion.php');
+
 	$correo =$_POST['correo'];
 	$nombre =$_POST['nombre'];
 	$comuna= $_POST['comuna'];

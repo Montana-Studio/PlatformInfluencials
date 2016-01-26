@@ -1,5 +1,5 @@
 <?php 
-require('conexion.php');
+require('../controller/conexion.php');
 $nombre =$_POST['nombre'];
 $marca =$_POST['marca'];
 $descripcion =$_POST['descripcion'];

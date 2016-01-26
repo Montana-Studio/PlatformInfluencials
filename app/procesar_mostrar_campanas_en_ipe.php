@@ -14,7 +14,7 @@
     if($num_row2>0){
         
 
-        do{	
+        do{ 
             $query3="SELECT DISTINCT * FROM campana WHERE id=".$row2[0]." AND idEstado='1' AND  fecha_inicio_server <= date(now())";
             $result3=mysqli_query($mysqli,$query3)or die (mysqli_error());
             $row3= mysqli_fetch_array($result3, MYSQLI_BOTH);
@@ -100,7 +100,7 @@
                                                             <span>['.$facebookWebsite.']</span>
                                                             <input id="'.$row4[3].'" name="facebook" class="social"/>
                                                             <button class="enviar_url" class="btns">Enviar URL</button>
-                                                        </div>';				
+                                                        </div>';                
                                                     }
                                                 }
                                                 if($row4[2]=='instagram'){
@@ -268,7 +268,7 @@
                                                         </div>';
                                                     }
                                                 }
-                                            }while($row9 = mysqli_fetch_array($result9));	
+                                            }while($row9 = mysqli_fetch_array($result9));   
                                             $i++;
                                         }while($i<count($rrss_list));
 

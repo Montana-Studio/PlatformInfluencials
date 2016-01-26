@@ -159,9 +159,9 @@
 						$('body').addClass('influenciador-publico');
 						$('.perfil_influenciador').click(function(){
                             var id_influenciador=this.id;
-                            var campana_seleccionada=$('#campana_seleccionada option:selected').attr('value');
+                            var campana_seleccionada=$('#campana_seleccionada option:selected').attr('id');
                             //console.log(campana_seleccionada);
-                            window.location.replace('perfil_influenciador_publico?id='+id_influenciador+'&campana='+campana_seleccionada);
+                            window.location.replace('perfil_influenciador_publico?campana='+campana_seleccionada+'&id='+id_influenciador);
                         });
                     });
 				</script>";
@@ -593,7 +593,7 @@
 
 		<button id="guardarFacturacion" type="submit">Guardar cambios</button>
 
-		<a href="logout" class="logout"><i class="pi pi-singout"></i> cerrar sesion</a>
+		<a href="controller/logout.php" class="logout"><i class="pi pi-singout"></i> cerrar sesion</a>
 	</div>
 
 	<div class="btn_close"><span><i class="pi pi-close"></i></span></div>

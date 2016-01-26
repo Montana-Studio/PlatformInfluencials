@@ -9,14 +9,15 @@ $(document).ready(function(){
 
 	//login de ingreso (agencia-ipe)
 	$('#ingresar').click(function(){
-		correo=$('#correo').val();
-		password=$('#password').val();
+		var correo=$('#correo').val();
+		var password=$('#password').val();
 		$.ajax({
 			type: "POST",
-			url: ".controller/procesar_login.php",
+			url: "./controller/procesar_login.php",
 			data: "correo="+correo+"&pwd="+password,
 
 			success: function(data){
+				console.log(data);
 					switch (data){
 					case "admin": window.location.href= "./dashboard-admin";
 					break;
@@ -46,7 +47,10 @@ $(document).ready(function(){
 		//var correo_agencia = "<?php echo $_SESSION['correo'];?>";
 		var url = window.location.href;
 		var url = url.split("campana=");
-		id_campana = url[1];
+		var id_campana = url[1];
+		id_campana = id_campana.split("&id=");
+		id_campana = id_campana[0].toString();
+		id_campana = id_campana.replace(/%20/,' ');
 		var tipo="perfil_publico";
 		$.ajax({
 			type: "POST",
@@ -54,6 +58,7 @@ $(document).ready(function(){
 			data: "influenciador_id="+influenciador_id+"&influenciador_nombre="+influenciador_nombre+"&id_campana="+id_campana+"&tipo="+tipo,
 
 			success: function(data){
+				console.log("influenciador_id="+influenciador_id+"&influenciador_nombre="+influenciador_nombre+"&id_campana="+id_campana+"&tipo="+tipo);
 					switch (data){
 						case "exito": cotizacion_personal_ok();
 						break;
@@ -563,101 +568,7 @@ $(document).ready(function(){
 				$(".ver-mas").find("i").addClass("fa-plus");
 			}
 	});
-
-	//boton cotización de influenciador en influenciador-publico.php
-	$("#cotizar_influenciador").click(function(){
-		var influenciadores_cotizados="";
-		var influenciadores_cotizados_nombre ="";
-		$("input:checked").each(function() {
-			influenciadores_cotizados += this.value +",";
-			influenciadores_cotizados_nombre += this.name +",";
-		});
-		var largo_string_influenciadores = influenciadores_cotizados.length - 1;
-		var influenciadores_cotizados = influenciadores_cotizados.substring(0,largo_string_influenciadores);
-		var array_id_influenciadores_seleccionados= influenciadores_cotizados.split(",");
-		var array_nombre_influenciadores_seleccionados = influenciadores_cotizados_nombre.split(",");
-		var agencia = "'.$_SESSION["nombre"].'";
-		var correo_agencia = "'.$_SESSION["correo"].'";
-		var influenciador = this.name;
-		var campana = $("#campanas-postulables option:selected").val();
-		var id_campana = $("#campanas-postulables option:selected").attr("value");
-		var tipo ="perfiles";
-		if(campana =="Seleccione campaña") campana = "Sin especificar";
-		for(var i=0; i<array_id_influenciadores_seleccionados.length; i++){
-			var influenciador_id=array_id_influenciadores_seleccionados[i];
-			var influenciador= array_nombre_influenciadores_seleccionados[i];
-			$.ajax({
-				type: "POST",
-				url: "controller/contactar.php",
-				data: "agencia="+agencia+"&correo_agencia="+correo_agencia+"&influenciador="+influenciador+"&influenciador_id="+influenciador_id+"&campana="+campana+"&id_campana="+id_campana+"&tipo="+tipo,
-				success: function(data){
-					$(".boton_cotizar").show();
-				$("input:checkbox").removeAttr("checked");
-
-					
-				}
-			});
-
-		}
-		if(array_id_influenciadores_seleccionados.length == 1 ){
-			$(".alertElim").fadeIn("normal",function(){
-				$("#boxElim .hrefCamp h2").text("Influenciador agregado");
-				$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
-				$("#boxElim .hrefCamp p").text("La cotizacion ha sido exitosa, puedes seguir creando mas campañas y cotizar Influenciadores.");
-				$(".siElim").text("Ir a campañas");
-				$(".noElim").text("Ver Influenciadores");
-
-				$("#boxElim").show().animate({
-					top:"20%",
-					opacity:1
-				},{duration:1500,easing:"easeOutBounce"});
-
-				$(".siElim").on("click",function(){
-
-					window.location.href = "campana.php";
-				});
-
-				$(".noElim").on("click",function(){
-					$("#boxElim").animate({
-						top:"-100px",
-						opacity:0
-					},{duration:500,easing:"easeInOutQuint",complete:function(){
-						$(".alertElim").fadeOut("fast");
-						$(this).hide();
-					}});
-				});
-			});
-		}
-		if(array_id_influenciadores_seleccionados.length > 1 ){
-			$(".alertElim").fadeIn("normal",function(){
-				$("#boxElim .hrefCamp h2").text("Influenciador agregado");
-				$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
-				$("#boxElim .hrefCamp p").text("La cotizacion ha sido exitosa, puedes seguir creando mas campañas y cotizar Influenciadores.");
-				$(".siElim").text("Ir a campañas");
-				$(".noElim").text("Ver Influenciadores");
-
-				$("#boxElim").show().animate({
-					top:"20%",
-					opacity:1
-				},{duration:1500,easing:"easeOutBounce"});
-
-				$(".siElim").on("click",function(){
-
-					window.location.href = "campana.php";
-				});
-
-				$(".noElim").on("click",function(){
-					$("#boxElim").animate({
-						top:"-100px",
-						opacity:0
-					},{duration:500,easing:"easeInOutQuint",complete:function(){
-						$(".alertElim").fadeOut("fast");
-						$(this).hide();
-					}});
-				});
-			});
-		}
-	});
+	
 
 	//ver resumen de redes sociales influenciador en influenciador-publico.com
 	$(".ver_perfil_influenciador").click(function(){

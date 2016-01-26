@@ -384,7 +384,7 @@ if($row){
                  </div>
                  <div class="perfil">
                      <i class="pi pi-user"></i>
-                     '.$row[3].'
+                     '.$row[2].'
                  </div>
 			  
 			</div>

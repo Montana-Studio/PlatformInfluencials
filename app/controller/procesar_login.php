@@ -1,5 +1,5 @@
 <?php
-require('conexion.php');
+require('../controller/conexion.php');
 /*
 	$username =$_POST['name'];
 	//$password =$_POST['pwd'];*/

@@ -1,5 +1,5 @@
 <?php 
- require('conexion.php');
+require('../controller/conexion.php');
 $perfil= $_POST['perfil'];
 $region= $_POST['region']; 
 $comuna= $_POST['comuna'];

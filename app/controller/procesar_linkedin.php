@@ -1,5 +1,5 @@
 <?php 
- require('conexion.php');
+require('../controller/conexion.php');
 
 	$rsid =$_POST['id'];
 	$nombre =$_POST['nombre'];

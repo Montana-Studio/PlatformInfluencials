@@ -1,5 +1,5 @@
 <?php
-	include('controller/conexion.php');
+	require('controller/conexion.php');
 
 	if(isset($_SESSION['nombre'])==false){
 		header('Location:index.php');
@@ -87,39 +87,6 @@
 				});
 			});
         }else if(data == "otro"){
-        	$(".alertElim").fadeIn("normal",function(){
-				$("#boxElim .hrefCamp h2").text("La cuenta ya existe");
-				$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
-				$("#boxElim .hrefCamp p").text("Este perfil ya se encuentra asociado a una cuenta");
-				$(".siElim").text("Ir a perfil");
-				$(".noElim").text("Continuar en Redes Sociales");
-
-				$("#boxElim").show().animate({
-					top:"20%",
-					opacity:1
-				},{duration:1500,easing:"easeOutBounce"});
-
-				$(".siElim").on("click",function(){
-
-					window.location.assign("http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-1");
-					window.location.reload();
-					
-				});
-
-				$(".noElim").on("click",function(){
-					$("#boxElim").animate({
-						top:"-100px",
-						opacity:0
-					},{duration:500,easing:"easeInOutQuint",complete:function(){
-						$(".alertElim").fadeOut("fast");
-						$(this).hide();
-						window.location.href = "http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-2";
-						
-					}});
-					
-				});
-			});
-        }else if(data == "existe"){
         	$(".alertElim").fadeIn("normal",function(){
 				$("#boxElim .hrefCamp h2").text("La cuenta ya existe");
 				$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");

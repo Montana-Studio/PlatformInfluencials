@@ -3,7 +3,55 @@
 if ((int)$row[0] > 0){ ?>
 	<?php
 		echo '
-		<h2 class="sub-titulo">resumen de campañas</h2>';
+		<h2 class="sub-titulo">resumen de campañas</h2>
+		<div class="creadas">
+			<script type="text/javascript">
+
+				$(document).ready(function(){
+
+					$(".volver, .recientes .content").hide();
+
+					$(".recientes .content").hide();
+
+					 if(document.documentElement.clientWidth >= 1024){
+                        $(".ver-mas").on("click",function(event){
+                            $(".bg-campana, .ver-mas, .sub-titulo").fadeOut();
+                            $(".dashboard-agencia").animate({backgroundColor:"#eeeef0"},{duration:1000, 
+                                complete:function(){
+
+                                    $(".recientes, .cont-campana").css("width","100%");
+                                }
+                            });
+
+                            $(this).siblings(".content").delay(1005).slideToggle();
+                            $(this).siblings(".reach-campana, .reach-campana .sub-titulo").delay(1010).fadeIn();
+                        });
+                    }else{
+                        $(".ver-mas").on("click",function(event){
+                            $(this).siblings(".content").slideToggle();
+                            $(this).find("i").toggleClass("pi-arrow-top pi-arrow-bottom");
+                            $("html,body").animate({scrollTop : $(this).siblings(".bg-campana").offset().top},1000);
+                            
+                            $(this).siblings(".reach-campana, .reach-campana .sub-titulo").delay(1010).fadeIn();
+                        });
+                    }
+
+					$(".content .btn_close").on("click",function(){
+							$(this).closest(".content").fadeOut();
+                            $(".reach-campana, .reach-campana .sub-titulo").delay(100).fadeOut();
+							if(document.documentElement.clientWidth >= 1024){
+								$(".dashboard-agencia").animate({backgroundColor:"#fff"},{duration:1000,complete:function(){
+                                
+                                    $(".recientes, .cont-campana").removeAttr("style","");
+								    $(".bg-campana, .ver-mas, .sub-titulo").delay(800).fadeIn();
+                                }});
+								$(".ver-mas").find("i").addClass("pi-plus");
+							}
+					});
+
+				});
+
+			</script>';
 			do{
 				echo '<div class="recientes">
 					<div class="cont-campana" id="imagen'.$row[0].'">

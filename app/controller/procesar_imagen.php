@@ -1,5 +1,5 @@
 <?php
- require('conexion.php');
+require('../controller/conexion.php');
 
 function valida_extension(){
 	if(isset($_FILES['file']['type'])){
@@ -24,6 +24,7 @@ function valida_extension(){
 }
 
 function compress_image($source_url, $destination_url, $quality) {
+	
 	$info = getimagesize($source_url);
 	$width=($info[0]*1024)/$info[0];
 	if ($info['mime'] == 'image/jpeg') $image = imagecreatefromjpeg($source_url);
@@ -33,18 +34,14 @@ function compress_image($source_url, $destination_url, $quality) {
  	$photoX = ImagesX($image);
 	$photoY = ImagesY($image);
 	$images_fin = ImageCreateTrueColor($width, $height);
+	$whiteBackground = imagecolorallocate($images_fin, 255, 255, 255); 
+	imagefill($images_fin,0,0,$whiteBackground); // fill the background with white
 	ImageCopyResampled($images_fin, $image, 0, 0, 0, 0, $width+1, $height+1, $photoX, $photoY);
 	//save file
 	imagejpeg($images_fin, $destination_url, $quality);
- 	
 	//return destination file
 	return $destination_url;
 }
- 
-
-// Fix Width & Heigh (Auto calculate)
-
-
 
 $rsid=$_SESSION['rsid'];
 $correo =$_SESSION['correo'];
@@ -71,21 +68,21 @@ if ($tipo == 'avatar-ipe'){
 	//$picture_url=$_SESSION['pictureUrl'];
 	if(valida_extension() == "ok"){
 		if ($a==1){ // Create directory to save the file in case of Social Login and first change on avatar image
-			if (file_exists("uploads/ipe/registered/$rsid")){ // cambio a partir de segunda vez con RS
-				$targetPath = "uploads/ipe/registered/$rsid/".$_FILES['file']['name']; // Target path where file is to be stored
-				unlink("uploads/ipe/registered/$rsid/avatar.gif");
+			if (file_exists("../uploads/ipe/registered/$rsid")){ // cambio a partir de segunda vez con RS
+				$targetPath = "../uploads/ipe/registered/$rsid/".$_FILES['file']['name']; // Target path where file is to be stored
+				unlink("../uploads/ipe/registered/$rsid/avatar.gif");
 				//move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 				compress_image($sourcePath, $targetPath, 40);
-				rename("uploads/ipe/registered/$rsid/$file", "uploads/ipe/registered/$rsid/avatar.gif");
+				rename("../uploads/ipe/registered/$rsid/$file", "../uploads/ipe/registered/$rsid/avatar.gif");
 				$results2 = $mysqli->query("UPDATE persona SET nombre='$nombre', correo='$correo', region='$region', comuna='$comuna', picture_url='uploads/ipe/registered/$rsid/avatar.gif' , descripcion='$descripcion' WHERE RS_id='$rsid'");
 				$resultado = "nuevo";
 			}else{
-				mkdir("uploads/ipe/registered/$rsid", 0777, true);
-				$targetPath = "uploads/ipe/registered/$rsid/".$_FILES['file']['name']; // Target path where file is to be stored
-				unlink("uploads/ipe/registered/$rsid/avatar.gif");
+				mkdir("../uploads/ipe/registered/$rsid", 0777, true);
+				$targetPath = "../uploads/ipe/registered/$rsid/".$_FILES['file']['name']; // Target path where file is to be stored
+				unlink("../uploads/ipe/registered/$rsid/avatar.gif");
 				//move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 				compress_image($sourcePath, $targetPath, 40);
-				rename("uploads/ipe/registered/$rsid/$file", "uploads/ipe/registered/$rsid/avatar.gif");
+				rename("../uploads/ipe/registered/$rsid/$file", "../uploads/ipe/registered/$rsid/avatar.gif");
 				$results2 = $mysqli->query("UPDATE persona SET nombre='$nombre', correo='$correo',region='$region', comuna='$comuna', picture_url='uploads/ipe/registered/$rsid/avatar.gif' , descripcion='$descripcion' WHERE RS_id='$rsid'");
 				$resultado = "nuevo";
 			}
@@ -93,12 +90,12 @@ if ($tipo == 'avatar-ipe'){
 
 		if ($a==2){// Create directory to save the file in case of Form Login and first change on avatar image
 			//echo $comuna;
-			if (file_exists("uploads/ipe/registered/$correo")){
-				$targetPath = "uploads/ipe/registered/$correo/".$_FILES['file']['name']; // Target path where file is to be stored
-				unlink("uploads/ipe/registered/$correo/avatar.gif");
+			if (file_exists("../uploads/ipe/registered/$correo")){
+				$targetPath = "../uploads/ipe/registered/$correo/".$_FILES['file']['name']; // Target path where file is to be stored
+				unlink("../uploads/ipe/registered/$correo/avatar.gif");
 				//move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 				compress_image($sourcePath, $targetPath, 40);
-				rename("uploads/ipe/registered/$correo/$file", "uploads/ipe/registered/$correo/avatar.gif");
+				rename("../uploads/ipe/registered/$correo/$file", "../uploads/ipe/registered/$correo/avatar.gif");
 				$results2 = $mysqli->query("UPDATE persona SET nombre='$nombre', region='$region', comuna='$comuna', descripcion='$descripcion' WHERE correo='$correo'");
 				$actualizaLogin = $mysqli->query("UPDATE login SET user='$nombre' WHERE correo='$correo'");
 				//echo "UPDATE persona SET nombre='$nombre', region='$region', comuna='$comuna', picture_url='uploads/ipe/registered/$rsid/avatar.gif' , descripcion='$descripcion' WHERE correo='$correo'";
@@ -128,33 +125,33 @@ if ($tipo == 'avatar-ipe'){
 	if(valida_extension() == "ok"){
 
 		if ($a==1){ // Create directory to save the file in case of Social Login and first change on avatar image
-			if (file_exists("uploads/agencias/registered/$rsid")){ // cambio a partir de segunda vez con RS
-				$targetPath = "uploads/agencias/registered/$rsid/".$_FILES['file']['name']; // Target path where file is to be stored
-				unlink("uploads/agencias/registered/$rsid/avatar.gif");
+			if (file_exists("../uploads/agencias/registered/$rsid")){ // cambio a partir de segunda vez con RS
+				$targetPath = "../uploads/agencias/registered/$rsid/".$_FILES['file']['name']; // Target path where file is to be stored
+				unlink("../uploads/agencias/registered/$rsid/avatar.gif");
 				//move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 				compress_image($sourcePath, $targetPath, 40);
-				rename("uploads/agencias/registered/$rsid/$file", "uploads/agencias/registered/$rsid/avatar.gif");
-				$results2 = $mysqli->query("UPDATE persona SET nombre='$nombre', telefono1='$tel1', telefono2='$tel2', empresa='$empresa', correo='$correo', picture_url='uploads/agencias/registered/$rsid/avatar.gif' WHERE RS_id='$rsid'");
+				rename("../uploads/agencias/registered/$rsid/$file", "../uploads/agencias/registered/$rsid/avatar.gif");
+				$results2 = $mysqli->query("UPDATE persona SET nombre='$nombre', telefono1='$tel1', telefono2='$tel2', empresa='$empresa', correo='$correo', picture_url='../uploads/agencias/registered/$rsid/avatar.gif' WHERE RS_id='$rsid'");
 				$resultado = "nuevo";
 			}else{
-				mkdir("uploads/agencias/registered/$rsid", 0777, true);
-				$targetPath = "uploads/agencias/registered/$rsid/".$_FILES['file']['name']; // Target path where file is to be stored
-				unlink("uploads/agencias/registered/$rsid/avatar.gif");
+				mkdir("../uploads/agencias/registered/$rsid", 0777, true);
+				$targetPath = "../uploads/agencias/registered/$rsid/".$_FILES['file']['name']; // Target path where file is to be stored
+				unlink("../uploads/agencias/registered/$rsid/avatar.gif");
 				//move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 				compress_image($sourcePath, $targetPath, 40);
-				rename("uploads/agencias/registered/$rsid/$file", "uploads/agencias/registered/$rsid/avatar.gif");
-				$results2 = $mysqli->query("UPDATE persona SET nombre='$nombre', telefono1='$tel1', telefono2='$tel2', empresa='$empresa', correo='$correo', picture_url='uploads/agencias/registered/$rsid/avatar.gif' WHERE RS_id='$rsid'");
+				rename("../uploads/agencias/registered/$rsid/$file", "../uploads/agencias/registered/$rsid/avatar.gif");
+				$results2 = $mysqli->query("UPDATE persona SET nombre='$nombre', telefono1='$tel1', telefono2='$tel2', empresa='$empresa', correo='$correo', picture_url='../uploads/agencias/registered/$rsid/avatar.gif' WHERE RS_id='$rsid'");
 				$resultado = "nuevo";
 
 			}
 		}
 		if ($a==2){// Create directory to save the file in case of Form Login and first change on avatar image
-			if (file_exists("uploads/agencias/registered/$correo")){
-				$targetPath = "uploads/agencias/registered/$correo/".$_FILES['file']['name']; // Target path where file is to be stored
-				unlink("uploads/agencias/registered/$correo/avatar.gif");
+			if (file_exists("../uploads/agencias/registered/$correo")){
+				$targetPath = "../uploads/agencias/registered/$correo/".$_FILES['file']['name']; // Target path where file is to be stored
+				unlink("../uploads/agencias/registered/$correo/avatar.gif");
 				//move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 				compress_image($sourcePath, $targetPath, 40);
-				rename("uploads/agencias/registered/$correo/$file", "uploads/agencias/registered/$correo/avatar.gif");
+				rename("../uploads/agencias/registered/$correo/$file", "../uploads/agencias/registered/$correo/avatar.gif");
 				$actualiza = $mysqli->query("UPDATE persona SET nombre='$nombre', telefono1='$tel1', telefono2='$tel2', empresa='$empresa' WHERE correo='$correo'");
 				$actualizaLogin = $mysqli->query("UPDATE login SET user='$nombre' WHERE correo='$correo'");
 				$resultado = "nuevo";
@@ -203,7 +200,7 @@ if ($tipo == 'avatar-ipe'){
 
   	if(valida_extension() == "ok"){
   		if ($a==1){ // Create directory to save the file in case of Social Login and first change on avatar image
-  			//$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,imagenes,marca,idpersona) VALUES ('$nombre','$descripcion','uploads/agencias/registered/$rsid/$campana/1.jpg','$marca','$id')");
+  			//$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,imagenes,marca,idpersona) VALUES ('$nombre','$descripcion','../uploads/agencias/registered/$rsid/$campana/1.jpg','$marca','$id')");
   			$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,marca,idpersona, fecha_termino, redes_sociales , fecha_termino_server) VALUES ('$nombre','$descripcion','$marca','$id', '$fecha_termino', '$selected_rrss' , '$fecha_termino_server')");
   			$inicio_imagenes ='uploads/agencias/registered/'.$rsid.'/';
   			$fin_imagenes = '/1.jpg';
@@ -212,16 +209,16 @@ if ($tipo == 'avatar-ipe'){
   			$numero_campana= (int)$row_results4[0];
   			$imagenes = $inicio_imagenes.$numero_campana.$fin_imagenes;
   			$results3 = $mysqli->query("UPDATE campana SET imagenes='$imagenes' WHERE id = '$numero_campana'");
-  			mkdir("uploads/agencias/registered/$rsid/$numero_campana", 0777, true);
-  			$targetPath = "uploads/agencias/registered/$rsid/$numero_campana/".$_FILES['file']['name']; // Target path where file is to be stored
+  			mkdir("../uploads/agencias/registered/$rsid/$numero_campana", 0777, true);
+  			$targetPath = "../uploads/agencias/registered/$rsid/$numero_campana/".$_FILES['file']['name']; // Target path where file is to be stored
   			//move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
   			compress_image($sourcePath, $targetPath, 40);
-  			rename("uploads/agencias/registered/$rsid/$numero_campana/$file", "uploads/agencias/registered/$rsid/$numero_campana/1.jpg");
+  			rename("../uploads/agencias/registered/$rsid/$numero_campana/$file", "../uploads/agencias/registered/$rsid/$numero_campana/1.jpg");
   			//
   			//$resultado = $imagenes;
   		}
   		if ($a==2){// Create directory to save the file in case of Form Login and first change on avatar image
-  			//$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,imagenes,marca,idpersona) VALUES ('$nombre','$descripcion','uploads/agencias/registered/$correo/$campana/1.jpg','$marca','$id')");
+  			//$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,imagenes,marca,idpersona) VALUES ('$nombre','$descripcion','../uploads/agencias/registered/$correo/$campana/1.jpg','$marca','$id')");
   			$results3 = $mysqli->query("INSERT INTO campana (nombre,descripcion,marca,idpersona,fecha_termino,redes_sociales , fecha_termino_server) VALUES ('$nombre','$descripcion','$marca','$id', '$fecha_termino', '$selected_rrss', '$fecha_termino_server')");
   			$inicio_imagenes ='uploads/agencias/registered/'.$correo.'/';
   			$fin_imagenes = '/1.jpg';
@@ -231,11 +228,11 @@ if ($tipo == 'avatar-ipe'){
   			$imagenes = $inicio_imagenes.$numero_campana.$fin_imagenes;
   			$results3 = $mysqli->query("UPDATE campana SET imagenes='$imagenes' WHERE id = '$numero_campana'");
 
-  			mkdir("uploads/agencias/registered/$correo/$numero_campana", 0777, true);
-  			$targetPath = "uploads/agencias/registered/$correo/$numero_campana/".$_FILES['file']['name']; // Target path where file is to be stored
+  			mkdir("../uploads/agencias/registered/$correo/$numero_campana", 0777, true);
+  			$targetPath = "../uploads/agencias/registered/$correo/$numero_campana/".$_FILES['file']['name']; // Target path where file is to be stored
   			//move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
   			compress_image($sourcePath, $targetPath, 40);
-  			rename("uploads/agencias/registered/$correo/$numero_campana/$file", "uploads/agencias/registered/$correo/$numero_campana/1.jpg");
+  			rename("../uploads/agencias/registered/$correo/$numero_campana/$file", "../uploads/agencias/registered/$correo/$numero_campana/1.jpg");
   			//$resultado = "nueva";
   			//$resultado = $imagenes;
   		}
@@ -273,20 +270,20 @@ if ($tipo == 'avatar-ipe'){
 			$campana=$_POST['campana'];
 			//Success
 			if ($a==1){ // Create directory to save the file in case of Social Login
-				$targetPath = "uploads/agencias/registered/$rsid/$campana/".$_FILES['file']['name']; // Target path where file is to be stored
-				unlink("uploads/agencias/registered/$rsid/$campana/1.jpg");
+				$targetPath = "../uploads/agencias/registered/$rsid/$campana/".$_FILES['file']['name']; // Target path where file is to be stored
+				unlink("../uploads/agencias/registered/$rsid/$campana/1.jpg");
 				//move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 				compress_image($sourcePath, $targetPath, 40);
-				rename("uploads/agencias/registered/$rsid/$campana/$file", "uploads/agencias/registered/$rsid/$campana/1.jpg");
+				rename("../uploads/agencias/registered/$rsid/$campana/$file", "../uploads/agencias/registered/$rsid/$campana/1.jpg");
 				//$resultado = "nuevo";
 				echo "nuevo";
 			}
 			if ($a==2){// Create directory to save the file in case of Form Login
-				$targetPath = "uploads/agencias/registered/$correo/$campana/".$_FILES['file']['name']; // Target path where file is to be stored
-				unlink("uploads/agencias/registered/$correo/$campana/1.jpg");
+				$targetPath = "../uploads/agencias/registered/$correo/$campana/".$_FILES['file']['name']; // Target path where file is to be stored
+				unlink("../uploads/agencias/registered/$correo/$campana/1.jpg");
 				//move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 				compress_image($sourcePath, $targetPath, 40);
-				rename("uploads/agencias/registered/$correo/$campana/$file", "uploads/agencias/registered/$correo/$campana/1.jpg");
+				rename("../uploads/agencias/registered/$correo/$campana/$file", "../uploads/agencias/registered/$correo/$campana/1.jpg");
 				//$resultado = "nuevo";
 				echo "nuevo";
 			}
@@ -306,7 +303,7 @@ if ($tipo == 'avatar-ipe'){
 	$nuevocorreo=$_POST['nucorreo'];
 	$nuevotelefono1=$_POST['nutel1'];
 	$nuevotelefono2=$_POST['nutel2'];
-	$nuevaurl="./uploads/agencias/registered/$nuevocorreo/avatar.gif";
+	$nuevaurl="./../uploads/agencias/registered/$nuevocorreo/avatar.gif";
 	$ipe = $_POST['ipe'];
 
 		$query= "SELECT DISTINCT correo FROM persona WHERE correo='$nuevocorreo'";
@@ -318,11 +315,11 @@ if ($tipo == 'avatar-ipe'){
 	/*	}else if (file_exists("uploads/$nuevocorreo/test/" . $_FILES["file"]["name"])) {
 			$resultado = "existe";*/
 		}else if(valida_extension() == "ok"){
-			mkdir("uploads/agencias/registered/$nuevocorreo", 0777, true);
-			$targetPath = "uploads/agencias/registered/$nuevocorreo/".$_FILES['file']['name']; // Target path where file is to be stored
+			mkdir("../uploads/agencias/registered/$nuevocorreo", 0777, true);
+			$targetPath = "../uploads/agencias/registered/$nuevocorreo/".$_FILES['file']['name']; // Target path where file is to be stored
 			//move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 			compress_image($sourcePath, $targetPath, 40);
-			rename("uploads/agencias/registered/$nuevocorreo/$file", "uploads/agencias/registered/$nuevocorreo/avatar.gif");
+			rename("../uploads/agencias/registered/$nuevocorreo/$file", "../uploads/agencias/registered/$nuevocorreo/avatar.gif");
 			$results1 = $mysqli->query("INSERT INTO login (user, pass, correo) VALUES ('$nuevousuario','$nuevocontraseña','$nuevocorreo')");
 			$results2 = $mysqli->query("INSERT INTO persona (nombre, correo, empresa, telefono1, telefono2, id_login, id_tipo,descripcion_tipo ,  picture_url, fecha_ingreso ) VALUES ('$nuevousuario','$nuevocorreo','$nuevoempresa','$nuevotelefono1','$nuevotelefono2', (SELECT id from login WHERE correo='$nuevocorreo'),'2','agencia','$nuevaurl', '$hoy')");
 			echo "nuevo";

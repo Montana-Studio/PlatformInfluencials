@@ -1,16 +1,11 @@
 <?php 
 if(basename($_SERVER['PHP_SELF'])=='news.php'){
-$mysqli = mysqli_connect("localhost","root","root","adnativo_pi") or die("Error " . mysqli_error($link)); 
+$mysqli = mysqli_connect("localhost","powerinf_user","uho$}~1(1;nn","powerinf_luencers") or die("Error " . mysqli_error($link)); 
 $mysqli->set_charset('utf8_bin');
 }else{
 	session_start();
-/*
-	$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
-	//Conexión a base de datos
-	$mysqli = mysqli_connect("localhost","root","root","adnativo_pi") or die("Error " . mysqli_error($link)); 
+	$mysqli = mysqli_connect("localhost","powerinf_user","uho$}~1(1;nn","powerinf_luencers") or die("Error " . mysqli_error($link)); 
 	$mysqli->set_charset('utf8_bin');
-
-*/
 	setlocale(LC_ALL,"es_ES");
 	$hoy= date("Y-m-d H:i:s");
 	$hoyFormatted= date("d M Y");
@@ -18,48 +13,46 @@ $mysqli->set_charset('utf8_bin');
 	$month= trim(substr($hoyFormatted,3,-5));
 	$year= trim(substr($hoyFormatted,-4));
 	function months(){
-		if($month == 'Jan'){
-			$month='Enero';
-		}
-		if($month == 'Feb'){
-			$month='Febrero';
-		}
-		if($month == 'Mar'){
-			$month='Marzo';
-		}
-		if($month == 'Apr'){
-			$month='Abril';
-		}
-		if($month == 'May'){
-			$month='Mayo';
-		}
-		if($month == 'Jun'){
-			$month='Junio';
-		}
-		if($month == 'Jul'){
-			$month='Julio';
-		}
-		if($month == 'Aug'){
-			$month='Agosto';
-		}
-		if($month == 'Sep'){
-			$month='Septiembre';
-		}
-		if($month == 'Oct'){
-			$month='Octubre';
-		}
-		if($month == 'Nov'){
-			$month='Noviembre';
-		}
-		if($month == 'Dec'){
-			$month='Diciembre';
-		}
+	if($month == 'Jan'){
+		$month='Enero';
+	}
+	if($month == 'Feb'){
+		$month='Febrero';
+	}
+	if($month == 'Mar'){
+		$month='Marzo';
+	}
+	if($month == 'Apr'){
+		$month='Abril';
+	}
+	if($month == 'May'){
+		$month='Mayo';
+	}
+	if($month == 'Jun'){
+		$month='Junio';
+	}
+	if($month == 'Jul'){
+		$month='Julio';
+	}
+	if($month == 'Aug'){
+		$month='Agosto';
+	}
+	if($month == 'Sep'){
+		$month='Septiembre';
+	}
+	if($month == 'Oct'){
+		$month='Octubre';
+	}
+	if($month == 'Nov'){
+		$month='Noviembre';
+	}
+	if($month == 'Dec'){
+		$month='Diciembre';
+	}
 
 	}
 
 	$hoyFormatted=$day." ".$month." ".$year;
-
-
 	function formato_numeros_reachs($num){
 				if($num/1000000000>1){
 					$n= number_format((float)$num/1000000000,2,'.','');
@@ -88,10 +81,8 @@ $mysqli->set_charset('utf8_bin');
 	    session_unset();     // unset $_SESSION variable for the run-time 
 	    session_destroy();   // destroy session data in storage
 	}
-	/*
-	$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+	//$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 	//Conexión a base de datos
-	$mysqli = mysqli_connect("localhost","root","root","adnativo_pi") or die("Error " . mysqli_error($link)); 
-	$mysqli->set_charset('utf8_bin');*/
+	
 }
-
+?>
