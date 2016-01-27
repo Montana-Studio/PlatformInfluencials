@@ -1,5 +1,5 @@
 <?php
-	require('controller/conexion.php');
+	require('./controller/conexion.php');
 
 	if(isset($_SESSION['nombre'])==false){
 		header('Location:index.php');
@@ -474,7 +474,7 @@
 		<body>";
 	}
 
-	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia3.php'){
+	if(basename($_SERVER['PHP_SELF'])=='formulario-ipe.php'){
 		muestra_header();
 		echo "<script src='https://apis.google.com/js/client.js?onload=googleApiClientReady'></script>";
 

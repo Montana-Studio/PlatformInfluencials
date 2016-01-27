@@ -1,4 +1,5 @@
-<?php include 'header.php';?>
+<?php include 'header-agencia.php';?>
+<?php /*
 	<form class="contFroms">
 
 		<div id="inicio" class="cont-inputs" disabled>
@@ -31,3 +32,5 @@
 	<?php include 'footer.php'; ?>
 </body>
 </html>
+
+*/ ?>

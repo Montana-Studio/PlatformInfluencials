@@ -117,7 +117,7 @@ $(document).ready(function(){
 		var perfil = e.options[e.selectedIndex].value;
 			$.ajax({  
 		            type: "POST",  
-		            url: "./controller/procesar_facebook.php",  
+		            url: "./controller/procesar-facebook.php",  
 		            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id+"&tipo="+perfil+"&empresa="+empresa,  
 					
 		            success: function(data){ 
@@ -128,11 +128,11 @@ $(document).ready(function(){
 							break;
 							case "primera": window.location="formulario-agencia";	
 							break;
-							case "formulario":  window.location.href="formulario-agencia";
+							case "formulario":  window.location.href="formulario-red-social-agencia";
 							break;
 							case "dashboard-ipe": window.location.href="dashboard-ipe";
 							break;
-							case "formulario-ipe": window.location.href="formulario-agencia3";
+							case "formulario-ipe": window.location.href="formulario-ipe";
 							break;
 							case "sin_opcion": alert('no se ha seleccionado opción');
 							break;
@@ -162,7 +162,7 @@ $(document).ready(function(){
 			        }
 			        $.ajax({  
 		            type: "POST",  
-		            url: "./procesar_mostrar_followers.php",  
+		            url: "../controller/procesar-mostrar-followers-ipe.php",  
 		            data: "data="+data,  
 					
 		            success: function(data){ 
@@ -187,7 +187,7 @@ $(document).ready(function(){
 
 		$.ajax({  
 		            type: "POST",  
-		            url: "./controller/procesar_facebook.php",  
+		            url: "./controller/procesar-facebook.php",  
 		            data: "facebookPageId="+id+"&facebookPageName="+facebookPage+"&tipo=0",  
 					
 		            success: function(data){ 

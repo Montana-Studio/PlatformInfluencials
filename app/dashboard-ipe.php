@@ -188,7 +188,7 @@
 
 				</div>
 				<div id="fragment-2" class="tabpage">
-					<?php include_once('procesar_mostrar_cuentas.php');?>
+					<?php include_once('./controller/procesar-mostrar-cuentas-ipe.php');?>
 				</div>
 			</div>
 		</div>

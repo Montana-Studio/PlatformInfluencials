@@ -13,7 +13,7 @@ $(document).ready(function(){
 		var password=$('#password').val();
 		$.ajax({
 			type: "POST",
-			url: "./controller/procesar_login.php",
+			url: "./controller/procesar-login.php",
 			data: "correo="+correo+"&pwd="+password,
 
 			success: function(data){
@@ -54,7 +54,7 @@ $(document).ready(function(){
 		var tipo="perfil_publico";
 		$.ajax({
 			type: "POST",
-			url: "../../controller/contactar.php",
+			url: "../../controller/contactar-a-influenciador-agencia.php",
 			data: "influenciador_id="+influenciador_id+"&influenciador_nombre="+influenciador_nombre+"&id_campana="+id_campana+"&tipo="+tipo,
 
 			success: function(data){
@@ -87,7 +87,7 @@ $(document).ready(function(){
 
 		$.ajax({
 			type: "POST",
-			url: "./controller/procesar_imagen.php",
+			url: "./controller/procesar-imagen.php",
 			data: info,
 			enctype: 'multipart/form-data',
 			contentType: false,
@@ -113,7 +113,7 @@ $(document).ready(function(){
 		info.append('comuna',comuna);
 		$.ajax({
 			type: "POST",
-			url: "./controller/procesar_registro_ipe_facebook.php",
+			url: "./controller/procesar-registro-facebook-ipe.php",
 			data: info,
 			enctype: 'multipart/form-data',
 			contentType: false,
@@ -147,7 +147,7 @@ $(document).ready(function(){
 
 		$.ajax({
 			type: "POST",
-			url: "./controller/procesar_imagen.php",
+			url: "./controller/procesar-imagen.php",
 			data: info,
 			enctype: 'multipart/form-data',
 			contentType: false,
@@ -206,7 +206,7 @@ $(document).ready(function(){
      	});
 	});
 
-	//formulario de ingreso de nueva campaña nueva-campana.php
+	//formulario de ingreso de nueva campaña nueva-campana-agencia.php
 	$('#campanaForm-nueva-campana').on('submit',(function (e){
 		e.preventDefault;
 		var val = [];
@@ -222,7 +222,7 @@ $(document).ready(function(){
 		info.append('selected_rrss',val);
 		$.ajax({
 				type: "POST",
-				url: "./controller/procesar_imagen.php",
+				url: "./controller/procesar-imagen.php",
 				data: info,
 				enctype: 'multipart/form-data',
 				contentType: false,
@@ -241,7 +241,7 @@ $(document).ready(function(){
 		return false;
 	}));
 
-	//formulario de cambio de imagen en header.php
+	//formulario de cambio de imagen en header-agencia.php
 	$('#imagenform').on('submit',(function (e){
 		e.preventDefault;
 		info = new FormData(this);
@@ -256,7 +256,7 @@ $(document).ready(function(){
 		if(foto==1) {
 			$.ajax({
 				type: "POST",
-				url: "./controller/procesar_imagen.php",
+				url: "./controller/procesar-imagen.php",
 				data: info,
 				enctype: 'multipart/form-data',
 				contentType: false,
@@ -312,7 +312,7 @@ $(document).ready(function(){
 		if(foto==1) {
 			$.ajax({
 				type: "POST",
-				url: "./controller/procesar_imagen.php",
+				url: "./controller/procesar-imagen.php",
 				data: info,
 				enctype: 'multipart/form-data',
 				contentType: false,
@@ -352,7 +352,7 @@ $(document).ready(function(){
 		return false;
 	}));
 
-	//formulario para agencia con registro por red social formulario-agencia.php
+	//formulario para agencia con registro por red social formulario-red-social-agencia.php
 	$('#formulario_agencias_rs').on('submit',function(e){
 		e.preventDefault();
 		if($("#telefono1nuevo").val().length > 7 && $("#telefono2nuevo").val().length > 7){
@@ -365,7 +365,7 @@ $(document).ready(function(){
 
 			$.ajax({
 				type: "POST",
-				url: "procesar_formulario.php",
+				url: "procesar-formulario.php",
 				data: info,
 				enctype: 'multipart/form-data',
 				contentType: false,
@@ -381,7 +381,7 @@ $(document).ready(function(){
 
 	});
 
-	//envio de formulario para envio de url a campañas desde ipe procesar_mostrar_campanas_en_ipe.php
+	//envio de formulario para envio de url a campañas desde ipe controller/procesar-mostrar-campanas-ipe.php
 	$('.enviar_url').click(function(){
 			var rrss_id = $(this).prevAll('input').attr('id');
 			var campana_id = $(this).closest(".ingresar_urls").attr('id');
@@ -391,7 +391,7 @@ $(document).ready(function(){
 				if(descripcion_rrss=='googleplus'||descripcion_rrss=='facebook'||descripcion_rrss=='twitter'||descripcion_rrss=='youtube'||descripcion_rrss=='instagram'&&url.length>0){
 					$.ajax({
 						type: "POST",
-						url: "./controller/procesar_url.php",
+						url: "./controller/procesar-url.php",
 						data: "rrss_id="+rrss_id+"&campana_id="+campana_id+"&url="+url+"&descripcion_rrss="+descripcion_rrss,
 						success: function(data){
 							console.log(data);
@@ -430,7 +430,7 @@ $(document).ready(function(){
 		}			
 	});
 */
-	//boton para activación de campana campana.php
+	//boton para activación de campana campana-agencia.php
 	$(".activar-campana").click(function (){
 		var idActualizar = this.id;
 		var idEstado = this.type;
@@ -438,7 +438,7 @@ $(document).ready(function(){
 		var fecha_termino = $("#"+idActualizar+" .campa-ico .fecha_termino").val();
 			$.ajax({
 				type: "POST",
-				url: "./controller/procesar_eliminar-campana.php",
+				url: "./controller/procesar-eliminar-campana-agencia.php",
 				data: "idActualizar="+idActualizar+"&idEstado="+idEstado+"&tipo="+tipo+"&fecha_termino="+fecha_termino,
 				success: function(data){
 					window.location.reload();
@@ -446,7 +446,7 @@ $(document).ready(function(){
 			});
 	});
 
-	//boton para eliminación de campana campana.php
+	//boton para eliminación de campana campana-agencia.php
 	$(".btneliminar").click(function (){
 		var idEliminar = this.id;
 		var tipo = "eliminar";
@@ -467,7 +467,7 @@ $(document).ready(function(){
 			$(".siElim").on("click",function(){
 				$.ajax({
 					type: "POST",
-					url: "./controller/procesar_eliminar-campana.php",
+					url: "./controller/procesar-eliminar-campana-agencia.php",
 					data: "idEliminar="+idEliminar+"&tipo="+tipo,
 					success: function(data){
 						window.location.reload();
@@ -487,7 +487,7 @@ $(document).ready(function(){
 		return false;
 	});
 	
-	//activación y desactivación de red social en procesar_mostrar_followers.php
+	//activación y desactivación de red social en controller/procesar-mostrar-followers-ipe.php
 	$(".estado_rs").click(function(){
 	    if(this.value == "analytics"){
 	        var id_activar_rs = this.id;
@@ -517,7 +517,7 @@ $(document).ready(function(){
 	    }
 
 	 });
-	//eliminar red social en procesar_mostrar_followers.php
+	//eliminar red social en controller/procesar-mostrar-followers-ipe.php
     $(".elimina").click(function(){
        id_rrss = $(this).attr("name");
        tipo="desactivar";
@@ -532,45 +532,7 @@ $(document).ready(function(){
             });
     });
 
-    //controller para dashboard-agencia.php
-	$(".volver, .recientes .content").hide();
-	$(".recientes .content").hide();
-	 if(document.documentElement.clientWidth >= 1024){
-        $(".ver-mas").on("click",function(event){
-            $(".bg-campana, .ver-mas, .sub-titulo").fadeOut();
-            $(".dashboard-agencia").animate({backgroundColor:"#eeeef0"},{duration:1000, 
-                complete:function(){
-
-                    $(".recientes, .cont-campana").css("width","100%");
-                }
-            });
-
-            $(this).siblings(".content").delay(1005).slideToggle();
-            $(this).siblings(".reach-campana, .reach-campana .sub-titulo").delay(1010).fadeIn();
-        });
-    }else{
-        $(".ver-mas").on("click",function(event){
-            $(this).siblings(".content").slideToggle();
-            $(this).find("i").toggleClass("fa-angle-up fa-angle-down");
-            $("html,body").animate({scrollTop : $(this).siblings(".bg-campana").offset().top},1000);
-        });
-    }
-
-	$(".content .btn_close").on("click",function(){
-			$(this).closest(".content").fadeOut();
-            $(".reach-campana, .reach-campana .sub-titulo").delay(100).fadeOut();
-			if(document.documentElement.clientWidth >= 1024){
-				$(".dashboard-agencia").animate({backgroundColor:"#fff"},{duration:1000,complete:function(){
-                
-                    $(".recientes, .cont-campana").removeAttr("style","");
-				    $(".bg-campana, .ver-mas, .sub-titulo").delay(800).fadeIn();
-                }});
-				$(".ver-mas").find("i").addClass("fa-plus");
-			}
-	});
-	
-
-	//ver resumen de redes sociales influenciador en influenciador-publico.com
+	//ver resumen de redes sociales influenciador en influenciador-publico-agencia.com
 	$(".ver_perfil_influenciador").click(function(){
 		var id_form=$(this).attr("name");
 		$("#"+id_form+" .rrss").show();
@@ -580,7 +542,7 @@ $(document).ready(function(){
 		$("#"+id_form+" .volver_ver_perfil_influenciador").show();
 	});
 
-	//volver desde resumen de redes sociales influenciador a la vista general en influenciador-publico.com
+	//volver desde resumen de redes sociales influenciador a la vista general en influenciador-publico-agencia.com
 	$(".volver_ver_perfil_influenciador").click(function(){
 		var id_form=$(this).attr("name");
 		$("#"+id_form+" .rrss").hide();
@@ -594,7 +556,7 @@ $(document).ready(function(){
 	$('#ingresar').on('click', function(){
 		var usu= $('#usu').val();
 		var pass= $('#pass').val();
-		var url='./controller/procesar_login.php';
+		var url='./controller/procesar-login.php';
 		var total = usu.length*pass.length;
 		if (total>0){
 			$.ajax({

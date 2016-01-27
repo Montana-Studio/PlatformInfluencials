@@ -1,5 +1,5 @@
 <?php
-require('../conexion.php');
+require('../controller/conexion.php');
 $nombre=$_POST['nombre'];
 $correo=$_POST['correo'];
 $perfil=$_POST['perfil'];

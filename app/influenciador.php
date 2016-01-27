@@ -1,5 +1,5 @@
 <?php
-require('controller/conexion.php');
+require('./controller/conexion.php');
 
 if(isset($_SESSION['id'])){
 	$query="SELECT * FROM persona WHERE id_estado = 1 AND id= ".$_SESSION['id'];

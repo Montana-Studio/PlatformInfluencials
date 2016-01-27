@@ -70,7 +70,7 @@ $mysqli->set_charset('utf8_bin');
 			}
 	//if(substr($hoyFormatted,3,2))
 	/*
-	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia.php'){
+	if(basename($_SERVER['PHP_SELF'])=='formulario-red-social-agencia.php'){
 			session_unset();
 			session_destroy();
 		}*/
