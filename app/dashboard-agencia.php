@@ -101,7 +101,7 @@ if ((int)$row[0] > 0){ ?>
 			</div>
 <?php
 }else{
-	echo '<main class="no-campana"><a href="nueva-campana-agencia.php" class="hrefCamp"><i class="pi pi-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes crear una nueva, creala aquí.</p><div class="btn_crearcamp">crear campaña</div></a></main>';
+	echo '<main class="no-campana"><a href="crear-campana.php" class="hrefCamp"><i class="pi pi-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes crear una nueva, creala aquí.</p><div class="btn_crearcamp">crear campaña</div></a></main>';
 }
 ?>
 	<div id="contacto" class="hide">

@@ -6,7 +6,6 @@ require('../controller/conexion.php');
 
 
 	 if($_POST['tipo'] == 0){
-	echo $_POST['facebookPageName'];
 	}
 	 else{
 		$username =$_POST['faceuser'];
@@ -29,11 +28,21 @@ require('../controller/conexion.php');
 		$num_row2= mysqli_num_rows($result2);
 		$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 
+		$query4='SELECT * FROM persona WHERE RS_id="'.$faceId.'" AND id_estado="0" AND (comuna=NULL OR region=NULL OR comuna="" OR region="")';
+		$result4= mysqli_query($mysqli,$query4)or die(mysqli_error());
+		$num_row4= mysqli_num_rows($result4);
+		$row4= mysqli_fetch_array($result4, MYSQLI_NUM);
+
+
 		$query3='SELECT * FROM persona WHERE RS_id="'.$faceId.'" AND id_estado="0" AND estado_formulario="1"';
 		$result3= mysqli_query($mysqli,$query3)or die(mysqli_error());
 		$num_row3= mysqli_num_rows($result3);
 		$row3= mysqli_fetch_array($result3, MYSQLI_NUM);
 
+		$query5="SELECT * FROM persona WHERE RS_id='".$faceId."'";
+		$result5= mysqli_query($mysqli,$query5)or die(mysqli_error());
+		$num_row5= mysqli_num_rows($result5);
+		$row5= mysqli_fetch_array($result5, MYSQLI_NUM);
 
 
 		if ($tipo == '2' ){//Agencia
@@ -80,31 +89,39 @@ require('../controller/conexion.php');
 				echo 'primera';
 			}
 		}
-		if ($tipo == '3'){
-			if($num_row>0){
-				// en caso que ingrese con facebook y este registrado
-				$_SESSION['id']=$row[0];
-				$_SESSION['nombre']=$row[5];
-				$_SESSION['correo']=$row[6];
-				$_SESSION['id_tipo']=$row[1];
-				$_SESSION['descripcion']=$row[14];
-				$_SESSION['descripcion_tipo']=$row[2];
-				$_SESSION['pictureUrl']=$row[12];
-				$_SESSION['comuna']=$row[16];
-				$_SESSION['region']=$row[15];
-				echo 'dashboard-ipe';
-			}
-			else if($num_row2>0){
-				$_SESSION['id']=$row2[0];
-				$_SESSION['nombre']=$row2[5];
-				$_SESSION['correo']=$row2[6];
-				$_SESSION['id_tipo']=$row[1];
-				echo 'formulario-ipe';
-			}
-			else if ($num_row3>0) {
-				echo 'existe-influenciador';
-			}
-			else{
+		if ($tipo>'2'){
+			if($num_row5>0){
+
+
+				if($num_row>0){
+						// en caso que ingrese con facebook y este registrado
+						$_SESSION['id']=$row[0];
+						$_SESSION['nombre']=$row[5];
+						$_SESSION['correo']=$row[6];
+						$_SESSION['id_tipo']=$row[1];
+						$_SESSION['descripcion']=$row[14];
+						$_SESSION['descripcion_tipo']=$row[2];
+						$_SESSION['pictureUrl']=$row[12];
+						$_SESSION['comuna']=$row[16];
+						$_SESSION['region']=$row[15];
+						echo 'dashboard-ipe';
+					}
+					else if($num_row4>0){
+						$_SESSION['id']=$row4[0];
+						$_SESSION['nombre']=$row4[5];
+						$_SESSION['correo']=$row4[6];
+						$_SESSION['id_tipo']=$row4[1];
+						$_SESSION['descripcion']=$row4[14];
+						$_SESSION['descripcion_tipo']=$row4[2];
+						$_SESSION['pictureUrl']=$row4[12];
+						$_SESSION['comuna']=$row4[16];
+						$_SESSION['region']=$row4[15];
+						echo 'formulario-ipe';
+					}
+					else if ($num_row3>0) {
+						echo 'existe-influenciador';
+					}
+			}else{
 				$results = $mysqli->query('INSERT INTO persona (nombre, correo, id_tipo, descripcion_tipo, picture_url,RS_id,fecha_ingreso, estado_formulario )VALUES ("'.$username.'", "'.$correo.'","'.$tipo.'","'.$agencia.'", "'.$pictureUrl.'","'.$faceId.'", "'.$hoyFormatted.'", "0")');
 				$query='SELECT * FROM persona WHERE RS_id="'.$faceId.'"';
 				$result= mysqli_query($mysqli,$query)or die(mysqli_error());

@@ -1,5 +1,5 @@
 <?php
-require('../../conexion.php');
+require('../../controller/conexion.php');
 $googlePlusId = $_POST['googlePlusId'];
 $id_persona = $_SESSION['id'];
 

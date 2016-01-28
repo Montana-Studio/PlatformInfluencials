@@ -1,5 +1,5 @@
 <?php
-require('../../conexion.php');
+require('../../controller/conexion.php');
 
 if($_POST['tipo']== 'muestra_cuentas'){
   /*

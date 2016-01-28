@@ -69,7 +69,7 @@
 
 				$(".siElim").on("click",function(){
 
-					window.location.assign("http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-1");
+					window.location.assign("http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 					window.location.reload();
 					
 				});
@@ -81,7 +81,7 @@
 					},{duration:500,easing:"easeInOutQuint",complete:function(){
 						$(".alertElim").fadeOut("fast");
 						$(this).hide();
-						window.location.href = "http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-2";
+						window.location.href = "http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
 						
 					}});
 				});
@@ -101,7 +101,7 @@
 
 				$(".siElim").on("click",function(){
 
-					window.location.assign("http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-1");
+					window.location.assign("http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 					window.location.reload();
 					
 				});
@@ -113,7 +113,7 @@
 					},{duration:500,easing:"easeInOutQuint",complete:function(){
 						$(".alertElim").fadeOut("fast");
 						$(this).hide();
-						window.location.href = "http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-2";
+						window.location.href = "http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
 						
 					}});
 					
@@ -137,7 +137,7 @@
 
 					$(".siElim").on("click",function(){
 
-						window.location.assign("http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-1");
+						window.location.assign("http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 						window.location.reload();
 						
 					});
@@ -149,7 +149,7 @@
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
 							$(this).hide();
-							window.location.href = "http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-2";
+							window.location.href = "http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
 							
 						}});
 					});
@@ -174,7 +174,7 @@
 					},{duration:1500,easing:"easeOutBounce"});
 
 					$(".siElim").on("click",function(){
-						window.location.assign("http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-1");
+						window.location.assign("http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 						window.location.reload();
 						
 					});
@@ -186,7 +186,7 @@
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
 							$(this).hide();
-							window.location.href = "http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-2";
+							window.location.href = "http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
 							
 						}});
 					});
@@ -212,7 +212,7 @@
 
 					$(".siElim").on("click",function(){
 
-						window.location.assign("http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-1");
+						window.location.assign("http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 						window.location.reload();
 						
 					});
@@ -224,7 +224,7 @@
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
 							$(this).hide();
-							window.location.href = "http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-2";
+							window.location.href = "http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
 							
 						}});
 					});
@@ -249,7 +249,7 @@
 
 					$(".siElim").on("click",function(){
 
-						window.location.assign("http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-1");
+						window.location.assign("http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 						window.location.reload();
 						
 					});
@@ -261,7 +261,7 @@
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
 							$(this).hide();
-							window.location.href = "http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-2";
+							window.location.href = "http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
 							
 						}});
 					});
@@ -286,7 +286,7 @@
 
 					$(".siElim").on("click",function(){
 
-						window.location.assign("http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-1");
+						window.location.assign("http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 						window.location.reload();
 						
 					});
@@ -298,7 +298,7 @@
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
 							$(this).hide();
-							window.location.href = "http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-2";
+							window.location.href = "http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
 							
 						}});
 					});
@@ -323,7 +323,7 @@
 
 					$(".siElim").on("click",function(){
 
-						window.location.assign("http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-1");
+						window.location.assign("http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 						window.location.reload();
 						
 					});
@@ -335,7 +335,7 @@
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
 							$(this).hide();
-							window.location.href = "http://www.powerinfluencer.com/app/dashboard-ipe.php#fragment-2";
+							window.location.href = "http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
 							
 						}});
 					});
@@ -345,173 +345,164 @@
 
 	}
 
-
-
-	if(basename($_SERVER['PHP_SELF'])=='dashboard-ipe.php'){
-		require('rrss/twitter/inc/twitteroauth.php');
-		require('rrss/twitter/inc/TwitterAPIExchange.php');
-		require('rrss/rrss_keys.php');
-		include('rrss/googleplus/auth.php');
-		include('rrss/analytics/procesar_analytics.php');
-		include('rrss/facebook/facebook-auth.php');
-		include('rrss/instagram/instagram.php');
-		include('rrss/youtube/auth.php');
-		muestra_header();
-
-		echo "
-		<script>
-			jQuery(document).ready(function(){
-				$('title').append('Dashboard - ".$_SESSION['nombre']."');
-				$('html').css({'background-color':'#fff','background-image':'none'});
-				$('body').addClass('dashboard-ipe');
-                
-
-				var correo,nombre,correo,tel1,tel2,empresa;
-				var rsid = $('#RsId').val();
-				if (rsid != ''){
-				$('#correo input').removeAttr('disabled');
-				}
-				var foto=0;
-					$('#file').click(function(){
-						foto=1;
-				});
-			});
-		</script>
-		<script src='https://apis.google.com/js/client.js?onload=googleApiClientReady'></script>
-		<script src='https://www.google.com/jsapi'></script>
-		";
-		
-
-		/*if(isset($_SESSION['nombre'])==false ||isset($_SESSION['region'])==false ||isset($_SESSION['comuna'])==false){
+	if(basename($_SERVER['PHP_SELF'])!='formulario-ipe.php'){
+		if(isset($_SESSION['nombre'])==false ||isset($_SESSION['region'])==false ||isset($_SESSION['comuna'])==false){
 			header('Location:index.php');
 			die();
-		}*/
+		} 
+		echo "<nav class='nav-ipe'>
+				<ul class='nav-mobile'>
+					<li><i onClick='backHistory()' class='pi pi-arrow-left'></i></li>
+					<li><h1>".$_SESSION['descripcion_tipo']."</h1></li>
+					<li><a href='./controller/logout' class='pi pi-singout'></a></li>
+				</ul>
+				<ul class='nav-deskt'>
+				    <li></li>
+				    <li><a href='./controller/logout' target='_self'><i class='pi pi-singout'></i> Cerrar sesión</a></li>
+				    <li><i class='pi pi-help'></i> <i class='pi pi-bell'></i></li>
+				</ul>
+			</nav>
+			<nav class='header-ipe'>
+				<ul>
+					<li><i onClick='backHistory()' class='pi pi-arrow-left'></i></li>
+					<li><a href='escritorio-influencer'><i class='pi pi-pencil'></i> Escritorio</a></li>
+					<li><a href='campanas-inscritas'><i class='pi pi-bullhorn'></i> campañas</a></li>
+				</ul>
+			</nav>";
+			if(basename($_SERVER['PHP_SELF'])=='dashboard-ipe.php'){
+				require('rrss/twitter/inc/twitteroauth.php');
+				require('rrss/twitter/inc/TwitterAPIExchange.php');
+				require('rrss/rrss_keys.php');
+				include('rrss/googleplus/auth.php');
+				include('rrss/analytics/procesar_analytics.php');
+				include('rrss/facebook/facebook-auth.php');
+				include('rrss/instagram/instagram.php');
+				include('rrss/youtube/auth.php');
+				muestra_header();
 
-		echo "<script id='facebook-sdk' src='js/facebook-login.js'></script>
-			
-		</head>
-		<body>";
-	}
+				echo "
+				<script>
+					jQuery(document).ready(function(){
+						$('title').append('Dashboard - ".$_SESSION['nombre']."');
+						$('html').css({'background-color':'#fff','background-image':'none'});
+						$('body').addClass('dashboard-ipe');
+		                
 
-	if(basename($_SERVER['PHP_SELF'])=='campanas-ipe.php'){
-		muestra_header();
-		echo "
-		<script>
-			$(document).ready(function(){
-				var correo,nombre,correo,tel1,tel2,empresa;
-				var rsid = $('#RsId').val();
-				if (rsid != ''){
-				$('#correo input').removeAttr('disabled');
-				}
-				var foto=0;
-					$('#file').click(function(){
-						foto=1;
-				});
-                $('.recientes .content').hide();
+						var correo,nombre,correo,tel1,tel2,empresa;
+						var rsid = $('#RsId').val();
+						if (rsid != ''){
+						$('#correo input').removeAttr('disabled');
+						}
+						var foto=0;
+							$('#file').click(function(){
+								foto=1;
+						});
+					});
+				</script>
+				<script src='https://apis.google.com/js/client.js?onload=googleApiClientReady'></script>
+				<script src='https://www.google.com/jsapi'></script>
+				<script id='facebook-sdk' src='js/facebook-login.js'></script>
+					
+				</head>
+				<body>";
+			}
 
-                if(document.documentElement.clientWidth >= 1024){
-                    $('.ver-mas').find('i').addClass('pi-plus');
-                }else{
-                    $('.ver-mas').find('i').addClass('pi-arrow-bottom');
-                }
+			if(basename($_SERVER['PHP_SELF'])=='campanas-ipe.php'){
+				muestra_header();
+				echo "
+				<script>
+					$(document).ready(function(){
+						var correo,nombre,correo,tel1,tel2,empresa;
+						var rsid = $('#RsId').val();
+						if (rsid != ''){
+						$('#correo input').removeAttr('disabled');
+						}
+						var foto=0;
+							$('#file').click(function(){
+								foto=1;
+						});
+		                $('.recientes .content').hide();
 
-
-                if(document.documentElement.clientWidth >= 1024){
-                    $('.ver-mas').on('click',function(event){
-                        $('.bg-campana, .ver-mas, .sub-titulo').fadeOut();
-                        $('.campanas-ipe').animate({backgroundColor:'#eeeef0'},{duration:1000, 
-                            complete:function(){
-
-                                $('.recientes, .cont-campana').css('width','100%');
-                            }
-                        });
-
-                        $(this).siblings('.content').delay(1005).slideToggle();
-                        $(this).siblings('.reach-campana, .reach-campana .sub-titulo').delay(1010).fadeIn();
-                    });
-                }else{
-                    $('.ver-mas').on('click',function(event){
-                        $(this).siblings('.content').slideToggle();
-                        $(this).find('i').toggleClass('pi-arrow-top pi-arrow-bottom');
-                        $('html,body').animate({scrollTop : $(this).siblings('.bg-campana').offset().top},1000);
-                        
-                        $(this).siblings('.reach-campana, .reach-campana .sub-titulo').delay(1010).fadeIn();
-                    });
-                }
-
-                $('.content .btn_close').on('click',function(){
-                    $(this).closest('.content').fadeOut();
-                    $('.reach-campana, .reach-campana .sub-titulo').delay(100).fadeOut();
-                    if(document.documentElement.clientWidth >= 1024){
-                        $('.campanas-ipe').animate({backgroundColor:'#fff'},{duration:1000,complete:function(){
-
-                            $('.recientes, .cont-campana').removeAttr('style','');
-                            $('.bg-campana, .ver-mas, .sub-titulo').delay(800).fadeIn();
-                        }});
-                        $('.ver-mas').find('i').addClass('pi-plus');
-                    }
-                });
-			});
-		</script>
-		<script src='https://apis.google.com/js/client.js?onload=googleApiClientReady'></script>
-		";
-
-
-		if(isset($_SESSION['nombre'])==false){
-			header('Location:index.php');
-			die();
-		}
-		echo "<script id='facebook-sdk' src='js/facebook-login.js'></script>
-			<script>
-				jQuery(document).ready(function(){
-					$('title').append('Dashboard - ".$_SESSION['nombre']."');
-					$('html').css({'background-color':'#fff','background-image':'none','height':'100%'});
-					$('body').addClass('campanas-ipe');
-				})
-			</script>
-
-		</head>
-		<body>";
-	}
-
-	if(basename($_SERVER['PHP_SELF'])=='formulario-ipe.php'){
-		muestra_header();
-		echo "<script src='https://apis.google.com/js/client.js?onload=googleApiClientReady'></script>";
+		                if(document.documentElement.clientWidth >= 1024){
+		                    $('.ver-mas').find('i').addClass('pi-plus');
+		                }else{
+		                    $('.ver-mas').find('i').addClass('pi-arrow-bottom');
+		                }
 
 
-		if(isset($_SESSION['nombre'])==false){
-			header('Location:index.php');
-			die();
-		}
-		echo "<script id='facebook-sdk' src='js/facebook-login.js'></script>
-			<script>
-				jQuery(document).ready(function(){
-					$('title').append('Dashboard - ".$_SESSION['nombre']."');
-					$('html').css({'background-color':'#fff','background-image':'none'});
-					$('body').addClass('campanas-ipe');
-				})
-			</script>
-		</head>
-		<body>";
-	}
+		                if(document.documentElement.clientWidth >= 1024){
+		                    $('.ver-mas').on('click',function(event){
+		                        $('.bg-campana, .ver-mas, .sub-titulo').fadeOut();
+		                        $('.campanas-ipe').animate({backgroundColor:'#eeeef0'},{duration:1000, 
+		                            complete:function(){
 
-?>
-<nav class="nav-ipe">
-	<ul class="nav-mobile">
-		<li><i onClick="backHistory()" class="pi pi-arrow-left"></i></li>
-		<li><h1><?php echo $_SESSION['descripcion_tipo']?></h1></li>
-		<li><a href="logout" class="pi pi-singout"></a></li>
-	</ul>
-	<ul class="nav-deskt">
-	    <li></li>
-	    <li><a href="logout" target="_self"><i class="pi pi-singout"></i> Cerrar sesión</a></li>
-	    <li><i class="pi pi-help"></i> <i class="pi pi-bell"></i></li>
-	</ul>
-</nav>
-<nav class="header-ipe">
-	<ul>
-		<li><i onClick="backHistory()" class="pi pi-arrow-left"></i></li>
-		<li><a href="dashboard-ipe"><i class="pi pi-pencil"></i> Escritorio</a></li>
-		<li><a href="campanas-ipe"><i class="pi pi-bullhorn"></i> campañas</a></li>
-	</ul>
-</nav>
+		                                $('.recientes, .cont-campana').css('width','100%');
+		                            }
+		                        });
+
+		                        $(this).siblings('.content').delay(1005).slideToggle();
+		                        $(this).siblings('.reach-campana, .reach-campana .sub-titulo').delay(1010).fadeIn();
+		                    });
+		                }else{
+		                    $('.ver-mas').on('click',function(event){
+		                        $(this).siblings('.content').slideToggle();
+		                        $(this).find('i').toggleClass('pi-arrow-top pi-arrow-bottom');
+		                        $('html,body').animate({scrollTop : $(this).siblings('.bg-campana').offset().top},1000);
+		                        
+		                        $(this).siblings('.reach-campana, .reach-campana .sub-titulo').delay(1010).fadeIn();
+		                    });
+		                }
+
+		                $('.content .btn_close').on('click',function(){
+		                    $(this).closest('.content').fadeOut();
+		                    $('.reach-campana, .reach-campana .sub-titulo').delay(100).fadeOut();
+		                    if(document.documentElement.clientWidth >= 1024){
+		                        $('.campanas-ipe').animate({backgroundColor:'#fff'},{duration:1000,complete:function(){
+
+		                            $('.recientes, .cont-campana').removeAttr('style','');
+		                            $('.bg-campana, .ver-mas, .sub-titulo').delay(800).fadeIn();
+		                        }});
+		                        $('.ver-mas').find('i').addClass('pi-plus');
+		                    }
+		                });
+					});
+				</script>
+				<script src='https://apis.google.com/js/client.js?onload=googleApiClientReady'></script>
+				<script id='facebook-sdk' src='js/facebook-login.js'></script>
+					<script>
+						jQuery(document).ready(function(){
+							$('title').append('Dashboard - ".$_SESSION['nombre']."');
+							$('html').css({'background-color':'#fff','background-image':'none','height':'100%'});
+							$('body').addClass('campanas-ipe');
+						})
+					</script>
+
+				</head>
+				<body>";
+			}
+	 }else{
+			muestra_header();
+			echo "<nav class='nav-ipe'>
+					<ul class='nav-mobile'>
+						<li><i onClick='backHistory()' class='pi pi-arrow-left'></i></li>
+						<li><h1>".$_SESSION['descripcion_tipo']."</h1></li>
+						<li><a href='./controller/logout' class='pi pi-singout'></a></li>
+					</ul>
+					<ul class='nav-deskt'>
+					    <li></li>
+					    <li><a href='./controller/logout' target='_self'><i class='pi pi-singout'></i> Cerrar sesión</a></li>
+					    <li><i class='pi pi-help'></i> <i class='pi pi-bell'></i></li>
+					</ul>
+				</nav>
+						<script id='facebook-sdk' src='js/facebook-login.js'></script>
+							<script>
+								jQuery(document).ready(function(){
+									$('title').append('Dashboard - ".$_SESSION['nombre']."');
+									$('html').css({'background-color':'#fff','background-image':'none'});
+									$('body').addClass('campanas-ipe');
+								})
+							</script>
+						</head>
+						<body>";
+
+	} ?>

@@ -135,7 +135,7 @@ if(isset($_SESSION['id'])){
 
 	<script type="text/javascript" async src="js/platform_influencials.min.js"></script>
 	<script type="text/javascript" src="js/form-passes.js"></script>
-	<script type="text/javascript" src="js/form-data.js"></script>
+	<script type="text/javascript" src="js/linkedin-login.js"></script>
 
 </body>
 </html>

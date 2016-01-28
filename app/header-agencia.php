@@ -357,29 +357,6 @@
 		
 		}
 	}
-	/*if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){
-		muestra_header();
-		//echo "<script src='https://apis.google.com/js/client.js?onload=googleApiClientReady'></script>";
-
-
-		if(isset($_SESSION['nombre'])==false){
-			header('Location:index.php');
-			die();
-		}
-		echo '
-			<script>
-				jQuery(document).ready(function(){
-					$(".perfil_influenciador").click(function(){
-						var id_influenciador=this.id;
-						window.location.replace("perfil-influenciador-publico-agencia.php?id="+id_influenciador);
-						//console.log(id_influenciador);
-						//console.log("holi");
-					});
-				});
-			</script>
-		</head>
-		<body>';
-	}*/
 	if(basename($_SERVER['PHP_SELF'])=='formulario-ipe.php'){
 		if(isset($_SESSION['id'])==false){
 				header('Location: controller/logout.php');
@@ -534,8 +511,8 @@
 if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
 <header>
 
-	<div class="logo"><a href="./dashboard-agencia" target="_top"></a></div>
-	<div class="menu" style="background-image:url(<?php echo "../../".$_SESSION['pictureUrl'];?>);"></div>
+	<div class="logo"><a href="./escritorio-agencia" target="_top"></a></div>
+	<div class="menu" style="background-image:url(<?php if(strpos($_SESSION['pictureUrl'],"graph")||strpos($_SESSION['pictureUrl'],"media.licdn.com")){ echo $_SESSION['pictureUrl'];}else{echo "../../".$_SESSION['pictureUrl'];}?>);"></div>
 	
 	<a href="#" class="notes" ><i class="pi pi-bell"></i></a>
 	<a href="#" class="ayuda_pi"><i class="pi pi-help"></i></a>
@@ -546,7 +523,7 @@ if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
 
 	<div class="misdatos">
 
-		<div class="imagen" style="background-image:url(<?php echo "../../".$_SESSION['pictureUrl'];?>);">
+		<div class="imagen" style="background-image:url(<?php if(strpos($_SESSION['pictureUrl'],"graph")||strpos($_SESSION['pictureUrl'],"media.licdn.com")){ echo $_SESSION['pictureUrl'];}else{echo "../../".$_SESSION['pictureUrl'];}?>);">
 
 			<input type="file" name="file" id="file" class="hide"/>
 			<label class="selectFile" for="file"><i class="pi pi-pencil"></i></label>
@@ -629,7 +606,7 @@ if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
 		<li><i onClick="backHistory()" class="pi pi-arrow-left"></i></li>
 		<li><a href="../../campanas"><i class="pi pi-suitcase"></i> campañas</a></li>
 		<li id="nuevaCampain"><a href="../../crear-campana"><i class="pi pi-plus"></i> crear campañas</a></li>
-		<li><a href="../../influenciadores"><i class="pi pi-user"></i> influencers</a></li>
+		<li><a href="../../influenciadores/Sin-Especificar/0"><i class="pi pi-user"></i> influencers</a></li>
 	</ul>
 </nav>
 
@@ -637,7 +614,7 @@ if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
 ?>
 <header>
 
-	<div class="logo"><a href="./dashboard-agencia" target="_top"></a></div>
+	<div class="logo"><a href="./escritorio-agencia" target="_top"></a></div>
 	<div class="menu" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);"></div>
 	
 	<a href="#" class="notes" ><i class="pi pi-bell"></i></a>
@@ -758,8 +735,8 @@ if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
 ?>
 <header>
 
-	<div class="logo"><a href="./dashboard-agencia" target="_top"></a></div>
-	<div class="menu" style="background-image:url(<?php echo "../.".$_SESSION['pictureUrl'];?>);"></div>
+	<div class="logo"><a href="./escritorio-agencia" target="_top"></a></div>
+	<div class="menu" style="background-image:url(<?php if(strpos($_SESSION['pictureUrl'],"graph")||strpos($_SESSION['pictureUrl'],"media.licdn.com")){ echo $_SESSION['pictureUrl'];}else{echo "../../".$_SESSION['pictureUrl'];}?>);"></div>
 	
 	<a href="#" class="notes" ><i class="pi pi-bell"></i></a>
 	<a href="#" class="ayuda_pi"><i class="pi pi-help"></i></a>
@@ -769,8 +746,8 @@ if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
 	<div class="fle-top"></div>
 
 	<div class="misdatos">
-
-		<div class="imagen" style="background-image:url(<?php echo "../.".$_SESSION['pictureUrl'];?>);">
+	
+		<div class="imagen" style="background-image:url(<?php if(strpos($_SESSION['pictureUrl'],"graph")||strpos($_SESSION['pictureUrl'],"media.licdn.com")){ echo $_SESSION['pictureUrl'];}else{echo "../../".$_SESSION['pictureUrl'];}?>);">
 
 			<input type="file" name="file" id="file" class="hide"/>
 			<label class="selectFile" for="file"><i class="pi pi-pencil"></i></label>
@@ -780,7 +757,7 @@ if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
 		<div class="datos">
 
 			<h2><?php echo $_SESSION['nombre']; ?></h2>
-			<h3><?php echo $_SESSION['empresa']; ?></h3>
+			<h3><?php echo $_SESSION['empresa']; ?></h3>3>
 
 			<div class="editar"><span>editar perfil</span></div>
 

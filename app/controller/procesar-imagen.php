@@ -353,7 +353,7 @@ if ($tipo == 'avatar-ipe'){
 	$nuevocorreo=$_POST['nucorreo'];
 	$nuevotelefono1=$_POST['nutel1'];
 	$nuevotelefono2=$_POST['nutel2'];
-	$nuevaurl="./../uploads/agencias/registered/$nuevocorreo/avatar.gif";
+	$nuevaurl="./uploads/agencias/registered/$nuevocorreo/avatar.gif";
 	$ipe = $_POST['ipe'];
 
 		$query= "SELECT DISTINCT correo FROM persona WHERE correo='$nuevocorreo'";

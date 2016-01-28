@@ -1,6 +1,6 @@
 <?php
 
-require('../conexion.php');
+require('../../controller/conexion.php');
 
 if($_POST['tipo'] == "activar_rs"){
 	$id_activar_rs = $_POST['id_activar_rs'];

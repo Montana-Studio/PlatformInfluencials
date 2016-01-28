@@ -5,7 +5,7 @@
 	$row_campana= mysqli_fetch_array($result_campana, MYSQLI_BOTH);
 	$num_row_campana= mysqli_num_rows($result_campana);
 //if($row_campana){	
-	if($_GET['campana']){
+	if($_GET['campana']!='Sin-Especificar'){
 		echo '<div id="campanas-postulables">
 			<h2 class="sub-titulo">Selecciona una campaña</h2>
 				<select id="campana_seleccionada">
@@ -18,18 +18,20 @@
 			//echo $hoyFormatted;
 		echo '<!--button id="opc_cot">Campañas para cotizar</button-->';
 			//mostrar campañas
-		if ($num_rows2 > 0){
-			echo '<div id="campanas-postulables">
+		echo '<div id="campanas-postulables">
 					<h2 class="sub-titulo">Selecciona una campaña para cotizar</h2>
 					<select id="campana_seleccionada">
 					<option id="0">Cotizar sin campaña</option>';
+		if ($num_rows2 > 0){
+			
 			do{
 				echo '<option id="'.$row2[0].'" value="'.$row2[1].'">'.$row2[1].'</option>';
 			}while($row2 = mysqli_fetch_row($result2));
-				echo '</select>
+				
+		}
+		echo '</select>
 					<i class="pi pi-arrow-bottom"></i>
 					</div>';
-		}
 	}	
 	
 	//mostrar influenciadores
@@ -227,10 +229,10 @@
 						var influenciador= array_nombre_influenciadores_seleccionados[i];
 						$.ajax({
 							type: "POST",
-							url: "./controller/contactar-a-influenciador-agencia.php",
+							url: "../../controller/contactar-a-influenciador-agencia.php",
 							data: "agencia="+agencia+"&correo_agencia="+correo_agencia+"&influenciador="+influenciador+"&influenciador_id="+influenciador_id+"&campana="+campana+"&id_campana="+id_campana+"&tipo="+tipo,
 							success: function(data){
-								console.log("agencia="+agencia+"&correo_agencia="+correo_agencia+"&influenciador="+influenciador+"&influenciador_id="+influenciador_id+"&campana="+campana+"&id_campana="+id_campana+"&tipo="+tipo);
+								
 								//$("#campanas-postulables").hide();
 								//$("#campanas-postulables").show();
 								//$("#opc_cot").show();
@@ -258,7 +260,7 @@
 
 							$(".siElim").on("click",function(){
 
-								window.location.href = "campana-agencia.php";
+								window.location.href = "campanas.php";
 							});
 
 							$(".noElim").on("click",function(){
@@ -287,7 +289,7 @@
 
 							$(".siElim").on("click",function(){
 
-								window.location.href = "campana-agencia.php";
+								window.location.href = "campanas.php";
 							});
 
 							$(".noElim").on("click",function(){

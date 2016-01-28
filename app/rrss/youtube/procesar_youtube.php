@@ -1,5 +1,5 @@
 <?php
-require('../../conexion.php');
+require('../../controller/conexion.php');
 $youtubeId =$_POST['youtubeId'];
 $key=$_POST['key'];
 $id_persona = $_SESSION['id'];

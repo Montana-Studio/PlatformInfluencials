@@ -128,7 +128,6 @@
 			FB.api(
 			    "/me/accounts", { locale: 'en_US', fields: 'name' },
 			    function (response) {
-			    	console.log(response);
 			        for(var i=0; i<=response.data.length-1;i++){
 			        	if(i==response.data.length-1){
 			        		var facebook_page_id = response.data[i].id;

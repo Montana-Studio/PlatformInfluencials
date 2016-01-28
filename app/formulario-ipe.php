@@ -115,7 +115,10 @@
 					<div class="selects">
 						<small>Comuna</small>
 						<select id="comuna" required>
+						<?php echo $_SESSION['region']; ?>
+						<?php if($_SESSION['comuna']){ echo '<option value="'.$_SESSION['comuna'].'" disabled selected>'.$_SESSION["comuna"].'</option>';}else{?>
 							<option value="" disabled selected>selecciona tu comuna </option>
+							<?php }?>
 						</select>
 						<i class="fa fa-chevron-down"></i>
 					</div>
