@@ -251,7 +251,7 @@ $(document).ready(function(){
 		if(foto==1) {
 			$.ajax({
 				type: "POST",
-				url: "./controller/procesar-imagen.php",
+				url: "../../controller/procesar-imagen.php",
 				data: info,
 				enctype: 'multipart/form-data',
 				contentType: false,
@@ -307,7 +307,7 @@ $(document).ready(function(){
 		if(foto==1) {
 			$.ajax({
 				type: "POST",
-				url: "./controller/procesar-imagen.php",
+				url: "../../controller/procesar-imagen.php",
 				data: info,
 				enctype: 'multipart/form-data',
 				contentType: false,

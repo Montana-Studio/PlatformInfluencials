@@ -309,7 +309,7 @@
 		</script>';
 	}else{
 		echo '<main class="no-campana">
-						<a href="nueva-campana-agencia.php" class="hrefCamp">
+						<a href="#" class="hrefCamp">
 							<i class="fa fa-warning"></i>
 							<h2>Ups, no hay influenciadores</h2>
 							<p>Puedes seguir modificando o crear nuevas campañas y cotizar, pronto agregaremos más influenciadores.</p>

@@ -60,10 +60,10 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
     $row4= mysqli_fetch_array($result4, MYSQLI_BOTH);
     $num_row4=mysqli_num_rows($result4);
     $settings = array(
-      'oauth_access_token' => TWITTER_OAUTH_ACCESS_TOKEN,
-      'oauth_access_token_secret' => TWITTER_OAUTH_ACCESS_TOKEN_SECRET,
-      'consumer_key' => TWITTER_CONSUMER_KEY,
-      'consumer_secret' => TWITTER_CONSUMER_SECRET
+      'oauth_access_token' => "4557583582-gXqKvmBxk3m1yWotVZMuVIGR5E3sVsFa8VfEb4r",
+      'oauth_access_token_secret' => "I4S13VpbnxArceqaZxSFLUfwvZvhjIi9BND6dIlV3NVbS",
+      'consumer_key' => "RHwBcRYX2yuaXWkAPwJ6fPTqi",
+      'consumer_secret' => "EMfnAuVxgv2oTzX3CHVcsRDD94PrGgzjnnCcvch77VxFI9xccP"
     );
     $ta_url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
     $requestMethod = 'GET';
@@ -85,8 +85,8 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
         }
     if($num_row4>0){
       do{
-        include_once('rrss/twitter/inc/twitteroauth.php');
-        include_once('rrss/twitter/inc/TwitterAPIExchange.php');
+        include_once('./rrss/twitter/inc/twitteroauth.php');
+        include_once('./rrss/twitter/inc/TwitterAPIExchange.php');
         $usuario1 = $row4['rrss_id'];
         $getfield1 = '?id='.$usuario1;
         $twitter1 = new TwitterAPIExchange($settings);
@@ -172,6 +172,7 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
             </ul>
             </div>";
         }
+        
         $_SESSION['twitter'] .= $text;
         $text="";
       }while($row4 = $result4->fetch_array());

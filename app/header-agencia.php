@@ -610,40 +610,25 @@ if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
 	</ul>
 </nav>
 
-<?}else if(basename($_SERVER['PHP_SELF'])!='perfil-influenciador-publico-agencia.php'){
+<?}else if(basename($_SERVER['PHP_SELF'])!='perfil-influenciador-publico-agencia.php'||basename($_SERVER['PHP_SELF'])=='formulario-agencia-linkedin.php'||basename($_SERVER['PHP_SELF'])=='formulario-red-social-agencia.php'){
 ?>
 <header>
 
 	<div class="logo"><a href="./escritorio-agencia" target="_top"></a></div>
-	<div class="menu" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);"></div>
+	<div class="menu" style="background-image:url(<?php echo "app/".$_SESSION['pictureUrl'];?>);"></div>
 	
 	<a href="#" class="notes" ><i class="pi pi-bell"></i></a>
 	<a href="#" class="ayuda_pi"><i class="pi pi-help"></i></a>
 </header>
 
-<?php
-	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia-linkedin.php'){
-		echo '';
-	}else if(basename($_SERVER['PHP_SELF'])=='formulario-agencia2.php'){
-		echo '';
-	}else{
-		/*echo '<nav>
-				<ul>
-					<li><i onClick="backHistory()" class="pi pi-arrow-left"></i></li>
-					<li><a href="campanas"><i class="pi pi-suitcase"></i> campañas</a></li>
-					<li id="nuevaCampain"><a href="crear-campana"><i class="pi pi-plus"></i> crear campañas</a></li>
-					<li><a href="influenciadores"><i class="pi pi-user"></i> influencers</a></li>
-				</ul>
-			</nav>';*/
-	}
-?>
+
 <form id="imagenform">
 
 	<div class="fle-top"></div>
 
 	<div class="misdatos">
 
-		<div class="imagen" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);">
+		<div class="imagen" style="background-image:url(<?php echo "app/".$_SESSION['pictureUrl'];?>);">
 
 			<input type="file" name="file" id="file" class="hide"/>
 			<label class="selectFile" for="file"><i class="pi pi-pencil"></i></label>
@@ -721,6 +706,16 @@ if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
 
 	<div class="btn_close"><span><i class="pi pi-close"></i></span></div>
 </form>
+
+<?php
+	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia-linkedin.php'){
+		echo '';
+	}else if(basename($_SERVER['PHP_SELF'])=='formulario-red-social-agencia.php'){
+		echo '';
+	}else{
+?>
+
+
 <nav>
 	<ul>
 		<li><i onClick="backHistory()" class="pi pi-arrow-left"></i></li>
@@ -729,7 +724,8 @@ if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
 		<li><a href="influenciadores/Sin-Especificar/0"><i class="pi pi-user"></i> influencers</a></li>
 	</ul>
 </nav>
-<?php 
+<?php
+	} 
 }else{
 
 ?>

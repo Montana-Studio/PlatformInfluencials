@@ -69,7 +69,7 @@
 
 				$(".siElim").on("click",function(){
 
-					window.location.assign("http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
+					window.location.assign("http://powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 					window.location.reload();
 					
 				});
@@ -81,7 +81,7 @@
 					},{duration:500,easing:"easeInOutQuint",complete:function(){
 						$(".alertElim").fadeOut("fast");
 						$(this).hide();
-						window.location.href = "http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
+						window.location.href = "http://powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
 						
 					}});
 				});
@@ -101,7 +101,7 @@
 
 				$(".siElim").on("click",function(){
 
-					window.location.assign("http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
+					window.location.assign("http://powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 					window.location.reload();
 					
 				});
@@ -113,7 +113,7 @@
 					},{duration:500,easing:"easeInOutQuint",complete:function(){
 						$(".alertElim").fadeOut("fast");
 						$(this).hide();
-						window.location.href = "http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
+						window.location.href = "http://powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
 						
 					}});
 					
@@ -137,7 +137,7 @@
 
 					$(".siElim").on("click",function(){
 
-						window.location.assign("http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
+						window.location.assign("http://powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 						window.location.reload();
 						
 					});
@@ -149,7 +149,7 @@
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
 							$(this).hide();
-							window.location.href = "http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
+							window.location.href = "http://powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
 							
 						}});
 					});
@@ -174,7 +174,7 @@
 					},{duration:1500,easing:"easeOutBounce"});
 
 					$(".siElim").on("click",function(){
-						window.location.assign("http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
+						window.location.assign("http://powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 						window.location.reload();
 						
 					});
@@ -186,7 +186,7 @@
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
 							$(this).hide();
-							window.location.href = "http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
+							window.location.href = "http://powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
 							
 						}});
 					});
@@ -212,7 +212,7 @@
 
 					$(".siElim").on("click",function(){
 
-						window.location.assign("http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
+						window.location.assign("http://powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 						window.location.reload();
 						
 					});
@@ -224,7 +224,7 @@
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
 							$(this).hide();
-							window.location.href = "http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
+							window.location.href = "http://powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
 							
 						}});
 					});
@@ -249,7 +249,7 @@
 
 					$(".siElim").on("click",function(){
 
-						window.location.assign("http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
+						window.location.assign("http://powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 						window.location.reload();
 						
 					});
@@ -261,7 +261,7 @@
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
 							$(this).hide();
-							window.location.href = "http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
+							window.location.href = "http://powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
 							
 						}});
 					});
@@ -286,7 +286,7 @@
 
 					$(".siElim").on("click",function(){
 
-						window.location.assign("http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
+						window.location.assign("http://powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 						window.location.reload();
 						
 					});
@@ -298,7 +298,7 @@
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
 							$(this).hide();
-							window.location.href = "http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
+							window.location.href = "http://powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
 							
 						}});
 					});
@@ -323,7 +323,7 @@
 
 					$(".siElim").on("click",function(){
 
-						window.location.assign("http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
+						window.location.assign("http://powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 						window.location.reload();
 						
 					});
@@ -335,7 +335,7 @@
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
 							$(this).hide();
-							window.location.href = "http://www.powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
+							window.location.href = "http://powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
 							
 						}});
 					});

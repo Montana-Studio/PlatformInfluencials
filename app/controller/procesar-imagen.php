@@ -354,7 +354,7 @@ if ($tipo == 'avatar-ipe'){
 	$nuevotelefono1=$_POST['nutel1'];
 	$nuevotelefono2=$_POST['nutel2'];
 	$nuevaurl="./uploads/agencias/registered/$nuevocorreo/avatar.gif";
-	$ipe = $_POST['ipe'];
+	//$ipe = $_POST['ipe'];
 
 		$query= "SELECT DISTINCT correo FROM persona WHERE correo='$nuevocorreo'";
 		$result= mysqli_query($mysqli,$query)or die(mysqli_error());
@@ -422,11 +422,11 @@ if ($tipo == 'avatar-ipe'){
 	/*	}else if (file_exists("uploads/$nuevocorreo/test/" . $_FILES["file"]["name"])) {
 			$resultado = "existe";*/
 		}else if(valida_extension() == "ok"){
-			mkdir("uploads/ipe/registered/$nuevocorreo", 0777, true);
-			$targetPath = "uploads/ipe/registered/$nuevocorreo/".$_FILES['file']['name']; // Target path where file is to be stored
+			mkdir("../uploads/ipe/registered/$nuevocorreo", 0777, true);
+			$targetPath = "../uploads/ipe/registered/$nuevocorreo/".$_FILES['file']['name']; // Target path where file is to be stored
 			//move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 			compress_image($sourcePath, $targetPath, 40);
-			rename("uploads/ipe/registered/$nuevocorreo/$file", "uploads/ipe/registered/$nuevocorreo/avatar.gif");
+			rename($targetPath, "../uploads/ipe/registered/$nuevocorreo/avatar.gif");
 			$results1 = $mysqli->query("INSERT INTO login (user, pass, correo) VALUES ('$nuevousuario','$nuevocontraseña','$nuevocorreo')");
 			$results2 = $mysqli->query("INSERT INTO persona (nombre, correo, id_login, id_tipo, descripcion_tipo,  picture_url, region, comuna, fecha_ingreso ) VALUES ('$nuevousuario','$nuevocorreo', (SELECT id from login WHERE correo='$nuevocorreo'),'$ipe','$descripciontipo','$nuevaurl', '$nuevoregion', '$nuevocomuna', '$hoy')");
 			echo "nuevo";
