@@ -350,25 +350,6 @@
 			header('Location:index.php');
 			die();
 		} 
-		echo "<nav class='nav-ipe'>
-				<ul class='nav-mobile'>
-					<li><i onClick='backHistory()' class='pi pi-arrow-left'></i></li>
-					<li><h1>".$_SESSION['descripcion_tipo']."</h1></li>
-					<li><a href='./controller/logout' class='pi pi-singout'></a></li>
-				</ul>
-				<ul class='nav-deskt'>
-				    <li></li>
-				    <li><a href='./controller/logout' target='_self'><i class='pi pi-singout'></i> Cerrar sesión</a></li>
-				    <li><i class='pi pi-help'></i> <i class='pi pi-bell'></i></li>
-				</ul>
-			</nav>
-			<nav class='header-ipe'>
-				<ul>
-					<li><i onClick='backHistory()' class='pi pi-arrow-left'></i></li>
-					<li><a href='escritorio-influencer'><i class='pi pi-pencil'></i> Escritorio</a></li>
-					<li><a href='campanas-inscritas'><i class='pi pi-bullhorn'></i> campañas</a></li>
-				</ul>
-			</nav>";
 			if(basename($_SERVER['PHP_SELF'])=='dashboard-ipe.php'){
 				require('rrss/twitter/inc/twitteroauth.php');
 				require('rrss/twitter/inc/TwitterAPIExchange.php');
@@ -381,6 +362,25 @@
 				muestra_header();
 
 				echo "
+				<nav class='nav-ipe'>
+					<ul class='nav-mobile'>
+						<li><i onClick='backHistory()' class='pi pi-arrow-left'></i></li>
+						<li><h1>".$_SESSION['descripcion_tipo']."</h1></li>
+						<li><a href='./controller/logout' class='pi pi-singout'></a></li>
+					</ul>
+					<ul class='nav-deskt'>
+					    <li></li>
+					    <li><a href='./controller/logout' target='_self'><i class='pi pi-singout'></i> Cerrar sesión</a></li>
+					    <li><i class='pi pi-help'></i> <i class='pi pi-bell'></i></li>
+					</ul>
+				</nav>
+				<nav class='header-ipe'>
+					<ul>
+						<li><i onClick='backHistory()' class='pi pi-arrow-left'></i></li>
+						<li><a href='escritorio-influencer'><i class='pi pi-pencil'></i> Escritorio</a></li>
+						<li><a href='campanas-inscritas'><i class='pi pi-bullhorn'></i> campañas</a></li>
+					</ul>
+				</nav>
 				<script>
 					jQuery(document).ready(function(){
 						$('title').append('Dashboard - ".$_SESSION['nombre']."');
@@ -410,6 +410,25 @@
 			if(basename($_SERVER['PHP_SELF'])=='campanas-ipe.php'){
 				muestra_header();
 				echo "
+				<nav class='nav-ipe'>
+					<ul class='nav-mobile'>
+						<li><i onClick='backHistory()' class='pi pi-arrow-left'></i></li>
+						<li><h1>".$_SESSION['descripcion_tipo']."</h1></li>
+						<li><a href='./controller/logout' class='pi pi-singout'></a></li>
+					</ul>
+					<ul class='nav-deskt'>
+					    <li></li>
+					    <li><a href='./controller/logout' target='_self'><i class='pi pi-singout'></i> Cerrar sesión</a></li>
+					    <li><i class='pi pi-help'></i> <i class='pi pi-bell'></i></li>
+					</ul>
+				</nav>
+				<nav class='header-ipe'>
+					<ul>
+						<li><i onClick='backHistory()' class='pi pi-arrow-left'></i></li>
+						<li><a href='escritorio-influencer'><i class='pi pi-pencil'></i> Escritorio</a></li>
+						<li><a href='campanas-inscritas'><i class='pi pi-bullhorn'></i> campañas</a></li>
+					</ul>
+				</nav>
 				<script>
 					$(document).ready(function(){
 						var correo,nombre,correo,tel1,tel2,empresa;
