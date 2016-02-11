@@ -40,7 +40,14 @@ if($num_rows_url>0){
 				$instagram_post_json = json_decode($instagram_post_query,true); 
 				$instagram_id = intval($instagram_post_json['data']['user']['id']);
 				if($instagram_id==$rrss_id){
-					$result_url = $mysqli->query('INSERT INTO campanarrss SET campana_id="'.$campana_id.'", rrss_id="'.$rrss_id.'", url="'.$url.'", descripcion_rrss="'.$descripcion_rrss.'", persona_id="'.$_SESSION["id"].'"');
+					$result_url= $mysqli->query('SELECT * FROM campanarrss WHERE rrss_id="'.$rrss_id.'"');
+					$row_url = mysqli_fetch_array($result_url, MYSQLI_BOTH);
+					if($row_first_url){
+						$url = $url.";".$row_url['url'];
+						$result_url = $mysqli->query('UPDATE campanarrss SET url="'.$url.'" WHERE id="'.$row_url[0].'"');
+					}else{
+						$result_url = $mysqli->query('INSERT INTO campanarrss SET campana_id="'.$campana_id.'", rrss_id="'.$rrss_id.'", url="'.$url.'", descripcion_rrss="'.$descripcion_rrss.'", persona_id="'.$_SESSION["id"].'"');
+					}
 					$resultado ='exito';
 				}else{
 					$resultado ='false';
@@ -55,9 +62,9 @@ if($num_rows_url>0){
 	}
 	//if($descripcion_rrss=='googleplus'||$descripcion_rrss='twitter'){
 		if($descripcion_rrss=='twitter'){
-				include_once("rrss/twitter/inc/twitteroauth.php");
-				include_once('rrss/twitter/inc/TwitterAPIExchange.php');
-				include_once('rrss/twitter/twitter_auth.php');
+				include_once("../rrss/twitter/inc/twitteroauth.php");
+				include_once('../rrss/twitter/inc/TwitterAPIExchange.php');
+				include_once('../rrss/twitter/twitter_auth.php');
 				//echo TWITTER_CONSUMER_KEY;
 				$settings = array(
 				'oauth_access_token' => TWITTER_OAUTH_ACCESS_TOKEN,
@@ -122,7 +129,18 @@ if($num_rows_url>0){
             if($links_user_url){
 	            $facebook_post_owner =$links_user_url->from->id;
 	            if($facebook_post_owner==$rrss_id){ 
-					$result_url = $mysqli->query('INSERT INTO campanarrss SET campana_id="'.$campana_id.'", rrss_id="'.$rrss_id.'", url="'.$url.'", descripcion_rrss="'.$descripcion_rrss.'", persona_id="'.$_SESSION["id"].'"');
+
+	            	$result_url= $mysqli->query('SELECT * FROM campanarrss WHERE rrss_id="'.$rrss_id.'"');
+					$row_url = mysqli_fetch_array($result_url, MYSQLI_BOTH);
+					if($row_first_url){
+						$url = $url.";".$row_url['url'];
+						$result_url = $mysqli->query('UPDATE campanarrss SET url="'.$url.'" WHERE id="'.$row_url[0].'"');
+					}else{
+						$result_url = $mysqli->query('INSERT INTO campanarrss SET campana_id="'.$campana_id.'", rrss_id="'.$rrss_id.'", url="'.$url.'", descripcion_rrss="'.$descripcion_rrss.'", persona_id="'.$_SESSION["id"].'"');
+					}
+
+					/*
+					$result_url = $mysqli->query('INSERT INTO campanarrss SET campana_id="'.$campana_id.'", rrss_id="'.$rrss_id.'", url="'.$url.'", descripcion_rrss="'.$descripcion_rrss.'", persona_id="'.$_SESSION["id"].'"');*/
 					$resultado = 'exito';
 				}else{
 					$resultado = 'false';

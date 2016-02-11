@@ -23,6 +23,7 @@
     
 
     if($num_row2>0){
+        $campanas_activas .= '<h2 class="sub-titulo">Iniciadas</h2>';  
         do{ 
             $query3="SELECT DISTINCT * FROM campana WHERE id=".$row2[0]." AND idEstado='1' AND  fecha_inicio_server <= date(now())";
             $result3=mysqli_query($mysqli,$query3)or die (mysqli_error());
@@ -31,11 +32,10 @@
             $campanas_activas .= '';
             $rrss_list = explode(",",$row3[11]);
             $cantidad_redes_sociales = count($rrss_list);
-            $i=0;
-           $campanas_activas .= '<h2 class="sub-titulo">Iniciadas</h2>';        
+            $i=0;      
             if ($num_row3 > 0 && $cantidad_redes_sociales>0){
                 do{
-                    $campanas_activas .= '<h2 class="sub-titulo">Iniciadas</h2>
+                    $campanas_activas .= '
                     <div class="creadas">
                         <div class="recientes">
                             <div class="cont-campana">
@@ -50,35 +50,22 @@
                                 </div>
                                 <div class="content">
                                     <div class="btn_close"><span><i class="pi pi-close"></i></span></div>
-
-                                    <!--form class="campanaForm" id="'.$row3[0].'">
-
-                                        <!--div class="inputs-campana nombre nombre-campana" id="'.$row3[0].'">
-                                            <input placeholder="'.$row3[1].'" disabled />
-                                        </div>
-
-                                        <div class="inputs-campana marca marca-campana" id="'.$row3[0].'">
-                                            <input  placeholder="by '.$row3[4].'" disabled />
-                                        </div-->
                                         <span class="campa-ico activada"><i class="pi pi-tool"></i>Activada</span>
-
                                         <span class="campa-ico fecha-activada">
                                             <i class="pi pi-calendar"> Inicio </i><span>'.$row3[7].'</span> al <span>'.$row3[8].'</span>
                                         </span>
-
                                         <div class="inputs-campana descripcion descripcion-campana" id="'.$row3[0].'">
                                             <textarea placeholder="descripcion" disabled>'.$row3[2].'</textarea>
                                         </div>
-
                                         <div class="ingresar_urls" id="'.$row3[0].'">
-                                            <h2 class="sub-titulo">Ingresa tus URLs marcadas</h2>';
-
+                                        <h2 class="sub-titulo">Ingresa tus URLs marcadas</h2>';
                                         do{
                                             $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND id_estado='1' AND  descripcion_rrss='".$rrss_list[$i]."'";
                                             $result4=mysqli_query($mysqli,$query4)or die (mysqli_error());
                                             $row4= mysqli_fetch_array($result4, MYSQLI_BOTH);
                                             $num_row4=mysqli_num_rows($result4);
-                                            do{
+                                            $campanas_activas.= '';
+                                            do{                                                
                                                 if($row4[2]=='facebook'){
                                                     $facebookPage=$row4[3];
                                                     $facebookKey =FACEBOOK_CONSUMER_KEY;
@@ -88,59 +75,77 @@
                                                     $json_user= @file_get_contents($json_user_url);
                                                     $links_user_url= json_decode($json_user);
                                                     $facebookWebsite =$links_user_url->name;
+                                                    //$campanas_activas .=  '<option id="'.$row4[3].'" name="'.$row4[2].'" value ="['.$facebookWebsite.']">'.$row4[2].' -- ['.$facebookWebsite.']</option>';
+                                                    //$sitio_actual_nombre = $facebookWebsite;
 
                                                     //Muestro URL Ingresada
                                                     $query_url_facebook ="SELECT * FROM campanarrss WHERE descripcion_rrss='facebook' AND rrss_id='".$row4[3]."' AND campana_id='".$row3[0]."' AND persona_id='".$_SESSION['id']."' ";
                                                     $result_url_facebook = mysqli_query($mysqli,$query_url_facebook);
                                                     $row_url_facebook= mysqli_fetch_array($result_url_facebook, MYSQLI_BOTH);
                                                     $num_rows_url_facebook=mysqli_num_rows($result_url_facebook);
-                                                    //echo $row_url_facebook[0];
-                                                    if($num_rows_url_facebook>0){
-                                                        $campanas_activas .= '
-                                                        <div class="rrss" name="facebook" >
-                                                            <i class="pi pi-facebook"></i>
-                                                            <span>['.$facebookWebsite.']</span>
-                                                            <input id="'.$row4[3].'" value="'.$row_url_facebook['url'].'" name="facebook" disabled/>
-                                                        </div>';
-                                                    }else{
-                                                        $campanas_activas .=  '
-                                                        <div class="rrss" name="facebook" >
-                                                            <i class="pi pi-facebook"></i>
-                                                            <span>['.$facebookWebsite.']</span>
-                                                            <input id="'.$row4[3].'" name="facebook" class="social"/>
-                                                            <button class="enviar_url" class="btns">Enviar URL</button>
-                                                        </div>';                
+
+                                                    if(strlen($facebookWebsite)>0){
+                                                        if($num_rows_url_facebook>0){
+                                                            
+                                                            $campanas_activas_urls_ingresadas .= '
+                                                            <div class="rrss" name="facebook" >
+                                                                <i class="pi pi-facebook"></i>
+                                                                <span>['.$facebookWebsite.']</span>';
+                                                                do{
+                                                                    $campanas_activas_urls_ingresadas .= '<p id="'.$row4[3].'" name="facebook"> '.$row_url_facebook[4].'</p>';
+                                                                }while($row_url_facebook = mysqli_fetch_row($result_url_facebook));
+                                                            $campanas_activas_urls_ingresadas .='</div>';
+                                                            
+                                                        }
+                                                            $campanas_activas .=  '
+                                                            <div class="rrss" name="facebook" >
+                                                                <i class="pi pi-facebook"></i>
+                                                                <span>['.$facebookWebsite.']</span>
+                                                                <input id="'.$row4[3].'" name="facebook" class="social"/>
+                                                                <button class="enviar_url" class="btns">Enviar URL</button>
+                                                            </div>';                
+                                                        
                                                     }
+                                                                   
                                                 }
                                                 if($row4[2]=='instagram'){
                                                   $json_user_url ="https://api.instagram.com/v1/users/".$row4[3]."?access_token=".$row4[6];
-                                                  $json_user= file_get_contents($json_user_url);
+                                                  $json_user= @file_get_contents($json_user_url);
                                                   $links_user_url= json_decode($json_user);
                                                   $username_instagram = $links_user_url->data->username;
-
-                                                   //Muestro URL Ingresada
+                                                  //$campanas_activas .=  '<option id="'.$row4[3].'" name="'.$row4[2].'" value ="['.$username_instagram.']">'.$row4[2].' -- ['.$username_instagram.']</option>';
+                                                  //$sitio_actual_nombre = $username_instagram;
+                                                  //Muestro URL Ingresada
                                                     $query_url_instagram ="SELECT * FROM campanarrss WHERE descripcion_rrss='instagram' AND rrss_id='".$row4[3]."' AND campana_id='".$row3[0]."' AND persona_id='".$_SESSION['id']."'";
                                                     $result_url_instagram = mysqli_query($mysqli,$query_url_instagram);
                                                     $row_url_instagram= mysqli_fetch_array($result_url_instagram, MYSQLI_BOTH);
                                                     $num_rows_url_instagram=mysqli_num_rows($result_url_instagram);
                                                     //echo $row_url_instagram[0];
-                                                    if($num_rows_url_instagram>0){
-                                                        $campanas_activas .= '
-                                                        <div class="rrss" name="instagram" ">
-                                                            <i class="pi pi-instagram"></i>
-                                                            <span>['.$username_instagram.']</span>
-                                                            <input id="'.$row4[3].'" value="'.$row_url_instagram['url'].'" name="instagram" disabled/>
-                                                        </div>';
-                                                    }else{
-                                                        $campanas_activas .=  '
-                                                        <div class="rrss" name="instagram" ">
-                                                            <i class="pi pi-instagram"></i>
-                                                            <span>['.$username_instagram.']</span>
-                                                            <input id="'.$row4[3].'" name="instagram" />
-                                                            <button class="enviar_url" class="btns">Enviar URL</button>
-                                                        </div>';
+                                                    if(strlen($username_instagram)>0){
+                                                        if($num_rows_url_instagram>0){
+                                                            
+                                                            $campanas_activas_urls_ingresadas .= '
+                                                            <div class="rrss" name="instagram" >
+                                                                <i class="pi pi-instagram"></i>
+                                                                <span>['.$username_instagram.']</span>';
+                                                                do{
+                                                                    $campanas_activas_urls_ingresadas .= '<p id="'.$row4[3].'" name="instagram"> '.$row_url_instagram[4].'</p>';
+                                                                }while($row_url_instagram = mysqli_fetch_row($result_url_instagram));
+                                                            $campanas_activas_urls_ingresadas .='</div>';
+                                                            
+                                                        }
+                                                            $campanas_activas .=  '
+                                                            <div class="rrss" name="instagram" >
+                                                                <i class="pi pi-instagram"></i>
+                                                                <span>['.$username_instagram.']</span>
+                                                                <input id="'.$row4[3].'" name="instagram" class="social"/>
+                                                                <button class="enviar_url" class="btns">Enviar URL</button>
+                                                            </div>';                
+                                                        
                                                     }
+                                                      
                                                 }
+
                                                 if($row4[2]=='twitter'){
                                                     include_once("rrss/twitter/inc/twitteroauth.php");
                                                     include_once('rrss/twitter/inc/TwitterAPIExchange.php');
@@ -159,139 +164,88 @@
                                                     ->buildOauth($ta_url, $requestMethod)
                                                     ->performRequest();
                                                     $data1 = json_decode($follow_count1, true);
-                                                    //$followers_count1=$data1[0]['user']['followers_count'];
                                                     $username_twitter=$data1[0]['user']['screen_name'];
-
+                                                    //$campanas_activas .=  '<option id="'.$row4[3].'" name="'.$row4[2].'" value ="['.$username_twitter.']">'.$row4[2].' -- ['.$username_twitter.']</option>';
+                                                    //$sitio_actual_nombre = $username_twitter;
                                                     //Muestro URL Ingresada
                                                     $query_url_twitter ="SELECT * FROM campanarrss WHERE descripcion_rrss='twitter' AND rrss_id='".$row4[3]."' AND campana_id='".$row3[0]."' AND persona_id='".$_SESSION['id']."'";
                                                     $result_url_twitter = mysqli_query($mysqli,$query_url_twitter);
                                                     $row_url_twitter= mysqli_fetch_array($result_url_twitter, MYSQLI_BOTH);
                                                     $num_rows_url_twitter=mysqli_num_rows($result_url_twitter);
-                                                    if($num_rows_url_twitter>0){
-                                                        $campanas_activas .= '
-                                                        <div class="rrss" name="twitter">
-                                                            <i class="pi pi-twitter"></i>
-                                                             <span>['.$username_twitter.']</span>
-                                                            <input id="'.$row4[3].'" value="'.$row_url_twitter['url'].'" name="twitter" disabled/>
-                                                        </div>';
-                                                    }else{
-                                                        $campanas_activas .=  '
-                                                        <div class="rrss" name="twitter">
-                                                            <i class="pi pi-twitter"></i>
-                                                            <span>['.$username_twitter.']</span>
-                                                            <input id="'.$row4[3].'" name="twitter"/>
-                                                            <button class="enviar_url" class="btns">Enviar URL</button>
-                                                        </div>';
+                                                    if(strlen($username_twitter)>0){
+                                                        if($num_rows_url_twitter>0){           
+                                                            $campanas_activas_urls_ingresadas .= '
+                                                            <div class="rrss" name="twitter" >
+                                                                <i class="pi pi-twitter"></i>
+                                                                <span>['.$username_twitter.']</span>';
+                                                                do{
+                                                                    $campanas_activas_urls_ingresadas .= '<p id="'.$row4[3].'" name="twitter"> '.$row_url_twitter[4].'</p>';
+                                                                }while($row_url_twitter = mysqli_fetch_row($result_url_instagram));
+                                                            $campanas_activas_urls_ingresadas .='</div>'; 
+                                                        }
+                                                            $campanas_activas .=  '
+                                                            <div class="rrss" name="twitter">
+                                                                <i class="pi pi-twitter"></i>
+                                                                <span>['.$username_twitter.']</span>
+                                                                <input id="'.$row4[3].'" name="twitter"/>
+                                                                <button class="enviar_url" class="btns">Enviar URL</button>
+                                                            </div>';
+                                                        
                                                     }
-
-
+                        
                                                 }
+
                                                 if($row4[2]=='youtube'){
                                                     $googleplusKey =GOOGLE_CONSUMER_KEY;
                                                     $json_user_url ="https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=".$row4[3]."&key=".$googleplusKey;
                                                     $json_user= file_get_contents($json_user_url);
                                                     $links_user_url= json_decode($json_user);
                                                     $youtubeName = $links_user_url->items[0]->snippet->title;
+                                                    //$campanas_activas .=  '<option id="'.$row4[3].'" name="'.$row4[2].'" value ="['.$youtubeName.']">'.$row4[2].' -- ['.$youtubeName.']</option>';
+                                                    //$sitio_actual_nombre = $youtubeName;
                                                     //Muestro URL Ingresada
                                                     $query_url_youtube ="SELECT * FROM campanarrss WHERE descripcion_rrss='youtube' AND rrss_id='".$row4[3]."' AND campana_id='".$row3[0]."' AND persona_id='".$_SESSION['id']."'";
                                                     $result_url_youtube = mysqli_query($mysqli,$query_url_youtube);
                                                     $row_url_youtube= mysqli_fetch_array($result_url_youtube, MYSQLI_BOTH);
                                                     $num_rows_url_youtube=mysqli_num_rows($result_url_youtube);
-                                                    if($num_rows_url_youtube>0){
-                                                        $campanas_activas .= '
-                                                        <div class="rrss" name="youtube">
-                                                            <i class="pi pi-youtube"></i>
-                                                            <span>['.$youtubeName.']</span>
-                                                            <input id="'.$row4[3].'" value="'.$row_url_youtube['url'].'"  name="youtube" disabled/>
-                                                        </div>';
-                                                    }else{
-                                                        $campanas_activas .=  '
-                                                        <div class="rrss" name="youtube">
-                                                            <i class="pi pi-youtube"></i>
-                                                            <span>['.$youtubeName.']</span>
-                                                            <input id="'.$row4[3].'" name="youtube" />
-                                                            <button class="enviar_url" class="btns">Enviar URL</button>
-                                                        </div>';
+                                                    if(strlen($youtubeName)>0){
+                                                        if($num_rows_url_youtube>0){           
+                                                            $campanas_activas_urls_ingresadas .= '
+                                                            <div class="rrss" name="youtube" >
+                                                                <i class="pi pi-youtube"></i>
+                                                                <span>['.$youtubeName.']</span>';
+                                                                do{
+                                                                    $campanas_activas_urls_ingresadas .= '<p id="'.$row4[3].'" name="youtube"> '.$row_url_youtube[4].'</p>';
+                                                                }while($row_url_youtube = mysqli_fetch_row($result_url_instagram));
+                                                            $campanas_activas_urls_ingresadas .='</div>'; 
+                                                        }
+                                                            $campanas_activas .=  '
+                                                            <div class="rrss" name="youtube">
+                                                                <i class="pi pi-youtube"></i>
+                                                                <span>['.$youtubeName.']</span>
+                                                                <input id="'.$row4[3].'" name="youtube" />
+                                                                <button class="enviar_url" class="btns">Enviar URL</button>
+                                                            </div>';
+                                                        
                                                     }
                                                 }
-                                                if($row4[2]=='googleplus'){
-                                                    $googleplusKey =GOOGLE_CONSUMER_KEY;
-                                                    $googleplusId = $row4[3];
-                                                    $json_user_url ="https://www.googleapis.com/plus/v1/people/".$googleplusId."?key=".$googleplusKey;
-                                                    $json_user= file_get_contents($json_user_url);
-                                                    $links_user_url= json_decode($json_user);
-                                                    $googleplusName =$links_user_url->displayName;
-                                                    //Muestro URL Ingresada
-                                                    $query_url_googleplus ="SELECT * FROM campanarrss WHERE descripcion_rrss='googleplus' AND rrss_id='".$row4[3]."' AND campana_id='".$row3[0]."' AND persona_id='".$_SESSION['id']."'";
-                                                    $result_url_googleplus = mysqli_query($mysqli,$query_url_googleplus);
-                                                    $row_url_googleplus= mysqli_fetch_array($result_url_googleplus, MYSQLI_BOTH);
-                                                    $num_rows_url_googleplus=mysqli_num_rows($result_url_googleplus);
-                                                    //echo $row_url_instagram[0];
-                                                    if($num_rows_url_googleplus>0){
-                                                        $campanas_activas .= '
-                                                        <div class="rrss" name="googleplus">
-                                                            <i class="pi pi-googleplus"></i>
-                                                            <span>['.$googleplusName.']</span>
-                                                            <input id="'.$row4[3].'" value="'.$row_url_googleplus['url'].'" name="googleplus"  disabled/>
-                                                        </div>';
-                                                    }else{
-                                                        $campanas_activas .=  '
-                                                        <div class="rrss" name="googleplus">
-                                                            <i class="pi pi-googleplus"></i>
-                                                            <span>['.$googleplusName.']</span>
-                                                            <input id="'.$row4[3].'" name="googleplus" enabled/>
-                                                            <button class="enviar_url" class="btns">Enviar URL</button>
-                                                        </div>';
-                                                    }
-                                                }
-
-
-                                            }while($row4 = mysqli_fetch_row($result4));
-
-                                            $query9="SELECT DISTINCT * FROM Analytics WHERE persona_id='".$_SESSION['id']."' AND id_estado='1' ORDER BY PVMBL DESC";
-                                            $result9=mysqli_query($mysqli,$query9)or die (mysqli_error());
-                                            $row9= mysqli_fetch_array($result9, MYSQLI_BOTH);
-                                            $num_row9=mysqli_num_rows($result9);
-                                            do{
-                                                if($rrss_list[$i]=='analytics' && $num_row9>0){
-                                                    //Muestro URL Ingresada
-                                                    $query_url_analytics ="SELECT * FROM campanarrss WHERE descripcion_rrss='analytics' AND rrss_id='".$row9[4]."' AND campana_id='".$row3[0]."' AND persona_id='".$_SESSION['id']."'";
-                                                    $result_url_analytics = mysqli_query($mysqli,$query_url_analytics);
-                                                    $row_url_analytics= mysqli_fetch_array($result_url_analytics, MYSQLI_BOTH);
-                                                    $num_rows_url_analytics=mysqli_num_rows($result_url_analytics);
-                                                    if($num_rows_url_analytics>0){
-
-                                                        $campanas_activas .= '
-                                                        <div class="rrss" name="analytics" >
-                                                            <i class="pi pi-analytics"></i>
-                                                            <span>['.$row9[6].']</span>
-                                                            <input id="'.$row9[4].'" value="'.$row_url_analytics['url'].'"  disabled/>
-                                                        </div>';
-                                                    }else{
-                                                        $campanas_activas .= '
-                                                        <div class="rrss" name="analytics">
-                                                            <i class="pi pi-analytics"></i>
-                                                            <span>['. $row9[6].']</span>
-                                                            <input id="'.$row9[4].'" name="analytics" enabled/>
-                                                            <button class="enviar_url" class="btns">Enviar URL</button>
-                                                        </div>';
-                                                    }
-                                                }
-                                            }while($row9 = mysqli_fetch_array($result9));   
+                                                
+                                            }while($row4 = mysqli_fetch_row($result4)); 
                                             $i++;
+                                            if ($i==count($rrss_list)){
+                                                $campanas_activas .='<h2 class="sub-titulo">URLs ingresadas</h2>'.$campanas_activas_urls_ingresadas;
+                                            }
                                         }while($i<count($rrss_list));
 
                                         $campanas_activas .= '
-                                            <!--button class="enviar_url" class="btns">Enviar URLs</button-->
-                                        </div>
-                                    </form-->
                                 </div>
                             </div>
                         </div>
                     </div>';
                 }while($row3 = mysqli_fetch_row($result3));
-                $campanas_activas .= '';
-            }else{
+                $campanas_activas_urls_ingresadas = '';
+
+            }/*else{
                     //$campanas_activas = '<main class="no-campana"><a href="#" class="hrefCamp"><i class="fa fa-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes ser asignado a una.Mejora tu perfil si estas no llegan.</p></a></main>';
             }
 
@@ -395,36 +349,8 @@
                 </div>';
             }else{
 
-            }
+            }*/
         }while($row2 = mysqli_fetch_row($result2));
-        unset($query);
-        unset($result);
-        unset($row);
-        unset($num_row);
-        unset($query2);
-        unset($result2);
-        unset($row2);
-        unset($num_row2);
-        unset($query3);
-        unset($result3);
-        unset($row3);
-        unset($num_row3);
-        unset($query4);
-        unset($result4);
-        unset($row4);
-        unset($num_row4);
-        unset($query5);
-        unset($result5);
-        unset($row5);
-        unset($num_row5);
-        unset($query6);
-        unset($result6);
-        unset($row6);
-        unset($num_row6);
-        unset($campanas_activas);
-        unset($rrss_list);
-        unset($cantidad_redes_sociales);
-        unset($mysqli);
 
 
     }else{

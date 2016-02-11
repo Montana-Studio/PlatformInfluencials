@@ -74,7 +74,9 @@ for($i=0;$i<count($redes_sociales);$i++){
 		$result_instagram_asociado_campana=mysqli_query($mysqli,$query_instagram_asociado_campana)or die (mysqli_error());
 		$row_instagram_asociado_campana= mysqli_fetch_array($result_instagram_asociado_campana, MYSQLI_BOTH);
 		$num_row_instagram_asociado_campana= mysqli_num_rows($result_instagram_asociado_campana);
+		echo $num_row_instagram_asociado_campana;
 		if($num_row_instagram_asociado_campana>0){
+
 			echo '<div class="data"><ul>';
 			$instagram_likes_total=0;
 			$instagram_comments_total=0;
@@ -97,6 +99,7 @@ for($i=0;$i<count($redes_sociales);$i++){
 				$instagram_comments_total+=$instagram_post_comments;
 				$instagram_likes_total+=$instagram_post_likes;
 				$json_user_url ="https://api.instagram.com/v1/users/".$instagram_id."?access_token=".$access_token;
+				echo $json_user_url;
 		        $json_user= file_get_contents($json_user_url);
 		        $links_user_url= json_decode($json_user);
 		        $followers_instagram = $links_user_url->data->counts->followed_by;
@@ -252,7 +255,10 @@ for($i=0;$i<count($redes_sociales);$i++){
 	if($redes_sociales[$i]=='analytics'){
 		
 	}
-	echo '<!--span class="ver-mas-metrics"><i class="pi pi-arrow-bottom"></i></span--></ul>';
+
+	echo '</ul>';
+
+}
 	unset($query_redes_sociales_campana);
 	unset($result_redes_sociales_campana);
 	unset($row_redes_sociales_campana);
@@ -320,5 +326,5 @@ for($i=0;$i<count($redes_sociales);$i++){
     unset($googleplus_user_id);
     unset($googleplus_post_id);
 
-}
+
 ?>

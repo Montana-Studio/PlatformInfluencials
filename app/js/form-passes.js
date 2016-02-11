@@ -380,14 +380,14 @@ $(document).ready(function(){
 	$('.enviar_url').click(function(){
 			var rrss_id = $(this).prevAll('input').attr('id');
 			var campana_id = $(this).closest(".ingresar_urls").attr('id');
-			var url = $(this).prevAll('#'+rrss_id).val();
+			var link = $(this).prevAll('#'+rrss_id).val();
 			var descripcion_rrss = $(this).prevAll('input').attr('name');
 
-				if(descripcion_rrss=='googleplus'||descripcion_rrss=='facebook'||descripcion_rrss=='twitter'||descripcion_rrss=='youtube'||descripcion_rrss=='instagram'&&url.length>0){
+				if(descripcion_rrss=='googleplus'||descripcion_rrss=='facebook'||descripcion_rrss=='twitter'||descripcion_rrss=='youtube'||descripcion_rrss=='instagram'&&link.length>0){
 					$.ajax({
 						type: "POST",
 						url: "./controller/procesar-url.php",
-						data: "rrss_id="+rrss_id+"&campana_id="+campana_id+"&url="+url+"&descripcion_rrss="+descripcion_rrss,
+						data: "rrss_id="+rrss_id+"&campana_id="+campana_id+"&url="+link+"&descripcion_rrss="+descripcion_rrss,
 						success: function(data){
 							switch (data){
 								case 'exito':  	url_ok();
