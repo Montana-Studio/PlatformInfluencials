@@ -6,7 +6,8 @@
 	$num_row_campana= mysqli_num_rows($result_campana);
 //if($row_campana){	
 	if($_GET['campana']!='Sin-Especificar'){
-		echo '<div id="campanas-postulables">
+		echo '<div id="loadBox" style="display:none;">
+		<div id="campanas-postulables">
 			<h2 class="sub-titulo">Selecciona una campaña</h2>
 				<select id="campana_seleccionada">
 					<option selected="selected" id="'.$_GET["id_campana"].'" disabled>'.$_GET["campana"].'</option>
@@ -18,7 +19,8 @@
 			//echo $hoyFormatted;
 		echo '<!--button id="opc_cot">Campañas para cotizar</button-->';
 			//mostrar campañas
-		echo '<div id="campanas-postulables">
+		echo '<div id="loadBox" style="display:none;">
+				<div id="campanas-postulables">
 					<h2 class="sub-titulo">Selecciona una campaña para cotizar</h2>
 					<select id="campana_seleccionada">
 					<option id="0">Cotizar sin campaña</option>';
@@ -198,6 +200,7 @@
 		}while($row = mysqli_fetch_row($result));?>
 			</div>
 			<button id="cotizar_influenciador">cotizar</button>
+			</div>
 			<script>
 				jQuery(document).ready(function($){
 					

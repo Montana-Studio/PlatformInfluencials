@@ -30,7 +30,7 @@
 			margin:{right:em(5);}
 		}
 		@include media($notebookTodesktop){
-			@include outer-container();
+			//@include outer-container();
 			max-width:em(500);
 			margin:{top:20px;}
 		}

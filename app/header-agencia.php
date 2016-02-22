@@ -216,6 +216,9 @@
                             //console.log(campana_seleccionada);
                             window.location.replace('../../perfil/'+campana_seleccionada+'/'+id_influenciador);
                         });
+                        $(window).load(function(){
+							$('#loadBox').fadeIn();
+                        });
                     });
 				</script>";
 		}

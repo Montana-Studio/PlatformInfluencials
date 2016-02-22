@@ -2,7 +2,8 @@
 
 	<form id='imagenform-ipe' style="display:none;">
 
-		<div class="header-ipe" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);">
+		<!--div class="header-ipe" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);"-->
+		<div class="header-ipe">
 
 			<svg viewBox="0 0 140.341 133.52" class="mask-imguser">
 				<defs>
