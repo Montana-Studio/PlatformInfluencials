@@ -1,5 +1,5 @@
 <?php
-require('../../conexion.php');
+require('../../controller/conexion.php');
 
 $instagramId =$_POST['instagramId'];
 $accessToken = $_POST['accessToken'];

@@ -1,5 +1,5 @@
 <?php
-require('controller/conexion.php');
+require('./controller/conexion.php');
 
 if(isset($_SESSION['id'])){
 	$query="SELECT * FROM persona WHERE id_estado = 1 AND id= ".$_SESSION['id'];
@@ -10,7 +10,7 @@ if(isset($_SESSION['id'])){
 		die();
 	}else{
 		//echo '<script>$(document).ready(function(){alert("Su tipo de usuario es Agencia")});</script>';
-		header("Location: dashboard-agencia");
+		header("Location: escritorio-agencia");
 		die();
 	}
 }
@@ -240,7 +240,7 @@ if(isset($_SESSION['id'])){
 
 	<script type="text/javascript" async src="js/platform_influencials.min.js"></script>
 	<script type="text/javascript" src="js/form-passes.js"></script>
-	<script type="text/javascript" src="js/form-data.js"></script>
+	<script type="text/javascript" src="js/linkedin-login.js"></script>
 
 </body>
 </html>

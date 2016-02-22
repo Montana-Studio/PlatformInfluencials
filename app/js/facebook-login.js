@@ -1,3 +1,53 @@
+
+function agencia_ya_registrada(){
+	$(".alertElim").fadeIn("normal",function(){
+			$("#boxAlert .hrefCamp h2").text("ya se encuentra registrado");
+			$("#boxAlert .hrefCamp i").addClass("fa-warning");
+			$("#boxAlert .hrefCamp p.messageAlert").text("Su perfil ya fue ingresado como agencia, lo contactaremos proximamente");
+
+			$("#boxAlert").show().animate({
+				top:"20%",
+				opacity:1
+			},{duration:1500,easing:"easeOutBounce"});
+
+			$("#clearAlert").on("click",function(){
+				$("#boxAlert").animate({
+					top:"-100px",
+					opacity:0
+				},{duration:500,easing:"easeInOutQuint",complete:function(){
+					$(".alertElim").fadeOut("fast");
+					$("#boxAlert .hrefCamp i").removeClass("fa-warning");
+					$(this).hide();
+					window.location.reload();
+				}});
+			});
+	});
+}
+function influenciador_ya_registrado(){
+	$(".alertElim").fadeIn("normal",function(){
+			$("#boxAlert .hrefCamp h2").text("ya se encuentra registrado");
+			$("#boxAlert .hrefCamp i").addClass("fa-warning");
+			$("#boxAlert .hrefCamp p.messageAlert").text("Su perfil ya fue ingresado como influenciador, lo contactaremos proximamente");
+
+			$("#boxAlert").show().animate({
+				top:"20%",
+				opacity:1
+			},{duration:1500,easing:"easeOutBounce"});
+
+			$("#clearAlert").on("click",function(){
+				$("#boxAlert").animate({
+					top:"-100px",
+					opacity:0
+				},{duration:500,easing:"easeInOutQuint",complete:function(){
+					$(".alertElim").fadeOut("fast");
+					$("#boxAlert .hrefCamp i").removeClass("fa-warning");
+					$(this).hide();
+					window.location.reload();
+				}});
+			});
+	});
+}
+
 $(document).ready(function(){
 
 
@@ -8,15 +58,15 @@ $(document).ready(function(){
 	var tipo = 1; 
 
 
-		function call_facebook_api(){
-			(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) return;
-			js = d.createElement(s); js.id = id;
-			js.src = "//connect.facebook.net/en_US/sdk.js";
-			fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-		}
+	function call_facebook_api(){
+		(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	}
 	
 	var statusChangeCallback = function(response, callback) {
 	 if(tipo == 1){
@@ -117,12 +167,12 @@ $(document).ready(function(){
 		var perfil = e.options[e.selectedIndex].value;
 			$.ajax({  
 		            type: "POST",  
-		            url: "./controller/procesar_facebook.php",  
+		            url: "./controller/procesar-facebook.php",  
 		            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id+"&tipo="+perfil+"&empresa="+empresa,  
 					
 		            success: function(data){ 
 						switch (data){
-							case "dashboard": window.location.href="dashboard-agencia";
+							case "dashboard": window.location.href="escritorio-agencia";
 							break;
 							case "false": 	window.location.href="./";
 							break;
@@ -130,17 +180,19 @@ $(document).ready(function(){
 							break;
 							case "formulario":  window.location.href="formulario-agencia";
 							break;
-							case "dashboard-ipe": window.location.href="dashboard-ipe";
+							case "dashboard-ipe": window.location.href="escritorio-influencer";
 							break;
-							case "formulario-ipe": window.location.href="formulario-agencia3";
+							case "formulario-ipe": window.location.href="formulario-influencer";
 							break;
 							case "sin_opcion": alert('no se ha seleccionado opción');
 							break;
-							case "existe-agencia": alert('ya se encuentra registrado como agencia, lo contactaremos');
-										   window.location.href='./controller/logout.php';
+							case "existe-agencia": //alert('ya se encuentra registrado como agencia, lo contactaremos');
+										   //window.location.href='./controller/logout.php';
+										   agencia_ya_registrada();
 							break;
-							case "existe-influenciador": alert('ya se encuentra registrado como influenciador, lo contactaremos');
-										   window.location.href='./controller/logout.php';
+							case "existe-influenciador": //alert('ya se encuentra registrado como influenciador, lo contactaremos');
+										   //window.location.href='./controller/logout.php';
+										   influenciador_ya_registrado();
 							break;
 						}
 					}
@@ -162,7 +214,7 @@ $(document).ready(function(){
 			        }
 			        $.ajax({  
 		            type: "POST",  
-		            url: "./procesar_mostrar_followers.php",  
+		            url: "../controller/procesar-mostrar-followers-ipe.php",  
 		            data: "data="+data,  
 					
 		            success: function(data){ 
@@ -187,7 +239,7 @@ $(document).ready(function(){
 
 		$.ajax({  
 		            type: "POST",  
-		            url: "./controller/procesar_facebook.php",  
+		            url: "./controller/procesar-facebook.php",  
 		            data: "facebookPageId="+id+"&facebookPageName="+facebookPage+"&tipo=0",  
 					
 		            success: function(data){ 

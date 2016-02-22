@@ -113,7 +113,7 @@
 		facebookCorreo=response.email;
 			$.ajax({
 		            type: "POST",
-		            url: "./controller/procesar_facebook.php",
+		            url: "./controller/procesar-facebook.php",
 		            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id+"&tipo="+document.getElementById('tipoCliente').getAttribute('value'),
 
 		            success: function(data){
@@ -128,7 +128,6 @@
 			FB.api(
 			    "/me/accounts", { locale: 'en_US', fields: 'name' },
 			    function (response) {
-			    	console.log(response);
 			        for(var i=0; i<=response.data.length-1;i++){
 			        	if(i==response.data.length-1){
 			        		var facebook_page_id = response.data[i].id;
@@ -136,7 +135,7 @@
 			        		facebookUser=response.name;
 			        	   $.ajax({
 					            type: "POST",
-					            url: "./rrss/facebook/procesar_facebook.php",
+					            url: "./rrss/facebook/procesar-facebook.php",
 					            data: "faceuser="+facebookUser+"&facebook_page_id="+facebook_page_id,
 					            success: function(data){
 									<?php inscripcion_facebook(); ?>
@@ -146,7 +145,7 @@
 			        		var facebook_page_id = response.data[i].id;
 			        	   $.ajax({
 					            type: "POST",
-					            url: "./rrss/facebook/procesar_facebook.php",
+					            url: "./rrss/facebook/procesar-facebook.php",
 					            data: "facebook_page_id="+facebook_page_id,
 					            success: function(data){
 					            	<?php inscripcion_facebook();?>

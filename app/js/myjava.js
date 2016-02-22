@@ -3,7 +3,7 @@ $(function(){
 $('#ingresar').on('click', function(){
 var usu= $('#usu').val();
 var pass= $('#pass').val();
-var url='./controller/procesar_login.php';
+var url='./controller/procesar-login.php';
 var total = usu.length*pass.length;
 if (total>0){
 	$.ajax({

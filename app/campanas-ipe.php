@@ -11,8 +11,9 @@
 				<div id="activas" class="tabpage">
 
 					<?php
-						require("procesar_mostrar_campanas_en_ipe.php");
+						require("./controller/procesar-mostrar-campanas-ipe2.php");
 						echo $campanas_activas;
+						//echo $campanas_activas_urls_ingresadas;
 						echo $campanas_inactivas;
 					?>
 						

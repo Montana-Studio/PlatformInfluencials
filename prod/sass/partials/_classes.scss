@@ -179,16 +179,17 @@ input{
 			@extend .center-div;
 			float:none;
 			.btn_crearcamp{
-				@include span-columns(4);
+				@include span-columns(6);
+				@include omega(2n);
 				font:{size:em(8)}
 				&.noElim{
-					@include shift(2);
+					//@include shift(2);
 					color:$color_font2;
 					background:{color: #fff;}
 					border:1px solid $color_font2;
 				}
 				&.siElim{
-					@include shift(0);
+					//@include shift(0);
 				}
 				@include media($tabletLandTonotebook){
 					font:{size:em(13)}

@@ -49,7 +49,7 @@
 			window.location.hash='';
 			authenticateInstagram(
 			    'd9e010f47eef4f21a289bd5d46a60e25', //instagram client ID
-			    'http://www.powerinfluencer.com/app/rrss/instagram/instagram_auth.php', //instagram redirect URI
+			    'http://powerinfluencer.com/app/rrss/instagram/instagram_auth.php', //instagram redirect URI
 			    login_callback  //optional - a callback function
 			);
 			return false;

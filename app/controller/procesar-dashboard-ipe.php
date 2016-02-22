@@ -30,4 +30,17 @@ require('../controller/conexion.php');
 		echo 'actualiza'; 
 	}
 
+unset($correo);
+unset($nombre);
+unset($comuna);
+unset($region);
+unset($descripcion);
+unset($r1);
+unset($num_row);
+unset($r2);
+unset($num_row2);
+unset($results);
+unset($results2);
+unset($mysqli);
+
 ?>

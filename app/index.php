@@ -68,8 +68,8 @@
 			<!-- ELECCION DE USUARIO -->
 
 			<div id="tipo">
-				<div id="agencia" class="btns_accesos"><a href="agencia" style="color:#fff;width:100%;height:100%;display:block;">Agencia</a></div>
-				<div id="ipebtn" class="btns_accesos"><a href="influenciador" style="color:#fff;width:100%;height:100%;display:block;">Influencers</a></div>
+				<div id="agencia" class="btns_accesos"><a href="inicio-agencia" style="color:#fff;width:100%;height:100%;display:block;">Agencia</a></div>
+				<div id="ipebtn" class="btns_accesos"><a href="inicio-influencer" style="color:#fff;width:100%;height:100%;display:block;">Influencers</a></div>
 			</div>
 
 		</main>
@@ -179,12 +179,9 @@
 
 		<main class="no-campana" id="boxAlert">
 			<div class="hrefCamp">
-				<i class="fa"></i>
+
 				<h2></h2>
 				<p class="messageAlert"></p>
-				<div class="btn_crearcamp" id="clearAlert">
-					continuar
-				</div>
 			</div>
 		</main>
 
@@ -192,7 +189,7 @@
 
 	<script type="text/javascript" async src="js/platform_influencials.min.js"></script>
 	<script type="text/javascript" src="js/form-passes.js"></script>
-	<script type="text/javascript" src="js/form-data.js"></script>
+	<script type="text/javascript" src="js/linkedin-login.js"></script>
 
 </body>
 </html>

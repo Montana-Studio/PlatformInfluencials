@@ -34,4 +34,18 @@ require('../controller/conexion.php');
 		echo 'actualiza'; 
 	}
 
+unset($nombre);
+unset($correo);
+unset($tel1);
+unset($tel2);
+unset($empresa);
+unset($rsid);
+unset($r1);
+unset($num_row);
+unset($r2);
+unset($num_row2);
+unset($results);
+unset($results2);
+unset($mysqli);
+
 ?>
