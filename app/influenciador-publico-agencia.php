@@ -82,7 +82,7 @@
 							$facebookAppId = FACEBOOK_APP_ID;
 							$json_user_url1 ="https://graph.facebook.com/".$facebookPage."?access_token=".$facebookAppId."|".$facebookKey."&fields=likes,talking_about_count,username,website";
 					        $json_user_url = str_replace(" ", "%20", $json_user_url1);
-					        $json_user= file_get_contents($json_user_url);
+					        $json_user= @file_get_contents($json_user_url);
 					        $links_user_url= json_decode($json_user);
 					        $facebookLikes =$links_user_url->likes;
 					        $reach_facebook += $facebookLikes;
@@ -93,7 +93,7 @@
 
 						if($row_rrss_ipe[2]=='instagram'){
 						  $json_user_url ="https://api.instagram.com/v1/users/".$row_rrss_ipe[3]."?access_token=".$row_rrss_ipe[6];
-					      $json_user= file_get_contents($json_user_url);
+					      $json_user= @file_get_contents($json_user_url);
 					      $links_user_url= json_decode($json_user);
 					      $followers_instagram = $links_user_url->data->counts->followed_by;
 					      $reach+=$followers_instagram;
@@ -130,7 +130,7 @@
 						if($row_rrss_ipe[2]=='youtube'){
 							$googleplusKey =GOOGLE_CONSUMER_KEY;
 							$json_user_url ="https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=".$row_rrss_ipe[3]."&key=".$googleplusKey;
-					        $json_user= file_get_contents($json_user_url);
+					        $json_user= @file_get_contents($json_user_url);
 					        $links_user_url= json_decode($json_user);
 					        $youtubeSubscribers = $links_user_url->items[0]->statistics->subscriberCount;
 							$reach+=$youtubeSubscribers;
@@ -143,7 +143,7 @@
 							$googleplusKey =GOOGLE_CONSUMER_KEY;
 							$googleplusId = $row_rrss_ipe[3];
         					$json_user_url ="https://www.googleapis.com/plus/v1/people/".$googleplusId."?key=".$googleplusKey;
-        					$json_user= file_get_contents($json_user_url);
+        					$json_user= @file_get_contents($json_user_url);
 					        $links_user_url= json_decode($json_user);
 					        $googleplusSubscriber =$links_user_url->circledByCount;
 							$reach+=$googleplusSubscriber;

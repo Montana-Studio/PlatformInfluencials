@@ -120,6 +120,7 @@ if ($tipo == 'avatar-ipe'){
 	unset($resultado);
 
 }else if ($tipo == 'avatar'){
+	
 	$tel1 =$_POST['tel1'];
 	$tel2 =$_POST['tel2'];
 	$empresa= $_POST['empresa'];
@@ -353,7 +354,7 @@ if ($tipo == 'avatar-ipe'){
 	$nuevocorreo=$_POST['nucorreo'];
 	$nuevotelefono1=$_POST['nutel1'];
 	$nuevotelefono2=$_POST['nutel2'];
-	$nuevaurl="./uploads/agencias/registered/$nuevocorreo/avatar.gif";
+	$nuevaurl="./app/uploads/agencias/registered/$nuevocorreo/avatar.gif";
 	//$ipe = $_POST['ipe'];
 
 		$query= "SELECT DISTINCT correo FROM persona WHERE correo='$nuevocorreo'";
@@ -400,7 +401,7 @@ if ($tipo == 'avatar-ipe'){
 	$nuevousuario=$_POST['nuuser'];
 	$nuevocontraseña=MD5($_POST['nupass']);
 	$nuevocorreo=$_POST['nucorreo'];
-	$nuevaurl="./uploads/ipe/registered/$nuevocorreo/avatar.gif";
+	$nuevaurl="./app/uploads/ipe/registered/$nuevocorreo/avatar.gif";
 	$ipe = $_POST['ipe'];
 
 	if ($ipe == '3'){

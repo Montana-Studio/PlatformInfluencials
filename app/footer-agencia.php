@@ -106,13 +106,11 @@
 				<i class="pi pi-plus"></i>
 				crear nueva campaña
 			</span>
-		</a>
+		</a> 
 	</div>';
 	}
 ?>
 	<div class="alertElim">
-
-
 		<main class="no-campana" id="boxAlert">
 			<div class="hrefCamp">
 				<h2></h2>

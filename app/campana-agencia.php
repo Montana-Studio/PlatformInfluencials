@@ -178,6 +178,66 @@
 	}while($row2 = mysqli_fetch_row($result2));
 	echo '</div>';
 	}
+
+
+	if ($num_rows3 > 0){
+		echo '<h2 class="sub-titulo">campañas finalizadas</h2><div class="creadas">';
+	do{
+		echo '
+			<div class="recientes">
+				<div class="cont-campana">
+					<div class="bg-campana" style="background-image:url('.$row3[3].');">
+						<h3>'.$row3[1].'<span>by '.$row3[4].'</span></h3>
+					</div>
+					<div class="ver-mas">
+						<span>
+							<i class="pi"></i>
+						</span>
+					</div>
+					<div class="content">
+						<div class="btn_close"><span><i class="pi pi-close"></i></span></div>
+						<form class="campanaForm" id="'.$row3[0].'">
+							<div class="inputs-campana nombre" id="nombre-campana-'.$row3[0].'">
+								<input placeholder="'.$row3[1].'" class="nombre-input" disabled></input>
+								<i class="pi pi-pencil"></i>
+							</div>
+							<div class="inputs-campana marca" id="marca-campana-'.$row3[0].'">
+								 <input placeholder="by '.$row3[4].'" disabled></input>
+								 <i class="pi pi-pencil"></i>
+							</div>
+							<span class="campa-ico"><i class="pi pi-tool"></i>Desactivada</span>
+							<span class="campa-ico">
+								<i class="pi pi-calendar"></i>
+								Fecha término 
+								<input class="fecha_termino" type="text" id="datepicker" value="'.$row3[8].'">
+								<i class="fecha-edit pi pi-pencil"></i>
+							</span>
+							<div class="inputs-campana descripcion" id="descripcion-campana-'.$row3[0].'">
+								<textarea placeholder="descripcion" disabled>'.$row3[2].'</textarea>
+								<i class="pi pi-pencil"></i>
+							</div>
+										
+							<script>
+								$(window).load(function(){
+									$("div.jfilestyle").hide();
+								});
+							</script>
+							<input type="file" name="file" class="jfilestyle upload-img-campana file" data-input="false" id="file'.$row3[0].'" data-buttonText="subir archivo"/>
+							<button class="guardar-campana" type="submit" id="guardar-campana-'.$row3[0].'">Guardar Campaña</button>
+						</form>
+						<div class="img-compana-deskt hide">
+							<img src="'.$row3[3].'"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		';
+	}while($row3 = mysqli_fetch_row($result3));
+	echo '</div>';
+	}
+
+
+
 ?>
 </div>
 <?php
@@ -200,6 +260,11 @@
 			</a>
 		</main>
 	<?php } ?>
+
+	<?php if($num_rows == 0 && $num_rows2 == 0){
+		echo '<main class="no-campana"><a href="crear-campana" class="hrefCamp"><i class="pi pi-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes crear una nueva, creala aquí.</p><div class="btn_crearcamp">crear campaña</div></a></main>';
+	}
+?>
 	<div id="contacto" class="hide">
 		<h2>Contacto</h2>
 			<input placeholder="asunto"></input>

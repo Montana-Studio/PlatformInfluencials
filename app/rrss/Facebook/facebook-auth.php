@@ -52,7 +52,7 @@
 				});
 			});
 		};
-	};
+	}; 	
 
 	var facebookLogin= function (){
 
@@ -157,9 +157,24 @@
 			);
 	}
 
+
 	function checkAuthFacebookPages(){
 		call_facebook_api();
 		facebookPages();
+	}
+
+	var getFacebookInsigths(){
+	FB.api(
+	    "/296448387178344/insights/page_impressionss",
+	    {
+	        "period": "month"
+	    },
+	    function (response) {
+	      if (response && !response.error) {
+	        alert(response);
+	      }
+    }
+	);
 	}
 
 </script>

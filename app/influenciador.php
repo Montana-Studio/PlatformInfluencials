@@ -6,7 +6,7 @@ if(isset($_SESSION['id'])){
 	$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 	$row= mysqli_fetch_array($result, MYSQLI_NUM);
 	if ($row[1] > '2'){
-		header("Location: dashboard-ipe");
+		header("Location: escritorio-ipe");
 		die();
 	}else{
 		//echo '<script>$(document).ready(function(){alert("Su tipo de usuario es Agencia")});</script>';
@@ -202,6 +202,7 @@ if(isset($_SESSION['id'])){
 						<label for="file" class="btns">Sube una imágen</label>
 						<button id="registrarse" disabled type="submit">Registrarse</button>
 					</div>
+					<div class="alert-uploadready" style="display:none;"><i class="fa fa-cloud-upload"></i>Imagen seleccionada con exito!</div>
 				</form>
 				<div class="btn_close"><span><i class="pi pi-close"></i></span></div>
 			</div>
