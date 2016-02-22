@@ -247,7 +247,8 @@ $(document).ready(function(){
 		info.append('tel2',$('#tel2 input').val());
 		info.append('empresa',$('#empresa input').val());
 		info.append('tipo','avatar');
-		if(window.location.href.split('/').length == 7){
+		if(
+			){
 			var url_procesar_imagen= "../../controller/procesar-imagen.php";
 		}else{
 			var url_procesar_imagen= "./controller/procesar-imagen.php";
@@ -311,7 +312,7 @@ $(document).ready(function(){
 		if(foto==1) {
 			$.ajax({
 				type: "POST",
-				url: "../../controller/procesar-imagen.php",
+				url: "../controller/procesar-imagen.php",
 				data: info,
 				enctype: 'multipart/form-data',
 				contentType: false,
