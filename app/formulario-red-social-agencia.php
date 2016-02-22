@@ -36,6 +36,7 @@
 				</div>
 				<button id="guardar" type="submit">guardar</button>
 			</div>
+			
 		</form>
 		<?php include 'footer-agencia.php'; ?>
 	</body>

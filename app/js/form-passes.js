@@ -447,20 +447,26 @@ $(document).ready(function(){
 	$(".btneliminar").click(function (){
 		var idEliminar = this.id;
 		var tipo = "eliminar";
+
 		$(".alertElim").fadeIn("normal",function(){
-			$("#boxElim .hrefCamp h2").text("Estas a punto de eliminar la campaña");
-			animaTrash();
-			setInterval(function(){
-				animaTrash();
-			},2800);
-			//$("#boxElim .hrefCamp i").addClass("fa-trash-o");
-			$("#boxElim .hrefCamp p").text("Si eliminas tu campaña, pederas tus datos sin posibilidad de recuperarlos.");
+			$("#boxAlert .hrefCamp h2").text("Estas a punto de eliminar la campaña");
+			$("#boxAlert .hrefCamp").prepend("<div id='ico-trash'></div>");
+
+			$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp siElim'></div>");
+			$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp noElim'></div>");
+
+			deleteElem();
+
+			$("#boxAlert .hrefCamp p").text("Si eliminas tu campaña, pederas tus datos sin posibilidad de recuperarlos.");
+
 			$(".siElim").text("eliminar campaña");
 			$(".noElim").text("volver");
-			$("#boxElim").show().animate({
+
+			$("#boxAlert").show().animate({
 				top:"20%",
 				opacity:1
 			},{duration:1500,easing:"easeOutBounce"});
+
 			$(".siElim").on("click",function(){
 				$.ajax({
 					type: "POST",
@@ -481,6 +487,7 @@ $(document).ready(function(){
 				}});
 			});
 		});
+
 		return false;
 	});
 	
@@ -644,6 +651,85 @@ $(function() {
 /*********************************************************************************************************
 ****************************************Mensajes según formularios****************************************
 /*********************************************************************************************************/
+function inscripcion_influenciador(data){
+	switch (data){
+		case "nuevo":$(".alertElim").fadeIn("normal",function(){
+						$("#boxAlert .hrefCamp h2").text("Gracias por registrarte en Power-Influencers");
+						$("#boxAlert .hrefCamp").prepend("<div id='icon-pi-animado'></div>");
+
+						$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp' id='clearAlert'></div>");
+
+						powerinfluencer();
+
+						$("#boxAlert .hrefCamp p").text("Tu cuenta sera activada proximamente, pronto nos contactaremos contigo.");
+
+						$("#clearAlert").text("continuar");
+
+						$("#boxAlert").show().animate({
+							top:"20%",
+							opacity:1
+						},{duration:1500,easing:"easeOutBounce"});
+
+						$("#clearAlert").on("click",function(){
+							$("#boxAlert").animate({
+								top:"-100px",
+								opacity:0
+							},{duration:500,easing:"easeInOutQuint",complete:function(){
+								$(".alertElim").fadeOut("fast");
+								window.location.href = "logout";
+								window.location.reload();
+							}});
+						});
+					});
+		break;
+		case "false":$(".alertElim").fadeIn("normal",function(){
+							$("#boxAlert .hrefCamp h2").text("algo anda mal");
+							$("#boxAlert .hrefCamp i").addClass("fa-warning");
+							$("#boxAlert .hrefCamp p.messageAlert").text("El correo "+$('.correonuevo').val()+" ya existe en la base de datos, intente con otro.");
+
+							$("#boxAlert").show().animate({
+								top:"20%",
+								opacity:1
+							},{duration:1500,easing:"easeOutBounce"});
+
+							$("#clearAlert").on("click",function(){
+								$("#boxAlert").animate({
+									top:"-100px",
+									opacity:0
+								},{duration:500,easing:"easeInOutQuint",complete:function(){
+									$(".alertElim").fadeOut("fast");
+									$(this).hide();
+									$("#boxAlert .hrefCamp i").removeClass("fa-warning");
+									$('.correonuevo').val('');
+									$('.correonuevo').focus();
+								}});
+							});
+					});
+		break;
+		case "invalido":$(".alertElim").fadeIn("normal",function(){
+								$("#boxAlert .hrefCamp h2").text("algo anda mal");
+								$("#boxAlert .hrefCamp i").addClass("fa-warning");
+								$("#boxAlert .hrefCamp p.messageAlert").text("Problema con el tamaño o formato de la imagen.");
+
+								$("#boxAlert").show().animate({
+									top:"20%",
+									opacity:1
+								},{duration:1500,easing:"easeOutBounce"});
+
+								$("#clearAlert").on("click",function(){
+									$("#boxAlert").animate({
+										top:"-100px",
+										opacity:0
+									},{duration:500,easing:"easeInOutQuint",complete:function(){
+										$(".alertElim").fadeOut("fast");
+										$("#boxAlert .hrefCamp i").removeClass("fa-warning");
+										$(this).hide();
+									}});
+								});
+						});
+	}
+}
+
 function datos_actualizados(){
 	$(".alertElim").fadeIn("normal",function(){
 			$("#boxAlert .hrefCamp h2").text("datos actualizados");
@@ -691,9 +777,18 @@ function imagen_cambiada(){
 }
 
 function error_imagen(){
+
 	$(".alertElim").fadeIn("normal",function(){
+
 		$("#boxAlert .hrefCamp h2").text("algo anda mal");
-		$("#boxAlert .hrefCamp i").addClass("fa-warning");
+		$("#boxAlert .hrefCamp").prepend("<div id='icon-warning'></div>");
+		
+		$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp' id='clearAlert'></div>");
+
+		$('#clearAlert').text('continuar');
+
+		warning();
+
 		$("#boxAlert .hrefCamp p.messageAlert").text("Tu imagen puede que supere el tamaño permitido, el formato no corresponde o no hay nada adjunto.");
 
 		$("#boxAlert").show().animate({
@@ -706,7 +801,7 @@ function error_imagen(){
 				top:"-100px",
 				opacity:0
 			},{duration:500,easing:"easeInOutQuint",complete:function(){
-				$(".alertElim").fadeOut("fast");
+				$(".alertElim").hide("fast");
 				$(this).hide();
 			}});
 		});
@@ -716,8 +811,16 @@ function error_imagen(){
 
 function error_campana(){
 	$(".alertElim").fadeIn("normal",function(){
+
 		$("#boxAlert .hrefCamp h2").text("algo anda mal");
-		$("#boxAlert .hrefCamp i").addClass("fa-warning");
+		$("#boxAlert .hrefCamp").prepend("<div id='icon-warning'></div>");
+		
+		$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp' id='clearAlert'></div>");
+
+		$('#clearAlert').text('continuar');
+
+		warning();
+
 		$("#boxAlert .hrefCamp p.messageAlert").text("Tu imagen puede que supere el tamaño permitido, el formato no corresponde o no hay nada adjunto.");
 
 		$("#boxAlert").show().animate({
@@ -730,7 +833,7 @@ function error_campana(){
 				top:"-100px",
 				opacity:0
 			},{duration:500,easing:"easeInOutQuint",complete:function(){
-				$(".alertElim").fadeOut("fast");
+				$(".alertElim").hide("fast");
 				$(this).hide();
 			}});
 		});
@@ -739,13 +842,20 @@ function error_campana(){
 }
 function nueva_campana(){
 	$(".alertElim").fadeIn("normal",function(){
-		$("#boxElim .hrefCamp h2").text("Campaña creada con éxito");
-		$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
-		$("#boxElim .hrefCamp p").text("Puedes ver o seguir creando más campañas.");
+
+		$("#boxAlert .hrefCamp h2").text("Campaña creada con éxito");
+		$("#boxAlert .hrefCamp").prepend("<div id='ico-handLike'></div>");
+
+		$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp siElim'></div>");
+		$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp noElim'></div>");
+
+		success();
+
+		$("#boxAlert .hrefCamp p").text("Puedes ver o seguir creando más campañas.");
 		$(".siElim").text("ver campaña");
 		$(".noElim").text("crear otra");
 
-		$("#boxElim").show().animate({
+		$("#boxAlert").show().animate({
 			top:"20%",
 			opacity:1
 		},{duration:1500,easing:"easeOutBounce"});
@@ -935,26 +1045,26 @@ function error_numero_telefonico(){
 	});
 }
 function formulario_completo(){
-$(".alertElim").fadeIn("normal",function(){
-							$("#boxAlert .hrefCamp h2").text("registro completado");
-							$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
-							$("#boxAlert .hrefCamp p.messageAlert").text("Registro de datos completo, nos contactaremos con usted.");
+	$(".alertElim").fadeIn("normal",function(){
+		$("#boxAlert .hrefCamp h2").text("registro completado");
+		$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+		$("#boxAlert .hrefCamp p.messageAlert").text("Registro de datos completo, nos contactaremos con usted.");
 
-							$("#boxAlert").show().animate({
-								top:"20%",
-								opacity:1
-							},{duration:1500,easing:"easeOutBounce"});
+		$("#boxAlert").show().animate({
+			top:"20%",
+			opacity:1
+		},{duration:1500,easing:"easeOutBounce"});
 
-							$("#clearAlert").on("click",function(){
-								$("#boxAlert").animate({
-									top:"-100px",
-									opacity:0
-								},{duration:500,easing:"easeInOutQuint",complete:function(){
-									$(".alertElim").fadeOut("fast");
-									window.location.href = "./controller/logout";
-								}});
-							});
-					});
+		$("#clearAlert").on("click",function(){
+			$("#boxAlert").animate({
+				top:"-100px",
+				opacity:0
+			},{duration:500,easing:"easeInOutQuint",complete:function(){
+				$(".alertElim").fadeOut("fast");
+				window.location.href = "./controller/logout";
+			}});
+		});
+	});
 }
 function formulario_incompleto(){
 	$(".alertElim").fadeIn("normal",function(){
@@ -984,6 +1094,72 @@ function formulario_incompleto(){
 	});
 }
 
+function error_numero_telefonico(){
+	$(".alertElim").fadeIn("normal",function(){
+			$("#boxAlert .hrefCamp h2").text("algo anda mal");
+			$("#boxAlert .hrefCamp i").addClass("fa-warning");
+			$("#boxAlert .hrefCamp p.messageAlert").text("Debes ingresar al menos 8 digitos como número telefonico.");
+			
+			$("#boxAlert").show().animate({
+				top:"20%",
+				opacity:1
+			},{duration:1500,easing:"easeOutBounce"});
+
+			$("#clearAlert").on("click",function(){
+				$("#boxAlert").animate({
+					top:"-100px",
+					opacity:0
+				},{duration:500,easing:"easeInOutQuint",complete:function(){
+					$(".alertElim").fadeOut("fast");
+					$(this).hide();
+				}});
+			});
+	});
+}
+function formulario_completo(){
+	$(".alertElim").fadeIn("normal",function(){
+			$("#boxAlert .hrefCamp h2").text("registro completado");
+			$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+			$("#boxAlert .hrefCamp p.messageAlert").text("Registro de datos completo, nos contactaremos con usted.");
+
+			$("#clearAlert").on("click",function(){
+				$("#boxAlert").animate({
+					top:"-100px",
+					opacity:0
+				},{duration:500,easing:"easeInOutQuint",complete:function(){
+					$(".alertElim").fadeOut("fast");
+					window.location.href = "./controller/logout";
+				}});
+			});
+	});
+}
+function formulario_incompleto(){
+	$(".alertElim").fadeIn("normal",function(){
+		animaMune();
+		animaMano();
+		setInterval(function(){
+			animaMune();
+			animaMano();
+		},2800);
+		$("#boxAlert .hrefCamp h2").text("Ingrese todos los campos");
+		$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+		$("#boxAlert .hrefCamp p.messageAlert").text("Por favor ingrese todos los datos en el formulario");
+
+		$("#boxAlert").show().animate({
+			top:"20%",
+			opacity:1
+		},{duration:1500,easing:"easeOutBounce"});
+
+		$("#clearAlert").on("click",function(){
+			$("#boxAlert").animate({
+				top:"-100px",
+				opacity:0
+			},{duration:500,easing:"easeInOutQuint",complete:function(){
+				$(".alertElim").fadeOut("fast");
+			}});
+		});
+	});
+}
 
 function termina_formulario(data){
 	switch (data){

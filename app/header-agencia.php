@@ -44,7 +44,8 @@
 
             </script>
 		</head>
-		<body>';
+		<body>
+		<div><small>'.$_SESSION["mensaje"].'</small></div>';
     }
 
     function muestra_header_influenciador_publico(){

@@ -47,6 +47,7 @@ function influenciador_ya_registrado(){
 			});
 	});
 }
+
 function inscripcion_influenciador(data){
 	switch (data){
 				case "nuevo":
@@ -119,7 +120,6 @@ function inscripcion_influenciador(data){
 								});
 			}
 }
-
 $(document).ready(function(){
 
 
@@ -130,15 +130,15 @@ $(document).ready(function(){
 	var tipo = 1; 
 
 
-		function call_facebook_api(){
-			(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) return;
-			js = d.createElement(s); js.id = id;
-			js.src = "//connect.facebook.net/en_US/sdk.js";
-			fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-		}
+	function call_facebook_api(){
+		(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	}
 	
 	var statusChangeCallback = function(response, callback) {
 	 if(tipo == 1){

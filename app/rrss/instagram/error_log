@@ -1,0 +1,2 @@
+[28-Jan-2016 19:21:42 UTC] PHP Warning:  require(../../conexion.php): failed to open stream: No such file or directory in /home/powerinfluencer/public_html/app/rrss/instagram/procesar_instagram.php on line 2
+[28-Jan-2016 19:21:42 UTC] PHP Fatal error:  require(): Failed opening required '../../conexion.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/powerinfluencer/public_html/app/rrss/instagram/procesar_instagram.php on line 2

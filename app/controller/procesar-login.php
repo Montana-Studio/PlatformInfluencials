@@ -26,6 +26,14 @@ if ($resultado != "vacio"){
 	$num_row2= mysqli_num_rows($result2);//si es mayor que uno es porque hay registros
 	$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 
+	$descripcion_tipo= $row2[2];
+	if($row2[2]=='publicador'||$row2[2]=='editor'){
+		$descripcion_tipo='influenciador';
+	}
+	$mensaje_query= "SELECT * FROM mensajes WHERE descripcion_tipo='$descripcion_tipo' ORDER BY id DESC";
+	$result_mensaje= mysqli_query($mysqli,$mensaje_query)or die(mysqli_error());
+	$row_mensaje= mysqli_fetch_array($result_mensaje, MYSQLI_NUM);
+
 	if($num_row<1){
 		echo 'false';
 	}else if($num_row>=1&&$num_row2<1){
@@ -47,6 +55,9 @@ if ($resultado != "vacio"){
 	$_SESSION['id_estado']= $row2[3];
 	$_SESSION['descripcion_tipo']= $row2[2];
 	$_SESSION['descripcion']= $row2[14];
+	$_SESSION['mensaje']= $row_mensaje[3];
+
+
 	//$_SESSION['descripcion_tipo']= $row[2];
 		switch($row2[1]){
 		case '1':

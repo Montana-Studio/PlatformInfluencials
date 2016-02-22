@@ -121,6 +121,7 @@
 			});
         } ';
 	}
+	
 	function inscripcion_facebook(){
 		echo ' if(data == "exito"){
 				$(".alertElim").fadeIn("normal",function(){
@@ -198,7 +199,7 @@
 	}
 	function inscripcion_instagram(){
 		echo ' if(data == "exito"){
-				$(".alertElim").fadeIn("normal",function(){
+				/*$(".alertElim").fadeIn("normal",function(){
 					$("#boxElim .hrefCamp h2").text("Red Social agregada");
 					$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
 					$("#boxElim .hrefCamp p").text("Las páginas asociadas a esta cuenta han sido agregadas");
@@ -228,7 +229,8 @@
 							
 						}});
 					});
-				});
+				});*/
+				alert("instagram agregado");
             }';
             inscripcion_error();
 
@@ -346,10 +348,10 @@
 	}
 
 	if(basename($_SERVER['PHP_SELF'])!='formulario-ipe.php'){
-		if(isset($_SESSION['nombre'])==false ||isset($_SESSION['region'])==false ||isset($_SESSION['comuna'])==false){
-			header('Location:index.php');
-			die();
-		} 
+			if(isset($_SESSION['nombre'])==false ||isset($_SESSION['region'])==false ||isset($_SESSION['comuna'])==false){
+				header('Location:index.php');
+				die();
+			} 
 			if(basename($_SERVER['PHP_SELF'])=='dashboard-ipe.php'){
 				require('rrss/twitter/inc/twitteroauth.php');
 				require('rrss/twitter/inc/TwitterAPIExchange.php');
@@ -362,25 +364,7 @@
 				muestra_header();
 
 				echo "
-				<nav class='nav-ipe'>
-					<ul class='nav-mobile'>
-						<li><i onClick='backHistory()' class='pi pi-arrow-left'></i></li>
-						<li><h1>".$_SESSION['descripcion_tipo']."</h1></li>
-						<li><a href='./controller/logout' class='pi pi-singout'></a></li>
-					</ul>
-					<ul class='nav-deskt'>
-					    <li></li>
-					    <li><a href='./controller/logout' target='_self'><i class='pi pi-singout'></i> Cerrar sesión</a></li>
-					    <li><i class='pi pi-help'></i> <i class='pi pi-bell'></i></li>
-					</ul>
-				</nav>
-				<nav class='header-ipe'>
-					<ul>
-						<li><i onClick='backHistory()' class='pi pi-arrow-left'></i></li>
-						<li><a href='escritorio-influencer'><i class='pi pi-pencil'></i> Escritorio</a></li>
-						<li><a href='campanas-inscritas'><i class='pi pi-bullhorn'></i> campañas</a></li>
-					</ul>
-				</nav>
+				
 				<script>
 					jQuery(document).ready(function(){
 						$('title').append('Dashboard - ".$_SESSION['nombre']."');
@@ -404,7 +388,27 @@
 				<script id='facebook-sdk' src='js/facebook-login.js'></script>
 					
 				</head>
-				<body>";
+				<body>
+				<div><small>".$_SESSION['mensaje']."</small></div>
+				<nav class='nav-ipe'>
+					<ul class='nav-mobile'>
+						<li><i onClick='backHistory()' class='pi pi-arrow-left'></i></li>
+						<li><h1>".$_SESSION['descripcion_tipo']."</h1></li>
+						<li><a href='./controller/logout' class='pi pi-singout'></a></li>
+					</ul>
+					<ul class='nav-deskt'>
+					    <li></li>
+					    <li><a href='./controller/logout' target='_self'><i class='pi pi-singout'></i> Cerrar sesión</a></li>
+					    <li><i class='pi pi-help'></i> <i class='pi pi-bell'></i></li>
+					</ul>
+				</nav>
+				<nav class='header-ipe'>
+					<ul>
+						<li><i onClick='backHistory()' class='pi pi-arrow-left'></i></li>
+						<li><a href='escritorio-influencer'><i class='pi pi-pencil'></i> Escritorio</a></li>
+						<li><a href='campanas-inscritas'><i class='pi pi-bullhorn'></i> campañas</a></li>
+					</ul>
+				</nav>";
 			}
 
 			if(basename($_SERVER['PHP_SELF'])=='campanas-ipe.php'){
@@ -497,31 +501,33 @@
 					</script>
 
 				</head>
-				<body>";
+				<body>
+				<div><small>".$_SESSION['mensaje']."</small></div>";
 			}
 	 }else{
 			muestra_header();
-			echo "<nav class='nav-ipe'>
-					<ul class='nav-mobile'>
-						<li><i onClick='backHistory()' class='pi pi-arrow-left'></i></li>
-						<li><h1>".$_SESSION['descripcion_tipo']."</h1></li>
-						<li><a href='./controller/logout' class='pi pi-singout'></a></li>
-					</ul>
-					<ul class='nav-deskt'>
-					    <li></li>
-					    <li><a href='./controller/logout' target='_self'><i class='pi pi-singout'></i> Cerrar sesión</a></li>
-					    <li><i class='pi pi-help'></i> <i class='pi pi-bell'></i></li>
-					</ul>
-				</nav>
-						<script id='facebook-sdk' src='js/facebook-login.js'></script>
-							<script>
-								jQuery(document).ready(function(){
-									$('title').append('Dashboard - ".$_SESSION['nombre']."');
-									$('html').css({'background-color':'#fff','background-image':'none'});
-									$('body').addClass('campanas-ipe');
-								})
-							</script>
-						</head>
-						<body>";
+			echo "<script id='facebook-sdk' src='js/facebook-login.js'></script>
+					<script>
+						jQuery(document).ready(function(){
+							$('title').append('Formulario Registro - ".$_SESSION['nombre']."');
+							$('html').css({'background-color':'#fff','background-image':'none'});
+							$('body').addClass('formularios-registro');
+						})
+					</script>
+				</head>
+				<div><small>".$_SESSION['mensaje']."</small></div>
+				<body>
+					<nav class='nav-ipe'>
+						<ul class='nav-mobile'>
+							<li><i onClick='backHistory()' class='pi pi-arrow-left'></i></li>
+							<li><h1>".$_SESSION['descripcion_tipo']."</h1></li>
+							<li><a href='./controller/logout' class='pi pi-singout'></a></li>
+						</ul>
+						<ul class='nav-deskt'>
+						    <li></li>
+						    <li><a href='./controller/logout' target='_self'><i class='pi pi-singout'></i> Cerrar sesión</a></li>
+						    <li><i class='pi pi-help'></i> <i class='pi pi-bell'></i></li>
+						</ul>
+					</nav>";
 
 	} ?>

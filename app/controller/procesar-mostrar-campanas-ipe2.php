@@ -65,7 +65,8 @@
                                             $row4= mysqli_fetch_array($result4, MYSQLI_BOTH);
                                             $num_row4=mysqli_num_rows($result4);
                                             $campanas_activas.= '';
-                                            do{                                                
+                                            do{
+                                                
                                                 if($row4[2]=='facebook'){
                                                     $facebookPage=$row4[3];
                                                     $facebookKey =FACEBOOK_CONSUMER_KEY;
