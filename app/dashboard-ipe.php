@@ -183,6 +183,7 @@
 					<button id="guardarFacturacion" class="btns" type="submit">Guardar</button>
 					
 					<input type="file" name="file" id="file" class="input-file">
+					<div class="alert-uploadready" style="display:none;"><i class="fa fa-cloud-upload"></i>Imagen seleccionada con exito!</div>
 					<label for="file" class="change-img">Subir imagen</label>
 					
 
