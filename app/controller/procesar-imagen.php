@@ -120,6 +120,7 @@ if ($tipo == 'avatar-ipe'){
 	unset($resultado);
 
 }else if ($tipo == 'avatar'){
+	
 	$tel1 =$_POST['tel1'];
 	$tel2 =$_POST['tel2'];
 	$empresa= $_POST['empresa'];
@@ -353,7 +354,7 @@ if ($tipo == 'avatar-ipe'){
 	$nuevocorreo=$_POST['nucorreo'];
 	$nuevotelefono1=$_POST['nutel1'];
 	$nuevotelefono2=$_POST['nutel2'];
-	$nuevaurl="./uploads/agencias/registered/$nuevocorreo/avatar.gif";
+	$nuevaurl="./app/uploads/agencias/registered/$nuevocorreo/avatar.gif";
 	//$ipe = $_POST['ipe'];
 
 		$query= "SELECT DISTINCT correo FROM persona WHERE correo='$nuevocorreo'";
@@ -400,7 +401,7 @@ if ($tipo == 'avatar-ipe'){
 	$nuevousuario=$_POST['nuuser'];
 	$nuevocontraseña=MD5($_POST['nupass']);
 	$nuevocorreo=$_POST['nucorreo'];
-	$nuevaurl="./uploads/ipe/registered/$nuevocorreo/avatar.gif";
+	$nuevaurl="./app/uploads/ipe/registered/$nuevocorreo/avatar.gif";
 	$ipe = $_POST['ipe'];
 
 	if ($ipe == '3'){
@@ -428,7 +429,7 @@ if ($tipo == 'avatar-ipe'){
 			compress_image($sourcePath, $targetPath, 40);
 			rename($targetPath, "../uploads/ipe/registered/$nuevocorreo/avatar.gif");
 			$results1 = $mysqli->query("INSERT INTO login (user, pass, correo) VALUES ('$nuevousuario','$nuevocontraseña','$nuevocorreo')");
-			$results2 = $mysqli->query("INSERT INTO persona (nombre, correo, id_login, id_tipo, descripcion_tipo,  picture_url, region, comuna, fecha_ingreso ) VALUES ('$nuevousuario','$nuevocorreo', (SELECT id from login WHERE correo='$nuevocorreo'),'$ipe','$descripciontipo','$nuevaurl', '$nuevoregion', '$nuevocomuna', '$hoy')");
+			$results2 = $mysqli->query("INSERT INTO persona (nombre, correo, id_login, id_tipo, descripcion_tipo,  picture_url, region, comuna, fecha_ingreso, estado_formulario ) VALUES ('$nuevousuario','$nuevocorreo', (SELECT id from login WHERE correo='$nuevocorreo'),'$ipe','$descripciontipo','$nuevaurl', '$nuevoregion', '$nuevocomuna', '$hoy', '1')");
 			echo "nuevo";
 		}else{
 			echo "invalido";

@@ -1,11 +1,12 @@
 <?php 
 if(basename($_SERVER['PHP_SELF'])=='news.php'){
-$mysqli = mysqli_connect("localhost","powerinf_user","uho$}~1(1;nn","powerinf_luencers") or die("Error " . mysqli_error($link)); 
+//$mysqli = mysqli_connect("localhost","powerinf_user","uho$}~1(1;nn","powerinf_luencers") or die("Error " . mysqli_error($link)); 
+$mysqli = mysqli_connect("localhost","root","root","adnativo_pi") or die("Error " . mysqli_error($link)); 
 $mysqli->set_charset('utf8_bin');
 }else{
 	session_start();
-	$mysqli = mysqli_connect("localhost","powerinf_user","uho$}~1(1;nn","powerinf_luencers") or die("Error " . mysqli_error($link)); 
-	$mysqli->set_charset('utf8_bin');
+$mysqli = mysqli_connect("localhost","root","root","adnativo_pi") or die("Error " . mysqli_error($link)); 
+$mysqli->set_charset('utf8_bin');
 	setlocale(LC_ALL,"es_ES");
 	$hoy= date("Y-m-d H:i:s");
 	$hoyFormatted= date("d M Y");
@@ -68,6 +69,23 @@ $mysqli->set_charset('utf8_bin');
 				}
 				return $resultado;
 			}
+	function check_dates(){
+		$hoy= date("Y-m-d H:i:s");
+		$mysqli = mysqli_connect("localhost","root","root","adnativo_pi") or die("Error " . mysqli_error($link)); 
+$mysqli->set_charset('utf8_bin');
+    	$query_dates="SELECT * FROM campana WHERE idEstado=1 ORDER BY id DESC";
+		$result_dates= mysqli_query($mysqli,$query_dates)or die(mysqli_error());
+		$row_dates= mysqli_fetch_array($result_dates, MYSQLI_NUM);
+		$num_row_dates= mysqli_num_rows($result_dates);
+    	do{
+    		if($row_dates[8]){
+    			if($row_dates[8]<$hoy){
+					$query_update_dates="UPDATE campana SET finalizada=1, idEstado=0 WHERE id='".$row_dates[0]."'";
+					$result_update_dates= mysqli_query($mysqli,$query_update_dates)or die(mysqli_error());
+    			}
+    		}
+    	}while($row_dates = mysqli_fetch_row($result_dates));
+    }
 	//if(substr($hoyFormatted,3,2))
 	/*
 	if(basename($_SERVER['PHP_SELF'])=='formulario-red-social-agencia.php'){

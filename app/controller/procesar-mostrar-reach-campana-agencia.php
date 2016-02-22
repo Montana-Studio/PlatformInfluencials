@@ -1,5 +1,7 @@
 <?php
 include('rrss/rrss_keys.php');
+//include('rrss/facebook/facebook-auth.php');
+/*
 $query_redes_sociales_campana="SELECT DISTINCT * FROM campana WHERE id=".$row[0]." AND idEstado='1'";
 $result_redes_sociales_campana=mysqli_query($mysqli,$query_redes_sociales_campana)or die (mysqli_error());
 $row_redes_sociales_campana= mysqli_fetch_array($result_redes_sociales_campana, MYSQLI_BOTH);
@@ -21,6 +23,7 @@ for($i=0;$i<count($redes_sociales);$i++){
    		$num_row_facebook_asociado_campana= mysqli_num_rows($result_facebook_asociado_campana);
    		$facebookPage = $row_facebook_asociado_campana[2];
 
+   		 $json_user_url2 ="https://graph.facebook.com/296448387178344?access_token=".$facebookAppId."|".$facebookKey."&fields=insights";
 		if($num_row_facebook_asociado_campana>0){
 			echo '<div class="data"><ul>';
 	   		do{	
@@ -35,7 +38,7 @@ for($i=0;$i<count($redes_sociales);$i++){
 		        $json_user1= @file_get_contents($json_user_url1);
 		        $links_user_url1= json_decode($json_user1);
 
-		        $json_user_url2 ="https://graph.facebook.com/296448387178344?access_token=".$facebookAppId."|".$facebookKey."&fields=likes,talking_about_count,username,website";
+
 		        $json_user_url2 = str_replace(" ", "%20", $json_user_url2);
 		        $json_user2= @file_get_contents($json_user_url2);
 		        $links_user_url2= json_decode($json_user2);
@@ -174,7 +177,7 @@ for($i=0;$i<count($redes_sociales);$i++){
 			do{
 				/*$query_youtube_asociado_campana= "SELECT DISTINCT * FROM campanarrss WHERE campana_id=".$row[0]." AND descripcion_rrss='youtube'";
 				$result_youtube_asociado_campana=mysqli_query($mysqli,$query_youtube_asociado_campana)or die (mysqli_error());
-				$row_youtube_asociado_campana= mysqli_fetch_array($result_youtube_asociado_campana, MYSQLI_BOTH);*/
+				$row_youtube_asociado_campana= mysqli_fetch_array($result_youtube_asociado_campana, MYSQLI_BOTH);
 				$youtube_video_id= explode("?v=",$row_youtube_asociado_campana['url']);
 				$json_user_url ="https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=".$youtube_video_id[1]."&key=".GOOGLE_CONSUMER_KEY;
 		        $json_user= file_get_contents($json_user_url);
@@ -188,7 +191,7 @@ for($i=0;$i<count($redes_sociales);$i++){
 		        $links_user_url1= json_decode($json_user1);
 		        $youtubeSubscribers = $links_user_url1->items[0]->statistics->subscriberCount;
 		        //echo $json_user_url1;
-				*/
+				
 
 		        $youtube_video_views_total+=$youtube_video_views;
 		        //$youtube_video_likes_total+=$youtube_video_likes; 
@@ -201,7 +204,7 @@ for($i=0;$i<count($redes_sociales);$i++){
             echo '<li><span>Reach</span><span>'.$youtube_video_views_total.'%</span></li>';
 			/*echo '<li> Likes :'.$youtube_video_likes_total.'</li>';
 			echo '<li> Comments :'.$youtube_video_comments_total.'</li>';
-			echo '<li> Reach :'.$formatted_reach_youtube.'%</li>';*/
+			echo '<li> Reach :'.$formatted_reach_youtube.'%</li>';
 			echo '</ul></div>';
 		}
 	}
@@ -325,6 +328,6 @@ for($i=0;$i<count($redes_sociales);$i++){
     unset($googleplus_user_id_array);
     unset($googleplus_user_id);
     unset($googleplus_post_id);
-
-
+*/
+    echo '<div id="facebook-insights" onclick="getFacebookInsigths()" class="btns">Conectar Facebook</div>';
 ?>

@@ -4,7 +4,7 @@
 	header('Location:./');
 			die();
 	}else if($_SESSION['id_tipo']>'2'){
-				header('Location: dashboard-ipe');
+				header('Location: escritorio-ipe');
 				die();
 	}
 	function muestra_header(){
@@ -89,6 +89,7 @@
     }
 
 
+
 	if(basename($_SERVER['PHP_SELF'])=='dashboard-agencia.php'){
 		if(isset($_SESSION['telefono1'])==false){
 			header('Location: controller/logout.php');
@@ -99,6 +100,10 @@
 			$query="SELECT * FROM campana  WHERE idEstado=1 AND idpersona=".$id." ORDER BY id DESC LIMIT 3";
 			$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
+			$query2="SELECT * FROM campana WHERE idEstado=0 AND finalizada=1 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
+			$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
+			$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
+			$num_rows2= mysqli_num_rows($result2);
 				//}
 			muestra_header();
 			echo "<script>
@@ -146,6 +151,10 @@
 			$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
 			$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 			$num_rows2= mysqli_num_rows($result2);
+			$query3="SELECT * FROM campana WHERE idEstado=0 AND finalizada=1 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
+			$result3= mysqli_query($mysqli,$query3)or die(mysqli_error());
+			$row3= mysqli_fetch_array($result3, MYSQLI_NUM);
+			$num_rows3= mysqli_num_rows($result3);
 			}
 			muestra_header();
 			echo "<script>
@@ -615,7 +624,7 @@ if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
 <header>
 
 	<div class="logo"><a href="./escritorio-agencia" target="_top"></a></div>
-	<div class="menu" style="background-image:url(<?php echo "app/".$_SESSION['pictureUrl'];?>);"></div>
+	<div class="menu" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);"></div>
 	
 	<a href="#" class="notes" ><i class="pi pi-bell"></i></a>
 	<a href="#" class="ayuda_pi"><i class="pi pi-help"></i></a>
@@ -628,7 +637,7 @@ if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
 
 	<div class="misdatos">
 
-		<div class="imagen" style="background-image:url(<?php echo "app/".$_SESSION['pictureUrl'];?>);">
+		<div class="imagen" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);">
 
 			<input type="file" name="file" id="file" class="hide"/>
 			<label class="selectFile" for="file"><i class="pi pi-pencil"></i></label>

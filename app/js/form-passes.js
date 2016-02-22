@@ -247,11 +247,15 @@ $(document).ready(function(){
 		info.append('tel2',$('#tel2 input').val());
 		info.append('empresa',$('#empresa input').val());
 		info.append('tipo','avatar');
-
+		if(window.location.href.split('/').length == 7){
+			var url_procesar_imagen= "../../controller/procesar-imagen.php";
+		}else{
+			var url_procesar_imagen= "./controller/procesar-imagen.php";
+		}
 		if(foto==1) {
 			$.ajax({
 				type: "POST",
-				url: "../../controller/procesar-imagen.php",
+				url: url_procesar_imagen,
 				data: info,
 				enctype: 'multipart/form-data',
 				contentType: false,
@@ -382,6 +386,7 @@ $(document).ready(function(){
 			var campana_id = $(this).closest(".ingresar_urls").attr('id');
 			var link = $(this).prevAll('#'+rrss_id).val();
 			var descripcion_rrss = $(this).prevAll('input').attr('name');
+			alert("rrss_id:"+rrss_id+"-campana_id:"+campana_id+"-link:"+link+"-descripcion_rrss:"+descripcion_rrss);
 
 				if(descripcion_rrss=='googleplus'||descripcion_rrss=='facebook'||descripcion_rrss=='twitter'||descripcion_rrss=='youtube'||descripcion_rrss=='instagram'&&link.length>0){
 					$.ajax({
@@ -511,8 +516,8 @@ $(document).ready(function(){
 	 });
 	//eliminar red social en controller/procesar-mostrar-followers-ipe.php
     $(".elimina").click(function(){
-       id_rrss = $(this).attr("name");
-       tipo="desactivar";
+       var id_rrss = $(this).attr("name");
+       var tipo="desactivar";
        $.ajax({
               type: "POST",
               url: "./rrss/procesar_activar_rs.php",
