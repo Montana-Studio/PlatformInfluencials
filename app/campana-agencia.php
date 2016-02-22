@@ -30,60 +30,20 @@
 					info.append("foto",foto);
 					info.append("fecha_termino", fecha_termino);
 					$.ajax({
-							type: "POST",
-							url: "./controller/procesar-imagen.php",
-							data: info,
-							enctype: "multipart/form-data",
-							contentType: false,
-							cache: false,
-							processData:false,
+						type: "POST",
+						url: "./controller/procesar-imagen.php",
+						data: info,
+						enctype: "multipart/form-data",
+						contentType: false,
+						cache: false,
+						processData:false,
 						success: function(data){
-								switch (data){
-									case "nuevo":$(".alertElim").fadeIn("normal",function(){
-												$("#boxAlert .hrefCamp h2").text("Campaña editada con exito");
-												animaMune();
-												animaMano();
-												setInterval(function(){
-													animaMune();
-													animaMano();
-												},2800);
-												//$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
-												$("#boxAlert .hrefCamp p.messageAlert").text("Puedes seguir editando o crear más campañas.");
-												$("#boxAlert").show().animate({
-													top:"20%",
-													opacity:1
-												},{duration:1500,easing:"easeOutBounce"});
-												$("#clearAlert").on("click",function(){
-													$("#boxAlert").animate({
-														top:"-100px",
-														opacity:0
-													},{duration:500,easing:"easeInOutQuint",complete:function(){
-														$(".alertElim").fadeOut("fast");
-														window.location.reload();
-													}});
-												});
-											});
-									break;
-									default: $(".alertElim").fadeIn("normal",function(){
-												$("#boxAlert .hrefCamp h2").text("algo anda mal");
-												$("#boxAlert .hrefCamp i").addClass("fa-warning");
-												$("#boxAlert .hrefCamp p.messageAlert").text("Formato no corresponde o el peso supera los 200kb");
-												$("#boxAlert").show().animate({
-													top:"20%",
-													opacity:1
-												},{duration:1500,easing:"easeOutBounce"});
-												$("#clearAlert").on("click",function(){
-													$("#boxAlert").animate({
-														top:"-100px",
-														opacity:0
-													},{duration:500,easing:"easeInOutQuint",complete:function(){
-														$(".alertElim").fadeOut("fast");
-														$(this).hide();
-													}});
-												});
-											});
-									break;
-								}
+							switch (data){
+								case "nuevo":datos_actualizados();
+								break;
+								default: error_imagen();
+								break;
+							}
 						}
 					});
 				}));
@@ -281,7 +241,27 @@
 ?>
 </div>
 <?php
-	if($num_rows == 0 && $num_rows2 == 0){
+	if($num_rows == 0 && $num_rows2 == 0){ ?>
+		
+		<script>
+			
+			jQuery(window).load(function($){
+				sincampana();
+			});
+
+		</script>
+
+		<main class="no-campana">
+			<a href="../../crear-campana" class="hrefCamp">
+				<div id="noCamp"></div>
+				<h2>sin campañas para mostrar</h2>
+				<p>Para empezar a administrar tus campañas, primero debes crear una nueva, creala aquí.</p>
+				<div class="btn_crearcamp">crear campaña</div>
+			</a>
+		</main>
+	<?php } ?>
+
+	<?php if($num_rows == 0 && $num_rows2 == 0){
 		echo '<main class="no-campana"><a href="crear-campana" class="hrefCamp"><i class="pi pi-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes crear una nueva, creala aquí.</p><div class="btn_crearcamp">crear campaña</div></a></main>';
 	}
 ?>

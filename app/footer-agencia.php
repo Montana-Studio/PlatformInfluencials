@@ -111,10 +111,8 @@
 	}
 ?>
 	<div class="alertElim">
-
 		<main class="no-campana" id="boxAlert">
 			<div class="hrefCamp">
-
 				<h2></h2>
 				<p class="messageAlert"></p>
 			</div>
@@ -124,22 +122,22 @@
 	<?php 
 	if(basename($_SERVER['PHP_SELF'])=='perfil-influenciador-publico-agencia.php'){
 		echo '	<script type="text/javascript" src="../../js/platform_influencials.min.js"></script>
+				<script async type="text/javascript" src="../../js/animas.js"></script>
 				<script async type="text/javascript" src="../../js/form-passes.js"></script>
 				<script type="text/javascript" src="../../js/tabs.js"></script>
 				<script async type="text/javascript" src="../../js/jquery-filestyle.min.js"></script>
 
 				<script type="text/javascript" src="../../js/svg.min.js"></script>
-				<script async type="text/javascript" src="../../js/svg.easing.min.js"></script>
-				<script async>';
+				<script async type="text/javascript" src="../../js/svg.easing.min.js"></script>';
 	}else if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){
 		echo '	<script type="text/javascript" src="../../js/platform_influencials.min.js"></script>
+				<script async type="text/javascript" src="../../js/animas.js"></script>
 				<script async type="text/javascript" src="../../js/form-passes.js"></script>
 				<script type="text/javascript" src="../../js/tabs.js"></script>
 				<script async type="text/javascript" src="../../js/jquery-filestyle.min.js"></script>
 
 				<script type="text/javascript" src="../../js/svg.min.js"></script>
-				<script async type="text/javascript" src="../../js/svg.easing.min.js"></script>
-				<script async>';
+				<script async type="text/javascript" src="../../js/svg.easing.min.js"></script>';
 	}else{
 	?>
 	<script type="text/javascript" src="./js/platform_influencials.min.js"></script>
@@ -150,5 +148,5 @@
 
 	<script type="text/javascript" src="./js/svg.min.js"></script>
 	<script async type="text/javascript" src="./js/svg.easing.min.js"></script>
+
 	<?php } ?>
-	
