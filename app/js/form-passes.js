@@ -837,6 +837,7 @@ function error_campana(){
 }
 function nueva_campana(){
 	$(".alertElim").fadeIn("normal",function(){
+
 		$("#boxAlert .hrefCamp h2").text("Campaña creada con éxito");
 		$("#boxAlert .hrefCamp").prepend("<div id='ico-handLike'></div>");
 
@@ -846,7 +847,6 @@ function nueva_campana(){
 		success();
 
 		$("#boxAlert .hrefCamp p").text("Puedes ver o seguir creando más campañas.");
-
 		$(".siElim").text("ver campaña");
 		$(".noElim").text("crear otra");
 
@@ -1089,6 +1089,72 @@ function formulario_incompleto(){
 	});
 }
 
+function error_numero_telefonico(){
+	$(".alertElim").fadeIn("normal",function(){
+			$("#boxAlert .hrefCamp h2").text("algo anda mal");
+			$("#boxAlert .hrefCamp i").addClass("fa-warning");
+			$("#boxAlert .hrefCamp p.messageAlert").text("Debes ingresar al menos 8 digitos como número telefonico.");
+			
+			$("#boxAlert").show().animate({
+				top:"20%",
+				opacity:1
+			},{duration:1500,easing:"easeOutBounce"});
+
+			$("#clearAlert").on("click",function(){
+				$("#boxAlert").animate({
+					top:"-100px",
+					opacity:0
+				},{duration:500,easing:"easeInOutQuint",complete:function(){
+					$(".alertElim").fadeOut("fast");
+					$(this).hide();
+				}});
+			});
+	});
+}
+function formulario_completo(){
+	$(".alertElim").fadeIn("normal",function(){
+			$("#boxAlert .hrefCamp h2").text("registro completado");
+			$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+			$("#boxAlert .hrefCamp p.messageAlert").text("Registro de datos completo, nos contactaremos con usted.");
+
+			$("#clearAlert").on("click",function(){
+				$("#boxAlert").animate({
+					top:"-100px",
+					opacity:0
+				},{duration:500,easing:"easeInOutQuint",complete:function(){
+					$(".alertElim").fadeOut("fast");
+					window.location.href = "./controller/logout";
+				}});
+			});
+	});
+}
+function formulario_incompleto(){
+	$(".alertElim").fadeIn("normal",function(){
+		animaMune();
+		animaMano();
+		setInterval(function(){
+			animaMune();
+			animaMano();
+		},2800);
+		$("#boxAlert .hrefCamp h2").text("Ingrese todos los campos");
+		$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+		$("#boxAlert .hrefCamp p.messageAlert").text("Por favor ingrese todos los datos en el formulario");
+
+		$("#boxAlert").show().animate({
+			top:"20%",
+			opacity:1
+		},{duration:1500,easing:"easeOutBounce"});
+
+		$("#clearAlert").on("click",function(){
+			$("#boxAlert").animate({
+				top:"-100px",
+				opacity:0
+			},{duration:500,easing:"easeInOutQuint",complete:function(){
+				$(".alertElim").fadeOut("fast");
+			}});
+		});
+	});
+}
 
 function termina_formulario(data){
 	switch (data){

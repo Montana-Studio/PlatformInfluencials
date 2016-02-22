@@ -1,6 +1,6 @@
 <?php
 include('rrss/rrss_keys.php');
-include('rrss/facebook/facebook-auth.php');
+//include('rrss/facebook/facebook-auth.php');
 /*
 $query_redes_sociales_campana="SELECT DISTINCT * FROM campana WHERE id=".$row[0]." AND idEstado='1'";
 $result_redes_sociales_campana=mysqli_query($mysqli,$query_redes_sociales_campana)or die (mysqli_error());
@@ -329,18 +329,5 @@ for($i=0;$i<count($redes_sociales);$i++){
     unset($googleplus_user_id);
     unset($googleplus_post_id);
 */
-
+    echo '<div id="facebook-insights" onclick="getFacebookInsigths()" class="btns">Conectar Facebook</div>';
 ?>
-<script type="text/javascript">
-	FB.api(
-    "/296448387178344/insights/page_impressionss",
-    {
-        "period": "month"
-    },
-    function (response) {
-      if (response && !response.error) {
-        /* handle the result */
-      }
-    }
-);
-</script>

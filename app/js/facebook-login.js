@@ -48,6 +48,78 @@ function influenciador_ya_registrado(){
 	});
 }
 
+function inscripcion_influenciador(data){
+	switch (data){
+				case "nuevo":
+								$(".alertElim").fadeIn("normal",function(){
+										$("#boxAlert .hrefCamp h2").text("Gracias por registrarte en Power-Influencers");
+										$("#boxAlert .hrefCamp i").append("<img src='img/logo_pi-06.svg' width='100%' height='100%'/>");
+										$("#boxAlert .hrefCamp p.messageAlert").text("Tu cuenta sera activada proximamente, pronto nos contactaremos contigo.");
+
+										$("#boxAlert").show().animate({
+											top:"20%",
+											opacity:1
+										},{duration:1500,easing:"easeOutBounce"});
+
+										$("#clearAlert").on("click",function(){
+											$("#boxAlert").animate({
+												top:"-100px",
+												opacity:0
+											},{duration:500,easing:"easeInOutQuint",complete:function(){
+												$(".alertElim").fadeOut("fast");
+												window.location.href = "logout";
+												window.location.reload();
+											}});
+										});
+								});
+				break;
+				case "false":$(".alertElim").fadeIn("normal",function(){
+									$("#boxAlert .hrefCamp h2").text("algo anda mal");
+									$("#boxAlert .hrefCamp i").addClass("fa-warning");
+									$("#boxAlert .hrefCamp p.messageAlert").text("El correo "+$('.correonuevo').val()+" ya existe en la base de datos, intente con otro.");
+
+									$("#boxAlert").show().animate({
+										top:"20%",
+										opacity:1
+									},{duration:1500,easing:"easeOutBounce"});
+
+									$("#clearAlert").on("click",function(){
+										$("#boxAlert").animate({
+											top:"-100px",
+											opacity:0
+										},{duration:500,easing:"easeInOutQuint",complete:function(){
+											$(".alertElim").fadeOut("fast");
+											$(this).hide();
+											$("#boxAlert .hrefCamp i").removeClass("fa-warning");
+											$('.correonuevo').val('');
+											$('.correonuevo').focus();
+										}});
+									});
+							});
+				break;
+				case "invalido":$(".alertElim").fadeIn("normal",function(){
+										$("#boxAlert .hrefCamp h2").text("algo anda mal");
+										$("#boxAlert .hrefCamp i").addClass("fa-warning");
+										$("#boxAlert .hrefCamp p.messageAlert").text("Problema con el tamaño o formato de la imagen.");
+
+										$("#boxAlert").show().animate({
+											top:"20%",
+											opacity:1
+										},{duration:1500,easing:"easeOutBounce"});
+
+										$("#clearAlert").on("click",function(){
+											$("#boxAlert").animate({
+												top:"-100px",
+												opacity:0
+											},{duration:500,easing:"easeInOutQuint",complete:function(){
+												$(".alertElim").fadeOut("fast");
+												$("#boxAlert .hrefCamp i").removeClass("fa-warning");
+												$(this).hide();
+											}});
+										});
+								});
+			}
+}
 $(document).ready(function(){
 
 
