@@ -102,7 +102,7 @@ if ((int)$row[0] > 0){ ?>
 
 <?php
 }else{ ?>
-	<script>
+		<script>
 			
 			jQuery(window).load(function($){
 				sincampana();

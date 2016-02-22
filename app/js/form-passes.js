@@ -311,7 +311,7 @@ $(document).ready(function(){
 		if(foto==1) {
 			$.ajax({
 				type: "POST",
-				url: "../../controller/procesar-imagen.php",
+				url: "./controller/procesar-imagen.php",
 				data: info,
 				enctype: 'multipart/form-data',
 				contentType: false,
@@ -683,42 +683,9 @@ function inscripcion_influenciador(data){
 					});
 		break;
 		case "false":$(".alertElim").fadeIn("normal",function(){
-
-						$("#boxAlert .hrefCamp h2").text("algo anda mal");
-						$("#boxAlert .hrefCamp").prepend("<div id='icon-warning'></div>");
-						
-						$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp' id='clearAlert'></div>");
-
-						$('#clearAlert').text('continuar');
-
-						warning();
-
-						$("#boxAlert .hrefCamp p.messageAlert").text("El correo "+$('.correonuevo').val()+" ya existe en la base de datos, intente con otro.");
-
-						$("#boxAlert").show().animate({
-							top:"20%",
-							opacity:1
-						},{duration:1500,easing:"easeOutBounce"});
-
-						$("#clearAlert").on("click",function(){
-							$("#boxAlert").animate({
-								top:"-100px",
-								opacity:0
-							},{duration:500,easing:"easeInOutQuint",complete:function(){
-								$(".alertElim").fadeOut("fast");
-								$(this).hide();
-								$("#icon-warning, #clearAlert").remove();
-								$("#boxAlert .hrefCamp h2, #boxAlert .hrefCamp p.messageAlert").empty();
-								$('.correonuevo').val('');
-								$('.correonuevo').focus();
-							}});
-						});
-					});
-		break;
-		case "invalido":$(".alertElim").fadeIn("normal",function(){
 							$("#boxAlert .hrefCamp h2").text("algo anda mal");
 							$("#boxAlert .hrefCamp i").addClass("fa-warning");
-							$("#boxAlert .hrefCamp p.messageAlert").text("Problema con el tamaño o formato de la imagen.");
+							$("#boxAlert .hrefCamp p.messageAlert").text("El correo "+$('.correonuevo').val()+" ya existe en la base de datos, intente con otro.");
 
 							$("#boxAlert").show().animate({
 								top:"20%",
@@ -731,60 +698,66 @@ function inscripcion_influenciador(data){
 									opacity:0
 								},{duration:500,easing:"easeInOutQuint",complete:function(){
 									$(".alertElim").fadeOut("fast");
-									$("#boxAlert .hrefCamp i").removeClass("fa-warning");
 									$(this).hide();
+									$("#boxAlert .hrefCamp i").removeClass("fa-warning");
+									$('.correonuevo').val('');
+									$('.correonuevo').focus();
 								}});
 							});
 					});
+		break;
+		case "invalido":$(".alertElim").fadeIn("normal",function(){
+								$("#boxAlert .hrefCamp h2").text("algo anda mal");
+								$("#boxAlert .hrefCamp i").addClass("fa-warning");
+								$("#boxAlert .hrefCamp p.messageAlert").text("Problema con el tamaño o formato de la imagen.");
+
+								$("#boxAlert").show().animate({
+									top:"20%",
+									opacity:1
+								},{duration:1500,easing:"easeOutBounce"});
+
+								$("#clearAlert").on("click",function(){
+									$("#boxAlert").animate({
+										top:"-100px",
+										opacity:0
+									},{duration:500,easing:"easeInOutQuint",complete:function(){
+										$(".alertElim").fadeOut("fast");
+										$("#boxAlert .hrefCamp i").removeClass("fa-warning");
+										$(this).hide();
+									}});
+								});
+						});
 	}
 }
 
 function datos_actualizados(){
-
 	$(".alertElim").fadeIn("normal",function(){
+			$("#boxAlert .hrefCamp h2").text("datos actualizados");
+			$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+			$("#boxAlert .hrefCamp p.messageAlert").text("Tus datos se han actualizado, la pagina se actualizara para reflejar los cambios.");
 
-		$("#boxAlert .hrefCamp h2").text("datos actualizados");
-		$("#boxAlert .hrefCamp").prepend("<div id='ico-handLike'></div>");
+			$("#boxAlert").show().animate({
+				top:"20%",
+				opacity:1
+			},{duration:1500,easing:"easeOutBounce"});
 
-		$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp' id='clearAlert'></div>");
-
-		$('#clearAlert').text('continuar');
-
-		success();
-
-		$("#boxAlert .hrefCamp p").text("Tus datos se han actualizado, la pagina se actualizara para reflejar los cambios.");
-
-		$("#boxAlert").show().animate({
-			top:"20%",
-			opacity:1
-		},{duration:1500,easing:"easeOutBounce"});
-
-		$("#clearAlert").on("click",function(){
-			$("#boxAlert").animate({
-				top:"-100px",
-				opacity:0
-			},{duration:500,easing:"easeInOutQuint",complete:function(){
-				$(".alertElim").fadeOut("fast");
-				window.location.reload();
-			}});
-		});
+			$("#clearAlert").on("click",function(){
+				$("#boxAlert").animate({
+					top:"-100px",
+					opacity:0
+				},{duration:500,easing:"easeInOutQuint",complete:function(){
+					$(".alertElim").fadeOut("fast");
+					window.location.reload();
+				}});
+			});
 	});
 }
 
 function imagen_cambiada(){
-
 	$(".alertElim").fadeIn("normal",function(){
-
 		$("#boxAlert .hrefCamp h2").text("imagen cambiada");
-		$("#boxAlert .hrefCamp").prepend("<div id='ico-handLike'></div>");
-
-		$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp' id='clearAlert'></div>");
-
-		$('#clearAlert').text('continuar');
-
-		success();
-
-		$("#boxAlert .hrefCamp p").text("Imagen cambiada con exito.");
+		$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+		$("#boxAlert .hrefCamp p.messageAlert").text("Imagen cambiada con exito.");
 
 		$("#boxAlert").show().animate({
 			top:"20%",
@@ -829,8 +802,6 @@ function error_imagen(){
 				opacity:0
 			},{duration:500,easing:"easeInOutQuint",complete:function(){
 				$(".alertElim").hide("fast");
-				$("#icon-warning, #clearAlert").remove();
-				$("#boxAlert .hrefCamp h2, #boxAlert .hrefCamp p.messageAlert").empty();
 				$(this).hide();
 			}});
 		});
@@ -863,8 +834,6 @@ function error_campana(){
 				opacity:0
 			},{duration:500,easing:"easeInOutQuint",complete:function(){
 				$(".alertElim").hide("fast");
-				$("#icon-warning, #clearAlert").remove();
-				$("#boxAlert .hrefCamp h2, #boxAlert .hrefCamp p.messageAlert").empty();
 				$(this).hide();
 			}});
 		});
@@ -901,18 +870,16 @@ function nueva_campana(){
 	});
 }
 function url_ok(){
-
 	$(".alertElim").fadeIn("normal",function(){
-
+		animaMune();
+		animaMano();
+		setInterval(function(){
+			animaMune();
+			animaMano();
+		},2800);
 		$("#boxAlert .hrefCamp h2").text("URL agregada");
-		$("#boxAlert .hrefCamp").prepend("<div id='ico-handLike'></div>");
-
-		$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp' id='clearAlert'></div>");
-
-		success();
-
-		$("#boxAlert .hrefCamp p").text("URL agregada con éxito.");
-		$("#clearAlert").text("continuar");
+		$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+		$("#boxAlert .hrefCamp p.messageAlert").text("URL agregada con éxito.");
 
 		$("#boxAlert").show().animate({
 			top:"20%",
@@ -929,22 +896,19 @@ function url_ok(){
 			}});
 		});
 	});
-
 }
 
 function cotizacion_personal_ok(){
-
 	$(".alertElim").fadeIn("normal",function(){
-
+		animaMune();
+		animaMano();
+		setInterval(function(){
+			animaMune();
+			animaMano();
+		},2800);
 		$("#boxAlert .hrefCamp h2").text("Influenciador Cotizado");
-		$("#boxAlert .hrefCamp").prepend("<div id='ico-handLike'></div>");
-
-		$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp' id='clearAlert'></div>");
-
-		success();
-
-		$("#boxAlert .hrefCamp p").text("Pronto nos contactaremos para entregarle más información del influenciador.");
-		$("#clearAlert").text("continuar");
+		$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+		$("#boxAlert .hrefCamp p.messageAlert").text("Pronto nos contactaremos para entregarle más información del influenciador");
 
 		$("#boxAlert").show().animate({
 			top:"20%",
@@ -965,17 +929,15 @@ function cotizacion_personal_ok(){
 
 function cotizacion_personal_error(){
 	$(".alertElim").fadeIn("normal",function(){
-
+		animaMune();
+		animaMano();
+		setInterval(function(){
+			animaMune();
+			animaMano();
+		},2800);
 		$("#boxAlert .hrefCamp h2").text("Error al cotizar Influenciador");
-		$("#boxAlert .hrefCamp").prepend("<div id='icon-warning'></div>");
-		
-		$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp' id='clearAlert'></div>");
-
-		$('#clearAlert').text('continuar');
-
-		warning();
-
-		$("#boxAlert .hrefCamp p.messageAlert").text("Al parecer la campaña y/o influenciador indicada(s) no existe.");
+		$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
+		$("#boxAlert .hrefCamp p.messageAlert").text("Al parecer la campaña y/o influenciador indicada(s) no existe");
 
 		$("#boxAlert").show().animate({
 			top:"20%",
@@ -987,10 +949,8 @@ function cotizacion_personal_error(){
 				top:"-100px",
 				opacity:0
 			},{duration:500,easing:"easeInOutQuint",complete:function(){
-				$(".alertElim").hide("fast");
-				$("#icon-warning, #clearAlert").remove();
-				$("#boxAlert .hrefCamp h2, #boxAlert .hrefCamp p.messageAlert").empty();
-				$(this).hide();
+				$(".alertElim").fadeOut("fast");
+				window.location.reload();
 			}});
 		});
 	});
