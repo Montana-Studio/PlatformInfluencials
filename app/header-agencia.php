@@ -763,7 +763,7 @@ if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
 		<div class="datos">
 
 			<h2><?php echo $_SESSION['nombre']; ?></h2>
-			<h3><?php echo $_SESSION['empresa']; ?></h3>3>
+			<h3><?php echo $_SESSION['empresa']; ?></h3>
 
 			<div class="editar"><span>editar perfil</span></div>
 
