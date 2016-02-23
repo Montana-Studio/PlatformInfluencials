@@ -715,8 +715,16 @@ function inscripcion_influenciador(data){
 					});
 		break;
 		case "invalido":$(".alertElim").fadeIn("normal",function(){
+
 							$("#boxAlert .hrefCamp h2").text("algo anda mal");
-							$("#boxAlert .hrefCamp i").addClass("fa-warning");
+							$("#boxAlert .hrefCamp").prepend("<div id='icon-warning'></div>");
+							
+							$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp' id='clearAlert'></div>");
+
+							$('#clearAlert').text('continuar');
+
+							warning();
+
 							$("#boxAlert .hrefCamp p.messageAlert").text("Problema con el tamaño o formato de la imagen.");
 
 							$("#boxAlert").show().animate({
@@ -730,7 +738,8 @@ function inscripcion_influenciador(data){
 									opacity:0
 								},{duration:500,easing:"easeInOutQuint",complete:function(){
 									$(".alertElim").fadeOut("fast");
-									$("#boxAlert .hrefCamp i").removeClass("fa-warning");
+									$("#icon-warning, #clearAlert").remove();
+									$("#boxAlert .hrefCamp h2, #boxAlert .hrefCamp p.messageAlert").empty();
 									$(this).hide();
 								}});
 							});
