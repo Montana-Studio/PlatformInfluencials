@@ -45,6 +45,15 @@ require('../controller/conexion.php');
 		$num_row5= mysqli_num_rows($result5);
 		$row5= mysqli_fetch_array($result5, MYSQLI_NUM);
 
+		$mensaje_query= "SELECT * FROM mensajes WHERE correo='' AND id_tipo>2 ORDER BY id DESC";
+		$result_mensaje= mysqli_query($mysqli,$mensaje_query)or die(mysqli_error());
+		$row_mensaje= mysqli_fetch_array($result_mensaje, MYSQLI_NUM);
+
+		$mensaje_query= "SELECT * FROM mensajes WHERE correo='".$row[6]."' AND id_tipo>2 ORDER BY id DESC";
+		$result_mensaje_personal= mysqli_query($mysqli,$mensaje_query)or die(mysqli_error());
+		$row_mensaje_personal= mysqli_fetch_array($result_mensaje_personal, MYSQLI_NUM);
+
+
 
 		if ($tipo == '2' ){//Agencia
 			if($num_row>0){
@@ -59,6 +68,8 @@ require('../controller/conexion.php');
 				$_SESSION['rsid']=$row[10];
 				$_SESSION['id_tipo']=$row[1];
 				$_SESSION['descripcion']= $row[14];
+				$_SESSION['mensaje']=$row_mensaje[3];
+				$_SESSION['mensaje_personal']=$row_mensaje_personal[3];
 				echo 'dashboard';
 			}
 			else if($num_row2>0){

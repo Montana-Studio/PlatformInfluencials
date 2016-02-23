@@ -390,6 +390,7 @@
 				</head>
 				<body>
 				<div><small>".$_SESSION['mensaje']."</small></div>
+				<div><small>".$_SESSION['mensaje_personal']."</small></div>
 				<nav class='nav-ipe'>
 					<ul class='nav-mobile'>
 						<li><i onClick='backHistory()' class='pi pi-arrow-left'></i></li>
@@ -502,7 +503,9 @@
 
 				</head>
 				<body>
-				<div><small>".$_SESSION['mensaje']."</small></div>";
+				<div><small>".$_SESSION['mensaje']."</small></div>
+				<div><small>".$_SESSION['mensaje_personal']."</small></div>";
+	
 			}
 	 }else{
 			muestra_header();
@@ -516,6 +519,7 @@
 					</script>
 				</head>
 				<div><small>".$_SESSION['mensaje']."</small></div>
+				<div><small>".$_SESSION['mensaje_personal']."</small></div>
 				<body>
 					<nav class='nav-ipe'>
 						<ul class='nav-mobile'>

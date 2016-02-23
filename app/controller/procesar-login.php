@@ -30,9 +30,13 @@ if ($resultado != "vacio"){
 	if($row2[2]=='publicador'||$row2[2]=='editor'){
 		$descripcion_tipo='influenciador';
 	}
-	$mensaje_query= "SELECT * FROM mensajes WHERE descripcion_tipo='$descripcion_tipo' ORDER BY id DESC";
+	$mensaje_query= "SELECT * FROM mensajes WHERE correo='' AND descripcion_tipo='$descripcion_tipo' ORDER BY id DESC";
 	$result_mensaje= mysqli_query($mysqli,$mensaje_query)or die(mysqli_error());
 	$row_mensaje= mysqli_fetch_array($result_mensaje, MYSQLI_NUM);
+
+	$mensaje_query= "SELECT * FROM mensajes WHERE correo='$row2[6]' ORDER BY id DESC";
+	$result_mensaje_personal= mysqli_query($mysqli,$mensaje_query)or die(mysqli_error());
+	$row_mensaje_personal= mysqli_fetch_array($result_mensaje_personal, MYSQLI_NUM);
 
 	if($num_row<1){
 		echo 'false';
@@ -56,8 +60,7 @@ if ($resultado != "vacio"){
 	$_SESSION['descripcion_tipo']= $row2[2];
 	$_SESSION['descripcion']= $row2[14];
 	$_SESSION['mensaje']= $row_mensaje[3];
-
-
+	$_SESSION['mensaje_personal']= $row_mensaje_personal[3];
 	//$_SESSION['descripcion_tipo']= $row[2];
 		switch($row2[1]){
 		case '1':

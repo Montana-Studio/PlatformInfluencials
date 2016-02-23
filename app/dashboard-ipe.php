@@ -1,5 +1,4 @@
 <?php include 'header-ipe.php'; ?>
-
 	<form id='imagenform-ipe' style="display:none;">
 
 		<!--div class="header-ipe" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);"-->

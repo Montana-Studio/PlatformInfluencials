@@ -1,7 +1,7 @@
 <?php
 include('rrss/rrss_keys.php');
-//include('rrss/facebook/facebook-auth.php');
-/*
+include('rrss/facebook/facebook-auth.php');
+
 $query_redes_sociales_campana="SELECT DISTINCT * FROM campana WHERE id=".$row[0]." AND idEstado='1'";
 $result_redes_sociales_campana=mysqli_query($mysqli,$query_redes_sociales_campana)or die (mysqli_error());
 $row_redes_sociales_campana= mysqli_fetch_array($result_redes_sociales_campana, MYSQLI_BOTH);
@@ -175,7 +175,7 @@ for($i=0;$i<count($redes_sociales);$i++){
 			echo '<div class="data"><ul>';
 			$youtube_videos_total=0;
 			do{
-				/*$query_youtube_asociado_campana= "SELECT DISTINCT * FROM campanarrss WHERE campana_id=".$row[0]." AND descripcion_rrss='youtube'";
+				$query_youtube_asociado_campana= "SELECT DISTINCT * FROM campanarrss WHERE campana_id=".$row[0]." AND descripcion_rrss='youtube'";
 				$result_youtube_asociado_campana=mysqli_query($mysqli,$query_youtube_asociado_campana)or die (mysqli_error());
 				$row_youtube_asociado_campana= mysqli_fetch_array($result_youtube_asociado_campana, MYSQLI_BOTH);
 				$youtube_video_id= explode("?v=",$row_youtube_asociado_campana['url']);
@@ -186,7 +186,7 @@ for($i=0;$i<count($redes_sociales);$i++){
 		        $youtube_video_likes = $links_user_url->items[0]->statistics->likeCount;
 		        $youtube_id = $links_user_url->items[0]->snippet->channelId;
 
-		       /* $json_user_url1 ="https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=".$youtube_id."&key=".GOOGLE_CONSUMER_KEY;
+		        $json_user_url1 ="https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=".$youtube_id."&key=".GOOGLE_CONSUMER_KEY;
 		        $json_user1= file_get_contents($json_user_url1);
 		        $links_user_url1= json_decode($json_user1);
 		        $youtubeSubscribers = $links_user_url1->items[0]->statistics->subscriberCount;
@@ -202,7 +202,7 @@ for($i=0;$i<count($redes_sociales);$i++){
 	    	//$formatted_reach_youtube = number_format((($youtube_video_views_total)*100)/$youtube_video_subscribers_total, 2, '.', ',');
 	    	//echo '<li> Views :'.$youtube_video_views_total.'</li>';
             echo '<li><span>Reach</span><span>'.$youtube_video_views_total.'%</span></li>';
-			/*echo '<li> Likes :'.$youtube_video_likes_total.'</li>';
+			echo '<li> Likes :'.$youtube_video_likes_total.'</li>';
 			echo '<li> Comments :'.$youtube_video_comments_total.'</li>';
 			echo '<li> Reach :'.$formatted_reach_youtube.'%</li>';
 			echo '</ul></div>';
@@ -328,6 +328,6 @@ for($i=0;$i<count($redes_sociales);$i++){
     unset($googleplus_user_id_array);
     unset($googleplus_user_id);
     unset($googleplus_post_id);
-*/
+
     echo '<div id="facebook-insights" onclick="getFacebookInsigths()" class="btns">Conectar Facebook</div>';
 ?>
