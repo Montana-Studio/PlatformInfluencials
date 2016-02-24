@@ -1,10 +1,10 @@
 <?php 
 if(basename($_SERVER['PHP_SELF'])=='news.php'){
-$mysqli = mysqli_connect("localhost","root","root","adnativo_pi2") or die("Error " . mysqli_error($link)); 
+$mysqli = mysqli_connect("localhost","root","root","adnativo_pi") or die("Error " . mysqli_error($link)); 
 $mysqli->set_charset('utf8_bin');
 }else{
     session_start();
-    $mysqli = mysqli_connect("localhost","root","root","adnativo_pi2") or die("Error " . mysqli_error($link)); 
+    $mysqli = mysqli_connect("localhost","root","root","adnativo_pi") or die("Error " . mysqli_error($link)); 
     $mysqli->set_charset('utf8_bin');
     setlocale(LC_ALL,"es_ES");
     $hoy= date("Y-m-d H:i:s");
@@ -68,7 +68,7 @@ $mysqli->set_charset('utf8_bin');
             }
     function check_dates(){
         $hoy= date("Y-m-d H:i:s");
-        $mysqli = mysqli_connect("localhost","root","root","adnativo_pi2") or die("Error " . mysqli_error($link)); 
+        $mysqli = mysqli_connect("localhost","root","root","adnativo_pi") or die("Error " . mysqli_error($link)); 
         $mysqli->set_charset('utf8_bin');
         $query_dates="SELECT * FROM campana WHERE idEstado=1 ORDER BY id DESC";
         $result_dates= mysqli_query($mysqli,$query_dates)or die(mysqli_error());

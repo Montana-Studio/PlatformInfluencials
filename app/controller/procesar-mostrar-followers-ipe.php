@@ -253,21 +253,46 @@ $query4="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id']." AND de
         $links_user_url= json_decode($json_user);
         $date_three_months_ago=date('Y-m-d', time() - 90 *60 * 60 * 24 ); 
 
-        $json_user_url2 ="https://graph.facebook.com/".$facebookPage."?access_token=".$facebookAppId."|".$facebookKey."&fields=posts.since(".$date_three_months_ago.").limit(99).summary(true){likes.summary(total_count),comments.summary(total_count),shares}";
+       // $json_user_url2 ="https://graph.facebook.com/".$facebookPage."?access_token=".$facebookAppId."|".$facebookKey."&fields=posts.since(".$date_three_months_ago.").limit(99).summary(true){likes.summary(total_count),comments.summary(total_count),shares}";
+         $json_user_url2 ="https://graph.facebook.com/".$facebookPage."?access_token=".$facebookAppId."|".$facebookKey."&fields=posts.since(".$date_three_months_ago.").limit(99).summary(true){likes.limit(0).summary(true)}";
         $json_user_url2 = str_replace(" ", "%20", $json_user_url2);
         $json_user2= @file_get_contents($json_user_url2);
         $links_user_url2= json_decode($json_user2);
+       
 
-        if ($json_user) {
-         $facebookLikes =$links_user_url->likes;
-        $facebookTalkingAbout =$links_user_url->talking_about_count;
-        $facebookUsername =$links_user_url->username;
-        $facebookWebsite =$links_user_url->website;
-        $facebookHistoryLikes=$links_user_url2->posts->data;
-        $cantidad_facebookHistoryLikes= count($facebookHistoryLikes);
-        for($i=0;$i=$face){
-          
-        }
+        if ($json_user){
+         	$facebookLikes =$links_user_url->likes;
+	        $facebookTalkingAbout =$links_user_url->talking_about_count;
+	        $facebookUsername =$links_user_url->username;
+	        $facebookWebsite =$links_user_url->website;
+	        do{
+                $facebookHistoryLikes+=$links_user_url2->posts->data[$i]->likes->summary->total_count;
+                $i++;
+            }while($i<100);
+
+	       /* do{
+
+	        	$json_url_next_page= $links_user_url2->posts->paging->next;
+		        $json_url_next_page = str_replace(" ", "%20", $json_url_next_page);
+		        $json_url_next_page_content = @file_get_contents($json_url_next_page);
+		        $json_url_next_page= json_decode($json_url_next_page_content);
+
+		        $facebookNextPageLikes+=$json_url_next_page->posts->;
+
+	        }while($json_url_next_page);
+	        
+	        
+
+        /*$json_url_next_page_content= @file_get_contents($json_url_next_page);
+        $json_url_next_page= json_decode($json_url_next_page_content);*/
+
+        	
+        	
+
+        $_SESSION['facebook'] .=  $facebookHistoryLikes;
+        
+       // $_SESSION['facebook'] .= $facebookHistoryLikes;
+
         $facebookImgUrl = "https://graph.facebook.com/".$facebookUsername."/picture?type=large";
 
         if ($row6[5] == 1){
