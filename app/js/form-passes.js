@@ -474,7 +474,7 @@ $(document).ready(function(){
 				});
 			});
 			$(".noElim").on("click",function(){
-				$("#boxElim").animate({
+				$("#boxAlert").animate({
 					top:"-100px",
 					opacity:0
 				},{duration:500,easing:"easeInOutQuint",complete:function(){
