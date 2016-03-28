@@ -21,7 +21,8 @@
 					</div>
 				</h2>';
 		}else{
-			echo '<div class="total_reach"><span><h2>Reach actual</h2><small>Alcance total de tus redes sociales</small></span><div class="total-number">'.formato_numeros_reachs($suma).'</div></div>';
+			echo '<div class="total_reach"><span><h2>Reach actual</h2><small>Alcance total de tus redes sociales</small></span><div class="total-number">'.formato_numeros_reachs($suma).'</div>';
+			echo '<small>Alcance total de tus redes sociales</small></span><div class="total-number">'.formato_numeros_reachs($suma).'</div></div>';
 		}
 	?>
 	
@@ -31,7 +32,7 @@
         	if (total == '0'){
         		$('.total-numbers').prepend(total+'<br/>');
         	}else{
-        		$('.total-numbers').prepend('<?php echo formato_numeros_reachs($suma);?><br/>');
+        		$('.total-numbers').prepend('<?php echo formato_numeros_reachs($_SESSION['suma']);?><br/>');
         	}
         });
     </script>
@@ -41,7 +42,7 @@
 		
 		<?php
 			if($num_row6 > 0){
-				echo '<div class="reach-total">facebook reach <span>'.formato_numeros_reachs($suma_facebook).'</span></div>';
+				echo '<div class="reach-total">facebook reach <span>'.formato_numeros_reachs($_SESSION['suma_facebook']).'</span></div>';
 				echo $_SESSION['facebook'];
 			}
 		?>
@@ -52,7 +53,7 @@
 	<div class="rs-inscription">
 		<?php
 			if($num_row3 > 0){
-				echo '<div class="reach-total">instagram reach <span>'.formato_numeros_reachs($suma_instagram).'</span></div>';
+				echo '<div class="reach-total">instagram reach <span>'.formato_numeros_reachs($_SESSION['suma_instagram']).'</span></div>';
 				echo $_SESSION['instagram'];
 	  		}
 		?>
@@ -64,7 +65,7 @@
 		
 		<?php
 			if($num_row4 > 0){
-				echo '<div class="reach-total">twitter reach <span>'.formato_numeros_reachs($suma_twitter).'</span></div>';
+				echo '<div class="reach-total">twitter reach <span>'.formato_numeros_reachs($_SESSION['suma_twitter']).'</span></div>';
 				echo $_SESSION['twitter'];
 			}
 		?>
@@ -79,10 +80,10 @@
 		 </script>
 	</div>
 
-	<div class="red-title"><i class="pi pi-analytics"></i> <span class="red-name">Analytics</span> <i class="pi pi-arrow-bottom"></i></div>
+	<!--div class="red-title"><i class="pi pi-analytics"></i> <span class="red-name">Analytics</span> <i class="pi pi-arrow-bottom"></i></div>
 	<div class="rs-inscription">
 
-		<?php
+		<?php/*
 			if($num_row9 > 0){
 				echo '<div class="reach-total">
 					analytics reach 
@@ -90,34 +91,34 @@
 				</div>';
 				echo $_SESSION['analytics'];
 
-			}
+			}*/
 		?>
 		<div id="analytics-inscription" onclick="authorize()" class="btns">Conectar Analytics</div>
-	</div>
+	</div-->
 
 	<div class="red-title"><i class="pi pi-youtube"></i> <span class="red-name">Youtube</span> <i class="pi pi-arrow-bottom"></i></div>
 	<div class="rs-inscription">
 		
 		<?php
 			if($num_row5 > 0){
-				echo '<div class="reach-total">youtube reach <span>'.formato_numeros_reachs($suma_youtube).'</span></div>';
+				echo '<div class="reach-total">youtube reach <span>'.formato_numeros_reachs($_SESSION['suma_youtube']).'</span></div>';
 				echo $_SESSION['youtube'];
 			}
 		?>
 		<div id="youtube-inscription" onclick="googleApiClientYoutubeReady()" class="btns">Conectar Youtube</div>
 	</div>
 
-	<div class="red-title"><i class="pi pi-googleplus"></i> <span class="red-name">Google Plus</span> <i class="pi pi-arrow-bottom"></i></div>
+	<!--div class="red-title"><i class="pi pi-googleplus"></i> <span class="red-name">Google Plus</span> <i class="pi pi-arrow-bottom"></i></div>
 	<div class="rs-inscription">
 		
-		<?php
+		<?php/*
 			if($num_row7 > 0){
 				echo '<div class="reach-total">google plus reach <span>'.formato_numeros_reachs($suma_googleplus).'</span></div>';
 				echo $_SESSION['googleplus'];
-			}
+			}*/
 		?>
 		<div id="googleplus-inscription" onclick="googleApiClientReadyGooglePlus()" class="btns">Conectar Google+</div>
-	</div>
+	</div-->
 <?php
 	unset($mysqli);
 ?>

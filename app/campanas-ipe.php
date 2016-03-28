@@ -1,4 +1,7 @@
-<?php include 'header-ipe.php'; ?>
+<?php include 'header-ipe.php';
+require("./controller/procesar-mostrar-campanas-ipe2.php");
+	  //require('./controller/procesar-mostrar-reach-campana-ipe2.php';
+?>
 		
 <div id="imagenform-ipe2">
     
@@ -9,18 +12,15 @@
 			</ul>
 			<div id="tabscontent">
 				<div id="activas" class="tabpage">
-
-					<?php
-						require("./controller/procesar-mostrar-campanas-ipe2.php");
-						echo $campanas_activas;
+					<?php echo $campanas_activas;
+						//echo $campanas_historial;
 						//echo $campanas_activas_urls_ingresadas;
-						echo $campanas_inactivas;
+//						echo $campanas_inactivas;
 					?>
 						
 				</div>
 				<div id="historia" class="tabpage">
-					
-					<?php echo $campanas_historial; ?>
+					<?php echo $campanas_finalizadas;?>
 				
 			    </div>
 		    </div>
