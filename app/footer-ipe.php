@@ -15,3 +15,4 @@
 	
 	<script type="text/javascript" src="js/svg.min.js"></script>
 	<script async type="text/javascript" src="js/svg.easing.min.js"></script>
+	<script async type="text/javascript" src="js/svg.path.min.js"></script>

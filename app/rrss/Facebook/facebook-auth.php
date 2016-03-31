@@ -138,7 +138,8 @@
 					            url: "./rrss/facebook/procesar-facebook.php",
 					            data: "faceuser="+facebookUser+"&facebook_page_id="+facebook_page_id,
 					            success: function(data){
-									<?php inscripcion_facebook(); ?>
+					            	//var data = <?php $_SESSION['data'];?>
+									inscripcion_facebook();
 								}
 							});
 			        	}else{
@@ -148,7 +149,8 @@
 					            url: "./rrss/facebook/procesar-facebook.php",
 					            data: "facebook_page_id="+facebook_page_id,
 					            success: function(data){
-					            	<?php inscripcion_facebook();?>
+					            	//var data = <?php $_SESSION['data'];?>
+					            	inscripcion_facebook();
 								}
 							});
 			        	}
@@ -163,18 +165,18 @@
 		facebookPages();
 	}
 
-	var getFacebookInsigths(){
-	FB.api(
-	    "/296448387178344/insights/page_impressionss",
-	    {
-	        "period": "month"
-	    },
-	    function (response) {
-	      if (response && !response.error) {
-	        alert(response);
-	      }
-    }
-	);
-	}
+	/*var getFacebookInsigths(){
+		FB.api(
+		    "/296448387178344/insights/page_impressionss",
+		    {
+		        "period": "month"
+		    },
+		    function (response) {
+		      if (response && !response.error) {
+		        alert(response);
+		      }
+	    	}
+	    );
+	}*/
 
 </script>
