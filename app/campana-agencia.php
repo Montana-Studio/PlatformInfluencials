@@ -55,6 +55,27 @@
 				});
 			});
 		</script>';
+
+
+	if($num_rows == 0 && $num_rows2 == 0){ ?>
+		
+		<script>
+			
+			jQuery(window).load(function($){
+				sincampana();
+			});
+
+		</script>
+
+		<main class="no-campana">
+			<a href="../../crear-campana" class="hrefCamp">
+				<div id="noCamp"></div>
+				<h2>sin campañas para mostrar</h2>
+				<p>Para empezar a administrar tus campañas, primero debes crear una nueva, creala aquí.</p>
+				<div class="btn_crearcamp">crear campaña</div>
+			</a>
+		</main>
+	<?php } 
 	if ($num_rows > 0){
 		echo '<h2 class="sub-titulo">campañas activas</h2><div class="creadas">';
 	do{
@@ -109,6 +130,7 @@
                             <div id="redes_sociales_campana_'.$row[0].'" class="reach-campana">
                                 <h2 class="sub-titulo">Metricas de la campaña</h2>';
                                 require('./controller/procesar-mostrar-reach-campana-agencia.php');
+                                echo $_SESSION['reach-campana'];
                                 
         echo '              </div>
 					</div>
@@ -240,26 +262,7 @@
 
 ?>
 </div>
-<?php
-	if($num_rows == 0 && $num_rows2 == 0){ ?>
-		
-		<script>
-			
-			jQuery(window).load(function($){
-				sincampana();
-			});
 
-		</script>
-
-		<main class="no-campana">
-			<a href="../../crear-campana" class="hrefCamp">
-				<div id="noCamp"></div>
-				<h2>sin campañas para mostrar</h2>
-				<p>Para empezar a administrar tus campañas, primero debes crear una nueva, creala aquí.</p>
-				<div class="btn_crearcamp">crear campaña</div>
-			</a>
-		</main>
-	<?php } ?>
 	
 	<div id="contacto" class="hide">
 		<h2>Contacto</h2>

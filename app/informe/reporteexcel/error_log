@@ -1,0 +1,203 @@
+[14-Mar-2016 14:08:59 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 8
+[14-Mar-2016 14:08:59 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 8
+[14-Mar-2016 14:10:23 UTC] PHP Warning:  mysqli_query(): Empty query in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 9
+[14-Mar-2016 14:10:23 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 9
+[14-Mar-2016 14:10:42 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 11
+[14-Mar-2016 14:25:57 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 77
+[14-Mar-2016 14:26:44 UTC] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Cell coordinate can not be zero-length string' in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php:543
+Stack trace:
+#0 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet.php(1231): PHPExcel_Cell::coordinateFromString('')
+#1 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet.php(1666): PHPExcel_Worksheet->cellExists(NULL)
+#2 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(68): PHPExcel_Worksheet->mergeCells('A5:L1')
+#3 {main}
+  thrown in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php on line 543
+[14-Mar-2016 14:26:52 UTC] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Cell coordinate can not be zero-length string' in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php:543
+Stack trace:
+#0 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet.php(1231): PHPExcel_Cell::coordinateFromString('')
+#1 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet.php(1666): PHPExcel_Worksheet->cellExists(NULL)
+#2 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(68): PHPExcel_Worksheet->mergeCells('A5:L1')
+#3 {main}
+  thrown in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php on line 543
+[14-Mar-2016 14:42:09 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 215
+[14-Mar-2016 14:42:22 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 215
+[14-Mar-2016 14:42:26 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 215
+[14-Mar-2016 14:42:49 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 97
+[14-Mar-2016 14:42:49 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php:97) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 342
+[14-Mar-2016 14:42:49 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php:97) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 343
+[14-Mar-2016 14:42:49 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php:97) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 344
+[14-Mar-2016 15:05:17 UTC] PHP Fatal error:  Call to undefined method PHPExcel::setSheetIndexAndTitle() in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 34
+[14-Mar-2016 15:05:37 UTC] PHP Fatal error:  Call to undefined method PHPExcel::setSheetIndexAndTitle() in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 34
+[14-Mar-2016 15:07:47 UTC] PHP Fatal error:  Call to undefined function base_path() in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 38
+[14-Mar-2016 15:09:34 UTC] PHP Warning:  Division by zero in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet/BaseDrawing.php on line 352
+[14-Mar-2016 15:09:42 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet/BaseDrawing.php:352) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 359
+[14-Mar-2016 15:09:42 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet/BaseDrawing.php:352) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 360
+[14-Mar-2016 15:09:42 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet/BaseDrawing.php:352) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 361
+[14-Mar-2016 15:10:37 UTC] PHP Fatal error:  Call to a member function getProperties() on null in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 35
+[14-Mar-2016 15:11:14 UTC] PHP Fatal error:  Call to a member function getProperties() on null in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 35
+[14-Mar-2016 15:13:02 UTC] PHP Warning:  Division by zero in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet/BaseDrawing.php on line 352
+[14-Mar-2016 15:13:02 UTC] PHP Fatal error:  Call to a member function getActiveSheet() on null in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 42
+[14-Mar-2016 15:14:34 UTC] PHP Warning:  Division by zero in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet/BaseDrawing.php on line 352
+[14-Mar-2016 15:14:43 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet/BaseDrawing.php:352) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 357
+[14-Mar-2016 15:14:43 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet/BaseDrawing.php:352) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 358
+[14-Mar-2016 15:14:43 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet/BaseDrawing.php:352) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 359
+[14-Mar-2016 15:15:31 UTC] PHP Warning:  Division by zero in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet/BaseDrawing.php on line 352
+[14-Mar-2016 15:15:31 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet/BaseDrawing.php:352) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 362
+[14-Mar-2016 15:15:31 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet/BaseDrawing.php:352) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 363
+[14-Mar-2016 15:15:31 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet/BaseDrawing.php:352) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 364
+[14-Mar-2016 15:16:21 UTC] PHP Warning:  Division by zero in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet/BaseDrawing.php on line 352
+[14-Mar-2016 15:16:21 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet/BaseDrawing.php:352) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 362
+[14-Mar-2016 15:16:21 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet/BaseDrawing.php:352) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 363
+[14-Mar-2016 15:16:21 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet/BaseDrawing.php:352) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 364
+[14-Mar-2016 15:41:24 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 117
+[14-Mar-2016 15:41:24 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php:117) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 405
+[14-Mar-2016 15:41:24 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php:117) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 406
+[14-Mar-2016 15:41:24 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php:117) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 407
+[14-Mar-2016 15:43:05 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 20
+[14-Mar-2016 15:43:05 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php:20) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 405
+[14-Mar-2016 15:43:05 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php:20) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 406
+[14-Mar-2016 15:43:05 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php:20) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 407
+[14-Mar-2016 15:44:16 UTC] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, null given in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 27
+[14-Mar-2016 15:44:16 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 27
+[14-Mar-2016 15:51:33 UTC] PHP Parse error:  syntax error, unexpected '$objWorkSheet' (T_VARIABLE) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 169
+[14-Mar-2016 15:52:47 UTC] PHP Parse error:  syntax error, unexpected '$objFacebookSheet' (T_VARIABLE) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 169
+[14-Mar-2016 15:58:34 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 165
+[14-Mar-2016 18:05:05 UTC] PHP Fatal error:  Call to a member function createSheet() on null in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 115
+[14-Mar-2016 18:05:53 UTC] PHP Fatal error:  Call to a member function createSheet() on null in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 21
+[14-Mar-2016 18:07:20 UTC] PHP Fatal error:  Call to a member function createSheet() on null in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 21
+[14-Mar-2016 18:07:25 UTC] PHP Fatal error:  Call to a member function createSheet() on null in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 21
+[14-Mar-2016 18:08:12 UTC] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Invalid cell coordinate A' in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php:546
+Stack trace:
+#0 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet.php(1134): PHPExcel_Cell::coordinateFromString('A')
+#1 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet.php(1042): PHPExcel_Worksheet->getCell('A')
+#2 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(58): PHPExcel_Worksheet->setCellValue('A', NULL)
+#3 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(222): red_social('facebook')
+#4 {main}
+  thrown in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php on line 546
+[14-Mar-2016 18:08:36 UTC] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Invalid cell coordinate A' in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php:546
+Stack trace:
+#0 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet.php(1134): PHPExcel_Cell::coordinateFromString('A')
+#1 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet.php(1042): PHPExcel_Worksheet->getCell('A')
+#2 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(58): PHPExcel_Worksheet->setCellValue('A', NULL)
+#3 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(222): red_social('facebook')
+#4 {main}
+  thrown in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php on line 546
+[14-Mar-2016 18:08:39 UTC] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Invalid cell coordinate A' in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php:546
+Stack trace:
+#0 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet.php(1134): PHPExcel_Cell::coordinateFromString('A')
+#1 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet.php(1042): PHPExcel_Worksheet->getCell('A')
+#2 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(58): PHPExcel_Worksheet->setCellValue('A', NULL)
+#3 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(222): red_social('facebook')
+#4 {main}
+  thrown in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php on line 546
+[14-Mar-2016 18:10:54 UTC] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Invalid cell coordinate A' in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php:546
+Stack trace:
+#0 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet.php(1134): PHPExcel_Cell::coordinateFromString('A')
+#1 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet.php(1042): PHPExcel_Worksheet->getCell('A')
+#2 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(58): PHPExcel_Worksheet->setCellValue('A', NULL)
+#3 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(222): red_social('facebook')
+#4 {main}
+  thrown in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php on line 546
+[14-Mar-2016 18:12:10 UTC] PHP Fatal error:  Call to a member function getProperties() on null in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 94
+[14-Mar-2016 18:13:02 UTC] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Invalid cell coordinate A' in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php:546
+Stack trace:
+#0 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet.php(1134): PHPExcel_Cell::coordinateFromString('A')
+#1 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet.php(1042): PHPExcel_Worksheet->getCell('A')
+#2 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(58): PHPExcel_Worksheet->setCellValue('A', NULL)
+#3 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(214): red_social('facebook')
+#4 {main}
+  thrown in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php on line 546
+[14-Mar-2016 18:13:35 UTC] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Invalid cell coordinate A' in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php:546
+Stack trace:
+#0 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet.php(1134): PHPExcel_Cell::coordinateFromString('A')
+#1 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet.php(1042): PHPExcel_Worksheet->getCell('A')
+#2 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(58): PHPExcel_Worksheet->setCellValue('A', NULL)
+#3 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(214): red_social(Object(PHPExcel), 'facebook')
+#4 {main}
+  thrown in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php on line 546
+[14-Mar-2016 18:14:06 UTC] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Invalid cell coordinate A' in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php:546
+Stack trace:
+#0 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet.php(1134): PHPExcel_Cell::coordinateFromString('A')
+#1 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet.php(1042): PHPExcel_Worksheet->getCell('A')
+#2 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(58): PHPExcel_Worksheet->setCellValue('A', NULL)
+#3 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(214): red_social(Object(PHPExcel), 'facebook')
+#4 {main}
+  thrown in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php on line 546
+[14-Mar-2016 18:18:32 UTC] PHP Fatal error:  Call to a member function setCellValue() on null in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 44
+[14-Mar-2016 18:19:25 UTC] PHP Fatal error:  Call to a member function setCellValue() on null in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 43
+[14-Mar-2016 18:21:00 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 69
+[14-Mar-2016 18:35:18 UTC] PHP Warning:  preg_match() expects parameter 2 to be string, array given in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell/DefaultValueBinder.php on line 95
+[14-Mar-2016 18:35:18 UTC] PHP Warning:  mb_substr() expects parameter 1 to be string, array given in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Shared/String.php on line 575
+[14-Mar-2016 18:35:22 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell/DefaultValueBinder.php:95) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 457
+[14-Mar-2016 18:35:22 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell/DefaultValueBinder.php:95) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 458
+[14-Mar-2016 18:35:22 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell/DefaultValueBinder.php:95) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 459
+[14-Mar-2016 18:51:09 UTC] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'You tried to set a sheet active by the out of bounds index: 2. The actual number of sheets is 1.' in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel.php:444
+Stack trace:
+#0 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(23): PHPExcel->setActiveSheetIndex(2)
+#1 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(219): red_social(Object(PHPExcel), Array, 'facebook', 4, NULL, 'Nicolas Acevedo', 'Chic Fit daily', 'https://www.fac...', 111, 0, 2, 23361, 0, NULL, 0, 0.004837121698557424)
+#2 {main}
+  thrown in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel.php on line 444
+[14-Mar-2016 18:56:18 UTC] PHP Fatal error:  Function name must be a string in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 23
+[14-Mar-2016 18:59:15 UTC] PHP Fatal error:  Method name must be a string in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 23
+[14-Mar-2016 19:04:16 UTC] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'You tried to set a sheet active by the out of bounds index: 2. The actual number of sheets is 2.' in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel.php:444
+Stack trace:
+#0 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(26): PHPExcel->setActiveSheetIndex(2)
+#1 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(332): red_social(Object(PHPExcel), Array, 'facebook', 4, NULL, 'Nicolas Acevedo', 'Chic Fit daily', 'https://www.fac...', 111, 0, 2, 23362, 0, NULL, 0, 0.004836914647718517)
+#2 {main}
+  thrown in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel.php on line 444
+[14-Mar-2016 19:15:34 UTC] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Your requested sheet index: 2 is out of bounds. The actual number of sheets is 1.' in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel.php:333
+Stack trace:
+#0 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(23): PHPExcel->getSheet(2)
+#1 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(239): red_social(Object(PHPExcel), Array, 'facebook', 4, NULL, 'Nicolas Acevedo', 'Chic Fit daily', 'https://www.fac...', 112, 0, 2, 23362, 0, NULL, 0, 0.004879719202123106)
+#2 {main}
+  thrown in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel.php on line 333
+[14-Mar-2016 19:35:28 UTC] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'Invalid cell coordinate A' in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php:546
+Stack trace:
+#0 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet.php(1134): PHPExcel_Cell::coordinateFromString('A')
+#1 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Worksheet.php(1042): PHPExcel_Worksheet->getCell('A')
+#2 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(134): PHPExcel_Worksheet->setCellValue('A', 'nike')
+#3 {main}
+  thrown in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php on line 546
+[14-Mar-2016 20:04:01 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 542
+[14-Mar-2016 20:09:55 UTC] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'You tried to set a sheet active by the out of bounds index: 1. The actual number of sheets is 1.' in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel.php:444
+Stack trace:
+#0 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(112): PHPExcel->setActiveSheetIndex(1)
+#1 {main}
+  thrown in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel.php on line 444
+[14-Mar-2016 20:10:58 UTC] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'You tried to set a sheet active by the out of bounds index: 1. The actual number of sheets is 1.' in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel.php:444
+Stack trace:
+#0 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(149): PHPExcel->setActiveSheetIndex(1)
+#1 {main}
+  thrown in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel.php on line 444
+[14-Mar-2016 20:11:02 UTC] PHP Fatal error:  Uncaught exception 'PHPExcel_Exception' with message 'You tried to set a sheet active by the out of bounds index: 1. The actual number of sheets is 1.' in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel.php:444
+Stack trace:
+#0 /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php(149): PHPExcel->setActiveSheetIndex(1)
+#1 {main}
+  thrown in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel.php on line 444
+[14-Mar-2016 20:36:23 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 384
+[14-Mar-2016 20:36:34 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 384
+[14-Mar-2016 20:36:58 UTC] PHP Fatal error:  Uncaught exception 'PHPExcel_Calculation_Exception' with message 'Reporte de Campanas!L14 -> Reporte de Campanas!L14 -> Cyclic Reference in Formula' in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php:298
+Stack trace:
+#0 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Writer/Excel2007/Worksheet.php(1078): PHPExcel_Cell->getCalculatedValue()
+#1 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Writer/Excel2007/Worksheet.php(1025): PHPExcel_Writer_Excel2007_Worksheet->_writeCell(Object(PHPExcel_Shared_XMLWriter), Object(PHPExcel_Worksheet), 'L14', Array, Array)
+#2 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Writer/Excel2007/Worksheet.php(83): PHPExcel_Writer_Excel2007_Worksheet->_writeSheetData(Object(PHPExcel_Shared_XMLWriter), Object(PHPExcel_Worksheet), Array)
+#3 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Writer/Exce in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php on line 298
+[14-Mar-2016 20:39:41 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 385
+[14-Mar-2016 20:40:45 UTC] PHP Fatal error:  Uncaught exception 'PHPExcel_Calculation_Exception' with message 'Reporte de Campanas!L14 -> Reporte de Campanas!L14 -> Cyclic Reference in Formula' in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php:298
+Stack trace:
+#0 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Writer/Excel2007/Worksheet.php(1078): PHPExcel_Cell->getCalculatedValue()
+#1 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Writer/Excel2007/Worksheet.php(1025): PHPExcel_Writer_Excel2007_Worksheet->_writeCell(Object(PHPExcel_Shared_XMLWriter), Object(PHPExcel_Worksheet), 'L14', Array, Array)
+#2 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Writer/Excel2007/Worksheet.php(83): PHPExcel_Writer_Excel2007_Worksheet->_writeSheetData(Object(PHPExcel_Shared_XMLWriter), Object(PHPExcel_Worksheet), Array)
+#3 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Writer/Exce in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php on line 298
+[14-Mar-2016 20:44:22 UTC] PHP Fatal error:  Uncaught exception 'PHPExcel_Calculation_Exception' with message 'Reporte de Campanas!L14 -> Reporte de Campanas!L14 -> Cyclic Reference in Formula' in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php:298
+Stack trace:
+#0 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Writer/Excel2007/Worksheet.php(1078): PHPExcel_Cell->getCalculatedValue()
+#1 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Writer/Excel2007/Worksheet.php(1025): PHPExcel_Writer_Excel2007_Worksheet->_writeCell(Object(PHPExcel_Shared_XMLWriter), Object(PHPExcel_Worksheet), 'L14', Array, Array)
+#2 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Writer/Excel2007/Worksheet.php(83): PHPExcel_Writer_Excel2007_Worksheet->_writeSheetData(Object(PHPExcel_Shared_XMLWriter), Object(PHPExcel_Worksheet), Array)
+#3 /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Writer/Exce in /home/powerinfluencer/public_html/app/controller/reporteexcel/lib/PHPExcel/PHPExcel/Cell.php on line 298
+[14-Mar-2016 21:12:50 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/powerinfluencer/public_html/app/controller/reporteexcel/reporteexcel.php on line 391
+[23-Mar-2016 13:31:18 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/informe/reporteexcel/reporteexcel.php on line 323
+[23-Mar-2016 13:32:24 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/informe/reporteexcel/reporteexcel.php on line 323
+[23-Mar-2016 13:32:45 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/informe/reporteexcel/reporteexcel.php on line 323
+[23-Mar-2016 13:33:47 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/informe/reporteexcel/reporteexcel.php on line 323
+[23-Mar-2016 13:35:14 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/informe/reporteexcel/reporteexcel.php on line 323
+[23-Mar-2016 13:35:28 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/informe/reporteexcel/reporteexcel.php on line 323

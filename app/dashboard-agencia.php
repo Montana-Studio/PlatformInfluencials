@@ -1,5 +1,6 @@
 <?php include 'header-agencia.php'; ?>
 <?php
+
 if ((int)$row[0] > 0){ ?>
 	<?php
 		echo '
@@ -90,8 +91,8 @@ if ((int)$row[0] > 0){ ?>
                         <div id="redes_sociales_campana_'.$row[0].'" class="reach-campana">
                             <h2 class="sub-titulo">Metricas de la campaña</h2>';
                             require('./controller/procesar-mostrar-reach-campana-agencia.php');
-
-    echo '              </div>
+                             echo $_SESSION['reach-campana'];
+    				echo '</div>
 					</div>
 
 				 </div>
@@ -111,7 +112,7 @@ if ((int)$row[0] > 0){ ?>
 		</script>
 
 		<main class="no-campana">
-			<a href="../../crear-campana" class="hrefCamp">
+			<a href="crear-campana" class="hrefCamp">
 				<div id="noCamp"></div>
 				<h2>sin campañas para mostrar</h2>
 				<p>Para empezar a administrar tus campañas, primero debes crear una nueva, creala aquí.</p>
@@ -211,6 +212,7 @@ if ((int)$row[0] > 0){ ?>
 	                        <div id="redes_sociales_campana_'.$row2[0].'" class="reach-campana">
 	                            <h2 class="sub-titulo">Metricas de la campaña</h2>';
 	                            require('./controller/procesar-mostrar-reach-campana-agencia.php');
+	                             echo $_SESSION['reach-campana'];
 
 	    echo '              </div>
 						</div>
@@ -220,12 +222,12 @@ if ((int)$row[0] > 0){ ?>
 				'; }while($row2 = mysqli_fetch_row($result2)); ?>
 
 				</div>
-	<?php
-	}
+<?php
+	}/*
 
 }else{
 	echo '<main class="no-campana"><a href="crear-campana.php" class="hrefCamp"><i class="pi pi-suitcase"></i><h2>sin campañas para mostrar</h2><p>Para empezar a administrar tus campañas, primero debes crear una nueva, creala aquí.</p><div class="btn_crearcamp">crear campaña</div></a></main>';
-}
+}*/
 ?>
 
 	<div id="contacto" class="hide">

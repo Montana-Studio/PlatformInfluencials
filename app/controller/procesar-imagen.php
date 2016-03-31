@@ -191,7 +191,7 @@ if ($tipo == 'avatar-ipe'){
   	$row= mysqli_fetch_array($result, MYSQLI_NUM);
   	$campana= (int)$row[0];
   	$campana = $campana +1;
-  	$año_fecha_termino = substr($fecha_termino, 13, 4);
+  	$año_fecha_termino = substr($fecha_termino,-4);
   	$dia_fecha_termino = substr($fecha_termino,0 , 2);
   	$string_mes_fecha_termino=preg_replace('/[0-9]+/', '', $fecha_termino);
   	$string_mes_fecha_termino = trim($string_mes_fecha_termino);

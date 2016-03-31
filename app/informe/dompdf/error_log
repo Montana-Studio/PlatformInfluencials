@@ -1,0 +1,15 @@
+[09-Mar-2016 18:12:04 UTC] PHP Warning:  require_once(dompdf/dompdf_config.inc.php): failed to open stream: No such file or directory in /home/powerinfluencer/public_html/app/informe/dompdf/index.php on line 2
+[09-Mar-2016 18:12:04 UTC] PHP Fatal error:  require_once(): Failed opening required 'dompdf/dompdf_config.inc.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/powerinfluencer/public_html/app/informe/dompdf/index.php on line 2
+[09-Mar-2016 18:14:34 UTC] PHP Warning:  require_once(dompdf/dompdf_config.inc.php): failed to open stream: No such file or directory in /home/powerinfluencer/public_html/app/informe/dompdf/index.php on line 2
+[09-Mar-2016 18:14:34 UTC] PHP Fatal error:  require_once(): Failed opening required 'dompdf/dompdf_config.inc.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/powerinfluencer/public_html/app/informe/dompdf/index.php on line 2
+[09-Mar-2016 18:14:49 UTC] PHP Warning:  require_once(dompdf/autoload.inc.php): failed to open stream: No such file or directory in /home/powerinfluencer/public_html/app/informe/dompdf/index.php on line 2
+[09-Mar-2016 18:14:49 UTC] PHP Fatal error:  require_once(): Failed opening required 'dompdf/autoload.inc.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/powerinfluencer/public_html/app/informe/dompdf/index.php on line 2
+[09-Mar-2016 18:15:25 UTC] PHP Warning:  require_once(/home/powerinfluencer/public_html/app/informe/dompdf/lib/php-font-lib/src/FontLib/Autoloader.php): failed to open stream: No such file or directory in /home/powerinfluencer/public_html/app/informe/dompdf/autoload.inc.php on line 20
+[09-Mar-2016 18:15:25 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/powerinfluencer/public_html/app/informe/dompdf/lib/php-font-lib/src/FontLib/Autoloader.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/powerinfluencer/public_html/app/informe/dompdf/autoload.inc.php on line 20
+[09-Mar-2016 18:16:06 UTC] PHP Warning:  require_once(/home/powerinfluencer/public_html/app/informe/dompdf/lib/php-font-lib/src/FontLib/Autoloader.php): failed to open stream: No such file or directory in /home/powerinfluencer/public_html/app/informe/dompdf/autoload.inc.php on line 20
+[09-Mar-2016 18:16:06 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/powerinfluencer/public_html/app/informe/dompdf/lib/php-font-lib/src/FontLib/Autoloader.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/powerinfluencer/public_html/app/informe/dompdf/autoload.inc.php on line 20
+[09-Mar-2016 18:22:00 UTC] PHP Fatal error:  Uncaught exception 'LogicException' with message 'Function 'DOMPDF_autoload' not found (function 'DOMPDF_autoload' not found or invalid function name)' in /home/powerinfluencer/public_html/app/informe/dompdf/index.php:3
+Stack trace:
+#0 /home/powerinfluencer/public_html/app/informe/dompdf/index.php(3): spl_autoload_register('DOMPDF_autoload')
+#1 {main}
+  thrown in /home/powerinfluencer/public_html/app/informe/dompdf/index.php on line 3

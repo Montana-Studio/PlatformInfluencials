@@ -210,6 +210,8 @@ $(document).ready(function(){
         $(':checkbox:checked').each(function(i){
           val[i] = $(this).val();
         });
+
+        alert(val);
 		info.append('selected_rrss',val);
 		$.ajax({
 				type: "POST",
@@ -514,6 +516,7 @@ $(document).ready(function(){
 	          data: "id_activar_rs="+id_activar_rs+"&estado="+estado+"&tipo="+tipo,
 	          success: function(data){
 	            window.location.reload();
+	            //alert(data);
 	          }
 	        });
 	    }
@@ -528,7 +531,7 @@ $(document).ready(function(){
               url: "./rrss/procesar_activar_rs.php",
               data: "id_rrss="+id_rrss+"&tipo="+tipo,
               success: function(data){
-                alert("cuenta desvinculada");
+                alert(data);
                 window.location.reload();
               }
             });
