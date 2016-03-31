@@ -29,6 +29,13 @@
 			<link rel="stylesheet" href="css/platform_influencials.css">
 			<link rel="stylesheet" href="css/font-awesome.min.css">
             
+            <style>
+            	.socialNetwork-iconPI{
+            		display:block;
+            		margin:0 auto;
+            	}
+            </style>
+
             <script>
               (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
               (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -56,76 +63,67 @@
 	function inscripcion_error(){
 		echo 'if(data == "existe"){
         	$(".alertElim").fadeIn("normal",function(){
-				$("#boxAlert .hrefCamp h2").text("La cuenta ya existe");
-				$("#boxAlert .hrefCamp").prepend("<div id="icon-warning"></div>");
-
-				$("#boxAlert .hrefCamp").append("<div class="btn_crearcamp siElim"></div>");
-				$("#boxAlert .hrefCamp").append("<div class="btn_crearcamp noElim"></div>");
-
-				warning();
-
-				$("#boxAlert .hrefCamp p.messageAlert").text("Este perfil ya se encuentra asociado a una cuenta.");
-
+				$("#boxElim .hrefCamp h2").text("La cuenta ya existe");
+				$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
+				$("#boxElim .hrefCamp p").text("Este perfil ya se encuentra asociado a una cuenta");
 				$(".siElim").text("Ir a perfil");
 				$(".noElim").text("Continuar en Redes Sociales");
 
-				$("#boxAlert").show().animate({
+				$("#boxElim").show().animate({
 					top:"20%",
 					opacity:1
 				},{duration:1500,easing:"easeOutBounce"});
 
 				$(".siElim").on("click",function(){
-					window.location.assign("escritorio-influencer.php#fragment-1");
+
+					window.location.assign("http://powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 					window.location.reload();
+					
 				});
+
 				$(".noElim").on("click",function(){
-					$("#boxAlert").animate({
+					$("#boxElim").animate({
 						top:"-100px",
 						opacity:0
 					},{duration:500,easing:"easeInOutQuint",complete:function(){
 						$(".alertElim").fadeOut("fast");
-						$("#icon-warning, #clearAlert").remove();
-						$("#boxAlert .hrefCamp h2, #boxAlert .hrefCamp p.messageAlert").empty();
 						$(this).hide();
-						window.location.href = "escritorio-influencer.php#fragment-2";
+						window.location.href = "http://powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
+						
 					}});
 				});
 			});
         }else if(data == "otro"){
         	$(".alertElim").fadeIn("normal",function(){
-				$("#boxAlert .hrefCamp h2").text("La cuenta ya existe");
-				$("#boxAlert .hrefCamp").prepend("<div id="icon-warning"></div>");
-
-				$("#boxAlert .hrefCamp").append("<div class="btn_crearcamp siElim"></div>");
-				$("#boxAlert .hrefCamp").append("<div class="btn_crearcamp noElim"></div>");
-
-				warning();
-
-				$("#boxAlert .hrefCamp p.messageAlert").text("Este perfil ya se encuentra asociado a una cuenta.");
-
+				$("#boxElim .hrefCamp h2").text("La cuenta ya existe");
+				$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
+				$("#boxElim .hrefCamp p").text("Este perfil ya se encuentra asociado a una cuenta");
 				$(".siElim").text("Ir a perfil");
 				$(".noElim").text("Continuar en Redes Sociales");
 
-				$("#boxAlert").show().animate({
+				$("#boxElim").show().animate({
 					top:"20%",
 					opacity:1
 				},{duration:1500,easing:"easeOutBounce"});
 
 				$(".siElim").on("click",function(){
-					window.location.assign("escritorio-influencer.php#fragment-1");
+
+					window.location.assign("http://powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 					window.location.reload();
+					
 				});
+
 				$(".noElim").on("click",function(){
-					$("#boxAlert").animate({
+					$("#boxElim").animate({
 						top:"-100px",
 						opacity:0
 					},{duration:500,easing:"easeInOutQuint",complete:function(){
 						$(".alertElim").fadeOut("fast");
-						$("#icon-warning, #clearAlert").remove();
-						$("#boxAlert .hrefCamp h2, #boxAlert .hrefCamp p.messageAlert").empty();
 						$(this).hide();
-						window.location.href = "escritorio-influencer.php#fragment-2";
+						window.location.href = "http://powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
+						
 					}});
+					
 				});
 			});
         } ';
@@ -134,38 +132,33 @@
 	function inscripcion_facebook(){
 		echo ' if(data == "exito"){
 				$(".alertElim").fadeIn("normal",function(){
-					$("#boxAlert .hrefCamp h2").text("Tus páginas de Facebook han sido agregadas");
-					$("#boxAlert .hrefCamp").prepend("<div id="icon-facebook-pi"></div>");
-
-					$("#boxAlert .hrefCamp").append("<div class="btn_crearcamp siElim"></div>");
-					$("#boxAlert .hrefCamp").append("<div class="btn_crearcamp noElim"></div>");
-
-					facebookAdd();
-
-					$("#boxAlert .hrefCamp p.messageAlert").text("Las páginas asociadas a esta cuenta han sido agregadas.");
-
+					$("#boxElim .hrefCamp h2").text("Red Social agregada");
+					$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
+					$("#boxElim .hrefCamp p").text("Las páginas asociadas a esta cuenta han sido agregadas");
 					$(".siElim").text("Ir a perfil");
 					$(".noElim").text("Continuar en Redes Sociales");
 
-					$("#boxAlert").show().animate({
+					$("#boxElim").show().animate({
 						top:"20%",
 						opacity:1
 					},{duration:1500,easing:"easeOutBounce"});
 
 					$(".siElim").on("click",function(){
-						window.location.assign("escritorio-influencer.php#fragment-1");
+
+						window.location.assign("http://powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 						window.location.reload();
+						
 					});
+
 					$(".noElim").on("click",function(){
-						$("#boxAlert").animate({
+						$("#boxElim").animate({
 							top:"-100px",
 							opacity:0
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
-							$("#icon-warning, #clearAlert").remove();
-							$("#boxAlert .hrefCamp h2, #boxAlert .hrefCamp p.messageAlert").empty();
 							$(this).hide();
-							window.location.href = "escritorio-influencer.php#fragment-2";
+							window.location.href = "http://powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
+							
 						}});
 					});
 				});
@@ -177,38 +170,32 @@
 		echo 'var data= "'.$_SESSION["data"].'";
 			if(data == "exito"){
 				$(".alertElim").fadeIn("normal",function(){
-					$("#boxAlert .hrefCamp h2").text("Tu perfil de Twitter ha sido agregado");
-					$("#boxAlert .hrefCamp").prepend("<div id="icon-twitter-pi"></div>");
-
-					$("#boxAlert .hrefCamp").append("<div class="btn_crearcamp siElim"></div>");
-					$("#boxAlert .hrefCamp").append("<div class="btn_crearcamp noElim"></div>");
-
-					twitterAdd();
-
-					$("#boxAlert .hrefCamp p.messageAlert").text("Los perfiles asociados a esta cuenta han sido agregados.");
-
+					$("#boxElim .hrefCamp h2").text("Red Social agregada");
+					$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
+					$("#boxElim .hrefCamp p").text("Las páginas asociadas a esta cuenta han sido agregadas");
 					$(".siElim").text("Ir a perfil");
 					$(".noElim").text("Continuar en Redes Sociales");
 
-					$("#boxAlert").show().animate({
+					$("#boxElim").show().animate({
 						top:"20%",
 						opacity:1
 					},{duration:1500,easing:"easeOutBounce"});
 
 					$(".siElim").on("click",function(){
-						window.location.assign("escritorio-influencer.php#fragment-1");
+						window.location.assign("http://powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 						window.location.reload();
+						
 					});
+
 					$(".noElim").on("click",function(){
-						$("#boxAlert").animate({
+						$("#boxElim").animate({
 							top:"-100px",
 							opacity:0
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
-							$("#icon-warning, #clearAlert").remove();
-							$("#boxAlert .hrefCamp h2, #boxAlert .hrefCamp p.messageAlert").empty();
 							$(this).hide();
-							window.location.href = "escritorio-influencer.php#fragment-2";
+							window.location.href = "http://powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
+							
 						}});
 					});
 				});
@@ -219,42 +206,38 @@
 	}
 	function inscripcion_instagram(){
 		echo ' if(data == "exito"){
-				$(".alertElim").fadeIn("normal",function(){
-					$("#boxAlert .hrefCamp h2").text("Tu perfil de Instagram ha sido agregado");
-					$("#boxAlert .hrefCamp").prepend("<div id="icon-instagram-pi"></div>");
-
-					$("#boxAlert .hrefCamp").append("<div class="btn_crearcamp siElim"></div>");
-					$("#boxAlert .hrefCamp").append("<div class="btn_crearcamp noElim"></div>");
-
-					instagramAdd();
-
-					$("#boxAlert .hrefCamp p.messageAlert").text("Los perfiles asociados a esta cuenta han sido agregados.");
-
+				/*$(".alertElim").fadeIn("normal",function(){
+					$("#boxElim .hrefCamp h2").text("Red Social agregada");
+					$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
+					$("#boxElim .hrefCamp p").text("Las páginas asociadas a esta cuenta han sido agregadas");
 					$(".siElim").text("Ir a perfil");
 					$(".noElim").text("Continuar en Redes Sociales");
 
-					$("#boxAlert").show().animate({
+					$("#boxElim").show().animate({
 						top:"20%",
 						opacity:1
 					},{duration:1500,easing:"easeOutBounce"});
 
 					$(".siElim").on("click",function(){
-						window.location.assign("escritorio-influencer.php#fragment-1");
+
+						window.location.assign("http://powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 						window.location.reload();
+						
 					});
+
 					$(".noElim").on("click",function(){
-						$("#boxAlert").animate({
+						$("#boxElim").animate({
 							top:"-100px",
 							opacity:0
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
-							$("#icon-warning, #clearAlert").remove();
-							$("#boxAlert .hrefCamp h2, #boxAlert .hrefCamp p.messageAlert").empty();
 							$(this).hide();
-							window.location.href = "escritorio-influencer.php#fragment-2";
+							window.location.href = "http://powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
+							
 						}});
 					});
-				});
+				});*/
+				alert("instagram agregado");
             }';
             inscripcion_error();
 
@@ -262,38 +245,33 @@
 	function inscripcion_analytics(){
 		echo ' if(data == "exito"){
 				$(".alertElim").fadeIn("normal",function(){
-					$("#boxAlert .hrefCamp h2").text("Tus páginas en Analytics han sido agregadas");
-					$("#boxAlert .hrefCamp").prepend("<div id="icon-analytics-pi"></div>");
-
-					$("#boxAlert .hrefCamp").append("<div class="btn_crearcamp siElim"></div>");
-					$("#boxAlert .hrefCamp").append("<div class="btn_crearcamp noElim"></div>");
-
-					analyticsAdd();
-
-					$("#boxAlert .hrefCamp p.messageAlert").text("Los perfiles asociados a esta cuenta han sido agregados.");
-
+					$("#boxElim .hrefCamp h2").text("Red Social agregada");
+					$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
+					$("#boxElim .hrefCamp p").text("Las páginas asociadas a esta cuenta han sido agregadas");
 					$(".siElim").text("Ir a perfil");
 					$(".noElim").text("Continuar en Redes Sociales");
 
-					$("#boxAlert").show().animate({
+					$("#boxElim").show().animate({
 						top:"20%",
 						opacity:1
 					},{duration:1500,easing:"easeOutBounce"});
 
 					$(".siElim").on("click",function(){
-						window.location.assign("escritorio-influencer.php#fragment-1");
+
+						window.location.assign("http://powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 						window.location.reload();
+						
 					});
+
 					$(".noElim").on("click",function(){
-						$("#boxAlert").animate({
+						$("#boxElim").animate({
 							top:"-100px",
 							opacity:0
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
-							$("#icon-warning, #clearAlert").remove();
-							$("#boxAlert .hrefCamp h2, #boxAlert .hrefCamp p.messageAlert").empty();
 							$(this).hide();
-							window.location.href = "escritorio-influencer.php#fragment-2";
+							window.location.href = "http://powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
+							
 						}});
 					});
 				});
@@ -304,38 +282,33 @@
     function inscripcion_youtube(){
 		echo ' if(data == "exito"){
 				$(".alertElim").fadeIn("normal",function(){
-					$("#boxAlert .hrefCamp h2").text("Tu perfil de Youtube ha sido agregado");
-					$("#boxAlert .hrefCamp").prepend("<div id="icon-youtube-pi"></div>");
-
-					$("#boxAlert .hrefCamp").append("<div class="btn_crearcamp siElim"></div>");
-					$("#boxAlert .hrefCamp").append("<div class="btn_crearcamp noElim"></div>");
-
-					youtubeAdd();
-
-					$("#boxAlert .hrefCamp p.messageAlert").text("Los perfiles asociados a esta cuenta han sido agregados.");
-
+					$("#boxElim .hrefCamp h2").text("Red Social agregada");
+					$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
+					$("#boxElim .hrefCamp p").text("Las páginas asociadas a esta cuenta han sido agregadas");
 					$(".siElim").text("Ir a perfil");
 					$(".noElim").text("Continuar en Redes Sociales");
 
-					$("#boxAlert").show().animate({
+					$("#boxElim").show().animate({
 						top:"20%",
 						opacity:1
 					},{duration:1500,easing:"easeOutBounce"});
 
 					$(".siElim").on("click",function(){
-						window.location.assign("escritorio-influencer.php#fragment-1");
+
+						window.location.assign("http://powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 						window.location.reload();
+						
 					});
+
 					$(".noElim").on("click",function(){
-						$("#boxAlert").animate({
+						$("#boxElim").animate({
 							top:"-100px",
 							opacity:0
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
-							$("#icon-warning, #clearAlert").remove();
-							$("#boxAlert .hrefCamp h2, #boxAlert .hrefCamp p.messageAlert").empty();
 							$(this).hide();
-							window.location.href = "escritorio-influencer.php#fragment-2";
+							window.location.href = "http://powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
+							
 						}});
 					});
 				});
@@ -346,63 +319,60 @@
 	function inscripcion_googleplus(){
 		echo ' if(data == "exito"){
 				$(".alertElim").fadeIn("normal",function(){
-					$("#boxAlert .hrefCamp h2").text("Tu perfil de GooglePlus ha sido agregado");
-					$("#boxAlert .hrefCamp").prepend("<div id="icon-googleplus-pi"></div>");
-
-					$("#boxAlert .hrefCamp").append("<div class="btn_crearcamp siElim"></div>");
-					$("#boxAlert .hrefCamp").append("<div class="btn_crearcamp noElim"></div>");
-
-					googleplusAdd();
-
-					$("#boxAlert .hrefCamp p.messageAlert").text("Los perfiles asociados a esta cuenta han sido agregados.");
-
+					$("#boxElim .hrefCamp h2").text("Red Social agregada");
+					$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
+					$("#boxElim .hrefCamp p").text("Las páginas asociadas a esta cuenta han sido agregadas");
 					$(".siElim").text("Ir a perfil");
 					$(".noElim").text("Continuar en Redes Sociales");
 
-					$("#boxAlert").show().animate({
+					$("#boxElim").show().animate({
 						top:"20%",
 						opacity:1
 					},{duration:1500,easing:"easeOutBounce"});
 
 					$(".siElim").on("click",function(){
-						window.location.assign("escritorio-influencer.php#fragment-1");
+
+						window.location.assign("http://powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
 						window.location.reload();
+						
 					});
+
 					$(".noElim").on("click",function(){
-						$("#boxAlert").animate({
+						$("#boxElim").animate({
 							top:"-100px",
 							opacity:0
 						},{duration:500,easing:"easeInOutQuint",complete:function(){
 							$(".alertElim").fadeOut("fast");
-							$("#icon-warning, #clearAlert").remove();
-							$("#boxAlert .hrefCamp h2, #boxAlert .hrefCamp p.messageAlert").empty();
 							$(this).hide();
-							window.location.href = "escritorio-influencer.php#fragment-2";
+							window.location.href = "http://powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
+							
 						}});
 					});
 				});
             }';
           	inscripcion_error();
+
 	}
 
 	if(basename($_SERVER['PHP_SELF'])!='formulario-ipe.php'){
-		if(isset($_SESSION['nombre'])==false ||isset($_SESSION['region'])==false ||isset($_SESSION['comuna'])==false){
-			header('Location:index.php');
-			die();
-		} 
-		if(basename($_SERVER['PHP_SELF'])=='dashboard-ipe.php'){
-			muestra_header();
-			
-			require('rrss/twitter/inc/twitteroauth.php');
-			require('rrss/twitter/inc/TwitterAPIExchange.php');
-			require('rrss/rrss_keys.php');
-			include('rrss/googleplus/auth.php');
-			include('rrss/analytics/procesar_analytics.php');
-			include('rrss/facebook/facebook-auth.php');
-			include('rrss/instagram/instagram.php');
-			include('rrss/youtube/auth.php');
-			
-			echo "<script>
+			if(isset($_SESSION['nombre'])==false ||isset($_SESSION['region'])==false ||isset($_SESSION['comuna'])==false){
+				header('Location:index.php');
+				die();
+			} 
+			if(basename($_SERVER['PHP_SELF'])=='dashboard-ipe.php'){
+				require('rrss/twitter/inc/twitteroauth.php');
+				require('rrss/twitter/inc/TwitterAPIExchange.php');
+				require('rrss/rrss_keys.php');
+				include('rrss/googleplus/auth.php');
+				include('rrss/analytics/procesar_analytics.php');
+				include('rrss/facebook/facebook-auth.php');
+				include('rrss/instagram/instagram.php');
+				include('rrss/youtube/auth.php');
+				muestra_header();
+
+				echo "
+				
+				<script>
 					jQuery(document).ready(function(){
 						$('title').append('Dashboard - ".$_SESSION['nombre']."');
 						$('html').css({'background-color':'#fff','background-image':'none'});
@@ -427,7 +397,6 @@
 				</head>
 				<body>
 				<div><small>".$_SESSION['mensaje']."</small></div>
-				<div><small>".$_SESSION['mensaje_personal']."</small></div>
 				<nav class='nav-ipe'>
 					<ul class='nav-mobile'>
 						<li><i onClick='backHistory()' class='pi pi-arrow-left'></i></li>
@@ -447,11 +416,12 @@
 						<li><a href='campanas-inscritas'><i class='pi pi-bullhorn'></i> campañas</a></li>
 					</ul>
 				</nav>";
-		}
+			}
 
-		if(basename($_SERVER['PHP_SELF'])=='campanas-ipe.php'){
-			muestra_header();
-			echo "<nav class='nav-ipe'>
+			if(basename($_SERVER['PHP_SELF'])=='campanas-ipe.php'){
+				muestra_header();
+				echo "
+				<nav class='nav-ipe'>
 					<ul class='nav-mobile'>
 						<li><i onClick='backHistory()' class='pi pi-arrow-left'></i></li>
 						<li><h1>".$_SESSION['descripcion_tipo']."</h1></li>
@@ -539,33 +509,32 @@
 
 				</head>
 				<body>
+				<div><small>".$_SESSION['mensaje']."</small></div>";
+			}
+	 }else{
+			muestra_header();
+			echo "<script id='facebook-sdk' src='js/facebook-login.js'></script>
+					<script>
+						jQuery(document).ready(function(){
+							$('title').append('Formulario Registro - ".$_SESSION['nombre']."');
+							$('html').css({'background-color':'#fff','background-image':'none'});
+							$('body').addClass('formularios-registro');
+						})
+					</script>
+				</head>
 				<div><small>".$_SESSION['mensaje']."</small></div>
-				<div><small>".$_SESSION['mensaje_personal']."</small></div>";
-		}
-	}else{
-		muestra_header();
-		echo "<script id='facebook-sdk' src='js/facebook-login.js'></script>
-				<script>
-					jQuery(document).ready(function(){
-						$('title').append('Formulario Registro - ".$_SESSION['nombre']."');
-						$('html').css({'background-color':'#fff','background-image':'none'});
-						$('body').addClass('formularios-registro');
-					})
-				</script>
-			</head>
-			<div><small>".$_SESSION['mensaje']."</small></div>
-			<div><small>".$_SESSION['mensaje_personal']."</small></div>
-			<body>
-				<nav class='nav-ipe'>
-					<ul class='nav-mobile'>
-						<li><i onClick='backHistory()' class='pi pi-arrow-left'></i></li>
-						<li><h1>".$_SESSION['descripcion_tipo']."</h1></li>
-						<li><a href='./controller/logout' class='pi pi-singout'></a></li>
-					</ul>
-					<ul class='nav-deskt'>
-					    <li></li>
-					    <li><a href='./controller/logout' target='_self'><i class='pi pi-singout'></i> Cerrar sesión</a></li>
-					    <li><i class='pi pi-help'></i> <i class='pi pi-bell'></i></li>
-					</ul>
-				</nav>";
+				<body>
+					<nav class='nav-ipe'>
+						<ul class='nav-mobile'>
+							<li><i onClick='backHistory()' class='pi pi-arrow-left'></i></li>
+							<li><h1>".$_SESSION['descripcion_tipo']."</h1></li>
+							<li><a href='./controller/logout' class='pi pi-singout'></a></li>
+						</ul>
+						<ul class='nav-deskt'>
+						    <li></li>
+						    <li><a href='./controller/logout' target='_self'><i class='pi pi-singout'></i> Cerrar sesión</a></li>
+						    <li><i class='pi pi-help'></i> <i class='pi pi-bell'></i></li>
+						</ul>
+					</nav>";
+
 	} ?>
