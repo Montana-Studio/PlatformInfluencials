@@ -90,6 +90,8 @@
 
     }
 
+
+
 	if(basename($_SERVER['PHP_SELF'])=='dashboard-agencia.php'){
 		if(isset($_SESSION['telefono1'])==false){
 			header('Location: controller/logout.php');
@@ -147,7 +149,7 @@
 			$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 			$row= mysqli_fetch_array($result, MYSQLI_NUM);
 			$num_rows= mysqli_num_rows($result);
-			$query2="SELECT * FROM campana WHERE idEstado=0 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
+			$query2="SELECT * FROM campana WHERE idEstado=0 AND finalizada=0 AND idpersona=".$_SESSION['id']." ORDER BY id DESC";
 			$result2= mysqli_query($mysqli,$query2)or die(mysqli_error());
 			$row2= mysqli_fetch_array($result2, MYSQLI_NUM);
 			$num_rows2= mysqli_num_rows($result2);
@@ -523,7 +525,7 @@
 if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
 <header>
 
-	<div class="logo"><a href="../../escritorio-agencia" target="_top"></a></div>
+	<div class="logo"><a href="./escritorio-agencia" target="_top"></a></div>
 	<div class="menu" style="background-image:url(<?php if(strpos($_SESSION['pictureUrl'],"graph")||strpos($_SESSION['pictureUrl'],"media.licdn.com")){ echo $_SESSION['pictureUrl'];}else{echo "../../".$_SESSION['pictureUrl'];}?>);"></div>
 	
 	<a href="#" class="notes" ><i class="pi pi-bell"></i></a>
@@ -618,7 +620,7 @@ if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
 		<li><i onClick="backHistory()" class="pi pi-arrow-left"></i></li>
 		<li><a href="../../campanas"><i class="pi pi-suitcase"></i> campañas</a></li>
 		<li id="nuevaCampain"><a href="../../crear-campana"><i class="pi pi-plus"></i> crear campañas</a></li>
-		<li><a href="../../influenciadores/Sin-Especificar/0"><i class="pi pi-user"></i> influencers</a></li>
+		<li><a href="../../influenciadores/sin-especificar/0"><i class="pi pi-user"></i> influencers</a></li>
 	</ul>
 </nav>
 
@@ -733,7 +735,7 @@ if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
 		<li><i onClick="backHistory()" class="pi pi-arrow-left"></i></li>
 		<li><a href="campanas"><i class="pi pi-suitcase"></i> campañas</a></li>
 		<li id="nuevaCampain"><a href="crear-campana"><i class="pi pi-plus"></i> crear campañas</a></li>
-		<li><a href="influenciadores/Sin-Especificar/0"><i class="pi pi-user"></i> influencers</a></li>
+		<li><a href="influenciadores/sin-especificar/0"><i class="pi pi-user"></i> influencers</a></li>
 	</ul>
 </nav>
 <?php
@@ -839,14 +841,9 @@ if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
 		<li><i onClick="backHistory()" class="pi pi-arrow-left"></i></li>
 		<li><a href="../../campanas"><i class="pi pi-suitcase"></i> campañas</a></li>
 		<li id="nuevaCampain"><a href="../../crear-campana"><i class="pi pi-plus"></i> crear campañas</a></li>
-		<li><a href="../../influenciadores/Sin-Especificar/0"><i class="pi pi-user"></i> influencers</a></li>
+		<li><a href="../../influenciadores/sin-especificar/0"><i class="pi pi-user"></i> influencers</a></li>
 	</ul>
 </nav>
 <?php
-}if(basename($_SERVER['PHP_SELF'])=='perfil-influenciador-publico-agencia.php'){?>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$("header .logo a").attr('href', '../../escritorio-agencia.php');
-	});
-</script>
-<?php }?>
+}
+?>

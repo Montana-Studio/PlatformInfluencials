@@ -73,26 +73,6 @@
 					<label for="youtube" class="switch-label"></label>
 				</div>
 			</div>
-			<!--div class="red-cont">
-				<div class="name-red">
-					<i class="pi pi-analytics"></i>
-					analytics
-				</div>
-				<div class="check-red">
-					<input  class="switch-checkbox checkbox_rrss" value="analytics" id="analytics" type="checkbox" checked/>
-					<label for="analytics" class="switch-label"></label>
-				</div>
-			</div-->
-			<div class="red-cont">
-				<div class="name-red">
-					<i class="pi pi-googleplus"></i>
-					google plus
-				</div>
-				<div class="check-red">
-					<input class="switch-checkbox checkbox_rrss"  value="googleplus" id="googleplus" type="checkbox" checked/>
-					<label for="googleplus" class="switch-label"></label>
-				</div>
-			</div>
 		</div>
 
 		<div class="upload-deskt">
@@ -101,7 +81,9 @@
 
 			<input type="file" name="file" class="jfilestyle" data-input="false" data-buttonText="subir archivo"/>
 
+
 		</div>
+		<div class="alert-uploadready" style="display:none;"><i class="fa fa-cloud-upload"></i>Imagen seleccionada con exito!</div>
 
 
 		<button class="guardar" id="guardar" type="submit">subir campaña</button>

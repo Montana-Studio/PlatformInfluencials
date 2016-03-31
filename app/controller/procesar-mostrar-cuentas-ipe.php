@@ -1,11 +1,47 @@
 <div id="redesociales">
 	<?php
-		include_once("controller/procesar-mostrar-followers-ipe.php");
+		include_once("controller/procesar-mostrar-followers-ipe2.php");
 		$query="SELECT DISTINCT * FROM rrss WHERE persona_id=".$_SESSION['id'];
 		$result=mysqli_query($mysqli,$query)or die (mysqli_error());
 		$row= mysqli_fetch_array($result, MYSQLI_BOTH);
 		$num_row=mysqli_num_rows($result);
+		$redes_sociales= muestra_followers($_SESSION['id']);
+		$html_redes_sociales=explode(';', $redes_sociales);
 
+		$facebook=explode("!",$html_redes_sociales[0]);
+		$html_facebook= $facebook[0];
+		$reach_facebook = $facebook[1];
+
+		$instagram=explode("!",$html_redes_sociales[1]);
+		$html_instagram= $instagram[0];
+		$reach_instagram = $instagram[1];
+
+		$twitter=explode("!",$html_redes_sociales[2]);
+		$html_twitter= $twitter[0];
+		$reach_twitter = $twitter[1];
+
+		$youtube=explode("!",$html_redes_sociales[3]);
+		$html_youtube= $youtube[0];
+		$reach_youtube = $youtube[1];
+
+		$suma=(int)($reach_facebook+$reach_instagram+$reach_twitter);
+
+		$query_facebook="SELECT DISTINCT * FROM rrss WHERE persona_id='".$_SESSION['id']."' AND descripcion_rrss='facebook' AND cuenta='1'";
+		$result_facebook=mysqli_query($mysqli,$query_facebook)or die (mysqli_error());
+		$num_row_facebook= mysqli_num_rows($result_facebook);
+
+		$query_instagram="SELECT DISTINCT * FROM rrss WHERE persona_id='".$_SESSION['id']."' AND descripcion_rrss='instagram' AND cuenta='1'";
+		$result_instagram=mysqli_query($mysqli,$query_instagram)or die (mysqli_error());
+		$num_row_instagram= mysqli_num_rows($result_instagram);
+
+		$query_twitter="SELECT DISTINCT * FROM rrss WHERE persona_id='".$_SESSION['id']."' AND descripcion_rrss='twitter' AND cuenta='1'";
+		$result_twitter=mysqli_query($mysqli,$query_twitter)or die (mysqli_error());
+		$num_row_twitter= mysqli_num_rows($result_twitter);
+
+		$query_youtube="SELECT DISTINCT * FROM rrss WHERE persona_id='".$_SESSION['id']."' AND descripcion_rrss='youtube' AND cuenta='1'";
+		$result_youtube=mysqli_query($mysqli,$query_youtube)or die (mysqli_error());
+		$num_row_youtube= mysqli_num_rows($result_youtube);
+		
 		if($num_row < 1){
 			echo '<h2 class="no-rrss">
 					<svg style="display:none;">
@@ -32,7 +68,7 @@
         	if (total == '0'){
         		$('.total-numbers').prepend(total+'<br/>');
         	}else{
-        		$('.total-numbers').prepend('<?php echo formato_numeros_reachs($_SESSION['suma']);?><br/>');
+        		$('.total-numbers').prepend('<?php echo formato_numeros_reachs($suma);?><br/>');
         	}
         });
     </script>
@@ -41,10 +77,11 @@
 	<div class="rs-inscription">
 		
 		<?php
-			if($num_row6 > 0){
-				echo '<div class="reach-total">facebook reach <span>'.formato_numeros_reachs($_SESSION['suma_facebook']).'</span></div>';
-				echo $_SESSION['facebook'];
-			}
+			if($num_row_facebook>0){
+				 
+				echo '<div class="reach-total">facebook reach <span>'.$reach_facebook.'</span></div>';
+				echo $html_facebook;
+			}	
 		?>
 		<div id="facebook-inscription" onclick="checkAuthFacebookPages()" class="btns">Conectar Facebook</div>
 	</div>
@@ -52,9 +89,10 @@
 	<div class="red-title"><i class="pi pi-instagram"></i> <span class="red-name">Instagram</span> <i class="pi pi-arrow-bottom"></i></div>
 	<div class="rs-inscription">
 		<?php
-			if($num_row3 > 0){
-				echo '<div class="reach-total">instagram reach <span>'.formato_numeros_reachs($_SESSION['suma_instagram']).'</span></div>';
-				echo $_SESSION['instagram'];
+			if($num_row_instagram>0){
+				echo '<div class="reach-total">instagram reach <span>'.$reach_instagram.'</span></div>';
+				echo $html_instagram;
+				
 	  		}
 		?>
 		<div id="instagram-inscription" onclick="login()" class="btns">Conectar Instagram</div>
@@ -64,61 +102,35 @@
 	<div class="rs-inscription">
 		
 		<?php
-			if($num_row4 > 0){
-				echo '<div class="reach-total">twitter reach <span>'.formato_numeros_reachs($_SESSION['suma_twitter']).'</span></div>';
-				echo $_SESSION['twitter'];
+			if($num_row_twitter>0){
+				echo '<div class="reach-total">twitter reach <span>'.$reach_twitter.'</span></div>';
+				echo $html_twitter;
 			}
 		?>
-		<a id="twitter-inscription" href="./rrss/twitter/process.php" value="<?php echo $num_row3;?>" class="btns">Conectar Twitter</a>
+		<a id="twitter-inscription" href="./rrss/twitter/process.php" value="<?php //echo $num_row3;?>" class="btns">Conectar Twitter</a>
 		<script id="mensaje">$(document).ready(function() {
 		   var referrer =  document.referrer;
 		   
-		   if(referrer=='http://powerinfluencer.com/app/rrss/twitter/twitter.php'){
+		   if(referrer=='http://powerinfluencer.com/mt_prod/rrss/twitter/twitter.php'){
 		   		<?php 	inscripcion_twitter();?>
 		   }
 		});
 		 </script>
 	</div>
 
-	<!--div class="red-title"><i class="pi pi-analytics"></i> <span class="red-name">Analytics</span> <i class="pi pi-arrow-bottom"></i></div>
-	<div class="rs-inscription">
-
-		<?php/*
-			if($num_row9 > 0){
-				echo '<div class="reach-total">
-					analytics reach 
-					<span>'.formato_numeros_reachs($suma_analytics).'</span>
-				</div>';
-				echo $_SESSION['analytics'];
-
-			}*/
-		?>
-		<div id="analytics-inscription" onclick="authorize()" class="btns">Conectar Analytics</div>
-	</div-->
-
 	<div class="red-title"><i class="pi pi-youtube"></i> <span class="red-name">Youtube</span> <i class="pi pi-arrow-bottom"></i></div>
 	<div class="rs-inscription">
 		
 		<?php
-			if($num_row5 > 0){
-				echo '<div class="reach-total">youtube reach <span>'.formato_numeros_reachs($_SESSION['suma_youtube']).'</span></div>';
-				echo $_SESSION['youtube'];
-			}
+			if($num_row_youtube>0){
+				
+				echo '<div class="reach-total">youtube reach <span>'.$reach_youtube.'</span></div>';
+				echo $html_youtube;
+			}	
 		?>
 		<div id="youtube-inscription" onclick="googleApiClientYoutubeReady()" class="btns">Conectar Youtube</div>
 	</div>
 
-	<!--div class="red-title"><i class="pi pi-googleplus"></i> <span class="red-name">Google Plus</span> <i class="pi pi-arrow-bottom"></i></div>
-	<div class="rs-inscription">
-		
-		<?php/*
-			if($num_row7 > 0){
-				echo '<div class="reach-total">google plus reach <span>'.formato_numeros_reachs($suma_googleplus).'</span></div>';
-				echo $_SESSION['googleplus'];
-			}*/
-		?>
-		<div id="googleplus-inscription" onclick="googleApiClientReadyGooglePlus()" class="btns">Conectar Google+</div>
-	</div-->
 <?php
 	unset($mysqli);
 ?>
