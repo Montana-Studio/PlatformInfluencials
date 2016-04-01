@@ -379,7 +379,8 @@ $(document).ready(function(){
 	//envio de formulario para envio de url a campañas desde ipe controller/procesar-mostrar-campanas-ipe.php
 	$('.enviar_url').click(function(){
 			var rrss_id = $(this).prevAll('input').attr('id');
-			var campana_id = $(this).closest(".ingresar_urls").attr('id');
+			var campana_id = $(this).prevAll('input').attr('class');
+			//var campana_id = $(this).closest(".ingresar_urls").attr('id');
 			var link = $(this).prevAll('#'+rrss_id).val();
 			var descripcion_rrss = $(this).prevAll('input').attr('name');
 			alert("rrss_id:"+rrss_id+"-campana_id:"+campana_id+"-link:"+link+"-descripcion_rrss:"+descripcion_rrss);

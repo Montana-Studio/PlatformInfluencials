@@ -16,6 +16,7 @@ require("./controller/procesar-mostrar-campanas-ipe3.php");
 						
 				</div>
 				<div id="historia" class="tabpage">
+				historial
 					<?php echo muestra_finalizadas($_SESSION['id']);?>
 					
 			    </div>

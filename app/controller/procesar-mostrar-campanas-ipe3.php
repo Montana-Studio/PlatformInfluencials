@@ -3,12 +3,13 @@
 require("verifica_sesiones.php");
 require("master_key.php");
 
-function html_input($rrss_name, $rrss_id, $red_social){
+
+function html_input($rrss_name,$red_social,$rrss_id, $campana_id){
     $input_redes_sociales .=  '
             <div class="rrss" name="'.$red_social.'">
                 <i class="pi pi-'.$red_social.'"></i>
                 <span>['.$rrss_name.']</span>
-                <input id="'.$rrss_id.'" name="'.$red_social.'" />
+                <input class="'.$campana_id.'" id="'.$rrss_id.'" name="'.$red_social.'" />
                 <button class="enviar_url" class="btns">Enviar URL</button>
             </div>';
             return $input_redes_sociales;
@@ -76,7 +77,7 @@ function core_facebook($red_social, $rrss_id, $campana_id, $persona_id, $mysqli)
                     ingresa_registros($rrss_id, $persona_id, $campana_id, $rrss_name, $rrss_img, $facebook_likes, $facebook_comments, $facebook_shares, $followers_facebook, $retweet, $favorites, $reproducciones, number_format($reach_facebook,3), $url, $mysqli);
                 }while($row_url_facebook = mysqli_fetch_row($result_url_facebook));
         }
-            $campanas_activas .= html_input($rrss_name, $rrss_id,$red_social);
+            $campanas_activas .= html_input($rrss_name,$red_social,$rrss_id,$campana_id);
             return array($reach_total_facebook,$campanas_activas);         
     }   
 }
@@ -115,7 +116,7 @@ function core_instagram($red_social, $rrss_id, $campana_id, $persona_id, $token,
                                                         </div>';
             
         }
-            $campanas_activas .= html_input($rrss_name, $rrss_id, $red_social);
+            $campanas_activas .= html_input($rrss_name,$red_social,$rrss_id,$campana_id);
             return array($reach_total_instagram,$campanas_activas);            
     }
 }
@@ -195,7 +196,7 @@ function core_twitter($red_social, $rrss_id, $campana_id, $persona_id, $mysqli){
                                                     </div>'; 
 
     }  
-            $campanas_activas .= html_input($rrss_name, $rrss_id, $red_social);
+            $campanas_activas .= html_input($rrss_name,$red_social,$rrss_id,$campana_id);
             return array($reach_total_twitter,$campanas_activas);
             //return $campanas_activas_urls_ingresadas;  
 }
@@ -228,13 +229,14 @@ function core_youtube($red_social, $rrss_id, $campana_id, $persona_id, $mysqli){
                                                             <p>'.$reproducciones_total.'</p>
                                                         </div>'; 
         }   
-        $campanas_activas .= html_input($rrss_name, $rrss_id, $red_social);
+        $campanas_activas .= html_input($rrss_name,$red_social,$rrss_id,$campana_id);
         return array($reproducciones_total,$campanas_activas);
         //return $campanas_activas_urls_ingresadas;  
     }
 }
 
 function identifica_red_social($red_social, $rrss_id, $campana_id, $persona_id, $token, $mysqli){
+
     if($red_social=='facebook'){
         $resultado = core_facebook($red_social, $rrss_id, $campana_id, $persona_id,$mysqli);
         return array($resultado[0], $resultado[1]);
@@ -267,6 +269,8 @@ function muestra_campanas_activas($num_row_campanas_activas, $row_campanas_activ
                     <h2 class="sub-titulo">Resultados de la campaña</h2>
                         <div class="creadas">';
                 do{
+                    $campana_id=$row_campanas_activas[0];
+                    
                     $campanas_activas .= '
                     
                         <div class="recientes">
@@ -292,50 +296,79 @@ function muestra_campanas_activas($num_row_campanas_activas, $row_campanas_activ
                                             <textarea placeholder="descripcion" disabled>'.$row_campanas_activas[2].'</textarea>
                                         </div>
                                         <div class="img-compana-deskt hide">
-                                            <img src="'.$row_campanas_activas[3].'"/>';
+                                            <img src="'.$row_campanas_activas[3].'"/>
+                                            ';
+                                            
+                                            $query5="SELECT SUM(reach) FROM core_redes_sociales_campanas WHERE persona_id=".$persona_id." AND campana_id='".$row_campanas_activas[0]."'";
+                                            $result5=mysqli_query($mysqli,$query5)or die (mysqli_error());
+                                            $row5= mysqli_fetch_array($result5, MYSQLI_BOTH);
+                                            $campanas_activas .= "<p> Reach Actual : ".number_format($row5[0],2,".",",")."</p>";
+
+
+                                            $query6="SELECT * FROM core_redes_sociales_campanas WHERE persona_id=".$persona_id." AND campana_id='".$row_campanas_activas[0]."'";
+                                            $result6=mysqli_query($mysqli,$query6)or die (mysqli_error());
+                                            $row6= mysqli_fetch_array($result6, MYSQLI_BOTH);
+                                            $suma_facebook=0;
+                                            $suma_instagram=0;
+                                            $suma_twitter=0;
+                                            $suma_youtube=0;
+                                            $acumula_inputs='';
                                             do{
-                                                    $query5="SELECT SUM(reach) FROM core_redes_sociales_campanas WHERE persona_id=".$persona_id." AND campana_id='".$row_campanas_activas[0]."'";
-                                                    $result5=mysqli_query($mysqli,$query5)or die (mysqli_error());
-                                                    $row5= mysqli_fetch_array($result5, MYSQLI_BOTH);
-                                                    $campanas_activas .= "<p> Reach Actual : ".number_format($row5[0],2,".",",")."</p>";
 
-                                                    $query6="SELECT * FROM core_redes_sociales_campanas WHERE persona_id=".$persona_id." AND campana_id='".$row_campanas_activas[0]."'";
-                                                    $result6=mysqli_query($mysqli,$query6)or die (mysqli_error());
-                                                    $row6= mysqli_fetch_array($result6, MYSQLI_BOTH);
-                                                    $suma_facebook=0;
-                                                    $suma_instagram=0;
-                                                    $suma_twitter=0;
-                                                    $suma_youtube=0;
-                                                    do{
-                                                        if(strpos($row6[3],'facebook')!==false){
-                                                            $suma_facebook+=$row6[14];
-                                                        }
+                                                $rrss_id=$row6[2];
+                                                $query_dato_rrss="SELECT * FROM rrss WHERE rrss_id='".$rrss_id."'";
+                                                $result_dato_rrrss=mysqli_query($mysqli,$query_dato_rrss)or die (mysqli_error());
+                                                $row_dato_rrrss= mysqli_fetch_array($result_dato_rrrss, MYSQLI_BOTH);
 
-                                                        if(strpos($row6[3],'instagram')!==false){
-                                                            $suma_instagram+=$row6[14];
-                                                        }
+                                                if(strpos($row6[3],'facebook')!==false){
+                                                    $suma_facebook+=$row6[14];
+                                                }
 
-                                                        if(strpos($row6[3],'twitter')!==false){
-                                                            $suma_twitter+=$row6[14];
-                                                        }
+                                                if(strpos($row6[3],'instagram')!==false){
+                                                    $suma_instagram+=$row6[14];
+                                                }
 
-                                                        if(strpos($row6[3],'youtube')!==false){
-                                                            $suma_youtube+=$row6[14];
-                                                        }
-                                                    }while($row6= mysqli_fetch_array($result6));
-                                                    $campanas_activas .= html_reach($suma_facebook,'facebook');
-                                                    $campanas_activas .= html_reach($suma_instagram,'instagram');
-                                                    $campanas_activas .= html_reach($suma_twitter,'twitter');
-                                                    $campanas_activas .= html_reach($suma_youtube,'youtube');
+                                                if(strpos($row6[3],'twitter')!==false){
+                                                    $suma_twitter+=$row6[14];
+                                                }
+
+                                                if(strpos($row6[3],'youtube')!==false){
+                                                    $suma_youtube+=$row6[14];
+                                                }
+
                                                 
-                                            }while($i<count($rrss_list));
-                                             $campanas_activas .= '<a href="./informe/reporte-influenciadores-pdf.php?id='.$row_campanas_activas[0].'&influenciador='.$persona_id.'">PDF</a>'; 
-                                             $campanas_activas .= '<a href="./informe/reporteexcel/reporte-influenciadores-excel.php?id='.$row_campanas_activas[0].'&influenciador='.$persona_id.'">Excel</a>'; 
+                                                
+                                            }while($row6= mysqli_fetch_array($result6));
+
+                                            $query_dato_rrss="SELECT DISTINCT rrss_id,rrss_name FROM core_redes_sociales WHERE persona_id='".$persona_id."'";
+                                                $result_dato_rrss=mysqli_query($mysqli,$query_dato_rrss)or die (mysqli_error());
+                                                $row_dato_rrss= mysqli_fetch_array($result_dato_rrss, MYSQLI_BOTH);
+                                                
+                                                do{
+                                                    $rrss_id=$row_dato_rrss[0];
+                                                    $rrss_name=$row_dato_rrss[1];
+                                                    $query_descripcion_red_social="SELECT DISTINCT * FROM rrss WHERE rrss_id='".$rrss_id."'";
+                                                    $result_descripcion_red_social=mysqli_query($mysqli,$query_descripcion_red_social)or die (mysqli_error());
+                                                    $row_descripcion_red_social= mysqli_fetch_array($result_descripcion_red_social, MYSQLI_BOTH);
+                                                    $red_social=$row_descripcion_red_social[2];
+                                                    $campanas_activas.=html_input($rrss_name,$red_social,$rrss_id, $campana_id);
+                                                }while($row_dato_rrss=mysqli_fetch_array($result_dato_rrss));
+
+                                            $campanas_activas .= html_reach($suma_facebook,'facebook');
+                                            $campanas_activas .= html_reach($suma_instagram,'instagram');
+                                            $campanas_activas .= html_reach($suma_twitter,'twitter');
+                                            $campanas_activas .= html_reach($suma_youtube,'youtube');
+                                            $campanas_activas.= $acumula_inputs;
+                                            $campanas_activas .= '<a href="./informe/reporte-influenciadores-pdf.php?id='.$row_campanas_activas[0].'&influenciador='.$persona_id.'">PDF</a>'; 
+                                            $campanas_activas .= '<a href="./informe/reporteexcel/reporte-influenciadores-excel.php?id='.$row_campanas_activas[0].'&influenciador='.$persona_id.'">Excel</a>'; 
                                             $campanas_activas .= '
                                 </div>
                             </div>
                         </div>
                     </div>';
+
+
+
                 }while($row_campanas_activas = mysqli_fetch_row($result_campanas_activas));
                 $campanas_activas .= '</div>';
                 return $campanas_activas;
@@ -439,6 +472,7 @@ function muestra_campanas_activas_actualizadas($num_row_campanas_activas, $row_c
                                                         if(strpos($row6[3],'youtube')!==false){
                                                             $suma_youtube+=$row6[14];
                                                         }
+                                                        
                                                     }while($row6= mysqli_fetch_array($result6));
                                                     $campanas_activas .= html_reach($suma_facebook,'facebook');
                                                     $campanas_activas .= html_reach($suma_instagram,'instagram');
@@ -498,8 +532,7 @@ function muestra_campanas_inactivas($row_campanas_inactivas,$num_row_campanas_in
                                                     </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>';
+                                    </div>';
         }while($row_campanas_inactivas = mysqli_fetch_row($result_campanas_inactivas));
         $campanas_inactivas .= '</div>';
     }
@@ -570,7 +603,12 @@ function muestra_campanas_finalizadas($campana_id,$persona_id, $mysqli){
         }while($row_url_campana_rrss = mysqli_fetch_array($result_url_campana_rrss));
         return $campanas_finalizadas;
     }else{
-        $campanas_finalizadas = "No registra campañas finalizadas";
+        $query_url_datos_campana ="SELECT * FROM campana WHERE id='".$campana_id."'";
+        $result_url_datos_campana = mysqli_query($mysqli,$query_url_datos_campana);
+        $row_url_datos_campana= mysqli_fetch_array($result_url_datos_campana, MYSQLI_BOTH);
+        $campana_name= $row_url_datos_campana[1];
+        $campana_marca= $row_url_datos_campana[4];
+        $campanas_finalizadas = "<p>No registro URLs en la campaña ".$campana_name." de ".$campana_marca."</p>";
         return $campanas_finalizadas;
     }   
 }
@@ -589,33 +627,50 @@ function muestra_campanas($persona_id){
     $inactivas='';
 
     if($num_row2>0){
-        do{
+        
             if(requiere_actualizar($persona_id)==0){
-                $activas.= muestra_campanas_activas($row_campanas_activas,$num_row_campanas_activas,$result_campanas_activas, $mysqli);
-                $inactivas.= muestra_campanas_inactivas($row_campanas_inactivas,$num_row_campanas_inactivas,$result_campanas_inactivas, $mysqli);
+                do{
+                    $query_campanas_activas="SELECT DISTINCT * FROM campana WHERE id=".$row2[0]." AND idEstado='1' AND  fecha_termino_server > curdate() AND finalizada='0'";
+                    $result_campanas_activas=mysqli_query($mysqli,$query_campanas_activas)or die (mysqli_error());
+                    $row_campanas_activas= mysqli_fetch_array($result_campanas_activas, MYSQLI_BOTH);
+                    $num_row_campanas_activas=mysqli_num_rows($result_campanas_activas);
+
+                    $query_campanas_inactivas="SELECT DISTINCT * FROM campana WHERE id=".$row2[0]." AND idEstado='0' AND finalizada='0'";
+                    $result_campanas_inactivas=mysqli_query($mysqli,$query_campanas_inactivas)or die (mysqli_error());
+                    $row_campanas_inactivas= mysqli_fetch_array($result_campanas_inactivas, MYSQLI_BOTH);
+                    $num_row_campanas_inactivas=mysqli_num_rows($result_campanas_inactivas);
+
+                    $activas.=muestra_campanas_activas($num_row_campanas_activas, $row_campanas_activas,$result_campanas_activas, $mysqli, $persona_id);
+                    //$activas.= muestra_campanas_activas($num_row_campanas_activas, $row_campanas_activas,$result_campanas_activas, $mysqli, $persona_id);
+                    $inactivas.= muestra_campanas_inactivas($row_campanas_inactivas,$num_row_campanas_inactivas,$result_campanas_inactivas, $mysqli);
+                }while ($row2=mysqli_fetch_array($result2));
+                
             }else if(requiere_actualizar($persona_id)==1){
-                $query_campanas_activas="SELECT DISTINCT * FROM campana WHERE id=".$row2[0]." AND idEstado='1' AND  fecha_termino_server > curdate() AND finalizada='0'";
-                $result_campanas_activas=mysqli_query($mysqli,$query_campanas_activas)or die (mysqli_error());
-                $row_campanas_activas= mysqli_fetch_array($result_campanas_activas, MYSQLI_BOTH);
-                $num_row_campanas_activas=mysqli_num_rows($result_campanas_activas);
+                do{
+                    $query_campanas_activas="SELECT DISTINCT * FROM campana WHERE id=".$row2[0]." AND idEstado='1' AND  fecha_termino_server > curdate() AND finalizada='0'";
+                    $result_campanas_activas=mysqli_query($mysqli,$query_campanas_activas)or die (mysqli_error());
+                    $row_campanas_activas= mysqli_fetch_array($result_campanas_activas, MYSQLI_BOTH);
+                    $num_row_campanas_activas=mysqli_num_rows($result_campanas_activas);
 
-                $query_campanas_inactivas="SELECT DISTINCT * FROM campana WHERE id=".$row2[0]." AND idEstado='0' AND finalizada='0'";
-                $result_campanas_inactivas=mysqli_query($mysqli,$query_campanas_inactivas)or die (mysqli_error());
-                $row_campanas_inactivas= mysqli_fetch_array($result_campanas_inactivas, MYSQLI_BOTH);
-                $num_row_campanas_inactivas=mysqli_num_rows($result_campanas_inactivas);
+                    $query_campanas_inactivas="SELECT DISTINCT * FROM campana WHERE id=".$row2[0]." AND idEstado='0' AND finalizada='0'";
+                    $result_campanas_inactivas=mysqli_query($mysqli,$query_campanas_inactivas)or die (mysqli_error());
+                    $row_campanas_inactivas= mysqli_fetch_array($result_campanas_inactivas, MYSQLI_BOTH);
+                    $num_row_campanas_inactivas=mysqli_num_rows($result_campanas_inactivas);
 
-                if($num_row_campanas_activas > 0 && $num_row_campanas_inactivas > 0){
-                    $activas.= muestra_campanas_activas_actualizadas($num_row_campanas_activas, $row_campanas_activas,$result_campanas_activas, $mysqli, $persona_id);
-                    $inactivas.= muestra_campanas_inactivas($row_campanas_inactivas,$num_row_campanas_inactivas,$result_campanas_inactivas, $mysqli);
-                }else if($num_row_campanas_activas > 0){
-                    $activas.= muestra_campanas_activas_actualizadas($num_row_campanas_activas, $row_campanas_activas,$result_campanas_activas, $mysqli, $persona_id);
-                }else if($num_row_campanas_inactivas > 0){
-                    $inactivas.= muestra_campanas_inactivas($row_campanas_inactivas,$num_row_campanas_inactivas,$result_campanas_inactivas, $mysqli);
-                }
+                    if($num_row_campanas_activas > 0 && $num_row_campanas_inactivas > 0){
+                        $activas.= muestra_campanas_activas_actualizadas($num_row_campanas_activas, $row_campanas_activas,$result_campanas_activas, $mysqli, $persona_id);
+                        $inactivas.= muestra_campanas_inactivas($row_campanas_inactivas,$num_row_campanas_inactivas,$result_campanas_inactivas, $mysqli);
+                    }else if($num_row_campanas_activas > 0){
+                        $activas.= muestra_campanas_activas_actualizadas($num_row_campanas_activas, $row_campanas_activas,$result_campanas_activas, $mysqli, $persona_id);
+                    }else if($num_row_campanas_inactivas > 0){
+                        $inactivas.= muestra_campanas_inactivas($row_campanas_inactivas,$num_row_campanas_inactivas,$result_campanas_inactivas, $mysqli);
+                    }
+                }while ($row2=mysqli_fetch_array($result2));
             }
-        }while ($row2=mysqli_fetch_array($result2));
+       
         return $activas.$inactivas;
     }
+
         $activas=' No ha sido solicitado para participar de campañas';
         return $activas.$inactivas;
 }
@@ -625,11 +680,6 @@ function muestra_finalizadas($persona_id){
     $mysqli = mysqli_connect(LOCAL,USER,PASS,BD) or die("Error " . mysqli_error($link));  
     $mysqli->set_charset('utf8_bin');
     $persona_id=$_SESSION['id'];
-    
-    $query="SELECT DISTINCT * FROM solicitudes WHERE id_influenciador='".$persona_id."'";
-    $result=mysqli_query($mysqli,$query)or die (mysqli_error());
-    $row= mysqli_fetch_array($result, MYSQLI_BOTH);
-    $num_row=mysqli_num_rows($result);
 
     $query2="SELECT DISTINCT id_campana FROM solicitudes WHERE id_influenciador='".$persona_id."' AND estado_solicitud='1'";
     $result2=mysqli_query($mysqli,$query2)or die (mysqli_error());
@@ -638,7 +688,7 @@ function muestra_finalizadas($persona_id){
 
     if($num_row2>0){
          do{
-            $query_campanas_finalizadas="SELECT DISTINCT * FROM campana WHERE id=".$row2[0]." AND idEstado='0' AND  fecha_termino_server < curdate() AND finalizada='1'";
+            $query_campanas_finalizadas="SELECT DISTINCT * FROM campana WHERE id=".$row2[0]." AND idEstado='0' AND finalizada='1'";
             $result_campanas_finalizadas=mysqli_query($mysqli,$query_campanas_finalizadas)or die (mysqli_error());
             $row_campanas_finalizadas= mysqli_fetch_array($result_campanas_finalizadas, MYSQLI_BOTH);
             $num_row_campanas_finalizadas=mysqli_num_rows($result_campanas_finalizadas);
