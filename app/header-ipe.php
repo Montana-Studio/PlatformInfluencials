@@ -61,7 +61,7 @@
 	}
 
 	function inscripcion_error(){
-		echo 'if(data == "existe"){
+		echo 'if(data == "existe"){/*
         	$(".alertElim").fadeIn("normal",function(){
 				$("#boxElim .hrefCamp h2").text("La cuenta ya existe");
 				$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
@@ -92,8 +92,10 @@
 						
 					}});
 				});
-			});
+			});*/
+			alert("el perfil ya se encuentra registrado");
         }else if(data == "otro"){
+        	/*
         	$(".alertElim").fadeIn("normal",function(){
 				$("#boxElim .hrefCamp h2").text("La cuenta ya existe");
 				$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
@@ -125,12 +127,13 @@
 					}});
 					
 				});
-			});
+			});*/
+			alert("error en el ingreso de la cuenta");
         } ';
 	}
 	
 	function inscripcion_facebook(){
-		echo ' if(data == "exito"){
+		echo ' if(data == "exito"){/*
 				$(".alertElim").fadeIn("normal",function(){
 					$("#boxElim .hrefCamp h2").text("Red Social agregada");
 					$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
@@ -161,14 +164,16 @@
 							
 						}});
 					});
-				});
+				});*/
+				alert("red social agregada exitosamente");
+				location.reload();
             }';
             inscripcion_error();
 
 	}
 	function inscripcion_twitter(){
 		echo 'var data= "'.$_SESSION["data"].'";
-			if(data == "exito"){
+			if(data == "exito"){/*
 				$(".alertElim").fadeIn("normal",function(){
 					$("#boxElim .hrefCamp h2").text("Red Social agregada");
 					$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
@@ -198,7 +203,9 @@
 							
 						}});
 					});
-				});
+				});*/
+				alert("red social agregada exitosamente");
+				location.reload();
             }';
             inscripcion_error();
             unset($_SESSION['data']);
@@ -206,6 +213,7 @@
 	}
 	function inscripcion_instagram(){
 		echo ' if(data == "exito"){
+
 				/*$(".alertElim").fadeIn("normal",function(){
 					$("#boxElim .hrefCamp h2").text("Red Social agregada");
 					$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
@@ -237,7 +245,8 @@
 						}});
 					});
 				});*/
-				alert("instagram agregado");
+				alert("red social agregada exitosamente");
+				location.reload();
             }';
             inscripcion_error();
 
@@ -281,6 +290,7 @@
 	}
     function inscripcion_youtube(){
 		echo ' if(data == "exito"){
+			/*
 				$(".alertElim").fadeIn("normal",function(){
 					$("#boxElim .hrefCamp h2").text("Red Social agregada");
 					$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
@@ -311,7 +321,10 @@
 							
 						}});
 					});
-				});
+				});*/
+				alert("red social agregada exitosamente");
+				location.reload();
+
             }';
             inscripcion_error();
 
@@ -413,7 +426,7 @@
 					<ul>
 						<li><i onClick='backHistory()' class='pi pi-arrow-left'></i></li>
 						<li><a href='escritorio-influencer'><i class='pi pi-pencil'></i> Escritorio</a></li>
-						<li><a href='campanas-inscritas'><i class='pi pi-bullhorn'></i> campañas</a></li>
+						<!--li><a href='campanas-inscritas'><i class='pi pi-bullhorn'></i> campañas</a></li-->
 					</ul>
 				</nav>";
 			}

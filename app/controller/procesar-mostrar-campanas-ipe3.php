@@ -265,9 +265,7 @@ function muestra_campanas_activas($num_row_campanas_activas, $row_campanas_activ
 
     if ($num_row_campanas_activas > 0 && $cantidad_redes_sociales>0){
                 
-                $campanas_activas .= '  
-                    <h2 class="sub-titulo">Resultados de la campaña</h2>
-                        <div class="creadas">';
+                $campanas_activas .= '<div class="creadas">';
                 do{
                     $campana_id=$row_campanas_activas[0];
                     
@@ -285,6 +283,14 @@ function muestra_campanas_activas($num_row_campanas_activas, $row_campanas_activ
                                     </span>
                                 </div>
                                 <div class="content">
+                                    <ul class="tools-campana">
+                                        <li class="informe-campana">
+                                            <a class="txt-tool" href="./informe/reporteexcel/reporte-influenciadores-excel.php?id='.$row_campanas_activas[0].'&influenciador='.$persona_id.'">INFORME<a/>
+                                        </li>
+                                        <li class="informe-campana">
+                                            <a class="txt-tool" href="./informe/reporte-influenciadores-pdf.php?id='.$row_campanas_activas[0].'&influenciador='.$persona_id.'">INFORME PDF<a/>
+                                        </li>
+                                    </ul>
                                     <div class="btn_close"><span><i class="pi pi-close"></i></span></div>
                                     <div class="campana-data">
                                         <span class="campa-ico activada"><i class="pi pi-tool"></i>Activada</span>
@@ -359,8 +365,8 @@ function muestra_campanas_activas($num_row_campanas_activas, $row_campanas_activ
                                             $campanas_activas .= html_reach($suma_twitter,'twitter');
                                             $campanas_activas .= html_reach($suma_youtube,'youtube');
                                             $campanas_activas.= $acumula_inputs;
-                                            $campanas_activas .= '<a href="./informe/reporte-influenciadores-pdf.php?id='.$row_campanas_activas[0].'&influenciador='.$persona_id.'">PDF</a>'; 
-                                            $campanas_activas .= '<a href="./informe/reporteexcel/reporte-influenciadores-excel.php?id='.$row_campanas_activas[0].'&influenciador='.$persona_id.'">Excel</a>'; 
+                                            //$campanas_activas .= '<a href="./informe/reporte-influenciadores-pdf.php?id='.$row_campanas_activas[0].'&influenciador='.$persona_id.'">PDF</a>'; 
+                                            //$campanas_activas .= '<a href="./informe/reporteexcel/reporte-influenciadores-excel.php?id='.$row_campanas_activas[0].'&influenciador='.$persona_id.'">Excel</a>'; 
                                             $campanas_activas .= '
                                 </div>
                             </div>
@@ -382,9 +388,7 @@ function muestra_campanas_activas_actualizadas($num_row_campanas_activas, $row_c
 
     if ($num_row_campanas_activas > 0 && $cantidad_redes_sociales>0){
                 
-                $campanas_activas .= '  
-                    <h2 class="sub-titulo">Resultados de la campaña</h2>
-                        <div class="creadas">';
+                $campanas_activas .= '<div class="creadas">';
                 do{
                     $campanas_activas .= '
                     
@@ -400,6 +404,14 @@ function muestra_campanas_activas_actualizadas($num_row_campanas_activas, $row_c
                                     </span>
                                 </div>
                                 <div class="content">
+                                    <ul class="tools-campana">
+                                        <li class="informe-campana">
+                                            <a class="txt-tool" href="./informe/reporteexcel/reporte-influenciadores-excel.php?id='.$row_campanas_activas[0].'&influenciador='.$persona_id.'">INFORME<a/>
+                                        </li>
+                                        <li class="informe-campana">
+                                            <a class="txt-tool" href="./informe/reporte-influenciadores-pdf.php?id='.$row_campanas_activas[0].'&influenciador='.$persona_id.'">INFORME PDF<a/>
+                                        </li>
+                                    </ul>
                                     <div class="btn_close"><span><i class="pi pi-close"></i></span></div>
                                     <div class="campana-data">
                                         <span class="campa-ico activada"><i class="pi pi-tool"></i>Activada</span>
@@ -477,15 +489,12 @@ function muestra_campanas_activas_actualizadas($num_row_campanas_activas, $row_c
                                                     $campanas_activas .= html_reach($suma_facebook,'facebook');
                                                     $campanas_activas .= html_reach($suma_instagram,'instagram');
                                                     $campanas_activas .= html_reach($suma_twitter,'twitter');
-                                                    $campanas_activas .= html_reach($suma_youtube,'youtube');
-                                                    
+                                                    $campanas_activas .= html_reach($suma_youtube,'youtube');                                                    
                                                 }
-
-
                                                 
                                             }while($i<count($rrss_list));
-                                             $campanas_activas .= '<a href="./informe/reporte-influenciadores-pdf.php?id='.$row_campanas_activas[0].'&influenciador='.$persona_id.'">PDF</a>'; 
-                                             $campanas_activas .= '<a href="./informe/reporteexcel/reporte-influenciadores-excel.php?id='.$row_campanas_activas[0].'&influenciador='.$persona_id.'">Excel</a>'; 
+                                             //$campanas_activas .= '<a href="./informe/reporte-influenciadores-pdf.php?id='.$row_campanas_activas[0].'&influenciador='.$persona_id.'">PDF</a>'; 
+                                             //$campanas_activas .= '<a href="./informe/reporteexcel/reporte-influenciadores-excel.php?id='.$row_campanas_activas[0].'&influenciador='.$persona_id.'">Excel</a>'; 
                                             $campanas_activas .= '
                                 </div>
                             </div>
@@ -501,8 +510,7 @@ function muestra_campanas_activas_actualizadas($num_row_campanas_activas, $row_c
 function muestra_campanas_inactivas($row_campanas_inactivas,$num_row_campanas_inactivas,$result_campanas_inactivas, $mysqli){
     
     if($num_row_campanas_inactivas>0){
-        $campanas_inactivas='<h2 class="sub-titulo">Campañas no iniciadas</h2>
-                             <div class="creadas">';
+        $campanas_inactivas='<div class="creadas">';
         do{
 
             $campanas_inactivas .= '<div class="recientes">
@@ -539,78 +547,51 @@ function muestra_campanas_inactivas($row_campanas_inactivas,$num_row_campanas_in
     return $campanas_inactivas;
 }
 
-function muestra_campanas_finalizadas($campana_id,$persona_id, $mysqli){    
-    $query_url_campana_rrss ="SELECT * FROM core_redes_sociales_campanas WHERE  campana_id='".$campana_id."' AND persona_id='".$persona_id."' ORDER by rrss_name";
-    $result_url_campana_rrss = mysqli_query($mysqli,$query_url_campana_rrss);
-    $row_url_campana_rrss= mysqli_fetch_array($result_url_campana_rrss, MYSQLI_BOTH);
-    $num_rows_url_campana_rrss=mysqli_num_rows($result_url_campana_rrss);
-
-    if($num_rows_url_campana_rrss>0){
+function muestra_campanas_finalizadas($row_campanas_finalizadas,$num_row_campanas_finalizadas,$result_campanas_finalizadas, $mysqli, $persona_id){    
+    
+    if($row_campanas_finalizadas>0){
+        $campanas_finalizadas='<div class="creadas">';
         do{
-            $query_url_datos_campana ="SELECT * FROM campana WHERE id='".$campana_id."'";
-            $result_url_datos_campana = mysqli_query($mysqli,$query_url_datos_campana);
-            $row_url_datos_campana= mysqli_fetch_array($result_url_datos_campana, MYSQLI_BOTH);
-            $num_rows_url_datos_campana=mysqli_num_rows($result_url_datos_campana);
-            $rrss_name= $row_url_datos_campana[1];
-            $rrss_id= $row_url_campana_rrss[2];
-            $url=$row_url_facebook[4];
+            $campanas_finalizadas .= '<div class="recientes">
+                                        <div class="cont-campana">
+                                            <div class="bg-campana" style="background-image:url('.$row_campanas_finalizadas[3].');">
+                                                <h3>'.$row_campanas_finalizadas[1].'<span>by '.$row_campanas_finalizadas[4].'</span></h3>
+                                            </div>
 
-            $query_url_reach_campana ="SELECT SUM(reach) FROM core_redes_sociales_campanas WHERE campana_id='".$campana_id."'";
-            $result_url_reach_campana = mysqli_query($mysqli,$query_url_reach_campana);
-            $row_url_reach_campana= mysqli_fetch_array($result_url_reach_campana, MYSQLI_BOTH);
-            $num_rows_url_reach_campana=mysqli_num_rows($result_url_reach_campana);
-
-            $campanas_finalizadas='
-            <div class="creadas">
-                <div class="recientes">
-                    <div class="cont-campana" id="imagen'.$row_url_datos_campana[0].'"> 
-                        <div class="bg-campana" style="background-image:url('.$row_url_datos_campana[3].');">
-                            <h3>cascsa<span>by '.$row_url_datos_campana[4].'</span></h3>
-                        </div>
-                        <div class="ver-mas">
-                            <span>
-                                <i class="pi pi-arrow-bottom"></i>
-                                <i class="pi pi-plus"></i>
-                            </span>
-                        </div>
-                        <div class="content">
-                            <div class="btn_close"><span><i class="pi pi-close"></i></span></div>
-                            <div class="campana-data">
-                                <span class="campa-ico activada"><i class="pi pi-tool"></i>Publicada</span>
-                                <span class="campa-ico fecha-activada">
-                                    <i class="pi pi-calendar"></i>Inicio <span>'.$row_url_datos_campana[7].'</span> al <span>'.$row_url_datos_campana[8].'</span>
-                                </span>
-                                <p id="campana'.$row_url_datos_campana[0].'">'.$row_url_datos_campana[2].'</p>
-                            </div>
-
-                            <div class="img-compana-deskt hide">
-                                <img src="'.$row_url_datos_campana[3].'"/>
-                            </div>       
-                        </div>
-                        <div id="redes_sociales_campana_'.$row_url_datos_campana[0].'" class="reach-campana">
-                            <h2 class="sub-titulo">Metricas de la campaña</h2><ul class="redes-metrics">
-                            <ul class="redes-metrics"><span class="tit-red red-reach" title="reach"></span>
-                                <div class="data">
-                                    <ul>
-                                        <li><span>Reach</span><span>'.number_format($row_url_reach_campana[0],3,".",",").'</span></li>
-                                    </ul>
-                                </div>
-                            </ul>
-                        </div>
-                    </div>
-                 </div>
-            </div>';
-        }while($row_url_campana_rrss = mysqli_fetch_array($result_url_campana_rrss));
-        return $campanas_finalizadas;
-    }else{
-        $query_url_datos_campana ="SELECT * FROM campana WHERE id='".$campana_id."'";
-        $result_url_datos_campana = mysqli_query($mysqli,$query_url_datos_campana);
-        $row_url_datos_campana= mysqli_fetch_array($result_url_datos_campana, MYSQLI_BOTH);
-        $campana_name= $row_url_datos_campana[1];
-        $campana_marca= $row_url_datos_campana[4];
-        $campanas_finalizadas = "<p>No registro URLs en la campaña ".$campana_name." de ".$campana_marca."</p>";
-        return $campanas_finalizadas;
-    }   
+                                            <div class="ver-mas">
+                                                <span>
+                                                    <i class="pi pi-arrow-bottom"></i><i class="pi pi-plus"></i>
+                                                </span>
+                                            </div>
+                                            <div class="content">
+                                                <ul class="tools-campana">
+                                                    <li class="informe-campana">
+                                                        <a class="txt-tool" href="./informe/reporteexcel/reporte-influenciadores-excel.php?id='.$row_campanas_finalizadas[0].'&influenciador='.$persona_id.'">INFORME<a/>
+                                                    </li>
+                                                    <li class="informe-campana">
+                                                        <a class="txt-tool" href="./informe/reporte-influenciadores-pdf.php?id='.$row_campanas_finalizadas[0].'&influenciador='.$persona_id.'">INFORME PDF<a/>
+                                                    </li>
+                                                </ul>
+                                                <div class="btn_close"><span><i class="pi pi-close"></i></span></div>
+                                                <div class="campana-data">
+                                                    <span class="campa-ico activada"><i class="pi pi-tool"></i>Activada</span>
+                                                    <span class="campa-ico fecha-activada">
+                                                        <i class="pi pi-calendar"> Inicio </i><span>'.$row_campanas_finalizadas[7].'</span> al <span>'.$row_campanas_finalizadas[8].'</span>
+                                                    </span>
+                                                </div>
+                                                    <div class="inputs-campana descripcion descripcion-campana" id="'.$row_campanas_finalizadas[0].'">
+                                                        <textarea placeholder="descripcion" disabled>'.$row_campanas_finalizadas[2].'</textarea>
+                                                    </div>
+                                                    <div class="img-compana-deskt hide">
+                                                        <img src="'.$row_campanas_finalizadas[3].'"/>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>';
+        }while($row_campanas_finalizadas = mysqli_fetch_row($result_campanas_finalizadas));
+        $campanas_finalizadas .= '</div>';
+    }
+    return $campanas_finalizadas;
 }
 
 function muestra_campanas($persona_id){
@@ -625,7 +606,9 @@ function muestra_campanas($persona_id){
     $num_row2=mysqli_num_rows($result2);
     $activas='';
     $inactivas='';
-
+    $titulo_campañas_activas= "<h2>CAMPAÑAS ACTIVAS</h2>";
+    $titulo_campañas_inactivas= "<h2>PROXIMAS CAMPAÑAS</h2>";
+    $no_registra="No registra solicitudes de parte de agencias en campañas";
     if($num_row2>0){
         
             if(requiere_actualizar($persona_id)==0){
@@ -643,7 +626,20 @@ function muestra_campanas($persona_id){
                     $activas.=muestra_campanas_activas($num_row_campanas_activas, $row_campanas_activas,$result_campanas_activas, $mysqli, $persona_id);
                     //$activas.= muestra_campanas_activas($num_row_campanas_activas, $row_campanas_activas,$result_campanas_activas, $mysqli, $persona_id);
                     $inactivas.= muestra_campanas_inactivas($row_campanas_inactivas,$num_row_campanas_inactivas,$result_campanas_inactivas, $mysqli);
+                    /*if($activas=''){
+                        $activas=$no_registra;
+                    }
+                    if($inactivas=''){
+                        $activas=$no_registra;
+                    }*/
+
                 }while ($row2=mysqli_fetch_array($result2));
+                if(strlen($activas)==0){
+                    $activas=$no_registra;
+                }
+                if(strlen($inactivas)==0){
+                    $inactivas=$no_registra;
+                }
                 
             }else if(requiere_actualizar($persona_id)==1){
                 do{
@@ -667,12 +663,17 @@ function muestra_campanas($persona_id){
                     }
                 }while ($row2=mysqli_fetch_array($result2));
             }
-       
-        return $activas.$inactivas;
+       		
+        
+        return $titulo_campañas_activas.$activas.$titulo_campañas_inactivas.$inactivas;
     }
-
-        $activas=' No ha sido solicitado para participar de campañas';
-        return $activas.$inactivas;
+    	if(strlen($activas)==0){
+            $activas=$no_registra;
+        }
+        if(strlen($inactivas)==0){
+            $inactivas=$no_registra;
+        }
+        return $titulo_campañas_activas.$activas.$titulo_campañas_inactivas.$inactivas;
 }
 
 function muestra_finalizadas($persona_id){
@@ -685,28 +686,27 @@ function muestra_finalizadas($persona_id){
     $result2=mysqli_query($mysqli,$query2)or die (mysqli_error());
     $row2= mysqli_fetch_array($result2, MYSQLI_BOTH);
     $num_row2=mysqli_num_rows($result2);
-
+    $finalizadas='';
+    $titulo_campañas_finalizadas= "<h2>HISTORIAL DE CAMPAÑAS</h2>";
+    $no_registra="No registra solicitudes de parte de agencias en campañas";
     if($num_row2>0){
-         do{
+
+        do{
             $query_campanas_finalizadas="SELECT DISTINCT * FROM campana WHERE id=".$row2[0]." AND idEstado='0' AND finalizada='1'";
             $result_campanas_finalizadas=mysqli_query($mysqli,$query_campanas_finalizadas)or die (mysqli_error());
             $row_campanas_finalizadas= mysqli_fetch_array($result_campanas_finalizadas, MYSQLI_BOTH);
             $num_row_campanas_finalizadas=mysqli_num_rows($result_campanas_finalizadas);
-            
-            if($num_row_campanas_finalizadas > 0){
-                do{
-                    $finalizadas.= muestra_campanas_finalizadas($row_campanas_finalizadas[0], $persona_id, $mysqli);
 
-                }while($row_campanas_finalizadas=mysqli_fetch_array($result_campanas_finalizadas));     
-            //}else{
-                //$finalizadas = "No registra URLs ingresadas en campañas finalizadas";
+            if($num_row_campanas_finalizadas > 0 ){
+                $finalizadas.= muestra_campanas_finalizadas($row_campanas_finalizadas,$num_row_campanas_finalizadas,$result_campanas_finalizadas, $mysqli, $persona_id);
             }
-
-        }while ($row2=mysqli_fetch_array($result2));
-    }else{
-        $finalizadas = "No registra solicitudes de parte de agencias en campañas";
+        }while($row2=mysqli_fetch_array($result2));
     }
-    return $finalizadas;
+
+    if(strlen($finalizadas)==0){
+        $finalizadas=$no_registra;
+    }
+    return $titulo_campañas_finalizadas.$finalizadas;
 }
 
 ?>

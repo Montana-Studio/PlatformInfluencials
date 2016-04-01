@@ -557,12 +557,13 @@ function muestra_followers($persona_id){
 		//no ha actualizado su información
 		if($row_no_actualizado>0){
 
-			$query_actualiza_datos='UPDATE session_table SET actual_inicio_sesion="'.date("Y-m-d H:i").'",  renovado=1 WHERE persona_id="'.$persona_id.'"';
-			$result_actualiza_datos=mysqli_query($mysqli,$query_actualiza_datos)or die (mysqli_error());
+			//$query_actualiza_datos='UPDATE session_table SET actual_inicio_sesion="'.date("Y-m-d H:i").'",  renovado=1 WHERE persona_id="'.$persona_id.'"';
+			//$result_actualiza_datos=mysqli_query($mysqli,$query_actualiza_datos)or die (mysqli_error());
+			
 			//devuelvo datos actualizados
-			$query_actualizado="SELECT DISTINCT * FROM session_table WHERE persona_id='".$persona_id."' AND working_hours='1' AND renovado='1'";
-			$result_actualizado=mysqli_query($mysqli,$query_actualizado)or die (mysqli_error());
-			$row_actualizado= mysqli_fetch_array($result_actualizado, MYSQLI_BOTH);
+			//$query_actualizado="SELECT DISTINCT * FROM session_table WHERE persona_id='".$persona_id."' AND working_hours='1' AND renovado='1'";
+			//$result_actualizado=mysqli_query($mysqli,$query_actualizado)or die (mysqli_error());
+			//$row_actualizado= mysqli_fetch_array($result_actualizado, MYSQLI_BOTH);
 			$actualiza_datos = elige_red_social($row_redes_persona[0], $mysqli, $persona_id);
 			//actualizo datos
 			
@@ -584,19 +585,19 @@ function muestra_followers($persona_id){
 			}while($row_redes_persona=mysqli_fetch_array($result_redes_persona));
 			return $html_facebook.";".$html_instagram.";".$html_twitter.";".$html_youtube;
 		}else{
-			$query_primera_vez="SELECT DISTINCT * FROM session_table WHERE persona_id='".$persona_id."'";
-			$result_primera_vez=mysqli_query($mysqli,$query_primera_vez)or die (mysqli_error());
-			$row_primera_vez= mysqli_fetch_array($result_primera_vez, MYSQLI_BOTH);
+			//$query_primera_vez="SELECT DISTINCT * FROM session_table WHERE persona_id='".$persona_id."'";
+			//$result_primera_vez=mysqli_query($mysqli,$query_primera_vez)or die (mysqli_error());
+			//$row_primera_vez= mysqli_fetch_array($result_primera_vez, MYSQLI_BOTH);
 			$num_row_primera_vez= mysqli_num_rows($result_primera_vez);
 			if($num_row_primera_vez==0){
 				$inserta_datos = elige_red_social($row_redes_persona[0], $mysqli, $persona_id);
 				//echo (string)$inserta_datos;
-				$query_inserta_datos='INSERT INTO session_table (working_hours,renovado, primer_inicio_sesion, actual_inicio_sesion, persona_id) VALUES (1, 1, "'.date("Y-m-d H:i").'" ,"'.date("Y-m-d H:i").'", '.$persona_id.')';
-				$result_inserta_datos=mysqli_query($mysqli,$query_inserta_datos)or die (mysqli_error());
+				//$query_inserta_datos='INSERT INTO session_table (working_hours,renovado, primer_inicio_sesion, actual_inicio_sesion, persona_id) VALUES (1, 1, "'.date("Y-m-d H:i").'" ,"'.date("Y-m-d H:i").'", '.$persona_id.')';
+				//$result_inserta_datos=mysqli_query($mysqli,$query_inserta_datos)or die (mysqli_error());
 				//devuelvo datos insertados
-				$query_inserta_datos="SELECT DISTINCT * FROM session_table WHERE persona_id='".$persona_id."' AND working_hours='1' AND renovado='1'";
-				$result_inserta_datos=mysqli_query($mysqli,$query_inserta_datos)or die (mysqli_error());
-				$row_inserta_datos= mysqli_fetch_array($result_inserta_datos, MYSQLI_BOTH);
+				//$query_inserta_datos="SELECT DISTINCT * FROM session_table WHERE persona_id='".$persona_id."' AND working_hours='1' AND renovado='1'";
+				//$result_inserta_datos=mysqli_query($mysqli,$query_inserta_datos)or die (mysqli_error());
+				//$row_inserta_datos= mysqli_fetch_array($result_inserta_datos, MYSQLI_BOTH);
 				if(date('H')>8 && date('H')<22){
 					while($row_redes_persona=mysqli_fetch_array($result_redes_persona)){
 						
