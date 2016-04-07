@@ -1,11 +1,11 @@
 <?php
-	require('./controller/conexion.php');
+	require_once('./controller/conexion.php');
 	if(isset($_SESSION['id'])==false){
-	header('Location:./');
-			die();
+		header('Location:./');
+		die();
 	}else if($_SESSION['id_tipo']>'2'){
-				header('Location: escritorio-ipe');
-				die();
+		header('Location: escritorio-ipe');
+		die();
 	}
 	function muestra_header(){
 		echo '<!DOCTYPE html>
@@ -89,8 +89,6 @@
 		<body>';
 
     }
-
-
 
 	if(basename($_SERVER['PHP_SELF'])=='dashboard-agencia.php'){
 		if(isset($_SESSION['telefono1'])==false){
@@ -521,205 +519,205 @@
 						</script>";
 			}
 	}
+	if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
+		<header>
 
-if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
-<header>
+			<div class="logo"><a href="./escritorio-agencia" target="_top"></a></div>
+			<div class="menu" style="background-image:url(<?php if(strpos($_SESSION['pictureUrl'],"graph")||strpos($_SESSION['pictureUrl'],"media.licdn.com")){ echo $_SESSION['pictureUrl'];}else{echo "../../".$_SESSION['pictureUrl'];}?>);"></div>
+			
+			<a href="#" class="notes" ><i class="pi pi-bell"></i></a>
+			<a href="#" class="ayuda_pi"><i class="pi pi-help"></i></a>
+		</header>
+		<form id="imagenform">
 
-	<div class="logo"><a href="./escritorio-agencia" target="_top"></a></div>
-	<div class="menu" style="background-image:url(<?php if(strpos($_SESSION['pictureUrl'],"graph")||strpos($_SESSION['pictureUrl'],"media.licdn.com")){ echo $_SESSION['pictureUrl'];}else{echo "../../".$_SESSION['pictureUrl'];}?>);"></div>
-	
-	<a href="#" class="notes" ><i class="pi pi-bell"></i></a>
-	<a href="#" class="ayuda_pi"><i class="pi pi-help"></i></a>
-</header>
-<form id="imagenform">
+			<div class="fle-top"></div>
 
-	<div class="fle-top"></div>
+			<div class="misdatos">
 
-	<div class="misdatos">
+				<div class="imagen" style="background-image:url(<?php if(strpos($_SESSION['pictureUrl'],"graph")||strpos($_SESSION['pictureUrl'],"media.licdn.com")){ echo $_SESSION['pictureUrl'];}else{echo "../../".$_SESSION['pictureUrl'];}?>);">
 
-		<div class="imagen" style="background-image:url(<?php if(strpos($_SESSION['pictureUrl'],"graph")||strpos($_SESSION['pictureUrl'],"media.licdn.com")){ echo $_SESSION['pictureUrl'];}else{echo "../../".$_SESSION['pictureUrl'];}?>);">
-
-			<input type="file" name="file" id="file" class="hide"/>
-			<label class="selectFile" for="file"><i class="pi pi-pencil"></i></label>
-
-		</div>
-
-		<div class="datos">
-
-			<h2><?php echo $_SESSION['nombre']; ?></h2>
-			<h3><?php echo $_SESSION['empresa']; ?></h3>
-
-			<div class="editar"><span>editar perfil</span></div>
-
-		</div>
-
-		<div class="alert-uploadready" style="display:none;"><i class="fa fa-cloud-upload"></i>Imagen seleccionada con exito!</div>
-
-	</div>
-
-	<div id="inicio">
-
-		<div id="tabContainer">
-
-			<ul id="tabs">
-				<li id="tabHeader_1" class="clickTab">Perfil Personales</li>
-				<li id="tabHeader_2" class="clickTab">Datos Empresa</li>
-			</ul>
-
-			<div id="tabscontent">
-
-				<div class="tabpage tab-hide" id="tabpage_1">
-
-					<div id="nombre">
-						<small>nombre</small>
-						<input value="<?php echo $_SESSION['nombre']; ?>" disabled>
-						<i class="pi pi-pencil"></i>
-					</div>
-					<div id="correo">
-						<small>correo</small>
-						<input value="<?php echo $_SESSION['correo']; ?>" disabled>
-					</div>
+					<input type="file" name="file" id="file" class="hide"/>
+					<label class="selectFile" for="file"><i class="pi pi-pencil"></i></label>
 
 				</div>
 
-				<div class="tabpage tab-hide" id="tabpage_2">
+				<div class="datos">
 
-					<div id="empresa">
-						<small>empresa</small>
-						<input value="<?php echo $_SESSION['empresa']; ?>" disabled>
-						<i class="pi pi-pencil"></i>
-					</div>
-					<div id="tel1">
-						<small>tel. empresa</small>
-						<input type="text"  onkeypress="return valida(event)" maxlength="11" value="<?php echo $_SESSION['telefono1']; ?>" disabled>
-						<i class="pi pi-pencil"></i>
-					</div>
-					<div id="tel2">
-						<small>tel. personal</small>
-						<input type="text"  onkeypress="return valida(event)" maxlength="11" value="<?php echo $_SESSION['telefono2']; ?>" disabled>
-						<i class="pi pi-pencil"></i>
-					</div>
+					<h2><?php echo $_SESSION['nombre']; ?></h2>
+					<h3><?php echo $_SESSION['empresa']; ?></h3>
+
+					<div class="editar"><span>editar perfil</span></div>
 
 				</div>
+
+				<div class="alert-uploadready" style="display:none;"><i class="fa fa-cloud-upload"></i>Imagen seleccionada con exito!</div>
 
 			</div>
 
-		</div>
+			<div id="inicio">
 
-		<div class="cancel-data">Cancelar</div>
+				<div id="tabContainer">
 
-		<button id="guardarFacturacion" type="submit">Guardar cambios</button>
+					<ul id="tabs">
+						<li id="tabHeader_1" class="clickTab">Perfil Personales</li>
+						<li id="tabHeader_2" class="clickTab">Datos Empresa</li>
+					</ul>
 
-		<a href="../../controller/logout.php" class="logout"><i class="pi pi-singout"></i> cerrar sesion</a>
-	</div>
+					<div id="tabscontent">
 
-	<div class="btn_close"><span><i class="pi pi-close"></i></span></div>
-</form>
-<nav>
-	<ul>
-		<li><i onClick="backHistory()" class="pi pi-arrow-left"></i></li>
-		<li><a href="../../campanas"><i class="pi pi-suitcase"></i> campañas</a></li>
-		<li id="nuevaCampain"><a href="../../crear-campana"><i class="pi pi-plus"></i> crear campañas</a></li>
-		<li><a href="../../influenciadores/sin-especificar/0"><i class="pi pi-user"></i> influencers</a></li>
-	</ul>
-</nav>
+						<div class="tabpage tab-hide" id="tabpage_1">
 
-<?}else if(basename($_SERVER['PHP_SELF'])!='perfil-influenciador-publico-agencia.php'||basename($_SERVER['PHP_SELF'])=='formulario-agencia-linkedin.php'||basename($_SERVER['PHP_SELF'])=='formulario-red-social-agencia.php'){
+							<div id="nombre">
+								<small>nombre</small>
+								<input value="<?php echo $_SESSION['nombre']; ?>" disabled>
+								<i class="pi pi-pencil"></i>
+							</div>
+							<div id="correo">
+								<small>correo</small>
+								<input value="<?php echo $_SESSION['correo']; ?>" disabled>
+							</div>
+
+						</div>
+
+						<div class="tabpage tab-hide" id="tabpage_2">
+
+							<div id="empresa">
+								<small>empresa</small>
+								<input value="<?php echo $_SESSION['empresa']; ?>" disabled>
+								<i class="pi pi-pencil"></i>
+							</div>
+							<div id="tel1">
+								<small>tel. empresa</small>
+								<input type="text"  onkeypress="return valida(event)" maxlength="11" value="<?php echo $_SESSION['telefono1']; ?>" disabled>
+								<i class="pi pi-pencil"></i>
+							</div>
+							<div id="tel2">
+								<small>tel. personal</small>
+								<input type="text"  onkeypress="return valida(event)" maxlength="11" value="<?php echo $_SESSION['telefono2']; ?>" disabled>
+								<i class="pi pi-pencil"></i>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="cancel-data">Cancelar</div>
+
+				<button id="guardarFacturacion" type="submit">Guardar cambios</button>
+
+				<a href="../../controller/logout.php" class="logout"><i class="pi pi-singout"></i> cerrar sesion</a>
+			</div>
+
+			<div class="btn_close"><span><i class="pi pi-close"></i></span></div>
+		</form>
+		<nav>
+			<ul>
+				<li><i onClick="backHistory()" class="pi pi-arrow-left"></i></li>
+				<li><a href="../../campanas"><i class="pi pi-suitcase"></i> campañas</a></li>
+				<li id="nuevaCampain"><a href="../../crear-campana"><i class="pi pi-plus"></i> crear campañas</a></li>
+				<li><a href="../../influenciadores/sin-especificar/0"><i class="pi pi-user"></i> influencers</a></li>
+			</ul>
+		</nav>
+
+<?php
+	}else if(basename($_SERVER['PHP_SELF'])!='perfil-influenciador-publico-agencia.php'||basename($_SERVER['PHP_SELF'])=='formulario-agencia-linkedin.php'||basename($_SERVER['PHP_SELF'])=='formulario-red-social-agencia.php'){
 ?>
-<header>
+	<header>
 
-	<div class="logo"><a href="./escritorio-agencia" target="_top"></a></div>
-	<div class="menu" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);"></div>
-	
-	<a href="#" class="notes" ><i class="pi pi-bell"></i></a>
-	<a href="#" class="ayuda_pi"><i class="pi pi-help"></i></a>
-</header>
+		<div class="logo"><a href="./escritorio-agencia" target="_top"></a></div>
+		<div class="menu" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);"></div>
+		
+		<a href="#" class="notes" ><i class="pi pi-bell"></i></a>
+		<a href="#" class="ayuda_pi"><i class="pi pi-help"></i></a>
+	</header>
 
 
-<form id="imagenform">
+	<form id="imagenform">
 
-	<div class="fle-top"></div>
+		<div class="fle-top"></div>
 
-	<div class="misdatos">
+		<div class="misdatos">
 
-		<div class="imagen" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);">
+			<div class="imagen" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);">
 
-			<input type="file" name="file" id="file" class="hide"/>
-			<label class="selectFile" for="file"><i class="pi pi-pencil"></i></label>
+				<input type="file" name="file" id="file" class="hide"/>
+				<label class="selectFile" for="file"><i class="pi pi-pencil"></i></label>
+
+			</div>
+
+			<div class="datos">
+
+				<h2><?php echo $_SESSION['nombre']; ?></h2>
+				<h3><?php echo $_SESSION['empresa']; ?></h3>
+
+				<div class="editar"><span>editar perfil</span></div>
+
+			</div>
+
+			<div class="alert-uploadready" style="display:none;"><i class="fa fa-cloud-upload"></i>Imagen seleccionada con exito!</div>
 
 		</div>
 
-		<div class="datos">
+		<div id="inicio">
 
-			<h2><?php echo $_SESSION['nombre']; ?></h2>
-			<h3><?php echo $_SESSION['empresa']; ?></h3>
+			<div id="tabContainer">
 
-			<div class="editar"><span>editar perfil</span></div>
+				<ul id="tabs">
+					<li id="tabHeader_1" class="clickTab">Perfil Personales</li>
+					<li id="tabHeader_2" class="clickTab">Datos Empresa</li>
+				</ul>
 
-		</div>
+				<div id="tabscontent">
 
-		<div class="alert-uploadready" style="display:none;"><i class="fa fa-cloud-upload"></i>Imagen seleccionada con exito!</div>
+					<div class="tabpage tab-hide" id="tabpage_1">
 
-	</div>
+						<div id="nombre">
+							<small>nombre</small>
+							<input value="<?php echo $_SESSION['nombre']; ?>" disabled>
+							<i class="pi pi-pencil"></i>
+						</div>
+						<div id="correo">
+							<small>correo</small>
+							<input value="<?php echo $_SESSION['correo']; ?>" disabled>
+						</div>
 
-	<div id="inicio">
-
-		<div id="tabContainer">
-
-			<ul id="tabs">
-				<li id="tabHeader_1" class="clickTab">Perfil Personales</li>
-				<li id="tabHeader_2" class="clickTab">Datos Empresa</li>
-			</ul>
-
-			<div id="tabscontent">
-
-				<div class="tabpage tab-hide" id="tabpage_1">
-
-					<div id="nombre">
-						<small>nombre</small>
-						<input value="<?php echo $_SESSION['nombre']; ?>" disabled>
-						<i class="pi pi-pencil"></i>
-					</div>
-					<div id="correo">
-						<small>correo</small>
-						<input value="<?php echo $_SESSION['correo']; ?>" disabled>
 					</div>
 
-				</div>
+					<div class="tabpage tab-hide" id="tabpage_2">
 
-				<div class="tabpage tab-hide" id="tabpage_2">
+						<div id="empresa">
+							<small>empresa</small>
+							<input value="<?php echo $_SESSION['empresa']; ?>" disabled>
+							<i class="pi pi-pencil"></i>
+						</div>
+						<div id="tel1">
+							<small>tel. empresa</small>
+							<input type="text"  onkeypress="return valida(event)" maxlength="11" value="<?php echo $_SESSION['telefono1']; ?>" disabled>
+							<i class="pi pi-pencil"></i>
+						</div>
+						<div id="tel2">
+							<small>tel. personal</small>
+							<input type="text"  onkeypress="return valida(event)" maxlength="11" value="<?php echo $_SESSION['telefono2']; ?>" disabled>
+							<i class="pi pi-pencil"></i>
+						</div>
 
-					<div id="empresa">
-						<small>empresa</small>
-						<input value="<?php echo $_SESSION['empresa']; ?>" disabled>
-						<i class="pi pi-pencil"></i>
-					</div>
-					<div id="tel1">
-						<small>tel. empresa</small>
-						<input type="text"  onkeypress="return valida(event)" maxlength="11" value="<?php echo $_SESSION['telefono1']; ?>" disabled>
-						<i class="pi pi-pencil"></i>
-					</div>
-					<div id="tel2">
-						<small>tel. personal</small>
-						<input type="text"  onkeypress="return valida(event)" maxlength="11" value="<?php echo $_SESSION['telefono2']; ?>" disabled>
-						<i class="pi pi-pencil"></i>
 					</div>
 
 				</div>
 
 			</div>
 
+			<div class="cancel-data">Cancelar</div>
+
+			<button id="guardarFacturacion" type="submit">Guardar cambios</button>
+
+			<a href="controller/logout.php" class="logout"><i class="pi pi-singout"></i> cerrar sesion</a>
 		</div>
 
-		<div class="cancel-data">Cancelar</div>
-
-		<button id="guardarFacturacion" type="submit">Guardar cambios</button>
-
-		<a href="controller/logout.php" class="logout"><i class="pi pi-singout"></i> cerrar sesion</a>
-	</div>
-
-	<div class="btn_close"><span><i class="pi pi-close"></i></span></div>
-</form>
+		<div class="btn_close"><span><i class="pi pi-close"></i></span></div>
+	</form>
 
 <?php
 	if(basename($_SERVER['PHP_SELF'])=='formulario-agencia-linkedin.php'){
@@ -728,16 +726,14 @@ if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
 		echo '';
 	}else{
 ?>
-
-
-<nav>
-	<ul>
-		<li><i onClick="backHistory()" class="pi pi-arrow-left"></i></li>
-		<li><a href="campanas"><i class="pi pi-suitcase"></i> campañas</a></li>
-		<li id="nuevaCampain"><a href="crear-campana"><i class="pi pi-plus"></i> crear campañas</a></li>
-		<li><a href="influenciadores/sin-especificar/0"><i class="pi pi-user"></i> influencers</a></li>
-	</ul>
-</nav>
+	<nav>
+		<ul>
+			<li><i onClick="backHistory()" class="pi pi-arrow-left"></i></li>
+			<li><a href="campanas"><i class="pi pi-suitcase"></i> campañas</a></li>
+			<li id="nuevaCampain"><a href="crear-campana"><i class="pi pi-plus"></i> crear campañas</a></li>
+			<li><a href="influenciadores/sin-especificar/0"><i class="pi pi-user"></i> influencers</a></li>
+		</ul>
+	</nav>
 <?php
 	} 
 }else{
@@ -748,7 +744,7 @@ if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
 	<div class="logo"><a href="./escritorio-agencia" target="_top"></a></div>
 	<div class="menu" style="background-image:url(<?php if(strpos($_SESSION['pictureUrl'],"graph")||strpos($_SESSION['pictureUrl'],"media.licdn.com")){ echo $_SESSION['pictureUrl'];}else{echo "../../".$_SESSION['pictureUrl'];}?>);"></div>
 	
-	<a href="#" class="notes" ><i class="pi pi-bell"></i></a>
+	<!--a href="#" class="notes" ><i class="pi pi-bell"></i></a-->
 	<a href="#" class="ayuda_pi"><i class="pi pi-help"></i></a>
 </header>
 <form id="imagenform">
@@ -757,7 +753,7 @@ if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
 
 	<div class="misdatos">
 	
-		<div class="imagen" style="background-image:url(<?php if(strpos($_SESSION['pictureUrl'],"graph")||strpos($_SESSION['pictureUrl'],"media.licdn.com")){ echo $_SESSION['pictureUrl'];}else{echo "../".$_SESSION['pictureUrl'];}?>);">
+		<div class="imagen" style="background-image:url(<?php if(strpos($_SESSION['pictureUrl'],"graph")||strpos($_SESSION['pictureUrl'],"media.licdn.com")){ echo $_SESSION['pictureUrl'];}else{echo "../../".$_SESSION['pictureUrl'];}?>);">
 
 			<input type="file" name="file" id="file" class="hide"/>
 			<label class="selectFile" for="file"><i class="pi pi-pencil"></i></label>

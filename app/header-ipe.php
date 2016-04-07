@@ -464,50 +464,57 @@
 							$('#file').click(function(){
 								foto=1;
 						});
-		                $('.recientes .content').hide();
 
-		                if(document.documentElement.clientWidth >= 1024){
-		                    $('.ver-mas').find('i').addClass('pi-plus');
-		                }else{
-		                    $('.ver-mas').find('i').addClass('pi-arrow-bottom');
-		                }
+						$('.recientes .content').hide();
 
+						if(document.documentElement.clientWidth >= 1024){
+							$('.ver-mas').on('click',function(event){
+								$(this).siblings('.btn_close').fadeIn();
+							    $('.bg-campana, .ver-mas, .sub-titulo').fadeOut();
+							    $('.dashboard-agencia').animate({backgroundColor:'#eeeef0'},{duration:1000, 
+							        complete:function(){
 
-		                if(document.documentElement.clientWidth >= 1024){
-		                    $('.ver-mas').on('click',function(event){
-		                        $('.bg-campana, .ver-mas, .sub-titulo').fadeOut();
-		                        $('.campanas-ipe').animate({backgroundColor:'#eeeef0'},{duration:1000, 
-		                            complete:function(){
+							            $('.recientes, .cont-campana').css('width','100%');
+							        }
+							    });
 
-		                                $('.recientes, .cont-campana').css('width','100%');
-		                            }
-		                        });
+							    $(this).siblings('.content').slideDown();
+							    $(this).siblings('.reach-campana').delay(1010).slideDown(function(){
+							    	$('.reach-campana .sub-titulo').fadeIn();
+							    });
+							});
+						}else{
+							$('.ver-mas').on('click',function(event){
+							    $(this).siblings('.content').slideDown();
+							    //$(this).find('i').toggleClass('pi-arrow-top pi-arrow-bottom');
+							    $('html,body').animate({scrollTop : $(this).siblings('.bg-campana').offset().top},1000);
+							    
+							    $(this).siblings('.reach-campana').delay(1010).slideDown(function(){
+							    	$('.reach-campana .sub-titulo').fadeIn();
+							    });
 
-		                        $(this).siblings('.content').delay(1005).slideToggle();
-		                        $(this).siblings('.reach-campana, .reach-campana .sub-titulo').delay(1010).fadeIn();
-		                    });
-		                }else{
-		                    $('.ver-mas').on('click',function(event){
-		                        $(this).siblings('.content').slideToggle();
-		                        $(this).find('i').toggleClass('pi-arrow-top pi-arrow-bottom');
-		                        $('html,body').animate({scrollTop : $(this).siblings('.bg-campana').offset().top},1000);
-		                        
-		                        $(this).siblings('.reach-campana, .reach-campana .sub-titulo').delay(1010).fadeIn();
-		                    });
-		                }
+							    $(this).siblings('.btn_close').fadeIn();
+							    $(this).fadeOut();
+							});
+						}
 
-		                $('.content .btn_close').on('click',function(){
-		                    $(this).closest('.content').fadeOut();
-		                    $('.reach-campana, .reach-campana .sub-titulo').delay(100).fadeOut();
-		                    if(document.documentElement.clientWidth >= 1024){
-		                        $('.campanas-ipe').animate({backgroundColor:'#fff'},{duration:1000,complete:function(){
+						$('.btn_close').on('click',function(){
+							$(this).siblings('.content').slideUp();
+						    $(this).siblings('.reach-campana').delay(100).slideUp(function(){
+						    	$('.reach-campana .sub-titulo').fadeOut();
+						    });
+							if(document.documentElement.clientWidth >= 1024){
+								$('.dashboard-agencia').animate({backgroundColor:'#fff'},{duration:1000,complete:function(){
+						        
+						            $('.recientes, .cont-campana').removeAttr('style','');
+								    $('.bg-campana, .ver-mas, .sub-titulo').delay(800).fadeIn();
+						        }});
 
-		                            $('.recientes, .cont-campana').removeAttr('style','');
-		                            $('.bg-campana, .ver-mas, .sub-titulo').delay(800).fadeIn();
-		                        }});
-		                        $('.ver-mas').find('i').addClass('pi-plus');
-		                    }
-		                });
+								$('.ver-mas').find('i').addClass('pi-plus');
+							}
+							$(this).fadeOut();
+							$(this).siblings('.ver-mas').fadeIn();
+						});
 					});
 				</script>
 				<script src='https://apis.google.com/js/client.js?onload=googleApiClientReady'></script>

@@ -64,7 +64,6 @@ function muestra_datos_rrss($campana_id, $mysqli){
 	return $html_campana;
 }
 
-
 function core_metricas_redes_sociales($campana_id, $mysqli){
 	include('rrss/rrss_keys.php');
 	$metricas_campana='';

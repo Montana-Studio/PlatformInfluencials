@@ -231,6 +231,11 @@
 					<div class="content">
 						<div class="btn_close"><span><i class="pi pi-close"></i></span></div>
 						<form class="campanaForm" id="'.$row3[0].'">
+							<ul class="tools-campana">
+								<li class="informe-campana" style="border-left:none;">
+									<i class="tool-ico pi pi-user"></i><a class="tool-txt" href="informe/reporteexcel/reporte-agencias-excel.php?id='.$row3[0].'" >Informe</a>
+								</li>
+							</ul>
 							<div class="inputs-campana nombre" id="nombre-campana-'.$row3[0].'">
 								<input placeholder="'.$row3[1].'" class="nombre-input" disabled></input>
 								<i class="pi pi-pencil"></i>
@@ -239,13 +244,19 @@
 								 <input placeholder="by '.$row3[4].'" disabled></input>
 								 <i class="pi pi-pencil"></i>
 							</div>
-							<span class="campa-ico"><i class="pi pi-tool"></i>Desactivada</span>
+							<!--span class="campa-ico"><i class="pi pi-tool"></i>Desactivada</span>
 							<span class="campa-ico">
 								<i class="pi pi-calendar"></i>
 								Fecha término 
 								<input class="fecha_termino" type="text" id="datepicker" value="'.$row3[8].'">
 								<i class="fecha-edit pi pi-pencil"></i>
+							</span-->
+							<span class="campa-ico activada"><i class="pi pi-tool"></i>Finalizada</span>
+			
+							<span class="campa-ico fecha-activada">
+								<i class="pi pi-calendar"></i> Inicio <span>'.$row3[7].'</span> al <span>'.$row3[8].'</span>
 							</span>
+
 							<div class="inputs-campana descripcion" id="descripcion-campana-'.$row3[0].'">
 								<textarea placeholder="descripcion" disabled>'.$row3[2].'</textarea>
 								<i class="pi pi-pencil"></i>
@@ -256,8 +267,7 @@
 									$("div.jfilestyle").hide();
 								});
 							</script>
-							<input type="file" name="file" class="jfilestyle upload-img-campana file" data-input="false" id="file'.$row3[0].'" data-buttonText="subir archivo"/>
-							<button class="guardar-campana" type="submit" id="guardar-campana-'.$row3[0].'">Guardar Campaña</button>
+
 						</form>
 						<div class="img-compana-deskt hide">
 							<img src="'.$row3[3].'"/>
@@ -274,18 +284,6 @@
 
 ?>
 </div>
-
-	
-	<div id="contacto" class="hide">
-		<h2>Contacto</h2>
-			<input placeholder="asunto"></input>
-		<div>
-			<textarea  placeholder="descripcion" rows=10 cols=40></textarea>
-		</div>
-		<div>
-			<button>Enviar</button>
-		</div>
-	</div>
 	<?php include 'footer-agencia.php'; ?>
 </body>
 </html>
