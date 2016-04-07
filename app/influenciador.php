@@ -6,7 +6,7 @@ if(isset($_SESSION['id'])){
 	$result= mysqli_query($mysqli,$query)or die(mysqli_error());
 	$row= mysqli_fetch_array($result, MYSQLI_NUM);
 	if ($row[1] > '2'){
-		header("Location: escritorio-ipe");
+		header("Location: escritorio-influencer");
 		die();
 	}else{
 		//echo '<script>$(document).ready(function(){alert("Su tipo de usuario es Agencia")});</script>';
@@ -200,9 +200,10 @@ if(isset($_SESSION['id'])){
 					<div id="selectImage">
 						<input type="file" name="file" id="file" required>
 						<label for="file" class="btns">Sube una imágen</label>
+						<div class="alert-uploadready" style="display:none;"><i class="fa fa-cloud-upload"></i>Imagen seleccionada con exito!</div>
 						<button id="registrarse" disabled type="submit">Registrarse</button>
 					</div>
-					<div class="alert-uploadready" style="display:none;"><i class="fa fa-cloud-upload"></i>Imagen seleccionada con exito!</div>
+					
 				</form>
 				<div class="btn_close"><span><i class="pi pi-close"></i></span></div>
 			</div>
@@ -224,20 +225,22 @@ if(isset($_SESSION['id'])){
 		</div>
 		<a href="#" class="ayuda_pi">¿Necesitas ayuda?</a>
 	</main>
-
 	<div class="alertElim">
+
 		<main class="no-campana" id="boxAlert">
 			<div class="hrefCamp">
 				<h2></h2>
 				<p class="messageAlert"></p>
 			</div>
 		</main>
+
 	</div>
 
 	<script type="text/javascript" async src="js/platform_influencials.min.js"></script>
-	<script async type="text/javascript" src="js/animas.js"></script>
+	<script type="text/javascript" async src="js/animas.js"></script>
 	<script type="text/javascript" src="js/form-passes.js"></script>
 	<script type="text/javascript" src="js/linkedin-login.js"></script>
+
 
 	<script type="text/javascript" src="js/svg.min.js"></script>
 	<script async type="text/javascript" src="js/svg.easing.min.js"></script>

@@ -1,5 +1,5 @@
 <?php
-//echo 'hola';
+
 // Twitter Keys
 define('TWITTER_CONSUMER_KEY', 'RHwBcRYX2yuaXWkAPwJ6fPTqi');
 define('TWITTER_CONSUMER_SECRET', 'EMfnAuVxgv2oTzX3CHVcsRDD94PrGgzjnnCcvch77VxFI9xccP');

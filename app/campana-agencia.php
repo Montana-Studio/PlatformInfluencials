@@ -1,4 +1,5 @@
-<?php include 'header-agencia.php'; ?>
+<?php include 'header-agencia.php';
+	  include_once('./controller/procesar-mostrar-reach-campana-agencia.php'); ?>
 <?php
 	echo '<script>
 			$(document).ready(function(){
@@ -51,6 +52,16 @@
 					var campana_seleccionada=this.id;
 					var campana_seleccionada_id=this.name;
 					campana_seleccionada = campana_seleccionada.replace(/ /g,"-");
+					campana_seleccionada = campana_seleccionada.replace(/[ñ]/,"n");
+					campana_seleccionada = campana_seleccionada.replace(/[áàäâå]/, "a");
+				    campana_seleccionada = campana_seleccionada.replace(/[éèëê]/, "e");
+				    campana_seleccionada = campana_seleccionada.replace(/[íìïî]/, "i");
+				    campana_seleccionada = campana_seleccionada.replace(/[óòöô]/, "o");
+				    campana_seleccionada = campana_seleccionada.replace(/[úùüû]/, "u");
+				    campana_seleccionada = campana_seleccionada.replace(/[ýÿ]/, "y");
+				    campana_seleccionada = campana_seleccionada.replace(/[ñ]/, "n");
+				    campana_seleccionada = campana_seleccionada.replace(/[ç]/, "c");
+				    campana_seleccionada = campana_seleccionada.toLowerCase();
 					window.location.replace("influenciadores/"+campana_seleccionada+"/"+campana_seleccionada_id);
 				});
 			});
@@ -99,6 +110,9 @@
 										<li class="cotizar-campana" style="border-left:none;">
 											<i class="tool-ico pi pi-user"></i><a class="tool-txt ir_a_cotizar_influenciador" name="'.$row[0].'" id="'.$row[1].'">cotizar</a>
 										</li>
+										<li class="informe-campana" style="border-left:none;">
+											<i class="tool-ico pi pi-user"></i><a class="tool-txt" href="informe/reporteexcel/reporte-agencias-excel.php?id='.$row[0].'" >Informe</a>
+										</li>
 									</ul>
 									<div class="inputs-campana nombre nombre-campana" id="'.$row[0].'">
 										<input placeholder="'.$row[1].'" disabled />
@@ -131,9 +145,9 @@
                             </script>
                             <div id="redes_sociales_campana_'.$row[0].'" class="reach-campana">
                                 <h2 class="sub-titulo">Metricas de la campaña</h2>';
-                                //require('./controller/procesar-mostrar-reach-campana-agencia.php');
-                                //echo $_SESSION['reach-campana'];
-                                
+                                require('./controller/procesar-mostrar-reach-campana-agencia.php');
+                                echo $_SESSION['reach-campana'];
+                                echo muestra_reach_campana($row[0]);
         echo '              </div>
 					</div>
 				</div>

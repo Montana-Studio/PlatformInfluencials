@@ -34,31 +34,31 @@ function muestra_datos_rrss($campana_id, $mysqli){
 	for($i=0;$i<count($redes_sociales);$i++){
 		if($redes_sociales[$i]=='facebook'){
 			$html_campana.='<div class="data">
-						<ul>
-							<li><span>Reach</span><span>'.number_format($reach_facebook,2,".",",").'</span></li>
-						</ul>
-					</div>';
+								<ul>
+									<li><span>Reach</span><span>'.number_format($reach_facebook,2,".",",").'</span></li>
+								</ul>
+							</div>';
 		}
 		if($redes_sociales[$i]=='instagram'){
 			$html_campana.='<div class="data">
-						<ul>
-							<li><span>Reach</span><span>'.number_format($reach_instagram,2,".",",").'</span></li>
-						</ul>
-					</div>';
+								<ul>
+									<li><span>Reach</span><span>'.number_format($reach_instagram,2,".",",").'</span></li>
+								</ul>
+							</div>';
 		}
 		if($redes_sociales[$i]=='twitter'){
 			$html_campana.='<div class="data">
-						<ul>
-							<li><span>Reach</span><span>'.number_format($reach_twitter,2,".",",").'</span></li>
-						</ul>
-					</div>';
+								<ul>
+									<li><span>Reach</span><span>'.number_format($reach_twitter,2,".",",").'</span></li>
+								</ul>
+							</div>';
 		}
 		if($redes_sociales[$i]=='youtube'){
 			$html_campana.='<div class="data">
-						<ul>
-							<li><span>Reach</span><span>'.$reproducciones_youtube.'</span></li>
-						</ul>
-					</div>';
+								<ul>
+									<li><span>Reach</span><span>'.$reproducciones_youtube.'</span></li>
+								</ul>
+							</div>';
 		}
 	}
 	return $html_campana;

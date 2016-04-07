@@ -210,8 +210,6 @@ $(document).ready(function(){
         $(':checkbox:checked').each(function(i){
           val[i] = $(this).val();
         });
-
-        alert(val);
 		info.append('selected_rrss',val);
 		$.ajax({
 				type: "POST",
@@ -381,7 +379,8 @@ $(document).ready(function(){
 	//envio de formulario para envio de url a campañas desde ipe controller/procesar-mostrar-campanas-ipe.php
 	$('.enviar_url').click(function(){
 			var rrss_id = $(this).prevAll('input').attr('id');
-			var campana_id = $(this).closest(".ingresar_urls").attr('id');
+			var campana_id = $(this).prevAll('input').attr('class');
+			//var campana_id = $(this).closest(".ingresar_urls").attr('id');
 			var link = $(this).prevAll('#'+rrss_id).val();
 			var descripcion_rrss = $(this).prevAll('input').attr('name');
 			alert("rrss_id:"+rrss_id+"-campana_id:"+campana_id+"-link:"+link+"-descripcion_rrss:"+descripcion_rrss);
@@ -516,7 +515,6 @@ $(document).ready(function(){
 	          data: "id_activar_rs="+id_activar_rs+"&estado="+estado+"&tipo="+tipo,
 	          success: function(data){
 	            window.location.reload();
-	            //alert(data);
 	          }
 	        });
 	    }
@@ -531,7 +529,7 @@ $(document).ready(function(){
               url: "./rrss/procesar_activar_rs.php",
               data: "id_rrss="+id_rrss+"&tipo="+tipo,
               success: function(data){
-                alert(data);
+                alert("cuenta desvinculada");
                 window.location.reload();
               }
             });
@@ -1251,5 +1249,4 @@ function checkPasswordMatchIpe() {
 		$('#registrarse').removeAttr('disabled');
 	}
 }
-
 

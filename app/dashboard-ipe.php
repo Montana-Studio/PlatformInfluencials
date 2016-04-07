@@ -49,7 +49,7 @@
 			<nav class="nav-ipe2">
 				<ul>
 					<li class="active"> Escritorio</li>
-					<li><a href="campanas-inscritas">Campañas</a></li>
+					<!--li><a href="campanas-inscritas">Campañas</a></li-->
 				</ul>
 			</nav>
 
