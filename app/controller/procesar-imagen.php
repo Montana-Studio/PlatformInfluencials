@@ -67,21 +67,21 @@ if ($tipo == 'avatar-ipe'){
 	//$picture_url=$_SESSION['pictureUrl'];
 	if(valida_extension() == "ok"){
 		if ($a==1){ // Create directory to save the file in case of Social Login and first change on avatar image
-			if (file_exists("../uploads/ipe/registered/$rsid")){ // cambio a partir de segunda vez con RS
-				$targetPath = "../uploads/ipe/registered/$rsid/".$_FILES['file']['name']; // Target path where file is to be stored
+			if (file_exists("./uploads/ipe/registered/$rsid")){ // cambio a partir de segunda vez con RS
+				$targetPath = "./uploads/ipe/registered/$rsid/".$_FILES['file']['name']; // Target path where file is to be stored
 				unlink("../uploads/ipe/registered/$rsid/avatar.gif");
 				//move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 				compress_image($sourcePath, $targetPath, 40);
-				rename("../uploads/ipe/registered/$rsid/$file", "../uploads/ipe/registered/$rsid/avatar.gif");
+				rename("../uploads/ipe/registered/$rsid/$file", "./uploads/ipe/registered/$rsid/avatar.gif");
 				$results2 = $mysqli->query("UPDATE persona SET nombre='$nombre', correo='$correo', region='$region', comuna='$comuna', picture_url='uploads/ipe/registered/$rsid/avatar.gif' , descripcion='$descripcion' WHERE RS_id='$rsid'");
 				$resultado = "nuevo";
 			}else{
-				mkdir("../uploads/ipe/registered/$rsid", 0777, true);
-				$targetPath = "../uploads/ipe/registered/$rsid/".$_FILES['file']['name']; // Target path where file is to be stored
-				unlink("../uploads/ipe/registered/$rsid/avatar.gif");
+				mkdir("./uploads/ipe/registered/$rsid", 0777, true);
+				$targetPath = "./uploads/ipe/registered/$rsid/".$_FILES['file']['name']; // Target path where file is to be stored
+				unlink("./uploads/ipe/registered/$rsid/avatar.gif");
 				//move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 				compress_image($sourcePath, $targetPath, 40);
-				rename("../uploads/ipe/registered/$rsid/$file", "../uploads/ipe/registered/$rsid/avatar.gif");
+				rename("./uploads/ipe/registered/$rsid/$file", "./uploads/ipe/registered/$rsid/avatar.gif");
 				$results2 = $mysqli->query("UPDATE persona SET nombre='$nombre', correo='$correo',region='$region', comuna='$comuna', picture_url='uploads/ipe/registered/$rsid/avatar.gif' , descripcion='$descripcion' WHERE RS_id='$rsid'");
 				$resultado = "nuevo";
 			}
@@ -89,12 +89,12 @@ if ($tipo == 'avatar-ipe'){
 
 		if ($a==2){// Create directory to save the file in case of Form Login and first change on avatar image
 			//echo $comuna;
-			if (file_exists("../uploads/ipe/registered/$correo")){
-				$targetPath = "../uploads/ipe/registered/$correo/".$_FILES['file']['name']; // Target path where file is to be stored
-				unlink("../uploads/ipe/registered/$correo/avatar.gif");
+			if (file_exists("./uploads/ipe/registered/$correo")){
+				$targetPath = "./uploads/ipe/registered/$correo/".$_FILES['file']['name']; // Target path where file is to be stored
+				unlink("./uploads/ipe/registered/$correo/avatar.gif");
 				//move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
 				compress_image($sourcePath, $targetPath, 40);
-				rename("../uploads/ipe/registered/$correo/$file", "../uploads/ipe/registered/$correo/avatar.gif");
+				rename("./uploads/ipe/registered/$correo/$file", "./uploads/ipe/registered/$correo/avatar.gif");
 				$results2 = $mysqli->query("UPDATE persona SET nombre='$nombre', region='$region', comuna='$comuna', descripcion='$descripcion' WHERE correo='$correo'");
 				$actualizaLogin = $mysqli->query("UPDATE login SET user='$nombre' WHERE correo='$correo'");
 				//echo "UPDATE persona SET nombre='$nombre', region='$region', comuna='$comuna', picture_url='uploads/ipe/registered/$rsid/avatar.gif' , descripcion='$descripcion' WHERE correo='$correo'";
@@ -354,7 +354,7 @@ if ($tipo == 'avatar-ipe'){
 	$nuevocorreo=$_POST['nucorreo'];
 	$nuevotelefono1=$_POST['nutel1'];
 	$nuevotelefono2=$_POST['nutel2'];
-	$nuevaurl="./app/uploads/agencias/registered/$nuevocorreo/avatar.gif";
+	$nuevaurl="./uploads/agencias/registered/$nuevocorreo/avatar.gif";
 	//$ipe = $_POST['ipe'];
 
 		$query= "SELECT DISTINCT correo FROM persona WHERE correo='$nuevocorreo'";
@@ -401,7 +401,7 @@ if ($tipo == 'avatar-ipe'){
 	$nuevousuario=$_POST['nuuser'];
 	$nuevocontraseña=MD5($_POST['nupass']);
 	$nuevocorreo=$_POST['nucorreo'];
-	$nuevaurl="./app/uploads/ipe/registered/$nuevocorreo/avatar.gif";
+	$nuevaurl="./uploads/ipe/registered/$nuevocorreo/avatar.gif";
 	$ipe = $_POST['ipe'];
 
 	if ($ipe == '3'){

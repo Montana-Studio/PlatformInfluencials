@@ -77,7 +77,7 @@
 		</main>
 	<?php } 
 	if ($num_rows > 0){
-		echo '<h2 class="sub-titulo">campañas activas</h2><div class="creadas">';
+		echo '<div class="titles-cont"><h2 class="sub-titulo">campañas activas</h2></div><div class="creadas">';
 	do{
 		echo '
 		<div class="recientes">
@@ -87,8 +87,10 @@
 								<div class="edit-campana" style="display:none;float:left;clear:both;"></div>
 							</div>
 							<div class="ver-mas"><span><i class="pi pi-arrow-bottom"></i><i class="pi pi-plus"></i></span></div>
+
+							<div class="btn_close"><span><i class="pi pi-close"></i></span></div>
+							
 							<div class="content">
-								<div class="btn_close"><span><i class="pi pi-close"></i></span></div>
 								<form class="campanaForm" id="'.$row[0].'">
 									<ul class="tools-campana">
 										<li class="activar-campana" type="1" id="'.$row[0].'" >
@@ -129,8 +131,8 @@
                             </script>
                             <div id="redes_sociales_campana_'.$row[0].'" class="reach-campana">
                                 <h2 class="sub-titulo">Metricas de la campaña</h2>';
-                                require('./controller/procesar-mostrar-reach-campana-agencia.php');
-                                echo $_SESSION['reach-campana'];
+                                //require('./controller/procesar-mostrar-reach-campana-agencia.php');
+                                //echo $_SESSION['reach-campana'];
                                 
         echo '              </div>
 					</div>
@@ -140,7 +142,7 @@
 	echo '</div>';
 	}
 	if ($num_rows2 > 0){
-		echo '<h2 class="sub-titulo">campañas inactivas</h2><div class="creadas">';
+		echo '<div class="titles-cont"><h2 class="sub-titulo">campañas inactivas</h2></div><div class="creadas">';
 	do{
 		echo '
 			<div class="recientes">
@@ -148,13 +150,12 @@
 					<div class="bg-campana" style="background-image:url('.$row2[3].');">
 						<h3>'.$row2[1].'<span>by '.$row2[4].'</span></h3>
 					</div>
-					<div class="ver-mas">
-						<span>
-							<i class="pi"></i>
-						</span>
-					</div>
+					
+					<div class="ver-mas"><span><i class="pi pi-arrow-bottom"></i><i class="pi pi-plus"></i></span></div>
+
+					<div class="btn_close"><span><i class="pi pi-close"></i></span></div>
+					
 					<div class="content">
-						<div class="btn_close"><span><i class="pi pi-close"></i></span></div>
 						<form class="campanaForm" id="'.$row2[0].'">
 							<ul class="tools-campana">
 								<li class="cotizar-campana"><i class="tool-ico pi pi-user"></i><a class="tool-txt ir_a_cotizar_influenciador" name="'.$row2[0].'" id="'.$row2[1].'">cotizar</a></li>
@@ -257,23 +258,8 @@
 	}while($row3 = mysqli_fetch_row($result3));
 	echo '</div>';
 	}
-
-
-
 ?>
 </div>
-
-	
-	<div id="contacto" class="hide">
-		<h2>Contacto</h2>
-			<input placeholder="asunto"></input>
-		<div>
-			<textarea  placeholder="descripcion" rows=10 cols=40></textarea>
-		</div>
-		<div>
-			<button>Enviar</button>
-		</div>
-	</div>
 	<?php include 'footer-agencia.php'; ?>
 </body>
 </html>

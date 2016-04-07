@@ -1089,33 +1089,6 @@ function error_numero_telefonico(){
 	});
 }
 function formulario_completo(){
-	$(".alertElim").fadeIn("normal",function(){
-
-		$("#boxAlert .hrefCamp h2").text("registro completado");
-		$("#boxAlert .hrefCamp").prepend("<div id='ico-handLike'></div>");
-
-		$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp' id='clearAlert'></div>");
-
-		success();
-
-		$("#boxAlert .hrefCamp p.messageAlert").text("Registro de datos completo, nos contactaremos con usted.");
-		$("#clearAlert").text("continuar");
-
-		$("#boxAlert").show().animate({
-			top:"20%",
-			opacity:1
-		},{duration:1500,easing:"easeOutBounce"});
-
-		$("#clearAlert").on("click",function(){
-			$("#boxAlert").animate({
-				top:"-100px",
-				opacity:0
-			},{duration:500,easing:"easeInOutQuint",complete:function(){
-				$(".alertElim").fadeOut("fast");
-				window.location.href = "./controller/logout";
-			}});
-		});
-	});
 
 	$(".alertElim").fadeIn("normal",function(){
 		$("#boxAlert .hrefCamp h2").text("Gracias por registrarte en Power-Influencers");
@@ -1150,7 +1123,7 @@ function formulario_incompleto(){
 
 	$(".alertElim").fadeIn("normal",function(){
 
-		$("#boxAlert .hrefCamp h2").text("Ingrese todos los campos");
+		$("#boxAlert .hrefCamp h2").text("Faltan datos");
 		$("#boxAlert .hrefCamp").prepend("<div id='icon-warning'></div>");
 
 		$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp' id='clearAlert'></div>");

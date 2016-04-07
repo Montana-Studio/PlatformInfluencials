@@ -72,6 +72,11 @@ html{
 					text:{transform:uppercase;}
 					color:$color_grey2;
 				}
+				p{
+					font:{size:12px;weight:normal;}
+					color:$color_grey2;
+					@include span-columns(12 of 12);
+				}
 				.cont-inputs{
 					#guardar{
 						@include span-columns(12 of 12);

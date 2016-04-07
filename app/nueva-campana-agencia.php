@@ -1,13 +1,16 @@
 <?php include 'header-agencia.php'; ?>
-
-	<h2 class="sub-titulo">nueva campaña</h2>
-
+	
+	<div class="titles-cont">
+		<h2 class="sub-titulo">nueva campaña</h2>
+		<p class="bajadas-info">Cuéntanos en qué consiste tu campaña e indícanos la marca que vas a utilizar y la fecha de término. 
+	*La fecha de inicio será a partir de la activación de tu campaña. </p>
+	</div>
 	<form id="campanaForm-nueva-campana">
 
 		<div class="inputs-deskt">
             
             <h2 class="sub-titulo">Información basica</h2>
-            <p>Dinos en que consistes la campañas, indicando su nombre, marca, descripción y su fecha de terminó.</p>
+            <p>Selecciona los medios en dónde  quieres invertir, para luego hacer la elección de influenciadores que necesitarás.</p>
             
 			<div class="cont-input nombre">
 				<input placeholder="Nombre de la Campaña" id="nombre-nueva-campana" required="required">

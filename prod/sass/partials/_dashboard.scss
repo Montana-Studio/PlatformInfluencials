@@ -1,20 +1,35 @@
 .dashboard-agencia{
 	background: {image:none;} 
-	//padding:{bottom:40px;}
+	//padding:{bottom:40px;}  
+    .titles-cont{
+        @include outer-container();
+        @include pad(10px);
+        .sub-titulo{
+            @include pad(0);
+        }
+        .bajadas-info{
+            @include pad(0);
+        }
+    }
 	.sub-titulo{
 		margin:0;
-		font:{size:14px;style:italic;}
+		font:{size:em(14);style:italic;}
 		text:{transform:uppercase;}
 		color:$color_grey;
-		@include pad(10px);
 		clear:both;
 		@include media($notebookTodesktop){
 			@include outer-container;
 			color: $color_grey2;
-			font:{size:18px;weight:normal;}
+			font:{size:em(18);weight:normal;}
 			max-width:em(970);
 		}
 	}
+    .bajadas-info{
+        @include span-columns(12);
+        color: $color_grey2;
+        text:{transform:none;}
+        font:{style:normal;size:em(12);}
+    }
     .creadas{
         .recientes{
             .cont-campana{
@@ -83,6 +98,8 @@
 		display: block;
         .cont-campana{
             @include span-columns(12);
+            position: relative;
+            overflow: hidden;
 	    	.bg-campana{
                 @include span-columns(12 of 12);
                 @include pad(148px 5px 0);
@@ -143,6 +160,13 @@
                             }
                         }
                     }
+                }
+            }
+            .btn_close{
+                z-index:999;
+                @extend .hide;
+                @include media($notebookTodesktop){
+                    top:55px;
                 }
             }
             .reach-campana{
@@ -441,9 +465,6 @@
                         }
                     }
                 }
-			    .btn_close{
-                    visibility:hidden;
-                }
 			    //MEDIA QUERIES
 		    	@include media($notebookTodesktop){
                     width:100%;
@@ -451,10 +472,10 @@
                     position: relative;
                     background:{color: #fff;}
                     z-index: 9;
-                    top:50px;
                     overflow: hidden;
-                    padding:{bottom:10px;}
+                    padding:{bottom:10px;top:10px;}
                     float:none;
+                    top:50px;
                     .img-compana-deskt{
                         @include span-columns(6 of 12);
                         display: block;
@@ -464,7 +485,6 @@
                         }
                     }
                     .campana-data{
-                        padding-top:20px;
                         @include span-columns(6);
                     }
                     .btn_close{

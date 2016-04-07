@@ -9,6 +9,7 @@
 		echo '<div id="loadBox" style="display:none;">
 		<div id="campanas-postulables">
 			<h2 class="sub-titulo">Selecciona una campaña</h2>
+			<p class="bajadas-info">En el listado siguiente de campañas activas, podrás seleccionar al influenciador que quieres cotizar.</p>
 				<select id="campana_seleccionada">
 					<option selected="selected" id="'.$_GET["id_campana"].'" disabled>'.$_GET["campana"].'</option>
 				</select>
@@ -21,7 +22,10 @@
 			//mostrar campañas
 		echo '<div id="loadBox" style="display:none;">
 				<div id="campanas-postulables">
-					<h2 class="sub-titulo">Selecciona una campaña para cotizar</h2>
+					<div class="titles-cont">
+						<h2 class="sub-titulo">Selecciona una campaña para cotizar</h2>
+						<p class="bajadas-info">En el listado siguiente de campañas activas, podrás seleccionar al influenciador que quieres cotizar.</p>
+					</div>	
 					<select id="campana_seleccionada">
 					<option id="0">Cotizar sin campaña</option>';
 		if ($num_rows2 > 0){
@@ -37,7 +41,10 @@
 	//mostrar influenciadores
 	if ($num_rows > 0){
 		//echo  $_GET['campana'].$_GET['id'];
-		echo '<h2 class="sub-titulo">Influenciadores</h2>
+		echo '<div class="titles-cont">
+			<h2 class="sub-titulo">Influenciadores</h2>
+		<p class="bajadas-info">En la siguiente  lista podrás cotizar al  influenciador  (puede ser más de uno)  que te ayudará a potenciar tu campaña.</p>
+				</div>
 				<div class="influenciadores">';
 		do{
 			echo '<form id="'.$row[0].'"class="contactarForm" name="'.$row[5].'">
@@ -49,7 +56,7 @@
 							<use xlink:href="#SVGID_1_"  overflow="visible"/>
 						</clipPath>
 						<g clip-path="url(#SVGID_2_)">
-							<image overflow="visible" width="1280" height="720" xlink:href="';?><?php if(strpos($row[12],"graph")){ echo $row[12];}else{echo "../../".$row[12];}?><?php echo '" transform="matrix(0.2013 0 0 0.2013 -58.333 -5.7085)"></image>
+							<image overflow="visible" width="1280" height="720" xlink:href="';?><?php if(strpos($row[12],"graph")){ echo $row[12];}else{echo "../".$row[12];}?><?php echo '" transform="matrix(0.2013 0 0 0.2013 -58.333 -5.7085)"></image>
 						</g>
 					</svg>
 					<div class="info-influ">

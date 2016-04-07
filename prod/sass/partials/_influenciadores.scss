@@ -21,8 +21,9 @@
 	}
 	#cotizar_influenciador{
 		@extend .btns;
+		@include span-columns(10);
 		background:{color: $color_font2;}
-		margin:0 auto;
+		margin:0 auto !important;
 		float: none;
 		&::before{
 			font:{family:'FontAwesome';}
@@ -32,7 +33,7 @@
 		@include media($notebookTodesktop){
 			//@include outer-container();
 			max-width:em(500);
-			margin:{top:20px;}
+			margin:{top:20px !important;}
 		}
 	}
 	#campanas-postulables{
@@ -69,6 +70,7 @@
 	}
 	.influenciadores{
 		@include pad();
+		clear: both;
 		.contactarForm{
 			@include span-columns(12);
 			border:{bottom:1px solid $color_grey;}

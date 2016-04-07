@@ -755,7 +755,7 @@ if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
 
 	<div class="misdatos">
 	
-		<div class="imagen" style="background-image:url(<?php if(strpos($_SESSION['pictureUrl'],"graph")||strpos($_SESSION['pictureUrl'],"media.licdn.com")){ echo $_SESSION['pictureUrl'];}else{echo "../../".$_SESSION['pictureUrl'];}?>);">
+		<div class="imagen" style="background-image:url(<?php if(strpos($_SESSION['pictureUrl'],"graph")||strpos($_SESSION['pictureUrl'],"media.licdn.com")){ echo $_SESSION['pictureUrl'];}else{echo "../".$_SESSION['pictureUrl'];}?>);">
 
 			<input type="file" name="file" id="file" class="hide"/>
 			<label class="selectFile" for="file"><i class="pi pi-pencil"></i></label>
