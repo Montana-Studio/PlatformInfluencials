@@ -145,9 +145,7 @@
                             </script>
                             <div id="redes_sociales_campana_'.$row[0].'" class="reach-campana">
                                 <h2 class="sub-titulo">Metricas de la campaña</h2>';
-                                require('./controller/procesar-mostrar-reach-campana-agencia.php');
-                                echo $_SESSION['reach-campana'];
-                                echo muestra_reach_campana($row[0]);
+                                echo muestra_reach_campana($row[0]);	
         echo '              </div>
 					</div>
 				</div>
