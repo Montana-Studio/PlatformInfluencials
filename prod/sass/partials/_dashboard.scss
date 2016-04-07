@@ -4,6 +4,7 @@
     .titles-cont{
         @include outer-container();
         @include pad(10px);
+        clear:both;
         .sub-titulo{
             @include pad(0);
         }
