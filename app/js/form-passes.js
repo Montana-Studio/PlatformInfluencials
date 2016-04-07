@@ -1,5 +1,5 @@
 
-$(document).ready(function(){
+jQuery(document).ready(function($){
 	 
 	//INICIO SCRIPTS
 	var info;
@@ -405,25 +405,7 @@ $(document).ready(function(){
 				}
 		//})
 	});
-/*
-		$('#enviar_url').click(function(){
-		if(descripcion_rrss='googleplus'){
-			var resultado;
-			$('.rrss input').each(function(){
-			var rrss_id = $(this).attr('id');
-			var campana_id = $(this).closest(".ingresar_urls").attr("id");
-			var url = $(this).val();
-			var descripcion_rrss=$(this).closest(".rrss").attr("name");
-				if(url.indexOf(rrss_id)>0){
-					enviar_url_verificada(rrss_id,campana_id,url,descripcion_rrss);
 
-				}else{
-					alert('la url no corresponde');
-				}
-			})
-		}			
-	});
-*/
 	//boton para activación de campana campana-agencia.php
 	$(".activar-campana").click(function (){
 		var idActualizar = this.id;
@@ -449,8 +431,7 @@ $(document).ready(function(){
 			$("#boxAlert .hrefCamp h2").text("Estas a punto de eliminar la campaña");
 			$("#boxAlert .hrefCamp").prepend("<div id='ico-trash'></div>");
 
-			$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp siElim'></div>");
-			$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp noElim'></div>");
+			$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp siElim'></div><div class='btn_crearcamp noElim'></div>");
 
 			deleteElem();
 
@@ -520,6 +501,7 @@ $(document).ready(function(){
 	    }
 
 	 });
+	
 	//eliminar red social en controller/procesar-mostrar-followers-ipe.php
     $(".elimina").click(function(){
        var id_rrss = $(this).attr("name");
@@ -555,67 +537,23 @@ $(document).ready(function(){
 		$("#"+id_form+" .volver_ver_perfil_influenciador").hide();
 	});
 
-	/*
-	$('#ingresar').on('click', function(){
-		var usu= $('#usu').val();
-		var pass= $('#pass').val();
-		var url='./controller/procesar-login.php';
-		var total = usu.length*pass.length;
-		if (total>0){
-			$.ajax({
-			type: 'POST',
-			url: url,
-			data: 'usu='+usu+'&pass='+pass,
-
-			
-			 success:function(valor){
-				if(valor == 'usuario'){
-					$('#mensaje').html('La contraseña o usuario ingresados no existe');
-					$('#username-antiguo').focus();
-					return false;
-				}else if (valor == 'password'){
-					$('#mensaje').html('La contraseña o usuario ingresados no existe');
-					$('#contraseña-antiguo').focus();
-					return false;
-				}else if(valor == 'activo'){
-				$('#mensaje').html('Usuario inactivo');
-				$('#username-antiguo').focus();
-
-				}else {
-				//redireccionar según idTipo de usuario
-				$('#mensaje').html('paso por todas las validaciones');
-				}
-			 },
-			 
-			 error: function(xhr, textStatus, error){
-			 }
-			
-
-			});
-			}else{
-			$('#mensaje').html('Complete todos los campos');
-			}
-
-		})*/
-
-
-
 });
 
 //INICIO FUNCTIONS
 /* Inicialización en español para la extensión 'UI date picker' para jQuery. */
 /* Traducido por Vester (xvester@gmail.com). */
-( function( factory ) {
-	if ( typeof define === "function" && define.amd ) {
+( function( factory )
+	{
+		if ( typeof define === "function" && define.amd ) {
 
-		// AMD. Register as an anonymous module.
-		define( [ "../widgets/datepicker" ], factory );
-	} else {
+			// AMD. Register as an anonymous module.
+			define( [ "../widgets/datepicker" ], factory );
+		} else {
 
-		// Browser globals
-		factory( jQuery.datepicker );
-	}
-}( function( datepicker ) {
+			// Browser globals
+			factory( jQuery.datepicker );
+		}
+	}( function( datepicker ) {
 		datepicker.regional.es = {
 			closeText: "Cerrar",
 			prevText: "&#x3C;Ant",
@@ -648,15 +586,22 @@ $(function() {
 	$( "#datepicker" ).datepicker({dateFormat: "dd MM yy", firstDay:1, minDate: tomorrow,dayNamesMin:["dom","lun","mar","mie","jue","vie","sab"]});
 });
 
+
 /*********************************************************************************************************
 ****************************************Mensajes según formularios****************************************
 /*********************************************************************************************************/
 function inscripcion_influenciador(data){
 	switch (data){
 		case "nuevo":$(".alertElim").fadeIn("normal",function(){
-						$("#boxAlert .hrefCamp h2").text("Gracias por registrarte en Power-Influencers");
+						$("#boxAlert .hrefCamp h2").text("Gracias por registrarte en Power Influencer");
 						$("#boxAlert .hrefCamp").prepend("<div id='icon-pi-animado'></div>");
 
+						//FOLLOW's
+						var faceBook = '<div class="fb-like" data-href="https://facebook.com/powerinfluencer" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>',
+							tWtter = "<a href='https://twitter.com/p_influencercl' class='twitter-follow-button' data-show-count='false' data-dnt='true'>Follow @p_influencercl</a>";
+						
+						$("#boxAlert .hrefCamp").append(faceBook+tWtter);
+						
 						$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp' id='clearAlert'></div>");
 
 						powerinfluencer();
