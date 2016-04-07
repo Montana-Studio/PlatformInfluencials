@@ -1,6 +1,0 @@
-[08-Feb-2016 19:39:06 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/powerinfluencer/public_html/app/controller/database/backup.php on line 60
-[08-Feb-2016 19:39:44 UTC] PHP Warning:  mysql_connect(): Access denied for user 'powerinf_user'@'localhost' (using password: NO) in /home/powerinfluencer/public_html/app/controller/database/backup.php on line 9
-[08-Feb-2016 19:39:44 UTC] PHP Warning:  mysql_select_db() expects parameter 2 to be resource, boolean given in /home/powerinfluencer/public_html/app/controller/database/backup.php on line 10
-[08-Feb-2016 19:39:44 UTC] PHP Warning:  mysql_query(): Access denied for user 'root'@'localhost' (using password: NO) in /home/powerinfluencer/public_html/app/controller/database/backup.php on line 16
-[08-Feb-2016 19:39:44 UTC] PHP Warning:  mysql_query(): A link to the server could not be established in /home/powerinfluencer/public_html/app/controller/database/backup.php on line 16
-[08-Feb-2016 19:39:44 UTC] PHP Warning:  mysql_fetch_row() expects parameter 1 to be resource, boolean given in /home/powerinfluencer/public_html/app/controller/database/backup.php on line 17

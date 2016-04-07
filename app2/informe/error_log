@@ -1,3 +1,0 @@
-[23-Mar-2016 19:35:10 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/powerinfluencer/public_html/app/informe/dompdf/include/dompdf.cls.php(443) : eval()'d code on line 361
-[23-Mar-2016 19:42:34 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/powerinfluencer/public_html/app/informe/dompdf/include/dompdf.cls.php(443) : eval()'d code on line 348
-[23-Mar-2016 20:23:51 UTC] PHP Parse error:  syntax error, unexpected 'return' (T_RETURN) in /home/powerinfluencer/public_html/app/informe/dompdf/include/dompdf.cls.php(443) : eval()'d code on line 329
