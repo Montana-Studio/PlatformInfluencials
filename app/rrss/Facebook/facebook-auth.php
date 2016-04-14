@@ -52,7 +52,7 @@
 				});
 			});
 		};
-	}; 	
+	};
 
 	var facebookLogin= function (){
 
@@ -124,6 +124,20 @@
 			});
 	}
 
+	function giveLikeFacebook(){
+		call_facebook_api();
+		FB.api(
+		    "/1074329775959309/likes",
+		    "POST",
+		    function (response) {
+		      if (response && !response.error) {
+		        /* handle the result */
+		      }
+		    }
+		);	
+	}
+
+
 	var getFacebookPages = function(){
 			FB.api(
 			    "/me/accounts", { locale: 'en_US', fields: 'name' },
@@ -131,52 +145,44 @@
 			        for(var i=0; i<=response.data.length-1;i++){
 			        	if(i==response.data.length-1){
 			        		var facebook_page_id = response.data[i].id;
-
-			        		facebookUser=response.name;
-			        	   $.ajax({
-					            type: "POST",
-					            url: "./rrss/facebook/procesar-facebook.php",
-					            data: "faceuser="+facebookUser+"&facebook_page_id="+facebook_page_id,
-					            success: function(data){
-					            	//var data = <?php $_SESSION['data'];?>
-									inscripcion_facebook();
-								}
-							});
+			        		facebookUser=response.data[i].name;
+			        		if(facebookUser.length>0){
+			        			$.ajax({
+						            type: "POST",
+						            url: "./rrss/facebook/procesar-facebook.php",
+						            data: "faceuser="+facebookUser+"&facebook_page_id="+facebook_page_id,
+						            success: function(data){
+						            	//alert(facebookUser);
+										<?php //inscripcion_facebook();?>
+									}
+								});	
+			        		}
+			        	  
 			        	}else{
-			        		var facebook_page_id = response.data[i].id;
-			        	   $.ajax({
-					            type: "POST",
-					            url: "./rrss/facebook/procesar-facebook.php",
-					            data: "facebook_page_id="+facebook_page_id,
-					            success: function(data){
-					            	//var data = <?php $_SESSION['data'];?>
-					            	inscripcion_facebook();
-								}
-							});
+			        		facebookUser=response.data[i].name;
+			        		if(facebookUser.length>0){
+			        		    var facebook_page_id = response.data[i].id;
+				        	    $.ajax({
+						            type: "POST",
+						            url: "./rrss/facebook/procesar-facebook.php",
+						            data: "facebook_page_id="+facebook_page_id,
+						            success: function(data){
+						            	//alert(facebookUser);
+						            	<?php //inscripcion_facebook();?>
+									}
+								});
+			        		}
+			        	
 			        	}
 			        }
+
 			    }
 			);
 	}
-
 
 	function checkAuthFacebookPages(){
 		call_facebook_api();
 		facebookPages();
 	}
-
-	/*var getFacebookInsigths(){
-		FB.api(
-		    "/296448387178344/insights/page_impressionss",
-		    {
-		        "period": "month"
-		    },
-		    function (response) {
-		      if (response && !response.error) {
-		        alert(response);
-		      }
-	    	}
-	    );
-	}*/
 
 </script>
