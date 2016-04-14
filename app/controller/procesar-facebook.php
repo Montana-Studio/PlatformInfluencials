@@ -5,10 +5,10 @@ require('../controller/conexion.php');
  //$empresa = $_POST['empresa'];
 
 
-	 if($_POST['tipo'] == 0){
-	echo $_POST['facebookPageName'];
+	if($_POST['tipo'] == 0){
+		echo $_POST['facebookPageName'];
 	}
-	 else{
+	else{
 		$username =$_POST['faceuser'];
 		$correo =$_POST['facecorreo'];
 		$faceId=$_POST['faceUserId'];
@@ -53,9 +53,11 @@ require('../controller/conexion.php');
 		$result_mensaje_personal= mysqli_query($mysqli,$mensaje_query)or die(mysqli_error());
 		$row_mensaje_personal= mysqli_fetch_array($result_mensaje_personal, MYSQLI_NUM);
 
-
-
-		if ($tipo == '2' ){//Agencia
+		if($tipo!=$row5[1]&&$tipo=='2'){
+			echo 'influenciador';
+		}else if($tipo!=$row5[1]&&$tipo>2){
+			echo 'agencia';
+		}else if ($tipo == '2' ){//Agencia
 			if($num_row>0){
 				// en caso que ingrese con facebook y este registrado
 				$_SESSION['id']=$row[0];
@@ -100,11 +102,8 @@ require('../controller/conexion.php');
 				$_SESSION['id_tipo']=$row[1];
 				echo 'primera';
 			}
-		}
-		if ($tipo>'2'){
+		}else if ($tipo>'2'){
 			if($num_row5>0){
-
-
 				if($num_row>0){
 						// en caso que ingrese con facebook y este registrado
 						$_SESSION['id']=$row[0];
@@ -164,7 +163,6 @@ require('../controller/conexion.php');
 		unset($faceId);
 		unset($pictureUrl);
 		unset($mysqli);
-
 	}
 		
 	

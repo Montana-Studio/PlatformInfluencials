@@ -139,45 +139,46 @@
 
 
 	var getFacebookPages = function(){
-			FB.api(
-			    "/me/accounts", { locale: 'en_US', fields: 'name' },
-			    function (response) {
-			        for(var i=0; i<=response.data.length-1;i++){
-			        	if(i==response.data.length-1){
-			        		var facebook_page_id = response.data[i].id;
-			        		facebookUser=response.data[i].name;
-			        		if(facebookUser.length>0){
-			        			$.ajax({
-						            type: "POST",
-						            url: "./rrss/facebook/procesar-facebook.php",
-						            data: "faceuser="+facebookUser+"&facebook_page_id="+facebook_page_id,
-						            success: function(data){
-						            	//alert(facebookUser);
-										<?php //inscripcion_facebook();?>
-									}
-								});	
-			        		}
-			        	  
-			        	}else{
-			        		facebookUser=response.data[i].name;
-			        		if(facebookUser.length>0){
-			        		    var facebook_page_id = response.data[i].id;
-				        	    $.ajax({
-						            type: "POST",
-						            url: "./rrss/facebook/procesar-facebook.php",
-						            data: "facebook_page_id="+facebook_page_id,
-						            success: function(data){
-						            	//alert(facebookUser);
-						            	<?php //inscripcion_facebook();?>
-									}
-								});
-			        		}
-			        	
-			        	}
-			        }
+		FB.api(
+		    "/me/accounts", { locale: 'en_US', fields: 'name' },
+		    function (response) {
+		        for(var i=0; i<=response.data.length-1;i++){
+		        	if(i==response.data.length-1){
+		        		var facebook_page_id = response.data[i].id;
+		        		facebookUser=response.data[i].name;
+		        		if(facebookUser.length>0){
+		        			$.ajax({
+					            type: "POST",
+					            url: "./rrss/facebook/procesar-facebook.php",
+					            data: "faceuser="+facebookUser+"&facebook_page_id="+facebook_page_id,
+					            success: function(data){
+					            	<?php //inscripcion_facebook();?>
+					            	//alert(facebookUser);
+									alert('Sus páginas han sido agregadas al perfil');
+									location.reload();
+								}
+							});	
+		        		}
 
-			    }
-			);
+		        	  
+		        	}else{
+		        		facebookUser=response.data[i].name;
+		        		if(facebookUser.length>0){
+		        		    var facebook_page_id = response.data[i].id;
+			        	    $.ajax({
+					            type: "POST",
+					            url: "./rrss/facebook/procesar-facebook.php",
+					            data: "facebook_page_id="+facebook_page_id,
+					            success: function(data){
+					            	//alert(facebookUser);
+					            	
+								}
+							});
+		        		}
+			        }
+		        }
+		    }
+		);
 	}
 
 	function checkAuthFacebookPages(){

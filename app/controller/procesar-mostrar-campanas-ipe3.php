@@ -18,7 +18,7 @@ function html_input($rrss_name,$red_social,$rrss_id, $campana_id){
 function html_reach($reach_total, $rrss_name){
     $html_reach .=' <div class="rrss" name="'.$rrss_name.'" >
                         <i class="pi pi-'.$rrss_name.'"></i>
-                        <p>Reach '.$reach_total.'</p>
+                        <p>Alcance Social '.$reach_total.'</p>
                     </div>';
     return $html_reach;
 }
@@ -110,10 +110,10 @@ function core_instagram($red_social, $rrss_id, $campana_id, $persona_id, $token,
                     $reach_total_instagram +=$reach_instagram;                  
                     ingresa_registros($rrss_id, $persona_id, $campana_id, $rrss_name, $rrss_img, $cuenta_likes_instagram, $cuenta_comments_instagram, $facebook_history_shares, $followers_instagram, $retweet, $favorites, $reproducciones, number_format($reach_instagram,3), $url, $mysqli);
                 }while($row_url_instagram = mysqli_fetch_row($result_url_instagram));
-                $campanas_activas_urls_ingresadas = '   <div class="rrss" name="instagram" >
+                /*$campanas_activas_urls_ingresadas = '   <div class="rrss" name="instagram" >
                                                             <i class="pi pi-instagram"></i>
-                                                            <p>Reach '.number_format($reach_total_instagram,2,".",",").'</p>
-                                                        </div>';
+                                                            <p>Alcance Social '.number_format($reach_total_instagram,2,".",",").'</p>
+                                                        </div>';*/
             
         }
             $campanas_activas .= html_input($rrss_name,$red_social,$rrss_id,$campana_id);
@@ -190,10 +190,10 @@ function core_twitter($red_social, $rrss_id, $campana_id, $persona_id, $mysqli){
                 ingresa_registros($rrss_id, $persona_id, $campana_id, $rrss_name, $rrss_img, $cuenta_likes_instagram, $cuenta_comments_instagram, $facebook_history_shares, $followers_instagram, $cuenta_retweet_twitter, $cuenta_favorite_twitter, $reproducciones, number_format($reach_twitter,3), $url, $mysqli);
 
             }while($row_url_twitter = mysqli_fetch_row($result_url_twitter));
-            $campanas_activas_urls_ingresadas = '   <div class="rrss" name="twitter" >
+            /*$campanas_activas_urls_ingresadas = '   <div class="rrss" name="twitter" >
                                                         <i class="pi pi-twitter"></i>
-                                                        <p>'.number_format($reach_total_twitter,2,".",",").'</p>
-                                                    </div>'; 
+                                                        <p>Alcance Social'.number_format($reach_total_twitter,2,".",",").'</p>
+                                                    </div>'; */
 
     }  
             $campanas_activas .= html_input($rrss_name,$red_social,$rrss_id,$campana_id);
@@ -224,10 +224,10 @@ function core_youtube($red_social, $rrss_id, $campana_id, $persona_id, $mysqli){
                     $reproducciones_total +=$reproducciones;
                     ingresa_registros($rrss_id, $persona_id, $campana_id, $rrss_name, $rrss_img, $cuenta_likes_instagram, $cuenta_comments_instagram, $facebook_history_shares, $followers_instagram, $cuenta_retweet_twitter, $cuenta_favorite_twitter, $reproducciones, number_format($reach_twitter,3), $url, $mysqli);
                 }while($row_url_youtube = mysqli_fetch_row($result_url_youtube));
-                $campanas_activas_urls_ingresadas = '   <div class="rrss" name="youtube" >
+                /*$campanas_activas_urls_ingresadas = '   <div class="rrss" name="youtube" >
                                                             <i class="pi pi-youtube"></i>
-                                                            <p>'.$reproducciones_total.'</p>
-                                                        </div>'; 
+                                                            <p>Reproducciones '.$reproducciones_total.'</p>
+                                                        </div>'; */
         }   
         $campanas_activas .= html_input($rrss_name,$red_social,$rrss_id,$campana_id);
         return array($reproducciones_total,$campanas_activas);

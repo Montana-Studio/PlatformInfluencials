@@ -522,7 +522,7 @@
 	if(basename($_SERVER['PHP_SELF'])=='influenciador-publico-agencia.php'){?>
 		<header>
 
-			<div class="logo"><a href="./escritorio-agencia" target="_top"></a></div>
+			<div class="logo"><a href="../../escritorio-agencia" target="_top"></a></div>
 			<div class="menu" style="background-image:url(<?php if(strpos($_SESSION['pictureUrl'],"graph")||strpos($_SESSION['pictureUrl'],"media.licdn.com")){ echo $_SESSION['pictureUrl'];}else{echo "../../".$_SESSION['pictureUrl'];}?>);"></div>
 			
 			<a href="#" class="notes" ><i class="pi pi-bell"></i></a>
@@ -741,7 +741,7 @@
 ?>
 <header>
 
-	<div class="logo"><a href="./escritorio-agencia" target="_top"></a></div>
+	<div class="logo"><a href="../../escritorio-agencia" target="_top"></a></div>
 	<div class="menu" style="background-image:url(<?php if(strpos($_SESSION['pictureUrl'],"graph")||strpos($_SESSION['pictureUrl'],"media.licdn.com")){ echo $_SESSION['pictureUrl'];}else{echo "../../".$_SESSION['pictureUrl'];}?>);"></div>
 	
 	<!--a href="#" class="notes" ><i class="pi pi-bell"></i></a-->

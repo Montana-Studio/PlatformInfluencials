@@ -1,6 +1,7 @@
 
 jQuery(document).ready(function($){
 	 
+
 	//INICIO SCRIPTS
 	var info;
 
@@ -11,18 +12,25 @@ jQuery(document).ready(function($){
 	$('#ingresar').click(function(){
 		var correo=$('#correo').val();
 		var password=$('#password').val();
+		var e = document.getElementById("perfil");
+		var perfil = e.options[e.selectedIndex].value;
 		$.ajax({
 			type: "POST",
 			url: "./controller/procesar-login.php",
-			data: "correo="+correo+"&pwd="+password,
+			data: "perfil="+perfil+"&correo="+correo+"&pwd="+password,
 
 			success: function(data){
+				console.log(data);
 					switch (data){
 					case "admin": window.location.href= "./dashboard-admin";
 					break;
-					case "agencia": window.location.href = "./escritorio-agencia";
+					case "inicio-agencia": window.location.href = "./escritorio-agencia";
 					break;
-					case "ipe": window.location.href = "./escritorio-influencer";
+					case "agencia": agencia();
+					break;
+					case "influenciador": influenciador();
+					break;
+					case "inicio-influencer": window.location.href = "./escritorio-influencer";
 					break;
 					case "inactivo":$('#alertRegistrado').slideDown();document.getElementById('alertRegistrado').innerHTML ="usuario inactivo";
 					break;
@@ -31,6 +39,7 @@ jQuery(document).ready(function($){
 					case "vacio":$('#alertRegistrado').slideDown();document.getElementById('alertRegistrado').innerHTML ="falta ingresar datos";
 					break;
 				}
+
 			}
 		});
 	});
@@ -192,11 +201,28 @@ jQuery(document).ready(function($){
 	//verificación de subida de imagen de perfil en formulario en agencia.php
 	$('#file').click(function(){
 		foto=1;
+		$('button:submit').css('color','#999');
+		$('button:submit').attr('disabled',true);
 		$("input:file").change(function (){
-			$('.alert-uploadready').slideDown();
+			//$('.alert-uploadready').slideDown();
+			$('button:submit').css('color','white');
+			$('button:submit').attr('disabled',false);
      	});
 	});
 
+	
+
+	$('#jfilestyle-0').click(function(){
+		foto=1;
+		$('button:submit').css('color','#999');
+		$('button:submit').attr('disabled',true);
+		$("input:file").change(function (){
+			//$('.alert-uploadready').slideDown();
+			$('button:submit').css('color','white');
+			$('button:submit').attr('disabled',false);
+     	});
+	});
+	
 	//formulario de ingreso de nueva campaña nueva-campana-agencia.php
 	$('#campanaForm-nueva-campana').on('submit',(function (e){
 		e.preventDefault;
@@ -405,7 +431,25 @@ jQuery(document).ready(function($){
 				}
 		//})
 	});
+/*
+		$('#enviar_url').click(function(){
+		if(descripcion_rrss='googleplus'){
+			var resultado;
+			$('.rrss input').each(function(){
+			var rrss_id = $(this).attr('id');
+			var campana_id = $(this).closest(".ingresar_urls").attr("id");
+			var url = $(this).val();
+			var descripcion_rrss=$(this).closest(".rrss").attr("name");
+				if(url.indexOf(rrss_id)>0){
+					enviar_url_verificada(rrss_id,campana_id,url,descripcion_rrss);
 
+				}else{
+					alert('la url no corresponde');
+				}
+			})
+		}			
+	});
+*/
 	//boton para activación de campana campana-agencia.php
 	$(".activar-campana").click(function (){
 		var idActualizar = this.id;
@@ -430,13 +474,12 @@ jQuery(document).ready(function($){
 		$(".alertElim").fadeIn("normal",function(){
 			$("#boxAlert .hrefCamp h2").text("Estas a punto de eliminar la campaña");
 			$("#boxAlert .hrefCamp").prepend("<div id='ico-trash'></div>");
-
-			$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp siElim'></div><div class='btn_crearcamp noElim'></div>");
+			$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp siElim'></div>");
+			$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp noElim'></div>");
 
 			deleteElem();
 
 			$("#boxAlert .hrefCamp p").text("Si eliminas tu campaña, pederas tus datos sin posibilidad de recuperarlos.");
-
 			$(".siElim").text("eliminar campaña");
 			$(".noElim").text("volver");
 
@@ -501,7 +544,6 @@ jQuery(document).ready(function($){
 	    }
 
 	 });
-	
 	//eliminar red social en controller/procesar-mostrar-followers-ipe.php
     $(".elimina").click(function(){
        var id_rrss = $(this).attr("name");
@@ -537,23 +579,67 @@ jQuery(document).ready(function($){
 		$("#"+id_form+" .volver_ver_perfil_influenciador").hide();
 	});
 
+	/*
+	$('#ingresar').on('click', function(){
+		var usu= $('#usu').val();
+		var pass= $('#pass').val();
+		var url='./controller/procesar-login.php';
+		var total = usu.length*pass.length;
+		if (total>0){
+			$.ajax({
+			type: 'POST',
+			url: url,
+			data: 'usu='+usu+'&pass='+pass,
+
+			
+			 success:function(valor){
+				if(valor == 'usuario'){
+					$('#mensaje').html('La contraseña o usuario ingresados no existe');
+					$('#username-antiguo').focus();
+					return false;
+				}else if (valor == 'password'){
+					$('#mensaje').html('La contraseña o usuario ingresados no existe');
+					$('#contraseña-antiguo').focus();
+					return false;
+				}else if(valor == 'activo'){
+				$('#mensaje').html('Usuario inactivo');
+				$('#username-antiguo').focus();
+
+				}else {
+				//redireccionar según idTipo de usuario
+				$('#mensaje').html('paso por todas las validaciones');
+				}
+			 },
+			 
+			 error: function(xhr, textStatus, error){
+			 }
+			
+
+			});
+			}else{
+			$('#mensaje').html('Complete todos los campos');
+			}
+
+		})*/
+
+
+
 });
 
 //INICIO FUNCTIONS
 /* Inicialización en español para la extensión 'UI date picker' para jQuery. */
 /* Traducido por Vester (xvester@gmail.com). */
-( function( factory )
-	{
-		if ( typeof define === "function" && define.amd ) {
+( function( factory ) {
+	if ( typeof define === "function" && define.amd ) {
 
-			// AMD. Register as an anonymous module.
-			define( [ "../widgets/datepicker" ], factory );
-		} else {
+		// AMD. Register as an anonymous module.
+		define( [ "../widgets/datepicker" ], factory );
+	} else {
 
-			// Browser globals
-			factory( jQuery.datepicker );
-		}
-	}( function( datepicker ) {
+		// Browser globals
+		factory( jQuery.datepicker );
+	}
+}( function( datepicker ) {
 		datepicker.regional.es = {
 			closeText: "Cerrar",
 			prevText: "&#x3C;Ant",
@@ -586,10 +672,13 @@ $(function() {
 	$( "#datepicker" ).datepicker({dateFormat: "dd MM yy", firstDay:1, minDate: tomorrow,dayNamesMin:["dom","lun","mar","mie","jue","vie","sab"]});
 });
 
-
 /*********************************************************************************************************
 ****************************************Mensajes según formularios****************************************
 /*********************************************************************************************************/
+
+
+
+
 function inscripcion_influenciador(data){
 	switch (data){
 		case "nuevo":$(".alertElim").fadeIn("normal",function(){
@@ -633,7 +722,6 @@ function inscripcion_influenciador(data){
 						$("#boxAlert .hrefCamp").prepend("<div id='icon-warning'></div>");
 						
 						$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp' id='clearAlert'></div>");
-
 						$('#clearAlert').text('continuar');
 
 						warning();
@@ -664,9 +752,7 @@ function inscripcion_influenciador(data){
 
 							$("#boxAlert .hrefCamp h2").text("algo anda mal");
 							$("#boxAlert .hrefCamp").prepend("<div id='icon-warning'></div>");
-							
 							$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp' id='clearAlert'></div>");
-
 							$('#clearAlert').text('continuar');
 
 							warning();
@@ -697,6 +783,8 @@ function datos_actualizados(){
 		$("#boxAlert .hrefCamp h2").text("datos actualizados");
 		$("#boxAlert .hrefCamp i").addClass("fa-thumbs-o-up");
 		$("#boxAlert .hrefCamp p.messageAlert").text("Tus datos se han actualizado, la pagina se actualizara para reflejar los cambios.");
+		$("#boxAlert .hrefCamp").append("<div id='clearAlert'></div>");
+		$("#clearAlert").text("Aceptar");
 
 		$("#boxAlert").show().animate({
 			top:"20%",
@@ -712,6 +800,7 @@ function datos_actualizados(){
 				window.location.reload();
 			}});
 		});
+
 	});
 }
 function imagen_cambiada(){
@@ -1031,12 +1120,21 @@ function error_numero_telefonico(){
 		});
 	});
 }
-function formulario_completo(){
+function start_facebook(){
+	(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = '//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5';
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));	
+}
 
+function formulario_completo(){
 	$(".alertElim").fadeIn("normal",function(){
 		$("#boxAlert .hrefCamp h2").text("Gracias por registrarte en Power-Influencers");
 		$("#boxAlert .hrefCamp").prepend("<div id='icon-pi-animado'></div>");
-
+		//$("#boxAlert .hrefCamp").prepend('<div class="fb-like" data-href="https://www.facebook.com/powerinfluencer" data-layout="standard" data-action="like" data-show-faces="true" data-share="true">FB</div>');
 		$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp' id='clearAlert'></div>");
 
 		powerinfluencer();
@@ -1056,8 +1154,7 @@ function formulario_completo(){
 				opacity:0
 			},{duration:500,easing:"easeInOutQuint",complete:function(){
 				$(".alertElim").fadeOut("fast");
-				window.location.href = "./controller/logout";
-				window.location.reload();
+				window.location.href = "../app/controller/logout.php";
 			}});
 		});
 	});
@@ -1094,38 +1191,7 @@ function formulario_incompleto(){
 		});
 	});
 }
-function error_numero_telefonico(){
 
-	$(".alertElim").fadeIn("normal",function(){
-
-		$("#boxAlert .hrefCamp h2").text("algo anda mal");
-		$("#boxAlert .hrefCamp").prepend("<div id='icon-warning'></div>");
-
-		$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp' id='clearAlert'></div>");
-
-		warning();
-
-		$("#boxAlert .hrefCamp p.messageAlert").text("Debes ingresar al menos 8 digitos como número telefonico.");
-		$("#clearAlert").text("continuar");
-
-		$("#boxAlert").show().animate({
-			top:"20%",
-			opacity:1
-		},{duration:1500,easing:"easeOutBounce"});
-
-		$("#clearAlert").on("click",function(){
-			$("#boxAlert").animate({
-				top:"-100px",
-				opacity:0
-			},{duration:500,easing:"easeInOutQuint",complete:function(){
-				$(".alertElim").fadeOut("fast");
-				$("#icon-warning, #clearAlert").remove();
-				$("#boxAlert .hrefCamp h2, #boxAlert .hrefCamp p.messageAlert").empty();
-				$(this).hide();
-			}});
-		});
-	});
-}
 function termina_formulario(data){
 	switch (data){
 		case "actualizado": formulario_completo();

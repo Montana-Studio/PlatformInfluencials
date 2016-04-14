@@ -5,6 +5,7 @@ include('../rrss/rrss_keys.php');
 $fb = new Facebook\Facebook([
   'app_id' => FACEBOOK_APP_ID,
   'app_secret' => FACEBOOK_CONSUMER_KEY,
+  'redirect_uri'=> FACEBOOK_REDIRECT_URI,
   ]);
 echo var_dump($fb);
 $helper = $fb->getCanvasHelper();

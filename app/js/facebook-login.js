@@ -1,10 +1,11 @@
 
-function agencia_ya_registrada(){
+function agencia_ya_registrada_facebook(){
 	$(".alertElim").fadeIn("normal",function(){
 			$("#boxAlert .hrefCamp h2").text("ya se encuentra registrado");
 			$("#boxAlert .hrefCamp i").addClass("fa-warning");
 			$("#boxAlert .hrefCamp p.messageAlert").text("Su perfil ya fue ingresado como agencia, lo contactaremos proximamente");
-
+			$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp siElim'></div>");
+			$('.siElim').text('OK');
 			$("#boxAlert").show().animate({
 				top:"20%",
 				opacity:1
@@ -21,14 +22,108 @@ function agencia_ya_registrada(){
 					window.location.reload();
 				}});
 			});
+			$(".siElim").on("click",function(){
+				window.location.href='./inicio-agencia';
+			});
 	});
 }
-function influenciador_ya_registrado(){
+function agencia(){
+	$(".alertElim").fadeIn("normal",function(){
+			$("#boxAlert .hrefCamp h2").text("ya se encuentra registrado");
+			$("#boxAlert .hrefCamp i").addClass("fa-warning");
+			$("#boxAlert .hrefCamp p.messageAlert").text("Su perfil ya fue ingresado como agencia");
+			$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp siElim'></div>");
+			$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp noElim'></div>");
+			$('.siElim').text('ir a agencia');
+			$('.noElim').text('permanecer formulario');
+			$("#boxAlert").show().animate({
+				top:"20%",
+				opacity:1
+			},{duration:1500,easing:"easeOutBounce"});
+
+			
+				
+			
+			$(".siElim").on("click",function(){
+				window.location.href='./inicio-agencia';
+			});
+			$(".noElim").on("click",function(){
+				$("#boxAlert").animate({
+					top:"-100px",
+					opacity:0
+				},{duration:500,easing:"easeInOutQuint",complete:function(){
+					$(".alertElim").fadeOut("fast");
+					$("#boxAlert .hrefCamp i").removeClass("fa-warning");
+					$("#boxAlert .hrefCamp .siElim").remove();
+					$("#boxAlert .hrefCamp .noElim").remove();
+					$(this).hide();
+					$("#antiguo form .btn_close").click();
+					$("#inicio #registrar").click();
+					$(".form_ingreso #correo").val("");
+					$(".form_ingreso #password").val("");
+
+				}});
+			});
+	});
+}
+function influenciador(){
+	$(".alertElim").fadeIn("normal",function(){
+			$("#boxAlert .hrefCamp h2").text("ya se encuentra registrado");
+			$("#boxAlert .hrefCamp i").addClass("fa-warning");
+			$("#boxAlert .hrefCamp p.messageAlert").text("Su perfil ya fue ingresado como influenciador");
+			$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp siElim'></div>");
+			$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp noElim'></div>");
+			$('.siElim').text('ir a influenciador');
+			$('.noElim').text('permanecer formulario');
+			$("#boxAlert").show().animate({
+				top:"20%",
+				opacity:1
+			},{duration:1500,easing:"easeOutBounce"});
+
+			$("#clearAlert").on("click",function(){
+				$("#boxAlert").animate({
+					top:"-100px",
+					opacity:0
+				},{duration:500,easing:"easeInOutQuint",complete:function(){
+					$(".alertElim").fadeOut("fast");
+					$("#boxAlert .hrefCamp i").removeClass("fa-warning");
+					$(this).hide();
+					$("#antiguo form .btn_close").click();
+				}});
+			});
+
+			$(".siElim").on("click",function(){
+				window.location.href='./inicio-influencer';
+			});
+
+			$(".noElim").on("click",function(){
+				$("#boxAlert").animate({
+					top:"-100px",
+					opacity:0
+				},{duration:500,easing:"easeInOutQuint",complete:function(){
+					$(".alertElim").fadeOut("fast");
+					$("#boxAlert .hrefCamp i").removeClass("fa-warning");
+					$("#boxAlert .hrefCamp .siElim").remove();
+					$("#boxAlert .hrefCamp .noElim").remove();
+					$(this).hide();
+					$("#antiguo form .btn_close").click();
+					$("#inicio #registrar").click();
+					$(".form_ingreso #correo").val("");
+					$(".form_ingreso #password").val("");
+
+
+				}});
+			});
+	});
+}
+
+function influenciador_ya_registrado_facebook(){
 	$(".alertElim").fadeIn("normal",function(){
 			$("#boxAlert .hrefCamp h2").text("ya se encuentra registrado");
 			$("#boxAlert .hrefCamp i").addClass("fa-warning");
 			$("#boxAlert .hrefCamp p.messageAlert").text("Su perfil ya fue ingresado como influenciador, lo contactaremos proximamente");
-
+			$("#boxAlert .hrefCamp").append("<div class='btn_crearcamp siElim'></div>");
+			$('.siElim').text('OK');
 			$("#boxAlert").show().animate({
 				top:"20%",
 				opacity:1
@@ -232,7 +327,7 @@ $(document).ready(function(){
 		FB.api('/me',{ locale: 'en_US', fields: 'name, email' } 
 		,function (response){
 		id= response.id;
-		facebookUser=response.name;;
+		facebookUser=response.name;
 		facebookCorreo=response.email;
 		var e = document.getElementById("perfil");
 		var empresa = $('#empresa input').val();
@@ -242,7 +337,8 @@ $(document).ready(function(){
 		            url: "./controller/procesar-facebook.php",  
 		            data: "faceuser="+facebookUser+"&facecorreo="+facebookCorreo+"&faceUserId="+id+"&tipo="+perfil+"&empresa="+empresa,  
 					
-		            success: function(data){ 
+		            success: function(data){
+		            console.log(data); 
 						switch (data){
 							case "dashboard": window.location.href="escritorio-agencia";
 							break;
@@ -260,12 +356,21 @@ $(document).ready(function(){
 							break;
 							case "existe-agencia": //alert('ya se encuentra registrado como agencia, lo contactaremos');
 										   //window.location.href='./controller/logout.php';
-										   agencia_ya_registrada();
+										   agencia_ya_registrada_facebook();
 							break;
 							case "existe-influenciador": //alert('ya se encuentra registrado como influenciador, lo contactaremos');
 										   //window.location.href='./controller/logout.php';
-										   influenciador_ya_registrado();
+										   influenciador_ya_registrado_facebook();
 							break;
+							case "agencia": //alert('ya se encuentra registrado como agencia, lo contactaremos');
+										   //window.location.href='./controller/logout.php';
+										   agencia();
+							break;
+							case "influenciador": //alert('ya se encuentra registrado como agencia, lo contactaremos');
+										   //window.location.href='./controller/logout.php';
+										   influenciador();
+							break;
+
 						}
 					}
 

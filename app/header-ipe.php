@@ -2,7 +2,10 @@
 	require('./controller/conexion.php');
 
 	if(isset($_SESSION['nombre'])==false){
-		header('Location:index.php');
+		header('Location:./');
+		die();
+	}else if($_SESSION['id_tipo']=='2'){
+		header('Location: escritorio-agencia');
 		die();
 	}
 
@@ -133,42 +136,52 @@
 	}
 	
 	function inscripcion_facebook(){
-		echo ' if(data == "exito"){/*
-				$(".alertElim").fadeIn("normal",function(){
-					$("#boxElim .hrefCamp h2").text("Red Social agregada");
-					$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
-					$("#boxElim .hrefCamp p").text("Las páginas asociadas a esta cuenta han sido agregadas");
-					$(".siElim").text("Ir a perfil");
-					$(".noElim").text("Continuar en Redes Sociales");
+		echo '
+		if(data == "existe"){
+					$(".alertElim").fadeIn("normal",function(){
+						$("#boxElim .hrefCamp h2").text("Red Social agregada");
+						$("#boxElim .hrefCamp i").addClass("fa-thumbs-o-up");
+						$("#boxElim .hrefCamp p").text("Las páginas asociadas a esta cuenta han sido agregadas");
+						$("#boxAlert .hrefCamp").append("<div></div>");
+						$("#boxAlert .hrefCamp div:first-child").addClass("btn_crearcamp noElim"); 
+						$("#boxAlert .hrefCamp").append("<div></div>");
+						$("#boxAlert .hrefCamp div:first-child").addClass("btn_crearcamp noElim"); 
+						$(".siElim").text("Ir a perfil");
+						$(".noElim").text("Continuar en Redes Sociales");
 
-					$("#boxElim").show().animate({
-						top:"20%",
-						opacity:1
-					},{duration:1500,easing:"easeOutBounce"});
+						$("#boxElim").show().animate({
+							top:"20%",
+							opacity:1
+						},{duration:1500,easing:"easeOutBounce"});
 
-					$(".siElim").on("click",function(){
+						$(".siElim").on("click",function(){
 
-						window.location.assign("http://powerinfluencer.com/app/escritorio-influencer.php#fragment-1");
-						window.location.reload();
-						
-					});
-
-					$(".noElim").on("click",function(){
-						$("#boxElim").animate({
-							top:"-100px",
-							opacity:0
-						},{duration:500,easing:"easeInOutQuint",complete:function(){
-							$(".alertElim").fadeOut("fast");
-							$(this).hide();
-							window.location.href = "http://powerinfluencer.com/app/escritorio-influencer.php#fragment-2";
+							window.location.href="./escritorio-influencer.php#fragment-1";
+							window.location.reload();
 							
-						}});
+						});
+
+						$(".noElim").on("click",function(){
+							$("#boxElim").animate({
+								top:"-100px",
+								opacity:0
+							},{duration:500,easing:"easeInOutQuint",complete:function(){
+								$(".alertElim").fadeOut("fast");
+								$(this).hide();
+								window.location.href = "./escritorio-influencer.php#fragment-2";
+								//window.location.reload();
+								
+							}});
+						});
 					});
-				});*/
-				alert("red social agregada exitosamente");
+				//location.reload();
+				/*
+				alert("registro exitoso de redes");
 				location.reload();
-            }';
+				*/
+            }else{';
             inscripcion_error();
+            echo '}';
 
 	}
 	function inscripcion_twitter(){

@@ -179,17 +179,15 @@
 						<textarea placeholder="... descríbete en 140 caracteres"><?php echo substr($_SESSION['descripcion'],0,140) ?></textarea>
 						<i class="pi pi-pencil"></i>
 					</div>
-                    
 					<button id="guardarFacturacion" class="btns" type="submit">Guardar</button>
-					
 					<input type="file" name="file" id="file" class="input-file">
-					<div class="alert-uploadready" style="display:none;"><i class="fa fa-cloud-upload"></i>Imagen seleccionada con exito!</div>
+					<div class="alert-uploadready" style="display:none;">Imagen seleccionada con exito!</div>
 					<label for="file" class="change-img">Subir imagen</label>
 					
 
 				</div>
 				<div id="fragment-2" class="tabpage">
-					<?php include_once('./controller/procesar-mostrar-cuentas-ipe.php');?>
+					<?php include_once('./controller/procesar-mostrar-cuentas-ipe2.php');?>
 				</div>
 			</div>
 		</div>
