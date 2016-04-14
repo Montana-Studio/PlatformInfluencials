@@ -57,7 +57,7 @@
 					</div>
 				</h2>';
 		}else{
-			echo '<div class="total_reach"><span><h2>Alcance social actual</h2><small>Alcance total de tus redes sociales</small></span><div class="total-number">'.formato_numeros_reachs($suma).'</div>';
+			echo '<div class="total_reach"><span><h2>Alcance social actual</h2><small>Alcance total de tus redes sociales</small></span><div class="total-number">'.formato_numeros_reachs($suma).'</div></div>';
 		}
 	?>
 	
