@@ -1,3 +1,4 @@
+<?php require("../controller/master_key.php") ;?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -9,7 +10,7 @@
 	<body>
 	<?php
 	
-    $mysqli = mysqli_connect("localhost","powerinf_user","uho$}~1(1;nn","powerinf_luencers") or die("Error " . mysqli_error($link)); 
+    $mysqli = mysqli_connect(LOCAL,USER,PASS,BD) or die("Error " . mysqli_error($link)); 
 	$mysqli->set_charset('utf8_bin');
 	if (mysqli_connect_errno()) {
     	printf("La conexión con el servidor de base de datos falló: %s\n", mysqli_connect_error());

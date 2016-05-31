@@ -22,7 +22,7 @@ require('../controller/conexion.php');
 	else{
 		$results2 = $mysqli->query("UPDATE persona SET nombre='$nombre', comuna='$comuna', region='$region' , descripcion='$descripcion' WHERE correo='$correo'");
 		$results2 = $mysqli->query("UPDATE login SET user='$nombre' WHERE correo='$correo'");
-		$_SESSION['nombre']= $nombre;a;
+		$_SESSION['nombre']= $nombre;
 		$_SESSION['correo']=$correo;
 		$_SESSION['descripcion']=$descripcion;
 		$_SESSION['comuna']=$comuna;

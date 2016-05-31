@@ -74,6 +74,102 @@
 
 		</main>
 
+		<!--main class="form_agencias">
+
+
+			<div id="inicio">
+				<div id="acceder" class="btns_accesos">ingresar</div>
+				<div id="registrar" class="btns_accesos">registrarse</div>
+
+				<div class="volverTipo btns_accesos">cancelar</div>
+			</div>
+
+			<div id="nuevo">
+				<h2>registra tus datos</h2>
+
+				<form id="agenciaform" class="registerForm">
+
+					<div>
+						<select id="perfil">
+						<option value="" disabled selected>selecciona tu perfil </option>
+						<option value="3">influenciador</option>
+						<option value="4">publisher</option>
+						<option value="5">editor</option>
+						</select>
+					</div>
+
+					<div id="facebook-nuevo" class="fb_btn" value="registrarse con Facebook">
+						<i class="fa fa-facebook"></i>registrarse con Facebook
+					</div>
+					<div id="linkedin-nuevo" class="lk_btn">
+						<i class="fa fa-linkedin"></i>registrarse con Linkedin
+					</div>
+
+					<p>o rellena el formulario</p>
+
+					<input placeholder="Nombre" name="username-nuevo" class="usernamenuevo" required>
+
+					<input type="email" placeholder="Correo electrónico" class="correonuevo" required>
+
+					<input placeholder="Empresa" name="empresa-nuevo" class="empresanuevo" required>
+
+					<input type="password" onChange="checkPasswordMatch()" placeholder="Contraseña" id="contraseñanuevo" class="contraseñanuevo" required>
+					<input type="password" onChange="checkPasswordMatch()" placeholder="Repetir Contraseña" id="ver-password" required>
+
+					<div id="divCheckPasswordMatch" class="pass-no-equals"><i class="fa fa-times"></i> Las contraseñas no coinciden</div>
+
+					<input class="telefonos telefono1nuevo" placeholder="Tel. Empresa" onkeypress="return valida(event)" name="telefono1-nuevo" id="telefono1nuevo" maxlength="11" required>
+					<input class="telefonos telefono2nuevo" placeholder="Tel. Personal" onkeypress="return valida(event)" name="telefono2-nuevo" id="telefono2nuevo" maxlength="11" required>
+
+					<div id="selectImage">
+
+						<input type="file" name="file" id="file" required>
+						<label for="file" class="btns" required>Sube una imágen</label>
+
+						<button id="registrarse"  type="submit">Registrarse</button>
+
+					</div>
+
+
+				</form>
+
+				<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
+			</div>
+
+			<div id="antiguo">
+
+				<h2>Ingresa con tus datos</h2>
+
+				<form class="form_ingreso">
+
+					<div id="facebook-antiguo" class="fb_btn" value="ingresar con Facebook">
+						<i class="fa fa-facebook"></i>ingresar con Facebook
+					</div>
+					<div id="linkedin-antiguo" class="lk_btn">
+						<i class="fa fa-linkedin"></i>ingresar con Linkedin
+					</div>
+
+					<p>o ingresa con tu correo</p>
+
+					<input placeholder="Correo" name="correo" id="correo"/>
+					<input type="password" placeholder="Contraseña" id="password" />
+
+					<div id="ingresar">ingresar</div>
+
+					<div id="alertRegistrado"></div>
+
+				</form>
+
+				<a href="#">¿No recuerdas tu contraseña?</a>
+
+				<div class="btn_close"><span><i class="fa fa-times-circle-o"></i></span></div>
+
+			</div>
+
+			<button id="volver">volver</button>
+
+		</main-->
+
 
 		<a href="#" class="ayuda_pi">¿Necesitas ayuda?</a>
 
@@ -83,9 +179,12 @@
 
 		<main class="no-campana" id="boxAlert">
 			<div class="hrefCamp">
-
+				<i class="fa"></i>
 				<h2></h2>
 				<p class="messageAlert"></p>
+				<div class="btn_crearcamp" id="clearAlert">
+					continuar
+				</div>
 			</div>
 		</main>
 

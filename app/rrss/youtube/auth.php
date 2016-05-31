@@ -62,8 +62,7 @@ function getUserChannel() {
           url: "rrss/youtube/procesar_youtube.php",
           data: "youtubeId="+channelId,
           success: function(data){
-            //var data = <?php $_SESSION['data'];?>
-            inscripcion_youtube();
+              <?php inscripcion_youtube();?>
             }
         });
 

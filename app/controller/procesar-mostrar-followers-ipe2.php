@@ -21,7 +21,7 @@ function html_facebook($mysqli, $persona_id, $red_social){
 	          $estado_descripcion="activar";
 	        }else{
 	          $estado= 1;
-	          $alcance_facebook+=$row_datos_core[5];
+	          $alcance_facebook+=$row_datos_core[8];
 	          $estado_descripcion="desactivar";
 	        }
 
@@ -30,7 +30,7 @@ function html_facebook($mysqli, $persona_id, $red_social){
 					            <h3>".$row_datos_core[2]."</h3>
 					            <ul>
 					            <li><img src='".$row_datos_core[3]."'/></li>
-					            <li>Likes <br/><span>".formato_numeros_reachs($row_datos_core[5])."</span></li>
+					            <li>Fans <br/><span>".formato_numeros_reachs($row_datos_core[8])."</span></li>
 					            <li>Engagement <br/><span>".$row_datos_core[12]."</span></li>
 					              <span class='txt-desactivar'>eliminar</span>
 							      <span class='txt-".$estado_descripcion."'>".$estado_descripcion."</span>

@@ -79,7 +79,7 @@
 		</script>
 
 		<main class="no-campana">
-			<a href="../../crear-campana" class="hrefCamp">
+			<a href="crear-campana" class="hrefCamp">
 				<div id="noCamp"></div>
 				<h2>sin campañas para mostrar</h2>
 				<p>Para empezar a administrar tus campañas, primero debes crear una nueva, creala aquí.</p>

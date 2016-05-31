@@ -127,7 +127,7 @@
             url: "./rrss/analytics/procesar_listado_analytics.php",
             data: "id_paginas_analytics="+profile+"&paginas_analytics="+profile_name+"&tipo="+tipo+"&pageviews_desktop="+pageviews_desktop+"&sessions_desktop="+sessions_desktop+"&sessionDuration_desktop="+sessionDuration_desktop+"&pageviewsPerSession_desktop="+pageviewsPerSession_desktop+"&uniquePageviews_desktop="+uniquePageviews_desktop+"&avgTimeOnPage_desktop="+avgTimeOnPage_desktop+"&sessionsPerUser_desktop="+sessionsPerUser_desktop+"&pageviews_mobile="+pageviews_mobile+"&sessions_mobile="+sessions_mobile+"&sessionDuration_mobile="+sessionDuration_mobile+"&pageviewsPerSession_mobile="+pageviewsPerSession_mobile+"&uniquePageviews_mobile="+uniquePageviews_mobile+"&avgTimeOnPage_mobile="+avgTimeOnPage_mobile+"&sessionsPerUser_mobile="+sessionsPerUser_mobile+"&pageviews_tablet="+pageviews_tablet+"&sessions_tablet="+sessions_tablet+"&sessionDuration_tablet="+sessionDuration_tablet+"&pageviewsPerSession_tablet="+pageviewsPerSession_tablet+"&uniquePageviews_tablet="+uniquePageviews_tablet+"&avgTimeOnPage_tablet="+avgTimeOnPage_tablet+"&sessionsPerUser_tablet="+sessionsPerUser_tablet,
               success: function(data){ 
-                inscripcion_analytics();
+                <?php inscripcion_analytics();?>
               }
 
         });

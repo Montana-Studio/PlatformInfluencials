@@ -16,4 +16,7 @@ define('GOOGLE_CONSUMER_KEY', 'AIzaSyDefhBSBf7RcNDGwtnSB-54avPDLXeW1EU');
 //Facebook Keys
 define('FACEBOOK_CONSUMER_KEY', 'd2a271bae27da31e11e8824903d4824a');
 define('FACEBOOK_APP_ID', '932994110103491');
+define('FACEBOOK_REDIRECT_URI', 'http://www.powerinfluencer.com/app/');
+
+
 ?>

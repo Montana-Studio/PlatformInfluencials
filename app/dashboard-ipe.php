@@ -1,7 +1,9 @@
 <?php include 'header-ipe.php'; ?>
 	<form id='imagenform-ipe' style="display:none;">
 
+		<?php /*
 		<!--div class="header-ipe" style="background-image:url(<?php echo $_SESSION['pictureUrl'];?>);"-->
+		*/?>
 		<div class="header-ipe">
 
 			<svg viewBox="0 0 140.341 133.52" class="mask-imguser">
@@ -46,12 +48,14 @@
 			
 			<p class="bio"><?php echo $_SESSION['descripcion']; ?></p>
 
+			<?php /*
 			<nav class="nav-ipe2">
 				<ul>
 					<li class="active"> Escritorio</li>
-					<!--li><a href="campanas-inscritas">Campañas</a></li-->
+					<?php //<!--li><a href="campanas-inscritas">Campañas</a></li--> ?>
 				</ul>
 			</nav>
+			*/?>
 
 		</div>
 

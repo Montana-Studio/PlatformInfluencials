@@ -46,7 +46,7 @@ function handleAuthResult(authResult) {
             url: "rrss/googleplus/procesar_googleplus.php",
             data: "googlePlusId="+id, //"&youtubeName="+channelName+"&youtubeSubscribers="+channelSubscribers+"&youtubeImgUrl="+channelImg,
             success: function(data){
-                //inscripcion_googleplus();
+                <?php inscripcion_googleplus();?>
             }
         });
       })

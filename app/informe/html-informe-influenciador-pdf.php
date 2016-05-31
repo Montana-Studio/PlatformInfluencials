@@ -188,6 +188,7 @@ echo "
 
 	<!--body>
 	</html-->
+<?php require("../controller/master_key.php"); ?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -199,7 +200,7 @@ echo "
 	<body>
 	<?php
 	
-    $mysqli = mysqli_connect("localhost","powerinf_user","uho$}~1(1;nn","powerinf_luencers") or die("Error " . mysqli_error($link)); 
+    $mysqli = mysqli_connect(LOCAL,USER,PASS,BD) or die("Error " . mysqli_error($link)); 
 	$mysqli->set_charset('utf8_bin');
 	if (mysqli_connect_errno()) {
     	printf("La conexión con el servidor de base de datos falló: %s\n", mysqli_connect_error());
@@ -315,7 +316,7 @@ echo "
 		$rrss=explode(',', $redes_sociales);
 
 		
-		while($row_urls=mysqli_fetch_array($result_urls)){
+		do{
 			$query_rrss="SELECT * FROM  `campanarrss` WHERE rrss_id='".$row_urls[2]."' AND url='".$row_urls[3]."'";
 			$result_rrss=mysqli_query($mysqli,$query_rrss)or die (mysqli_error());
 			$row_rrss= mysqli_fetch_array($result_rrss, MYSQLI_BOTH);
@@ -383,7 +384,7 @@ echo "
 				}
 			}
 
-		}
+		}while($row_urls=mysqli_fetch_array($result_urls));
 
 		if($html_facebook==''){
 			$fb_title='';

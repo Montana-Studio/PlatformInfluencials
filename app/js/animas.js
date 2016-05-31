@@ -1349,7 +1349,7 @@ function analyticsAdd(){
 			.animate(1000, '>', 13000)
 			.attr({opacity:'0'})
 
-	}
+	}	
 	analyticsanimation();
 	setInterval(function(){
 		analyticsanimation();
@@ -1542,7 +1542,7 @@ function youtubeAdd(){
 }
 
 function googleplusAdd(){
-	var googleplusPI = SVG('icon-googleplus-pi').viewbox(0, 0,240, 240).addClass('socialNetwork-iconPI')
+	var googleplusPI = SVG('icon-googleplus-pi').size(160,160).viewbox(0, 0,240, 240).addClass('socialNetwork-iconPI')
 	var set = googleplusPI.set()
 
 	var group = googleplusPI.group()
@@ -1703,8 +1703,8 @@ function googleplusAdd(){
 		.scale(8.5,8.5)
 		.fill('#02b995')
 
-	sombrasGooglePi
-		.translate(59,120)
+		sombrasGooglePi
+			.translate(59,120)
 		.scale(8.5,8.5)
 		.fill('#079b7e')
 

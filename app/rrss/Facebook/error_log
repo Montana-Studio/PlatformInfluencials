@@ -10,3 +10,56 @@
 [28-Jan-2016 19:12:16 UTC] PHP Fatal error:  require(): Failed opening required '../../conexion.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 2
 [28-Jan-2016 19:15:21 UTC] PHP Warning:  require(../../conexion.php): failed to open stream: No such file or directory in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 2
 [28-Jan-2016 19:15:21 UTC] PHP Fatal error:  require(): Failed opening required '../../conexion.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 2
+[07-Apr-2016 21:32:09 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[07-Apr-2016 21:32:10 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[07-Apr-2016 21:32:11 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[07-Apr-2016 21:32:11 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[07-Apr-2016 21:32:12 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[07-Apr-2016 21:32:13 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[07-Apr-2016 21:32:14 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[07-Apr-2016 21:32:14 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[07-Apr-2016 21:33:24 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[07-Apr-2016 21:33:25 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[07-Apr-2016 21:33:26 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[07-Apr-2016 21:33:27 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[07-Apr-2016 21:33:27 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[07-Apr-2016 21:33:28 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[07-Apr-2016 21:33:29 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[07-Apr-2016 21:33:30 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[07-Apr-2016 21:33:30 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[07-Apr-2016 21:33:31 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[07-Apr-2016 21:38:02 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[08-Apr-2016 14:07:29 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[08-Apr-2016 14:11:29 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[08-Apr-2016 14:57:52 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[08-Apr-2016 14:57:53 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[08-Apr-2016 14:57:53 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[08-Apr-2016 14:57:54 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[08-Apr-2016 14:57:55 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[08-Apr-2016 14:57:56 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[08-Apr-2016 14:57:56 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[08-Apr-2016 14:57:57 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[08-Apr-2016 15:02:53 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[08-Apr-2016 15:02:54 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[08-Apr-2016 15:02:54 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[08-Apr-2016 15:02:55 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[08-Apr-2016 15:02:55 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[08-Apr-2016 15:02:55 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[08-Apr-2016 15:02:56 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[08-Apr-2016 15:02:56 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[08-Apr-2016 15:02:56 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/procesar-facebook.php on line 14
+[11-Apr-2016 13:47:19 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/powerinfluencer/public_html/app/rrss/facebook/comodin.php on line 51
+[11-Apr-2016 13:47:58 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/powerinfluencer/public_html/app/rrss/facebook/comodin.php on line 51
+[11-Apr-2016 13:48:01 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/powerinfluencer/public_html/app/rrss/facebook/comodin.php on line 51
+[11-Apr-2016 13:48:02 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/powerinfluencer/public_html/app/rrss/facebook/comodin.php on line 51
+[11-Apr-2016 13:49:06 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/powerinfluencer/public_html/app/rrss/facebook/comodin.php on line 51
+[11-Apr-2016 13:49:13 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/powerinfluencer/public_html/app/rrss/facebook/comodin.php on line 51
+[11-Apr-2016 13:49:51 UTC] PHP Warning:  Unterminated comment starting line 11 in /home/powerinfluencer/public_html/app/rrss/facebook/comodin.php on line 11
+[11-Apr-2016 13:51:14 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/powerinfluencer/public_html/app/rrss/facebook/comodin.php on line 54
+[11-Apr-2016 13:56:12 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/powerinfluencer/public_html/app/rrss/facebook/comodin.php on line 51
+[11-Apr-2016 13:57:04 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/powerinfluencer/public_html/app/rrss/facebook/comodin.php on line 54
+[11-Apr-2016 13:58:14 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/comodin.php on line 52
+[11-Apr-2016 13:58:39 UTC] PHP Warning:  mysqli_error() expects exactly 1 parameter, 0 given in /home/powerinfluencer/public_html/app/rrss/facebook/comodin.php on line 54
+[11-Apr-2016 14:20:29 UTC] PHP Fatal error:  Call to a member function api() on null in /home/powerinfluencer/public_html/app/rrss/facebook/comodin.php on line 65
+[11-Apr-2016 14:24:21 UTC] PHP Warning:  file_get_contents(https://graph.facebook.com/oauth/access_token?client_id=APP_ID&amp;client_secret=APP_SECRET&amp;grant_type=client_credentials): failed to open stream: HTTP request failed! HTTP/1.1 400 Bad Request
+ in /home/powerinfluencer/public_html/app/rrss/facebook/comodin.php on line 67

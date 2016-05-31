@@ -1,4 +1,4 @@
- 	<script async type="text/javascript">
+	<script async type="text/javascript">
 		var accessToken = null; //the access token is required to make any endpoint calls, http://instagram.com/developer/endpoints/
 		var authenticateInstagram = function(instagramClientId, instagramRedirectUri, callback) {
 			//the pop-up window size, change if you want
@@ -41,7 +41,8 @@
             url: "rrss/instagram/procesar_instagram.php",
             data: "instagramId="+instagramId+"&accessToken="+accessToken,
             success: function(data){
-            	inscripcion_instagram();
+            	alert(data);
+            	<?php inscripcion_instagram();?>
 			}
 			});
 		}

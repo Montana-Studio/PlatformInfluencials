@@ -57,7 +57,7 @@
 					</div>
 				</h2>';
 		}else{
-			echo '<div class="total_reach"><span><h2>Alcance social actual</h2><small>Alcance total de tus redes sociales</small></span><div class="total-number">'.formato_numeros_reachs($suma).'</div></div>';
+			echo '<div class="total_reach"><span><h2>Alcance social </h2><small>Alcance total de tus redes sociales</small></span><div class="total-number">'.formato_numeros_reachs($suma).'</div></div>';
 		}
 	?>
 	
@@ -77,8 +77,16 @@
 		
 		<?php
 			if($num_row_facebook>0){
-				 
-				echo '<div class="reach-total">alcance social<span>'.formato_numeros_reachs($reach_facebook).'</span></div>';
+				$query_likes_facebook="SELECT DISTINCT core.followers FROM rrss as red, core_redes_sociales as core WHERE red.persona_id='".$_SESSION['id']."' AND red.rrss_id = core.rrss_id and descripcion_rrss='facebook' and id_estado='1'";
+				$result_likes_facebook=mysqli_query($mysqli,$query_likes_facebook)or die (mysqli_error());
+				$likes_facebook=0;
+				do{
+					$row_likes_facebook= mysqli_fetch_array($result_likes_facebook, MYSQLI_BOTH);
+					$likes_facebook += $row_likes_facebook[0];
+
+				}while($row_likes_instagram = mysqli_fetch_array($result_likes_facebook));
+
+				echo '<div class="reach-total">alcance social <span>'.formato_numeros_reachs($likes_facebook).'</span></div>';
 				echo $html_facebook;
 			}	
 		?>
@@ -89,7 +97,7 @@
 	<div class="rs-inscription">
 		<?php
 			if($num_row_instagram>0){
-				echo '<div class="reach-total">alcance social<span>'.formato_numeros_reachs($reach_instagram).'</span></div>';
+				echo '<div class="reach-total">alcance social <span>'.formato_numeros_reachs($reach_instagram).'</span></div>';
 				echo $html_instagram;
 				
 	  		}
@@ -102,7 +110,7 @@
 		
 		<?php
 			if($num_row_twitter>0){
-				echo '<div class="reach-total">alcance social<span>'.formato_numeros_reachs($reach_twitter).'</span></div>';
+				echo '<div class="reach-total">alcance social <span>'.formato_numeros_reachs($reach_twitter).'</span></div>';
 				echo $html_twitter;
 			}
 		?>

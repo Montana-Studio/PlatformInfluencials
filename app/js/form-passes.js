@@ -20,7 +20,6 @@ jQuery(document).ready(function($){
 			data: "perfil="+perfil+"&correo="+correo+"&pwd="+password,
 
 			success: function(data){
-				console.log(data);
 					switch (data){
 					case "admin": window.location.href= "./dashboard-admin";
 					break;
@@ -201,11 +200,11 @@ jQuery(document).ready(function($){
 	//verificación de subida de imagen de perfil en formulario en agencia.php
 	$('#file').click(function(){
 		foto=1;
-		$('button:submit').css('color','#999');
+		$('#selectImage label[for="file"]').css('color','#999');
 		$('button:submit').attr('disabled',true);
 		$("input:file").change(function (){
 			//$('.alert-uploadready').slideDown();
-			$('button:submit').css('color','white');
+			$('#selectImage label[for="file"]').text('Imagen lista').css({'background-color':'#18bb9b','color':'white'});
 			$('button:submit').attr('disabled',false);
      	});
 	});
@@ -516,34 +515,19 @@ jQuery(document).ready(function($){
 	
 	//activación y desactivación de red social en controller/procesar-mostrar-followers-ipe.php
 	$(".estado_rs").click(function(){
-	    if(this.value == "analytics"){
-	        var id_activar_rs = this.id;
-	        var tipo = "activar_rs2";
-	        var estado =parseInt(this.name);
-	        $.ajax({
-	          type: "POST",
-	          url: "./rrss/procesar_activar_rs.php",
-	          data: "id_activar_rs="+id_activar_rs+"&estado="+estado+"&tipo="+tipo,
-	          success: function(data){
-	            window.location.reload("escritorio-influencer.php#fragment-2");
-	          }
-	        });
-
-	    }else{
-	        var id_activar_rs = this.id;
-	        var tipo = "activar_rs";
-	        var estado =parseInt(this.name);
-	        $.ajax({
-	          type: "POST",
-	          url: "./rrss/procesar_activar_rs.php",
-	          data: "id_activar_rs="+id_activar_rs+"&estado="+estado+"&tipo="+tipo,
-	          success: function(data){
-	            window.location.reload();
-	          }
-	        });
-	    }
-
+        var id_activar_rs = this.id;
+        var tipo = "activar_rs";
+        var estado =parseInt(this.name);
+        $.ajax({
+          type: "POST",
+          url: "./rrss/procesar_activar_rs.php",
+          data: "id_activar_rs="+id_activar_rs+"&estado="+estado+"&tipo="+tipo,
+          success: function(data){
+            window.location.reload();
+          }
+        });
 	 });
+	
 	//eliminar red social en controller/procesar-mostrar-followers-ipe.php
     $(".elimina").click(function(){
        var id_rrss = $(this).attr("name");

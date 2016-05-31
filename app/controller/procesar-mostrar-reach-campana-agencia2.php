@@ -1,6 +1,5 @@
 <?php
-
-
+require("master_key.php");
 function ingresa_registros($cuenta, $campana_id, $rrss_name, $rrss_img, $likes, $comments, $shares, $followers, $retweet, $favorites, $reproducciones, $reach, $url, $mysqli){
     $query_datos_core="SELECT DISTINCT * FROM core_redes_sociales_campanas WHERE url='".$url."'";
     $result_datos_core=mysqli_query($mysqli,$query_datos_core)or die (mysqli_error());
@@ -363,7 +362,7 @@ function muestra_campanas_activas($num_row_campanas_activas, $row_campanas_activ
 
 function muestra_campanas($campana_id, $persona_id){
 
-    $mysqli = mysqli_connect("localhost","powerinf_user","uho$}~1(1;nn","powerinf_luencers2") or die("Error " . mysqli_error($link)); 
+    $mysqli = mysqli_connect(LOCAL,USER,PASS,BD) or die("Error " . mysqli_error($link)); 
     $mysqli->set_charset('utf8_bin');
     $persona_id=$_SESSION['id'];
     

@@ -1,16 +1,13 @@
 <?php include 'header-agencia.php'; ?>
-	
-	<div class="titles-cont">
-		<h2 class="sub-titulo">nueva campaña</h2>
-		<p class="bajadas-info">Cuéntanos en qué consiste tu campaña e indícanos la marca que vas a utilizar y la fecha de término. 
-	*La fecha de inicio será a partir de la activación de tu campaña. </p>
-	</div>
+
+	<h2 class="sub-titulo">nueva campaña</h2>
+
 	<form id="campanaForm-nueva-campana">
 
 		<div class="inputs-deskt">
             
             <h2 class="sub-titulo">Información basica</h2>
-            <p>Selecciona los medios en dónde  quieres invertir, para luego hacer la elección de influenciadores que necesitarás.</p>
+            <p>Dinos en que consistes la campañas, indicando su nombre, marca, descripción y su fecha de terminó.</p>
             
 			<div class="cont-input nombre">
 				<input placeholder="Nombre de la Campaña" id="nombre-nueva-campana" required="required">
@@ -41,7 +38,7 @@
 					facebook
 				</div>
 				<div class="check-red">
-					<input class="switch-checkbox checkbox_rrss"  value="facebook" id="facebook" type="checkbox" checked/>
+					<input class="switch-checkbox checkbox_rrss"  value="facebook" id="facebook" type="checkbox"/>
 					<label for="facebook" class="switch-label"></label>
 				</div>
 			</div>
@@ -52,7 +49,7 @@
 					twitter
 				</div>
 				<div class="check-red">
-					<input class="switch-checkbox checkbox_rrss"  value="twitter" id="twitter" type="checkbox" checked/>
+					<input class="switch-checkbox checkbox_rrss"  value="twitter" id="twitter" type="checkbox"/>
 					<label for="twitter" class="switch-label"></label>
 				</div>
 			</div>
@@ -62,7 +59,7 @@
 					instagram
 				</div>
 				<div class="check-red">
-					<input class="switch-checkbox checkbox_rrss"  value="instagram" id="instagram" type="checkbox" checked/>
+					<input class="switch-checkbox checkbox_rrss"  value="instagram" id="instagram" type="checkbox"/>
 					<label for="instagram" class="switch-label"></label>
 				</div>
 			</div>
@@ -72,7 +69,7 @@
 					youtube
 				</div>
 				<div class="check-red">
-					<input class="switch-checkbox checkbox_rrss" value="youtube" id="youtube" type="checkbox" checked/>
+					<input class="switch-checkbox checkbox_rrss" value="youtube" id="youtube" type="checkbox"/>
 					<label for="youtube" class="switch-label"></label>
 				</div>
 			</div>
